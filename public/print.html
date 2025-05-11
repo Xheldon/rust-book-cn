@@ -2183,7 +2183,7 @@ the type of an integer value.</p>
 <tr><td>32-bit</td><td><code>i32</code></td><td><code>u32</code></td></tr>
 <tr><td>64-bit</td><td><code>i64</code></td><td><code>u64</code></td></tr>
 <tr><td>128-bit</td><td><code>i128</code></td><td><code>u128</code></td></tr>
-<tr><td>arch</td><td><code>isize</code></td><td><code>usize</code></td></tr>
+<tr><td>architecture dependent</td><td><code>isize</code></td><td><code>usize</code></td></tr>
 </tbody></table>
 </div>
 <p>Each variant can be either signed or unsigned and has an explicit size.
@@ -2201,9 +2201,8 @@ Signed numbers are stored using <a href="https://en.wikipedia.org/wiki/Two%27s_c
 −128 to 127. Unsigned variants can store numbers from 0 to 2<sup>n</sup> − 1,
 so a <code>u8</code> can store numbers from 0 to 2<sup>8</sup> − 1, which equals 0 to 255.</p>
 <p>Additionally, the <code>isize</code> and <code>usize</code> types depend on the architecture of the
-computer your program is running on, which is denoted in the table as “arch”:
-64 bits if you’re on a 64-bit architecture and 32 bits if you’re on a 32-bit
-architecture.</p>
+computer your program is running on: 64 bits if you’re on a 64-bit architecture
+and 32 bits if you’re on a 32-bit architecture.</p>
 <p>You can write integer literals in any of the forms shown in Table 3-2. Note
 that number literals that can be multiple numeric types allow a type suffix,
 such as <code>57u8</code>, to designate the type. Number literals can also use <code>_</code> as a
@@ -2317,10 +2316,10 @@ some examples of declaring <code>char</code> values:</p>
 }</code></pre></pre>
 <p>Note that we specify <code>char</code> literals with single quotes, as opposed to string
 literals, which use double quotes. Rust’s <code>char</code> type is four bytes in size and
-represents a Unicode Scalar Value, which means it can represent a lot more than
+represents a Unicode scalar value, which means it can represent a lot more than
 just ASCII. Accented letters; Chinese, Japanese, and Korean characters; emoji;
-and zero-width spaces are all valid <code>char</code> values in Rust. Unicode Scalar
-Values range from <code>U+0000</code> to <code>U+D7FF</code> and <code>U+E000</code> to <code>U+10FFFF</code> inclusive.
+and zero-width spaces are all valid <code>char</code> values in Rust. Unicode scalar
+values range from <code>U+0000</code> to <code>U+D7FF</code> and <code>U+E000</code> to <code>U+10FFFF</code> inclusive.
 However, a “character” isn’t really a concept in Unicode, so your human
 intuition for what a “character” is may not match up with what a <code>char</code> is in
 Rust. We’ll discuss this topic in detail in <a href="ch08-02-strings.html#storing-utf-8-encoded-text-with-strings">“Storing UTF-8 Encoded Text with
@@ -2388,11 +2387,12 @@ brackets:</p>
 <p>Arrays are useful when you want your data allocated on the stack, the same as
 the other types we have seen so far, rather than the heap (we will discuss the
 stack and the heap more in <a href="ch04-01-what-is-ownership.html#the-stack-and-the-heap">Chapter 4</a><!-- ignore -->) or when
-you want to ensure you always have a fixed number of elements. An array isn’t as
-flexible as the vector type, though. A <em>vector</em> is a similar collection type
-provided by the standard library that <em>is</em> allowed to grow or shrink in size. If
-you’re unsure whether to use an array or a vector, chances are you should use a
-vector. <a href="ch08-01-vectors.html">Chapter 8</a><!-- ignore --> discusses vectors in more detail.</p>
+you want to ensure you always have a fixed number of elements. An array isn’t
+as flexible as the vector type, though. A <em>vector</em> is a similar collection type
+provided by the standard library that <em>is</em> allowed to grow or shrink in size
+because its contents live on the heap. If you’re unsure whether to use an array
+or a vector, chances are you should use a vector. <a href="ch08-01-vectors.html">Chapter 8</a><!--
+ignore --> discusses vectors in more detail.</p>
 <p>However, arrays are more useful when you know the number of elements will not
 need to change. For example, if you were using the names of the month in a
 program, you would probably use an array rather than a vector because you know
@@ -2594,10 +2594,11 @@ understand. Other languages don’t have the same distinctions, so let’s look 
 what statements and expressions are and how their differences affect the bodies
 of functions.</p>
 <ul>
-<li><strong>Statements</strong> are instructions that perform some action and do not return
+<li>Statements are instructions that perform some action and do not return
 a value.</li>
-<li><strong>Expressions</strong> evaluate to a resultant value. Let’s look at some examples.</li>
+<li>Expressions evaluate to a resultant value.</li>
 </ul>
+<p>Let’s look at some examples.</p>
 <p>We’ve actually already used statements and expressions. Creating a variable and
 assigning a value to it with the <code>let</code> keyword is a statement. In Listing 3-1,
 <code>let y = 6;</code> is a statement.</p>
@@ -2609,8 +2610,8 @@ assigning a value to it with the <code>let</code> keyword is a statement. In Lis
 <figcaption><a href="ch03-03-how-functions-work.html#listing-3-1">Listing 3-1</a>: A <code>main</code> function declaration containing one statement</figcaption>
 </figure>
 <p>Function definitions are also statements; the entire preceding example is a
-statement in itself. (As we will see below, <em>calling</em> a function is not a
-statement.)</p>
+statement in itself. (As we’ll see below, <em>calling</em> a function is not a
+statement, though.)</p>
 <p>Statements do not return values. Therefore, you can’t assign a <code>let</code> statement
 to another variable, as the following code tries to do; you’ll get an error:</p>
 <p><span class="filename">Filename: src/main.rs</span></p>
@@ -3026,9 +3027,9 @@ again!
 again!
 ^Cagain!
 </code></pre>
-<p>The symbol <code>^C</code> represents where you pressed <kbd>ctrl</kbd>-<kbd>c</kbd>. You
-may or may not see the word <code>again!</code> printed after the <code>^C</code>, depending on where
-the code was in the loop when it received the interrupt signal.</p>
+<p>The symbol <code>^C</code> represents where you pressed <kbd>ctrl</kbd>-<kbd>c</kbd>.</p>
+<p>You may or may not see the word <code>again!</code> printed after the <code>^C</code>, depending on
+where the code was in the loop when it received the interrupt signal.</p>
 <p>Fortunately, Rust also provides a way to break out of a loop using code. You
 can place the <code>break</code> keyword within the loop to tell the program when to stop
 executing the loop. Recall that we did this in the guessing game in the
@@ -3139,7 +3140,7 @@ time, and then, after the loop, print a message and exit.</p>
 <code>loop</code>, <code>if</code>, <code>else</code>, and <code>break</code>, and it’s clearer. While a condition
 evaluates to <code>true</code>, the code runs; otherwise, it exits the loop.</p>
 <h4 id="looping-through-a-collection-with-for"><a class="header" href="#looping-through-a-collection-with-for">Looping Through a Collection with <code>for</code></a></h4>
-<p>You can also use the <code>while</code> construct to loop over the elements of a
+<p>You can choose to use the <code>while</code> construct to loop over the elements of a
 collection, such as an array. For example, the loop in Listing 3-4 prints each
 element in the array <code>a</code>.</p>
 <figure class="listing" id="listing-3-4">
@@ -3195,7 +3196,9 @@ for each item in a collection. A <code>for</code> loop looks like the code in Li
 <p>When we run this code, we’ll see the same output as in Listing 3-4. More
 importantly, we’ve now increased the safety of the code and eliminated the
 chance of bugs that might result from going beyond the end of the array or not
-going far enough and missing some items.</p>
+going far enough and missing some items. Machine code generated from <code>for</code>
+loops can be more efficient as well, because the index doesn’t need to be
+compared to the length of the array at every iteration.</p>
 <p>Using the <code>for</code> loop, you wouldn’t need to remember to change any other code if
 you changed the number of values in the array, as you would with the method
 used in Listing 3-4.</p>

@@ -262,5 +262,17 @@
   "Each signed variant can store numbers from −(2n − 1) to 2n − 1 − 1 inclusive, where n is the number of bits that variant uses. So an i8 can store numbers from −(27) to 27 − 1, which equals −128 to 127. Unsigned variants can store numbers from 0 to 2n − 1, so a u8 can store numbers from 0 to 28 − 1, which equals 0 to 255.": {
     "_translate": "每个有符号变体可以存储从 −(2<sup>n − 1</sup>) 到 2<sup>n − 1</sup> − 1（包括）的数字，其中 <em>n</em> 是该变体使用的位数。所以 <code>i8</code> 可以存储从 −(2<sup>7</sup>) 到 2<sup>7</sup> − 1 的数字，即 −128 到 127。无符号变体可以存储从 0 到 2<sup>n</sup> − 1 的数字，因此 <code>u8</code> 可以存储从 0 到 2<sup>8</sup> − 1 的数字，即 0 到 255。",
     "_note": ""
+  },
+  "Additionally, the isize and usize types depend on the architecture of the computer your program is running on: 64 bits if you’re on a 64-bit architecture and 32 bits if you’re on a 32-bit architecture.": {
+    "_translate": "此外，<code>isize</code> 和 <code>usize</code> 类型取决于您的程序运行的计算机的架构：如果您使用的是 64 位架构，则为 64 位；如果您使用的是 32 位架构，则为 32 位。",
+    "_note": ""
+  },
+  "Note that we specify char literals with single quotes, as opposed to string literals, which use double quotes. Rust’s char type is four bytes in size and represents a Unicode scalar value, which means it can represent a lot more than just ASCII. Accented letters; Chinese, Japanese, and Korean characters; emoji; and zero-width spaces are all valid char values in Rust. Unicode scalar values range from U+0000 to U+D7FF and U+E000 to U+10FFFF inclusive. However, a “character” isn’t really a concept in Unicode, so your human intuition for what a “character” is may not match up with what a char is in Rust. We’ll discuss this topic in detail in “Storing UTF-8 Encoded Text with Strings” in Chapter 8.": {
+    "_translate": "请注意，我们使用单引号指定 <code>char</code> 字面量，而字符串字面量则使用双引号。Rust 的 <code>char</code> 类型大小为四个字节，表示一个 Unicode 标量值，这意味着它可以表示远不止 ASCII。带重音的字母；中文、日文和韩文字符；表情符号；以及零宽空格都是 Rust 中有效的 <code>char</code> 值。Unicode 标量值的范围从 <code>U+0000</code> 到 <code>U+D7FF</code> 和 <code>U+E000</code> 到 <code>U+10FFFF</code>（包括这两个范围）。然而，“字符”在 Unicode 中并不是一个真正的概念，因此你对“字符”的直观理解可能与 Rust 中的 <code>char</code> 不完全一致。我们将在第 8 章的 <a href=\"ch08-02-strings.html#storing-utf-8-encoded-text-with-strings\">“使用字符串存储 UTF-8 编码的文本”</a><!-- ignore --> 中详细讨论这个主题。",
+    "_note": ""
+  },
+  "Arrays are useful when you want your data allocated on the stack, the same as the other types we have seen so far, rather than the heap (we will discuss the stack and the heap more in Chapter 4) or when you want to ensure you always have a fixed number of elements. An array isn’t as flexible as the vector type, though. A vector is a similar collection type provided by the standard library that is allowed to grow or shrink in size because its contents live on the heap. If you’re unsure whether to use an array or a vector, chances are you should use a vector. Chapter 8 discusses vectors in more detail.": {
+    "_translate": "数组在你希望数据分配在栈上时非常有用，这与其他我们迄今为止见过的类型相同，而不是堆（我们将在<a href=\"ch04-01-what-is-ownership.html#the-stack-and-the-heap\">第 4 章</a><!-- ignore -->）中讨论栈和堆）或者当你希望确保始终拥有固定数量的元素时。然而，数组不如向量类型灵活。一个<em>向量</em>是由标准库提供的类似集合类型，<em>可以</em>在堆上增长或缩小。如果你不确定是使用数组还是向量，很可能你应该使用向量。<a href=\"ch08-01-vectors.html\">第 8 章</a><!--\nignore -->将更详细地讨论向量。",
+    "_note": ""
   }
 }

@@ -158,5 +158,17 @@
   "Expressions evaluate to a resultant value. Let’s look at some examples.": {
     "_translate": "<strong>表达式</strong> 会计算出一个结果值。让我们来看一些例子。",
     "_note": ""
+  },
+  "Expressions evaluate to a resultant value.": {
+    "_translate": "表达式评估为一个结果值。",
+    "_note": ""
+  },
+  "Let’s look at some examples.": {
+    "_translate": "让我们看一些例子。",
+    "_note": ""
+  },
+  "Function definitions are also statements; the entire preceding example is a statement in itself. (As we’ll see below, calling a function is not a statement, though.)": {
+    "_translate": "函数定义也是语句；前面整个例子本身就是一个语句。（正如我们将在下面看到的，<em>调用</em>函数并不是一个语句。）",
+    "_note": ""
   }
 }

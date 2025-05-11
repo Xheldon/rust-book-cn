@@ -296,8 +296,9 @@ The measurement is: 5h
 <p data-x-en="Function bodies are made up of a series of statements optionally ending in an expression. So far, the functions we’ve covered haven’t included an ending expression, but you have seen an expression as part of a statement. Because Rust is an expression-based language, this is an important distinction to understand. Other languages don’t have the same distinctions, so let’s look at what statements and expressions are and how their differences affect the bodies of functions.">函数体由一系列语句组成，可选地以一个表达式结束。到目前为止，我们讨论的函数还没有包含结束表达式，但你已经看到了作为语句一部分的表达式。因为 Rust 是一种基于表达式的语言，理解这一点非常重要。其他语言没有相同的区别，所以让我们看看语句和表达式是什么，以及它们的区别如何影响函数体。</p>
 <ul>
 <li data-x-en="Statements are instructions that perform some action and do not return a value."><strong>语句</strong>是执行某些操作的指令，不会返回值。</li>
-<li data-x-en="Expressions evaluate to a resultant value. Let’s look at some examples."><strong>表达式</strong> 会计算出一个结果值。让我们来看一些例子。</li>
+<li data-x-en="Expressions evaluate to a resultant value.">表达式评估为一个结果值。</li>
 </ul>
+<p data-x-en="Let’s look at some examples.">让我们看一些例子。</p>
 <p data-x-en="We’ve actually already used statements and expressions. Creating a variable and assigning a value to it with the let keyword is a statement. In Listing 3-1, let y = 6; is a statement.">我们实际上已经使用过语句和表达式。使用 <code>let</code> 关键字创建变量并赋值是一个语句。在示例 3-1 中，<code>let y = 6;</code> 是一个语句。</p>
 <figure class="listing" id="listing-3-1">
 <span class="file-name">Filename: src/main.rs</span>
@@ -306,7 +307,7 @@ The measurement is: 5h
 }</code></pre></pre>
 <figcaption><a href="#listing-3-1">Listing 3-1</a>: A <code>main</code> function declaration containing one statement</figcaption>
 </figure>
-<p data-x-en="Function definitions are also statements; the entire preceding example is a statement in itself. (As we will see below, calling a function is not a statement.)">函数定义也是语句；前面的整个例子本身就是一个语句。（正如我们将在下面看到的，<em>调用</em>函数不是语句。）</p>
+<p data-x-en="Function definitions are also statements; the entire preceding example is a statement in itself. (As we’ll see below, calling a function is not a statement, though.)">函数定义也是语句；前面整个例子本身就是一个语句。（正如我们将在下面看到的，<em>调用</em>函数并不是一个语句。）</p>
 <p data-x-en="Statements do not return values. Therefore, you can’t assign a let statement to another variable, as the following code tries to do; you’ll get an error:">语句不返回值。因此，你不能将一个 <code>let</code> 语句 赋值给另一个变量，如下代码试图做的那样；你会得到一个错误：</p>
 <p data-x-en="Filename: src/main.rs"><span class="filename">文件名: src/main.rs</span></p>
 <pre><code class="language-rust ignore does_not_compile">fn main() {

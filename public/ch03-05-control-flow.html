@@ -401,7 +401,8 @@ again!
 again!
 ^Cagain!
 </code></pre>
-<p data-x-en="The symbol ^C represents where you pressed ctrl-c. You may or may not see the word again! printed after the ^C, depending on where the code was in the loop when it received the interrupt signal.">符号<code>^C</code>表示你按下了<kbd>ctrl</kbd>-<kbd>c</kbd>。你可能会或不会看到在<code>^C</code>之后打印出单词<code>again!</code>，这取决于代码在循环中收到中断信号时的位置。</p>
+<p data-x-en="The symbol ^C represents where you pressed ctrl-c.">符号<code>^C</code>表示您按下了<kbd>ctrl</kbd>-<kbd>c</kbd>。</p>
+<p data-x-en="You may or may not see the word again! printed after the ^C, depending on where the code was in the loop when it received the interrupt signal.">您可能会或不会看到在 <code>^C</code> 之后打印出 <code>again!</code>，这取决于代码在接收到中断信号时处于循环的哪个位置。</p>
 <p data-x-en="Fortunately, Rust also provides a way to break out of a loop using code. You can place the break keyword within the loop to tell the program when to stop executing the loop. Recall that we did this in the guessing game in the “Quitting After a Correct Guess” section of Chapter 2 to exit the program when the user won the game by guessing the correct number.">幸运的是，Rust 还提供了一种使用代码跳出循环的方法。你可以在循环中放置 <code>break</code> 关键字来告诉程序何时停止执行循环。回想一下，我们在第 2 章的<a href="ch02-00-guessing-game-tutorial.html#quitting-after-a-correct-guess">“正确猜测后退出”</a><!-- ignore
 -->部分中这样做，当用户猜对数字赢得游戏时退出程序。</p>
 <p data-x-en="We also used continue in the guessing game, which in a loop tells the program to skip over any remaining code in this iteration of the loop and go to the next iteration.">我们还在猜数字游戏中使用了<code>continue</code>，它在循环中告诉程序跳过本次循环中剩余的代码并进入下一次循环。</p>
@@ -480,7 +481,7 @@ End count = 2
 </figure>
 <p data-x-en="This construct eliminates a lot of nesting that would be necessary if you used loop, if, else, and break, and it’s clearer. While a condition evaluates to true, the code runs; otherwise, it exits the loop.">这种结构消除了使用<code>loop</code>、<code>if</code>、<code>else</code>和<code>break</code>时所需的大量嵌套，并且更清晰。当条件评估为<code>true</code>时，代码运行；否则，它会退出循环。</p>
 <h4 id="looping-through-a-collection-with-for"><a class="header" href="#looping-through-a-collection-with-for">使用 <code>for</code> 循环遍历集合</a></h4>
-<p data-x-en="You can also use the while construct to loop over the elements of a collection, such as an array. For example, the loop in Listing 3-4 prints each element in the array a.">你也可以使用 <code>while</code> 构造来遍历集合（如数组）的元素。例如，列表 3-4 中的循环会打印数组 <code>a</code> 中的每个元素。</p>
+<p data-x-en="You can choose to use the while construct to loop over the elements of a collection, such as an array. For example, the loop in Listing 3-4 prints each element in the array a.">你可以选择使用 <code>while</code> 构造来遍历集合（如数组）的元素。例如，列表 3-4 中的循环会打印数组 <code>a</code> 中的每个元素。</p>
 <figure class="listing" id="listing-3-4">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust edition2024">fn main() {
@@ -520,7 +521,7 @@ the value is: 50
 }</code></pre></pre>
 <figcaption><a href="#listing-3-5">Listing 3-5</a>: Looping through each element of a collection using a <code>for</code> loop</figcaption>
 </figure>
-<p data-x-en="When we run this code, we’ll see the same output as in Listing 3-4. More importantly, we’ve now increased the safety of the code and eliminated the chance of bugs that might result from going beyond the end of the array or not going far enough and missing some items.">当我们运行这段代码时，我们将看到与清单 3-4 中相同的输出。更重要的是，我们现在提高了代码的安全性，并消除了因超出数组末尾或未能足够深入而导致某些项被遗漏的错误可能性。</p>
+<p data-x-en="When we run this code, we’ll see the same output as in Listing 3-4. More importantly, we’ve now increased the safety of the code and eliminated the chance of bugs that might result from going beyond the end of the array or not going far enough and missing some items. Machine code generated from for loops can be more efficient as well, because the index doesn’t need to be compared to the length of the array at every iteration.">当我们运行这段代码时，我们将看到与清单 3-4 中相同的输出。更重要的是，我们现在提高了代码的安全性，并消除了因超出数组末尾或未能足够深入而导致遗漏某些项的错误可能性。<code>for</code> 循环生成的机器代码也可以更高效，因为索引在每次迭代时不需要与数组的长度进行比较。</p>
 <p data-x-en="Using the for loop, you wouldn’t need to remember to change any other code if you changed the number of values in the array, as you would with the method used in Listing 3-4.">使用 <code>for</code> 循环，如果你改变了数组中的值的数量，你不需要记住去改变任何其他代码，而使用列表 3-4 中的方法则需要。</p>
 <p data-x-en="The safety and conciseness of for loops make them the most commonly used loop construct in Rust. Even in situations in which you want to run some code a certain number of times, as in the countdown example that used a while loop in Listing 3-3, most Rustaceans would use a for loop. The way to do that would be to use a Range, provided by the standard library, which generates all numbers in sequence starting from one number and ending before another number."><code>for</code> 循环的安全性和简洁性使它们成为 Rust 中使用最广泛的循环结构。即使在您希望运行某段代码特定次数的情况下，例如在使用 <code>while</code> 循环的倒计时示例（如列表 3-3 所示），大多数 Rustaceans 也会使用 <code>for</code> 循环。实现这一点的方法是使用标准库提供的 <code>Range</code>，它会生成从一个数字开始到另一个数字之前的所有数字。</p>
 <p data-x-en="Here’s what the countdown would look like using a for loop and another method we’ve not yet talked about, rev, to reverse the range:">这里是一个使用 <code>for</code> 循环和我们尚未讨论的另一种方法 <code>rev</code> 来反转范围的倒计时示例：</p>

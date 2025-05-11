@@ -254,5 +254,21 @@
   "Looping Through a Collection with for": {
     "_translate": "<a class=\"header\" href=\"#looping-through-a-collection-with-for\">使用 <code>for</code> 循环遍历集合</a>",
     "_note": ""
+  },
+  "The symbol ^C represents where you pressed ctrl-c.": {
+    "_translate": "符号<code>^C</code>表示您按下了<kbd>ctrl</kbd>-<kbd>c</kbd>。",
+    "_note": ""
+  },
+  "You may or may not see the word again! printed after the ^C, depending on where the code was in the loop when it received the interrupt signal.": {
+    "_translate": "您可能会或不会看到在 <code>^C</code> 之后打印出 <code>again!</code>，这取决于代码在接收到中断信号时处于循环的哪个位置。",
+    "_note": ""
+  },
+  "You can choose to use the while construct to loop over the elements of a collection, such as an array. For example, the loop in Listing 3-4 prints each element in the array a.": {
+    "_translate": "你可以选择使用 <code>while</code> 构造来遍历集合（如数组）的元素。例如，列表 3-4 中的循环会打印数组 <code>a</code> 中的每个元素。",
+    "_note": ""
+  },
+  "When we run this code, we’ll see the same output as in Listing 3-4. More importantly, we’ve now increased the safety of the code and eliminated the chance of bugs that might result from going beyond the end of the array or not going far enough and missing some items. Machine code generated from for loops can be more efficient as well, because the index doesn’t need to be compared to the length of the array at every iteration.": {
+    "_translate": "当我们运行这段代码时，我们将看到与清单 3-4 中相同的输出。更重要的是，我们现在提高了代码的安全性，并消除了因超出数组末尾或未能足够深入而导致遗漏某些项的错误可能性。<code>for</code> 循环生成的机器代码也可以更高效，因为索引在每次迭代时不需要与数组的长度进行比较。",
+    "_note": ""
   }
 }
