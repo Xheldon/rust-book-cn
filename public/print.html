@@ -3292,16 +3292,16 @@ always at the top of the stack. Comparatively, allocating space on the heap
 requires more work because the allocator must first find a big enough space
 to hold the data and then perform bookkeeping to prepare for the next
 allocation.</p>
-<p>Accessing data in the heap is slower than accessing data on the stack because
-you have to follow a pointer to get there. Contemporary processors are faster
-if they jump around less in memory. Continuing the analogy, consider a server
-at a restaurant taking orders from many tables. It’s most efficient to get
-all the orders at one table before moving on to the next table. Taking an
-order from table A, then an order from table B, then one from A again, and
-then one from B again would be a much slower process. By the same token, a
-processor can do its job better if it works on data that’s close to other
-data (as it is on the stack) rather than farther away (as it can be on the
-heap).</p>
+<p>Accessing data in the heap is generally slower than accessing data on the
+stack because you have to follow a pointer to get there. Contemporary
+processors are faster if they jump around less in memory. Continuing the
+analogy, consider a server at a restaurant taking orders from many tables.
+It’s most efficient to get all the orders at one table before moving on to
+the next table. Taking an order from table A, then an order from table B,
+then one from A again, and then one from B again would be a much slower
+process. By the same token, a processor can usually do its job better if it
+works on data that’s close to other data (as it is on the stack) rather than
+farther away (as it can be on the heap).</p>
 <p>When your code calls a function, the values passed into the function
 (including, potentially, pointers to data on the heap) and the function’s
 local variables get pushed onto the stack. When the function is over, those
@@ -3340,7 +3340,7 @@ which it’s declared until the end of the current <em>scope</em>. Listing 4-1 s
 program with comments annotating where the variable <code>s</code> would be valid.</p>
 <figure class="listing" id="listing-4-1">
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
-</span>    {                      // s is not valid here, it’s not yet declared
+</span>    {                      // s is not valid here, since it's not yet declared
         let s = "hello";   // s is valid from this point forward
 
         // do stuff with s
@@ -3394,7 +3394,7 @@ Module Tree”</a><!-- ignore --> in Chapter 7.</p>
 
     s.push_str(", world!"); // push_str() appends a literal to a String
 
-    println!("{s}"); // This will print `hello, world!`
+    println!("{s}"); // this will print `hello, world!`
 <span class="boring">}</span></code></pre></pre>
 <p>So, what’s the difference here? Why can <code>String</code> be mutated but literals
 cannot? The difference is in how these two types deal with memory.</p>
@@ -3673,12 +3673,12 @@ showing where variables go into and out of scope.</p>
 
     let x = 5;                      // x comes into scope
 
-    makes_copy(x);                  // because i32 implements the Copy trait,
+    makes_copy(x);                  // Because i32 implements the Copy trait,
                                     // x does NOT move into the function,
-    println!("{}", x);              // so it's okay to use x afterward
+                                    // so it's okay to use x afterward.
 
-} // Here, x goes out of scope, then s. But because s's value was moved, nothing
-  // special happens.
+} // Here, x goes out of scope, then s. However, because s's value was moved,
+  // nothing special happens.
 
 fn takes_ownership(some_string: String) { // some_string comes into scope
     println!("{some_string}");
@@ -3830,7 +3830,7 @@ the parameter <code>s</code> is a reference. Let’s add some explanatory annota
 </span>fn calculate_length(s: &amp;String) -&gt; usize { // s is a reference to a String
     s.len()
 } // Here, s goes out of scope. But because s does not have ownership of what
-  // it refers to, the value is not dropped.</code></pre></pre>
+  // it refers to, the String is not dropped.</code></pre></pre>
 <p>The scope in which the variable <code>s</code> is valid is the same as any function
 parameter’s scope, but the value pointed to by the reference is not dropped
 when <code>s</code> stops being used, because <code>s</code> doesn’t have ownership. When functions
@@ -3903,7 +3903,7 @@ attempts to create two mutable references to <code>s</code> will fail:</p>
     let r1 = &amp;mut s;
     let r2 = &amp;mut s;
 
-    println!("{}, {}", r1, r2);
+    println!("{r1}, {r2}");
 <span class="boring">}</span></code></pre>
 </figure>
 <p>Here’s the error:</p>
@@ -3917,8 +3917,8 @@ error[E0499]: cannot borrow `s` as mutable more than once at a time
 5 |     let r2 = &amp;mut s;
   |              ^^^^^^ second mutable borrow occurs here
 6 |
-7 |     println!("{}, {}", r1, r2);
-  |                        -- first borrow later used here
+7 |     println!("{r1}, {r2}");
+  |               ---- first borrow later used here
 
 For more information about this error, try `rustc --explain E0499`.
 error: could not compile `ownership` (bin "ownership") due to 1 previous error
@@ -3962,7 +3962,7 @@ This code results in an error:</p>
     let r2 = &amp;s; // no problem
     let r3 = &amp;mut s; // BIG PROBLEM
 
-    println!("{}, {}, and {}", r1, r2, r3);
+    println!("{r1}, {r2}, and {r3}");
 <span class="boring">}</span></code></pre>
 <p>Here’s the error:</p>
 <pre><code class="language-console">$ cargo run
@@ -3976,8 +3976,8 @@ error[E0502]: cannot borrow `s` as mutable because it is also borrowed as immuta
 6 |     let r3 = &amp;mut s; // BIG PROBLEM
   |              ^^^^^^ mutable borrow occurs here
 7 |
-8 |     println!("{}, {}, and {}", r1, r2, r3);
-  |                                -- immutable borrow later used here
+8 |     println!("{r1}, {r2}, and {r3}");
+  |               ---- immutable borrow later used here
 
 For more information about this error, try `rustc --explain E0502`.
 error: could not compile `ownership` (bin "ownership") due to 1 previous error
@@ -4083,7 +4083,7 @@ for it to be borrowed from
     let s = String::from("hello"); // s is a new String
 
     &amp;s // we return a reference to the String, s
-} // Here, s goes out of scope, and is dropped, so its memory goes away.
+} // Here, s goes out of scope and is dropped, so its memory goes away.
   // Danger!</code></pre>
 </figure>
 <p>Because <code>s</code> is created inside <code>dangle</code>, when the code of <code>dangle</code> is finished,
@@ -4112,21 +4112,27 @@ number of immutable references.</li>
 <p>Next, we’ll look at a different kind of reference: slices.</p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="the-slice-type"><a class="header" href="#the-slice-type">The Slice Type</a></h2>
 <p><em>Slices</em> let you reference a contiguous sequence of elements in a
-<a href="ch08-00-common-collections.html">collection</a> rather than the whole collection. A
-slice is a kind of reference, so it does not have ownership.</p>
+<a href="ch08-00-common-collections.html">collection</a><!-- ignore -->. A slice is a kind
+of reference, so it does not have ownership.</p>
 <p>Here’s a small programming problem: write a function that takes a string of
 words separated by spaces and returns the first word it finds in that string.
 If the function doesn’t find a space in the string, the whole string must be
 one word, so the entire string should be returned.</p>
+<section class="note" aria-role="note">
+<p>Note: For the purposes of introducing string slices, we are assuming ASCII
+only in this section; a more thorough discussion of UTF-8 handling is in the
+<a href="ch08-02-strings.html#storing-utf-8-encoded-text-with-strings">“Storing UTF-8 Encoded Text with Strings”</a><!-- ignore --> section
+of Chapter 8.</p>
+</section>
 <p>Let’s work through how we’d write the signature of this function without using
 slices, to understand the problem that slices will solve:</p>
 <pre><code class="language-rust ignore">fn first_word(s: &amp;String) -&gt; ?</code></pre>
-<p>The <code>first_word</code> function has a <code>&amp;String</code> as a parameter. We don’t need
+<p>The <code>first_word</code> function has a parameter of type <code>&amp;String</code>. We don’t need
 ownership, so this is fine. (In idiomatic Rust, functions do not take ownership
 of their arguments unless they need to, and the reasons for that will become
-clear as we keep going!) But what should we return? We don’t really have a way
-to talk about part of a string. However, we could return the index of the end of
-the word, indicated by a space. Let’s try that, as shown in Listing 4-7.</p>
+clear as we keep going.) But what should we return? We don’t really have a way
+to talk about <em>part</em> of a string. However, we could return the index of the end
+of the word, indicated by a space. Let’s try that, as shown in Listing 4-7.</p>
 <figure class="listing" id="listing-4-7">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust edition2024">fn first_word(s: &amp;String) -&gt; usize {
@@ -4229,9 +4235,8 @@ uses the <code>first_word</code> function from Listing 4-7.</p>
 
     s.clear(); // this empties the String, making it equal to ""
 
-    // `word` still has the value `5` here, but `s` no longer has any content
-    // that we could meaningfully use with the value `5`, so `word` is now
-    // totally invalid!
+    // word still has the value 5 here, but s no longer has any content that we
+    // could meaningfully use with the value 5, so word is now totally invalid!
 }</code></pre></pre>
 <figcaption><a href="ch04-03-slices.html#listing-4-8">Listing 4-8</a>: Storing the result from calling the <code>first_word</code> function and then changing the <code>String</code> contents</figcaption>
 </figure>
@@ -4250,7 +4255,8 @@ that state at all. We have three unrelated variables floating around that need
 to be kept in sync.</p>
 <p>Luckily, Rust has a solution to this problem: string slices.</p>
 <h3 id="string-slices"><a class="header" href="#string-slices">String Slices</a></h3>
-<p>A <em>string slice</em> is a reference to part of a <code>String</code>, and it looks like this:</p>
+<p>A <em>string slice</em> is a reference to a contiguous sequence of the elements of a
+<code>String</code>, and it looks like this:</p>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let s = String::from("hello world");
 
@@ -4307,10 +4313,7 @@ let slice = &amp;s[..];
 <section class="note" aria-role="note">
 <p>Note: String slice range indices must occur at valid UTF-8 character
 boundaries. If you attempt to create a string slice in the middle of a
-multibyte character, your program will exit with an error. For the purposes
-of introducing string slices, we are assuming ASCII only in this section; a
-more thorough discussion of UTF-8 handling is in the <a href="ch08-02-strings.html#storing-utf-8-encoded-text-with-strings">“Storing UTF-8 Encoded
-Text with Strings”</a><!-- ignore --> section of Chapter 8.</p>
+multibyte character, your program will exit with an error.</p>
 </section>
 <p>With all this information in mind, let’s rewrite <code>first_word</code> to return a
 slice. The type that signifies “string slice” is written as <code>&amp;str</code>:</p>
@@ -4692,8 +4695,8 @@ the <code>email</code> parameter have the same name, we only need to write <code
 than <code>email: email</code>.</p>
 <h3 id="creating-instances-from-other-instances-with-struct-update-syntax"><a class="header" href="#creating-instances-from-other-instances-with-struct-update-syntax">Creating Instances from Other Instances with Struct Update Syntax</a></h3>
 <p>It’s often useful to create a new instance of a struct that includes most of
-the values from another instance, but changes some. You can do this using
-<em>struct update syntax</em>.</p>
+the values from another instance of the same type, but changes some. You can do
+this using <em>struct update syntax</em>.</p>
 <p>First, in Listing 5-6 we show how to create a new <code>User</code> instance in <code>user2</code>
 regularly, without the update syntax. We set a new value for <code>email</code> but
 otherwise use the same values from <code>user1</code> that we created in Listing 5-2.</p>
@@ -4770,8 +4773,8 @@ both <code>email</code> and <code>username</code>, and thus only used the <code>
 values from <code>user1</code>, then <code>user1</code> would still be valid after creating <code>user2</code>.
 Both <code>active</code> and <code>sign_in_count</code> are types that implement the <code>Copy</code> trait, so
 the behavior we discussed in the <a href="ch04-01-what-is-ownership.html#stack-only-data-copy">“Stack-Only Data: Copy”</a><!-- ignore -->
-section would apply. We can still use <code>user1.email</code> in this example, because its
-value was <em>not</em> moved out.</p>
+section would apply. We can also still use <code>user1.email</code> in this example,
+because its value was not moved out of <code>user1</code>.</p>
 <h3 id="using-tuple-structs-without-named-fields-to-create-different-types"><a class="header" href="#using-tuple-structs-without-named-fields-to-create-different-types">Using Tuple Structs Without Named Fields to Create Different Types</a></h3>
 <p>Rust also supports structs that look similar to tuples, called <em>tuple structs</em>.
 Tuple structs have the added meaning the struct name provides but don’t have
@@ -4801,7 +4804,8 @@ values. Otherwise, tuple struct instances are similar to tuples in that you can
 destructure them into their individual pieces, and you can use a <code>.</code> followed
 by the index to access an individual value. Unlike tuples, tuple structs
 require you to name the type of the struct when you destructure them. For
-example, we would write <code>let Point(x, y, z) = point</code>.</p>
+example, we would write <code>let Point(x, y, z) = origin;</code> to destructure the
+values in the <code>origin</code> point into variables named <code>x</code>, <code>y</code>, and <code>z</code>.</p>
 <h3 id="unit-like-structs-without-any-fields"><a class="header" href="#unit-like-structs-without-any-fields">Unit-Like Structs Without Any Fields</a></h3>
 <p>You can also define structs that don’t have any fields! These are called
 <em>unit-like structs</em> because they behave similarly to <code>()</code>, the unit type that
@@ -5047,7 +5051,7 @@ fn main() {
         height: 50,
     };
 
-    println!("rect1 is {}", rect1);
+    println!("rect1 is {rect1}");
 }</code></pre>
 <figcaption><a href="ch05-02-example-structs.html#listing-5-11">Listing 5-11</a>: Attempting to print a <code>Rectangle</code> instance</figcaption>
 </figure>

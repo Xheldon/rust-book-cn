@@ -190,5 +190,25 @@
   "The first_word function has a &String as a parameter. We don’t need ownership, so this is fine. (In idiomatic Rust, functions do not take ownership of their arguments unless they need to, and the reasons for that will become clear as we keep going!) But what should we return? We don’t really have a way to talk about part of a string. However, we could return the index of the end of the word, indicated by a space. Let’s try that, as shown in Listing 4-7.": {
     "_translate": "<code>first_word</code> 函数有一个 <code>&amp;String</code> 作为参数。我们不需要所有权，所以这样是可以的。（在惯用的 Rust 中，函数不会获取其参数的所有权，除非它们需要这样做，而这样做的原因将在我们继续学习时变得清晰！）但是我们应该返回什么？我们实际上没有一种方法来描述字符串的一部分。然而，我们可以返回单词结束的位置的索引，该位置由空格指示。让我们尝试这样做，如清单 4-7 所示。",
     "_note": ""
+  },
+  "Slices let you reference a contiguous sequence of elements in a collection. A slice is a kind of reference, so it does not have ownership.": {
+    "_translate": "<em>切片</em> 让你引用一个 <a href=\"ch08-00-common-collections.html\">集合</a><!-- ignore --> 中连续的元素序列。切片是一种引用，因此它没有所有权。",
+    "_note": ""
+  },
+  "Note: For the purposes of introducing string slices, we are assuming ASCII only in this section; a more thorough discussion of UTF-8 handling is in the “Storing UTF-8 Encoded Text with Strings” section of Chapter 8.": {
+    "_translate": "注意：为了介绍字符串切片，本节假设只使用 ASCII；关于 UTF-8 处理的更详细讨论，请参见第 8 章的 <a href=\"ch08-02-strings.html#storing-utf-8-encoded-text-with-strings\">“使用字符串存储 UTF-8 编码的文本”</a><!-- ignore --> 部分。",
+    "_note": ""
+  },
+  "The first_word function has a parameter of type &String. We don’t need ownership, so this is fine. (In idiomatic Rust, functions do not take ownership of their arguments unless they need to, and the reasons for that will become clear as we keep going.) But what should we return? We don’t really have a way to talk about part of a string. However, we could return the index of the end of the word, indicated by a space. Let’s try that, as shown in Listing 4-7.": {
+    "_translate": "<code>first_word</code> 函数有一个类型为 <code>&amp;String</code> 的参数。我们不需要所有权，所以这样是可以的。（在惯用的 Rust 中，除非需要，函数不会获取其参数的所有权，随着我们继续学习，这一点会变得清晰。）但是我们应该返回什么呢？我们实际上没有一种方法来讨论字符串的<em>部分</em>。然而，我们可以返回单词结束的位置（由空格指示）的索引。让我们尝试一下，如清单 4-7 所示。",
+    "_note": ""
+  },
+  "A string slice is a reference to a contiguous sequence of the elements of a String, and it looks like this:": {
+    "_translate": "一个 <em>字符串切片</em> 是对 <code>String</code> 元素的连续序列的引用，它看起来像这样：",
+    "_note": ""
+  },
+  "Note: String slice range indices must occur at valid UTF-8 character boundaries. If you attempt to create a string slice in the middle of a multibyte character, your program will exit with an error.": {
+    "_translate": "注意：字符串切片范围索引必须位于有效的 UTF-8 字符边界。如果你尝试在多字节字符的中间创建字符串切片，你的程序将因错误而退出。",
+    "_note": ""
   }
 }

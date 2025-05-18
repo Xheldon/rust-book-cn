@@ -241,7 +241,7 @@ blockquote {
 <p data-x-en="Both the stack and the heap are parts of memory available to your code to use at runtime, but they are structured in different ways. The stack stores values in the order it gets them and removes the values in the opposite order. This is referred to as last in, first out. Think of a stack of plates: when you add more plates, you put them on top of the pile, and when you need a plate, you take one off the top. Adding or removing plates from the middle or bottom wouldn’t work as well! Adding data is called pushing onto the stack, and removing data is called popping off the stack. All data stored on the stack must have a known, fixed size. Data with an unknown size at compile time or a size that might change must be stored on the heap instead.">堆栈和堆都是在运行时可供您的代码使用的内存部分，但它们的结构方式不同。堆栈按照获取值的顺序存储值，并以相反的顺序移除值。这被称为<em>后进先出</em>。想象一下一叠盘子：当您添加更多盘子时，您将它们放在堆的顶部，当您需要一个盘子时，您从顶部取下一个。从中间或底部添加或移除盘子效果不佳！添加数据称为<em>推入堆栈</em>，移除数据称为<em>从堆栈弹出</em>。堆栈上存储的所有数据都必须具有已知的固定大小。编译时大小未知或可能变化的数据必须存储在堆上。</p>
 <p data-x-en="The heap is less organized: when you put data on the heap, you request a certain amount of space. The memory allocator finds an empty spot in the heap that is big enough, marks it as being in use, and returns a pointer, which is the address of that location. This process is called allocating on the heap and is sometimes abbreviated as just allocating (pushing values onto the stack is not considered allocating). Because the pointer to the heap is a known, fixed size, you can store the pointer on the stack, but when you want the actual data, you must follow the pointer. Think of being seated at a restaurant. When you enter, you state the number of people in your group, and the host finds an empty table that fits everyone and leads you there. If someone in your group comes late, they can ask where you’ve been seated to find you.">堆内存的组织性较差：当你将数据放入堆中时，你会请求一定数量的空间。内存分配器会在堆中找到一个足够大的空位，将其标记为正在使用，并返回一个<em>指针</em>，即该位置的地址。这个过程被称为<em>在堆上分配</em>，有时简称为<em>分配</em>（将值推入栈中不被视为分配）。因为指向堆的指针是一个已知的固定大小，你可以将指针存储在栈上，但当你需要实际数据时，必须跟随指针。想象一下在餐厅就座的情景。当你进入时，你会说明你团队中的人数，服务员会找到一个适合所有人的空桌并引导你到那里。如果你团队中有人晚到，他们可以询问你坐在哪里来找到你。</p>
 <p data-x-en="Pushing to the stack is faster than allocating on the heap because the allocator never has to search for a place to store new data; that location is always at the top of the stack. Comparatively, allocating space on the heap requires more work because the allocator must first find a big enough space to hold the data and then perform bookkeeping to prepare for the next allocation.">将数据压入栈比在堆上分配内存更快，因为分配器不需要寻找存储新数据的位置；该位置总是在栈的顶部。相比之下，在堆上分配空间需要更多的工作，因为分配器必须首先找到一个足够大的空间来容纳数据，然后进行簿记以准备下一次分配。</p>
-<p data-x-en="Accessing data in the heap is slower than accessing data on the stack because you have to follow a pointer to get there. Contemporary processors are faster if they jump around less in memory. Continuing the analogy, consider a server at a restaurant taking orders from many tables. It’s most efficient to get all the orders at one table before moving on to the next table. Taking an order from table A, then an order from table B, then one from A again, and then one from B again would be a much slower process. By the same token, a processor can do its job better if it works on data that’s close to other data (as it is on the stack) rather than farther away (as it can be on the heap).">访问堆中的数据比访问栈中的数据要慢，因为您需要通过指针来访问。现代处理器在内存中跳转较少时速度更快。继续这个比喻，考虑一家餐厅的服务员从多个桌子接订单的情况。最有效的方法是在移动到下一个桌子之前先收集完一个桌子的所有订单。从A桌接一个订单，然后从B桌接一个订单，再回到A桌接一个订单，然后再回到B桌接一个订单，这样的过程会慢得多。同样地，处理器在处理靠近其他数据的数据（如在栈上）时，比处理远离其他数据的数据（如在堆上）时工作得更好。</p>
+<p data-x-en="Accessing data in the heap is generally slower than accessing data on the stack because you have to follow a pointer to get there. Contemporary processors are faster if they jump around less in memory. Continuing the analogy, consider a server at a restaurant taking orders from many tables. It’s most efficient to get all the orders at one table before moving on to the next table. Taking an order from table A, then an order from table B, then one from A again, and then one from B again would be a much slower process. By the same token, a processor can usually do its job better if it works on data that’s close to other data (as it is on the stack) rather than farther away (as it can be on the heap).">访问堆中的数据通常比访问栈中的数据要慢，因为您需要通过指针来访问。现代处理器在内存中跳转较少时速度更快。继续这个比喻，考虑一家餐厅的服务员从多个桌子接订单的情况。最有效的方法是在移动到下一个桌子之前先收集完一个桌子的所有订单。从A桌接一个订单，然后从B桌接一个订单，再回到A桌接一个订单，然后再回到B桌接一个订单，这样的过程会慢得多。同样，处理器通常在处理靠近其他数据的数据（如在栈上）时，比处理远离其他数据的数据（如在堆上）时表现更好。</p>
 <p data-x-en="When your code calls a function, the values passed into the function (including, potentially, pointers to data on the heap) and the function’s local variables get pushed onto the stack. When the function is over, those values get popped off the stack.">当您的代码调用函数时，传递给函数的值（包括可能指向堆上数据的指针）和函数的局部变量会被推入栈中。当函数结束时，这些值会被从栈中弹出。</p>
 <p data-x-en="Keeping track of what parts of code are using what data on the heap, minimizing the amount of duplicate data on the heap, and cleaning up unused data on the heap so you don’t run out of space are all problems that ownership addresses. Once you understand ownership, you won’t need to think about the stack and the heap very often, but knowing that the main purpose of ownership is to manage heap data can help explain why it works the way it does.">跟踪代码的哪些部分正在使用堆上的哪些数据，最小化堆上的重复数据量，以及清理堆上未使用的数据以防止空间耗尽，这些都是所有权要解决的问题。一旦你理解了所有权，你就不会经常需要考虑栈和堆，但知道所有权的主要目的是管理堆数据，这有助于解释它为何如此运作。</p>
 </section>
@@ -265,7 +265,7 @@ blockquote {
 <p data-x-en="The variable s refers to a string literal, where the value of the string is hardcoded into the text of our program. The variable is valid from the point at which it’s declared until the end of the current scope. Listing 4-1 shows a program with comments annotating where the variable s would be valid.">变量<code>s</code>引用一个字符串字面量，其中字符串的值被硬编码到我们程序的文本中。该变量从声明点开始有效，直到当前<em>作用域</em>的结束。清单4-1显示了一个带有注释的程序，注释说明了变量<code>s</code>有效的范围。</p>
 <figure class="listing" id="listing-4-1">
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
-</span>    {                      // s is not valid here, it’s not yet declared
+</span>    {                      // s is not valid here, since it's not yet declared
         let s = "hello";   // s is valid from this point forward
 
         // do stuff with s
@@ -294,7 +294,7 @@ blockquote {
 
     s.push_str(", world!"); // push_str() appends a literal to a String
 
-    println!("{s}"); // This will print `hello, world!`
+    println!("{s}"); // this will print `hello, world!`
 <span class="boring">}</span></code></pre></pre>
 <p data-x-en="So, what’s the difference here? Why can String be mutated but literals cannot? The difference is in how these two types deal with memory.">所以，这里有什么区别？为什么 <code>String</code> 可以被修改但字面量不能？区别在于这两种类型处理内存的方式。</p>
 <h3 id="memory-and-allocation"><a class="header" href="#memory-and-allocation">内存和分配</a></h3>
@@ -453,12 +453,12 @@ data (hello) grayed out because it cannot be accessed anymore." src="img/trpl04-
 
     let x = 5;                      // x comes into scope
 
-    makes_copy(x);                  // because i32 implements the Copy trait,
+    makes_copy(x);                  // Because i32 implements the Copy trait,
                                     // x does NOT move into the function,
-    println!("{}", x);              // so it's okay to use x afterward
+                                    // so it's okay to use x afterward.
 
-} // Here, x goes out of scope, then s. But because s's value was moved, nothing
-  // special happens.
+} // Here, x goes out of scope, then s. However, because s's value was moved,
+  // nothing special happens.
 
 fn takes_ownership(some_string: String) { // some_string comes into scope
     println!("{some_string}");

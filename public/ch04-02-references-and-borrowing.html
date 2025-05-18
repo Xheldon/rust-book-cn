@@ -279,7 +279,7 @@ string data on the heap." src="img/trpl04-06.svg" class="center"></p>
 </span>fn calculate_length(s: &amp;String) -&gt; usize { // s is a reference to a String
     s.len()
 } // Here, s goes out of scope. But because s does not have ownership of what
-  // it refers to, the value is not dropped.</code></pre></pre>
+  // it refers to, the String is not dropped.</code></pre></pre>
 <p data-x-en="The scope in which the variable s is valid is the same as any function parameter’s scope, but the value pointed to by the reference is not dropped when s stops being used, because s doesn’t have ownership. When functions have references as parameters instead of the actual values, we won’t need to return the values in order to give back ownership, because we never had ownership.">变量 <code>s</code> 有效的范围与任何函数参数的范围相同，但当 <code>s</code> 不再使用时，引用所指向的值不会被丢弃，因为 <code>s</code> 没有所有权。当函数的参数是引用而不是实际值时，我们不需要返回值以归还所有权，因为我们从未拥有过所有权。</p>
 <p data-x-en="We call the action of creating a reference borrowing. As in real life, if a person owns something, you can borrow it from them. When you’re done, you have to give it back. You don’t own it.">我们将创建引用的行为称为<em>借用</em>。就像在现实生活中，如果一个人拥有某样东西，你可以从他们那里借用。当你用完后，必须归还。你并不拥有它。</p>
 <p data-x-en="So, what happens if we try to modify something we’re borrowing? Try the code in Listing 4-6. Spoiler alert: it doesn’t work!">所以，如果我们尝试修改我们借用的内容会发生什么？尝试清单 4-6 中的代码。剧透警告：它不起作用！</p>
@@ -338,7 +338,7 @@ fn change(some_string: &amp;mut String) {
     let r1 = &amp;mut s;
     let r2 = &amp;mut s;
 
-    println!("{}, {}", r1, r2);
+    println!("{r1}, {r2}");
 <span class="boring">}</span></code></pre>
 </figure>
 <p data-x-en="Here’s the error:">这里的错误：</p>
@@ -352,8 +352,8 @@ error[E0499]: cannot borrow `s` as mutable more than once at a time
 5 |     let r2 = &amp;mut s;
   |              ^^^^^^ second mutable borrow occurs here
 6 |
-7 |     println!("{}, {}", r1, r2);
-  |                        -- first borrow later used here
+7 |     println!("{r1}, {r2}");
+  |               ---- first borrow later used here
 
 For more information about this error, try `rustc --explain E0499`.
 error: could not compile `ownership` (bin "ownership") due to 1 previous error
@@ -385,7 +385,7 @@ error: could not compile `ownership` (bin "ownership") due to 1 previous error
     let r2 = &amp;s; // no problem
     let r3 = &amp;mut s; // BIG PROBLEM
 
-    println!("{}, {}, and {}", r1, r2, r3);
+    println!("{r1}, {r2}, and {r3}");
 <span class="boring">}</span></code></pre>
 <p data-x-en="Here’s the error:">这里的错误：</p>
 <pre><code class="language-console">$ cargo run
@@ -399,8 +399,8 @@ error[E0502]: cannot borrow `s` as mutable because it is also borrowed as immuta
 6 |     let r3 = &amp;mut s; // BIG PROBLEM
   |              ^^^^^^ mutable borrow occurs here
 7 |
-8 |     println!("{}, {}, and {}", r1, r2, r3);
-  |                                -- immutable borrow later used here
+8 |     println!("{r1}, {r2}, and {r3}");
+  |               ---- immutable borrow later used here
 
 For more information about this error, try `rustc --explain E0502`.
 error: could not compile `ownership` (bin "ownership") due to 1 previous error
@@ -482,7 +482,7 @@ for it to be borrowed from
     let s = String::from("hello"); // s is a new String
 
     &amp;s // we return a reference to the String, s
-} // Here, s goes out of scope, and is dropped, so its memory goes away.
+} // Here, s goes out of scope and is dropped, so its memory goes away.
   // Danger!</code></pre>
 </figure>
 <p data-x-en="Because s is created inside dangle, when the code of dangle is finished, s will be deallocated. But we tried to return a reference to it. That means this reference would be pointing to an invalid String. That’s no good! Rust won’t let us do this.">因为 <code>s</code> 是在 <code>dangle</code> 内创建的，当 <code>dangle</code> 的代码执行完毕时，<code>s</code> 将会被释放。但我们试图返回一个指向它的引用。这意味着这个引用将指向一个无效的 <code>String</code>。这可不好！Rust 不会让我们这样做。</p>

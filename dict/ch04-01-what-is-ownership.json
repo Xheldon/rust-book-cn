@@ -374,5 +374,9 @@
   "Stack-Only Data: Copy": {
     "_translate": "<a class=\"header\" href=\"#stack-only-data-copy\">仅栈数据：Copy</a>",
     "_note": ""
+  },
+  "Accessing data in the heap is generally slower than accessing data on the stack because you have to follow a pointer to get there. Contemporary processors are faster if they jump around less in memory. Continuing the analogy, consider a server at a restaurant taking orders from many tables. It’s most efficient to get all the orders at one table before moving on to the next table. Taking an order from table A, then an order from table B, then one from A again, and then one from B again would be a much slower process. By the same token, a processor can usually do its job better if it works on data that’s close to other data (as it is on the stack) rather than farther away (as it can be on the heap).": {
+    "_translate": "访问堆中的数据通常比访问栈中的数据要慢，因为您需要通过指针来访问。现代处理器在内存中跳转较少时速度更快。继续这个比喻，考虑一家餐厅的服务员从多个桌子接订单的情况。最有效的方法是在移动到下一个桌子之前先收集完一个桌子的所有订单。从A桌接一个订单，然后从B桌接一个订单，再回到A桌接一个订单，然后再回到B桌接一个订单，这样的过程会慢得多。同样，处理器通常在处理靠近其他数据的数据（如在栈上）时，比处理远离其他数据的数据（如在堆上）时表现更好。",
+    "_note": ""
   }
 }

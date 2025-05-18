@@ -230,11 +230,14 @@ blockquote {
                 <div id="content" class="content">
                     <main>
                         <h2 id="the-slice-type"><a class="header" href="#the-slice-type">切片类型</a></h2>
-<p data-x-en="Slices let you reference a contiguous sequence of elements in a collection rather than the whole collection. A slice is a kind of reference, so it does not have ownership."><em>切片</em> 让你引用集合中的一段连续元素，而不是整个集合。切片是一种引用，因此它没有所有权。</p>
+<p data-x-en="Slices let you reference a contiguous sequence of elements in a collection. A slice is a kind of reference, so it does not have ownership."><em>切片</em> 让你引用一个 <a href="ch08-00-common-collections.html">集合</a><!-- ignore --> 中连续的元素序列。切片是一种引用，因此它没有所有权。</p>
 <p data-x-en="Here’s a small programming problem: write a function that takes a string of words separated by spaces and returns the first word it finds in that string. If the function doesn’t find a space in the string, the whole string must be one word, so the entire string should be returned.">这是一个小的编程问题：编写一个函数，该函数接受一个由空格分隔的单词字符串，并返回在该字符串中找到的第一个单词。如果函数在字符串中找不到空格，则整个字符串必须是一个单词，因此应返回整个字符串。</p>
+<section class="note" aria-role="note">
+<p data-x-en="Note: For the purposes of introducing string slices, we are assuming ASCII only in this section; a more thorough discussion of UTF-8 handling is in the “Storing UTF-8 Encoded Text with Strings” section of Chapter 8.">注意：为了介绍字符串切片，本节假设只使用 ASCII；关于 UTF-8 处理的更详细讨论，请参见第 8 章的 <a href="ch08-02-strings.html#storing-utf-8-encoded-text-with-strings">“使用字符串存储 UTF-8 编码的文本”</a><!-- ignore --> 部分。</p>
+</section>
 <p data-x-en="Let’s work through how we’d write the signature of this function without using slices, to understand the problem that slices will solve:">让我们逐步了解如何在不使用切片的情况下编写此函数的签名，以理解切片将解决的问题:</p>
 <pre><code class="language-rust ignore">fn first_word(s: &amp;String) -&gt; ?</code></pre>
-<p data-x-en="The first_word function has a &amp;String as a parameter. We don’t need ownership, so this is fine. (In idiomatic Rust, functions do not take ownership of their arguments unless they need to, and the reasons for that will become clear as we keep going!) But what should we return? We don’t really have a way to talk about part of a string. However, we could return the index of the end of the word, indicated by a space. Let’s try that, as shown in Listing 4-7."><code>first_word</code> 函数有一个 <code>&amp;String</code> 作为参数。我们不需要所有权，所以这样是可以的。（在惯用的 Rust 中，函数不会获取其参数的所有权，除非它们需要这样做，而这样做的原因将在我们继续学习时变得清晰！）但是我们应该返回什么？我们实际上没有一种方法来描述字符串的一部分。然而，我们可以返回单词结束的位置的索引，该位置由空格指示。让我们尝试这样做，如清单 4-7 所示。</p>
+<p data-x-en="The first_word function has a parameter of type &amp;String. We don’t need ownership, so this is fine. (In idiomatic Rust, functions do not take ownership of their arguments unless they need to, and the reasons for that will become clear as we keep going.) But what should we return? We don’t really have a way to talk about part of a string. However, we could return the index of the end of the word, indicated by a space. Let’s try that, as shown in Listing 4-7."><code>first_word</code> 函数有一个类型为 <code>&amp;String</code> 的参数。我们不需要所有权，所以这样是可以的。（在惯用的 Rust 中，除非需要，函数不会获取其参数的所有权，随着我们继续学习，这一点会变得清晰。）但是我们应该返回什么呢？我们实际上没有一种方法来讨论字符串的<em>部分</em>。然而，我们可以返回单词结束的位置（由空格指示）的索引。让我们尝试一下，如清单 4-7 所示。</p>
 <figure class="listing" id="listing-4-7">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust edition2024">fn first_word(s: &amp;String) -&gt; usize {
@@ -322,9 +325,8 @@ blockquote {
 
     s.clear(); // this empties the String, making it equal to ""
 
-    // `word` still has the value `5` here, but `s` no longer has any content
-    // that we could meaningfully use with the value `5`, so `word` is now
-    // totally invalid!
+    // word still has the value 5 here, but s no longer has any content that we
+    // could meaningfully use with the value 5, so word is now totally invalid!
 }</code></pre></pre>
 <figcaption><a href="#listing-4-8">Listing 4-8</a>: Storing the result from calling the <code>first_word</code> function and then changing the <code>String</code> contents</figcaption>
 </figure>
@@ -334,7 +336,7 @@ blockquote {
 <p data-x-en="Now we’re tracking a starting and an ending index, and we have even more values that were calculated from data in a particular state but aren’t tied to that state at all. We have three unrelated variables floating around that need to be kept in sync.">现在我们正在跟踪一个起始 <em>和</em> 结束索引，我们甚至有更多的值是从特定状态的数据计算出来的，但完全不依赖于该状态。我们有三个互不相关的变量需要保持同步。</p>
 <p data-x-en="Luckily, Rust has a solution to this problem: string slices.">幸运的是，Rust 有一个解决这个问题的方案：字符串切片。</p>
 <h3 id="string-slices"><a class="header" href="#string-slices">字符串切片</a></h3>
-<p data-x-en="A string slice is a reference to part of a String, and it looks like this:">一个 <em>字符串切片</em> 是对 <code>String</code> 的一部分的引用，它看起来像这样：</p>
+<p data-x-en="A string slice is a reference to a contiguous sequence of the elements of a String, and it looks like this:">一个 <em>字符串切片</em> 是对 <code>String</code> 元素的连续序列的引用，它看起来像这样：</p>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let s = String::from("hello world");
 
@@ -377,7 +379,7 @@ let slice = &amp;s[0..len];
 let slice = &amp;s[..];
 <span class="boring">}</span></code></pre></pre>
 <section class="note" aria-role="note">
-<p data-x-en="Note: String slice range indices must occur at valid UTF-8 character boundaries. If you attempt to create a string slice in the middle of a multibyte character, your program will exit with an error. For the purposes of introducing string slices, we are assuming ASCII only in this section; a more thorough discussion of UTF-8 handling is in the “Storing UTF-8 Encoded Text with Strings” section of Chapter 8.">注意：字符串切片的范围索引必须出现在有效的 UTF-8 字符边界上。如果你尝试在多字节字符的中间创建字符串切片，你的程序将因错误而退出。为了介绍字符串切片，本节假设只使用 ASCII；关于 UTF-8 处理的更详细讨论，请参见第 8 章的 <a href="ch08-02-strings.html#storing-utf-8-encoded-text-with-strings">“使用字符串存储 UTF-8 编码的文本”</a><!-- ignore --> 部分。</p>
+<p data-x-en="Note: String slice range indices must occur at valid UTF-8 character boundaries. If you attempt to create a string slice in the middle of a multibyte character, your program will exit with an error.">注意：字符串切片范围索引必须位于有效的 UTF-8 字符边界。如果你尝试在多字节字符的中间创建字符串切片，你的程序将因错误而退出。</p>
 </section>
 <p data-x-en="With all this information in mind, let’s rewrite first_word to return a slice. The type that signifies “string slice” is written as &amp;str:">考虑到所有这些信息，让我们重写 <code>first_word</code> 以返回一个切片。表示“字符串切片”的类型写为 <code>&amp;str</code>：</p>
 <figure class="listing">
