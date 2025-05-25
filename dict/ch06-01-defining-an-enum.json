@@ -202,5 +202,25 @@
   "The <T> syntax is a feature of Rust we haven’t talked about yet. It’s a generic type parameter, and we’ll cover generics in more detail in Chapter 10. For now, all you need to know is that <T> means that the Some variant of the Option enum can hold one piece of data of any type, and that each concrete type that gets used in place of T makes the overall Option<T> type a different type. Here are some examples of using Option values to hold number types and char types:": {
     "_translate": "<code>&lt;T&gt;</code> 语法是 Rust 的一个我们尚未讨论过的特性。它是一个泛型类型参数，我们将在第 10 章中更详细地介绍泛型。目前，你只需要知道 <code>&lt;T&gt;</code> 表示 <code>Option</code> 枚举的 <code>Some</code> 变体可以持有一个任何类型的单个数据，并且每个用于替代 <code>T</code> 的具体类型都会使整体的 <code>Option&lt;T&gt;</code> 类型成为一个不同的类型。以下是一些使用 <code>Option</code> 值来持有数字类型和字符类型的示例：",
     "_note": ""
+  },
+  "Quit: Has no data associated with it at all": {
+    "_translate": "<code>Quit</code>: 完全没有与之关联的数据",
+    "_note": ""
+  },
+  "Move: Has named fields, like a struct does": {
+    "_translate": "<code>Move</code>: 有命名字段，就像结构体一样。",
+    "_note": ""
+  },
+  "Write: Includes a single String": {
+    "_translate": "<code>写</code>: 包括一个 <code>String</code>，直接输出翻译内容，不要添加任何额外的文本。绝对不要添加原翻译内容中没有的符号或标签。记住，保留所有 HTML 标签和属性，只翻译内容！",
+    "_note": ""
+  },
+  "ChangeColor: Includes three i32 values": {
+    "_translate": "<code>ChangeColor</code>: 包含三个 <code>i32</code> 值",
+    "_note": ""
+  },
+  "In his 2009 presentation “Null References: The Billion Dollar Mistake,” Tony Hoare, the inventor of null, had this to say:": {
+    "_translate": "在他的2009年演讲“空引用：十亿美元的错误”中，空引用的发明者Tony Hoare 如是说：",
+    "_note": ""
   }
 }

@@ -46,6 +46,17 @@
         <script src="toc.js"></script>
     </head>
     <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
     <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
@@ -123,7 +134,7 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>
@@ -5745,10 +5756,10 @@ variety of types embedded in its variants.</p>
 </figure>
 <p>This enum has four variants with different types:</p>
 <ul>
-<li><code>Quit</code> has no data associated with it at all.</li>
-<li><code>Move</code> has named fields, like a struct does.</li>
-<li><code>Write</code> includes a single <code>String</code>.</li>
-<li><code>ChangeColor</code> includes three <code>i32</code> values.</li>
+<li><code>Quit</code>: Has no data associated with it at all</li>
+<li><code>Move</code>: Has named fields, like a struct does</li>
+<li><code>Write</code>: Includes a single <code>String</code></li>
+<li><code>ChangeColor</code>: Includes three <code>i32</code> values</li>
 </ul>
 <p>Defining an enum with variants such as the ones in Listing 6-2 is similar to
 defining different kinds of struct definitions, except the enum doesn’t use the
@@ -5809,7 +5820,7 @@ null feature that many other languages have. <em>Null</em> is a value that means
 is no value there. In languages with null, variables can always be in one of
 two states: null or not-null.</p>
 <p>In his 2009 presentation “Null References: The Billion Dollar Mistake,” Tony
-Hoare, the inventor of null, has this to say:</p>
+Hoare, the inventor of null, had this to say:</p>
 <blockquote>
 <p>I call it my billion-dollar mistake. At that time, I was designing the first
 comprehensive type system for references in an object-oriented language. My
@@ -6323,10 +6334,10 @@ use <code>max</code> in the body of the <code>if let</code> block in the same wa
 the corresponding <code>match</code> arm. The code in the <code>if let</code> block only runs if the
 value matches the pattern.</p>
 <p>Using <code>if let</code> means less typing, less indentation, and less boilerplate code.
-However, you lose the exhaustive checking that <code>match</code> enforces. Choosing
-between <code>match</code> and <code>if let</code> depends on what you’re doing in your particular
-situation and whether gaining conciseness is an appropriate trade-off for
-losing exhaustive checking.</p>
+However, you lose the exhaustive checking <code>match</code> enforces that ensures you
+aren’t forgetting to handle any cases. Choosing between <code>match</code> and <code>if let</code>
+depends on what you’re doing in your particular situation and whether gaining
+conciseness is an appropriate trade-off for losing exhaustive checking.</p>
 <p>In other words, you can think of <code>if let</code> as syntax sugar for a <code>match</code> that
 runs code when the value matches one pattern and then ignores all other values.</p>
 <p>We can include an <code>else</code> with an <code>if let</code>. The block of code that goes with the
@@ -6383,7 +6394,7 @@ expression, like this:</p>
     }
 <span class="boring">}</span></code></pre></pre>
 <h2 id="staying-on-the-happy-path-with-letelse"><a class="header" href="#staying-on-the-happy-path-with-letelse">Staying on the “Happy Path” with <code>let...else</code></a></h2>
-<p>One common pattern is to perform some computation when a value is present and
+<p>The common pattern is to perform some computation when a value is present and
 return a default value otherwise. Continuing on with our example of coins with a
 <code>UsState</code> value, if we wanted to say something funny depending on how old the
 state on the quarter was, we might introduce a method on <code>UsState</code> to check the
@@ -6432,7 +6443,6 @@ age of a state, like so:</p>
 <p>Then we might use <code>if let</code> to match on the type of coin, introducing a <code>state</code>
 variable within the body of the condition, as in Listing 6-7.</p>
 <figure class="listing" id="listing-6-7">
-<span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#[derive(Debug)] // so we can inspect the state in a minute
 </span><span class="boring">enum UsState {
 </span><span class="boring">    Alabama,
@@ -6474,16 +6484,14 @@ variable within the body of the condition, as in Listing 6-7.</p>
 </span><span class="boring">        println!("{desc}");
 </span><span class="boring">    }
 </span><span class="boring">}</span></code></pre></pre>
-<figcaption><a href="ch06-03-if-let.html#listing-6-7">Listing 6-7</a>: Checking whether a state existing in 1900 by using conditionals nested inside an <code>if let</code>.</figcaption>
+<figcaption><a href="ch06-03-if-let.html#listing-6-7">Listing 6-7</a>: Checking whether a state existed in 1900 by using conditionals nested inside an <code>if let</code>.</figcaption>
 </figure>
-<p>That gets the job done, but it has pushed the work into the body of the <code>if let</code>
-statement, and if the work to be done is more complicated, it might be hard to
-follow exactly how the top-level branches relate. We could also take advantage
-of the fact that expressions produce a value either to produce the <code>state</code> from
-the <code>if let</code> or to return early, as in Listing 6-8. (You could do similar with a
-<code>match</code>, too.)</p>
+<p>That gets the job done, but it has pushed the work into the body of the <code>if let</code> statement, and if the work to be done is more complicated, it might be
+hard to follow exactly how the top-level branches relate. We could also take
+advantage of the fact that expressions produce a value either to produce the
+<code>state</code> from the <code>if let</code> or to return early, as in Listing 6-8. (You could do
+similar with a <code>match</code>, too.)</p>
 <figure class="listing" id="listing-6-8">
-<span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#[derive(Debug)] // so we can inspect the state in a minute
 </span><span class="boring">enum UsState {
 </span><span class="boring">    Alabama,
@@ -6537,11 +6545,8 @@ right, very similar to <code>if let</code>, but it does not have an <code>if</co
 in the outer scope. If the pattern does <em>not</em> match, the program will flow into
 the <code>else</code> arm, which must return from the function.</p>
 <p>In Listing 6-9, you can see how Listing 6-8 looks when using <code>let...else</code> in
-place of <code>if let</code>. Notice that it stays “on the happy path” in the main body of
-the function this way, without having significantly different control flow for
-two branches the way the <code>if let</code> did.</p>
+place of <code>if let</code>.</p>
 <figure class="listing" id="listing-6-9">
-<span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#[derive(Debug)] // so we can inspect the state in a minute
 </span><span class="boring">enum UsState {
 </span><span class="boring">    Alabama,
@@ -6585,6 +6590,9 @@ two branches the way the <code>if let</code> did.</p>
 </span><span class="boring">}</span></code></pre></pre>
 <figcaption><a href="ch06-03-if-let.html#listing-6-9">Listing 6-9</a>: Using <code>let...else</code> to clarify the flow through the function.</figcaption>
 </figure>
+<p>Notice that it stays “on the happy path” in the main body of the function this
+way, without having significantly different control flow for two branches the
+way the <code>if let</code> did.</p>
 <p>If you have a situation in which your program has logic that is too verbose to
 express using a <code>match</code>, remember that <code>if let</code> and <code>let...else</code> are in your
 Rust toolbox as well.</p>
@@ -6633,11 +6641,11 @@ organization, including which details are exposed, which details are private,
 and what names are in each scope in your programs. These features, sometimes
 collectively referred to as the <em>module system</em>, include:</p>
 <ul>
-<li><strong>Packages:</strong> A Cargo feature that lets you build, test, and share crates</li>
-<li><strong>Crates:</strong> A tree of modules that produces a library or executable</li>
-<li><strong>Modules</strong> and <strong>use:</strong> Let you control the organization, scope, and
-privacy of paths</li>
-<li><strong>Paths:</strong> A way of naming an item, such as a struct, function, or module</li>
+<li><strong>Packages</strong>: A Cargo feature that lets you build, test, and share crates</li>
+<li><strong>Crates</strong>: A tree of modules that produces a library or executable</li>
+<li><strong>Modules and use</strong>: Let you control the organization, scope, and privacy of
+paths</li>
+<li><strong>Paths</strong>: A way of naming an item, such as a struct, function, or module</li>
 </ul>
 <p>In this chapter, we’ll cover all these features, discuss how they interact, and
 explain how to use them to manage scope. By the end, you should have a solid
@@ -6659,8 +6667,8 @@ created so far have been binary crates.</p>
 executable. Instead, they define functionality intended to be shared with
 multiple projects. For example, the <code>rand</code> crate we used in <a href="ch02-00-guessing-game-tutorial.html#generating-a-random-number">Chapter
 2</a><!-- ignore --> provides functionality that generates random numbers.
-Most of the time when Rustaceans say “crate”, they mean library crate, and they
-use “crate” interchangeably with the general programming concept of a “library”.</p>
+Most of the time when Rustaceans say “crate,” they mean library crate, and they
+use “crate” interchangeably with the general programming concept of a “library.”</p>
 <p>The <em>crate root</em> is a source file that the Rust compiler starts from and makes
 up the root module of your crate (we’ll explain modules in depth in <a href="ch07-02-defining-modules-to-control-scope-and-privacy.html">“Defining
 Modules to Control Scope and Privacy”</a><!-- ignore -->).</p>
@@ -6826,8 +6834,8 @@ section.</p>
 (in this case, <code>front_of_house</code>). The body of the module then goes inside curly
 brackets. Inside modules, we can place other modules, as in this case with the
 modules <code>hosting</code> and <code>serving</code>. Modules can also hold definitions for other
-items, such as structs, enums, constants, traits, and—as in Listing
-7-1—functions.</p>
+items, such as structs, enums, constants, traits, and as in Listing 7-1,
+functions.</p>
 <p>By using modules, we can group related definitions together and name why
 they’re related. Programmers using this code can navigate the code based on the
 groups rather than having to read through all the definitions, making it easier
@@ -7105,8 +7113,8 @@ interested in this topic, see <a href="https://rust-lang.github.io/api-guideline
 root as well as a <em>src/lib.rs</em> library crate root, and both crates will have
 the package name by default. Typically, packages with this pattern of
 containing both a library and a binary crate will have just enough code in the
-binary crate to start an executable that calls code within the library crate.
-This lets other projects benefit from most of the functionality that the
+binary crate to start an executable that calls code defined in the library
+crate. This lets other projects benefit from the most functionality that the
 package provides because the library crate’s code can be shared.</p>
 <p>The module tree should be defined in <em>src/lib.rs</em>. Then, any public items can
 be used in the binary crate by starting paths with the name of the package.
@@ -7121,11 +7129,11 @@ and a library crate.</p>
 <h3 id="starting-relative-paths-with-super"><a class="header" href="#starting-relative-paths-with-super">Starting Relative Paths with <code>super</code></a></h3>
 <p>We can construct relative paths that begin in the parent module, rather than
 the current module or the crate root, by using <code>super</code> at the start of the
-path. This is like starting a filesystem path with the <code>..</code> syntax. Using
-<code>super</code> allows us to reference an item that we know is in the parent module,
-which can make rearranging the module tree easier when the module is closely
-related to the parent but the parent might be moved elsewhere in the module
-tree someday.</p>
+path. This is like starting a filesystem path with the <code>..</code> syntax that means
+to go to the parent directory. Using <code>super</code> allows us to reference an item
+that we know is in the parent module, which can make rearranging the module
+tree easier when the module is closely related to the parent but the parent
+might be moved elsewhere in the module tree someday.</p>
 <p>Consider the code in Listing 7-8 that models the situation in which a chef
 fixes an incorrect order and personally brings it out to the customer. The
 function <code>fix_incorrect_order</code> defined in the <code>back_of_house</code> module calls the
@@ -7610,7 +7618,10 @@ specify that path followed by the <code>*</code> glob operator:</p>
 <p>This <code>use</code> statement brings all public items defined in <code>std::collections</code> into
 the current scope. Be careful when using the glob operator! Glob can make it
 harder to tell what names are in scope and where a name used in your program
-was defined.</p>
+was defined. Additionally, if the dependency changes its definitions, what
+you’ve imported changes as well, which may lead to compiler errors when you
+upgrade the dependency if the dependency adds a definition with the same name
+as a definition of yours in the same scope, for example.</p>
 <p>The glob operator is often used when testing to bring everything under test into
 the <code>tests</code> module; we’ll talk about that in <a href="ch11-01-writing-tests.html#how-to-write-tests">“How to Write
 Tests”</a><!-- ignore --> in Chapter 11. The glob operator is also

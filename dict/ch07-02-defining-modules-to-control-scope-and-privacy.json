@@ -130,5 +130,9 @@
   "The use keyword: Within a scope, the use keyword creates shortcuts to items to reduce repetition of long paths. In any scope that can refer to crate::garden::vegetables::Asparagus, you can create a shortcut with use crate::garden::vegetables::Asparagus; and from then on you only need to write Asparagus to make use of that type in the scope.": {
     "_translate": "<strong><code>use</code> 关键字</strong>: 在一个作用域内，<code>use</code> 关键字创建到项目的快捷方式，以减少长路径的重复。在任何可以引用 <code>crate::garden::vegetables::Asparagus</code> 的作用域中，你可以通过 <code>use crate::garden::vegetables::Asparagus;</code> 创建一个快捷方式，从那时起，你只需要写 <code>Asparagus</code> 就可以在该作用域中使用该类型。",
     "_note": ""
+  },
+  "We define a module with the mod keyword followed by the name of the module (in this case, front_of_house). The body of the module then goes inside curly brackets. Inside modules, we can place other modules, as in this case with the modules hosting and serving. Modules can also hold definitions for other items, such as structs, enums, constants, traits, and as in Listing 7-1, functions.": {
+    "_translate": "我们使用 <code>mod</code> 关键字后跟模块的名称（在本例中为 <code>front_of_house</code>）来定义一个模块。模块的主体内容则放在大括号内。在模块内部，我们可以放置其他模块，如本例中的 <code>hosting</code> 和 <code>serving</code> 模块。模块还可以包含其他项目的定义，例如结构体、枚举、常量、特征，以及如清单 7-1 所示的函数。",
+    "_note": ""
   }
 }

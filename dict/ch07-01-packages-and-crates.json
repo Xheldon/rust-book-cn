@@ -66,5 +66,9 @@
   "A package can contain as many binary crates as you like, but at most only one library crate. A package must contain at least one crate, whether that’s a library or binary crate.": {
     "_translate": "一个包可以包含任意数量的二进制包，但最多只能有一个库包。一个包必须至少包含一个包，无论是库包还是二进制包。",
     "_note": ""
+  },
+  "Library crates don’t have a main function, and they don’t compile to an executable. Instead, they define functionality intended to be shared with multiple projects. For example, the rand crate we used in Chapter 2 provides functionality that generates random numbers. Most of the time when Rustaceans say “crate,” they mean library crate, and they use “crate” interchangeably with the general programming concept of a “library.”": {
+    "_translate": "<em>库crate</em> 没有 <code>main</code> 函数，也不会编译成可执行文件。相反，它们定义了旨在与多个项目共享的功能。例如，我们在 <a href=\"ch02-00-guessing-game-tutorial.html#generating-a-random-number\">第 2 章</a><!-- ignore --> 中使用的 <code>rand</code> crate 提供了生成随机数的功能。大多数情况下，当 Rustaceans 说“crate”时，他们指的是库crate，并且他们将“crate”与编程中的一般“库”概念互换使用。",
+    "_note": ""
   }
 }

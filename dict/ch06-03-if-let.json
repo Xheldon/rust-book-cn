@@ -122,5 +122,21 @@
   "In Listing 6-9, you can see how Listing 6-8 looks when using let...else in place of if let. Notice that it stays “on the happy path” in the main body of the function this way, without having significantly different control flow for two branches the way the if let did.": {
     "_translate": "在清单 6-9 中，你可以看到使用 <code>let...else</code> 代替 <code>if let</code> 时，清单 6-8 的样子。请注意，这样可以在函数的主要部分保持在“顺利路径”上，而不会像 <code>if let</code> 那样在两个分支中产生显著不同的控制流。",
     "_note": ""
+  },
+  "Using if let means less typing, less indentation, and less boilerplate code. However, you lose the exhaustive checking match enforces that ensures you aren’t forgetting to handle any cases. Choosing between match and if let depends on what you’re doing in your particular situation and whether gaining conciseness is an appropriate trade-off for losing exhaustive checking.": {
+    "_translate": "使用 <code>if let</code> 意味着更少的输入，更少的缩进，以及更少的样板代码。然而，你会失去 <code>match</code> 强制执行的详尽检查，这确保你不会忘记处理任何情况。在 <code>match</code> 和 <code>if let</code> 之间进行选择取决于你在特定情况下的具体需求，以及在失去详尽检查的情况下，获得简洁性是否是一个合适的权衡。",
+    "_note": ""
+  },
+  "In Listing 6-9, you can see how Listing 6-8 looks when using let...else in place of if let.": {
+    "_translate": "在清单 6-9 中，你可以看到使用 <code>let...else</code> 代替 <code>if let</code> 时清单 6-8 的样子。",
+    "_note": ""
+  },
+  "The common pattern is to perform some computation when a value is present and return a default value otherwise. Continuing on with our example of coins with a UsState value, if we wanted to say something funny depending on how old the state on the quarter was, we might introduce a method on UsState to check the age of a state, like so:": {
+    "_translate": "常见的模式是在值存在时执行某些计算，否则返回默认值。继续我们关于带有 <code>UsState</code> 值的硬币的例子，如果我们想根据硬币上州的年龄说一些有趣的话，我们可以在 <code>UsState</code> 上引入一个方法来检查州的年龄，如下所示：",
+    "_note": ""
+  },
+  "Notice that it stays “on the happy path” in the main body of the function this way, without having significantly different control flow for two branches the way the if let did.": {
+    "_translate": "请注意，这种方式在函数主体中保持“在快乐路径上”，而不会像 <code>if let</code> 那样为两个分支产生显著不同的控制流。",
+    "_note": ""
   }
 }

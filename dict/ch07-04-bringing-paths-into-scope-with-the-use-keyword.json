@@ -178,5 +178,9 @@
   "When we bring a name into scope with the use keyword, the name is private to the scope into which we imported it. To enable code outside that scope to refer to that name as if it had been defined in that scope, we can combine pub and use. This technique is called re-exporting because we’re bringing an item into scope but also making that item available for others to bring into their scope.": {
     "_translate": "当我们使用 <code>use</code> 关键字将一个名称引入作用域时，该名称对该作用域是私有的。为了使该作用域之外的代码能够像该名称在该作用域中定义的一样引用它，我们可以结合使用 <code>pub</code> 和 <code>use</code>。这种技术称为 <em>重新导出</em>，因为我们不仅将一个项引入作用域，还使该项可供其他人将其引入他们的作用域。",
     "_note": ""
+  },
+  "This use statement brings all public items defined in std::collections into the current scope. Be careful when using the glob operator! Glob can make it harder to tell what names are in scope and where a name used in your program was defined. Additionally, if the dependency changes its definitions, what you’ve imported changes as well, which may lead to compiler errors when you upgrade the dependency if the dependency adds a definition with the same name as a definition of yours in the same scope, for example.": {
+    "_translate": "这个 <code>use</code> 语句将 <code>std::collections</code> 中定义的所有公共项引入当前作用域。使用通配符时要小心！通配符会使确定哪些名称在作用域内以及程序中使用的名称是在哪里定义的变得更加困难。此外，如果依赖项更改了其定义，你导入的内容也会随之更改，这可能会导致在你升级依赖项时出现编译错误，例如，如果依赖项添加了一个与你在同一作用域中定义的名称相同的定义。",
+    "_note": ""
   }
 }

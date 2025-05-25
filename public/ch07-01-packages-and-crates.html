@@ -112,6 +112,17 @@ blockquote {
 }
 </style></head>
     <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
     <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
@@ -189,7 +200,7 @@ blockquote {
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>
@@ -233,7 +244,7 @@ blockquote {
 <p data-x-en="The first parts of the module system we’ll cover are packages and crates.">我们将要介绍的模块系统的第一个部分是包和库。</p>
 <p data-x-en="A crate is the smallest amount of code that the Rust compiler considers at a time. Even if you run rustc rather than cargo and pass a single source code file (as we did all the way back in “Writing and Running a Rust Program” in Chapter 1), the compiler considers that file to be a crate. Crates can contain modules, and the modules may be defined in other files that get compiled with the crate, as we’ll see in the coming sections.">一个 <em>crate</em> 是 Rust 编译器每次考虑的最小代码量。即使你运行 <code>rustc</code> 而不是 <code>cargo</code> 并传递一个源代码文件（就像我们在第 1 章“编写和运行 Rust 程序”中所做的那样），编译器也会将该文件视为一个 crate。crate 可以包含模块，而这些模块可能定义在其他文件中，这些文件将与 crate 一起编译，我们将在接下来的部分中看到。</p>
 <p data-x-en="A crate can come in one of two forms: a binary crate or a library crate. Binary crates are programs you can compile to an executable that you can run, such as a command line program or a server. Each must have a function called main that defines what happens when the executable runs. All the crates we’ve created so far have been binary crates.">一个crate可以有两种形式之一：二进制crate或库crate。<em>二进制crate</em>是可以编译成可执行文件的程序，例如命令行程序或服务器。每个二进制crate都必须有一个名为<code>main</code>的函数，该函数定义了可执行文件运行时发生的事情。到目前为止，我们创建的所有crate都是二进制crate。</p>
-<p data-x-en="Library crates don’t have a main function, and they don’t compile to an executable. Instead, they define functionality intended to be shared with multiple projects. For example, the rand crate we used in Chapter 2 provides functionality that generates random numbers. Most of the time when Rustaceans say “crate”, they mean library crate, and they use “crate” interchangeably with the general programming concept of a “library”."><em>库crate</em> 没有 <code>main</code> 函数，也不会编译成可执行文件。相反，它们定义了旨在与多个项目共享的功能。例如，我们在 <a href="ch02-00-guessing-game-tutorial.html#generating-a-random-number">第 2 章</a><!-- ignore --> 中使用的 <code>rand</code> crate 提供了生成随机数的功能。大多数情况下，当 Rustaceans 说“crate”时，他们指的是库crate，并且他们将“crate”与编程中的一般“库”概念互换使用。</p>
+<p data-x-en="Library crates don’t have a main function, and they don’t compile to an executable. Instead, they define functionality intended to be shared with multiple projects. For example, the rand crate we used in Chapter 2 provides functionality that generates random numbers. Most of the time when Rustaceans say “crate,” they mean library crate, and they use “crate” interchangeably with the general programming concept of a “library.”"><em>库crate</em> 没有 <code>main</code> 函数，也不会编译成可执行文件。相反，它们定义了旨在与多个项目共享的功能。例如，我们在 <a href="ch02-00-guessing-game-tutorial.html#generating-a-random-number">第 2 章</a><!-- ignore --> 中使用的 <code>rand</code> crate 提供了生成随机数的功能。大多数情况下，当 Rustaceans 说“crate”时，他们指的是库crate，并且他们将“crate”与编程中的一般“库”概念互换使用。</p>
 <p data-x-en="The crate root is a source file that the Rust compiler starts from and makes up the root module of your crate (we’ll explain modules in depth in “Defining Modules to Control Scope and Privacy”)."><em>crate root</em> 是 Rust 编译器开始的源文件，并构成你的 crate 的根模块（我们将在 <a href="ch07-02-defining-modules-to-control-scope-and-privacy.html">“定义模块以控制作用域和私有性”</a><!-- ignore --> 中详细解释模块）。</p>
 <p data-x-en="A package is a bundle of one or more crates that provides a set of functionality. A package contains a Cargo.toml file that describes how to build those crates. Cargo is actually a package that contains the binary crate for the command line tool you’ve been using to build your code. The Cargo package also contains a library crate that the binary crate depends on. Other projects can depend on the Cargo library crate to use the same logic the Cargo command line tool uses.">一个 <em>包</em> 是一个或多个提供一组功能的 <em>crate</em> 的集合。包包含一个 <em>Cargo.toml</em> 文件，描述如何构建这些 crate。Cargo 实际上是一个包含你一直在使用的命令行工具的二进制 crate 的包。Cargo 包还包含一个二进制 crate 依赖的库 crate。其他项目可以依赖 Cargo 库 crate 来使用与 Cargo 命令行工具相同的逻辑。</p>
 <p data-x-en="A package can contain as many binary crates as you like, but at most only one library crate. A package must contain at least one crate, whether that’s a library or binary crate.">一个包可以包含任意数量的二进制包，但最多只能有一个库包。一个包必须至少包含一个包，无论是库包还是二进制包。</p>

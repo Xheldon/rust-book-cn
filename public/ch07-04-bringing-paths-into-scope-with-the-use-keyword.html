@@ -112,6 +112,17 @@ blockquote {
 }
 </style></head>
     <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
     <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
@@ -189,7 +200,7 @@ blockquote {
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>
@@ -514,7 +525,7 @@ use std::io::Write;</code></pre>
 </span><span class="boring">fn main() {
 </span>use std::collections::*;
 <span class="boring">}</span></code></pre></pre>
-<p data-x-en="This use statement brings all public items defined in std::collections into the current scope. Be careful when using the glob operator! Glob can make it harder to tell what names are in scope and where a name used in your program was defined.">这个 <code>use</code> 语句将 <code>std::collections</code> 中定义的所有公共项引入当前作用域。使用通配符时要小心！通配符会使确定哪些名称在作用域内以及程序中使用的名称是在哪里定义的变得更加困难。</p>
+<p data-x-en="This use statement brings all public items defined in std::collections into the current scope. Be careful when using the glob operator! Glob can make it harder to tell what names are in scope and where a name used in your program was defined. Additionally, if the dependency changes its definitions, what you’ve imported changes as well, which may lead to compiler errors when you upgrade the dependency if the dependency adds a definition with the same name as a definition of yours in the same scope, for example.">这个 <code>use</code> 语句将 <code>std::collections</code> 中定义的所有公共项引入当前作用域。使用通配符时要小心！通配符会使确定哪些名称在作用域内以及程序中使用的名称是在哪里定义的变得更加困难。此外，如果依赖项更改了其定义，你导入的内容也会随之更改，这可能会导致在你升级依赖项时出现编译错误，例如，如果依赖项添加了一个与你在同一作用域中定义的名称相同的定义。</p>
 <p data-x-en="The glob operator is often used when testing to bring everything under test into the tests module; we’ll talk about that in “How to Write Tests” in Chapter 11. The glob operator is also sometimes used as part of the prelude pattern: see the standard library documentation for more information on that pattern.">通配符操作符通常在测试时用于将所有待测试的内容引入到<code>tests</code>模块中；我们将在第11章的<a href="ch11-01-writing-tests.html#how-to-write-tests">“如何编写测试”</a>中讨论这个问题。通配符操作符也经常作为前导模式的一部分使用：有关该模式的更多信息，请参阅<a href="https://doc.rust-lang.org/std/prelude/index.html#other-preludes" target="_blank">标准库文档</a>。</p>
 
                     </main>

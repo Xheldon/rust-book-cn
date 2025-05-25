@@ -112,6 +112,17 @@ blockquote {
 }
 </style></head>
     <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
     <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
@@ -189,7 +200,7 @@ blockquote {
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>
@@ -379,10 +390,10 @@ enum IpAddr {
 </figure>
 <p data-x-en="This enum has four variants with different types:">这个枚举有四个不同类型的变体：</p>
 <ul>
-<li data-x-en="Quit has no data associated with it at all."><code>Quit</code> 没有任何与之关联的数据。</li>
-<li data-x-en="Move has named fields, like a struct does."><code>Move</code> 有命名字段，就像结构体一样。</li>
-<li data-x-en="Write includes a single String."><code>Write</code> 包含一个 <code>String</code>。</li>
-<li data-x-en="ChangeColor includes three i32 values."><code>ChangeColor</code> 包含三个 <code>i32</code> 值。</li>
+<li data-x-en="Quit: Has no data associated with it at all"><code>Quit</code>: 完全没有与之关联的数据</li>
+<li data-x-en="Move: Has named fields, like a struct does"><code>Move</code>: 有命名字段，就像结构体一样。</li>
+<li data-x-en="Write: Includes a single String"><code>写</code>: 包括一个 <code>String</code>，直接输出翻译内容，不要添加任何额外的文本。绝对不要添加原翻译内容中没有的符号或标签。记住，保留所有 HTML 标签和属性，只翻译内容！</li>
+<li data-x-en="ChangeColor: Includes three i32 values"><code>ChangeColor</code>: 包含三个 <code>i32</code> 值</li>
 </ul>
 <p data-x-en="Defining an enum with variants such as the ones in Listing 6-2 is similar to defining different kinds of struct definitions, except the enum doesn’t use the struct keyword and all the variants are grouped together under the Message type. The following structs could hold the same data that the preceding enum variants hold:">定义如清单 6-2 中的枚举变体类似于定义不同类型的结构体，不同之处在于枚举不使用 <code>struct</code> 关键字，并且所有变体都归类在 <code>Message</code> 类型下。以下结构体可以持有与前面枚举变体相同的數據：</p>
 <pre><pre class="playground"><code class="language-rust edition2024">struct QuitMessage; // unit struct
@@ -419,7 +430,7 @@ struct ChangeColorMessage(i32, i32, i32); // tuple struct
 <p data-x-en="This section explores a case study of Option, which is another enum defined by the standard library. The Option type encodes the very common scenario in which a value could be something or it could be nothing.">这一节探讨了<code>Option</code>的案例研究，这是标准库定义的另一个枚举。<code>Option</code>类型编码了非常常见的情况，即一个值可能是某个值，也可能什么都不是。</p>
 <p data-x-en="For example, if you request the first item in a non-empty list, you would get a value. If you request the first item in an empty list, you would get nothing. Expressing this concept in terms of the type system means the compiler can check whether you’ve handled all the cases you should be handling; this functionality can prevent bugs that are extremely common in other programming languages.">例如，如果您请求非空列表中的第一个项目，您将获得一个值。如果您请求空列表中的第一个项目，您将一无所获。将这个概念用类型系统表达意味着编译器可以检查您是否已经处理了所有应该处理的情况；此功能可以防止在其他编程语言中非常常见的错误。</p>
 <p data-x-en="Programming language design is often thought of in terms of which features you include, but the features you exclude are important too. Rust doesn’t have the null feature that many other languages have. Null is a value that means there is no value there. In languages with null, variables can always be in one of two states: null or not-null.">编程语言设计通常被认为是在于你包含哪些特性，但你排除的特性也同样重要。Rust 没有其他许多语言都有的 <em>null</em> 特性。 <em>null</em> 是一个表示没有值的值。在有 <em>null</em> 的语言中，变量总是可以处于两种状态之一：null 或 not-null。</p>
-<p data-x-en="In his 2009 presentation “Null References: The Billion Dollar Mistake,” Tony Hoare, the inventor of null, has this to say:">在他的2009年演讲“空引用：十亿美元的错误”中，空引用的发明者Tony Hoare如是说：</p>
+<p data-x-en="In his 2009 presentation “Null References: The Billion Dollar Mistake,” Tony Hoare, the inventor of null, had this to say:">在他的2009年演讲“空引用：十亿美元的错误”中，空引用的发明者Tony Hoare 如是说：</p>
 <blockquote>
 <p data-x-en="I call it my billion-dollar mistake. At that time, I was designing the first comprehensive type system for references in an object-oriented language. My goal was to ensure that all use of references should be absolutely safe, with checking performed automatically by the compiler. But I couldn’t resist the temptation to put in a null reference, simply because it was so easy to implement. This has led to innumerable errors, vulnerabilities, and system crashes, which have probably caused a billion dollars of pain and damage in the last forty years.">我称之为我的十亿美元错误。当时，我正在设计第一个面向对象语言中的引用的全面类型系统。我的目标是确保所有引用的使用都是绝对安全的，由编译器自动进行检查。但我无法抗拒添加空引用的诱惑，仅仅因为它实现起来非常简单。这导致了无数的错误、漏洞和系统崩溃，在过去的四十年中可能造成了十亿美元的痛苦和损失。</p>
 </blockquote>
