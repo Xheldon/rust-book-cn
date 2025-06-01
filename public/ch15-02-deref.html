@@ -252,9 +252,10 @@ Rust的<em>解引用强制转换</em>特性，以及它如何让我们可以使�
 <section class="note" aria-role="note">
 <p data-x-en="Note: There’s one big difference between the MyBox<T> type we’re about to build and the real Box<T>: our version will not store its data on the heap. We are focusing this example on Deref, so where the data is actually stored is less important than the pointer-like behavior.">注意：我们即将构建的 <code>MyBox&lt;T&gt;</code> 类型和真正的 <code>Box&lt;T&gt;</code> 之间有一个很大的不同：我们的版本不会在堆上存储数据。我们在这个例子中专注于 <code>Deref</code>，因此数据实际存储的位置不如指针行为重要。</p>
 </section>
-<!-- Old link, do not remove -->
-<p><a id="following-the-pointer-to-the-value-with-the-dereference-operator"></a></p>
-<h3 id="following-the-pointer-to-the-value"><a class="header" href="#following-the-pointer-to-the-value">跟随指针到值</a></h3>
+<!-- Old links, do not remove -->
+<p><a id="following-the-pointer-to-the-value-with-the-dereference-operator"></a>
+<a id="following-the-pointer-to-the-value"></a></p>
+<h3 id="following-the-reference-to-the-value" data-x-en="Following the Reference to the Value"><a class="header" href="#following-the-reference-to-the-value">跟踪引用到值</a></h3>
 <p data-x-en="A regular reference is a type of pointer, and one way to think of a pointer is as an arrow to a value stored somewhere else. In Listing 15-6, we create a reference to an i32 value and then use the dereference operator to follow the reference to the value.">一个常规引用是一种指针，而理解指针的一种方式是将其视为指向存储在其他地方的值的箭头。在示例 15-6 中，我们创建了一个指向 <code>i32</code> 值的引用，然后使用解引用运算符来跟踪引用到值。</p>
 <figure class="listing" id="listing-15-6">
 <span class="file-name">Filename: src/main.rs</span>

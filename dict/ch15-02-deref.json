@@ -242,5 +242,9 @@
   "The first two cases are the same except that the second implements mutability. The first case states that if you have a &T, and T implements Deref to some type U, you can get a &U transparently. The second case states that the same deref coercion happens for mutable references.": {
     "_translate": "前两个案例相同，只是第二个实现了可变性。\n第一个案例说明，如果你有一个 <code>&amp;T</code>，并且 <code>T</code> 实现了到某种类型 <code>U</code> 的 <code>Deref</code>，你可以透明地获得一个 <code>&amp;U</code>。第二个案例说明，对于可变引用，同样的解引用强制转换也会发生。",
     "_note": ""
+  },
+  "Following the Reference to the Value": {
+    "_translate": "<a class=\"header\" href=\"#following-the-reference-to-the-value\">跟踪引用到值</a>",
+    "_note": ""
   }
 }

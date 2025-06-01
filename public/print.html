@@ -7946,7 +7946,7 @@ will add <code>50</code> to each element.</p>
 <p>To change the value that the mutable reference refers to, we have to use the
 <code>*</code> dereference operator to get to the value in <code>i</code> before we can use the <code>+=</code>
 operator. We’ll talk more about the dereference operator in the <a href="ch15-02-deref.html#following-the-pointer-to-the-value-with-the-dereference-operator">“Following the
-Pointer to the Value”</a><!-- ignore --> section of Chapter 15.</p>
+Reference to the Value”</a><!-- ignore --> section of Chapter 15.</p>
 <p>Iterating over a vector, whether immutably or mutably, is safe because of the
 borrow checker’s rules. If we attempted to insert or remove items in the <code>for</code>
 loop bodies in Listing 8-7 and Listing 8-8, we would get a compiler error
@@ -9050,7 +9050,7 @@ succeed. That way, if your assumptions are ever proven wrong, you have more
 information to use in debugging.</p>
 <h3 id="propagating-errors"><a class="header" href="#propagating-errors">Propagating Errors</a></h3>
 <p>When a function’s implementation calls something that might fail, instead of
-handling the error within the function itself you can return the error to the
+handling the error within the function itself, you can return the error to the
 calling code so that it can decide what to do. This is known as <em>propagating</em>
 the error and gives more control to the calling code, where there might be more
 information or logic that dictates how the error should be handled than what
@@ -9131,7 +9131,7 @@ trying to do, so we propagate all the success or error information upward for
 it to handle appropriately.</p>
 <p>This pattern of propagating errors is so common in Rust that Rust provides the
 question mark operator <code>?</code> to make this easier.</p>
-<h4 id="a-shortcut-for-propagating-errors-the--operator"><a class="header" href="#a-shortcut-for-propagating-errors-the--operator">A Shortcut for Propagating Errors: the <code>?</code> Operator</a></h4>
+<h4 id="a-shortcut-for-propagating-errors-the--operator"><a class="header" href="#a-shortcut-for-propagating-errors-the--operator">A Shortcut for Propagating Errors: The <code>?</code> Operator</a></h4>
 <p>Listing 9-7 shows an implementation of <code>read_username_from_file</code> that has the
 same functionality as in Listing 9-6, but this implementation uses the <code>?</code>
 operator.</p>
@@ -9235,7 +9235,7 @@ file, creates a new <code>String</code>, reads the contents of the file, puts th
 into that <code>String</code>, and returns it. Of course, using <code>fs::read_to_string</code>
 doesn’t give us the opportunity to explain all the error handling, so we did it
 the longer way first.</p>
-<h4 id="where-the--operator-can-be-used"><a class="header" href="#where-the--operator-can-be-used">Where The <code>?</code> Operator Can Be Used</a></h4>
+<h4 id="where-the--operator-can-be-used"><a class="header" href="#where-the--operator-can-be-used">Where the <code>?</code> Operator Can Be Used</a></h4>
 <p>The <code>?</code> operator can only be used in functions whose return type is compatible
 with the value the <code>?</code> is used on. This is because the <code>?</code> operator is defined
 to perform an early return of a value out of the function, in the same manner
@@ -9411,15 +9411,15 @@ that method isn’t the functionality under test. Because <code>panic!</code> is
 is marked as a failure, calling <code>unwrap</code> or <code>expect</code> is exactly what should
 happen.</p>
 <h3 id="cases-in-which-you-have-more-information-than-the-compiler"><a class="header" href="#cases-in-which-you-have-more-information-than-the-compiler">Cases in Which You Have More Information Than the Compiler</a></h3>
-<p>It would also be appropriate to call <code>unwrap</code> or <code>expect</code> when you have some
-other logic that ensures the <code>Result</code> will have an <code>Ok</code> value, but the logic
-isn’t something the compiler understands. You’ll still have a <code>Result</code> value
-that you need to handle: whatever operation you’re calling still has the
-possibility of failing in general, even though it’s logically impossible in
-your particular situation. If you can ensure by manually inspecting the code
-that you’ll never have an <code>Err</code> variant, it’s perfectly acceptable to call
-<code>unwrap</code>, and even better to document the reason you think you’ll never have an
-<code>Err</code> variant in the <code>expect</code> text. Here’s an example:</p>
+<p>It would also be appropriate to call <code>expect</code> when you have some other logic
+that ensures the <code>Result</code> will have an <code>Ok</code> value, but the logic isn’t
+something the compiler understands. You’ll still have a <code>Result</code> value that you
+need to handle: whatever operation you’re calling still has the possibility of
+failing in general, even though it’s logically impossible in your particular
+situation. If you can ensure by manually inspecting the code that you’ll never
+have an <code>Err</code> variant, it’s perfectly acceptable to call <code>expect</code> and document
+the reason you think you’ll never have an <code>Err</code> variant in the argument text.
+Here’s an example:</p>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    use std::net::IpAddr;
 
@@ -9591,9 +9591,11 @@ impl Guess {
 <span class="boring">}</span></code></pre></pre>
 <figcaption><a href="ch09-03-to-panic-or-not-to-panic.html#listing-9-13">Listing 9-13</a>: A <code>Guess</code> type that will only continue with values between 1 and 100</figcaption>
 </figure>
-<p>First we create a new module named <code>guessing_game</code>. Next we define a struct in
-that module named <code>Guess</code> that has a field named <code>value</code> that holds an <code>i32</code>.
-This is where the number will be stored.</p>
+<p>Note that this code in <em>src/guessing_game.rs</em> depends on adding a module
+declaration <code>mod guessing_game;</code> in <em>src/lib.rs</em> that we haven’t shown here.
+Within this new module’s file, we define a struct in that module named <code>Guess</code>
+that has a field named <code>value</code> that holds an <code>i32</code>. This is where the number
+will be stored.</p>
 <p>Then we implement an associated function named <code>new</code> on <code>Guess</code> that creates
 instances of <code>Guess</code> values. The <code>new</code> function is defined to have one
 parameter named <code>value</code> of type <code>i32</code> and to return a <code>Guess</code>. The code in the
@@ -9913,10 +9915,10 @@ states that the body of <code>largest</code> won’t work for all possible types
 could be. Because we want to compare values of type <code>T</code> in the body, we can
 only use types whose values can be ordered. To enable comparisons, the standard
 library has the <code>std::cmp::PartialOrd</code> trait that you can implement on types
-(see Appendix C for more on this trait). To fix the example code above, we would
-need to follow the help text’s suggestions and restrict the types valid for <code>T</code>
-to only those that implement <code>PartialOrd</code>. The example would then compile, because
-the standard library implements <code>PartialOrd</code> on both <code>i32</code> and <code>char</code>.</p>
+(see Appendix C for more on this trait). To fix Listing 10-5, we can follow the
+help text’s suggestion and restrict the types valid for <code>T</code> to only those that
+implement <code>PartialOrd</code>. The listing will then compile, because the standard
+library implements <code>PartialOrd</code> on both <code>i32</code> and <code>char</code>.</p>
 <h3 id="in-struct-definitions"><a class="header" href="#in-struct-definitions">In Struct Definitions</a></h3>
 <p>We can also define structs to use a generic type parameter in one or more
 fields using the <code>&lt;&gt;</code> syntax. Listing 10-6 defines a <code>Point&lt;T&gt;</code> struct to hold
@@ -10306,7 +10308,7 @@ fn main() {
         repost: false,
     };
 
-    println!("1 new social post: {}", post.summarize());
+    println!("1 new post: {}", post.summarize());
 }</code></pre>
 <p>This code prints <code>1 new post: horse_ebooks: of course, as you probably already know, people</code>.</p>
 <p>Other crates that depend on the <code>aggregator</code> crate can also bring the <code>Summary</code>
@@ -10460,7 +10462,7 @@ that looks like:</p>
         repost: false,
     };
 
-    println!("1 new social post: {}", post.summarize());
+    println!("1 new post: {}", post.summarize());
 <span class="boring">}</span></code></pre>
 <p>This code prints <code>1 new post: (Read more from @horse_ebooks...)</code>.</p>
 <p>Note that it isn’t possible to call the default implementation from an
@@ -10756,11 +10758,12 @@ references are valid as long as we need them to be.</p>
 Borrowing”</a><!-- ignore --> section in Chapter 4 is
 that every reference in Rust has a <em>lifetime</em>, which is the scope for which
 that reference is valid. Most of the time, lifetimes are implicit and inferred,
-just like most of the time, types are inferred. We only have to annotate types
-when multiple types are possible. In a similar way, we have to annotate lifetimes
-when the lifetimes of references could be related in a few different ways. Rust
-requires us to annotate the relationships using generic lifetime parameters to
-ensure the actual references used at runtime will definitely be valid.</p>
+just like most of the time, types are inferred. We are only required to
+annotate types when multiple types are possible. In a similar way, we have to
+annotate lifetimes when the lifetimes of references could be related in a few
+different ways. Rust requires us to annotate the relationships using generic
+lifetime parameters to ensure the actual references used at runtime will
+definitely be valid.</p>
 <p>Annotating lifetimes is not even a concept most other programming languages
 have, so this is going to feel unfamiliar. Although we won’t cover lifetimes in
 their entirety in this chapter, we’ll discuss common ways you might encounter
@@ -18180,9 +18183,10 @@ build and the real <code>Box&lt;T&gt;</code>: our version will not store its dat
 We are focusing this example on <code>Deref</code>, so where the data is actually stored
 is less important than the pointer-like behavior.</p>
 </section>
-<!-- Old link, do not remove -->
-<p><a id="following-the-pointer-to-the-value-with-the-dereference-operator"></a></p>
-<h3 id="following-the-pointer-to-the-value"><a class="header" href="#following-the-pointer-to-the-value">Following the Pointer to the Value</a></h3>
+<!-- Old links, do not remove -->
+<p><a id="following-the-pointer-to-the-value-with-the-dereference-operator"></a>
+<a id="following-the-pointer-to-the-value"></a></p>
+<h3 id="following-the-reference-to-the-value"><a class="header" href="#following-the-reference-to-the-value">Following the Reference to the Value</a></h3>
 <p>A regular reference is a type of pointer, and one way to think of a pointer is
 as an arrow to a value stored somewhere else. In Listing 15-6, we create a
 reference to an <code>i32</code> value and then use the dereference operator to follow the

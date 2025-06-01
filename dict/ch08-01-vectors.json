@@ -150,5 +150,9 @@
   "To change the value that the mutable reference refers to, we have to use the * dereference operator to get to the value in i before we can use the += operator. We’ll talk more about the dereference operator in the “Following the Pointer to the Value” section of Chapter 15.": {
     "_translate": "要更改可变引用所指向的值，我们必须使用 <code>*</code> 解引用运算符来访问 <code>i</code> 中的值，然后才能使用 <code>+=</code> 运算符。我们将在第 15 章的 <a href=\"ch15-02-deref.html#following-the-pointer-to-the-value-with-the-dereference-operator\">“通过解引用运算符跟踪指针到值”</a> 部分详细讨论解引用运算符。",
     "_note": ""
+  },
+  "To change the value that the mutable reference refers to, we have to use the * dereference operator to get to the value in i before we can use the += operator. We’ll talk more about the dereference operator in the “Following the Reference to the Value” section of Chapter 15.": {
+    "_translate": "要更改可变引用所指向的值，我们必须使用 <code>*</code> 解引用运算符来访问 <code>i</code> 中的值，然后才能使用 <code>+=</code> 运算符。我们将在第 15 章的 <a href=\"ch15-02-deref.html#following-the-pointer-to-the-value-with-the-dereference-operator\">“通过解引用运算符跟踪指针到值”</a><!-- ignore --> 部分详细讨论解引用运算符。",
+    "_note": ""
   }
 }

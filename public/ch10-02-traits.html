@@ -308,7 +308,7 @@ fn main() {
         repost: false,
     };
 
-    println!("1 new social post: {}", post.summarize());
+    println!("1 new post: {}", post.summarize());
 }</code></pre>
 <p data-x-en="This code prints 1 new post: horse_ebooks: of course, as you probably already know, people.">这段代码打印 <code>1 new post: horse_ebooks: of course, as you probably already know, people</code>.</p>
 <p data-x-en="Other crates that depend on the aggregator crate can also bring the Summary trait into scope to implement Summary on their own types. One restriction to note is that we can implement a trait on a type only if either the trait or the type, or both, are local to our crate. For example, we can implement standard library traits like Display on a custom type like SocialPost as part of our aggregator crate functionality because the type SocialPost is local to our aggregator crate. We can also implement Summary on Vec<T> in our aggregator crate because the trait Summary is local to our aggregator crate.">其他依赖于 <code>aggregator</code> crate 的 crate 也可以将 <code>Summary</code>
@@ -423,7 +423,7 @@ crate 本地的。</p>
         repost: false,
     };
 
-    println!("1 new social post: {}", post.summarize());
+    println!("1 new post: {}", post.summarize());
 <span class="boring">}</span></code></pre>
 <p data-x-en="This code prints 1 new post: (Read more from @horse_ebooks...).">这段代码打印 <code>1 new post: (Read more from @horse_ebooks...)</code>。</p>
 <p data-x-en="Note that it isn’t possible to call the default implementation from an overriding implementation of that same method.">请注意，无法从同一方法的重写实现中调用默认实现。</p>
