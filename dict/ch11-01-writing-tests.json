@@ -342,5 +342,25 @@
   "Note that in some languages and test frameworks, the parameters to equality assertion functions are called expected and actual, and the order in which we specify the arguments matters. However, in Rust, they’re called left and right, and the order in which we specify the value we expect and the value the code produces doesn’t matter. We could write the assertion in this test as assert_eq!(add_two(2), result), which would result in the same failure message that displays assertion failed: `(left == right)`.": {
     "_translate": "请注意，在某些语言和测试框架中，相等性断言函数的参数被称为 <code>expected</code> 和 <code>actual</code>，并且我们指定参数的顺序很重要。然而，在 Rust 中，它们被称为 <code>left</code> 和 <code>right</code>，并且我们指定期望值和代码生成值的顺序并不重要。我们可以将此测试中的断言写为 <code>assert_eq!(add_two(2), result)</code>，这将导致显示相同的失败消息 <code>assertion failed: `(left == right)`</code>。",
     "_note": ""
+  },
+  "It’s possible to mark a test as ignored so it doesn’t run in a particular instance; we’ll cover that in the “Ignoring Some Tests Unless Specifically Requested” section later in this chapter. Because we haven’t done that here, the summary shows 0 ignored. We can also pass an argument to the cargo test command to run only tests whose name matches a string; this is called filtering and we’ll cover it in the “Running a Subset of Tests by Name” section. Here we haven’t filtered the tests being run, so the end of the summary shows 0 filtered out.": {
+    "_translate": "可以将测试标记为忽略，这样在特定实例中就不会运行；我们将在本章后面的<a href=\"ch11-02-running-tests.html#ignoring-some-tests-unless-specifically-requested\">“除非特别要求，否则忽略某些测试”</a><!-- ignore -->部分讨论这一点。因为我们在这里没有这样做，所以摘要显示<code>0 ignored</code>。我们还可以向<code>cargo test</code>命令传递一个参数，以仅运行名称与字符串匹配的测试；这称为<em>过滤</em>，我们将在<a href=\"ch11-02-running-tests.html#running-a-subset-of-tests-by-name\">“按名称运行测试子集”</a><!-- ignore -->部分讨论这一点。这里我们没有过滤正在运行的测试，所以摘要的末尾显示<code>0 filtered out</code>。",
+    "_note": ""
+  },
+  "Instead of ok, the line test tests::another shows FAILED. Two new sections appear between the individual results and the summary: the first displays the detailed reason for each test failure. In this case, we get the details that tests::another failed because it panicked with the message Make this test fail on line 17 in the src/lib.rs file. The next section lists just the names of all the failing tests, which is useful when there are lots of tests and lots of detailed failing test output. We can use the name of a failing test to run just that test to more easily debug it; we’ll talk more about ways to run tests in the “Controlling How Tests Are Run” section.": {
+    "_translate": "而不是<code>ok</code>，行<code>test tests::another</code>显示<code>FAILED</code>。在各个结果和摘要之间出现了两个新的部分：第一部分显示每个测试失败的详细原因。在这种情况下，我们得到的详细信息是<code>tests::another</code>失败是因为在<em>src/lib.rs</em>文件的第17行触发了带有消息<code>Make this test fail</code>的恐慌。下一部分列出了所有失败测试的名称，当有很多测试和很多详细的失败测试输出时，这非常有用。我们可以使用失败测试的名称来仅运行该测试，以便更容易地调试它；我们将在<a href=\"ch11-02-running-tests.html#controlling-how-tests-are-run\">“控制测试的运行方式”</a>部分中更详细地讨论运行测试的方法。",
+    "_note": ""
+  },
+  "We create a variable named result that holds the result of calling add_two(2). Then we pass result and 4 as the arguments to the assert_eq! macro. The output line for this test is test tests::it_adds_two ... ok, and the ok text indicates that our test passed!": {
+    "_translate": "我们创建一个名为 <code>result</code> 的变量，该变量保存调用 <code>add_two(2)</code> 的结果。然后我们将 <code>result</code> 和 <code>4</code> 作为参数传递给 <code>assert_eq!</code> 宏。此测试的输出行为 <code>test tests::it_adds_two ... ok</code>，<code>ok</code> 文本表示我们的测试通过了！",
+    "_note": ""
+  },
+  "Our test caught the bug! The tests::it_adds_two test failed, and the message tells us that the assertion that failed was left == right and what the left and right values are. This message helps us start debugging: the left argument, where we had the result of calling add_two(2), was 5 but the right argument was 4. You can imagine that this would be especially helpful when we have a lot of tests going on.": {
+    "_translate": "我们的测试捕获了这个bug！<code>tests::it_adds_two</code> 测试失败了，消息告诉我们失败的断言是 <code>left == right</code> 以及 <code>left</code> 和 <code>right</code> 的值是什么。这条消息帮助我们开始调试：<code>left</code> 参数，即调用 <code>add_two(2)</code> 的结果，是 <code>5</code>，而 <code>right</code> 参数是 <code>4</code>。你可以想象，当我们有很多测试时，这会特别有帮助。",
+    "_note": ""
+  },
+  "Note that in some languages and test frameworks, the parameters to equality assertion functions are called expected and actual, and the order in which we specify the arguments matters. However, in Rust, they’re called left and right, and the order in which we specify the value we expect and the value the code produces doesn’t matter. We could write the assertion in this test as assert_eq!(4, result), which would result in the same failure message that displays assertion `left == right` failed.": {
+    "_translate": "请注意，在某些语言和测试框架中，相等性断言函数的参数被称为 <code>expected</code> 和 <code>actual</code>，并且我们指定参数的顺序很重要。然而，在 Rust 中，它们被称为 <code>left</code> 和 <code>right</code>，并且我们指定期望值和代码生成值的顺序并不重要。我们可以将此测试中的断言写为 <code>assert_eq!(4, result)</code>，这将导致相同的失败消息，显示 <code> assertion `left == right` failed</code>。",
+    "_note": ""
   }
 }

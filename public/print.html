@@ -11585,7 +11585,7 @@ instance; we’ll cover that in the <a href="ch11-02-running-tests.html#ignoring
 Requested”</a><!-- ignore --> section later in this chapter. Because we
 haven’t done that here, the summary shows <code>0 ignored</code>. We can also pass an
 argument to the <code>cargo test</code> command to run only tests whose name matches a
-string; this is called <em>filtering</em> and we’ll cover that in the <a href="ch11-02-running-tests.html#running-a-subset-of-tests-by-name">“Running a
+string; this is called <em>filtering</em> and we’ll cover it in the <a href="ch11-02-running-tests.html#running-a-subset-of-tests-by-name">“Running a
 Subset of Tests by Name”</a><!-- ignore --> section. Here we haven’t
 filtered the tests being run, so the end of the summary shows <code>0 filtered out</code>.</p>
 <p>The <code>0 measured</code> statistic is for benchmark tests that measure performance.
@@ -11700,13 +11700,12 @@ check the line number of the panic matches the line number in the following para
 <p>Instead of <code>ok</code>, the line <code>test tests::another</code> shows <code>FAILED</code>. Two new
 sections appear between the individual results and the summary: the first
 displays the detailed reason for each test failure. In this case, we get the
-details that <code>another</code> failed because it <code>panicked at 'Make this test fail'</code> on
-line 17 in the <em>src/lib.rs</em> file. The next section lists just the names of all
-the failing tests, which is useful when there are lots of tests and lots of
-detailed failing test output. We can use the name of a failing test to run just
-that test to more easily debug it; we’ll talk more about ways to run tests in
-the <a href="ch11-02-running-tests.html#controlling-how-tests-are-run">“Controlling How Tests Are Run”</a><!-- ignore
---> section.</p>
+details that <code>tests::another</code> failed because it panicked with the message <code>Make this test fail</code> on line 17 in the <em>src/lib.rs</em> file. The next section lists
+just the names of all the failing tests, which is useful when there are lots of
+tests and lots of detailed failing test output. We can use the name of a
+failing test to run just that test to more easily debug it; we’ll talk more
+about ways to run tests in the <a href="ch11-02-running-tests.html#controlling-how-tests-are-run">“Controlling How Tests Are
+Run”</a><!-- ignore --> section.</p>
 <p>The summary line displays at the end: overall, our test result is <code>FAILED</code>. We
 had one test pass and one test fail.</p>
 <p>Now that you’ve seen what the test results look like in different scenarios,
@@ -11966,7 +11965,7 @@ expression, without printing the values that led to the <code>false</code> value
 parameter, then we test this function using the <code>assert_eq!</code> macro.</p>
 <figure class="listing" id="listing-11-7">
 <span class="file-name">Filename: src/lib.rs</span>
-<pre><code class="language-rust noplayground">pub fn add_two(a: usize) -&gt; usize {
+<pre><code class="language-rust noplayground">pub fn add_two(a: u64) -&gt; u64 {
     a + 2
 }
 
@@ -12001,12 +12000,11 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 </code></pre>
 <p>We create a variable named <code>result</code> that holds the result of calling
-<code>add_two(2)</code>. Then we pass <code>result</code> and <code>4</code> as the arguments to <code>assert_eq!</code>.
-The output line for this test is <code>test tests::it_adds_two ... ok</code>, and the <code>ok</code>
-text indicates that our test passed!</p>
+<code>add_two(2)</code>. Then we pass <code>result</code> and <code>4</code> as the arguments to the
+<code>assert_eq!</code> macro. The output line for this test is <code>test tests::it_adds_two ... ok</code>, and the <code>ok</code> text indicates that our test passed!</p>
 <p>Let’s introduce a bug into our code to see what <code>assert_eq!</code> looks like when it
 fails. Change the implementation of the <code>add_two</code> function to instead add <code>3</code>:</p>
-<pre><code class="language-rust not_desired_behavior noplayground">pub fn add_two(a: usize) -&gt; usize {
+<pre><code class="language-rust not_desired_behavior noplayground">pub fn add_two(a: u64) -&gt; u64 {
     a + 3
 }
 <span class="boring">
@@ -12047,19 +12045,19 @@ test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; 
 
 error: test failed, to rerun pass `--lib`
 </code></pre>
-<p>Our test caught the bug! The <code>it_adds_two</code> test failed, and the message tells us
-that the assertion that failed was <code>assertion `left == right` failed</code> and what
-the <code>left</code> and <code>right</code> values are. This message helps us start debugging: the
-<code>left</code> argument, where we had the result of calling <code>add_two(2)</code>, was <code>5</code> but
-the <code>right</code> argument was <code>4</code>. You can imagine that this would be especially
-helpful when we have a lot of tests going on.</p>
+<p>Our test caught the bug! The <code>tests::it_adds_two</code> test failed, and the message
+tells us that the assertion that failed was <code>left == right</code> and what the <code>left</code>
+and <code>right</code> values are. This message helps us start debugging: the <code>left</code>
+argument, where we had the result of calling <code>add_two(2)</code>, was <code>5</code> but the
+<code>right</code> argument was <code>4</code>. You can imagine that this would be especially helpful
+when we have a lot of tests going on.</p>
 <p>Note that in some languages and test frameworks, the parameters to equality
 assertion functions are called <code>expected</code> and <code>actual</code>, and the order in which
 we specify the arguments matters. However, in Rust, they’re called <code>left</code> and
-<code>right</code>, and the order in which we specify the value we expect and the value the
-code produces doesn’t matter. We could write the assertion in this test as
-<code>assert_eq!(add_two(2), result)</code>, which would result in the same failure message
-that displays <code>assertion failed: `(left == right)`</code>.</p>
+<code>right</code>, and the order in which we specify the value we expect and the value
+the code produces doesn’t matter. We could write the assertion in this test as
+<code>assert_eq!(4, result)</code>, which would result in the same failure message that
+displays <code> assertion `left == right` failed</code>.</p>
 <p>The <code>assert_ne!</code> macro will pass if the two values we give it are not equal and
 fail if they’re equal. This macro is most useful for cases when we’re not sure
 what a value <em>will</em> be, but we know what the value definitely <em>shouldn’t</em> be.
@@ -12619,7 +12617,7 @@ or names of the test(s) you want to run as an argument.</p>
 our <code>add_two</code> function, as shown in Listing 11-11, and choose which ones to run.</p>
 <figure class="listing" id="listing-11-11">
 <span class="file-name">Filename: src/lib.rs</span>
-<pre><code class="language-rust noplayground">pub fn add_two(a: usize) -&gt; usize {
+<pre><code class="language-rust noplayground">pub fn add_two(a: u64) -&gt; u64 {
     a + 2
 }
 
@@ -12761,7 +12759,7 @@ the ignored tests, we can use <code>cargo test -- --ignored</code>:</p>
      Running unittests src/lib.rs (target/debug/deps/adder-92948b65e88960b4)
 
 running 1 test
-test expensive_test ... ok
+test tests::expensive_test ... ok
 
 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
 
@@ -12835,11 +12833,11 @@ adhere to, Rust’s privacy rules do allow you to test private functions.
 Consider the code in Listing 11-12 with the private function <code>internal_adder</code>.</p>
 <figure class="listing" id="listing-11-12">
 <span class="file-name">Filename: src/lib.rs</span>
-<pre><code class="language-rust noplayground">pub fn add_two(a: usize) -&gt; usize {
+<pre><code class="language-rust noplayground">pub fn add_two(a: u64) -&gt; u64 {
     internal_adder(a, 2)
 }
 
-fn internal_adder(left: usize, right: usize) -&gt; usize {
+fn internal_adder(left: u64, right: u64) -&gt; u64 {
     left + right
 }
 

@@ -268,11 +268,11 @@ mod tests {
 <p data-x-en="There’s debate within the testing community about whether or not private functions should be tested directly, and other languages make it difficult or impossible to test private functions. Regardless of which testing ideology you adhere to, Rust’s privacy rules do allow you to test private functions. Consider the code in Listing 11-12 with the private function internal_adder.">测试社区内部对于是否应该直接测试私有函数存在争议，其他语言使得测试私有函数变得困难或不可能。无论你遵循哪种测试理念，Rust 的隐私规则确实允许你测试私有函数。考虑列表 11-12 中的代码，其中包含私有函数 <code>internal_adder</code>。</p>
 <figure class="listing" id="listing-11-12">
 <span class="file-name">Filename: src/lib.rs</span>
-<pre><code class="language-rust noplayground">pub fn add_two(a: usize) -&gt; usize {
+<pre><code class="language-rust noplayground">pub fn add_two(a: u64) -&gt; u64 {
     internal_adder(a, 2)
 }
 
-fn internal_adder(left: usize, right: usize) -&gt; usize {
+fn internal_adder(left: u64, right: u64) -&gt; u64 {
     left + right
 }
 
