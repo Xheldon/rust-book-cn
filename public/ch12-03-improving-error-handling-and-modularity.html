@@ -247,11 +247,11 @@ blockquote {
 <p data-x-en="Fourth, we use expect to handle an error, and if the user runs our program without specifying enough arguments, they’ll get an index out of bounds error from Rust that doesn’t clearly explain the problem. It would be best if all the error-handling code were in one place so future maintainers had only one place to consult the code if the error-handling logic needed to change. Having all the error-handling code in one place will also ensure that we’re printing messages that will be meaningful to our end users.">第四，我们使用<code>expect</code>来处理错误，如果用户在运行我们的程序时没有指定足够的参数，他们将收到一个来自Rust的<code>index out of bounds</code>错误，这个错误没有清楚地解释问题。如果所有的错误处理代码都在一个地方，那么将来维护者只需要在一个地方查看代码，如果需要更改错误处理逻辑，这样会更好。将所有的错误处理代码放在一个地方，还可以确保我们打印的消息对最终用户来说是有意义的。</p>
 <p data-x-en="Let’s address these four problems by refactoring our project.">让我们通过重构项目来解决这四个问题。</p>
 <h3 id="separation-of-concerns-for-binary-projects"><a class="header" href="#separation-of-concerns-for-binary-projects">二进制项目中的关注点分离</a></h3>
-<p data-x-en="The organizational problem of allocating responsibility for multiple tasks to the main function is common to many binary projects. As a result, the Rust community has developed guidelines for splitting the separate concerns of a binary program when main starts getting large. This process has the following steps:">将多个任务的责任分配给 <code>main</code> 函数的组织问题是许多二进制项目中常见的问题。因此，Rust 社区已经制定了在 <code>main</code> 开始变大时拆分二进制程序不同关注点的指南。此过程包括以下步骤：</p>
+<p data-x-en="The organizational problem of allocating responsibility for multiple tasks to the main function is common to many binary projects. As a result, many Rust programmers find it useful to split up the separate concerns of a binary program when the main function starts getting large. This process has the following steps:">将多个任务的责任分配给 <code>main</code> 函数的组织问题是许多二进制项目中常见的问题。因此，许多 Rust 程序员发现，当 <code>main</code> 函数开始变大时，将二进制程序的各个关注点分开是有用的。这个过程有以下步骤：</p>
 <ul>
 <li data-x-en="Split your program into a main.rs file and a lib.rs file and move your program’s logic to lib.rs.">将您的程序拆分为 <em>main.rs</em> 文件和 <em>lib.rs</em> 文件，并将程序的逻辑移到 <em>lib.rs</em>。</li>
-<li data-x-en="As long as your command line parsing logic is small, it can remain in main.rs.">只要您的命令行解析逻辑很小，它可以保留在<em>main.rs</em>中。</li>
-<li data-x-en="When the command line parsing logic starts getting complicated, extract it from main.rs and move it to lib.rs.">当命令行解析逻辑开始变得复杂时，将其从<em>main.rs</em>中提取并移动到<em>lib.rs</em>。</li>
+<li data-x-en="As long as your command line parsing logic is small, it can remain in the main function.">只要您的命令行解析逻辑很小，它可以保留在 <code>main</code> 函数中。</li>
+<li data-x-en="When the command line parsing logic starts getting complicated, extract it from the main function into other functions or types.">当命令行解析逻辑开始变得复杂时，将其从<code>main</code>函数中提取到其他函数或类型中。</li>
 </ul>
 <p data-x-en="The responsibilities that remain in the main function after this process should be limited to the following:">此过程之后保留在 <code>main</code> 函数中的职责应仅限于以下内容：</p>
 <ul>
@@ -260,9 +260,9 @@ blockquote {
 <li data-x-en="Calling a run function in lib.rs">在 <em>lib.rs</em> 中调用 <code>run</code> 函数</li>
 <li data-x-en="Handling the error if run returns an error">处理 <code>run</code> 返回错误的情况</li>
 </ul>
-<p data-x-en="This pattern is about separating concerns: main.rs handles running the program and lib.rs handles all the logic of the task at hand. Because you can’t test the main function directly, this structure lets you test all of your program’s logic by moving it into functions in lib.rs. The code that remains in main.rs will be small enough to verify its correctness by reading it. Let’s rework our program by following this process.">这种模式是关于分离关注点的：<em>main.rs</em> 负责运行程序，而 <em>lib.rs</em> 负责处理当前任务的所有逻辑。因为不能直接测试 <code>main</code> 函数，这种结构允许你通过将逻辑移到 <em>lib.rs</em> 中的函数来测试程序的所有逻辑。保留在 <em>main.rs</em> 中的代码将足够小，可以通过阅读来验证其正确性。让我们通过这个过程来重构我们的程序。</p>
+<p data-x-en="This pattern is about separating concerns: main.rs handles running the program and lib.rs handles all the logic of the task at hand. Because you can’t test the main function directly, this structure lets you test all of your program’s logic by moving it out of the main function. The code that remains in the main function will be small enough to verify its correctness by reading it. Let’s rework our program by following this process.">这种模式是关于分离关注点的：<em>main.rs</em> 负责运行程序，而 <em>lib.rs</em> 负责处理当前任务的所有逻辑。因为不能直接测试 <code>main</code> 函数，这种结构允许你通过将逻辑移出 <code>main</code> 函数来测试程序的所有逻辑。保留在 <code>main</code> 函数中的代码将足够小，可以通过阅读来验证其正确性。让我们通过遵循这个过程来重构我们的程序。</p>
 <h4 id="extracting-the-argument-parser"><a class="header" href="#extracting-the-argument-parser">提取参数解析器</a></h4>
-<p data-x-en="We’ll extract the functionality for parsing arguments into a function that main will call to prepare for moving the command line parsing logic to src/lib.rs. Listing 12-5 shows the new start of main that calls a new function parse_config, which we’ll define in src/main.rs for the moment.">我们将把解析参数的功能提取到一个函数中，<code>main</code> 将调用该函数以准备将命令行解析逻辑移动到 <em>src/lib.rs</em>。列表 12-5 显示了调用新函数 <code>parse_config</code> 的 <code>main</code> 的新起点，我们暂时将在 <em>src/main.rs</em> 中定义该函数。</p>
+<p data-x-en="We’ll extract the functionality for parsing arguments into a function that main will call. Listing 12-5 shows the new start of the main function that calls a new function parse_config, which we’ll define in src/main.rs.">我们将把解析参数的功能提取到一个函数中，<code>main</code> 将调用这个函数。列表 12-5 显示了新的 <code>main</code> 函数的开头，它调用了一个新的函数 <code>parse_config</code>，我们将在 <em>src/main.rs</em> 中定义。</p>
 <figure class="listing" id="listing-12-5">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore"><span class="boring">use std::env;
@@ -555,9 +555,11 @@ fn main() {
 Problem parsing arguments: not enough arguments
 </code></pre>
 <p data-x-en="Great! This output is much friendlier for our users.">很好！这个输出对我们的用户更加友好。</p>
-<h3 id="extracting-logic-from-main"><a class="header" href="#extracting-logic-from-main">从 <code>main</code> 中提取逻辑</a></h3>
-<p data-x-en="Now that we’ve finished refactoring the configuration parsing, let’s turn to the program’s logic. As we stated in “Separation of Concerns for Binary Projects”, we’ll extract a function named run that will hold all the logic currently in the main function that isn’t involved with setting up configuration or handling errors. When we’re done, main will be concise and easy to verify by inspection, and we’ll be able to write tests for all the other logic.">现在我们已经完成了配置解析的重构，让我们转向程序的逻辑。正如我们在<a href="#separation-of-concerns-for-binary-projects">“二进制项目中的关注点分离”</a><!-- ignore -->中所述，我们将提取一个名为<code>run</code>的函数，该函数将包含当前在<code>main</code>函数中与设置配置或处理错误无关的所有逻辑。完成后，<code>main</code>将变得简洁且易于通过检查验证，我们还将能够为所有其他逻辑编写测试。</p>
-<p data-x-en="Listing 12-11 shows the extracted run function. For now, we’re just making the small, incremental improvement of extracting the function. We’re still defining the function in src/main.rs.">列表 12-11 显示了提取的 <code>run</code> 函数。目前，我们只是做了提取函数这一小的、逐步的改进。我们仍然在 <em>src/main.rs</em> 中定义该函数。</p>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="extracting-logic-from-main"></a></p>
+<h3 id="extracting-logic-from-the-main-function" data-x-en="Extracting Logic from the main Function"><a class="header" href="#extracting-logic-from-the-main-function">从 <code>main</code> 函数中提取逻辑</a></h3>
+<p data-x-en="Now that we’ve finished refactoring the configuration parsing, let’s turn to the program’s logic. As we stated in “Separation of Concerns for Binary Projects”, we’ll extract a function named run that will hold all the logic currently in the main function that isn’t involved with setting up configuration or handling errors. When we’re done, the main function will be concise and easy to verify by inspection, and we’ll be able to write tests for all the other logic.">现在我们已经完成了配置解析的重构，让我们转向程序的逻辑。正如我们在<a href="#separation-of-concerns-for-binary-projects">“二进制项目中的关注点分离”</a>中所述，我们将提取一个名为<code>run</code>的函数，该函数将包含当前在<code>main</code>函数中与设置配置或处理错误无关的所有逻辑。完成后，<code>main</code>函数将简洁且易于通过检查验证，我们还将能够为所有其他逻辑编写测试。</p>
+<p data-x-en="Listing 12-11 shows the small, incremental improvement of extracting a run function.">列表 12-11 显示了提取一个 <code>run</code> 函数的小幅、渐进的改进。</p>
 <figure class="listing" id="listing-12-11">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore"><span class="boring">use std::env;
@@ -763,56 +765,26 @@ To an admiring bog!
 <p data-x-en="The bodies of the if let and the unwrap_or_else functions are the same in both cases: we print the error and exit."><code>if let</code> 和 <code>unwrap_or_else</code> 函数的主体在这两种情况下是相同的：我们打印错误并退出。</p>
 <h3 id="splitting-code-into-a-library-crate"><a class="header" href="#splitting-code-into-a-library-crate">将代码拆分为库包</a></h3>
 <p data-x-en="Our minigrep project is looking good so far! Now we’ll split the src/main.rs file and put some code into the src/lib.rs file. That way, we can test the code and have a src/main.rs file with fewer responsibilities.">我们的 <code>minigrep</code> 项目到目前为止看起来不错！现在我们将拆分 <em>src/main.rs</em> 文件，并将一些代码放入 <em>src/lib.rs</em> 文件中。这样，我们可以测试代码，并且有一个职责更少的 <em>src/main.rs</em> 文件。</p>
-<p data-x-en="Let’s move all the code that isn’t in the main function from src/main.rs to src/lib.rs:">让我们将不在 <code>main</code> 函数中的所有代码从 <em>src/main.rs</em> 移动到 <em>src/lib.rs</em>：</p>
-<ul>
-<li data-x-en="The run function definition"><code>run</code> 函数定义</li>
-<li data-x-en="The relevant use statements">相关的 <code>use</code> 语句</li>
-<li data-x-en="The definition of Config"><code>Config</code> 的定义</li>
-<li data-x-en="The Config::build function definition"><code>Config::build</code> 函数定义</li>
-</ul>
-<p data-x-en="The contents of src/lib.rs should have the signatures shown in Listing 12-13 (we’ve omitted the bodies of the functions for brevity). Note that this won’t compile until we modify src/main.rs in Listing 12-14."><em>src/lib.rs</em> 的内容应该具有如清单 12-13 所示的签名（我们为了简洁起见省略了函数的主体）。请注意，直到我们在清单 12-14 中修改 <em>src/main.rs</em> 之前，这不会编译。</p>
+<p data-x-en="Let’s define the code responsible for searching text in src/lib.rs rather than in src/main.rs, which will let us (or anyone else using our minigrep library) call the searching function from more contexts than our minigrep binary.">让我们在 <em>src/lib.rs</em> 中定义负责搜索文本的代码，而不是在 <em>src/main.rs</em> 中，这将使我们（或任何使用我们的 <code>minigrep</code> 库的人）可以从更多上下文中调用搜索函数，而不仅仅是我们的 <code>minigrep</code> 二进制文件。</p>
+<p data-x-en="First, let’s define the search function signature in src/lib.rs as shown in Listing 12-13, with a body that calls the unimplemented! macro. We’ll explain the signature in more detail when we fill in the implementation.">首先，在<em>src/lib.rs</em>中定义<code>search</code>函数签名，如清单12-13所示，函数体调用<code>unimplemented!</code>宏。我们将在填充实现时详细解释签名。</p>
 <figure class="listing" id="listing-12-13">
 <span class="file-name">Filename: src/lib.rs</span>
-<pre><code class="language-rust ignore does_not_compile">use std::error::Error;
-use std::fs;
-
-pub struct Config {
-    pub query: String,
-    pub file_path: String,
-}
-
-impl Config {
-    pub fn build(args: &amp;[String]) -&gt; Result&lt;Config, &amp;'static str&gt; {
-        // --snip--
-<span class="boring">        if args.len() &lt; 3 {
-</span><span class="boring">            return Err("not enough arguments");
-</span><span class="boring">        }
-</span><span class="boring">
-</span><span class="boring">        let query = args[1].clone();
-</span><span class="boring">        let file_path = args[2].clone();
-</span><span class="boring">
-</span><span class="boring">        Ok(Config { query, file_path })
-</span>    }
-}
-
-pub fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
-    // --snip--
-<span class="boring">    let contents = fs::read_to_string(config.file_path)?;
-</span><span class="boring">
-</span><span class="boring">    println!("With text:\n{contents}");
-</span><span class="boring">
-</span><span class="boring">    Ok(())
-</span>}</code></pre>
-<figcaption><a href="#listing-12-13">Listing 12-13</a>: Moving <code>Config</code> and <code>run</code> into <em>src/lib.rs</em></figcaption>
+<pre><code class="language-rust ignore does_not_compile">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
+    unimplemented!();
+}</code></pre>
+<figcaption><a href="#listing-12-13">Listing 12-13</a>: Defining the <code>search</code> function in  <em>src/lib.rs</em></figcaption>
 </figure>
-<p data-x-en="We’ve made liberal use of the pub keyword: on Config, on its fields and its build method, and on the run function. We now have a library crate that has a public API we can test!">我们大量使用了 <code>pub</code> 关键字：在 <code>Config</code> 上，在其字段和其 <code>build</code> 方法上，以及在 <code>run</code> 函数上。我们现在有一个具有可以测试的公共 API 的库 crate！</p>
-<p data-x-en="Now we need to bring the code we moved to src/lib.rs into the scope of the binary crate in src/main.rs, as shown in Listing 12-14.">现在我们需要将移动到<em>src/lib.rs</em>的代码引入<em>src/main.rs</em>中二进制包的作用域，如清单12-14所示。</p>
+<p data-x-en="We’ve used the pub keyword on the function definition to designate search as part of our library crate’s public API. We now have a library crate that we can use from our binary crate and that we can test!">我们已经在函数定义中使用了<code>pub</code>关键字，将<code>search</code>指定为我们库crate的公共API的一部分。我们现在有一个可以从我们的二进制crate中使用并且可以测试的库crate！</p>
+<p data-x-en="Now we need to bring the code defined in src/lib.rs into the scope of the binary crate in src/main.rs and call it, as shown in Listing 12-14.">现在我们需要将定义在<em>src/lib.rs</em>中的代码引入到<em>src/main.rs</em>中的二进制包的作用域，并调用它，如清单12-14所示。</p>
 <figure class="listing" id="listing-12-14">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><code class="language-rust ignore">use std::env;
-use std::process;
-
-use minigrep::Config;
+<pre><code class="language-rust ignore"><span class="boring">use std::env;
+</span><span class="boring">use std::error::Error;
+</span><span class="boring">use std::fs;
+</span><span class="boring">use std::process;
+</span><span class="boring">
+</span>// --snip--
+use minigrep::search;
 
 fn main() {
     // --snip--
@@ -823,18 +795,46 @@ fn main() {
 </span><span class="boring">        process::exit(1);
 </span><span class="boring">    });
 </span><span class="boring">
-</span><span class="boring">    println!("Searching for {}", config.query);
-</span><span class="boring">    println!("In file {}", config.file_path);
-</span><span class="boring">
-</span>    if let Err(e) = minigrep::run(config) {
-        // --snip--
-<span class="boring">        println!("Application error: {e}");
+</span><span class="boring">    if let Err(e) = run(config) {
+</span><span class="boring">        println!("Application error: {e}");
 </span><span class="boring">        process::exit(1);
-</span>    }
+</span><span class="boring">    }
+</span>}
+
+// --snip--
+
+<span class="boring">
+</span><span class="boring">struct Config {
+</span><span class="boring">    query: String,
+</span><span class="boring">    file_path: String,
+</span><span class="boring">}
+</span><span class="boring">
+</span><span class="boring">impl Config {
+</span><span class="boring">    fn build(args: &amp;[String]) -&gt; Result&lt;Config, &amp;'static str&gt; {
+</span><span class="boring">        if args.len() &lt; 3 {
+</span><span class="boring">            return Err("not enough arguments");
+</span><span class="boring">        }
+</span><span class="boring">
+</span><span class="boring">        let query = args[1].clone();
+</span><span class="boring">        let file_path = args[2].clone();
+</span><span class="boring">
+</span><span class="boring">        Ok(Config { query, file_path })
+</span><span class="boring">    }
+</span><span class="boring">}
+</span><span class="boring">
+</span>fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
+    let contents = fs::read_to_string(config.file_path)?;
+
+    for line in search(&amp;config.query, &amp;contents) {
+        println!("{line}");
+    }
+
+    Ok(())
 }</code></pre>
-<figcaption><a href="#listing-12-14">Listing 12-14</a>: Using the <code>minigrep</code> library crate in <em>src/main.rs</em></figcaption>
+<figcaption><a href="#listing-12-14">Listing 12-14</a>: Using the <code>minigrep</code> library crate’s <code>search</code> function in <em>src/main.rs</em></figcaption>
 </figure>
-<p data-x-en="We add a use minigrep::Config line to bring the Config type from the library crate into the binary crate’s scope, and we prefix the run function with our crate name. Now all the functionality should be connected and should work. Run the program with cargo run and make sure everything works correctly.">我们添加了一行<code>use minigrep::Config</code>，将<code>Config</code>类型从库crate引入到二进制crate的作用域中，并且我们在<code>run</code>函数前加上了crate名称。现在所有功能都应该连接起来并且可以工作。使用<code>cargo run</code>运行程序，并确保一切正常工作。</p>
+<p data-x-en="We add a use minigrep::search line to bring the search function from the library crate into the binary crate’s scope. Then, in the run function, rather than printing out the contents of the file, we call the search function and pass the config.query value and contents as arguments. Then run will use a for loop to print each line returned from search that matched the query. This is also a good time to remove the println! calls in the main function that displayed the query and the file path so that our program only prints the search results (if no errors occur).">我们添加了一行 <code>use minigrep::search</code>，将 <code>search</code> 函数从库 crate 引入到二进制 crate 的作用域中。然后，在 <code>run</code> 函数中，我们不是打印文件的内容，而是调用 <code>search</code> 函数并将 <code>config.query</code> 值和 <code>contents</code> 作为参数传递。然后 <code>run</code> 将使用 <code>for</code> 循环打印从 <code>search</code> 返回的每一行匹配查询的结果。这也是一个好的时机，从 <code>main</code> 函数中移除显示查询和文件路径的 <code>println!</code> 调用，以便我们的程序只打印搜索结果（如果未发生错误）。</p>
+<p data-x-en="Note that the search function will be collecting all the results into a vector it returns before any printing happens. This implementation could be slow to display results when searching large files because results aren’t printed as they’re found; we’ll discuss a possible way to fix this using iterators in Chapter 13.">请注意，搜索函数会将所有结果收集到一个向量中，然后才进行打印。这种实现方式在搜索大文件时可能会显示结果较慢，因为结果不是在找到时立即打印；我们将在第 13 章讨论使用迭代器可能的解决方法。</p>
 <p data-x-en="Whew! That was a lot of work, but we’ve set ourselves up for success in the future. Now it’s much easier to handle errors, and we’ve made the code more modular. Almost all of our work will be done in src/lib.rs from here on out.">呼！这是一项艰巨的工作，但我们已经为未来的成功奠定了基础。现在处理错误变得更加容易，而且我们使代码更加模块化。从现在开始，我们几乎所有的工件都将在<em>src/lib.rs</em>中完成。</p>
 <p data-x-en="Let’s take advantage of this newfound modularity by doing something that would have been difficult with the old code but is easy with the new code: we’ll write some tests!">让我们利用这种新获得的模块化特性来做一些在旧代码中很难但在新代码中很容易的事情：我们将编写一些测试！</p>
 

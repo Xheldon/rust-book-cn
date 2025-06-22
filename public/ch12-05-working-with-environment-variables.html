@@ -241,43 +241,12 @@ blockquote {
                 <div id="content" class="content">
                     <main>
                         <h2 id="working-with-environment-variables"><a class="header" href="#working-with-environment-variables">处理环境变量</a></h2>
-<p data-x-en="We’ll improve minigrep by adding an extra feature: an option for case-insensitive searching that the user can turn on via an environment variable. We could make this feature a command line option and require that users enter it each time they want it to apply, but by instead making it an environment variable, we allow our users to set the environment variable once and have all their searches be case insensitive in that terminal session.">我们将通过添加一个额外的功能来改进<code>minigrep</code>：一个用户可以通过环境变量启用的不区分大小写的搜索选项。我们本可以将此功能设为命令行选项，并要求用户每次使用时都输入，但通过将其设为环境变量，我们允许用户一次性设置环境变量，从而在该终端会话中使所有搜索都不区分大小写。</p>
+<p data-x-en="We’ll improve the minigrep binary by adding an extra feature: an option for case-insensitive searching that the user can turn on via an environment variable. We could make this feature a command line option and require that users enter it each time they want it to apply, but by instead making it an environment variable, we allow our users to set the environment variable once and have all their searches be case insensitive in that terminal session.">我们将通过添加一个额外的功能来改进 <code>minigrep</code> 二进制文件：一个用户可以通过环境变量启用的不区分大小写的搜索选项。我们本可以将此功能设为命令行选项，并要求用户每次使用时都输入，但通过将其设为环境变量，我们允许用户一次性设置环境变量，从而在该终端会话中使所有搜索都不区分大小写。</p>
 <h3 id="writing-a-failing-test-for-the-case-insensitive-search-function"><a class="header" href="#writing-a-failing-test-for-the-case-insensitive-search-function">为不区分大小写的 <code>search</code> 函数编写一个失败的测试</a></h3>
-<p data-x-en="We first add a new search_case_insensitive function that will be called when the environment variable has a value. We’ll continue to follow the TDD process, so the first step is again to write a failing test. We’ll add a new test for the new search_case_insensitive function and rename our old test from one_result to case_sensitive to clarify the differences between the two tests, as shown in Listing 12-20.">我们首先添加一个新的<code>search_case_insensitive</code>函数，当环境变量有值时将调用该函数。我们将继续遵循TDD过程，因此第一步同样是编写一个失败的测试。我们将为新的<code>search_case_insensitive</code>函数添加一个新的测试，并将我们旧的测试从<code>one_result</code>重命名为<code>case_sensitive</code>，以澄清这两个测试之间的区别，如清单12-20所示。</p>
+<p data-x-en="We first add a new search_case_insensitive function to the minigrep library that will be called when the environment variable has a value. We’ll continue to follow the TDD process, so the first step is again to write a failing test. We’ll add a new test for the new search_case_insensitive function and rename our old test from one_result to case_sensitive to clarify the differences between the two tests, as shown in Listing 12-20.">我们首先在 <code>minigrep</code> 库中添加一个新的 <code>search_case_insensitive</code> 函数，当环境变量有值时将调用该函数。我们将继续遵循 TDD 过程，因此第一步同样是编写一个失败的测试。我们将为新的 <code>search_case_insensitive</code> 函数添加一个新的测试，并将我们的旧测试从 <code>one_result</code> 重命名为 <code>case_sensitive</code>，以澄清这两个测试之间的区别，如清单 12-20 所示。</p>
 <figure class="listing" id="listing-12-20">
 <span class="file-name">Filename: src/lib.rs</span>
-<pre><code class="language-rust ignore does_not_compile"><span class="boring">use std::error::Error;
-</span><span class="boring">use std::fs;
-</span><span class="boring">
-</span><span class="boring">pub struct Config {
-</span><span class="boring">    pub query: String,
-</span><span class="boring">    pub file_path: String,
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">impl Config {
-</span><span class="boring">    pub fn build(args: &amp;[String]) -&gt; Result&lt;Config, &amp;'static str&gt; {
-</span><span class="boring">        if args.len() &lt; 3 {
-</span><span class="boring">            return Err("not enough arguments");
-</span><span class="boring">        }
-</span><span class="boring">
-</span><span class="boring">        let query = args[1].clone();
-</span><span class="boring">        let file_path = args[2].clone();
-</span><span class="boring">
-</span><span class="boring">        Ok(Config { query, file_path })
-</span><span class="boring">    }
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">pub fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
-</span><span class="boring">    let contents = fs::read_to_string(config.file_path)?;
-</span><span class="boring">
-</span><span class="boring">    for line in search(&amp;config.query, &amp;contents) {
-</span><span class="boring">        println!("{line}");
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    Ok(())
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
+<pre><code class="language-rust ignore does_not_compile"><span class="boring">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
 </span><span class="boring">    let mut results = Vec::new();
 </span><span class="boring">
 </span><span class="boring">    for line in contents.lines() {
@@ -328,38 +297,7 @@ Trust me.";
 <p data-x-en="The search_case_insensitive function, shown in Listing 12-21, will be almost the same as the search function. The only difference is that we’ll lowercase the query and each line so that whatever the case of the input arguments, they’ll be the same case when we check whether the line contains the query."><code>search_case_insensitive</code> 函数，如清单 12-21 所示，将几乎与 <code>search</code> 函数相同。唯一的区别是我们将把 <code>query</code> 和每个 <code>line</code> 转换为小写，这样无论输入参数的大小写如何，在检查行是否包含查询时，它们的大小写将相同。</p>
 <figure class="listing" id="listing-12-21">
 <span class="file-name">Filename: src/lib.rs</span>
-<pre><code class="language-rust noplayground"><span class="boring">use std::error::Error;
-</span><span class="boring">use std::fs;
-</span><span class="boring">
-</span><span class="boring">pub struct Config {
-</span><span class="boring">    pub query: String,
-</span><span class="boring">    pub file_path: String,
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">impl Config {
-</span><span class="boring">    pub fn build(args: &amp;[String]) -&gt; Result&lt;Config, &amp;'static str&gt; {
-</span><span class="boring">        if args.len() &lt; 3 {
-</span><span class="boring">            return Err("not enough arguments");
-</span><span class="boring">        }
-</span><span class="boring">
-</span><span class="boring">        let query = args[1].clone();
-</span><span class="boring">        let file_path = args[2].clone();
-</span><span class="boring">
-</span><span class="boring">        Ok(Config { query, file_path })
-</span><span class="boring">    }
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">pub fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
-</span><span class="boring">    let contents = fs::read_to_string(config.file_path)?;
-</span><span class="boring">
-</span><span class="boring">    for line in search(&amp;config.query, &amp;contents) {
-</span><span class="boring">        println!("{line}");
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    Ok(())
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
+<pre><code class="language-rust noplayground"><span class="boring">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
 </span><span class="boring">    let mut results = Vec::new();
 </span><span class="boring">
 </span><span class="boring">    for line in contents.lines() {
@@ -420,7 +358,7 @@ Trust me.";
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-12-21">Listing 12-21</a>: Defining the <code>search_case_insensitive</code> function to lowercase the query and the line before comparing them</figcaption>
 </figure>
-<p data-x-en="First we lowercase the query string and store it in a new variable with the same name, shadowing the original query. Calling to_lowercase on the query is necessary so that no matter whether the user’s query is &quot;rust&quot;, &quot;RUST&quot;, &quot;Rust&quot;, or &quot;rUsT&quot;, we’ll treat the query as if it were &quot;rust&quot; and be insensitive to the case. While to_lowercase will handle basic Unicode, it won’t be 100% accurate. If we were writing a real application, we’d want to do a bit more work here, but this section is about environment variables, not Unicode, so we’ll leave it at that here.">首先我们将 <code>query</code> 字符串转换为小写，并将其存储在一个同名的新变量中，覆盖原始的 <code>query</code>。对查询调用 <code>to_lowercase</code> 是必要的，这样无论用户的查询是 <code>"rust"</code>、<code>"RUST"</code>、<code>"Rust"</code> 还是 <code>"rUsT"</code>，我们都会将其视为 <code>"rust"</code> 并忽略大小写。虽然 <code>to_lowercase</code> 会处理基本的 Unicode，但它不会 100% 准确。如果我们正在编写一个真实的应用程序，我们在这里需要做更多的工作，但本节是关于环境变量的，而不是 Unicode，所以我们在这里就不再深入了。</p>
+<p data-x-en="First we lowercase the query string and store it in a new variable with the same name, shadowing the original query. Calling to_lowercase on the query is necessary so that no matter whether the user’s query is &quot;rust&quot;, &quot;RUST&quot;, &quot;Rust&quot;, or &quot;``rUsT``&quot;, we’ll treat the query as if it were &quot;rust&quot; and be insensitive to the case. While to_lowercase will handle basic Unicode, it won’t be 100 percent accurate. If we were writing a real application, we’d want to do a bit more work here, but this section is about environment variables, not Unicode, so we’ll leave it at that here.">首先我们将 <code>query</code> 字符串转换为小写，并将其存储在一个同名的新变量中，覆盖原始的 <code>query</code>。对查询调用 <code>to_lowercase</code> 是必要的，这样无论用户的查询是 <code>"rust"</code>、<code>"RUST"</code>、<code>"Rust"</code> 还是 <code>"``rUsT``"</code>，我们都会将其视为 <code>"rust"</code> 并忽略大小写。虽然 <code>to_lowercase</code> 会处理基本的 Unicode，但它不会 100% 准确。如果我们正在编写一个真实的应用程序，我们在这里需要做更多的工作，但本节是关于环境变量的，而不是 Unicode，所以我们在这里就不再深入了。</p>
 <p data-x-en="Note that query is now a String rather than a string slice because calling to_lowercase creates new data rather than referencing existing data. Say the query is &quot;rUsT&quot;, as an example: that string slice doesn’t contain a lowercase u or t for us to use, so we have to allocate a new String containing &quot;rust&quot;. When we pass query as an argument to the contains method now, we need to add an ampersand because the signature of contains is defined to take a string slice.">注意，<code>query</code> 现在是一个 <code>String</code> 而不是一个字符串切片，因为调用 <code>to_lowercase</code> 会创建新数据而不是引用现有数据。以 <code>"rUsT"</code> 为例：该字符串切片中不包含小写的 <code>u</code> 或 <code>t</code> 供我们使用，所以我们必须分配一个包含 <code>"rust"</code> 的新 <code>String</code>。当我们现在将 <code>query</code> 作为参数传递给 <code>contains</code> 方法时，我们需要添加一个取地址符，因为 <code>contains</code> 的签名定义为接受一个字符串切片。</p>
 <p data-x-en="Next, we add a call to to_lowercase on each line to lowercase all characters. Now that we’ve converted line and query to lowercase, we’ll find matches no matter what the case of the query is.">接下来，我们在每个<code>line</code>上调用<code>to_lowercase</code>方法，将所有字符转换为小写。现在我们已经将<code>line</code>和<code>query</code>转换为小写，无论查询的大小写如何，我们都能找到匹配项。</p>
 <p data-x-en="Let’s see if this implementation passes the tests:">让我们看看这个实现是否能通过测试：</p>
@@ -449,9 +387,30 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 
 </code></pre>
 <p data-x-en="Great! They passed. Now, let’s call the new search_case_insensitive function from the run function. First we’ll add a configuration option to the Config struct to switch between case-sensitive and case-insensitive search. Adding this field will cause compiler errors because we aren’t initializing this field anywhere yet:">很好！它们通过了。现在，让我们从 <code>run</code> 函数中调用新的 <code>search_case_insensitive</code> 函数。首先我们将在 <code>Config</code> 结构体中添加一个配置选项，以在区分大小写和不区分大小写的搜索之间切换。添加此字段会导致编译错误，因为我们还没有在任何地方初始化此字段：</p>
-<p data-x-en="Filename: src/lib.rs"><span class="filename">文件名: src/lib.rs</span></p>
-<pre><code class="language-rust ignore does_not_compile"><span class="boring">use std::error::Error;
+<p data-x-en="Filename: src/main.rs"><span class="filename">文件名: src/main.rs</span></p>
+<pre><code class="language-rust ignore does_not_compile"><span class="boring">use std::env;
+</span><span class="boring">use std::error::Error;
 </span><span class="boring">use std::fs;
+</span><span class="boring">use std::process;
+</span><span class="boring">
+</span><span class="boring">use minigrep::{search, search_case_insensitive};
+</span><span class="boring">
+</span><span class="boring">// --snip--
+</span><span class="boring">
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    let args: Vec&lt;String&gt; = env::args().collect();
+</span><span class="boring">
+</span><span class="boring">    let config = Config::build(&amp;args).unwrap_or_else(|err| {
+</span><span class="boring">        println!("Problem parsing arguments: {err}");
+</span><span class="boring">        process::exit(1);
+</span><span class="boring">    });
+</span><span class="boring">
+</span><span class="boring">    if let Err(e) = run(config) {
+</span><span class="boring">        println!("Application error: {e}");
+</span><span class="boring">        process::exit(1);
+</span><span class="boring">    }
+</span><span class="boring">}
 </span><span class="boring">
 </span>pub struct Config {
     pub query: String,
@@ -460,7 +419,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 }
 <span class="boring">
 </span><span class="boring">impl Config {
-</span><span class="boring">    pub fn build(args: &amp;[String]) -&gt; Result&lt;Config, &amp;'static str&gt; {
+</span><span class="boring">    fn build(args: &amp;[String]) -&gt; Result&lt;Config, &amp;'static str&gt; {
 </span><span class="boring">        if args.len() &lt; 3 {
 </span><span class="boring">            return Err("not enough arguments");
 </span><span class="boring">        }
@@ -472,7 +431,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 </span><span class="boring">    }
 </span><span class="boring">}
 </span><span class="boring">
-</span><span class="boring">pub fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
+</span><span class="boring">fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
 </span><span class="boring">    let contents = fs::read_to_string(config.file_path)?;
 </span><span class="boring">
 </span><span class="boring">    let results = if config.ignore_case {
@@ -486,72 +445,33 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    Ok(())
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
-</span><span class="boring">    let mut results = Vec::new();
-</span><span class="boring">
-</span><span class="boring">    for line in contents.lines() {
-</span><span class="boring">        if line.contains(query) {
-</span><span class="boring">            results.push(line);
-</span><span class="boring">        }
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    results
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">pub fn search_case_insensitive&lt;'a&gt;(
-</span><span class="boring">    query: &amp;str,
-</span><span class="boring">    contents: &amp;'a str,
-</span><span class="boring">) -&gt; Vec&lt;&amp;'a str&gt; {
-</span><span class="boring">    let query = query.to_lowercase();
-</span><span class="boring">    let mut results = Vec::new();
-</span><span class="boring">
-</span><span class="boring">    for line in contents.lines() {
-</span><span class="boring">        if line.to_lowercase().contains(&amp;query) {
-</span><span class="boring">            results.push(line);
-</span><span class="boring">        }
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    results
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">#[cfg(test)]
-</span><span class="boring">mod tests {
-</span><span class="boring">    use super::*;
-</span><span class="boring">
-</span><span class="boring">    #[test]
-</span><span class="boring">    fn case_sensitive() {
-</span><span class="boring">        let query = "duct";
-</span><span class="boring">        let contents = "\
-</span><span class="boring">Rust:
-</span><span class="boring">safe, fast, productive.
-</span><span class="boring">Pick three.
-</span><span class="boring">Duct tape.";
-</span><span class="boring">
-</span><span class="boring">        assert_eq!(vec!["safe, fast, productive."], search(query, contents));
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    #[test]
-</span><span class="boring">    fn case_insensitive() {
-</span><span class="boring">        let query = "rUsT";
-</span><span class="boring">        let contents = "\
-</span><span class="boring">Rust:
-</span><span class="boring">safe, fast, productive.
-</span><span class="boring">Pick three.
-</span><span class="boring">Trust me.";
-</span><span class="boring">
-</span><span class="boring">        assert_eq!(
-</span><span class="boring">            vec!["Rust:", "Trust me."],
-</span><span class="boring">            search_case_insensitive(query, contents)
-</span><span class="boring">        );
-</span><span class="boring">    }
 </span><span class="boring">}</span></code></pre>
 <p data-x-en="We added the ignore_case field that holds a Boolean. Next, we need the run function to check the ignore_case field’s value and use that to decide whether to call the search function or the search_case_insensitive function, as shown in Listing 12-22. This still won’t compile yet.">我们添加了持有布尔值的<code>ignore_case</code>字段。接下来，我们需要<code>run</code>函数检查<code>ignore_case</code>字段的值，并使用该值来决定调用<code>search</code>函数还是<code>search_case_insensitive</code>函数，如列表12-22所示。这仍然无法编译。</p>
 <figure class="listing" id="listing-12-22">
-<span class="file-name">Filename: src/lib.rs</span>
-<pre><code class="language-rust ignore does_not_compile"><span class="boring">use std::error::Error;
+<span class="file-name">Filename: src/main.rs</span>
+<pre><code class="language-rust ignore does_not_compile"><span class="boring">use std::env;
+</span><span class="boring">use std::error::Error;
 </span><span class="boring">use std::fs;
+</span><span class="boring">use std::process;
+</span><span class="boring">
+</span>use minigrep::{search, search_case_insensitive};
+
+// --snip--
+
+<span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    let args: Vec&lt;String&gt; = env::args().collect();
+</span><span class="boring">
+</span><span class="boring">    let config = Config::build(&amp;args).unwrap_or_else(|err| {
+</span><span class="boring">        println!("Problem parsing arguments: {err}");
+</span><span class="boring">        process::exit(1);
+</span><span class="boring">    });
+</span><span class="boring">
+</span><span class="boring">    if let Err(e) = run(config) {
+</span><span class="boring">        println!("Application error: {e}");
+</span><span class="boring">        process::exit(1);
+</span><span class="boring">    }
+</span><span class="boring">}
 </span><span class="boring">
 </span><span class="boring">pub struct Config {
 </span><span class="boring">    pub query: String,
@@ -560,7 +480,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 </span><span class="boring">}
 </span><span class="boring">
 </span><span class="boring">impl Config {
-</span><span class="boring">    pub fn build(args: &amp;[String]) -&gt; Result&lt;Config, &amp;'static str&gt; {
+</span><span class="boring">    fn build(args: &amp;[String]) -&gt; Result&lt;Config, &amp;'static str&gt; {
 </span><span class="boring">        if args.len() &lt; 3 {
 </span><span class="boring">            return Err("not enough arguments");
 </span><span class="boring">        }
@@ -572,7 +492,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 </span><span class="boring">    }
 </span><span class="boring">}
 </span><span class="boring">
-</span>pub fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
+</span>fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
     let contents = fs::read_to_string(config.file_path)?;
 
     let results = if config.ignore_case {
@@ -586,77 +506,32 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
     }
 
     Ok(())
-}
-<span class="boring">
-</span><span class="boring">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
-</span><span class="boring">    let mut results = Vec::new();
-</span><span class="boring">
-</span><span class="boring">    for line in contents.lines() {
-</span><span class="boring">        if line.contains(query) {
-</span><span class="boring">            results.push(line);
-</span><span class="boring">        }
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    results
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">pub fn search_case_insensitive&lt;'a&gt;(
-</span><span class="boring">    query: &amp;str,
-</span><span class="boring">    contents: &amp;'a str,
-</span><span class="boring">) -&gt; Vec&lt;&amp;'a str&gt; {
-</span><span class="boring">    let query = query.to_lowercase();
-</span><span class="boring">    let mut results = Vec::new();
-</span><span class="boring">
-</span><span class="boring">    for line in contents.lines() {
-</span><span class="boring">        if line.to_lowercase().contains(&amp;query) {
-</span><span class="boring">            results.push(line);
-</span><span class="boring">        }
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    results
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">#[cfg(test)]
-</span><span class="boring">mod tests {
-</span><span class="boring">    use super::*;
-</span><span class="boring">
-</span><span class="boring">    #[test]
-</span><span class="boring">    fn case_sensitive() {
-</span><span class="boring">        let query = "duct";
-</span><span class="boring">        let contents = "\
-</span><span class="boring">Rust:
-</span><span class="boring">safe, fast, productive.
-</span><span class="boring">Pick three.
-</span><span class="boring">Duct tape.";
-</span><span class="boring">
-</span><span class="boring">        assert_eq!(vec!["safe, fast, productive."], search(query, contents));
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    #[test]
-</span><span class="boring">    fn case_insensitive() {
-</span><span class="boring">        let query = "rUsT";
-</span><span class="boring">        let contents = "\
-</span><span class="boring">Rust:
-</span><span class="boring">safe, fast, productive.
-</span><span class="boring">Pick three.
-</span><span class="boring">Trust me.";
-</span><span class="boring">
-</span><span class="boring">        assert_eq!(
-</span><span class="boring">            vec!["Rust:", "Trust me."],
-</span><span class="boring">            search_case_insensitive(query, contents)
-</span><span class="boring">        );
-</span><span class="boring">    }
-</span><span class="boring">}</span></code></pre>
+}</code></pre>
 <figcaption><a href="#listing-12-22">Listing 12-22</a>: Calling either <code>search</code> or <code>search_case_insensitive</code> based on the value in <code>config.ignore_case</code></figcaption>
 </figure>
-<p data-x-en="Finally, we need to check for the environment variable. The functions for working with environment variables are in the env module in the standard library, so we bring that module into scope at the top of src/lib.rs. Then we’ll use the var function from the env module to check to see if any value has been set for an environment variable named IGNORE_CASE, as shown in Listing 12-23.">最后，我们需要检查环境变量。处理环境变量的函数在标准库的<code>env</code>模块中，因此我们在<em>src/lib.rs</em>的顶部将该模块引入作用域。然后我们将使用<code>env</code>模块中的<code>var</code>函数来检查是否为名为<code>IGNORE_CASE</code>的环境变量设置了任何值，如清单12-23所示。</p>
+<p data-x-en="Finally, we need to check for the environment variable. The functions for working with environment variables are in the env module in the standard library, which is already in scope at the top of src/main.rs. We’ll use the var function from the env module to check to see if any value has been set for an environment variable named IGNORE_CASE, as shown in Listing 12-23.">最后，我们需要检查环境变量。处理环境变量的函数在标准库的<code>env</code>模块中，该模块已经在<em>src/main.rs</em>的顶部范围内。我们将使用<code>env</code>模块中的<code>var</code>函数来检查是否为名为<code>IGNORE_CASE</code>的环境变量设置了任何值，如清单12-23所示。</p>
 <figure class="listing" id="listing-12-23">
-<span class="file-name">Filename: src/lib.rs</span>
-<pre><code class="language-rust noplayground">use std::env;
-// --snip--
-
-<span class="boring">use std::error::Error;
+<span class="file-name">Filename: src/main.rs</span>
+<pre><code class="language-rust ignore noplayground"><span class="boring">use std::env;
+</span><span class="boring">use std::error::Error;
 </span><span class="boring">use std::fs;
+</span><span class="boring">use std::process;
+</span><span class="boring">
+</span><span class="boring">use minigrep::{search, search_case_insensitive};
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    let args: Vec&lt;String&gt; = env::args().collect();
+</span><span class="boring">
+</span><span class="boring">    let config = Config::build(&amp;args).unwrap_or_else(|err| {
+</span><span class="boring">        println!("Problem parsing arguments: {err}");
+</span><span class="boring">        process::exit(1);
+</span><span class="boring">    });
+</span><span class="boring">
+</span><span class="boring">    if let Err(e) = run(config) {
+</span><span class="boring">        println!("Application error: {e}");
+</span><span class="boring">        process::exit(1);
+</span><span class="boring">    }
+</span><span class="boring">}
 </span><span class="boring">
 </span><span class="boring">pub struct Config {
 </span><span class="boring">    pub query: String,
@@ -665,7 +540,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 </span><span class="boring">}
 </span><span class="boring">
 </span>impl Config {
-    pub fn build(args: &amp;[String]) -&gt; Result&lt;Config, &amp;'static str&gt; {
+    fn build(args: &amp;[String]) -&gt; Result&lt;Config, &amp;'static str&gt; {
         if args.len() &lt; 3 {
             return Err("not enough arguments");
         }
@@ -683,7 +558,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
     }
 }
 <span class="boring">
-</span><span class="boring">pub fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
+</span><span class="boring">fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
 </span><span class="boring">    let contents = fs::read_to_string(config.file_path)?;
 </span><span class="boring">
 </span><span class="boring">    let results = if config.ignore_case {
@@ -697,66 +572,6 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    Ok(())
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
-</span><span class="boring">    let mut results = Vec::new();
-</span><span class="boring">
-</span><span class="boring">    for line in contents.lines() {
-</span><span class="boring">        if line.contains(query) {
-</span><span class="boring">            results.push(line);
-</span><span class="boring">        }
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    results
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">pub fn search_case_insensitive&lt;'a&gt;(
-</span><span class="boring">    query: &amp;str,
-</span><span class="boring">    contents: &amp;'a str,
-</span><span class="boring">) -&gt; Vec&lt;&amp;'a str&gt; {
-</span><span class="boring">    let query = query.to_lowercase();
-</span><span class="boring">    let mut results = Vec::new();
-</span><span class="boring">
-</span><span class="boring">    for line in contents.lines() {
-</span><span class="boring">        if line.to_lowercase().contains(&amp;query) {
-</span><span class="boring">            results.push(line);
-</span><span class="boring">        }
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    results
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">#[cfg(test)]
-</span><span class="boring">mod tests {
-</span><span class="boring">    use super::*;
-</span><span class="boring">
-</span><span class="boring">    #[test]
-</span><span class="boring">    fn case_sensitive() {
-</span><span class="boring">        let query = "duct";
-</span><span class="boring">        let contents = "\
-</span><span class="boring">Rust:
-</span><span class="boring">safe, fast, productive.
-</span><span class="boring">Pick three.
-</span><span class="boring">Duct tape.";
-</span><span class="boring">
-</span><span class="boring">        assert_eq!(vec!["safe, fast, productive."], search(query, contents));
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    #[test]
-</span><span class="boring">    fn case_insensitive() {
-</span><span class="boring">        let query = "rUsT";
-</span><span class="boring">        let contents = "\
-</span><span class="boring">Rust:
-</span><span class="boring">safe, fast, productive.
-</span><span class="boring">Pick three.
-</span><span class="boring">Trust me.";
-</span><span class="boring">
-</span><span class="boring">        assert_eq!(
-</span><span class="boring">            vec!["Rust:", "Trust me."],
-</span><span class="boring">            search_case_insensitive(query, contents)
-</span><span class="boring">        );
-</span><span class="boring">    }
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-12-23">Listing 12-23</a>: Checking for any value in an environment variable named <code>IGNORE_CASE</code></figcaption>
 </figure>

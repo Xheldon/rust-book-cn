@@ -194,5 +194,25 @@
   "Using the search Function in the run Function": {
     "_translate": "<a class=\"header\" href=\"#using-the-search-function-in-the-run-function\">在 <code>run</code> 函数中使用 <code>search</code> 函数</a>",
     "_note": ""
+  },
+  "Now that we have the search logic in src/lib.rs separate from the main function, it’s much easier to write tests for the core functionality of our code. We can call functions directly with various arguments and check return values without having to call our binary from the command line.": {
+    "_translate": "现在我们已经将搜索逻辑放在 <em>src/lib.rs</em> 中，与 <code>main</code>\n函数分离，为我们的代码核心功能编写测试变得更加容易。我们可以直接调用带有不同参数的函数并检查返回值，而无需从命令行调用我们的二进制文件。",
+    "_note": ""
+  },
+  "In src/lib.rs, we’ll add a tests module with a test function, as we did in Chapter 11. The test function specifies the behavior we want the search function to have: it will take a query and the text to search, and it will return only the lines from the text that contain the query. Listing 12-15 shows this test.": {
+    "_translate": "在 <em>src/lib.rs</em> 中，我们将添加一个 <code>tests</code> 模块，其中包含一个测试函数，就像我们在 <a href=\"ch11-01-writing-tests.html#the-anatomy-of-a-test-function\">第 11 章</a><!-- ignore --> 中所做的那样。测试函数指定了我们希望 <code>search</code> 函数具有的行为：它将接受一个查询和要搜索的文本，并仅返回包含查询的文本行。列表 12-15 显示了这个测试。",
+    "_note": ""
+  },
+  "If we run this test, it will currently fail because the unimplemented! macro panics with the message “not implemented”. In accordance with TDD principles, we’ll take a small step of adding just enough code to get the test to not panic when calling the function by defining the search function to always return an empty vector, as shown in Listing 12-16. Then the test should compile and fail because an empty vector doesn’t match a vector containing the line \"safe, fast, productive.\"": {
+    "_translate": "如果我们运行这个测试，它目前会失败，因为<code>unimplemented!</code>宏会以“未实现”消息引发恐慌。根据TDD原则，我们将采取一个小步骤，添加足够的代码以使调用该函数时测试不会引发恐慌，即定义<code>search</code>函数始终返回一个空向量，如清单12-16所示。然后测试应该能够编译并通过，因为一个空向量不匹配包含行<code>\"safe, fast, productive.\"</code>的向量。",
+    "_note": ""
+  },
+  "Now let’s discuss why we need to define an explicit lifetime 'a in the signature of search and use that lifetime with the contents argument and the return value. Recall in Chapter 10 that the lifetime parameters specify which argument lifetime is connected to the lifetime of the return value. In this case, we indicate that the returned vector should contain string slices that reference slices of the argument contents (rather than the argument query).": {
+    "_translate": "现在让我们讨论为什么需要在 <code>search</code> 的签名中定义一个显式的生命周期 <code>'a</code>，并使用该生命周期与 <code>contents</code> 参数和返回值。回想 <a href=\"ch10-03-lifetime-syntax.html\">第 10 章</a><!-- ignore --> 中所述，生命周期参数指定了哪个参数的生命周期与返回值的生命周期相关联。在这种情况下，我们表示返回的向量应包含引用参数 <code>contents</code>（而不是参数 <code>query</code>）的字符串切片。",
+    "_note": ""
+  },
+  "Rust can’t know which of the two parameters we need for the output, so we need to tell it explicitly. Note that the help text suggests specifying the same lifetime parameter for all the parameters and the output type, which is incorrect! Because contents is the parameter that contains all of our text and we want to return the parts of that text that match, we know contents is the only parameter that should be connected to the return value using the lifetime syntax.": {
+    "_translate": "Rust 无法知道我们输出需要的是哪两个参数中的哪一个，所以我们需要明确地告诉它。请注意，帮助文本建议为所有参数和输出类型指定相同的生命周期参数，这是不正确的！因为 <code>contents</code> 是包含我们所有文本的参数，而我们希望返回与之匹配的文本部分，所以我们知道 <code>contents</code> 是唯一应该使用生命周期语法与返回值关联的参数。",
+    "_note": ""
   }
 }

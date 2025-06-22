@@ -118,5 +118,25 @@
   "First we lowercase the query string and store it in a new variable with the same name, shadowing the original query. Calling to_lowercase on the query is necessary so that no matter whether the user’s query is \"rust\", \"RUST\", \"Rust\", or \"rUsT\", we’ll treat the query as if it were \"rust\" and be insensitive to the case. While to_lowercase will handle basic Unicode, it won’t be 100% accurate. If we were writing a real application, we’d want to do a bit more work here, but this section is about environment variables, not Unicode, so we’ll leave it at that here.": {
     "_translate": "首先我们将 <code>query</code> 字符串转换为小写，并将其存储在一个同名的新变量中，覆盖原始的 <code>query</code>。对查询调用 <code>to_lowercase</code> 是必要的，这样无论用户的查询是 <code>\"rust\"</code>、<code>\"RUST\"</code>、<code>\"Rust\"</code> 还是 <code>\"rUsT\"</code>，我们都会将其视为 <code>\"rust\"</code> 并忽略大小写。虽然 <code>to_lowercase</code> 会处理基本的 Unicode，但它不会 100% 准确。如果我们正在编写一个真实的应用程序，我们在这里需要做更多的工作，但本节是关于环境变量的，而不是 Unicode，所以我们在这里就不再深入了。",
     "_note": ""
+  },
+  "We’ll improve the minigrep binary by adding an extra feature: an option for case-insensitive searching that the user can turn on via an environment variable. We could make this feature a command line option and require that users enter it each time they want it to apply, but by instead making it an environment variable, we allow our users to set the environment variable once and have all their searches be case insensitive in that terminal session.": {
+    "_translate": "我们将通过添加一个额外的功能来改进 <code>minigrep</code> 二进制文件：一个用户可以通过环境变量启用的不区分大小写的搜索选项。我们本可以将此功能设为命令行选项，并要求用户每次使用时都输入，但通过将其设为环境变量，我们允许用户一次性设置环境变量，从而在该终端会话中使所有搜索都不区分大小写。",
+    "_note": ""
+  },
+  "We first add a new search_case_insensitive function to the minigrep library that will be called when the environment variable has a value. We’ll continue to follow the TDD process, so the first step is again to write a failing test. We’ll add a new test for the new search_case_insensitive function and rename our old test from one_result to case_sensitive to clarify the differences between the two tests, as shown in Listing 12-20.": {
+    "_translate": "我们首先在 <code>minigrep</code> 库中添加一个新的 <code>search_case_insensitive</code> 函数，当环境变量有值时将调用该函数。我们将继续遵循 TDD 过程，因此第一步同样是编写一个失败的测试。我们将为新的 <code>search_case_insensitive</code> 函数添加一个新的测试，并将我们的旧测试从 <code>one_result</code> 重命名为 <code>case_sensitive</code>，以澄清这两个测试之间的区别，如清单 12-20 所示。",
+    "_note": ""
+  },
+  "Filename: src/main.rs": {
+    "_translate": "<span class=\"filename\">文件名: src/main.rs</span>",
+    "_note": ""
+  },
+  "Finally, we need to check for the environment variable. The functions for working with environment variables are in the env module in the standard library, which is already in scope at the top of src/main.rs. We’ll use the var function from the env module to check to see if any value has been set for an environment variable named IGNORE_CASE, as shown in Listing 12-23.": {
+    "_translate": "最后，我们需要检查环境变量。处理环境变量的函数在标准库的<code>env</code>模块中，该模块已经在<em>src/main.rs</em>的顶部范围内。我们将使用<code>env</code>模块中的<code>var</code>函数来检查是否为名为<code>IGNORE_CASE</code>的环境变量设置了任何值，如清单12-23所示。",
+    "_note": ""
+  },
+  "First we lowercase the query string and store it in a new variable with the same name, shadowing the original query. Calling to_lowercase on the query is necessary so that no matter whether the user’s query is \"rust\", \"RUST\", \"Rust\", or \"``rUsT``\", we’ll treat the query as if it were \"rust\" and be insensitive to the case. While to_lowercase will handle basic Unicode, it won’t be 100 percent accurate. If we were writing a real application, we’d want to do a bit more work here, but this section is about environment variables, not Unicode, so we’ll leave it at that here.": {
+    "_translate": "首先我们将 <code>query</code> 字符串转换为小写，并将其存储在一个同名的新变量中，覆盖原始的 <code>query</code>。对查询调用 <code>to_lowercase</code> 是必要的，这样无论用户的查询是 <code>\"rust\"</code>、<code>\"RUST\"</code>、<code>\"Rust\"</code> 还是 <code>\"``rUsT``\"</code>，我们都会将其视为 <code>\"rust\"</code> 并忽略大小写。虽然 <code>to_lowercase</code> 会处理基本的 Unicode，但它不会 100% 准确。如果我们正在编写一个真实的应用程序，我们在这里需要做更多的工作，但本节是关于环境变量的，而不是 Unicode，所以我们在这里就不再深入了。",
+    "_note": ""
   }
 }

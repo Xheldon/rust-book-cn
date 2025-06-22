@@ -338,5 +338,61 @@
   "Handling Errors Returned from run in main": {
     "_translate": "<a class=\"header\" href=\"#handling-errors-returned-from-run-in-main\">处理 <code>main</code> 中 <code>run</code> 返回的错误</a>",
     "_note": ""
+  },
+  "The organizational problem of allocating responsibility for multiple tasks to the main function is common to many binary projects. As a result, many Rust programmers find it useful to split up the separate concerns of a binary program when the main function starts getting large. This process has the following steps:": {
+    "_translate": "将多个任务的责任分配给 <code>main</code> 函数的组织问题是许多二进制项目中常见的问题。因此，许多 Rust 程序员发现，当 <code>main</code> 函数开始变大时，将二进制程序的各个关注点分开是有用的。这个过程有以下步骤：",
+    "_note": ""
+  },
+  "As long as your command line parsing logic is small, it can remain in the main function.": {
+    "_translate": "只要您的命令行解析逻辑很小，它可以保留在 <code>main</code> 函数中。",
+    "_note": ""
+  },
+  "When the command line parsing logic starts getting complicated, extract it from the main function into other functions or types.": {
+    "_translate": "当命令行解析逻辑开始变得复杂时，将其从<code>main</code>函数中提取到其他函数或类型中。",
+    "_note": ""
+  },
+  "We’ll extract the functionality for parsing arguments into a function that main will call. Listing 12-5 shows the new start of the main function that calls a new function parse_config, which we’ll define in src/main.rs.": {
+    "_translate": "我们将把解析参数的功能提取到一个函数中，<code>main</code> 将调用这个函数。列表 12-5 显示了新的 <code>main</code> 函数的开头，它调用了一个新的函数 <code>parse_config</code>，我们将在 <em>src/main.rs</em> 中定义。",
+    "_note": ""
+  },
+  "This pattern is about separating concerns: main.rs handles running the program and lib.rs handles all the logic of the task at hand. Because you can’t test the main function directly, this structure lets you test all of your program’s logic by moving it out of the main function. The code that remains in the main function will be small enough to verify its correctness by reading it. Let’s rework our program by following this process.": {
+    "_translate": "这种模式是关于分离关注点的：<em>main.rs</em> 负责运行程序，而 <em>lib.rs</em> 负责处理当前任务的所有逻辑。因为不能直接测试 <code>main</code> 函数，这种结构允许你通过将逻辑移出 <code>main</code> 函数来测试程序的所有逻辑。保留在 <code>main</code> 函数中的代码将足够小，可以通过阅读来验证其正确性。让我们通过遵循这个过程来重构我们的程序。",
+    "_note": ""
+  },
+  "Extracting Logic from the main Function": {
+    "_translate": "<a class=\"header\" href=\"#extracting-logic-from-the-main-function\">从 <code>main</code> 函数中提取逻辑</a>",
+    "_note": ""
+  },
+  "Now that we’ve finished refactoring the configuration parsing, let’s turn to the program’s logic. As we stated in “Separation of Concerns for Binary Projects”, we’ll extract a function named run that will hold all the logic currently in the main function that isn’t involved with setting up configuration or handling errors. When we’re done, the main function will be concise and easy to verify by inspection, and we’ll be able to write tests for all the other logic.": {
+    "_translate": "现在我们已经完成了配置解析的重构，让我们转向程序的逻辑。正如我们在<a href=\"#separation-of-concerns-for-binary-projects\">“二进制项目中的关注点分离”</a>中所述，我们将提取一个名为<code>run</code>的函数，该函数将包含当前在<code>main</code>函数中与设置配置或处理错误无关的所有逻辑。完成后，<code>main</code>函数将简洁且易于通过检查验证，我们还将能够为所有其他逻辑编写测试。",
+    "_note": ""
+  },
+  "Listing 12-11 shows the small, incremental improvement of extracting a run function.": {
+    "_translate": "列表 12-11 显示了提取一个 <code>run</code> 函数的小幅、渐进的改进。",
+    "_note": ""
+  },
+  "First, let’s define the search function signature in src/lib.rs as shown in Listing 12-13, with a body that calls the unimplemented! macro. We’ll explain the signature in more detail when we fill in the implementation.": {
+    "_translate": "首先，在<em>src/lib.rs</em>中定义<code>search</code>函数签名，如清单12-13所示，函数体调用<code>unimplemented!</code>宏。我们将在填充实现时详细解释签名。",
+    "_note": ""
+  },
+  "Let’s define the code responsible for searching text in src/lib.rs rather than in src/main.rs, which will let us (or anyone else using our minigrep library) call the searching function from more contexts than our minigrep binary.": {
+    "_translate": "让我们在 <em>src/lib.rs</em> 中定义负责搜索文本的代码，而不是在 <em>src/main.rs</em> 中，这将使我们（或任何使用我们的 <code>minigrep</code> 库的人）可以从更多上下文中调用搜索函数，而不仅仅是我们的 <code>minigrep</code> 二进制文件。",
+    "_note": ""
+  },
+  "Now we need to bring the code defined in src/lib.rs into the scope of the binary crate in src/main.rs and call it, as shown in Listing 12-14.": {
+    "_translate": "现在我们需要将定义在<em>src/lib.rs</em>中的代码引入到<em>src/main.rs</em>中的二进制包的作用域，并调用它，如清单12-14所示。",
+    "_note": ""
+  },
+  "We’ve used the pub keyword on the function definition to designate search as part of our library crate’s public API. We now have a library crate that we can use from our binary crate and that we can test!": {
+    "_translate": "我们已经在函数定义中使用了<code>pub</code>关键字，将<code>search</code>指定为我们库crate的公共API的一部分。我们现在有一个可以从我们的二进制crate中使用并且可以测试的库crate！",
+    "_note": ""
+  },
+  "Note that the search function will be collecting all the results into a vector it returns before any printing happens. This implementation could be slow to display results when searching large files because results aren’t printed as they’re found; we’ll discuss a possible way to fix this using iterators in Chapter 13.": {
+    "_translate": "请注意，搜索函数会将所有结果收集到一个向量中，然后才进行打印。这种实现方式在搜索大文件时可能会显示结果较慢，因为结果不是在找到时立即打印；我们将在第 13 章讨论使用迭代器可能的解决方法。",
+    "_note": ""
+  },
+  "We add a use minigrep::search line to bring the search function from the library crate into the binary crate’s scope. Then, in the run function, rather than printing out the contents of the file, we call the search function and pass the config.query value and contents as arguments. Then run will use a for loop to print each line returned from search that matched the query. This is also a good time to remove the println! calls in the main function that displayed the query and the file path so that our program only prints the search results (if no errors occur).": {
+    "_translate": "我们添加了一行 <code>use minigrep::search</code>，将 <code>search</code> 函数从库 crate 引入到二进制 crate 的作用域中。然后，在 <code>run</code> 函数中，我们不是打印文件的内容，而是调用 <code>search</code> 函数并将 <code>config.query</code> 值和 <code>contents</code> 作为参数传递。然后 <code>run</code> 将使用 <code>for</code> 循环打印从 <code>search</code> 返回的每一行匹配查询的结果。这也是一个好的时机，从 <code>main</code> 函数中移除显示查询和文件路径的 <code>println!</code> 调用，以便我们的程序只打印搜索结果（如果未发生错误）。",
+    "_note": ""
   }
 }
