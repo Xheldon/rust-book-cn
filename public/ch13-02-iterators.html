@@ -252,7 +252,7 @@ blockquote {
 <span class="boring">}</span></code></pre></pre>
 <figcaption><a href="#listing-13-10">Listing 13-10</a>: Creating an iterator</figcaption>
 </figure>
-<p data-x-en="The iterator is stored in the v1_iter variable. Once we’ve created an iterator, we can use it in a variety of ways. In Listing 3-5 in Chapter 3, we iterated over an array using a for loop to execute some code on each of its items. Under the hood this implicitly created and then consumed an iterator, but we glossed over how exactly that works until now.">迭代器存储在 <code>v1_iter</code> 变量中。一旦我们创建了一个迭代器，我们就可以以多种方式使用它。在第 3 章的示例 3-5 中，我们使用 <code>for</code> 循环遍历数组，以对每个元素执行一些代码。在幕后，这隐式地创建并消耗了一个迭代器，但直到现在我们才详细说明它是如何工作的。</p>
+<p data-x-en="The iterator is stored in the v1_iter variable. Once we’ve created an iterator, we can use it in a variety of ways. In Listing 3-5, we iterated over an array using a for loop to execute some code on each of its items. Under the hood, this implicitly created and then consumed an iterator, but we glossed over how exactly that works until now.">迭代器存储在 <code>v1_iter</code> 变量中。一旦我们创建了一个迭代器，我们就可以以多种方式使用它。在清单 3-5 中，我们使用 <code>for</code> 循环遍历了一个数组，以对每个元素执行一些代码。在幕后，这隐式地创建并消耗了一个迭代器，但直到现在我们才详细说明这到底是如何工作的。</p>
 <p data-x-en="In the example in Listing 13-11, we separate the creation of the iterator from the use of the iterator in the for loop. When the for loop is called using the iterator in v1_iter, each element in the iterator is used in one iteration of the loop, which prints out each value.">在示例 13-11 中，我们将迭代器的创建与在 <code>for</code> 循环中使用迭代器分离开来。当使用 <code>v1_iter</code> 中的迭代器调用 <code>for</code> 循环时，迭代器中的每个元素都会在循环的一次迭代中被使用，从而打印出每个值。</p>
 <figure class="listing" id="listing-13-11">
 <span class="file-name">Filename: src/main.rs</span>
@@ -282,7 +282,7 @@ blockquote {
 }
 <span class="boring">}</span></code></pre></pre>
 <p data-x-en="Notice that this definition uses some new syntax: type Item and Self::Item, which are defining an associated type with this trait. We’ll talk about associated types in depth in Chapter 20. For now, all you need to know is that this code says implementing the Iterator trait requires that you also define an Item type, and this Item type is used in the return type of the next method. In other words, the Item type will be the type returned from the iterator.">请注意，此定义使用了一些新语法：<code>type Item</code> 和 <code>Self::Item</code>，它们是在此特质中定义一个 <em>关联类型</em>。我们将在第 20 章详细讨论关联类型。现在，你只需要知道这段代码表示实现 <code>Iterator</code> 特质需要同时定义一个 <code>Item</code> 类型，而这个 <code>Item</code> 类型用于 <code>next</code> 方法的返回类型。换句话说，<code>Item</code> 类型将是迭代器返回的类型。</p>
-<p data-x-en="The Iterator trait only requires implementors to define one method: the next method, which returns one item of the iterator at a time, wrapped in Some and, when iteration is over, returns None."><code>Iterator</code> 特性只需要实现者定义一个方法：即 <code>next</code> 方法，该方法每次返回迭代器的一个项，包装在 <code>Some</code> 中，当迭代结束时，返回 <code>None</code>。</p>
+<p data-x-en="The Iterator trait only requires implementors to define one method: the next method, which returns one item of the iterator at a time, wrapped in Some, and, when iteration is over, returns None."><code>Iterator</code> 特性只需要实现者定义一个方法：即 <code>next</code> 方法，该方法每次返回迭代器的一个项，包装在 <code>Some</code> 中，当迭代结束时，返回 <code>None</code>。</p>
 <p data-x-en="We can call the next method on iterators directly; Listing 13-12 demonstrates what values are returned from repeated calls to next on the iterator created from the vector.">我们可以直接在迭代器上调用 <code>next</code> 方法；列表 13-12 展示了从向量创建的迭代器中重复调用 <code>next</code> 返回的值。</p>
 <figure class="listing" id="listing-13-12">
 <span class="file-name">Filename: src/lib.rs</span>
@@ -306,7 +306,7 @@ blockquote {
 <p data-x-en="Also note that the values we get from the calls to next are immutable references to the values in the vector. The iter method produces an iterator over immutable references. If we want to create an iterator that takes ownership of v1 and returns owned values, we can call into_iter instead of iter. Similarly, if we want to iterate over mutable references, we can call iter_mut instead of iter.">还请注意，从 <code>next</code> 调用中获得的值是对向量中值的不可变引用。 <code>iter</code> 方法生成一个遍历不可变引用的迭代器。如果我们想创建一个获取 <code>v1</code> 所有权并返回拥有值的迭代器，我们可以调用 <code>into_iter</code> 而不是 <code>iter</code>。同样，如果我们想遍历可变引用，我们可以调用 <code>iter_mut</code> 而不是 <code>iter</code>。</p>
 <h3 id="methods-that-consume-the-iterator"><a class="header" href="#methods-that-consume-the-iterator">消耗迭代器的方法</a></h3>
 <p data-x-en="The Iterator trait has a number of different methods with default implementations provided by the standard library; you can find out about these methods by looking in the standard library API documentation for the Iterator trait. Some of these methods call the next method in their definition, which is why you’re required to implement the next method when implementing the Iterator trait."><code>Iterator</code> 特性有许多由标准库提供的默认实现的方法；你可以通过查看标准库 API 文档中的 <code>Iterator</code> 特性来了解这些方法。其中一些方法在其定义中调用了 <code>next</code> 方法，这就是为什么在实现 <code>Iterator</code> 特性时需要实现 <code>next</code> 方法的原因。</p>
-<p data-x-en="Methods that call next are called consuming adapters because calling them uses up the iterator. One example is the sum method, which takes ownership of the iterator and iterates through the items by repeatedly calling next, thus consuming the iterator. As it iterates through, it adds each item to a running total and returns the total when iteration is complete. Listing 13-13 has a test illustrating a use of the sum method.">调用 <code>next</code> 的方法被称为 <em>消耗适配器</em>，因为调用它们会用尽迭代器。一个例子是 <code>sum</code> 方法，它获取迭代器的所有权，并通过反复调用 <code>next</code> 遍历项目，从而消耗迭代器。在遍历过程中，它将每个项目添加到累计总数中，并在遍历完成后返回总数。列表 13-13 有一个测试说明了 <code>sum</code> 方法的使用。</p>
+<p data-x-en="Methods that call next are called consuming adapters, because calling them uses up the iterator. One example is the sum method, which takes ownership of the iterator and iterates through the items by repeatedly calling next, thus consuming the iterator. As it iterates through, it adds each item to a running total and returns the total when iteration is complete. Listing 13-13 has a test illustrating a use of the sum method.">调用 <code>next</code> 的方法被称为 <em>消耗适配器</em>，因为调用它们会用尽迭代器。一个例子是 <code>sum</code> 方法，它获取迭代器的所有权并通过反复调用 <code>next</code> 遍历项目，从而消耗迭代器。在遍历过程中，它将每个项目添加到累加总和中，并在遍历完成后返回总和。列表 13-13 有一个测试说明了 <code>sum</code> 方法的使用。</p>
 <figure class="listing" id="listing-13-13">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">#[cfg(test)]
@@ -325,10 +325,11 @@ blockquote {
 <figcaption><a href="#listing-13-13">Listing 13-13</a>: Calling the <code>sum</code> method to get the total of all items in the iterator</figcaption>
 </figure>
 <p data-x-en="We aren’t allowed to use v1_iter after the call to sum because sum takes ownership of the iterator we call it on.">我们不能在调用 <code>sum</code> 之后使用 <code>v1_iter</code>，因为 <code>sum</code> 会获取我们调用它的迭代器的所有权。</p>
-<h3 id="methods-that-produce-other-iterators"><a class="header" href="#methods-that-produce-other-iterators">生成其他迭代器的方法</a></h3>
+<h3 id="methods-that-produce-other-iterators" data-x-en="Methods That Produce Other Iterators"><a class="header" href="#methods-that-produce-other-iterators">生成其他迭代器的方法</a></h3>
 <p data-x-en="Iterator adapters are methods defined on the Iterator trait that don’t consume the iterator. Instead, they produce different iterators by changing some aspect of the original iterator."><em>迭代器适配器</em> 是定义在 <code>Iterator</code> 特性上的方法，它们不会消耗迭代器。相反，它们通过改变原始迭代器的某些方面来生成不同的迭代器。</p>
-<p data-x-en="Listing 13-14 shows an example of calling the iterator adapter method map, which takes a closure to call on each item as the items are iterated through. The map method returns a new iterator that produces the modified items. The closure here creates a new iterator in which each item from the vector will be incremented by 1:">列表13-14展示了调用迭代器适配器方法<code>map</code>的示例，该方法在迭代过程中对每个项目调用一个闭包。
-<code>map</code>方法返回一个新的迭代器，该迭代器生成修改后的项目。这里的闭包创建了一个新的迭代器，其中向量中的每个项目都将增加1：</p>
+<p data-x-en="Listing 13-14 shows an example of calling the iterator adapter method map, which takes a closure to call on each item as the items are iterated through. The map method returns a new iterator that produces the modified items. The closure here creates a new iterator in which each item from the vector will be incremented by 1.">列表 13-14 显示了调用迭代器适配器方法 <code>map</code> 的示例，
+该方法接受一个闭包，该闭包将在迭代过程中对每个项目进行调用。
+<code>map</code> 方法返回一个新的迭代器，该迭代器生成修改后的项目。这里的闭包创建了一个新的迭代器，其中向量中的每个项目都将增加 1。</p>
 <figure class="listing" id="listing-13-14">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust not_desired_behavior edition2024"><span class="boring">fn main() {
@@ -359,7 +360,7 @@ warning: `iterators` (bin "iterators") generated 1 warning
      Running `target/debug/iterators`
 </code></pre>
 <p data-x-en="The code in Listing 13-14 doesn’t do anything; the closure we’ve specified never gets called. The warning reminds us why: iterator adapters are lazy, and we need to consume the iterator here.">列表 13-14 中的代码什么也不做；我们指定的闭包从未被调用。警告提醒我们原因：迭代器适配器是惰性的，我们需要在这里消耗迭代器。</p>
-<p data-x-en="To fix this warning and consume the iterator, we’ll use the collect method, which we used in Chapter 12 with env::args in Listing 12-1. This method consumes the iterator and collects the resultant values into a collection data type.">要修复此警告并使用迭代器，我们将使用 <code>collect</code> 方法，我们在第 12 章的示例 12-1 中使用 <code>env::args</code> 时用过此方法。此方法会消耗迭代器并将结果值收集到集合数据类型中。</p>
+<p data-x-en="To fix this warning and consume the iterator, we’ll use the collect method, which we used with env::args in Listing 12-1. This method consumes the iterator and collects the resultant values into a collection data type.">要修复此警告并使用迭代器，我们将使用 <code>collect</code> 方法，我们在清单 12-1 中使用 <code>env::args</code> 时用过此方法。此方法会消耗迭代器并将结果值收集到集合数据类型中。</p>
 <p data-x-en="In Listing 13-15, we collect the results of iterating over the iterator that’s returned from the call to map into a vector. This vector will end up containing each item from the original vector, incremented by 1.">在清单 13-15 中，我们将调用 <code>map</code> 返回的迭代器进行迭代的结果收集到一个向量中。这个向量最终将包含原始向量中的每个元素，每个元素加 1。</p>
 <figure class="listing" id="listing-13-15">
 <span class="file-name">Filename: src/main.rs</span>
@@ -370,7 +371,7 @@ warning: `iterators` (bin "iterators") generated 1 warning
 
     assert_eq!(v2, vec![2, 3, 4]);
 <span class="boring">}</span></code></pre></pre>
-<figcaption><a href="#listing-13-15">Listing 13-15</a>: Calling the <code>map</code> method to create a new iterator and then calling the <code>collect</code> method to consume the new iterator and create a vector</figcaption>
+<figcaption><a href="#listing-13-15">Listing 13-15</a>: Calling the <code>map</code> method to create a new iterator, and then calling the <code>collect</code> method to consume the new iterator and create a vector</figcaption>
 </figure>
 <p data-x-en="Because map takes a closure, we can specify any operation we want to perform on each item. This is a great example of how closures let you customize some behavior while reusing the iteration behavior that the Iterator trait provides.">因为 <code>map</code> 接受一个闭包，我们可以指定要对每个项目执行的任何操作。这是闭包如何让你在重用 <code>Iterator</code> 特性提供的迭代行为的同时，自定义某些行为的一个很好的例子。</p>
 <p data-x-en="You can chain multiple calls to iterator adapters to perform complex actions in a readable way. But because all iterators are lazy, you have to call one of the consuming adapter methods to get results from calls to iterator adapters.">您可以将多个迭代器适配器的调用链在一起，以可读的方式执行复杂的操作。但由于所有迭代器都是惰性的，您必须调用其中一个消耗适配器方法才能从迭代器适配器的调用中获取结果。</p>

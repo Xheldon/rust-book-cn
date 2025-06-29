@@ -66,5 +66,13 @@
   "All of the coefficients get stored in registers, which means accessing the values is very fast. There are no bounds checks on the array access at runtime. All these optimizations that Rust is able to apply make the resultant code extremely efficient. Now that you know this, you can use iterators and closures without fear! They make code seem like it’s higher level but don’t impose a runtime performance penalty for doing so.": {
     "_translate": "所有的系数都存储在寄存器中，这意味着访问这些值非常快。在运行时对数组访问没有边界检查。所有这些Rust能够应用的优化使得生成的代码极其高效。现在你了解了这一点，可以放心地使用迭代器和闭包！它们使代码看起来像是更高层次的，但并不会因此而带来运行时性能的损失。",
     "_note": ""
+  },
+  "The two implementations have similar performance! We won’t explain the benchmark code here because the point is not to prove that the two versions are equivalent but to get a general sense of how these two implementations compare performance-wise.": {
+    "_translate": "这两种实现的性能相似！我们不会在这里解释基准测试代码，因为重点不是证明这两个版本是等效的，而是大致了解这两种实现的性能比较。",
+    "_note": ""
+  },
+  "In many cases, Rust code using iterators compiles to the same assembly you’d write by hand. Optimizations such as loop unrolling and eliminating bounds checking on array access apply and make the resultant code extremely efficient. Now that you know this, you can use iterators and closures without fear! They make code seem like it’s higher level but don’t impose a runtime performance penalty for doing so.": {
+    "_translate": "在许多情况下，使用迭代器的 Rust 代码编译后的汇编代码与你手工编写的相同。诸如循环展开和消除数组访问的边界检查等优化措施使生成的代码极其高效。现在你已经知道这一点，可以放心地使用迭代器和闭包！它们使代码看起来像是更高层次的，但并不会因此而带来运行时性能的损失。",
+    "_note": ""
   }
 }

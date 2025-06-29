@@ -50,5 +50,9 @@
   "The opt-level setting controls the number of optimizations Rust will apply to your code, with a range of 0 to 3. Applying more optimizations extends compiling time, so if you’re in development and compiling your code often, you’ll want fewer optimizations to compile faster even if the resultant code runs slower. The default opt-level for dev is therefore 0. When you’re ready to release your code, it’s best to spend more time compiling. You’ll only compile in release mode once, but you’ll run the compiled program many times, so release mode trades longer compile time for code that runs faster. That is why the default opt-level for the release profile is 3.": {
     "_translate": "<code>opt-level</code> 设置控制 Rust 将应用到你的代码的优化数量，范围从 0 到 3。应用更多的优化会延长编译时间，因此如果你正在开发中并且经常编译你的代码，你希望有更少的优化以更快地编译，即使生成的代码运行得更慢。因此，<code>dev</code> 的默认 <code>opt-level</code> 是 <code>0</code>。当你准备发布你的代码时，最好花更多时间编译。你只会一次在发布模式下编译，但你会多次运行编译后的程序，所以发布模式通过更长的编译时间换取运行更快的代码。这就是为什么 <code>release</code> 配置文件的默认 <code>opt-level</code> 是 <code>3</code>。",
     "_note": ""
+  },
+  "Cargo has two main profiles: the dev profile Cargo uses when you run cargo build, and the release profile Cargo uses when you run cargo build --release. The dev profile is defined with good defaults for development, and the release profile has good defaults for release builds.": {
+    "_translate": "Cargo 有两个主要配置文件：当你运行 <code>cargo build</code> 时 Cargo 使用的 <code>dev</code> 配置文件，以及当你运行 <code>cargo build --release</code> 时 Cargo 使用的 <code>release</code> 配置文件。<code>dev</code> 配置文件定义了开发时的良好默认设置，而 <code>release</code> 配置文件则为发布构建提供了良好的默认设置。",
+    "_note": ""
   }
 }

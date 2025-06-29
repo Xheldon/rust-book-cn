@@ -15061,8 +15061,8 @@ customization.</p>
 <a id="refactoring-with-closures-to-store-code"></a></p>
 <h3 id="capturing-the-environment-with-closures"><a class="header" href="#capturing-the-environment-with-closures">Capturing the Environment with Closures</a></h3>
 <p>We’ll first examine how we can use closures to capture values from the
-environment they’re defined in for later use. Here’s the scenario: Every so
-often, our t-shirt company gives away an exclusive, limited-edition shirt to
+environment they’re defined in for later use. Here’s the scenario: every so
+often, our T-shirt company gives away an exclusive, limited-edition shirt to
 someone on our mailing list as a promotion. People on the mailing list can
 optionally add their favorite color to their profile. If the person chosen for
 a free shirt has their favorite color set, they get that color shirt. If the
@@ -15074,8 +15074,8 @@ number of colors available for simplicity). We represent the company’s
 inventory with an <code>Inventory</code> struct that has a field named <code>shirts</code> that
 contains a <code>Vec&lt;ShirtColor&gt;</code> representing the shirt colors currently in stock.
 The method <code>giveaway</code> defined on <code>Inventory</code> gets the optional shirt
-color preference of the free shirt winner, and returns the shirt color the
-person will get. This setup is shown in Listing 13-1:</p>
+color preference of the free-shirt winner, and returns the shirt color the
+person will get. This setup is shown in Listing 13-1.</p>
 <figure class="listing" id="listing-13-1">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust noplayground">#[derive(Debug, PartialEq, Copy, Clone)]
@@ -15149,11 +15149,11 @@ variant, <code>unwrap_or_else</code> calls the closure and returns the value ret
 the closure.</p>
 <p>We specify the closure expression <code>|| self.most_stocked()</code> as the argument to
 <code>unwrap_or_else</code>. This is a closure that takes no parameters itself (if the
-closure had parameters, they would appear between the two vertical bars). The
+closure had parameters, they would appear between the two vertical pipes). The
 body of the closure calls <code>self.most_stocked()</code>. We’re defining the closure
 here, and the implementation of <code>unwrap_or_else</code> will evaluate the closure
 later if the result is needed.</p>
-<p>Running this code prints:</p>
+<p>Running this code prints the following:</p>
 <pre><code class="language-console">$ cargo run
    Compiling shirt-company v0.1.0 (file:///projects/shirt-company)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.27s
@@ -15187,7 +15187,7 @@ explicitness and clarity at the cost of being more verbose than is strictly
 necessary. Annotating the types for a closure would look like the definition
 shown in Listing 13-2. In this example, we’re defining a closure and storing it
 in a variable rather than defining the closure in the spot we pass it as an
-argument as we did in Listing 13-1.</p>
+argument, as we did in Listing 13-1.</p>
 <figure class="listing" id="listing-13-2">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">use std::thread;
@@ -15224,7 +15224,7 @@ argument as we did in Listing 13-1.</p>
 <figcaption><a href="ch13-01-closures.html#listing-13-2">Listing 13-2</a>: Adding optional type annotations of the parameter and return value types in the closure</figcaption>
 </figure>
 <p>With type annotations added, the syntax of closures looks more similar to the
-syntax of functions. Here we define a function that adds 1 to its parameter and
+syntax of functions. Here, we define a function that adds 1 to its parameter and
 a closure that has the same behavior, for comparison. We’ve added some spaces
 to line up the relevant parts. This illustrates how closure syntax is similar
 to function syntax except for the use of pipes and the amount of syntax that is
@@ -15233,7 +15233,7 @@ optional:</p>
 let add_one_v2 = |x: u32| -&gt; u32 { x + 1 };
 let add_one_v3 = |x|             { x + 1 };
 let add_one_v4 = |x|               x + 1  ;</code></pre>
-<p>The first line shows a function definition, and the second line shows a fully
+<p>The first line shows a function definition and the second line shows a fully
 annotated closure definition. In the third line, we remove the type annotations
 from the closure definition. In the fourth line, we remove the brackets, which
 are optional because the closure body has only one expression. These are all
@@ -15300,7 +15300,7 @@ which of these to use based on what the body of the function does with the
 captured values.</p>
 <p>In Listing 13-4, we define a closure that captures an immutable reference to
 the vector named <code>list</code> because it only needs an immutable reference to print
-the value:</p>
+the value.</p>
 <figure class="listing" id="listing-13-4">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust edition2024">fn main() {
@@ -15332,7 +15332,7 @@ From closure: [1, 2, 3]
 After calling closure: [1, 2, 3]
 </code></pre>
 <p>Next, in Listing 13-5, we change the closure body so that it adds an element to
-the <code>list</code> vector. The closure now captures a mutable reference:</p>
+the <code>list</code> vector. The closure now captures a mutable reference.</p>
 <figure class="listing" id="listing-13-5">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust edition2024">fn main() {
@@ -15369,7 +15369,7 @@ the data so that it’s owned by the new thread. We’ll discuss threads and why
 you would want to use them in detail in Chapter 16 when we talk about
 concurrency, but for now, let’s briefly explore spawning a new thread using a
 closure that needs the <code>move</code> keyword. Listing 13-6 shows Listing 13-4 modified
-to print the vector in a new thread rather than in the main thread:</p>
+to print the vector in a new thread rather than in the main thread.</p>
 <figure class="listing" id="listing-13-6">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust edition2024">use std::thread;
@@ -15390,9 +15390,10 @@ closure body prints out the list. In Listing 13-4, the closure only captured
 to <code>list</code> needed to print it. In this example, even though the closure body
 still only needs an immutable reference, we need to specify that <code>list</code> should
 be moved into the closure by putting the <code>move</code> keyword at the beginning of the
-closure definition. The new thread might finish before the rest of the main
-thread finishes, or the main thread might finish first. If the main thread
-maintained ownership of <code>list</code> but ended before the new thread did and dropped
+closure definition. If the main thread performed more operations before calling
+<code>join</code> on the new thread, the new thread might finish before the rest of the
+main thread finishes, or the main thread might finish first. If the main thread
+maintained ownership of <code>list</code> but ended before the new thread and drops
 <code>list</code>, the immutable reference in the thread would be invalid. Therefore, the
 compiler requires that <code>list</code> be moved into the closure given to the new thread
 so the reference will be valid. Try removing the <code>move</code> keyword or using <code>list</code>
@@ -15407,20 +15408,20 @@ get!</p>
 the environment where the closure is defined (thus affecting what, if anything,
 is moved <em>into</em> the closure), the code in the body of the closure defines what
 happens to the references or values when the closure is evaluated later (thus
-affecting what, if anything, is moved <em>out of</em> the closure). A closure body can
-do any of the following: move a captured value out of the closure, mutate the
-captured value, neither move nor mutate the value, or capture nothing from the
-environment to begin with.</p>
+affecting what, if anything, is moved <em>out of</em> the closure).</p>
+<p>A closure body can do any of the following: move a captured value out of the
+closure, mutate the captured value, neither move nor mutate the value, or
+capture nothing from the environment to begin with.</p>
 <p>The way a closure captures and handles values from the environment affects
 which traits the closure implements, and traits are how functions and structs
 can specify what kinds of closures they can use. Closures will automatically
 implement one, two, or all three of these <code>Fn</code> traits, in an additive fashion,
 depending on how the closure’s body handles the values:</p>
-<ol>
+<ul>
 <li><code>FnOnce</code> applies to closures that can be called once. All closures implement
 at least this trait because all closures can be called. A closure that moves
 captured values out of its body will only implement <code>FnOnce</code> and none of the
-other <code>Fn</code> traits, because it can only be called once.</li>
+other <code>Fn</code> traits because it can only be called once.</li>
 <li><code>FnMut</code> applies to closures that don’t move captured values out of their
 body, but that might mutate the captured values. These closures can be
 called more than once.</li>
@@ -15429,7 +15430,7 @@ and that don’t mutate captured values, as well as closures that capture
 nothing from their environment. These closures can be called more than once
 without mutating their environment, which is important in cases such as
 calling a closure multiple times concurrently.</li>
-</ol>
+</ul>
 <p>Let’s look at the definition of the <code>unwrap_or_else</code> method on <code>Option&lt;T&gt;</code> that
 we used in Listing 13-1:</p>
 <pre><code class="language-rust ignore">impl&lt;T&gt; Option&lt;T&gt; {
@@ -15460,20 +15461,21 @@ closures implement <code>FnOnce</code>, <code>unwrap_or_else</code> accepts all 
 closures and is as flexible as it can be.</p>
 <section class="note" aria-role="note">
 <p>Note: If what we want to do doesn’t require capturing a value from the
-environment, we can use the name of a function rather than a closure. For
-example, we could call <code>unwrap_or_else(Vec::new)</code> on a <code>Option&lt;Vec&lt;T&gt;&gt;</code> value
-to get a new, empty vector if the value is <code>None</code>. The compiler automatically
+environment, we can use the name of a function rather than a closure where we
+need something that implements one of the <code>Fn</code> traits. For example, on an
+<code>Option&lt;Vec&lt;T&gt;&gt;</code> value, we could call <code>unwrap_or_else(Vec::new)</code> to get a
+new, empty vector if the value is <code>None</code>. The compiler automatically
 implements whichever of the <code>Fn</code> traits is applicable for a function
 definition.</p>
 </section>
-<p>Now let’s look at the standard library method <code>sort_by_key</code> defined on slices,
+<p>Now let’s look at the standard library method <code>sort_by_key</code>, defined on slices,
 to see how that differs from <code>unwrap_or_else</code> and why <code>sort_by_key</code> uses
 <code>FnMut</code> instead of <code>FnOnce</code> for the trait bound. The closure gets one argument
 in the form of a reference to the current item in the slice being considered,
 and returns a value of type <code>K</code> that can be ordered. This function is useful
 when you want to sort a slice by a particular attribute of each item. In
 Listing 13-7, we have a list of <code>Rectangle</code> instances and we use <code>sort_by_key</code>
-to order them by their <code>width</code> attribute from low to high:</p>
+to order them by their <code>width</code> attribute from low to high.</p>
 <figure class="listing" id="listing-13-7">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust edition2024">#[derive(Debug)]
@@ -15515,11 +15517,11 @@ fn main() {
 ]
 </code></pre>
 <p>The reason <code>sort_by_key</code> is defined to take an <code>FnMut</code> closure is that it calls
-the closure multiple times: once for each item in the slice. The closure <code>|r| r.width</code> doesn’t capture, mutate, or move out anything from its environment, so
+the closure multiple times: once for each item in the slice. The closure <code>|r| r.width</code> doesn’t capture, mutate, or move anything out from its environment, so
 it meets the trait bound requirements.</p>
 <p>In contrast, Listing 13-8 shows an example of a closure that implements just
 the <code>FnOnce</code> trait, because it moves a value out of the environment. The
-compiler won’t let us use this closure with <code>sort_by_key</code>:</p>
+compiler won’t let us use this closure with <code>sort_by_key</code>.</p>
 <figure class="listing" id="listing-13-8">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore does_not_compile">#[derive(Debug)]
@@ -15633,10 +15635,10 @@ useful.</p>
 <figcaption><a href="ch13-02-iterators.html#listing-13-10">Listing 13-10</a>: Creating an iterator</figcaption>
 </figure>
 <p>The iterator is stored in the <code>v1_iter</code> variable. Once we’ve created an
-iterator, we can use it in a variety of ways. In Listing 3-5 in Chapter 3, we
-iterated over an array using a <code>for</code> loop to execute some code on each of its
-items. Under the hood this implicitly created and then consumed an iterator,
-but we glossed over how exactly that works until now.</p>
+iterator, we can use it in a variety of ways. In Listing 3-5, we iterated over
+an array using a <code>for</code> loop to execute some code on each of its items. Under
+the hood, this implicitly created and then consumed an iterator, but we glossed
+over how exactly that works until now.</p>
 <p>In the example in Listing 13-11, we separate the creation of the iterator from
 the use of the iterator in the <code>for</code> loop. When the <code>for</code> loop is called using
 the iterator in <code>v1_iter</code>, each element in the iterator is used in one
@@ -15685,7 +15687,7 @@ method. In other words, the <code>Item</code> type will be the type returned fro
 iterator.</p>
 <p>The <code>Iterator</code> trait only requires implementors to define one method: the
 <code>next</code> method, which returns one item of the iterator at a time, wrapped in
-<code>Some</code> and, when iteration is over, returns <code>None</code>.</p>
+<code>Some</code>, and, when iteration is over, returns <code>None</code>.</p>
 <p>We can call the <code>next</code> method on iterators directly; Listing 13-12 demonstrates
 what values are returned from repeated calls to <code>next</code> on the iterator created
 from the vector.</p>
@@ -15726,7 +15728,7 @@ methods by looking in the standard library API documentation for the <code>Itera
 trait. Some of these methods call the <code>next</code> method in their definition, which
 is why you’re required to implement the <code>next</code> method when implementing the
 <code>Iterator</code> trait.</p>
-<p>Methods that call <code>next</code> are called <em>consuming adapters</em> because calling them
+<p>Methods that call <code>next</code> are called <em>consuming adapters</em>, because calling them
 uses up the iterator. One example is the <code>sum</code> method, which takes ownership of
 the iterator and iterates through the items by repeatedly calling <code>next</code>, thus
 consuming the iterator. As it iterates through, it adds each item to a running
@@ -15751,7 +15753,7 @@ test illustrating a use of the <code>sum</code> method.</p>
 </figure>
 <p>We aren’t allowed to use <code>v1_iter</code> after the call to <code>sum</code> because <code>sum</code> takes
 ownership of the iterator we call it on.</p>
-<h3 id="methods-that-produce-other-iterators"><a class="header" href="#methods-that-produce-other-iterators">Methods that Produce Other Iterators</a></h3>
+<h3 id="methods-that-produce-other-iterators"><a class="header" href="#methods-that-produce-other-iterators">Methods That Produce Other Iterators</a></h3>
 <p><em>Iterator adapters</em> are methods defined on the <code>Iterator</code> trait that don’t
 consume the iterator. Instead, they produce different iterators by changing
 some aspect of the original iterator.</p>
@@ -15759,7 +15761,7 @@ some aspect of the original iterator.</p>
 which takes a closure to call on each item as the items are iterated through.
 The <code>map</code> method returns a new iterator that produces the modified items. The
 closure here creates a new iterator in which each item from the vector will be
-incremented by 1:</p>
+incremented by 1.</p>
 <figure class="listing" id="listing-13-14">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust not_desired_behavior edition2024"><span class="boring">fn main() {
@@ -15793,9 +15795,8 @@ warning: `iterators` (bin "iterators") generated 1 warning
 never gets called. The warning reminds us why: iterator adapters are lazy, and
 we need to consume the iterator here.</p>
 <p>To fix this warning and consume the iterator, we’ll use the <code>collect</code> method,
-which we used in Chapter 12 with <code>env::args</code> in Listing 12-1. This method
-consumes the iterator and collects the resultant values into a collection data
-type.</p>
+which we used with <code>env::args</code> in Listing 12-1. This method consumes the
+iterator and collects the resultant values into a collection data type.</p>
 <p>In Listing 13-15, we collect the results of iterating over the iterator that’s
 returned from the call to <code>map</code> into a vector. This vector will end up
 containing each item from the original vector, incremented by 1.</p>
@@ -15808,7 +15809,7 @@ containing each item from the original vector, incremented by 1.</p>
 
     assert_eq!(v2, vec![2, 3, 4]);
 <span class="boring">}</span></code></pre></pre>
-<figcaption><a href="ch13-02-iterators.html#listing-13-15">Listing 13-15</a>: Calling the <code>map</code> method to create a new iterator and then calling the <code>collect</code> method to consume the new iterator and create a vector</figcaption>
+<figcaption><a href="ch13-02-iterators.html#listing-13-15">Listing 13-15</a>: Calling the <code>map</code> method to create a new iterator, and then calling the <code>collect</code> method to consume the new iterator and create a vector</figcaption>
 </figure>
 <p>Because <code>map</code> takes a closure, we can specify any operation we want to perform
 on each item. This is a great example of how closures let you customize some
@@ -15905,10 +15906,27 @@ values, allowing the <code>Config</code> struct to own those values. In Listing 
 we’ve reproduced the implementation of the <code>Config::build</code> function as it was
 in Listing 12-23.</p>
 <figure class="listing" id="listing-13-17">
-<span class="file-name">Filename: src/lib.rs</span>
+<span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore"><span class="boring">use std::env;
 </span><span class="boring">use std::error::Error;
 </span><span class="boring">use std::fs;
+</span><span class="boring">use std::process;
+</span><span class="boring">
+</span><span class="boring">use minigrep::{search, search_case_insensitive};
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    let args: Vec&lt;String&gt; = env::args().collect();
+</span><span class="boring">
+</span><span class="boring">    let config = Config::build(&amp;args).unwrap_or_else(|err| {
+</span><span class="boring">        println!("Problem parsing arguments: {err}");
+</span><span class="boring">        process::exit(1);
+</span><span class="boring">    });
+</span><span class="boring">
+</span><span class="boring">    if let Err(e) = run(config) {
+</span><span class="boring">        println!("Application error: {e}");
+</span><span class="boring">        process::exit(1);
+</span><span class="boring">    }
+</span><span class="boring">}
 </span><span class="boring">
 </span><span class="boring">pub struct Config {
 </span><span class="boring">    pub query: String,
@@ -15917,7 +15935,7 @@ in Listing 12-23.</p>
 </span><span class="boring">}
 </span><span class="boring">
 </span>impl Config {
-    pub fn build(args: &amp;[String]) -&gt; Result&lt;Config, &amp;'static str&gt; {
+    fn build(args: &amp;[String]) -&gt; Result&lt;Config, &amp;'static str&gt; {
         if args.len() &lt; 3 {
             return Err("not enough arguments");
         }
@@ -15935,7 +15953,7 @@ in Listing 12-23.</p>
     }
 }
 <span class="boring">
-</span><span class="boring">pub fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
+</span><span class="boring">fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
 </span><span class="boring">    let contents = fs::read_to_string(config.file_path)?;
 </span><span class="boring">
 </span><span class="boring">    let results = if config.ignore_case {
@@ -15949,66 +15967,6 @@ in Listing 12-23.</p>
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    Ok(())
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
-</span><span class="boring">    let mut results = Vec::new();
-</span><span class="boring">
-</span><span class="boring">    for line in contents.lines() {
-</span><span class="boring">        if line.contains(query) {
-</span><span class="boring">            results.push(line);
-</span><span class="boring">        }
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    results
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">pub fn search_case_insensitive&lt;'a&gt;(
-</span><span class="boring">    query: &amp;str,
-</span><span class="boring">    contents: &amp;'a str,
-</span><span class="boring">) -&gt; Vec&lt;&amp;'a str&gt; {
-</span><span class="boring">    let query = query.to_lowercase();
-</span><span class="boring">    let mut results = Vec::new();
-</span><span class="boring">
-</span><span class="boring">    for line in contents.lines() {
-</span><span class="boring">        if line.to_lowercase().contains(&amp;query) {
-</span><span class="boring">            results.push(line);
-</span><span class="boring">        }
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    results
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">#[cfg(test)]
-</span><span class="boring">mod tests {
-</span><span class="boring">    use super::*;
-</span><span class="boring">
-</span><span class="boring">    #[test]
-</span><span class="boring">    fn case_sensitive() {
-</span><span class="boring">        let query = "duct";
-</span><span class="boring">        let contents = "\
-</span><span class="boring">Rust:
-</span><span class="boring">safe, fast, productive.
-</span><span class="boring">Pick three.
-</span><span class="boring">Duct tape.";
-</span><span class="boring">
-</span><span class="boring">        assert_eq!(vec!["safe, fast, productive."], search(query, contents));
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    #[test]
-</span><span class="boring">    fn case_insensitive() {
-</span><span class="boring">        let query = "rUsT";
-</span><span class="boring">        let contents = "\
-</span><span class="boring">Rust:
-</span><span class="boring">safe, fast, productive.
-</span><span class="boring">Pick three.
-</span><span class="boring">Trust me.";
-</span><span class="boring">
-</span><span class="boring">        assert_eq!(
-</span><span class="boring">            vec!["Rust:", "Trust me."],
-</span><span class="boring">            search_case_insensitive(query, contents)
-</span><span class="boring">        );
-</span><span class="boring">    }
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="ch13-03-improving-our-io-project.html#listing-13-17">Listing 13-17</a>: Reproduction of the <code>Config::build</code> function from Listing 12-23</figcaption>
 </figure>
@@ -16030,9 +15988,11 @@ operations that borrow, we can move the <code>String</code> values from the iter
 <p>Open your I/O project’s <em>src/main.rs</em> file, which should look like this:</p>
 <p><span class="filename">Filename: src/main.rs</span></p>
 <pre><code class="language-rust ignore"><span class="boring">use std::env;
+</span><span class="boring">use std::error::Error;
+</span><span class="boring">use std::fs;
 </span><span class="boring">use std::process;
 </span><span class="boring">
-</span><span class="boring">use minigrep::Config;
+</span><span class="boring">use minigrep::{search, search_case_insensitive};
 </span><span class="boring">
 </span>fn main() {
     let args: Vec&lt;String&gt; = env::args().collect();
@@ -16044,20 +16004,63 @@ operations that borrow, we can move the <code>String</code> values from the iter
 
     // --snip--
 <span class="boring">
-</span><span class="boring">    if let Err(e) = minigrep::run(config) {
+</span><span class="boring">    if let Err(e) = run(config) {
 </span><span class="boring">        eprintln!("Application error: {e}");
 </span><span class="boring">        process::exit(1);
 </span><span class="boring">    }
-</span>}</code></pre>
+</span>}
+<span class="boring">
+</span><span class="boring">pub struct Config {
+</span><span class="boring">    pub query: String,
+</span><span class="boring">    pub file_path: String,
+</span><span class="boring">    pub ignore_case: bool,
+</span><span class="boring">}
+</span><span class="boring">
+</span><span class="boring">impl Config {
+</span><span class="boring">    fn build(args: &amp;[String]) -&gt; Result&lt;Config, &amp;'static str&gt; {
+</span><span class="boring">        if args.len() &lt; 3 {
+</span><span class="boring">            return Err("not enough arguments");
+</span><span class="boring">        }
+</span><span class="boring">
+</span><span class="boring">        let query = args[1].clone();
+</span><span class="boring">        let file_path = args[2].clone();
+</span><span class="boring">
+</span><span class="boring">        let ignore_case = env::var("IGNORE_CASE").is_ok();
+</span><span class="boring">
+</span><span class="boring">        Ok(Config {
+</span><span class="boring">            query,
+</span><span class="boring">            file_path,
+</span><span class="boring">            ignore_case,
+</span><span class="boring">        })
+</span><span class="boring">    }
+</span><span class="boring">}
+</span><span class="boring">
+</span><span class="boring">fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
+</span><span class="boring">    let contents = fs::read_to_string(config.file_path)?;
+</span><span class="boring">
+</span><span class="boring">    let results = if config.ignore_case {
+</span><span class="boring">        search_case_insensitive(&amp;config.query, &amp;contents)
+</span><span class="boring">    } else {
+</span><span class="boring">        search(&amp;config.query, &amp;contents)
+</span><span class="boring">    };
+</span><span class="boring">
+</span><span class="boring">    for line in results {
+</span><span class="boring">        println!("{line}");
+</span><span class="boring">    }
+</span><span class="boring">
+</span><span class="boring">    Ok(())
+</span><span class="boring">}</span></code></pre>
 <p>We’ll first change the start of the <code>main</code> function that we had in Listing
 12-24 to the code in Listing 13-18, which this time uses an iterator. This
 won’t compile until we update <code>Config::build</code> as well.</p>
 <figure class="listing" id="listing-13-18">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">use std::env;
+</span><span class="boring">use std::error::Error;
+</span><span class="boring">use std::fs;
 </span><span class="boring">use std::process;
 </span><span class="boring">
-</span><span class="boring">use minigrep::Config;
+</span><span class="boring">use minigrep::{search, search_case_insensitive};
 </span><span class="boring">
 </span>fn main() {
     let config = Config::build(env::args()).unwrap_or_else(|err| {
@@ -16067,26 +16070,82 @@ won’t compile until we update <code>Config::build</code> as well.</p>
 
     // --snip--
 <span class="boring">
-</span><span class="boring">    if let Err(e) = minigrep::run(config) {
+</span><span class="boring">    if let Err(e) = run(config) {
 </span><span class="boring">        eprintln!("Application error: {e}");
 </span><span class="boring">        process::exit(1);
 </span><span class="boring">    }
-</span>}</code></pre>
+</span>}
+<span class="boring">
+</span><span class="boring">pub struct Config {
+</span><span class="boring">    pub query: String,
+</span><span class="boring">    pub file_path: String,
+</span><span class="boring">    pub ignore_case: bool,
+</span><span class="boring">}
+</span><span class="boring">
+</span><span class="boring">impl Config {
+</span><span class="boring">    fn build(args: &amp;[String]) -&gt; Result&lt;Config, &amp;'static str&gt; {
+</span><span class="boring">        if args.len() &lt; 3 {
+</span><span class="boring">            return Err("not enough arguments");
+</span><span class="boring">        }
+</span><span class="boring">
+</span><span class="boring">        let query = args[1].clone();
+</span><span class="boring">        let file_path = args[2].clone();
+</span><span class="boring">
+</span><span class="boring">        let ignore_case = env::var("IGNORE_CASE").is_ok();
+</span><span class="boring">
+</span><span class="boring">        Ok(Config {
+</span><span class="boring">            query,
+</span><span class="boring">            file_path,
+</span><span class="boring">            ignore_case,
+</span><span class="boring">        })
+</span><span class="boring">    }
+</span><span class="boring">}
+</span><span class="boring">
+</span><span class="boring">fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
+</span><span class="boring">    let contents = fs::read_to_string(config.file_path)?;
+</span><span class="boring">
+</span><span class="boring">    let results = if config.ignore_case {
+</span><span class="boring">        search_case_insensitive(&amp;config.query, &amp;contents)
+</span><span class="boring">    } else {
+</span><span class="boring">        search(&amp;config.query, &amp;contents)
+</span><span class="boring">    };
+</span><span class="boring">
+</span><span class="boring">    for line in results {
+</span><span class="boring">        println!("{line}");
+</span><span class="boring">    }
+</span><span class="boring">
+</span><span class="boring">    Ok(())
+</span><span class="boring">}</span></code></pre>
 <figcaption><a href="ch13-03-improving-our-io-project.html#listing-13-18">Listing 13-18</a>: Passing the return value of <code>env::args</code> to <code>Config::build</code></figcaption>
 </figure>
 <p>The <code>env::args</code> function returns an iterator! Rather than collecting the
 iterator values into a vector and then passing a slice to <code>Config::build</code>, now
 we’re passing ownership of the iterator returned from <code>env::args</code> to
 <code>Config::build</code> directly.</p>
-<p>Next, we need to update the definition of <code>Config::build</code>. In your I/O
-project’s <em>src/lib.rs</em> file, let’s change the signature of <code>Config::build</code> to
-look like Listing 13-19. This still won’t compile because we need to update the
-function body.</p>
+<p>Next, we need to update the definition of <code>Config::build</code>. Let’s change the
+signature of <code>Config::build</code> to look like Listing 13-19. This still won’t
+compile, because we need to update the function body.</p>
 <figure class="listing" id="listing-13-19">
-<span class="file-name">Filename: src/lib.rs</span>
+<span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">use std::env;
 </span><span class="boring">use std::error::Error;
 </span><span class="boring">use std::fs;
+</span><span class="boring">use std::process;
+</span><span class="boring">
+</span><span class="boring">use minigrep::{search, search_case_insensitive};
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    let config = Config::build(env::args()).unwrap_or_else(|err| {
+</span><span class="boring">        eprintln!("Problem parsing arguments: {err}");
+</span><span class="boring">        process::exit(1);
+</span><span class="boring">    });
+</span><span class="boring">
+</span><span class="boring">
+</span><span class="boring">    if let Err(e) = run(config) {
+</span><span class="boring">        eprintln!("Application error: {e}");
+</span><span class="boring">        process::exit(1);
+</span><span class="boring">    }
+</span><span class="boring">}
 </span><span class="boring">
 </span><span class="boring">pub struct Config {
 </span><span class="boring">    pub query: String,
@@ -16095,7 +16154,7 @@ function body.</p>
 </span><span class="boring">}
 </span><span class="boring">
 </span>impl Config {
-    pub fn build(
+    fn build(
         mut args: impl Iterator&lt;Item = String&gt;,
     ) -&gt; Result&lt;Config, &amp;'static str&gt; {
         // --snip--
@@ -16116,7 +16175,7 @@ function body.</p>
 </span><span class="boring">    }
 </span><span class="boring">}
 </span><span class="boring">
-</span><span class="boring">pub fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
+</span><span class="boring">fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
 </span><span class="boring">    let contents = fs::read_to_string(config.file_path)?;
 </span><span class="boring">
 </span><span class="boring">    let results = if config.ignore_case {
@@ -16130,66 +16189,6 @@ function body.</p>
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    Ok(())
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
-</span><span class="boring">    let mut results = Vec::new();
-</span><span class="boring">
-</span><span class="boring">    for line in contents.lines() {
-</span><span class="boring">        if line.contains(query) {
-</span><span class="boring">            results.push(line);
-</span><span class="boring">        }
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    results
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">pub fn search_case_insensitive&lt;'a&gt;(
-</span><span class="boring">    query: &amp;str,
-</span><span class="boring">    contents: &amp;'a str,
-</span><span class="boring">) -&gt; Vec&lt;&amp;'a str&gt; {
-</span><span class="boring">    let query = query.to_lowercase();
-</span><span class="boring">    let mut results = Vec::new();
-</span><span class="boring">
-</span><span class="boring">    for line in contents.lines() {
-</span><span class="boring">        if line.to_lowercase().contains(&amp;query) {
-</span><span class="boring">            results.push(line);
-</span><span class="boring">        }
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    results
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">#[cfg(test)]
-</span><span class="boring">mod tests {
-</span><span class="boring">    use super::*;
-</span><span class="boring">
-</span><span class="boring">    #[test]
-</span><span class="boring">    fn case_sensitive() {
-</span><span class="boring">        let query = "duct";
-</span><span class="boring">        let contents = "\
-</span><span class="boring">Rust:
-</span><span class="boring">safe, fast, productive.
-</span><span class="boring">Pick three.
-</span><span class="boring">Duct tape.";
-</span><span class="boring">
-</span><span class="boring">        assert_eq!(vec!["safe, fast, productive."], search(query, contents));
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    #[test]
-</span><span class="boring">    fn case_insensitive() {
-</span><span class="boring">        let query = "rUsT";
-</span><span class="boring">        let contents = "\
-</span><span class="boring">Rust:
-</span><span class="boring">safe, fast, productive.
-</span><span class="boring">Pick three.
-</span><span class="boring">Trust me.";
-</span><span class="boring">
-</span><span class="boring">        assert_eq!(
-</span><span class="boring">            vec!["Rust:", "Trust me."],
-</span><span class="boring">            search_case_insensitive(query, contents)
-</span><span class="boring">        );
-</span><span class="boring">    }
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="ch13-03-improving-our-io-project.html#listing-13-19">Listing 13-19</a>: Updating the signature of <code>Config::build</code> to expect an iterator</figcaption>
 </figure>
@@ -16210,10 +16209,25 @@ iterating over it, we can add the <code>mut</code> keyword into the specificatio
 <code>Iterator</code> trait, we know we can call the <code>next</code> method on it! Listing 13-20
 updates the code from Listing 12-23 to use the <code>next</code> method.</p>
 <figure class="listing" id="listing-13-20">
-<span class="file-name">Filename: src/lib.rs</span>
-<pre><code class="language-rust noplayground"><span class="boring">use std::env;
+<span class="file-name">Filename: src/main.rs</span>
+<pre><code class="language-rust ignore noplayground"><span class="boring">use std::env;
 </span><span class="boring">use std::error::Error;
 </span><span class="boring">use std::fs;
+</span><span class="boring">use std::process;
+</span><span class="boring">
+</span><span class="boring">use minigrep::{search, search_case_insensitive};
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    let config = Config::build(env::args()).unwrap_or_else(|err| {
+</span><span class="boring">        eprintln!("Problem parsing arguments: {err}");
+</span><span class="boring">        process::exit(1);
+</span><span class="boring">    });
+</span><span class="boring">
+</span><span class="boring">    if let Err(e) = run(config) {
+</span><span class="boring">        eprintln!("Application error: {e}");
+</span><span class="boring">        process::exit(1);
+</span><span class="boring">    }
+</span><span class="boring">}
 </span><span class="boring">
 </span><span class="boring">pub struct Config {
 </span><span class="boring">    pub query: String,
@@ -16222,7 +16236,7 @@ updates the code from Listing 12-23 to use the <code>next</code> method.</p>
 </span><span class="boring">}
 </span><span class="boring">
 </span>impl Config {
-    pub fn build(
+    fn build(
         mut args: impl Iterator&lt;Item = String&gt;,
     ) -&gt; Result&lt;Config, &amp;'static str&gt; {
         args.next();
@@ -16247,7 +16261,7 @@ updates the code from Listing 12-23 to use the <code>next</code> method.</p>
     }
 }
 <span class="boring">
-</span><span class="boring">pub fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
+</span><span class="boring">fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
 </span><span class="boring">    let contents = fs::read_to_string(config.file_path)?;
 </span><span class="boring">
 </span><span class="boring">    let results = if config.ignore_case {
@@ -16261,66 +16275,6 @@ updates the code from Listing 12-23 to use the <code>next</code> method.</p>
 </span><span class="boring">    }
 </span><span class="boring">
 </span><span class="boring">    Ok(())
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
-</span><span class="boring">    let mut results = Vec::new();
-</span><span class="boring">
-</span><span class="boring">    for line in contents.lines() {
-</span><span class="boring">        if line.contains(query) {
-</span><span class="boring">            results.push(line);
-</span><span class="boring">        }
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    results
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">pub fn search_case_insensitive&lt;'a&gt;(
-</span><span class="boring">    query: &amp;str,
-</span><span class="boring">    contents: &amp;'a str,
-</span><span class="boring">) -&gt; Vec&lt;&amp;'a str&gt; {
-</span><span class="boring">    let query = query.to_lowercase();
-</span><span class="boring">    let mut results = Vec::new();
-</span><span class="boring">
-</span><span class="boring">    for line in contents.lines() {
-</span><span class="boring">        if line.to_lowercase().contains(&amp;query) {
-</span><span class="boring">            results.push(line);
-</span><span class="boring">        }
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    results
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">#[cfg(test)]
-</span><span class="boring">mod tests {
-</span><span class="boring">    use super::*;
-</span><span class="boring">
-</span><span class="boring">    #[test]
-</span><span class="boring">    fn case_sensitive() {
-</span><span class="boring">        let query = "duct";
-</span><span class="boring">        let contents = "\
-</span><span class="boring">Rust:
-</span><span class="boring">safe, fast, productive.
-</span><span class="boring">Pick three.
-</span><span class="boring">Duct tape.";
-</span><span class="boring">
-</span><span class="boring">        assert_eq!(vec!["safe, fast, productive."], search(query, contents));
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    #[test]
-</span><span class="boring">    fn case_insensitive() {
-</span><span class="boring">        let query = "rUsT";
-</span><span class="boring">        let contents = "\
-</span><span class="boring">Rust:
-</span><span class="boring">safe, fast, productive.
-</span><span class="boring">Pick three.
-</span><span class="boring">Trust me.";
-</span><span class="boring">
-</span><span class="boring">        assert_eq!(
-</span><span class="boring">            vec!["Rust:", "Trust me."],
-</span><span class="boring">            search_case_insensitive(query, contents)
-</span><span class="boring">        );
-</span><span class="boring">    }
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="ch13-03-improving-our-io-project.html#listing-13-20">Listing 13-20</a>: Changing the body of <code>Config::build</code> to use iterator methods</figcaption>
 </figure>
@@ -16333,21 +16287,21 @@ arguments were given and we return early with an <code>Err</code> value. We do t
 thing for the <code>file_path</code> value.</p>
 <h3 id="making-code-clearer-with-iterator-adapters"><a class="header" href="#making-code-clearer-with-iterator-adapters">Making Code Clearer with Iterator Adapters</a></h3>
 <p>We can also take advantage of iterators in the <code>search</code> function in our I/O
-project, which is reproduced here in Listing 13-21 as it was in Listing 12-19:</p>
+project, which is reproduced here in Listing 13-21 as it was in Listing 12-19.</p>
 <figure class="listing" id="listing-13-21">
 <span class="file-name">Filename: src/lib.rs</span>
-<pre><code class="language-rust ignore"><span class="boring">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
-</span><span class="boring">    let mut results = Vec::new();
-</span><span class="boring">
-</span><span class="boring">    for line in contents.lines() {
-</span><span class="boring">        if line.contains(query) {
-</span><span class="boring">            results.push(line);
-</span><span class="boring">        }
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    results
-</span><span class="boring">}
-</span><span class="boring">
+<pre><code class="language-rust ignore">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
+    let mut results = Vec::new();
+
+    for line in contents.lines() {
+        if line.contains(query) {
+            results.push(line);
+        }
+    }
+
+    results
+}
+<span class="boring">
 </span><span class="boring">#[cfg(test)]
 </span><span class="boring">mod tests {
 </span><span class="boring">    use super::*;
@@ -16369,63 +16323,11 @@ project, which is reproduced here in Listing 13-21 as it was in Listing 12-19:</
 Doing so also lets us avoid having a mutable intermediate <code>results</code> vector. The
 functional programming style prefers to minimize the amount of mutable state to
 make code clearer. Removing the mutable state might enable a future enhancement
-to make searching happen in parallel, because we wouldn’t have to manage
-concurrent access to the <code>results</code> vector. Listing 13-22 shows this change:</p>
+to make searching happen in parallel because we wouldn’t have to manage
+concurrent access to the <code>results</code> vector. Listing 13-22 shows this change.</p>
 <figure class="listing" id="listing-13-22">
 <span class="file-name">Filename: src/lib.rs</span>
-<pre><code class="language-rust ignore"><span class="boring">use std::env;
-</span><span class="boring">use std::error::Error;
-</span><span class="boring">use std::fs;
-</span><span class="boring">
-</span><span class="boring">pub struct Config {
-</span><span class="boring">    pub query: String,
-</span><span class="boring">    pub file_path: String,
-</span><span class="boring">    pub ignore_case: bool,
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">impl Config {
-</span><span class="boring">    pub fn build(
-</span><span class="boring">        mut args: impl Iterator&lt;Item = String&gt;,
-</span><span class="boring">    ) -&gt; Result&lt;Config, &amp;'static str&gt; {
-</span><span class="boring">        args.next();
-</span><span class="boring">
-</span><span class="boring">        let query = match args.next() {
-</span><span class="boring">            Some(arg) =&gt; arg,
-</span><span class="boring">            None =&gt; return Err("Didn't get a query string"),
-</span><span class="boring">        };
-</span><span class="boring">
-</span><span class="boring">        let file_path = match args.next() {
-</span><span class="boring">            Some(arg) =&gt; arg,
-</span><span class="boring">            None =&gt; return Err("Didn't get a file path"),
-</span><span class="boring">        };
-</span><span class="boring">
-</span><span class="boring">        let ignore_case = env::var("IGNORE_CASE").is_ok();
-</span><span class="boring">
-</span><span class="boring">        Ok(Config {
-</span><span class="boring">            query,
-</span><span class="boring">            file_path,
-</span><span class="boring">            ignore_case,
-</span><span class="boring">        })
-</span><span class="boring">    }
-</span><span class="boring">}
-</span><span class="boring">
-</span><span class="boring">pub fn run(config: Config) -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {
-</span><span class="boring">    let contents = fs::read_to_string(config.file_path)?;
-</span><span class="boring">
-</span><span class="boring">    let results = if config.ignore_case {
-</span><span class="boring">        search_case_insensitive(&amp;config.query, &amp;contents)
-</span><span class="boring">    } else {
-</span><span class="boring">        search(&amp;config.query, &amp;contents)
-</span><span class="boring">    };
-</span><span class="boring">
-</span><span class="boring">    for line in results {
-</span><span class="boring">        println!("{line}");
-</span><span class="boring">    }
-</span><span class="boring">
-</span><span class="boring">    Ok(())
-</span><span class="boring">}
-</span><span class="boring">
-</span>pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
+<pre><code class="language-rust ignore">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
     contents
         .lines()
         .filter(|line| line.contains(query))
@@ -16484,21 +16386,31 @@ concurrent access to the <code>results</code> vector. Listing 13-22 shows this c
 <p>Recall that the purpose of the <code>search</code> function is to return all lines in
 <code>contents</code> that contain the <code>query</code>. Similar to the <code>filter</code> example in Listing
 13-16, this code uses the <code>filter</code> adapter to keep only the lines for which
-<code>line.contains(query)</code> returns <code>true</code> for. We then collect the matching lines
-into another vector with <code>collect</code>. Much simpler! Feel free to make the same
-change to use iterator methods in the <code>search_case_insensitive</code> function as
-well.</p>
-<h3 id="choosing-between-loops-or-iterators"><a class="header" href="#choosing-between-loops-or-iterators">Choosing Between Loops or Iterators</a></h3>
+<code>line.contains(query)</code> returns <code>true</code>. We then collect the matching lines into
+another vector with <code>collect</code>. Much simpler! Feel free to make the same change
+to use iterator methods in the <code>search_case_insensitive</code> function as well.</p>
+<p>For a further improvement, return an iterator from the <code>search</code> function by
+removing the call to <code>collect</code> and changing the return type to <code>impl Iterator&lt;Item = &amp;'a str&gt;</code> so that the function becomes an iterator adapter.
+Note that you’ll also need to update the tests! Search through a large file
+using your <code>minigrep</code> tool before and after making this change to observe the
+difference in behavior. Before this change, the program won’t print any results
+until it has collected all of the results, but after the change, the results
+will be printed as each matching line is found because the <code>for</code> loop in the
+<code>run</code> function is able to take advantage of the laziness of the iterator.</p>
+<!-- Old heading. Do not remove or links may break. -->
+<p><a id="choosing-between-loops-or-iterators"></a></p>
+<h3 id="choosing-between-loops-and-iterators"><a class="header" href="#choosing-between-loops-and-iterators">Choosing Between Loops and Iterators</a></h3>
 <p>The next logical question is which style you should choose in your own code and
 why: the original implementation in Listing 13-21 or the version using
-iterators in Listing 13-22. Most Rust programmers prefer to use the iterator
-style. It’s a bit tougher to get the hang of at first, but once you get a feel
-for the various iterator adapters and what they do, iterators can be easier to
-understand. Instead of fiddling with the various bits of looping and building
-new vectors, the code focuses on the high-level objective of the loop. This
-abstracts away some of the commonplace code so it’s easier to see the concepts
-that are unique to this code, such as the filtering condition each element in
-the iterator must pass.</p>
+iterators in Listing 13-22 (assuming we’re collecting all the results before
+returning them rather than returning the iterator). Most Rust programmers
+prefer to use the iterator style. It’s a bit tougher to get the hang of at
+first, but once you get a feel for the various iterator adapters and what they
+do, iterators can be easier to understand. Instead of fiddling with the various
+bits of looping and building new vectors, the code focuses on the high-level
+objective of the loop. This abstracts away some of the commonplace code so it’s
+easier to see the concepts that are unique to this code, such as the filtering
+condition each element in the iterator must pass.</p>
 <p>But are the two implementations truly equivalent? The intuitive assumption
 might be that the lower-level loop will be faster. Let’s talk about performance.</p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="comparing-performance-loops-vs-iterators"><a class="header" href="#comparing-performance-loops-vs-iterators">Comparing Performance: Loops vs. Iterators</a></h2>
@@ -16513,7 +16425,7 @@ version of <code>search</code> using the <code>for</code> loop and the version u
 test bench_search_iter ... bench:  19,234,900 ns/iter (+/- 657,200)
 </code></pre>
 <p>The two implementations have similar performance! We won’t explain the
-benchmark code here, because the point is not to prove that the two versions
+benchmark code here because the point is not to prove that the two versions
 are equivalent but to get a general sense of how these two implementations
 compare performance-wise.</p>
 <p>For a more comprehensive benchmark, you should check using various texts of
@@ -16530,47 +16442,12 @@ Stroustrup, the original designer and implementor of C++, defines
 don’t use, you don’t pay for. And further: What you do use, you couldn’t hand
 code any better.</p>
 </blockquote>
-<p>As another example, the following code is taken from an audio decoder. The
-decoding algorithm uses the linear prediction mathematical operation to
-estimate future values based on a linear function of the previous samples. This
-code uses an iterator chain to do some math on three variables in scope: a
-<code>buffer</code> slice of data, an array of 12 <code>coefficients</code>, and an amount by which
-to shift data in <code>qlp_shift</code>. We’ve declared the variables within this example
-but not given them any values; although this code doesn’t have much meaning
-outside of its context, it’s still a concise, real-world example of how Rust
-translates high-level ideas to low-level code.</p>
-<pre><code class="language-rust ignore">let buffer: &amp;mut [i32];
-let coefficients: [i64; 12];
-let qlp_shift: i16;
-
-for i in 12..buffer.len() {
-    let prediction = coefficients.iter()
-                                 .zip(&amp;buffer[i - 12..i])
-                                 .map(|(&amp;c, &amp;s)| c * s as i64)
-                                 .sum::&lt;i64&gt;() &gt;&gt; qlp_shift;
-    let delta = buffer[i];
-    buffer[i] = prediction as i32 + delta;
-}</code></pre>
-<p>To calculate the value of <code>prediction</code>, this code iterates through each of the
-12 values in <code>coefficients</code> and uses the <code>zip</code> method to pair the coefficient
-values with the previous 12 values in <code>buffer</code>. Then, for each pair, we
-multiply the values together, sum all the results, and shift the bits in the
-sum <code>qlp_shift</code> bits to the right.</p>
-<p>Calculations in applications like audio decoders often prioritize performance
-most highly. Here, we’re creating an iterator, using two adapters, and then
-consuming the value. What assembly code would this Rust code compile to? Well,
-as of this writing, it compiles down to the same assembly you’d write by hand.
-There’s no loop at all corresponding to the iteration over the values in
-<code>coefficients</code>: Rust knows that there are 12 iterations, so it “unrolls” the
-loop. <em>Unrolling</em> is an optimization that removes the overhead of the loop
-controlling code and instead generates repetitive code for each iteration of
-the loop.</p>
-<p>All of the coefficients get stored in registers, which means accessing the
-values is very fast. There are no bounds checks on the array access at runtime.
-All these optimizations that Rust is able to apply make the resultant code
-extremely efficient. Now that you know this, you can use iterators and closures
-without fear! They make code seem like it’s higher level but don’t impose a
-runtime performance penalty for doing so.</p>
+<p>In many cases, Rust code using iterators compiles to the same assembly you’d
+write by hand. Optimizations such as loop unrolling and eliminating bounds
+checking on array access apply and make the resultant code extremely efficient.
+Now that you know this, you can use iterators and closures without fear! They
+make code seem like it’s higher level but don’t impose a runtime performance
+penalty for doing so.</p>
 <h2 id="summary-12"><a class="header" href="#summary-12">Summary</a></h2>
 <p>Closures and iterators are Rust features inspired by functional programming
 language ideas. They contribute to Rust’s capability to clearly express
@@ -16581,9 +16458,9 @@ Rust’s goal to strive to provide zero-cost abstractions.</p>
 some more features of <code>cargo</code> that will help us share the project with the
 world.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="more-about-cargo-and-cratesio"><a class="header" href="#more-about-cargo-and-cratesio">More About Cargo and Crates.io</a></h1>
-<p>So far we’ve used only the most basic features of Cargo to build, run, and test
-our code, but it can do a lot more. In this chapter, we’ll discuss some of its
-other, more advanced features to show you how to do the following:</p>
+<p>So far, we’ve used only the most basic features of Cargo to build, run, and
+test our code, but it can do a lot more. In this chapter, we’ll discuss some of
+its other, more advanced features to show you how to do the following:</p>
 <ul>
 <li>Customize your build through release profiles</li>
 <li>Publish libraries on <a href="https://crates.io/">crates.io</a><!-- ignore --></li>
@@ -16598,7 +16475,7 @@ a full explanation of all its features, see <a href="https://doc.rust-lang.org/c
 different configurations that allow a programmer to have more control over
 various options for compiling code. Each profile is configured independently of
 the others.</p>
-<p>Cargo has two main profiles: the <code>dev</code> profile Cargo uses when you run <code>cargo build</code> and the <code>release</code> profile Cargo uses when you run <code>cargo build --release</code>. The <code>dev</code> profile is defined with good defaults for development,
+<p>Cargo has two main profiles: the <code>dev</code> profile Cargo uses when you run <code>cargo build</code>, and the <code>release</code> profile Cargo uses when you run <code>cargo build --release</code>. The <code>dev</code> profile is defined with good defaults for development,
 and the <code>release</code> profile has good defaults for release builds.</p>
 <p>These profile names might be familiar from the output of your builds:</p>
 <!-- manual-regeneration
@@ -16697,7 +16574,7 @@ in the <em>target/doc</em> directory.</p>
 current crate’s documentation (as well as the documentation for all of your
 crate’s dependencies) and open the result in a web browser. Navigate to the
 <code>add_one</code> function and you’ll see how the text in the documentation comments is
-rendered, as shown in Figure 14-1:</p>
+rendered, as shown in Figure 14-1.</p>
 <img alt="Rendered HTML documentation for the `add_one` function of `my_crate`" src="img/trpl14-01.png" class="center" />
 <p><span class="caption">Figure 14-1: HTML documentation for the <code>add_one</code>
 function</span></p>
@@ -16741,17 +16618,17 @@ test src/lib.rs - add_one (line 5) ... ok
 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.27s
 </code></pre>
 <p>Now, if we change either the function or the example so the <code>assert_eq!</code> in the
-example panics and run <code>cargo test</code> again, we’ll see that the doc tests catch
+example panics, and run <code>cargo test</code> again, we’ll see that the doc tests catch
 that the example and the code are out of sync with each other!</p>
 <h4 id="commenting-contained-items"><a class="header" href="#commenting-contained-items">Commenting Contained Items</a></h4>
-<p>The style of doc comment <code>//!</code> adds documentation to the item that contains the
-comments rather than to the items following the comments. We typically use
+<p>The style of doc comment <code>//!</code> adds documentation to the item that <em>contains</em>
+the comments rather than to the items <em>following</em> the comments. We typically use
 these doc comments inside the crate root file (<em>src/lib.rs</em> by convention) or
 inside a module to document the crate or the module as a whole.</p>
 <p>For example, to add documentation that describes the purpose of the <code>my_crate</code>
 crate that contains the <code>add_one</code> function, we add documentation comments that
 start with <code>//!</code> to the beginning of the <em>src/lib.rs</em> file, as shown in Listing
-14-2:</p>
+14-2.</p>
 <figure class="listing" id="listing-14-2">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust ignore">//! # My Crate
@@ -16795,14 +16672,12 @@ crate. People who use your crate are less familiar with the structure than you
 are and might have difficulty finding the pieces they want to use if your crate
 has a large module hierarchy.</p>
 <p>In Chapter 7, we covered how to make items public using the <code>pub</code> keyword, and
-bring items into a scope with the <code>use</code> keyword. However, the structure that
-makes sense to you while you’re developing a crate might not be very convenient
-for your users. You might want to organize your structs in a hierarchy
-containing multiple levels, but then people who want to use a type you’ve
-defined deep in the hierarchy might have trouble finding out that type exists.
-They might also be annoyed at having to enter <code>use</code>
-<code>my_crate::some_module::another_module::UsefulType;</code> rather than <code>use</code>
-<code>my_crate::UsefulType;</code>.</p>
+how to bring items into a scope with the <code>use</code> keyword. However, the structure
+that makes sense to you while you’re developing a crate might not be very
+convenient for your users. You might want to organize your structs in a
+hierarchy containing multiple levels, but then people who want to use a type
+you’ve defined deep in the hierarchy might have trouble finding out that type
+exists. They might also be annoyed at having to enter <code>use my_crate::some_module::another_module::UsefulType;</code> rather than <code>use my_crate::UsefulType;</code>.</p>
 <p>The good news is that if the structure <em>isn’t</em> convenient for others to use
 from another library, you don’t have to rearrange your internal organization:
 instead, you can re-export items to make a public structure that’s different
@@ -16812,7 +16687,7 @@ defined in the other location instead.</p>
 <p>For example, say we made a library named <code>art</code> for modeling artistic concepts.
 Within this library are two modules: a <code>kinds</code> module containing two enums
 named <code>PrimaryColor</code> and <code>SecondaryColor</code> and a <code>utils</code> module containing a
-function named <code>mix</code>, as shown in Listing 14-3:</p>
+function named <code>mix</code>, as shown in Listing 14-3.</p>
 <figure class="listing" id="listing-14-3">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground test_harness">//! # Art
@@ -16848,7 +16723,7 @@ pub mod utils {
 <figcaption><a href="ch14-02-publishing-to-crates-io.html#listing-14-3">Listing 14-3</a>: An <code>art</code> library with items organized into <code>kinds</code> and <code>utils</code> modules</figcaption>
 </figure>
 <p>Figure 14-3 shows what the front page of the documentation for this crate
-generated by <code>cargo doc</code> would look like:</p>
+generated by <code>cargo doc</code> would look like.</p>
 <img alt="Rendered documentation for the `art` crate that lists the `kinds` and `utils` modules" src="img/trpl14-03.png" class="center" />
 <p><span class="caption">Figure 14-3: Front page of the documentation for <code>art</code>
 that lists the <code>kinds</code> and <code>utils</code> modules</span></p>
@@ -16858,7 +16733,7 @@ see them.</p>
 <p>Another crate that depends on this library would need <code>use</code> statements that
 bring the items from <code>art</code> into scope, specifying the module structure that’s
 currently defined. Listing 14-4 shows an example of a crate that uses the
-<code>PrimaryColor</code> and <code>mix</code> items from the <code>art</code> crate:</p>
+<code>PrimaryColor</code> and <code>mix</code> items from the <code>art</code> crate.</p>
 <figure class="listing" id="listing-14-4">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore">use art::kinds::PrimaryColor;
@@ -16881,7 +16756,7 @@ developers who use it have to figure out where to look, and must specify the
 module names in the <code>use</code> statements.</p>
 <p>To remove the internal organization from the public API, we can modify the
 <code>art</code> crate code in Listing 14-3 to add <code>pub use</code> statements to re-export the
-items at the top level, as shown in Listing 14-5:</p>
+items at the top level, as shown in Listing 14-5.</p>
 <figure class="listing" id="listing-14-5">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust ignore">//! # Art
@@ -16929,7 +16804,7 @@ and link re-exports on the front page, as shown in Figure 14-4, making the
 that lists the re-exports</span></p>
 <p>The <code>art</code> crate users can still see and use the internal structure from Listing
 14-3 as demonstrated in Listing 14-4, or they can use the more convenient
-structure in Listing 14-5, as shown in Listing 14-6:</p>
+structure in Listing 14-5, as shown in Listing 14-6.</p>
 <figure class="listing" id="listing-14-6">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore">use art::PrimaryColor;
@@ -16966,8 +16841,8 @@ API key. Then run the <code>cargo login</code> command and paste your API key wh
 abcdefghijklmnopqrstuvwxyz012345
 </code></pre>
 <p>This command will inform Cargo of your API token and store it locally in
-<em>~/.cargo/credentials</em>. Note that this token is a <em>secret</em>: do not share it
-with anyone else. If you do share it with anyone for any reason, you should
+<em>~/.cargo/credentials.toml</em>. Note that this token is a <em>secret</em>: do not share
+it with anyone else. If you do share it with anyone for any reason, you should
 revoke it and generate a new token on <a href="https://crates.io/">crates.io</a><!-- ignore
 -->.</p>
 <h3 id="adding-metadata-to-a-new-crate"><a class="header" href="#adding-metadata-to-a-new-crate">Adding Metadata to a New Crate</a></h3>
@@ -17009,7 +16884,7 @@ description and license are required so people will know what your crate does
 and under what terms they can use it. In <em>Cargo.toml</em>, add a description that’s
 just a sentence or two, because it will appear with your crate in search
 results. For the <code>license</code> field, you need to give a <em>license identifier value</em>.
-The <a href="http://spdx.org/licenses/">Linux Foundation’s Software Package Data Exchange (SPDX)</a> lists the
+The <a href="https://spdx.org/licenses/">Linux Foundation’s Software Package Data Exchange (SPDX)</a> lists the
 identifiers you can use for this value. For example, to specify that you’ve
 licensed your crate using the MIT License, add the <code>MIT</code> identifier:</p>
 <p><span class="filename">Filename: Cargo.toml</span></p>
@@ -17039,17 +16914,17 @@ license = "MIT OR Apache-2.0"
 [dependencies]
 </code></pre>
 <p><a href="https://doc.rust-lang.org/cargo/">Cargo’s documentation</a> describes other
-metadata you can specify to ensure others can discover and use your crate more
-easily.</p>
+metadata you can specify to ensure that others can discover and use your crate
+more easily.</p>
 <h3 id="publishing-to-cratesio"><a class="header" href="#publishing-to-cratesio">Publishing to Crates.io</a></h3>
 <p>Now that you’ve created an account, saved your API token, chosen a name for
 your crate, and specified the required metadata, you’re ready to publish!
 Publishing a crate uploads a specific version to
 <a href="https://crates.io/">crates.io</a><!-- ignore --> for others to use.</p>
 <p>Be careful, because a publish is <em>permanent</em>. The version can never be
-overwritten, and the code cannot be deleted. One major goal of
-<a href="https://crates.io/">crates.io</a><!-- ignore --> is to act as a permanent archive
-of code so that builds of all projects that depend on crates from
+overwritten, and the code cannot be deleted except in certain circumstances.
+One major goal of Crates.io is to act as a permanent archive of code so that
+builds of all projects that depend on crates from
 <a href="https://crates.io/">crates.io</a><!-- ignore --> will continue to work. Allowing
 version deletions would make fulfilling that goal impossible. However, there is
 no limit to the number of crate versions you can publish.</p>
@@ -17062,19 +16937,25 @@ copy just the relevant lines below
 <pre><code class="language-console">$ cargo publish
     Updating crates.io index
    Packaging guessing_game v0.1.0 (file:///projects/guessing_game)
+    Packaged 6 files, 1.2KiB (895.0B compressed)
    Verifying guessing_game v0.1.0 (file:///projects/guessing_game)
    Compiling guessing_game v0.1.0
 (file:///projects/guessing_game/target/package/guessing_game-0.1.0)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.19s
    Uploading guessing_game v0.1.0 (file:///projects/guessing_game)
+    Uploaded guessing_game v0.1.0 to registry `crates-io`
+note: waiting for `guessing_game v0.1.0` to be available at registry
+`crates-io`.
+You may press ctrl-c to skip waiting; the crate should be available shortly.
+   Published guessing_game v0.1.0 at registry `crates-io`
 </code></pre>
 <p>Congratulations! You’ve now shared your code with the Rust community, and
 anyone can easily add your crate as a dependency of their project.</p>
 <h3 id="publishing-a-new-version-of-an-existing-crate"><a class="header" href="#publishing-a-new-version-of-an-existing-crate">Publishing a New Version of an Existing Crate</a></h3>
 <p>When you’ve made changes to your crate and are ready to release a new version,
 you change the <code>version</code> value specified in your <em>Cargo.toml</em> file and
-republish. Use the <a href="http://semver.org/">Semantic Versioning rules</a> to decide what an
-appropriate next version number is based on the kinds of changes you’ve made.
+republish. Use the <a href="https://semver.org/">Semantic Versioning rules</a> to decide what an
+appropriate next version number is, based on the kinds of changes you’ve made.
 Then run <code>cargo publish</code> to upload the new version.</p>
 <!-- Old link, do not remove -->
 <p><a id="removing-versions-from-cratesio-with-cargo-yank"></a></p>
@@ -17132,7 +17013,7 @@ configure the entire workspace. This file won’t have a <code>[package]</code> 
 Instead, it will start with a <code>[workspace]</code> section that will allow us to add
 members to the workspace. We also make a point to use the latest and greatest
 version of Cargo’s resolver algorithm in our workspace by setting the
-<code>resolver</code> to <code>"3"</code>.</p>
+<code>resolver</code> value to <code>"3"</code>.</p>
 <p><span class="filename">Filename: Cargo.toml</span></p>
 <pre><code class="language-toml">[workspace]
 resolver = "3"
@@ -17147,12 +17028,12 @@ cargo new adder
 copy output below
 -->
 <pre><code class="language-console">$ cargo new adder
-    Creating binary (application) `adder` package
+     Created binary (application) `adder` package
       Adding `adder` as member of workspace at `file:///projects/add`
 </code></pre>
 <p>Running <code>cargo new</code> inside a workspace also automatically adds the newly created
 package to the <code>members</code> key in the <code>[workspace]</code> definition in the workspace
-<code>Cargo.toml</code>, like this:</p>
+<em>Cargo.toml</em>, like this:</p>
 <pre><code class="language-toml">[workspace]
 resolver = "3"
 members = ["adder"]
@@ -17188,7 +17069,7 @@ cargo new add_one --lib
 copy output below
 -->
 <pre><code class="language-console">$ cargo new add_one --lib
-    Creating library `add_one` package
+     Created library `add_one` package
       Adding `add_one` as member of workspace at `file:///projects/add`
 </code></pre>
 <p>The top-level <em>Cargo.toml</em> will now include the <em>add_one</em> path in the <code>members</code>
@@ -17217,7 +17098,7 @@ members = ["adder", "add_one"]
     x + 1
 }</code></pre>
 <p>Now we can have the <code>adder</code> package with our binary depend on the <code>add_one</code>
-package that has our library. First we’ll need to add a path dependency on
+package that has our library. First, we’ll need to add a path dependency on
 <code>add_one</code> to <em>adder/Cargo.toml</em>.</p>
 <p><span class="filename">Filename: adder/Cargo.toml</span></p>
 <pre><code class="language-toml">[dependencies]
@@ -17234,7 +17115,7 @@ function to call the <code>add_one</code> function, as in Listing 14-7.</p>
     let num = 10;
     println!("Hello, world! {num} plus one is {}!", add_one::add_one(num));
 }</code></pre>
-<figcaption><a href="ch14-03-cargo-workspaces.html#listing-14-7">Listing 14-7</a>: Using the <code>add_one</code> library crate in the <code>adder</code> crate</figcaption>
+<figcaption><a href="ch14-03-cargo-workspaces.html#listing-14-7">Listing 14-7</a>: Using the <code>add_one</code> library crate from the <code>adder</code> crate</figcaption>
 </figure>
 <p>Let’s build the workspace by running <code>cargo build</code> in the top-level <em>add</em>
 directory!</p>
@@ -17416,9 +17297,11 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 </code></pre>
 <p>This output shows <code>cargo test</code> only ran the tests for the <code>add_one</code> crate and
 didn’t run the <code>adder</code> crate tests.</p>
-<p>If you publish the crates in the workspace to <a href="https://crates.io/">crates.io</a>,
-each crate in the workspace will need to be published separately. Like <code>cargo test</code>, we can publish a particular crate in our workspace by using the <code>-p</code>
-flag and specifying the name of the crate we want to publish.</p>
+<p>If you publish the crates in the workspace to
+<a href="https://crates.io/">crates.io</a><!-- ignore -->, each crate in the workspace
+will need to be published separately. Like <code>cargo test</code>, we can publish a
+particular crate in our workspace by using the <code>-p</code> flag and specifying the
+name of the crate we want to publish.</p>
 <p>For additional practice, add an <code>add_two</code> crate to this workspace in a similar
 way as the <code>add_one</code> crate!</p>
 <p>As your project grows, consider using a workspace: it enables you to work with
@@ -17441,7 +17324,8 @@ binary target, or both.</p>
 <p>All binaries installed with <code>cargo install</code> are stored in the installation
 root’s <em>bin</em> folder. If you installed Rust using <em>rustup.rs</em> and don’t have any
 custom configurations, this directory will be <em>$HOME/.cargo/bin</em>. Ensure that
-directory is in your <code>$PATH</code>to be able to run programs you’ve installed with<code>cargo install</code>.</p>
+directory is in your <code>$PATH</code> to be able to run programs you’ve installed with
+<code>cargo install</code>.</p>
 <p>For example, in Chapter 12 we mentioned that there’s a Rust implementation of
 the <code>grep</code> tool called <code>ripgrep</code> for searching files. To install <code>ripgrep</code>, we
 can run the following:</p>
@@ -17469,7 +17353,7 @@ modify it. If a binary in your <code>$PATH</code> is named <code>cargo-something
 it as if it were a Cargo subcommand by running <code>cargo something</code>. Custom
 commands like this are also listed when you run <code>cargo --list</code>. Being able to
 use <code>cargo install</code> to install extensions and then run them just like the
-built-in Cargo tools is a super convenient benefit of Cargo’s design!</p>
+built-in Cargo tools is a super-convenient benefit of Cargo’s design!</p>
 <h2 id="summary-13"><a class="header" href="#summary-13">Summary</a></h2>
 <p>Sharing code with Cargo and <a href="https://crates.io/">crates.io</a><!-- ignore --> is
 part of what makes the Rust ecosystem useful for many different tasks. Rust’s

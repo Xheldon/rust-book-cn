@@ -34,5 +34,9 @@
   "Install binaries from crates.io": {
     "_translate": "从<a href=\"https://crates.io/\">crates.io</a>安装二进制文件",
     "_note": ""
+  },
+  "So far, we’ve used only the most basic features of Cargo to build, run, and test our code, but it can do a lot more. In this chapter, we’ll discuss some of its other, more advanced features to show you how to do the following:": {
+    "_translate": "到目前为止，我们只使用了 Cargo 的最基本功能来构建、运行和测试我们的代码，但它可以做更多的事情。在本章中，我们将讨论它的其他一些更高级的功能，以向您展示如何执行以下操作：",
+    "_note": ""
   }
 }

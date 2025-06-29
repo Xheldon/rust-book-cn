@@ -247,8 +247,8 @@ blockquote {
 <pre><code class="language-console">$ mkdir add
 $ cd add
 </code></pre>
-<p data-x-en="Next, in the add directory, we create the Cargo.toml file that will configure the entire workspace. This file won’t have a [package] section. Instead, it will start with a [workspace] section that will allow us to add members to the workspace. We also make a point to use the latest and greatest version of Cargo’s resolver algorithm in our workspace by setting the resolver to &quot;3&quot;.">接下来，在 <em>add</em> 目录中，我们创建 <em>Cargo.toml</em> 文件，该文件将配置整个工作区。此文件将没有 <code>[package]</code> 部分。
-相反，它将以 <code>[workspace]</code> 部分开始，这将允许我们向工作区添加成员。我们还通过将 <code>resolver</code> 设置为 <code>"3"</code> 来使用 Cargo 解析器算法的最新和最伟大版本。</p>
+<p data-x-en="Next, in the add directory, we create the Cargo.toml file that will configure the entire workspace. This file won’t have a [package] section. Instead, it will start with a [workspace] section that will allow us to add members to the workspace. We also make a point to use the latest and greatest version of Cargo’s resolver algorithm in our workspace by setting the resolver value to &quot;3&quot;.">接下来，在 <em>add</em> 目录中，我们创建 <em>Cargo.toml</em> 文件，该文件将配置整个工作区。此文件将没有 <code>[package]</code> 部分。
+相反，它将以 <code>[workspace]</code> 部分开始，这将允许我们向工作区添加成员。我们还通过将 <code>resolver</code> 值设置为 <code>"3"</code> 来确保在工作区中使用最新和最强大的 Cargo 解析算法。</p>
 <p data-x-en="Filename: Cargo.toml"><span class="filename">文件名: Cargo.toml</span></p>
 <pre><code class="language-toml">[workspace]
 resolver = "3"
@@ -262,7 +262,7 @@ cargo new adder
 copy output below
 -->
 <pre><code class="language-console">$ cargo new adder
-    Creating binary (application) `adder` package
+     Created binary (application) `adder` package
       Adding `adder` as member of workspace at `file:///projects/add`
 </code></pre>
 <p data-x-en="Running cargo new inside a workspace also automatically adds the newly created package to the members key in the [workspace] definition in the workspace Cargo.toml, like this:">在工作区中运行 <code>cargo new</code> 也会自动将新创建的包添加到工作区 <code>Cargo.toml</code> 中 <code>[workspace]</code> 定义的 <code>members</code> 键中，如下所示：</p>
@@ -290,7 +290,7 @@ cargo new add_one --lib
 copy output below
 -->
 <pre><code class="language-console">$ cargo new add_one --lib
-    Creating library `add_one` package
+     Created library `add_one` package
       Adding `add_one` as member of workspace at `file:///projects/add`
 </code></pre>
 <p data-x-en="The top-level Cargo.toml will now include the add_one path in the members list:">顶级 <em>Cargo.toml</em> 现在将包括 <em>add_one</em> 路径在 <code>members</code> 列表中:</p>
@@ -317,7 +317,7 @@ members = ["adder", "add_one"]
 <pre><code class="language-rust noplayground">pub fn add_one(x: i32) -&gt; i32 {
     x + 1
 }</code></pre>
-<p data-x-en="Now we can have the adder package with our binary depend on the add_one package that has our library. First we’ll need to add a path dependency on add_one to adder/Cargo.toml.">现在我们可以有一个 <code>adder</code> 包，我们的二进制文件依赖于包含我们库的 <code>add_one</code> 包。首先我们需要在 <em>adder/Cargo.toml</em> 中添加对 <code>add_one</code> 的路径依赖。</p>
+<p data-x-en="Now we can have the adder package with our binary depend on the add_one package that has our library. First, we’ll need to add a path dependency on add_one to adder/Cargo.toml.">现在我们可以有一个 <code>adder</code> 包，其中包含依赖于 <code>add_one</code> 包的二进制文件，该包中包含我们的库。首先，我们需要在 <em>adder/Cargo.toml</em> 中添加对 <code>add_one</code> 的路径依赖。</p>
 <p data-x-en="Filename: adder/Cargo.toml"><span class="filename">文件名: adder/Cargo.toml</span></p>
 <pre><code class="language-toml">[dependencies]
 add_one = { path = "../add_one" }
@@ -330,7 +330,7 @@ add_one = { path = "../add_one" }
     let num = 10;
     println!("Hello, world! {num} plus one is {}!", add_one::add_one(num));
 }</code></pre>
-<figcaption><a href="#listing-14-7">Listing 14-7</a>: Using the <code>add_one</code> library crate in the <code>adder</code> crate</figcaption>
+<figcaption><a href="#listing-14-7">Listing 14-7</a>: Using the <code>add_one</code> library crate from the <code>adder</code> crate</figcaption>
 </figure>
 <p data-x-en="Let’s build the workspace by running cargo build in the top-level add directory!">让我们通过在顶级 <em>add</em> 目录中运行 <code>cargo build</code> 来构建工作区！</p>
 <!-- manual-regeneration

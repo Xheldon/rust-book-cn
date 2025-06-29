@@ -218,5 +218,77 @@
   "This is a contrived, convoluted way (that doesn’t work) to try and count the number of times sort_by_key calls the closure when sorting list. This code attempts to do this counting by pushing value—a String from the closure’s environment—into the sort_operations vector. The closure captures value and then moves value out of the closure by transferring ownership of value to the sort_operations vector. This closure can be called once; trying to call it a second time wouldn’t work because value would no longer be in the environment to be pushed into sort_operations again! Therefore, this closure only implements FnOnce. When we try to compile this code, we get this error that value can’t be moved out of the closure because the closure must implement FnMut:": {
     "_translate": "这是一个复杂且不正确的方法，试图计算在对 <code>list</code> 进行排序时 <code>sort_by_key</code> 调用闭包的次数。这段代码试图通过将 <code>value</code>——一个来自闭包环境的 <code>String</code>——推入 <code>sort_operations</code> 向量来实现计数。闭包捕获 <code>value</code>，然后通过将 <code>value</code> 的所有权转移给 <code>sort_operations</code> 向量，将 <code>value</code> 移出闭包。这个闭包只能被调用一次；尝试第二次调用时将无法工作，因为 <code>value</code> 已经不在环境中，无法再次推入 <code>sort_operations</code>！因此，这个闭包只实现了 <code>FnOnce</code>。当我们尝试编译这段代码时，会得到一个错误，指出 <code>value</code> 不能从闭包中移出，因为闭包必须实现 <code>FnMut</code>：",
     "_note": ""
+  },
+  "We’ll first examine how we can use closures to capture values from the environment they’re defined in for later use. Here’s the scenario: every so often, our T-shirt company gives away an exclusive, limited-edition shirt to someone on our mailing list as a promotion. People on the mailing list can optionally add their favorite color to their profile. If the person chosen for a free shirt has their favorite color set, they get that color shirt. If the person hasn’t specified a favorite color, they get whatever color the company currently has the most of.": {
+    "_translate": "我们首先看看如何使用闭包来捕获它们定义环境中的一些值以供稍后使用。这是一个场景：我们的T恤公司偶尔会向我们邮件列表中的某人赠送一款独家限量版T恤作为促销。邮件列表中的人可以选择在他们的个人资料中添加他们最喜欢的颜色。如果被选中免费获得T恤的人设置了他们最喜欢的颜色，他们就会得到那种颜色的T恤。如果这个人没有指定最喜欢的颜色，他们就会得到公司目前库存最多的那种颜色。",
+    "_note": ""
+  },
+  "There are many ways to implement this. For this example, we’re going to use an enum called ShirtColor that has the variants Red and Blue (limiting the number of colors available for simplicity). We represent the company’s inventory with an Inventory struct that has a field named shirts that contains a Vec<ShirtColor> representing the shirt colors currently in stock. The method giveaway defined on Inventory gets the optional shirt color preference of the free-shirt winner, and returns the shirt color the person will get. This setup is shown in Listing 13-1.": {
+    "_translate": "有许多方法可以实现这一点。在这个例子中，我们将使用一个名为 <code>ShirtColor</code> 的枚举，它有 <code>Red</code> 和 <code>Blue</code> 两个变体（为了简化，限制了可用的颜色数量）。我们用一个名为 <code>Inventory</code> 的结构体来表示公司的库存，该结构体有一个名为 <code>shirts</code> 的字段，其中包含一个 <code>Vec&lt;ShirtColor&gt;</code>，表示当前库存中的衬衫颜色。定义在 <code>Inventory</code> 上的 <code>giveaway</code> 方法获取免费衬衫获奖者的可选颜色偏好，并返回该人将获得的衬衫颜色。这个设置如清单 13-1 所示。",
+    "_note": ""
+  },
+  "Running this code prints the following:": {
+    "_translate": "运行此代码将打印以下内容：",
+    "_note": ""
+  },
+  "We specify the closure expression || self.most_stocked() as the argument to unwrap_or_else. This is a closure that takes no parameters itself (if the closure had parameters, they would appear between the two vertical pipes). The body of the closure calls self.most_stocked(). We’re defining the closure here, and the implementation of unwrap_or_else will evaluate the closure later if the result is needed.": {
+    "_translate": "我们将闭包表达式 <code>|| self.most_stocked()</code> 作为 <code>unwrap_or_else</code> 的参数。这是一个不带参数的闭包（如果闭包有参数，它们会出现在两个竖线之间）。闭包的主体调用 <code>self.most_stocked()</code>。我们在这里定义了闭包，而 <code>unwrap_or_else</code> 的实现将在需要结果时稍后评估该闭包。",
+    "_note": ""
+  },
+  "As with variables, we can add type annotations if we want to increase explicitness and clarity at the cost of being more verbose than is strictly necessary. Annotating the types for a closure would look like the definition shown in Listing 13-2. In this example, we’re defining a closure and storing it in a variable rather than defining the closure in the spot we pass it as an argument, as we did in Listing 13-1.": {
+    "_translate": "与变量一样，如果我们要以增加冗余为代价来提高明确性和清晰度，可以添加类型注解。为闭包添加类型注解的定义如清单 13-2 所示。在这个例子中，我们定义了一个闭包并将其存储在一个变量中，而不是像在清单 13-1 中那样在传递闭包作为参数的位置定义闭包。",
+    "_note": ""
+  },
+  "With type annotations added, the syntax of closures looks more similar to the syntax of functions. Here, we define a function that adds 1 to its parameter and a closure that has the same behavior, for comparison. We’ve added some spaces to line up the relevant parts. This illustrates how closure syntax is similar to function syntax except for the use of pipes and the amount of syntax that is optional:": {
+    "_translate": "添加了类型注解后，闭包的语法看起来更接近函数的语法。这里，我们定义了一个将其参数加1的函数和一个具有相同行为的闭包，以便进行比较。我们添加了一些空格以对齐相关部分。这说明了闭包语法与函数语法相似，除了使用管道符号以及可选语法的数量：",
+    "_note": ""
+  },
+  "In Listing 13-4, we define a closure that captures an immutable reference to the vector named list because it only needs an immutable reference to print the value.": {
+    "_translate": "在清单 13-4 中，我们定义了一个捕获对名为 <code>list</code> 的向量的不可变引用的闭包，因为它只需要一个不可变引用来打印值。",
+    "_note": ""
+  },
+  "Next, in Listing 13-5, we change the closure body so that it adds an element to the list vector. The closure now captures a mutable reference.": {
+    "_translate": "接下来，在清单 13-5 中，我们更改闭包体，使其向 <code>list</code> 向量添加一个元素。闭包现在捕获一个可变引用。",
+    "_note": ""
+  },
+  "The first line shows a function definition and the second line shows a fully annotated closure definition. In the third line, we remove the type annotations from the closure definition. In the fourth line, we remove the brackets, which are optional because the closure body has only one expression. These are all valid definitions that will produce the same behavior when they’re called. The add_one_v3 and add_one_v4 lines require the closures to be evaluated to be able to compile because the types will be inferred from their usage. This is similar to let v = Vec::new(); needing either type annotations or values of some type to be inserted into the Vec for Rust to be able to infer the type.": {
+    "_translate": "第一行显示了一个函数定义，第二行显示了一个完全注解的闭包定义。在第三行，我们从闭包定义中移除了类型注解。在第四行，我们移除了括号，因为闭包体只有一个表达式，所以括号是可选的。这些都是有效的定义，当它们被调用时会产生相同的行为。<code>add_one_v3</code> 和 <code>add_one_v4</code> 行需要闭包被评估才能编译，因为类型将从它们的使用中推断出来。这类似于 <code>let v = Vec::new();</code> 需要类型注解或插入到 <code>Vec</code> 中的某些类型的值，以便 Rust 能够推断类型。",
+    "_note": ""
+  },
+  "This technique is mostly useful when passing a closure to a new thread to move the data so that it’s owned by the new thread. We’ll discuss threads and why you would want to use them in detail in Chapter 16 when we talk about concurrency, but for now, let’s briefly explore spawning a new thread using a closure that needs the move keyword. Listing 13-6 shows Listing 13-4 modified to print the vector in a new thread rather than in the main thread.": {
+    "_translate": "这种技术在将闭包传递给新线程以移动数据，使其由新线程拥有时非常有用。我们将在第16章讨论并发时详细讨论线程及其使用原因，但目前，让我们简要探讨一下使用需要<code>move</code>关键字的闭包来启动新线程。列表13-6显示了修改后的列表13-4，它在新线程中而不是主线程中打印向量。",
+    "_note": ""
+  },
+  "Once a closure has captured a reference or captured ownership of a value from the environment where the closure is defined (thus affecting what, if anything, is moved into the closure), the code in the body of the closure defines what happens to the references or values when the closure is evaluated later (thus affecting what, if anything, is moved out of the closure).": {
+    "_translate": "一旦闭包从其定义的环境中捕获了一个引用或捕获了某个值的所有权（从而影响了什么，如果有的话，被<em>移入</em>闭包），闭包体中的代码定义了在闭包稍后被求值时引用或值会发生什么（从而影响了什么，如果有的话，被<em>移出</em>闭包）。",
+    "_note": ""
+  },
+  "We spawn a new thread, giving the thread a closure to run as an argument. The closure body prints out the list. In Listing 13-4, the closure only captured list using an immutable reference because that’s the least amount of access to list needed to print it. In this example, even though the closure body still only needs an immutable reference, we need to specify that list should be moved into the closure by putting the move keyword at the beginning of the closure definition. If the main thread performed more operations before calling join on the new thread, the new thread might finish before the rest of the main thread finishes, or the main thread might finish first. If the main thread maintained ownership of list but ended before the new thread and drops list, the immutable reference in the thread would be invalid. Therefore, the compiler requires that list be moved into the closure given to the new thread so the reference will be valid. Try removing the move keyword or using list in the main thread after the closure is defined to see what compiler errors you get!": {
+    "_translate": "我们创建一个新的线程，给线程一个闭包作为参数来运行。闭包体打印出列表。在清单 13-4 中，闭包只使用不可变引用捕获了 <code>list</code>，因为这是打印 <code>list</code> 所需的最少访问量。在这个例子中，即使闭包体仍然只需要一个不可变引用，我们也需要通过在闭包定义的开头放置 <code>move</code> 关键字来指定 <code>list</code> 应该被移动到闭包中。如果主线程在调用新线程的 <code>join</code> 之前执行了更多操作，新线程可能在主线程的其余部分完成之前完成，或者主线程可能先完成。如果主线程保留了 <code>list</code> 的所有权但在新线程之前结束并释放了 <code>list</code>，线程中的不可变引用将无效。因此，编译器要求将 <code>list</code> 移动到给新线程的闭包中，以使引用有效。尝试删除 <code>move</code> 关键字或在定义闭包后在主线程中使用 <code>list</code>，看看你会得到什么编译错误！",
+    "_note": ""
+  },
+  "A closure body can do any of the following: move a captured value out of the closure, mutate the captured value, neither move nor mutate the value, or capture nothing from the environment to begin with.": {
+    "_translate": "闭包体可以执行以下任何操作：将捕获的值移出闭包，修改捕获的值，既不移出也不修改值，或者从一开始就什么都不从环境中捕获。",
+    "_note": ""
+  },
+  "FnOnce applies to closures that can be called once. All closures implement at least this trait because all closures can be called. A closure that moves captured values out of its body will only implement FnOnce and none of the other Fn traits because it can only be called once.": {
+    "_translate": "<code>FnOnce</code> 适用于只能调用一次的闭包。所有闭包至少实现了这个 trait，因为所有闭包都可以被调用。一个从其体内移出捕获值的闭包将只实现 <code>FnOnce</code> 而不实现其他任何 <code>Fn</code> trait，因为它只能被调用一次。",
+    "_note": ""
+  },
+  "Note: If what we want to do doesn’t require capturing a value from the environment, we can use the name of a function rather than a closure where we need something that implements one of the Fn traits. For example, on an Option<Vec<T>> value, we could call unwrap_or_else(Vec::new) to get a new, empty vector if the value is None. The compiler automatically implements whichever of the Fn traits is applicable for a function definition.": {
+    "_translate": "注意：如果我们不需要从环境中捕获值，我们可以使用函数的名称而不是闭包，当我们需要实现 <code>Fn</code> 特性的某个内容时。例如，在 <code>Option&lt;Vec&lt;T&gt;&gt;</code> 值上，我们可以调用 <code>unwrap_or_else(Vec::new)</code> 来在值为 <code>None</code> 时获取一个新的空向量。编译器会自动为函数定义实现适用的 <code>Fn</code> 特性。",
+    "_note": ""
+  },
+  "Now let’s look at the standard library method sort_by_key, defined on slices, to see how that differs from unwrap_or_else and why sort_by_key uses FnMut instead of FnOnce for the trait bound. The closure gets one argument in the form of a reference to the current item in the slice being considered, and returns a value of type K that can be ordered. This function is useful when you want to sort a slice by a particular attribute of each item. In Listing 13-7, we have a list of Rectangle instances and we use sort_by_key to order them by their width attribute from low to high.": {
+    "_translate": "现在让我们看看标准库方法<code>sort_by_key</code>，它定义在切片上，看看它与<code>unwrap_or_else</code>有何不同，以及为什么<code>sort_by_key</code>使用<code>FnMut</code>而不是<code>FnOnce</code>作为特质边界。闭包接收一个参数，形式为当前考虑的切片项的引用，并返回一个可以排序的类型<code>K</code>的值。当你想根据每个项的特定属性对切片进行排序时，此函数非常有用。在列表13-7中，我们有一个<code>Rectangle</code>实例列表，并使用<code>sort_by_key</code>按其<code>width</code>属性从低到高排序。",
+    "_note": ""
+  },
+  "The reason sort_by_key is defined to take an FnMut closure is that it calls the closure multiple times: once for each item in the slice. The closure |r| r.width doesn’t capture, mutate, or move anything out from its environment, so it meets the trait bound requirements.": {
+    "_translate": "<code>sort_by_key</code> 被定义为接受一个 <code>FnMut</code> 闭包的原因是它会多次调用该闭包：每次对切片中的每个项目调用一次。闭包 <code>|r| r.width</code> 不会从其环境中捕获、修改或移动任何内容，因此它满足特质边界要求。",
+    "_note": ""
+  },
+  "In contrast, Listing 13-8 shows an example of a closure that implements just the FnOnce trait, because it moves a value out of the environment. The compiler won’t let us use this closure with sort_by_key.": {
+    "_translate": "与此相反，列表 13-8 显示了一个只实现了 <code>FnOnce</code> 特性的闭包示例，因为它将值移出了环境。编译器不会让我们使用这个闭包与 <code>sort_by_key</code>。",
+    "_note": ""
   }
 }

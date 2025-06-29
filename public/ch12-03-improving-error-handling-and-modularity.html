@@ -557,7 +557,7 @@ Problem parsing arguments: not enough arguments
 <p data-x-en="Great! This output is much friendlier for our users.">很好！这个输出对我们的用户更加友好。</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="extracting-logic-from-main"></a></p>
-<h3 id="extracting-logic-from-the-main-function" data-x-en="Extracting Logic from the main Function"><a class="header" href="#extracting-logic-from-the-main-function">从 <code>main</code> 函数中提取逻辑</a></h3>
+<h3 id="extracting-logic-from-the-main-function"><a class="header" href="#extracting-logic-from-the-main-function">从 <code>main</code> 函数中提取逻辑</a></h3>
 <p data-x-en="Now that we’ve finished refactoring the configuration parsing, let’s turn to the program’s logic. As we stated in “Separation of Concerns for Binary Projects”, we’ll extract a function named run that will hold all the logic currently in the main function that isn’t involved with setting up configuration or handling errors. When we’re done, the main function will be concise and easy to verify by inspection, and we’ll be able to write tests for all the other logic.">现在我们已经完成了配置解析的重构，让我们转向程序的逻辑。正如我们在<a href="#separation-of-concerns-for-binary-projects">“二进制项目中的关注点分离”</a>中所述，我们将提取一个名为<code>run</code>的函数，该函数将包含当前在<code>main</code>函数中与设置配置或处理错误无关的所有逻辑。完成后，<code>main</code>函数将简洁且易于通过检查验证，我们还将能够为所有其他逻辑编写测试。</p>
 <p data-x-en="Listing 12-11 shows the small, incremental improvement of extracting a run function.">列表 12-11 显示了提取一个 <code>run</code> 函数的小幅、渐进的改进。</p>
 <figure class="listing" id="listing-12-11">
