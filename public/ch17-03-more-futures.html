@@ -1034,7 +1034,7 @@ copy just the output
 </span><span class="boring">            "Finally finished"
 </span><span class="boring">        };
 </span><span class="boring">
-</span><span class="boring">        match timeout(slow, Duration::from_millis(10)).await {
+</span><span class="boring">        match timeout(slow, Duration::from_secs(2)).await {
 </span><span class="boring">            Ok(message) =&gt; println!("Succeeded with '{message}'"),
 </span><span class="boring">            Err(duration) =&gt; {
 </span><span class="boring">                println!("Failed after {} seconds", duration.as_secs())

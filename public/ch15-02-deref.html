@@ -249,9 +249,6 @@ blockquote {
 解引用操作符在我们新定义的类型上不像引用那样工作。我们将探讨实现<code>Deref</code>特征如何使
 智能指针能够以类似于引用的方式工作。然后我们将研究
 Rust的<em>解引用强制转换</em>特性，以及它如何让我们可以使用引用或智能指针。</p>
-<section class="note" aria-role="note">
-<p data-x-en="Note: There’s one big difference between the MyBox<T> type we’re about to build and the real Box<T>: our version will not store its data on the heap. We are focusing this example on Deref, so where the data is actually stored is less important than the pointer-like behavior.">注意：我们即将构建的 <code>MyBox&lt;T&gt;</code> 类型和真正的 <code>Box&lt;T&gt;</code> 之间有一个很大的不同：我们的版本不会在堆上存储数据。我们在这个例子中专注于 <code>Deref</code>，因此数据实际存储的位置不如指针行为重要。</p>
-</section>
 <!-- Old links, do not remove -->
 <p><a id="following-the-pointer-to-the-value-with-the-dereference-operator"></a>
 <a id="following-the-pointer-to-the-value"></a></p>
@@ -286,7 +283,7 @@ error: could not compile `deref-example` (bin "deref-example") due to 1 previous
 </code></pre>
 <p data-x-en="Comparing a number and a reference to a number isn’t allowed because they’re different types. We must use the dereference operator to follow the reference to the value it’s pointing to.">比较一个数字和一个数字的引用是不允许的，因为它们是不同的类型。我们必须使用解引用运算符来跟踪引用所指向的值。</p>
 <h3 id="using-boxt-like-a-reference"><a class="header" href="#using-boxt-like-a-reference">将 <code>Box&lt;T&gt;</code> 用作引用</a></h3>
-<p data-x-en="We can rewrite the code in Listing 15-6 to use a Box<T> instead of a reference; the dereference operator used on the Box<T> in Listing 15-7 functions in the same way as the dereference operator used on the reference in Listing 15-6:">我们可以将列表 15-6 中的代码重写为使用 <code>Box&lt;T&gt;</code> 而不是引用；在列表 15-7 中对 <code>Box&lt;T&gt;</code> 使用的解引用运算符与在列表 15-6 中对引用使用的解引用运算符功能相同：</p>
+<p data-x-en="We can rewrite the code in Listing 15-6 to use a Box<T> instead of a reference; the dereference operator used on the Box<T> in Listing 15-7 functions in the same way as the dereference operator used on the reference in Listing 15-6.">我们可以将列表 15-6 中的代码重写为使用 <code>Box&lt;T&gt;</code> 而不是引用；在列表 15-7 中对 <code>Box&lt;T&gt;</code> 使用的解引用运算符与在列表 15-6 中对引用使用的解引用运算符功能相同。</p>
 <figure class="listing" id="listing-15-7">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust edition2024">fn main() {
@@ -298,9 +295,12 @@ error: could not compile `deref-example` (bin "deref-example") due to 1 previous
 }</code></pre></pre>
 <figcaption><a href="#listing-15-7">Listing 15-7</a>: Using the dereference operator on a <code>Box&lt;i32&gt;</code></figcaption>
 </figure>
-<p data-x-en="The main difference between Listing 15-7 and Listing 15-6 is that here we set y to be an instance of a box pointing to a copied value of x rather than a reference pointing to the value of x. In the last assertion, we can use the dereference operator to follow the box’s pointer in the same way that we did when y was a reference. Next, we’ll explore what is special about Box<T> that enables us to use the dereference operator by defining our own type.">列表 15-7 和列表 15-6 之间的主要区别在于，这里我们将 <code>y</code> 设置为指向 <code>x</code> 值的副本的 box 实例，而不是指向 <code>x</code> 值的引用。在最后一个断言中，我们可以使用解引用运算符来跟踪 box 的指针，就像 <code>y</code> 是引用时我们所做的那样。接下来，我们将通过定义我们自己的类型来探讨 <code>Box&lt;T&gt;</code> 的特殊之处，这使我们能够使用解引用运算符。</p>
+<p data-x-en="The main difference between Listing 15-7 and Listing 15-6 is that here we set y to be an instance of a box pointing to a copied value of x rather than a reference pointing to the value of x. In the last assertion, we can use the dereference operator to follow the box’s pointer in the same way that we did when y was a reference. Next, we’ll explore what is special about Box<T> that enables us to use the dereference operator by defining our own box type.">列表 15-7 和列表 15-6 之间的主要区别在于，这里我们将 <code>y</code> 设置为指向 <code>x</code> 值的副本的 box 实例，而不是指向 <code>x</code> 值的引用。在最后一个断言中，我们可以使用解引用运算符来跟踪 box 的指针，就像 <code>y</code> 是引用时我们所做的那样。接下来，我们将通过定义我们自己的 box 类型来探讨 <code>Box&lt;T&gt;</code> 的特殊之处，这使我们能够使用解引用运算符。</p>
 <h3 id="defining-our-own-smart-pointer"><a class="header" href="#defining-our-own-smart-pointer">定义我们自己的智能指针</a></h3>
-<p data-x-en="Let’s build a smart pointer similar to the Box<T> type provided by the standard library to experience how smart pointers behave differently from references by default. Then we’ll look at how to add the ability to use the dereference operator.">让我们构建一个类似于标准库提供的<code>Box&lt;T&gt;</code>类型的智能指针，以体验智能指针与引用在默认行为上的不同。然后我们将研究如何添加使用解引用运算符的能力。</p>
+<p data-x-en="Let’s build a wrapper type similar to the Box<T> type provided by the standard library to experience how smart pointer types behave differently from references by default. Then we’ll look at how to add the ability to use the dereference operator.">让我们构建一个类似于标准库提供的<code>Box&lt;T&gt;</code>类型的包装类型，以体验智能指针类型默认情况下与引用的行为有何不同。然后我们将看看如何添加使用解引用运算符的能力。</p>
+<section class="note" aria-role="note">
+<p data-x-en="Note: There’s one big difference between the MyBox<T> type we’re about to build and the real Box<T>: our version will not store its data on the heap. We are focusing this example on Deref, so where the data is actually stored is less important than the pointer-like behavior.">注意：我们即将构建的 <code>MyBox&lt;T&gt;</code> 类型和真正的 <code>Box&lt;T&gt;</code> 之间有一个很大的不同：我们的版本不会在堆上存储数据。我们在这个例子中专注于 <code>Deref</code>，因此数据实际存储的位置不如指针行为重要。</p>
+</section>
 <p data-x-en="The Box<T> type is ultimately defined as a tuple struct with one element, so Listing 15-8 defines a MyBox<T> type in the same way. We’ll also define a new function to match the new function defined on Box<T>."><code>Box&lt;T&gt;</code> 类型最终被定义为一个包含一个元素的元组结构体，因此 列表 15-8 以相同的方式定义了一个 <code>MyBox&lt;T&gt;</code> 类型。我们还将定义一个 <code>new</code> 函数，以匹配在 <code>Box&lt;T&gt;</code> 上定义的 <code>new</code> 函数。</p>
 <figure class="listing" id="listing-15-8">
 <span class="file-name">Filename: src/main.rs</span>
@@ -355,8 +355,8 @@ error: could not compile `deref-example` (bin "deref-example") due to 1 previous
 <!-- Old link, do not remove -->
 <p><a id="treating-a-type-like-a-reference-by-implementing-the-deref-trait"></a></p>
 <h3 id="implementing-the-deref-trait"><a class="header" href="#implementing-the-deref-trait">实现 <code>Deref</code> 特性</a></h3>
-<p data-x-en="As discussed in “Implementing a Trait on a Type” in Chapter 10, to implement a trait, we need to provide implementations for the trait’s required methods. The Deref trait, provided by the standard library, requires us to implement one method named deref that borrows self and returns a reference to the inner data. Listing 15-10 contains an implementation of Deref to add to the definition of MyBox<T>.">如<a href="ch10-02-traits.html#implementing-a-trait-on-a-type">“在类型上实现特征”</a><!-- ignore -->在
-第 10 章中所述，要实现一个特征，我们需要为该特征的必需方法提供实现。标准库提供的<code>Deref</code>特征要求我们实现一个名为<code>deref</code>的方法，该方法借用<code>self</code>并返回对内部数据的引用。列表 15-10 包含为<code>MyBox&lt;T&gt;</code>定义添加的<code>Deref</code>实现。</p>
+<p data-x-en="As discussed in “Implementing a Trait on a Type” in Chapter 10, to implement a trait we need to provide implementations for the trait’s required methods. The Deref trait, provided by the standard library, requires us to implement one method named deref that borrows self and returns a reference to the inner data. Listing 15-10 contains an implementation of Deref to add to the definition of MyBox<T>.">如<a href="ch10-02-traits.html#implementing-a-trait-on-a-type">“在类型上实现特征”</a><!-- ignore -->在
+第 10 章中所述，要实现一个特征，我们需要为该特征的必需方法提供实现。标准库提供的<code>Deref</code>特征要求我们实现一个名为<code>deref</code>的方法，该方法借用<code>self</code>并返回对内部数据的引用。列表 15-10 包含了为<code>MyBox&lt;T&gt;</code>定义添加的<code>Deref</code>实现。</p>
 <figure class="listing" id="listing-15-10">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust edition2024">use std::ops::Deref;

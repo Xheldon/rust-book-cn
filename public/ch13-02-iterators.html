@@ -325,7 +325,7 @@ blockquote {
 <figcaption><a href="#listing-13-13">Listing 13-13</a>: Calling the <code>sum</code> method to get the total of all items in the iterator</figcaption>
 </figure>
 <p data-x-en="We aren’t allowed to use v1_iter after the call to sum because sum takes ownership of the iterator we call it on.">我们不能在调用 <code>sum</code> 之后使用 <code>v1_iter</code>，因为 <code>sum</code> 会获取我们调用它的迭代器的所有权。</p>
-<h3 id="methods-that-produce-other-iterators" data-x-en="Methods That Produce Other Iterators"><a class="header" href="#methods-that-produce-other-iterators">生成其他迭代器的方法</a></h3>
+<h3 id="methods-that-produce-other-iterators"><a class="header" href="#methods-that-produce-other-iterators">生成其他迭代器的方法</a></h3>
 <p data-x-en="Iterator adapters are methods defined on the Iterator trait that don’t consume the iterator. Instead, they produce different iterators by changing some aspect of the original iterator."><em>迭代器适配器</em> 是定义在 <code>Iterator</code> 特性上的方法，它们不会消耗迭代器。相反，它们通过改变原始迭代器的某些方面来生成不同的迭代器。</p>
 <p data-x-en="Listing 13-14 shows an example of calling the iterator adapter method map, which takes a closure to call on each item as the items are iterated through. The map method returns a new iterator that produces the modified items. The closure here creates a new iterator in which each item from the vector will be incremented by 1.">列表 13-14 显示了调用迭代器适配器方法 <code>map</code> 的示例，
 该方法接受一个闭包，该闭包将在迭代过程中对每个项目进行调用。

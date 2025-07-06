@@ -246,5 +246,21 @@
   "Following the Reference to the Value": {
     "_translate": "<a class=\"header\" href=\"#following-the-reference-to-the-value\">跟踪引用到值</a>",
     "_note": ""
+  },
+  "We can rewrite the code in Listing 15-6 to use a Box<T> instead of a reference; the dereference operator used on the Box<T> in Listing 15-7 functions in the same way as the dereference operator used on the reference in Listing 15-6.": {
+    "_translate": "我们可以将列表 15-6 中的代码重写为使用 <code>Box&lt;T&gt;</code> 而不是引用；在列表 15-7 中对 <code>Box&lt;T&gt;</code> 使用的解引用运算符与在列表 15-6 中对引用使用的解引用运算符功能相同。",
+    "_note": ""
+  },
+  "Let’s build a wrapper type similar to the Box<T> type provided by the standard library to experience how smart pointer types behave differently from references by default. Then we’ll look at how to add the ability to use the dereference operator.": {
+    "_translate": "让我们构建一个类似于标准库提供的<code>Box&lt;T&gt;</code>类型的包装类型，以体验智能指针类型默认情况下与引用的行为有何不同。然后我们将看看如何添加使用解引用运算符的能力。",
+    "_note": ""
+  },
+  "The main difference between Listing 15-7 and Listing 15-6 is that here we set y to be an instance of a box pointing to a copied value of x rather than a reference pointing to the value of x. In the last assertion, we can use the dereference operator to follow the box’s pointer in the same way that we did when y was a reference. Next, we’ll explore what is special about Box<T> that enables us to use the dereference operator by defining our own box type.": {
+    "_translate": "列表 15-7 和列表 15-6 之间的主要区别在于，这里我们将 <code>y</code> 设置为指向 <code>x</code> 值的副本的 box 实例，而不是指向 <code>x</code> 值的引用。在最后一个断言中，我们可以使用解引用运算符来跟踪 box 的指针，就像 <code>y</code> 是引用时我们所做的那样。接下来，我们将通过定义我们自己的 box 类型来探讨 <code>Box&lt;T&gt;</code> 的特殊之处，这使我们能够使用解引用运算符。",
+    "_note": ""
+  },
+  "As discussed in “Implementing a Trait on a Type” in Chapter 10, to implement a trait we need to provide implementations for the trait’s required methods. The Deref trait, provided by the standard library, requires us to implement one method named deref that borrows self and returns a reference to the inner data. Listing 15-10 contains an implementation of Deref to add to the definition of MyBox<T>.": {
+    "_translate": "如<a href=\"ch10-02-traits.html#implementing-a-trait-on-a-type\">“在类型上实现特征”</a><!-- ignore -->在\n第 10 章中所述，要实现一个特征，我们需要为该特征的必需方法提供实现。标准库提供的<code>Deref</code>特征要求我们实现一个名为<code>deref</code>的方法，该方法借用<code>self</code>并返回对内部数据的引用。列表 15-10 包含了为<code>MyBox&lt;T&gt;</code>定义添加的<code>Deref</code>实现。",
+    "_note": ""
   }
 }

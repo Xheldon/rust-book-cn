@@ -118,5 +118,13 @@
   "At each point in the program where the reference count changes, we print the reference count, which we get by calling the Rc::strong_count function. This function is named strong_count rather than count because the Rc<T> type also has a weak_count; we’ll see what weak_count is used for in “Preventing Reference Cycles Using Weak<T>”.": {
     "_translate": "在程序中每次引用计数发生变化时，我们都会打印引用计数，这是通过调用 <code>Rc::strong_count</code> 函数获得的。这个函数被称为 <code>strong_count</code> 而不是 <code>count</code>，因为 <code>Rc&lt;T&gt;</code> 类型还有 <code>weak_count</code>；我们将在 <a href=\"ch15-06-reference-cycles.html#preventing-reference-cycles-turning-an-rct-into-a-weakt\">“使用 <code>Weak&lt;T&gt;</code> 防止引用循环”</a><!-- ignore --> 中看到 <code>weak_count</code> 的用途。",
     "_note": ""
+  },
+  "Trying to implement this scenario using our definition of List with Box<T> won’t work, as shown in Listing 15-17.": {
+    "_translate": "尝试使用我们的 <code>List</code> 定义和 <code>Box&lt;T&gt;</code> 实现这个场景是行不通的，如清单 15-17 所示。",
+    "_note": ""
+  },
+  "We need to add a use statement to bring Rc<T> into scope because it’s not in the prelude. In main, we create the list holding 5 and 10 and store it in a new Rc<List> in a. Then, when we create b and c, we call the Rc::clone function and pass a reference to the Rc<List> in a as an argument.": {
+    "_translate": "我们需要添加一个 <code>use</code> 语句来将 <code>Rc&lt;T&gt;</code> 引入作用域，因为它不在前言中。在 <code>main</code> 中，我们创建了一个包含 <code>5</code> 和 <code>10</code> 的列表，并将其存储在 <code>a</code> 中的新 <code>Rc&lt;List&gt;</code> 中。然后，当我们创建 <code>b</code> 和 <code>c</code> 时，我们调用 <code>Rc::clone</code> 函数并将 <code>a</code> 中的 <code>Rc&lt;List&gt;</code> 的引用作为参数传递。",
+    "_note": ""
   }
 }

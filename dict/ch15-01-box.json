@@ -218,5 +218,13 @@
   "Boxes provide only the indirection and heap allocation; they don’t have any other special capabilities, like those we’ll see with the other smart pointer types. They also don’t have the performance overhead that these special capabilities incur, so they can be useful in cases like the cons list where the indirection is the only feature we need. We’ll look at more use cases for boxes in Chapter 18.": {
     "_translate": "Boxes 只提供间接性和堆分配；它们没有其他特殊功能，比如我们将在其他智能指针类型中看到的那些。它们也没有这些特殊功能带来的性能开销，因此在只需要间接性的情况下（如 cons 列表），它们可以非常有用。我们将在第 18 章中探讨更多使用 Boxes 的场景。",
     "_note": ""
+  },
+  "Putting a single value on the heap isn’t very useful, so you won’t use boxes by themselves in this way very often. Having values like a single i32 on the stack, where they’re stored by default, is more appropriate in the majority of situations. Let’s look at a case where boxes allow us to define types that we wouldn’t be allowed to define if we didn’t have boxes.": {
+    "_translate": "将单个值放在堆上并不是很有用，所以你不会经常以这种方式单独使用盒子。像单个<code>i32</code>这样的值，默认存储在栈上，在大多数情况下更为合适。让我们来看一个例子，如果没有盒子，我们是无法定义这些类型的。",
+    "_note": ""
+  },
+  "The Cons variant needs the size of an i32 plus the space to store the box’s pointer data. The Nil variant stores no values, so it needs less space on the stack than the Cons variant. We now know that any List value will take up the size of an i32 plus the size of a box’s pointer data. By using a box, we’ve broken the infinite, recursive chain, so the compiler can figure out the size it needs to store a List value. Figure 15-2 shows what the Cons variant looks like now.": {
+    "_translate": "<code>Cons</code> 变体需要一个 <code>i32</code> 的大小加上存储盒子指针数据的空间。<code>Nil</code> 变体不存储任何值，因此它在栈上占用的空间比 <code>Cons</code> 变体少。我们现在知道，任何 <code>List</code> 值都将占用一个 <code>i32</code> 的大小加上一个盒子指针数据的大小。通过使用盒子，我们打破了无限递归链，因此编译器可以计算出存储 <code>List</code> 值所需的空间。图 15-2 显示了现在的 <code>Cons</code> 变体的样子。",
+    "_note": ""
   }
 }
