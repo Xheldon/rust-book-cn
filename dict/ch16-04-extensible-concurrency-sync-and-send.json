@@ -114,5 +114,17 @@
   "This isn’t the last you’ll see of concurrency in this book: the next chapter focuses on async programming, and the project in Chapter 21 will use the concepts in this chapter in a more realistic situation than the smaller examples discussed here.": {
     "_translate": "这不会是你在这本书中最后一次看到并发：下一章将重点介绍异步编程，第21章的项目将在比这里讨论的较小示例更现实的情况下使用本章的概念。",
     "_note": ""
+  },
+  "Therefore, Rust’s type system and trait bounds ensure that you can never accidentally send an Rc<T> value across threads unsafely. When we tried to do this in Listing 16-14, we got the error the trait `Send` is not implemented for `Rc<Mutex<i32>>`. When we switched to Arc<T>, which does implement Send, the code compiled.": {
+    "_translate": "因此，Rust 的类型系统和特征边界确保你永远不会意外地将 <code>Rc&lt;T&gt;</code> 值不安全地跨线程发送。当我们在清单 16-14 中尝试这样做时，我们得到了错误 <code>the trait `Send` is not implemented for `Rc&lt;Mutex&lt;i32&gt;&gt;`</code>。当我们切换到实现 <code>Send</code> 的 <code>Arc&lt;T&gt;</code> 时，代码编译成功。",
+    "_note": ""
+  },
+  "The Send marker trait indicates that ownership of values of the type implementing Send can be transferred between threads. Almost every Rust type implements Send, but there are some exceptions, including Rc<T>: this cannot implement Send because if you cloned an Rc<T> value and tried to transfer ownership of the clone to another thread, both threads might update the reference count at the same time. For this reason, Rc<T> is implemented for use in single-threaded situations where you don’t want to pay the thread-safe performance penalty.": {
+    "_translate": "<code>Send</code> 标记特征表示实现了 <code>Send</code> 的类型的值的所有权可以在线程之间转移。几乎所有 Rust 类型都实现了 <code>Send</code>，但有一些例外，包括 <code>Rc&lt;T&gt;</code>：这个类型不能实现 <code>Send</code>，因为如果你克隆了一个 <code>Rc&lt;T&gt;</code> 值并尝试将克隆的所有权转移到另一个线程，两个线程可能会同时更新引用计数。因此，<code>Rc&lt;T&gt;</code> 被设计用于单线程情况，这样你就不必承担线程安全的性能开销。",
+    "_note": ""
+  },
+  "The smart pointer Rc<T> also doesn’t implement Sync for the same reasons that it doesn’t implement Send. The RefCell<T> type (which we talked about in Chapter 15) and the family of related Cell<T> types don’t implement Sync. The implementation of borrow checking that RefCell<T> does at runtime is not thread-safe. The smart pointer Mutex<T> implements Sync and can be used to share access with multiple threads, as you saw in “Sharing a Mutex<T> Between Multiple Threads”.": {
+    "_translate": "智能指针 <code>Rc&lt;T&gt;</code> 也没有实现 <code>Sync</code>，原因与它不实现 <code>Send</code> 的原因相同。我们在第 15 章讨论过的 <code>RefCell&lt;T&gt;</code> 类型及其相关的 <code>Cell&lt;T&gt;</code> 类型系列也没有实现 <code>Sync</code>。<code>RefCell&lt;T&gt;</code> 在运行时执行的借用检查实现不是线程安全的。<code>Mutex&lt;T&gt;</code> 智能指针实现了 <code>Sync</code>，可以用于在多个线程之间共享访问，如你在 <a href=\"ch16-03-shared-state.html#sharing-a-mutext-between-multiple-threads\">“在多个线程之间共享 <code>Mutex&lt;T&gt;</code>”</a> 中所见。",
+    "_note": ""
   }
 }

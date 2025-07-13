@@ -186,5 +186,21 @@
   "Earlier we mentioned that mpsc was an acronym for multiple producer, single consumer. Let’s put mpsc to use and expand the code in Listing 16-10 to create multiple threads that all send values to the same receiver. We can do so by cloning the transmitter, as shown in Listing 16-11.": {
     "_translate": "前面我们提到，<code>mpsc</code> 是 <em>多个生产者，单个消费者</em> 的缩写。让我们使用 <code>mpsc</code> 并扩展列表 16-10 中的代码，创建多个线程，所有线程都向同一个接收者发送值。我们可以通过克隆发送者来实现，如列表 16-11 所示。",
     "_note": ""
+  },
+  "Our concurrency mistake has caused a compile-time error. The send function takes ownership of its parameter, and when the value is moved the receiver takes ownership of it. This stops us from accidentally using the value again after sending it; the ownership system checks that everything is okay.": {
+    "_translate": "我们的并发错误导致了一个编译时错误。<code>send</code> 函数获取其参数的所有权，当值被移动时，接收者会获得该值的所有权。这阻止了我们在发送值后意外再次使用该值；所有权系统会检查一切是否正常。",
+    "_note": ""
+  },
+  "The mpsc::channel function returns a tuple, the first element of which is the sending end—the transmitter—and the second element of which is the receiving end—the receiver. The abbreviations tx and rx are traditionally used in many fields for transmitter and receiver, respectively, so we name our variables as such to indicate each end. We’re using a let statement with a pattern that destructures the tuples; we’ll discuss the use of patterns in let statements and destructuring in Chapter 19. For now, know that using a let statement in this way is a convenient approach to extract the pieces of the tuple returned by mpsc::channel.": {
+    "_translate": "<code>mpsc::channel</code> 函数返回一个元组，其中第一个元素是发送端——发送器——第二个元素是接收端——接收器。在许多领域中，<code>tx</code> 和 <code>rx</code> 传统上分别用于表示<em>发送器</em>和<em>接收器</em>，因此我们这样命名我们的变量以指示每一端。我们使用一个带有模式的 <code>let</code> 语句来解构元组；我们将在第 19 章讨论 <code>let</code> 语句中模式的使用和解构。目前，要知道以这种方式使用 <code>let</code> 语句是一种方便的方法，可以提取 <code>mpsc::channel</code> 返回的元组的各个部分。",
+    "_note": ""
+  },
+  "The code in Listing 16-8 compiled and ran, but it didn’t clearly show us that two separate threads were talking to each other over the channel.": {
+    "_translate": "第 16-8 列表中的代码编译并运行了，但它没有清楚地显示两个独立的线程是通过通道进行通信的。",
+    "_note": ""
+  },
+  "In Listing 16-10 we’ve made some modifications that will prove the code in Listing 16-8 is running concurrently: the spawned thread will now send multiple messages and pause for a second between each message.": {
+    "_translate": "在清单 16-10 中，我们进行了一些修改，以证明清单 16-8 中的代码是并发运行的：现在生成的线程将发送多条消息，并在每条消息之间暂停一秒。",
+    "_note": ""
   }
 }

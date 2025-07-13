@@ -214,5 +214,17 @@
   "Let’s return to our example: Arc<T> and Rc<T> have the same API, so we fix our program by changing the use line, the call to new, and the call to clone. The code in Listing 16-15 will finally compile and run.": {
     "_translate": "让我们回到我们的例子：<code>Arc&lt;T&gt;</code> 和 <code>Rc&lt;T&gt;</code> 有相同的 API，所以我们通过更改 <code>use</code> 行、对 <code>new</code> 的调用以及对 <code>clone</code> 的调用来修复我们的程序。清单 16-15 中的代码终于可以编译和运行了。",
     "_note": ""
+  },
+  "In a way, channels in any programming language are similar to single ownership because once you transfer a value down a channel, you should no longer use that value. Shared-memory concurrency is like multiple ownership: multiple threads can access the same memory location at the same time. As you saw in Chapter 15, where smart pointers made multiple ownership possible, multiple ownership can add complexity because these different owners need managing. Rust’s type system and ownership rules greatly assist in getting this management correct. For an example, let’s look at mutexes, one of the more common concurrency primitives for shared memory.": {
+    "_translate": "在某种程度上，任何编程语言中的通道都类似于单一所有权，因为一旦你通过通道传递一个值，你就不再应该使用该值。共享内存并发类似于多重所有权：多个线程可以同时访问同一内存位置。正如你在第15章中看到的，智能指针使得多重所有权成为可能，多重所有权可以增加复杂性，因为这些不同的所有者需要管理。Rust 的类型系统和所有权规则在正确管理这些所有者方面提供了很大帮助。例如，让我们看看互斥锁，这是共享内存中最常见的并发原语之一。",
+    "_note": ""
+  },
+  "The call to lock returns a type called MutexGuard, wrapped in a LockResult that we handled with the call to unwrap. The MutexGuard type implements Deref to point at our inner data; the type also has a Drop implementation that releases the lock automatically when a MutexGuard goes out of scope, which happens at the end of the inner scope. As a result, we don’t risk forgetting to release the lock and blocking the mutex from being used by other threads because the lock release happens automatically.": {
+    "_translate": "调用 <code>lock</code> 返回一个称为 <code>MutexGuard</code> 的类型，该类型被包装在一个我们通过调用 <code>unwrap</code> 处理的 <code>LockResult</code> 中。 <code>MutexGuard</code> 类型实现了 <code>Deref</code> 以指向我们的内部数据；该类型还具有一个 <code>Drop</code> 实现，当 <code>MutexGuard</code> 超出作用域时会自动释放锁，这发生在内部作用域结束时。因此，我们不会因为忘记释放锁而阻止其他线程使用互斥锁，因为锁的释放是自动进行的。",
+    "_note": ""
+  },
+  "Unfortunately, Rc<T> is not safe to share across threads. When Rc<T> manages the reference count, it adds to the count for each call to clone and subtracts from the count when each clone is dropped. But it doesn’t use any concurrency primitives to make sure that changes to the count can’t be interrupted by another thread. This could lead to wrong counts—subtle bugs that could in turn lead to memory leaks or a value being dropped before we’re done with it. What we need is a type that is exactly like Rc<T>, but that makes changes to the reference count in a thread-safe way.": {
+    "_translate": "不幸的是，<code>Rc&lt;T&gt;</code> 不适合在多线程间共享。当 <code>Rc&lt;T&gt;</code>\n管理引用计数时，它会在每次调用 <code>clone</code> 时增加计数，并在每个克隆被销毁时减少计数。但它没有使用任何并发原语来确保计数的更改不会被另一个线程中断。这可能导致计数错误——细微的错误可能会导致内存泄漏或在我们尚未完成使用某个值时将其销毁。我们需要一个类型，它与 <code>Rc&lt;T&gt;</code> 完全相同，但以线程安全的方式更改引用计数。",
+    "_note": ""
   }
 }
