@@ -398,5 +398,53 @@
   "Regardless of whether you think Rust is an object-oriented language after reading this chapter, you now know that you can use trait objects to get some object-oriented features in Rust. Dynamic dispatch can give your code some flexibility in exchange for a bit of runtime performance. You can use this flexibility to implement object-oriented patterns that can help your code’s maintainability. Rust also has other features, like ownership, that object-oriented languages don’t have. An object-oriented pattern won’t always be the best way to take advantage of Rust’s strengths, but it is an available option.": {
     "_translate": "无论你在阅读本章后是否认为Rust是一种面向对象的语言，你现在知道你可以使用特征对象在Rust中获得一些面向对象的特性。动态分发可以让你的代码在牺牲一些运行时性能的情况下获得一定的灵活性。你可以利用这种灵活性来实现有助于代码可维护性的面向对象模式。Rust还具有其他面向对象语言所没有的特性，如所有权。面向对象的模式并不总是利用Rust优势的最佳方式，但它是一个可用的选项。",
     "_note": ""
+  },
+  "A Traditional Object-oriented Attempt": {
+    "_translate": "<a class=\"header\" href=\"#a-traditional-object-oriented-attempt\">一次传统的面向对象尝试</a>",
+    "_note": ""
+  },
+  "The state pattern is an object-oriented design pattern. The crux of the pattern is that we define a set of states a value can have internally. The states are represented by a set of state objects, and the value’s behavior changes based on its state. We’re going to work through an example of a blog post struct that has a field to hold its state, which will be a state object from the set “draft,” “review,” or “published.”": {
+    "_translate": "<em>状态模式</em> 是一种面向对象的设计模式。该模式的核心在于我们定义了一个值可以内部拥有一组状态。这些状态由一组 <em>状态对象</em> 表示，值的行为会根据其状态而变化。我们将通过一个博客文章结构体的例子来说明，该结构体有一个字段用于保存其状态，该状态对象将从“草稿”、“审核”或“已发布”这组状态中选择。",
+    "_note": ""
+  },
+  "There are infinite ways to structure code to solve the same problem, each with different trade-offs. This section’s implementation is more of a traditional object-oriented style, which is possible to write in Rust, but doesn’t take advantage of some of Rust’s strengths. Later, we’ll demonstrate a different solution that still uses the object-oriented design pattern but is structured in a way that might look less familiar to programmers with object-oriented experience. We’ll compare the two solutions to experience the trade-offs of designing Rust code differently than code in other languages.": {
+    "_translate": "有无限种方法可以组织代码来解决同一个问题，每种方法都有不同的权衡。本节的实现更偏向于传统的面向对象风格，这在 Rust 中是可能实现的，但并没有充分利用 Rust 的一些优势。稍后，我们将展示一个不同的解决方案，该方案仍然使用面向对象的设计模式，但其结构可能对具有面向对象经验的程序员来说看起来不太熟悉。我们将比较这两种解决方案，以体验用不同于其他语言的方式来设计 Rust 代码的权衡。",
+    "_note": ""
+  },
+  "The approve method will be similar to the request_review method: it will set state to the value that the current state says it should have when that state is approved, as shown in Listing 18-16.": {
+    "_translate": "<code>approve</code> 方法将类似于 <code>request_review</code> 方法：它将把 <code>state</code> 设置为当前状态在被批准时应具有的值，如清单 18-16 所示。",
+    "_note": ""
+  },
+  "Now we need to update the content method on Post. We want the value returned from content to depend on the current state of the Post, so we’re going to have the Post delegate to a content method defined on its state, as shown in Listing 18-17.": {
+    "_translate": "现在我们需要更新 <code>Post</code> 上的 <code>content</code> 方法。我们希望从 <code>content</code> 返回的值取决于 <code>Post</code> 的当前状态，因此我们将让 <code>Post</code> 委托给其 <code>state</code> 上定义的 <code>content</code> 方法，如清单 18-17 所示。",
+    "_note": ""
+  },
+  "Similar to the way request_review on PendingReview works, if we call the approve method on a Draft, it will have no effect because approve will return self. When we call approve on PendingReview, it returns a new, boxed instance of the Published struct. The Published struct implements the State trait, and for both the request_review method and the approve method, it returns itself because the post should stay in the Published state in those cases.": {
+    "_translate": "类似于 <code>PendingReview</code> 上的 <code>request_review</code> 方法，如果我们调用 <code>Draft</code> 上的 <code>approve</code> 方法，它将不会产生任何效果，因为 <code>approve</code> 会返回 <code>self</code>。当我们调用 <code>PendingReview</code> 上的 <code>approve</code> 方法时，它会返回一个新的、装箱的 <code>Published</code> 结构体实例。<code>Published</code> 结构体实现了 <code>State</code> 特性，对于 <code>request_review</code> 方法和 <code>approve</code> 方法，它都会返回自身，因为在这些情况下，帖子应该保持在 <code>Published</code> 状态。",
+    "_note": ""
+  },
+  "We then call the unwrap method, which we know will never panic because we know the methods on Post ensure that state will always contain a Some value when those methods are done. This is one of the cases we talked about in “Cases in Which You Have More Information Than the Compiler” in Chapter 9 when we know that a None value is never possible, even though the compiler isn’t able to understand that.": {
+    "_translate": "然后我们调用 <code>unwrap</code> 方法，我们知道它永远不会 panic，因为我们知道 <code>Post</code> 上的方法确保当这些方法执行完毕时，<code>state</code> 始终会包含一个 <code>Some</code> 值。这是我们在 <a href=\"ch09-03-to-panic-or-not-to-panic.html#cases-in-which-you-have-more-information-than-the-compiler\">“你比编译器拥有更多信息的情况”</a><!-- ignore --> 第 9 章中讨论的一种情况，即我们知道 <code>None</code> 值是不可能的，即使编译器无法理解这一点。",
+    "_note": ""
+  },
+  "At this point, when we call content on the &Box<dyn State>, deref coercion will take effect on the & and the Box so the content method will ultimately be called on the type that implements the State trait. That means we need to add content to the State trait definition, and that is where we’ll put the logic for what content to return depending on which state we have, as shown in Listing 18-18.": {
+    "_translate": "在这个时候，当我们对 <code>&amp;Box&lt;dyn State&gt;</code> 调用 <code>content</code> 时，解引用强制会作用于 <code>&amp;</code> 和 <code>Box</code>，因此 <code>content</code> 方法最终会被调用在实现了 <code>State</code> 特性的类型上。这意味着我们需要将 <code>content</code> 添加到 <code>State</code> 特性定义中，这就是我们将根据所处的状态来决定返回什么内容的逻辑放置的地方，如清单 18-18 所示。",
+    "_note": ""
+  },
+  "We add a default implementation for the content method that returns an empty string slice. That means we don’t need to implement content on the Draft and PendingReview structs. The Published struct will override the content method and return the value in post.content. While convenient, having the content method on State determine the content of the Post is blurring the lines between the responsibility of State and the responsibility of Post.": {
+    "_translate": "我们为<code>content</code>方法添加了一个默认实现，返回一个空的字符串切片。这意味着我们不需要在<code>Draft</code>和<code>PendingReview</code>结构体上实现<code>content</code>。<code>Published</code>结构体将覆盖<code>content</code>方法并返回<code>post.content</code>中的值。虽然方便，但让<code>State</code>上的<code>content</code>方法决定<code>Post</code>的内容是在模糊<code>State</code>和<code>Post</code>职责之间的界限。",
+    "_note": ""
+  },
+  "If we were to create an alternative implementation that didn’t use the state pattern, we might instead use match expressions in the methods on Post or even in the main code that checks the state of the post and changes behavior in those places. That would mean we would have to look in several places to understand all the implications of a post being in the published state.": {
+    "_translate": "如果我们创建一个不使用状态模式的替代实现，我们可能会在 <code>Post</code> 的方法中或甚至在检查帖子状态并在此处更改行为的 <code>main</code> 代码中使用 <code>match</code> 表达式。这意味着我们必须查看多个地方才能理解帖子处于已发布状态的所有影响。",
+    "_note": ""
+  },
+  "With the state pattern, the Post methods and the places we use Post don’t need match expressions, and to add a new state, we would only need to add a new struct and implement the trait methods on that one struct in one location.": {
+    "_translate": "使用状态模式，<code>Post</code> 方法和使用 <code>Post</code> 的地方不需要 <code>match</code> 表达式，要添加一个新状态，我们只需要添加一个新的结构体并在该结构体上实现特质方法。",
+    "_note": ""
+  },
+  "Another downside is that we’ve duplicated some logic. To eliminate some of the duplication, we might try to make default implementations for the request_review and approve methods on the State trait that return self. However, this wouldn’t work: when using State as a trait object, the trait doesn’t know what the concrete self will be exactly, so the return type isn’t known at compile time. (This is one of the dyn compatibility rules mentioned earlier.)": {
+    "_translate": "另一个缺点是我们复制了一些逻辑。为了减少一些重复，我们可能会尝试为 <code>State</code> 特性上的 <code>request_review</code> 和 <code>approve</code> 方法提供默认实现，这些方法返回 <code>self</code>。然而，这行不通：当将 <code>State</code> 用作特性对象时，特性不知道具体的 <code>self</code> 会是什么，因此返回类型在编译时是未知的。（这是前面提到的 <code>dyn</code> 兼容性规则之一。）",
+    "_note": ""
   }
 }

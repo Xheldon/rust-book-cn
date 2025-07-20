@@ -38,6 +38,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc.js"></script>
@@ -163,10 +164,13 @@ blockquote {
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
+                sidebar_toggle.checked = false;
             }
-            sidebar_toggle.checked = sidebar === 'visible';
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
@@ -220,7 +224,12 @@ blockquote {
 
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -273,7 +282,7 @@ For more information about this error, try `rustc --explain E0005`.
 error: could not compile `patterns` (bin "patterns") due to 1 previous error
 </code></pre>
 <p data-x-en="Because we didn’t cover (and couldn’t cover!) every valid value with the pattern Some(x), Rust rightfully produces a compiler error.">因为我们没有用模式 <code>Some(x)</code> 覆盖（也无法覆盖！）每一个有效的值，所以 Rust 正确地产生了编译器错误。</p>
-<p data-x-en="If we have a refutable pattern where an irrefutable pattern is needed, we can fix it by changing the code that uses the pattern: instead of using let, we can use if let. Then if the pattern doesn’t match, the code will just skip the code in the curly brackets, giving it a way to continue validly. Listing 19-9 shows how to fix the code in Listing 19-8.">如果我们有一个在需要不可反驳模式的地方使用的可反驳模式，我们可以通过更改使用该模式的代码来修复：而不是使用<code>let</code>，我们可以使用<code>if let</code>。这样，如果模式不匹配，代码将跳过大括号内的代码，从而能够继续有效执行。列表 19-9 展示了如何修复列表 19-8 中的代码。</p>
+<p data-x-en="If we have a refutable pattern where an irrefutable pattern is needed, we can fix it by changing the code that uses the pattern: instead of using let, we can use let else. Then, if the pattern doesn’t match, the code will just skip the code in the curly brackets, giving it a way to continue validly. Listing 19-9 shows how to fix the code in Listing 19-8.">如果我们有一个在需要不可反驳模式的地方使用的可反驳模式，我们可以通过更改使用该模式的代码来修复：我们可以使用 <code>let else</code> 而不是 <code>let</code>。然后，如果模式不匹配，代码将跳过大括号内的代码，从而可以继续有效执行。列表 19-9 显示了如何修复列表 19-8 中的代码。</p>
 <figure class="listing" id="listing-19-9">
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span><span class="boring">    let some_option_value: Option&lt;i32&gt; = None;
@@ -283,16 +292,16 @@ error: could not compile `patterns` (bin "patterns") due to 1 previous error
 <span class="boring">}</span></code></pre></pre>
 <figcaption><a href="#listing-19-9">Listing 19-9</a>: Using <code>let...else</code> and a block with refutable patterns instead of <code>let</code></figcaption>
 </figure>
-<p data-x-en="We’ve given the code an out! This code is perfectly valid now. However, if we give if let an irrefutable pattern (a pattern that will always match), such as x, as shown in Listing 19-10, the compiler will give a warning.">我们给代码留了一条出路！这段代码现在完全有效。然而，如果我们给 <code>if let</code> 一个不可拒绝的模式（一个总是会匹配的模式），比如 <code>x</code>，如清单 19-10 所示，编译器会发出警告。</p>
+<p data-x-en="We’ve given the code an out! This code is perfectly valid, although it means we cannot use an irrefutable pattern without receiving a warning. If we give let...else a pattern that will always match, such as x, as shown in Listing 19-10, the compiler will give a warning.">我们给代码留了一条出路！这段代码是完全有效的，尽管这意味着我们不能在不接收警告的情况下使用一个不可反驳的模式。如果我们给<code>let...else</code>一个总是匹配的模式，比如<code>x</code>，如清单19-10所示，编译器会给出警告。</p>
 <figure class="listing" id="listing-19-10">
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let x = 5 else {
         return;
     };
 <span class="boring">}</span></code></pre></pre>
-<figcaption><a href="#listing-19-10">Listing 19-10</a>: Attempting to use an irrefutable pattern with <code>if let</code></figcaption>
+<figcaption><a href="#listing-19-10">Listing 19-10</a>: Attempting to use an irrefutable pattern with <code>let...else</code></figcaption>
 </figure>
-<p data-x-en="Rust complains that it doesn’t make sense to use if let with an irrefutable pattern:">Rust 抱怨说，使用 <code>if let</code> 与不可反驳的模式是没有意义的：</p>
+<p data-x-en="Rust complains that it doesn’t make sense to use let...else with an irrefutable pattern:">Rust 抱怨说，在不可反驳的模式中使用 <code>let...else</code> 没有意义：</p>
 <pre><code class="language-console">$ cargo run
    Compiling patterns v0.1.0 (file:///projects/patterns)
 warning: irrefutable `let...else` pattern
@@ -359,6 +368,7 @@ warning: `patterns` (bin "patterns") generated 1 warning
 
         <!-- Custom JS scripts -->
         <script src="ferris.js"></script>
+
 
 
     </div>

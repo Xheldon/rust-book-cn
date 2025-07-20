@@ -66,5 +66,17 @@
   "If some_option_value were a None value, it would fail to match the pattern Some(x), meaning the pattern is refutable. However, the let statement can only accept an irrefutable pattern because there is nothing valid the code can do with a None value. At compile time, Rust will complain that we’ve tried to use a refutable pattern where an irrefutable pattern is required:": {
     "_translate": "如果 <code>some_option_value</code> 是一个 <code>None</code> 值，它将无法匹配模式 <code>Some(x)</code>，这意味着该模式是可反驳的。然而，<code>let</code> 语句只能接受不可反驳的模式，因为代码对 <code>None</code> 值无能为力。在编译时，Rust 会抱怨我们试图在需要不可反驳模式的地方使用可反驳模式：",
     "_note": ""
+  },
+  "If we have a refutable pattern where an irrefutable pattern is needed, we can fix it by changing the code that uses the pattern: instead of using let, we can use let else. Then, if the pattern doesn’t match, the code will just skip the code in the curly brackets, giving it a way to continue validly. Listing 19-9 shows how to fix the code in Listing 19-8.": {
+    "_translate": "如果我们有一个在需要不可反驳模式的地方使用的可反驳模式，我们可以通过更改使用该模式的代码来修复：我们可以使用 <code>let else</code> 而不是 <code>let</code>。然后，如果模式不匹配，代码将跳过大括号内的代码，从而可以继续有效执行。列表 19-9 显示了如何修复列表 19-8 中的代码。",
+    "_note": ""
+  },
+  "We’ve given the code an out! This code is perfectly valid, although it means we cannot use an irrefutable pattern without receiving a warning. If we give let...else a pattern that will always match, such as x, as shown in Listing 19-10, the compiler will give a warning.": {
+    "_translate": "我们给代码留了一条出路！这段代码是完全有效的，尽管这意味着我们不能在不接收警告的情况下使用一个不可反驳的模式。如果我们给<code>let...else</code>一个总是匹配的模式，比如<code>x</code>，如清单19-10所示，编译器会给出警告。",
+    "_note": ""
+  },
+  "Rust complains that it doesn’t make sense to use let...else with an irrefutable pattern:": {
+    "_translate": "Rust 抱怨说，在不可反驳的模式中使用 <code>let...else</code> 没有意义：",
+    "_note": ""
   }
 }

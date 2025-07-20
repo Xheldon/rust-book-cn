@@ -41,6 +41,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc.js"></script>
@@ -97,10 +98,13 @@
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
+                sidebar_toggle.checked = false;
             }
-            sidebar_toggle.checked = sidebar === 'visible';
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
@@ -154,7 +158,12 @@
 
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -24027,10 +24036,10 @@ keyword to decide which modules, types, functions, and methods in our code
 should be public, and by default everything else is private. For example, we
 can define a struct <code>AveragedCollection</code> that has a field containing a vector
 of <code>i32</code> values. The struct can also have a field that contains the average of
-the values in the vector, meaning the average doesn’t have to be computed
-on demand whenever anyone needs it. In other words, <code>AveragedCollection</code> will
+the values in the vector, meaning the average doesn’t have to be computed on
+demand whenever anyone needs it. In other words, <code>AveragedCollection</code> will
 cache the calculated average for us. Listing 18-1 has the definition of the
-<code>AveragedCollection</code> struct:</p>
+<code>AveragedCollection</code> struct.</p>
 <figure class="listing" id="listing-18-1">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">pub struct AveragedCollection {
@@ -24043,7 +24052,7 @@ cache the calculated average for us. Listing 18-1 has the definition of the
 the struct remain private. This is important in this case because we want to
 ensure that whenever a value is added or removed from the list, the average is
 also updated. We do this by implementing <code>add</code>, <code>remove</code>, and <code>average</code> methods
-on the struct, as shown in Listing 18-2:</p>
+on the struct, as shown in Listing 18-2.</p>
 <figure class="listing" id="listing-18-2">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">pub struct AveragedCollection {
@@ -24080,8 +24089,8 @@ on the struct, as shown in Listing 18-2:</p>
 <figcaption><a href="ch18-01-what-is-oo.html#listing-18-2">Listing 18-2</a>: Implementations of the public methods <code>add</code>, <code>remove</code>, and <code>average</code> on <code>AveragedCollection</code></figcaption>
 </figure>
 <p>The public methods <code>add</code>, <code>remove</code>, and <code>average</code> are the only ways to access
-or modify data in an instance of <code>AveragedCollection</code>. When an item is added
-to <code>list</code> using the <code>add</code> method or removed using the <code>remove</code> method, the
+or modify data in an instance of <code>AveragedCollection</code>. When an item is added to
+<code>list</code> using the <code>add</code> method or removed using the <code>remove</code> method, the
 implementations of each call the private <code>update_average</code> method that handles
 updating the <code>average</code> field as well.</p>
 <p>We leave the <code>list</code> and <code>average</code> fields private so there is no way for
@@ -24098,16 +24107,16 @@ in the future. For instance, we could use a <code>HashSet&lt;i32&gt;</code> inst
 this wouldn’t necessarily be the case: <code>HashSet&lt;i32&gt;</code> and <code>Vec&lt;i32&gt;</code> have
 different methods for adding and removing items, so the external code would
 likely have to change if it were modifying <code>list</code> directly.</p>
-<p>If encapsulation is a required aspect for a language to be considered
-object oriented, then Rust meets that requirement. The option to use <code>pub</code> or
-not for different parts of code enables encapsulation of implementation details.</p>
+<p>If encapsulation is a required aspect for a language to be considered object
+oriented, then Rust meets that requirement. The option to use <code>pub</code> or not for
+different parts of code enables encapsulation of implementation details.</p>
 <h3 id="inheritance-as-a-type-system-and-as-code-sharing"><a class="header" href="#inheritance-as-a-type-system-and-as-code-sharing">Inheritance as a Type System and as Code Sharing</a></h3>
 <p><em>Inheritance</em> is a mechanism whereby an object can inherit elements from
 another object’s definition, thus gaining the parent object’s data and behavior
 without you having to define them again.</p>
-<p>If a language must have inheritance to be object oriented, then Rust is not such
-a language. There is no way to define a struct that inherits the parent struct’s
-fields and method implementations without using a macro.</p>
+<p>If a language must have inheritance to be object oriented, then Rust is not
+such a language. There is no way to define a struct that inherits the parent
+struct’s fields and method implementations without using a macro.</p>
 <p>However, if you’re used to having inheritance in your programming toolbox, you
 can use other solutions in Rust, depending on your reason for reaching for
 inheritance in the first place.</p>
@@ -24130,25 +24139,27 @@ each other at runtime if they share certain characteristics.</p>
 <section class="note" aria-role="note">
 <h3 id="polymorphism"><a class="header" href="#polymorphism">Polymorphism</a></h3>
 <p>To many people, polymorphism is synonymous with inheritance. But it’s
-actually a more general concept that refers to code that can work with data
-of multiple types. For inheritance, those types are generally subclasses.</p>
+actually a more general concept that refers to code that can work with data of
+multiple types. For inheritance, those types are generally subclasses.</p>
 <p>Rust instead uses generics to abstract over different possible types and
 trait bounds to impose constraints on what those types must provide. This is
 sometimes called <em>bounded parametric polymorphism</em>.</p>
 </section>
-<p>Inheritance has recently fallen out of favor as a programming design solution in
-many programming languages because it’s often at risk of sharing more code than
-necessary. Subclasses shouldn’t always share all characteristics of their parent
-class but will do so with inheritance. This can make a program’s design less
-flexible. It also introduces the possibility of calling methods on subclasses
-that don’t make sense or that cause errors because the methods don’t apply to
-the subclass. In addition, some languages will only allow single inheritance
-(meaning a subclass can only inherit from one class), further restricting the
-flexibility of a program’s design.</p>
+<p>Rust has chosen a different set of tradeoffs by not offering inheritance.
+Inheritance is often at risk of sharing more code than necessary. Subclasses
+shouldn’t always share all characteristics of their parent class but will do so
+with inheritance. This can make a program’s design less flexible. It also
+introduces the possibility of calling methods on subclasses that don’t make
+sense or that cause errors because the methods don’t apply to the subclass. In
+addition, some languages will only allow <em>single inheritance</em> (meaning a
+subclass can only inherit from one class), further restricting the flexibility
+of a program’s design.</p>
 <p>For these reasons, Rust takes the different approach of using trait objects
-instead of inheritance. Let’s look at how trait objects enable polymorphism in
-Rust.</p>
-<div style="break-before: page; page-break-before: always;"></div><h2 id="using-trait-objects-that-allow-for-values-of-different-types"><a class="header" href="#using-trait-objects-that-allow-for-values-of-different-types">Using Trait Objects That Allow for Values of Different Types</a></h2>
+instead of inheritance to enable polymorphism. Let’s look at how trait objects
+work.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="using-trait-objects-to-abstract-over-shared-behavior"><a class="header" href="#using-trait-objects-to-abstract-over-shared-behavior">Using Trait Objects to Abstract over Shared Behavior</a></h2>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="using-trait-objects-that-allow-for-values-of-different-types"></a></p>
 <p>In Chapter 8, we mentioned that one limitation of vectors is that they can
 store elements of only one type. We created a workaround in Listing 8-9 where
 we defined a <code>SpreadsheetCell</code> enum that had variants to hold integers, floats,
@@ -24166,13 +24177,12 @@ some types for people to use, such as <code>Button</code> or <code>TextField</co
 <code>gui</code> users will want to create their own types that can be drawn: for
 instance, one programmer might add an <code>Image</code> and another might add a
 <code>SelectBox</code>.</p>
-<p>We won’t implement a full-fledged GUI library for this example but will show
-how the pieces would fit together. At the time of writing the library, we can’t
-know and define all the types other programmers might want to create. But we do
-know that <code>gui</code> needs to keep track of many values of different types, and it
-needs to call a <code>draw</code> method on each of these differently typed values. It
-doesn’t need to know exactly what will happen when we call the <code>draw</code> method,
-just that the value will have that method available for us to call.</p>
+<p>At the time of writing the library, we can’t know and define all the types
+other programmers might want to create. But we do know that <code>gui</code> needs to keep
+track of many values of different types, and it needs to call a <code>draw</code> method
+on each of these differently typed values. It doesn’t need to know exactly what
+will happen when we call the <code>draw</code> method, just that the value will have that
+method available for us to call.</p>
 <p>To do this in a language with inheritance, we might define a class named
 <code>Component</code> that has a method named <code>draw</code> on it. The other classes, such as
 <code>Button</code>, <code>Image</code>, and <code>SelectBox</code>, would inherit from <code>Component</code> and thus
@@ -24180,7 +24190,7 @@ inherit the <code>draw</code> method. They could each override the <code>draw</c
 their custom behavior, but the framework could treat all of the types as if
 they were <code>Component</code> instances and call <code>draw</code> on them. But because Rust
 doesn’t have inheritance, we need another way to structure the <code>gui</code> library to
-allow users to extend it with new types.</p>
+allow users to create new types compatible with the library.</p>
 <h3 id="defining-a-trait-for-common-behavior"><a class="header" href="#defining-a-trait-for-common-behavior">Defining a Trait for Common Behavior</a></h3>
 <p>To implement the behavior we want <code>gui</code> to have, we’ll define a trait named
 <code>Draw</code> that will have one method named <code>draw</code>. Then we can define a vector that
@@ -24199,12 +24209,10 @@ know all the possible types at compile time.</p>
 “objects” to distinguish them from other languages’ objects. In a struct or
 enum, the data in the struct fields and the behavior in <code>impl</code> blocks are
 separated, whereas in other languages, the data and behavior combined into one
-concept is often labeled an object. However, trait objects <em>are</em> more like
-objects in other languages in the sense that they combine data and behavior.
-But trait objects differ from traditional objects in that we can’t add data to
-a trait object. Trait objects aren’t as generally useful as objects in other
-languages: their specific purpose is to allow abstraction across common
-behavior.</p>
+concept is often labeled an object. Trait objects differ from objects in other
+languages in that we can’t add data to a trait object. Trait objects aren’t as
+generally useful as objects in other languages: their specific purpose is to
+allow abstraction across common behavior.</p>
 <p>Listing 18-3 shows how to define a trait named <code>Draw</code> with one method named
 <code>draw</code>.</p>
 <figure class="listing" id="listing-18-3">
@@ -24217,8 +24225,8 @@ behavior.</p>
 <p>This syntax should look familiar from our discussions on how to define traits
 in Chapter 10. Next comes some new syntax: Listing 18-4 defines a struct named
 <code>Screen</code> that holds a vector named <code>components</code>. This vector is of type
-<code>Box&lt;dyn Draw&gt;</code>, which is a trait object; it’s a stand-in for any type inside
-a <code>Box</code> that implements the <code>Draw</code> trait.</p>
+<code>Box&lt;dyn Draw&gt;</code>, which is a trait object; it’s a stand-in for any type inside a
+<code>Box</code> that implements the <code>Draw</code> trait.</p>
 <figure class="listing" id="listing-18-4">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">pub trait Draw {
@@ -24255,8 +24263,8 @@ a <code>Box</code> that implements the <code>Draw</code> trait.</p>
 parameter with trait bounds. A generic type parameter can be substituted with
 only one concrete type at a time, whereas trait objects allow for multiple
 concrete types to fill in for the trait object at runtime. For example, we
-could have defined the <code>Screen</code> struct using a generic type and a trait bound
-as in Listing 18-6:</p>
+could have defined the <code>Screen</code> struct using a generic type and a trait bound,
+as in Listing 18-6.</p>
 <figure class="listing" id="listing-18-6">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">pub trait Draw {
@@ -24292,7 +24300,7 @@ runtime performance implications.</p>
 <code>Button</code> type. Again, actually implementing a GUI library is beyond the scope
 of this book, so the <code>draw</code> method won’t have any useful implementation in its
 body. To imagine what the implementation might look like, a <code>Button</code> struct
-might have fields for <code>width</code>, <code>height</code>, and <code>label</code>, as shown in Listing 18-7:</p>
+might have fields for <code>width</code>, <code>height</code>, and <code>label</code>, as shown in Listing 18-7.</p>
 <figure class="listing" id="listing-18-7">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">pub trait Draw {
@@ -24359,7 +24367,7 @@ impl Draw for SelectBox {
 instance. To the <code>Screen</code> instance, they can add a <code>SelectBox</code> and a <code>Button</code>
 by putting each in a <code>Box&lt;T&gt;</code> to become a trait object. They can then call the
 <code>run</code> method on the <code>Screen</code> instance, which will call <code>draw</code> on each of the
-components. Listing 18-9 shows this implementation:</p>
+components. Listing 18-9 shows this implementation.</p>
 <figure class="listing" id="listing-18-9">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore"><span class="boring">use gui::Draw;
@@ -24408,9 +24416,9 @@ new type and draw it because <code>SelectBox</code> implements the <code>Draw</c
 means it implements the <code>draw</code> method.</p>
 <p>This concept—of being concerned only with the messages a value responds to
 rather than the value’s concrete type—is similar to the concept of <em>duck
-typing</em> in dynamically typed languages: if it walks like a duck and quacks
-like a duck, then it must be a duck! In the implementation of <code>run</code> on <code>Screen</code>
-in Listing 18-5, <code>run</code> doesn’t need to know what the concrete type of each
+typing</em> in dynamically typed languages: if it walks like a duck and quacks like
+a duck, then it must be a duck! In the implementation of <code>run</code> on <code>Screen</code> in
+Listing 18-5, <code>run</code> doesn’t need to know what the concrete type of each
 component is. It doesn’t check whether a component is an instance of a <code>Button</code>
 or a <code>SelectBox</code>, it just calls the <code>draw</code> method on the component. By
 specifying <code>Box&lt;dyn Draw&gt;</code> as the type of the values in the <code>components</code>
@@ -24459,31 +24467,31 @@ didn’t mean to pass and so should pass a different type, or we should implemen
 Generics”</a><!-- ignore --> in Chapter 10 our
 discussion on the monomorphization process performed on generics by the
 compiler: the compiler generates nongeneric implementations of functions and
-methods for each concrete type that we use in place of a generic type parameter.
-The code that results from monomorphization is doing <em>static dispatch</em>, which is
-when the compiler knows what method you’re calling at compile time. This is
-opposed to <em>dynamic dispatch</em>, which is when the compiler can’t tell at compile
-time which method you’re calling. In dynamic dispatch cases, the compiler emits
-code that at runtime will figure out which method to call.</p>
+methods for each concrete type that we use in place of a generic type
+parameter. The code that results from monomorphization is doing <em>static
+dispatch</em>, which is when the compiler knows what method you’re calling at
+compile time. This is opposed to <em>dynamic dispatch</em>, which is when the compiler
+can’t tell at compile time which method you’re calling. In dynamic dispatch
+cases, the compiler emits code that at runtime will know which method to call.</p>
 <p>When we use trait objects, Rust must use dynamic dispatch. The compiler doesn’t
 know all the types that might be used with the code that’s using trait objects,
 so it doesn’t know which method implemented on which type to call. Instead, at
 runtime, Rust uses the pointers inside the trait object to know which method to
 call. This lookup incurs a runtime cost that doesn’t occur with static dispatch.
 Dynamic dispatch also prevents the compiler from choosing to inline a method’s
-code, which in turn prevents some optimizations, and Rust has some rules, called
-<em>dyn compatibility</em>, about where you can and cannot use dynamic dispatch. Those
-rules are beyond the scope of this discussion, but  you can read more about them
-<a href="https://doc.rust-lang.org/reference/items/traits.html#dyn-compatibility">in the reference</a>. However, we did get extra flexibility in
-the code that we wrote in Listing 18-5 and were able to support in Listing 18-9,
-so it’s a trade-off to consider.</p>
+code, which in turn prevents some optimizations, and Rust has some rules about
+where you can and cannot use dynamic dispatch, called <em>dyn compatibility</em>. Those
+rules are beyond the scope of this discussion, but you can read more about them
+<a href="https://doc.rust-lang.org/reference/items/traits.html#dyn-compatibility">in the reference</a><!-- ignore -->. However, we did get extra
+flexibility in the code that we wrote in Listing 18-5 and were able to support
+in Listing 18-9, so it’s a trade-off to consider.</p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="implementing-an-object-oriented-design-pattern"><a class="header" href="#implementing-an-object-oriented-design-pattern">Implementing an Object-Oriented Design Pattern</a></h2>
 <p>The <em>state pattern</em> is an object-oriented design pattern. The crux of the
 pattern is that we define a set of states a value can have internally. The
 states are represented by a set of <em>state objects</em>, and the value’s behavior
 changes based on its state. We’re going to work through an example of a blog
 post struct that has a field to hold its state, which will be a state object
-from the set “draft”, “review”, or “published”.</p>
+from the set “draft,” “review,” or “published.”</p>
 <p>The state objects share functionality: in Rust, of course, we use structs and
 traits rather than objects and inheritance. Each state object is responsible
 for its own behavior and for governing when it should change into another
@@ -24509,6 +24517,15 @@ accidentally be published.</li>
 <p>Any other changes attempted on a post should have no effect. For example, if we
 try to approve a draft blog post before we’ve requested a review, the post
 should remain an unpublished draft.</p>
+<h3 id="a-traditional-object-oriented-attempt"><a class="header" href="#a-traditional-object-oriented-attempt">A Traditional Object-oriented Attempt</a></h3>
+<p>There are infinite ways to structure code to solve the same problem, each with
+different trade-offs. This section’s implementation is more of a traditional
+object-oriented style, which is possible to write in Rust, but doesn’t take
+advantage of some of Rust’s strengths. Later, we’ll demonstrate a different
+solution that still uses the object-oriented design pattern but is structured
+in a way that might look less familiar to programmers with object-oriented
+experience. We’ll compare the two solutions to experience the trade-offs of
+designing Rust code differently than code in other languages.</p>
 <p>Listing 18-11 shows this workflow in code form: this is an example usage of the
 API we’ll implement in a library crate named <code>blog</code>. This won’t compile yet
 because we haven’t implemented the <code>blog</code> crate.</p>
@@ -24547,9 +24564,9 @@ one of three state objects representing the various states a post can be
 in—draft, review, or published. Changing from one state to another will be
 managed internally within the <code>Post</code> type. The states change in response to the
 methods called by our library’s users on the <code>Post</code> instance, but they don’t
-have to manage the state changes directly. Also, users can’t make a mistake with
-the states, such as publishing a post before it’s reviewed.</p>
-<h3 id="defining-post-and-creating-a-new-instance-in-the-draft-state"><a class="header" href="#defining-post-and-creating-a-new-instance-in-the-draft-state">Defining <code>Post</code> and Creating a New Instance in the Draft State</a></h3>
+have to manage the state changes directly. Also, users can’t make a mistake
+with the states, such as publishing a post before it’s reviewed.</p>
+<h4 id="defining-post-and-creating-a-new-instance-in-the-draft-state"><a class="header" href="#defining-post-and-creating-a-new-instance-in-the-draft-state">Defining <code>Post</code> and Creating a New Instance in the Draft State</a></h4>
 <p>Let’s get started on the implementation of the library! We know we need a
 public <code>Post</code> struct that holds some content, so we’ll start with the
 definition of the struct and an associated public <code>new</code> function to create an
@@ -24589,11 +24606,11 @@ we’ll start by defining just the <code>Draft</code> state because that is the 
 want a post to start in.</p>
 <p>When we create a new <code>Post</code>, we set its <code>state</code> field to a <code>Some</code> value that
 holds a <code>Box</code>. This <code>Box</code> points to a new instance of the <code>Draft</code> struct. This
-ensures that whenever we create a new instance of <code>Post</code>, it will start out as a
-draft. Because the <code>state</code> field of <code>Post</code> is private, there is no way to create
-a <code>Post</code> in any other state! In the <code>Post::new</code> function, we set the <code>content</code>
-field to a new, empty <code>String</code>.</p>
-<h3 id="storing-the-text-of-the-post-content"><a class="header" href="#storing-the-text-of-the-post-content">Storing the Text of the Post Content</a></h3>
+ensures that whenever we create a new instance of <code>Post</code>, it will start out as
+a draft. Because the <code>state</code> field of <code>Post</code> is private, there is no way to
+create a <code>Post</code> in any other state! In the <code>Post::new</code> function, we set the
+<code>content</code> field to a new, empty <code>String</code>.</p>
+<h4 id="storing-the-text-of-the-post-content"><a class="header" href="#storing-the-text-of-the-post-content">Storing the Text of the Post Content</a></h4>
 <p>We saw in Listing 18-11 that we want to be able to call a method named
 <code>add_text</code> and pass it a <code>&amp;str</code> that is then added as the text content of the
 blog post. We implement this as a method, rather than exposing the <code>content</code>
@@ -24635,7 +24652,7 @@ the saved <code>content</code>. This behavior doesn’t depend on the state the 
 so it’s not part of the state pattern. The <code>add_text</code> method doesn’t interact
 with the <code>state</code> field at all, but it is part of the behavior we want to
 support.</p>
-<h3 id="ensuring-the-content-of-a-draft-post-is-empty"><a class="header" href="#ensuring-the-content-of-a-draft-post-is-empty">Ensuring the Content of a Draft Post Is Empty</a></h3>
+<h4 id="ensuring-the-content-of-a-draft-post-is-empty"><a class="header" href="#ensuring-the-content-of-a-draft-post-is-empty">Ensuring the Content of a Draft Post Is Empty</a></h4>
 <p>Even after we’ve called <code>add_text</code> and added some content to our post, we still
 want the <code>content</code> method to return an empty string slice because the post is
 still in the draft state, as shown on line 7 of Listing 18-11. For now, let’s
@@ -24678,9 +24695,9 @@ be empty. Listing 18-14 shows this placeholder implementation.</p>
 </figure>
 <p>With this added <code>content</code> method, everything in Listing 18-11 up to line 7
 works as intended.</p>
-<!-- Old link, do not remove -->
+<!-- Old headings. Do not remove or links may break. -->
 <p><a id="requesting-a-review-of-the-post-changes-its-state"></a></p>
-<h3 id="requesting-a-review-changes-the-posts-state"><a class="header" href="#requesting-a-review-changes-the-posts-state">Requesting a Review Changes the Post’s State</a></h3>
+<h4 id="requesting-a-review-changes-the-posts-state"><a class="header" href="#requesting-a-review-changes-the-posts-state">Requesting a Review Changes the Post’s State</a></h4>
 <p>Next, we need to add functionality to request a review of a post, which should
 change its state from <code>Draft</code> to <code>PendingReview</code>. Listing 18-15 shows this code.</p>
 <figure class="listing" id="listing-18-15">
@@ -24772,10 +24789,10 @@ slice. We can now have a <code>Post</code> in the <code>PendingReview</code> sta
 Listing 18-11 now works up to line 10!</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="adding-the-approve-method-that-changes-the-behavior-of-content"></a></p>
-<h3 id="adding-approve-to-change-the-behavior-of-content"><a class="header" href="#adding-approve-to-change-the-behavior-of-content">Adding <code>approve</code> to Change the Behavior of <code>content</code></a></h3>
+<h4 id="adding-approve-to-change-the-behavior-of-content"><a class="header" href="#adding-approve-to-change-the-behavior-of-content">Adding <code>approve</code> to Change the Behavior of <code>content</code></a></h4>
 <p>The <code>approve</code> method will be similar to the <code>request_review</code> method: it will
 set <code>state</code> to the value that the current state says it should have when that
-state is approved, as shown in Listing 18-16:</p>
+state is approved, as shown in Listing 18-16.</p>
 <figure class="listing" id="listing-18-16">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">pub struct Post {
@@ -24864,12 +24881,12 @@ implements <code>State</code>, the <code>Published</code> state.</p>
 return <code>self</code>. When we call <code>approve</code> on <code>PendingReview</code>, it returns a new,
 boxed instance of the <code>Published</code> struct. The <code>Published</code> struct implements the
 <code>State</code> trait, and for both the <code>request_review</code> method and the <code>approve</code>
-method, it returns itself, because the post should stay in the <code>Published</code>
-state in those cases.</p>
+method, it returns itself because the post should stay in the <code>Published</code> state
+in those cases.</p>
 <p>Now we need to update the <code>content</code> method on <code>Post</code>. We want the value
 returned from <code>content</code> to depend on the current state of the <code>Post</code>, so we’re
 going to have the <code>Post</code> delegate to a <code>content</code> method defined on its <code>state</code>,
-as shown in Listing 18-17:</p>
+as shown in Listing 18-17.</p>
 <figure class="listing" id="listing-18-17">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">pub struct Post {
@@ -24950,27 +24967,27 @@ as shown in Listing 18-17:</p>
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="ch18-03-oo-design-patterns.html#listing-18-17">Listing 18-17</a>: Updating the <code>content</code> method on <code>Post</code> to delegate to a <code>content</code> method on <code>State</code></figcaption>
 </figure>
-<p>Because the goal is to keep all of these rules inside the structs that implement
-<code>State</code>, we call a <code>content</code> method on the value in <code>state</code> and pass the post
-instance (that is, <code>self</code>) as an argument. Then we return the value that’s
-returned from using the <code>content</code> method on the <code>state</code> value.</p>
+<p>Because the goal is to keep all of these rules inside the structs that
+implement <code>State</code>, we call a <code>content</code> method on the value in <code>state</code> and pass
+the post instance (that is, <code>self</code>) as an argument. Then we return the value
+that’s returned from using the <code>content</code> method on the <code>state</code> value.</p>
 <p>We call the <code>as_ref</code> method on the <code>Option</code> because we want a reference to the
-value inside the <code>Option</code> rather than ownership of the value. Because <code>state</code>
-is an <code>Option&lt;Box&lt;dyn State&gt;&gt;</code>, when we call <code>as_ref</code>, an <code>Option&lt;&amp;Box&lt;dyn State&gt;&gt;</code> is returned. If we didn’t call <code>as_ref</code>, we would get an error because
+value inside the <code>Option</code> rather than ownership of the value. Because <code>state</code> is
+an <code>Option&lt;Box&lt;dyn State&gt;&gt;</code>, when we call <code>as_ref</code>, an <code>Option&lt;&amp;Box&lt;dyn State&gt;&gt;</code> is returned. If we didn’t call <code>as_ref</code>, we would get an error because
 we can’t move <code>state</code> out of the borrowed <code>&amp;self</code> of the function parameter.</p>
-<p>We then call the <code>unwrap</code> method, which we know will never panic, because we
+<p>We then call the <code>unwrap</code> method, which we know will never panic because we
 know the methods on <code>Post</code> ensure that <code>state</code> will always contain a <code>Some</code>
 value when those methods are done. This is one of the cases we talked about in
 <a href="ch09-03-to-panic-or-not-to-panic.html#cases-in-which-you-have-more-information-than-the-compiler">“Cases in Which You Have More Information Than the
-Compiler”</a><!-- ignore --> in Chapter 9 when we know that a
-<code>None</code> value is never possible, even though the compiler isn’t able to
+Compiler”</a><!-- ignore --> in Chapter 9 when we know that
+a <code>None</code> value is never possible, even though the compiler isn’t able to
 understand that.</p>
 <p>At this point, when we call <code>content</code> on the <code>&amp;Box&lt;dyn State&gt;</code>, deref coercion
 will take effect on the <code>&amp;</code> and the <code>Box</code> so the <code>content</code> method will
 ultimately be called on the type that implements the <code>State</code> trait. That means
 we need to add <code>content</code> to the <code>State</code> trait definition, and that is where
 we’ll put the logic for what content to return depending on which state we
-have, as shown in Listing 18-18:</p>
+have, as shown in Listing 18-18.</p>
 <figure class="listing" id="listing-18-18">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">pub struct Post {
@@ -25064,7 +25081,10 @@ impl State for Published {
 <p>We add a default implementation for the <code>content</code> method that returns an empty
 string slice. That means we don’t need to implement <code>content</code> on the <code>Draft</code>
 and <code>PendingReview</code> structs. The <code>Published</code> struct will override the <code>content</code>
-method and return the value in <code>post.content</code>.</p>
+method and return the value in <code>post.content</code>. While convenient, having the
+<code>content</code> method on <code>State</code> determine the <code>content</code> of the <code>Post</code> is blurring
+the lines between the responsibility of <code>State</code> and the responsibility of
+<code>Post</code>.</p>
 <p>Note that we need lifetime annotations on this method, as we discussed in
 Chapter 10. We’re taking a reference to a <code>post</code> as an argument and returning a
 reference to part of that <code>post</code>, so the lifetime of the returned reference is
@@ -25075,13 +25095,13 @@ rules lives in the state objects rather than being scattered throughout <code>Po
 <section class="note" aria-role="note">
 <h3 id="why-not-an-enum"><a class="header" href="#why-not-an-enum">Why Not An Enum?</a></h3>
 <p>You may have been wondering why we didn’t use an <code>enum</code> with the different
-possible post states as variants. That’s certainly a possible solution; try
-it and compare the end results to see which you prefer! One disadvantage of
-using an enum is that every place that checks the value of the enum will need
-a <code>match</code> expression or similar to handle every possible variant. This could
-get more repetitive than this trait object solution.</p>
+possible post states as variants. That’s certainly a possible solution; try it
+and compare the end results to see which you prefer! One disadvantage of using
+an enum is that every place that checks the value of the enum will need a
+<code>match</code> expression or similar to handle every possible variant. This could get
+more repetitive than this trait object solution.</p>
 </section>
-<h3 id="trade-offs-of-the-state-pattern"><a class="header" href="#trade-offs-of-the-state-pattern">Trade-offs of the State Pattern</a></h3>
+<h4 id="trade-offs-of-the-state-pattern"><a class="header" href="#trade-offs-of-the-state-pattern">Trade-offs of the State Pattern</a></h4>
 <p>We’ve shown that Rust is capable of implementing the object-oriented state
 pattern to encapsulate the different kinds of behavior a post should have in
 each state. The methods on <code>Post</code> know nothing about the various behaviors. The
@@ -25092,12 +25112,10 @@ trait on the <code>Published</code> struct.</p>
 pattern, we might instead use <code>match</code> expressions in the methods on <code>Post</code> or
 even in the <code>main</code> code that checks the state of the post and changes behavior
 in those places. That would mean we would have to look in several places to
-understand all the implications of a post being in the published state! This
-would only increase the more states we added: each of those <code>match</code> expressions
-would need another arm.</p>
+understand all the implications of a post being in the published state.</p>
 <p>With the state pattern, the <code>Post</code> methods and the places we use <code>Post</code> don’t
 need <code>match</code> expressions, and to add a new state, we would only need to add a
-new struct and implement the trait methods on that one struct.</p>
+new struct and implement the trait methods on that one struct in one location.</p>
 <p>The implementation using the state pattern is easy to extend to add more
 functionality. To see the simplicity of maintaining code that uses the state
 pattern, try a few of these suggestions:</p>
@@ -25118,10 +25136,10 @@ change with the addition of a new state, but that would mean switching to
 another design pattern.</p>
 <p>Another downside is that we’ve duplicated some logic. To eliminate some of the
 duplication, we might try to make default implementations for the
-<code>request_review</code> and <code>approve</code> methods on the <code>State</code> trait that return <code>self</code>;
-however, this wouldn’t work: when using <code>State</code> as a trait object, the trait
+<code>request_review</code> and <code>approve</code> methods on the <code>State</code> trait that return <code>self</code>.
+However, this wouldn’t work: when using <code>State</code> as a trait object, the trait
 doesn’t know what the concrete <code>self</code> will be exactly, so the return type isn’t
-known at compile time. (This is one of the dyn compatibility rules mentioned
+known at compile time. (This is one of the <code>dyn</code> compatibility rules mentioned
 earlier.)</p>
 <p>Other duplication includes the similar implementations of the <code>request_review</code>
 and <code>approve</code> methods on <code>Post</code>. Both methods use <code>Option::take</code> with the
@@ -25134,7 +25152,7 @@ pattern, we might consider defining a macro to eliminate the repetition (see
 languages, we’re not taking as full advantage of Rust’s strengths as we could.
 Let’s look at some changes we can make to the <code>blog</code> crate that can make
 invalid states and transitions into compile-time errors.</p>
-<h4 id="encoding-states-and-behavior-as-types"><a class="header" href="#encoding-states-and-behavior-as-types">Encoding States and Behavior as Types</a></h4>
+<h3 id="encoding-states-and-behavior-as-types"><a class="header" href="#encoding-states-and-behavior-as-types">Encoding States and Behavior as Types</a></h3>
 <p>We’ll show you how to rethink the state pattern to get a different set of
 trade-offs. Rather than encapsulating the states and transitions completely so
 outside code has no knowledge of them, we’ll encode the states into different
@@ -25202,15 +25220,16 @@ we’re moving the encoding of the state to the types of the structs. The <code>
 struct will represent a published post, and it has a <code>content</code> method that
 returns the <code>content</code>.</p>
 <p>We still have a <code>Post::new</code> function, but instead of returning an instance of
-<code>Post</code>, it returns an instance of <code>DraftPost</code>. Because <code>content</code> is private
-and there aren’t any functions that return <code>Post</code>, it’s not possible to create
-an instance of <code>Post</code> right now.</p>
+<code>Post</code>, it returns an instance of <code>DraftPost</code>. Because <code>content</code> is private and
+there aren’t any functions that return <code>Post</code>, it’s not possible to create an
+instance of <code>Post</code> right now.</p>
 <p>The <code>DraftPost</code> struct has an <code>add_text</code> method, so we can add text to
 <code>content</code> as before, but note that <code>DraftPost</code> does not have a <code>content</code> method
 defined! So now the program ensures all posts start as draft posts, and draft
 posts don’t have their content available for display. Any attempt to get around
 these constraints will result in a compiler error.</p>
-<h4 id="implementing-transitions-as-transformations-into-different-types"><a class="header" href="#implementing-transitions-as-transformations-into-different-types">Implementing Transitions as Transformations into Different Types</a></h4>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="implementing-transitions-as-transformations-into-different-types"></a></p>
 <p>So how do we get a published post? We want to enforce the rule that a draft
 post has to be reviewed and approved before it can be published. A post in the
 pending review state should still not display any content. Let’s implement
@@ -25327,8 +25346,8 @@ object-oriented features in Rust. Dynamic dispatch can give your code some
 flexibility in exchange for a bit of runtime performance. You can use this
 flexibility to implement object-oriented patterns that can help your code’s
 maintainability. Rust also has other features, like ownership, that
-object-oriented languages don’t have. An object-oriented pattern won’t always be
-the best way to take advantage of Rust’s strengths, but it is an available
+object-oriented languages don’t have. An object-oriented pattern won’t always
+be the best way to take advantage of Rust’s strengths, but it is an available
 option.</p>
 <p>Next, we’ll look at patterns, which are another of Rust’s features that enable
 lots of flexibility. We’ve looked at them briefly throughout the book but
@@ -25383,127 +25402,19 @@ expression to run if the value matches that arm’s pattern, like this:</p>
     None =&gt; None,
     Some(i) =&gt; Some(i + 1),
 }</code></pre>
-<p>The patterns in this <code>match</code> expression are the <code>None</code> and <code>Some(i)</code> to the
+<p>The patterns in this <code>match</code> expression are the <code>None</code> and <code>Some(i)</code> on the
 left of each arrow.</p>
 <p>One requirement for <code>match</code> expressions is that they need to be <em>exhaustive</em> in
 the sense that all possibilities for the value in the <code>match</code> expression must
 be accounted for. One way to ensure you’ve covered every possibility is to have
-a catchall pattern for the last arm: for example, a variable name matching any
+a catch-all pattern for the last arm: for example, a variable name matching any
 value can never fail and thus covers every remaining case.</p>
 <p>The particular pattern <code>_</code> will match anything, but it never binds to a
 variable, so it’s often used in the last match arm. The <code>_</code> pattern can be
 useful when you want to ignore any value not specified, for example. We’ll cover
 the <code>_</code> pattern in more detail in <a href="ch19-03-pattern-syntax.html#ignoring-values-in-a-pattern">“Ignoring Values in a
 Pattern”</a><!-- ignore --> later in this chapter.</p>
-<h3 id="conditional-if-let-expressions"><a class="header" href="#conditional-if-let-expressions">Conditional <code>if let</code> Expressions</a></h3>
-<p>In Chapter 6, we discussed how to use <code>if let</code> expressions mainly as a shorter
-way to write the equivalent of a <code>match</code> that only matches one case.
-Optionally, <code>if let</code> can have a corresponding <code>else</code> containing code to run if
-the pattern in the <code>if let</code> doesn’t match.</p>
-<p>Listing 19-1 shows that it’s also possible to mix and match <code>if let</code>, <code>else if</code>, and <code>else if let</code> expressions. Doing so gives us more flexibility than a
-<code>match</code> expression in which we can express only one value to compare with the
-patterns. Also, Rust doesn’t require that the conditions in a series of <code>if let</code>, <code>else if</code>, <code>else if let</code> arms relate to each other.</p>
-<p>The code in Listing 19-1 determines what color to make your background based on
-a series of checks for several conditions. For this example, we’ve created
-variables with hardcoded values that a real program might receive from user
-input.</p>
-<figure class="listing" id="listing-19-1">
-<span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">fn main() {
-    let favorite_color: Option&lt;&amp;str&gt; = None;
-    let is_tuesday = false;
-    let age: Result&lt;u8, _&gt; = "34".parse();
-
-    if let Some(color) = favorite_color {
-        println!("Using your favorite color, {color}, as the background");
-    } else if is_tuesday {
-        println!("Tuesday is green day!");
-    } else if let Ok(age) = age {
-        if age &gt; 30 {
-            println!("Using purple as the background color");
-        } else {
-            println!("Using orange as the background color");
-        }
-    } else {
-        println!("Using blue as the background color");
-    }
-}</code></pre></pre>
-<figcaption><a href="ch19-01-all-the-places-for-patterns.html#listing-19-1">Listing 19-1</a>: Mixing <code>if let</code>, <code>else if</code>, <code>else if let</code>, and <code>else</code></figcaption>
-</figure>
-<p>If the user specifies a favorite color, that color is used as the background.
-If no favorite color is specified and today is Tuesday, the background color is
-green. Otherwise, if the user specifies their age as a string and we can parse
-it as a number successfully, the color is either purple or orange depending on
-the value of the number. If none of these conditions apply, the background
-color is blue.</p>
-<p>This conditional structure lets us support complex requirements. With the
-hardcoded values we have here, this example will print <code>Using purple as the background color</code>.</p>
-<p>You can see that <code>if let</code> can also introduce new variables that shadow existing
-variables in the same way that <code>match</code> arms can: the line <code>if let Ok(age) = age</code>
-introduces a new <code>age</code> variable that contains the value inside the <code>Ok</code> variant,
-shadowing the existing <code>age</code> variable. This means we need to place the <code>if age &gt; 30</code> condition within that block: we can’t combine these two conditions into <code>if let Ok(age) = age &amp;&amp; age &gt; 30</code>. The new <code>age</code> we want to compare to 30 isn’t
-valid until the new scope starts with the curly bracket.</p>
-<p>The downside of using <code>if let</code> expressions is that the compiler doesn’t check
-for exhaustiveness, whereas with <code>match</code> expressions it does. If we omitted the
-last <code>else</code> block and therefore missed handling some cases, the compiler would
-not alert us to the possible logic bug.</p>
-<h3 id="while-let-conditional-loops"><a class="header" href="#while-let-conditional-loops"><code>while let</code> Conditional Loops</a></h3>
-<p>Similar in construction to <code>if let</code>, the <code>while let</code> conditional loop allows a
-<code>while</code> loop to run for as long as a pattern continues to match. In Listing 19-2
-we show a <code>while let</code> loop that waits on messages sent between threads, but in
-this case checking a <code>Result</code> instead of an <code>Option</code>.</p>
-<figure class="listing" id="listing-19-2">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
-</span>    let (tx, rx) = std::sync::mpsc::channel();
-    std::thread::spawn(move || {
-        for val in [1, 2, 3] {
-            tx.send(val).unwrap();
-        }
-    });
-
-    while let Ok(value) = rx.recv() {
-        println!("{value}");
-    }
-<span class="boring">}</span></code></pre></pre>
-<figcaption><a href="ch19-01-all-the-places-for-patterns.html#listing-19-2">Listing 19-2</a>: Using a <code>while let</code> loop to print values for as long as <code>rx.recv()</code> returns <code>Ok</code></figcaption>
-</figure>
-<p>This example prints <code>1</code>, <code>2</code>, and then <code>3</code>. The <code>recv</code> method takes the first
-message out of the receiver side of the channel and returns an <code>Ok(value)</code>. When
-we first saw <code>recv</code> back in Chapter 16, we unwrapped the error directly, or
-interacted with it as an iterator using a <code>for</code> loop. As Listing 19-2 shows,
-though, we can also use <code>while let</code>, because the <code>recv</code> method returns <code>Ok</code> each
-time a message arrives, as long as the sender exists, and then produces an <code>Err</code>
-once the sender side disconnects.</p>
-<h3 id="for-loops"><a class="header" href="#for-loops"><code>for</code> Loops</a></h3>
-<p>In a <code>for</code> loop, the value that directly follows the keyword <code>for</code> is a
-pattern. For example, in <code>for x in y</code>, the <code>x</code> is the pattern. Listing 19-3
-demonstrates how to use a pattern in a <code>for</code> loop to destructure, or break
-apart, a tuple as part of the <code>for</code> loop.</p>
-<figure class="listing" id="listing-19-3">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
-</span>    let v = vec!['a', 'b', 'c'];
-
-    for (index, value) in v.iter().enumerate() {
-        println!("{value} is at index {index}");
-    }
-<span class="boring">}</span></code></pre></pre>
-<figcaption><a href="ch19-01-all-the-places-for-patterns.html#listing-19-3">Listing 19-3</a>: Using a pattern in a <code>for</code> loop to destructure a tuple</figcaption>
-</figure>
-<p>The code in Listing 19-3 will print the following:</p>
-<pre><code class="language-console">$ cargo run
-   Compiling patterns v0.1.0 (file:///projects/patterns)
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.52s
-     Running `target/debug/patterns`
-a is at index 0
-b is at index 1
-c is at index 2
-</code></pre>
-<p>We adapt an iterator using the <code>enumerate</code> method so it produces a value and
-the index for that value, placed into a tuple. The first value produced is the
-tuple <code>(0, 'a')</code>. When this value is matched to the pattern <code>(index, value)</code>,
-<code>index</code> will be <code>0</code> and <code>value</code> will be <code>'a'</code>, printing the first line of the
-output.</p>
-<h3 id="let-statements"><a class="header" href="#let-statements"><code>let</code> Statements</a></h3>
+<h3 id="let-statements"><a class="header" href="#let-statements">let Statements</a></h3>
 <p>Prior to this chapter, we had only explicitly discussed using patterns with
 <code>match</code> and <code>if let</code>, but in fact, we’ve used patterns in other places as well,
 including in <code>let</code> statements. For example, consider this straightforward
@@ -25522,34 +25433,34 @@ like this:</p>
 <pre>
 <code>let <em>PATTERN</em> = <em>EXPRESSION</em>;</code>
 </pre>
-<p>In statements like <code>let x = 5;</code> with a variable name in the <em><code>PATTERN</code></em> slot,
-the variable name is just a particularly simple form of a pattern. Rust compares
+<p>In statements like <code>let x = 5;</code> with a variable name in the PATTERN slot, the
+variable name is just a particularly simple form of a pattern. Rust compares
 the expression against the pattern and assigns any names it finds. So, in the
-<code>let x = 5;</code> example, <code>x</code> is a pattern that means “bind what matches here to the
-variable <code>x</code>.” Because the name <code>x</code> is the whole pattern, this pattern
+<code>let x = 5;</code> example, <code>x</code> is a pattern that means “bind what matches here to
+the variable <code>x</code>.” Because the name <code>x</code> is the whole pattern, this pattern
 effectively means “bind everything to the variable <code>x</code>, whatever the value is.”</p>
 <p>To see the pattern-matching aspect of <code>let</code> more clearly, consider Listing
-19-4, which uses a pattern with <code>let</code> to destructure a tuple.</p>
-<figure class="listing" id="listing-19-4">
+19-1, which uses a pattern with <code>let</code> to destructure a tuple.</p>
+<figure class="listing" id="listing-19-1">
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let (x, y, z) = (1, 2, 3);
 <span class="boring">}</span></code></pre></pre>
-<figcaption><a href="ch19-01-all-the-places-for-patterns.html#listing-19-4">Listing 19-4</a>: Using a pattern to destructure a tuple and create three variables at once</figcaption>
+<figcaption><a href="ch19-01-all-the-places-for-patterns.html#listing-19-1">Listing 19-1</a>: Using a pattern to destructure a tuple and create three variables at once</figcaption>
 </figure>
-<p>Here, we match a tuple against a pattern. Rust compares the value <code>(1, 2, 3)</code> to
-the pattern <code>(x, y, z)</code> and sees that the value matches the pattern, in that the
-number of elements is the same in both, so Rust binds <code>1</code> to <code>x</code>, <code>2</code> to <code>y</code>,
-and <code>3</code> to <code>z</code>. You can think of this tuple pattern as nesting three individual
-variable patterns inside it.</p>
+<p>Here, we match a tuple against a pattern. Rust compares the value <code>(1, 2, 3)</code>
+to the pattern <code>(x, y, z)</code> and sees that the value matches the pattern, in that
+it sees that the number of elements is the same in both, so Rust binds <code>1</code> to
+<code>x</code>, <code>2</code> to <code>y</code>, and <code>3</code> to <code>z</code>. You can think of this tuple pattern as nesting
+three individual variable patterns inside it.</p>
 <p>If the number of elements in the pattern doesn’t match the number of elements
 in the tuple, the overall type won’t match and we’ll get a compiler error. For
-example, Listing 19-5 shows an attempt to destructure a tuple with three
+example, Listing 19-2 shows an attempt to destructure a tuple with three
 elements into two variables, which won’t work.</p>
-<figure class="listing" id="listing-19-5">
+<figure class="listing" id="listing-19-2">
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">fn main() {
 </span>    let (x, y) = (1, 2, 3);
 <span class="boring">}</span></code></pre>
-<figcaption><a href="ch19-01-all-the-places-for-patterns.html#listing-19-5">Listing 19-5</a>: Incorrectly constructing a pattern whose variables don’t match the number of elements in the tuple</figcaption>
+<figcaption><a href="ch19-01-all-the-places-for-patterns.html#listing-19-2">Listing 19-2</a>: Incorrectly constructing a pattern whose variables don’t match the number of elements in the tuple</figcaption>
 </figure>
 <p>Attempting to compile this code results in this type error:</p>
 <pre><code class="language-console">$ cargo run
@@ -25574,6 +25485,114 @@ Pattern”</a><!-- ignore --> section. If the problem
 is that we have too many variables in the pattern, the solution is to make the
 types match by removing variables so the number of variables equals the number
 of elements in the tuple.</p>
+<h3 id="conditional-if-let-expressions"><a class="header" href="#conditional-if-let-expressions">Conditional if let Expressions</a></h3>
+<p>In Chapter 6, we discussed how to use <code>if let</code> expressions mainly as a shorter
+way to write the equivalent of a <code>match</code> that only matches one case.
+Optionally, <code>if let</code> can have a corresponding <code>else</code> containing code to run if
+the pattern in the <code>if let</code> doesn’t match.</p>
+<p>Listing 19-3 shows that it’s also possible to mix and match <code>if let</code>, <code>else if</code>, and <code>else if let</code> expressions. Doing so gives us more flexibility than a
+<code>match</code> expression in which we can express only one value to compare with the
+patterns. Also, Rust doesn’t require that the conditions in a series of <code>if let</code>, <code>else if</code>, and <code>else if let</code> arms relate to each other.</p>
+<p>The code in Listing 19-3 determines what color to make your background based on
+a series of checks for several conditions. For this example, we’ve created
+variables with hardcoded values that a real program might receive from user
+input.</p>
+<figure class="listing" id="listing-19-3">
+<span class="file-name">Filename: src/main.rs</span>
+<pre><pre class="playground"><code class="language-rust edition2024">fn main() {
+    let favorite_color: Option&lt;&amp;str&gt; = None;
+    let is_tuesday = false;
+    let age: Result&lt;u8, _&gt; = "34".parse();
+
+    if let Some(color) = favorite_color {
+        println!("Using your favorite color, {color}, as the background");
+    } else if is_tuesday {
+        println!("Tuesday is green day!");
+    } else if let Ok(age) = age {
+        if age &gt; 30 {
+            println!("Using purple as the background color");
+        } else {
+            println!("Using orange as the background color");
+        }
+    } else {
+        println!("Using blue as the background color");
+    }
+}</code></pre></pre>
+<figcaption><a href="ch19-01-all-the-places-for-patterns.html#listing-19-3">Listing 19-3</a>: Mixing <code>if let</code>, <code>else if</code>, <code>else if let</code>, and <code>else</code></figcaption>
+</figure>
+<p>If the user specifies a favorite color, that color is used as the background.
+If no favorite color is specified and today is Tuesday, the background color is
+green. Otherwise, if the user specifies their age as a string and we can parse
+it as a number successfully, the color is either purple or orange depending on
+the value of the number. If none of these conditions apply, the background
+color is blue.</p>
+<p>This conditional structure lets us support complex requirements. With the
+hardcoded values we have here, this example will print <code>Using purple as the background color</code>.</p>
+<p>You can see that <code>if let</code> can also introduce new variables that shadow existing
+variables in the same way that <code>match</code> arms can: the line <code>if let Ok(age) = age</code>
+introduces a new <code>age</code> variable that contains the value inside the <code>Ok</code> variant,
+shadowing the existing <code>age</code> variable. This means we need to place the <code>if age &gt; 30</code> condition within that block: we can’t combine these two conditions into <code>if let Ok(age) = age &amp;&amp; age &gt; 30</code>. The new <code>age</code> we want to compare to 30 isn’t
+valid until the new scope starts with the curly bracket.</p>
+<p>The downside of using <code>if let</code> expressions is that the compiler doesn’t check
+for exhaustiveness, whereas with <code>match</code> expressions it does. If we omitted the
+last <code>else</code> block and therefore missed handling some cases, the compiler would
+not alert us to the possible logic bug.</p>
+<h3 id="while-let-conditional-loops"><a class="header" href="#while-let-conditional-loops"><code>while let</code> Conditional Loops</a></h3>
+<p>Similar in construction to <code>if let</code>, the <code>while let</code> conditional loop allows a
+<code>while</code> loop to run for as long as a pattern continues to match. In Listing
+19-4 we show a <code>while let</code> loop that waits on messages sent between threads,
+but in this case checking a <code>Result</code> instead of an <code>Option</code>.</p>
+<figure class="listing" id="listing-19-4">
+<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+</span>    let (tx, rx) = std::sync::mpsc::channel();
+    std::thread::spawn(move || {
+        for val in [1, 2, 3] {
+            tx.send(val).unwrap();
+        }
+    });
+
+    while let Ok(value) = rx.recv() {
+        println!("{value}");
+    }
+<span class="boring">}</span></code></pre></pre>
+<figcaption><a href="ch19-01-all-the-places-for-patterns.html#listing-19-4">Listing 19-4</a>: Using a <code>while let</code> loop to print values for as long as <code>rx.recv()</code> returns <code>Ok</code></figcaption>
+</figure>
+<p>This example prints <code>1</code>, <code>2</code>, and then <code>3</code>. The <code>recv</code> method takes the first
+message out of the receiver side of the channel and returns an <code>Ok(value)</code>. When
+we first saw <code>recv</code> back in Chapter 16, we unwrapped the error directly, or
+interacted with it as an iterator using a <code>for</code> loop. As Listing 19-4 shows,
+though, we can also use while let, because the <code>recv</code> method returns an <code>Ok</code>
+each time a message arrives, as long as the sender exists, and then produces an
+<code>Err </code>once the sender side disconnects.</p>
+<h3 id="for-loops"><a class="header" href="#for-loops"><code>for</code> Loops</a></h3>
+<p>In a <code>for</code> loop, the value that directly follows the keyword <code>for</code> is a
+pattern. For example, in <code>for x in y</code>, the <code>x</code> is the pattern. Listing 19-5
+demonstrates how to use a pattern in a <code>for</code> loop to <em>destructure</em>, or break
+apart, a tuple as part of the <code>for</code> loop.</p>
+<figure class="listing" id="listing-19-5">
+<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+</span>    let v = vec!['a', 'b', 'c'];
+
+    for (index, value) in v.iter().enumerate() {
+        println!("{value} is at index {index}");
+    }
+<span class="boring">}</span></code></pre></pre>
+<figcaption><a href="ch19-01-all-the-places-for-patterns.html#listing-19-5">Listing 19-5</a>: Using a pattern in a <code>for</code> loop to destructure a tuple</figcaption>
+</figure>
+<p>The code in Listing 19-5 will print the following:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling patterns v0.1.0 (file:///projects/patterns)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.52s
+     Running `target/debug/patterns`
+a is at index 0
+b is at index 1
+c is at index 2
+</code></pre>
+<p>We adapt an iterator using the <code>enumerate</code> method so it produces a value and
+the index for that value, placed into a tuple. The first value produced is the
+tuple <code>(0, 'a')</code>. When this value is matched to the pattern <code>(index, value)</code>,
+<code>index</code> will be <code>0</code> and <code>value</code> will be <code>'a'</code>, printing the first line of the
+output.</p>
 <h3 id="function-parameters"><a class="header" href="#function-parameters">Function Parameters</a></h3>
 <p>Function parameters can also be patterns. The code in Listing 19-6, which
 declares a function named <code>foo</code> that takes one parameter named <code>x</code> of type
@@ -25604,12 +25623,12 @@ fn main() {
 <p>This code prints <code>Current location: (3, 5)</code>. The values <code>&amp;(3, 5)</code> match the
 pattern <code>&amp;(x, y)</code>, so <code>x</code> is the value <code>3</code> and <code>y</code> is the value <code>5</code>.</p>
 <p>We can also use patterns in closure parameter lists in the same way as in
-function parameter lists because closures are similar to functions, as discussed
-in Chapter 13.</p>
-<p>At this point, you’ve seen several ways to use patterns, but patterns don’t work
-the same in every place we can use them. In some places, the patterns must be
-irrefutable; in other circumstances, they can be refutable. We’ll discuss these
-two concepts next.</p>
+function parameter lists because closures are similar to functions, as
+discussed in Chapter 13.</p>
+<p>At this point, you’ve seen several ways to use patterns, but patterns don’t
+work the same in every place we can use them. In some places, the patterns must
+be irrefutable; in other circumstances, they can be refutable. We’ll discuss
+these two concepts next.</p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="refutability-whether-a-pattern-might-fail-to-match"><a class="header" href="#refutability-whether-a-pattern-might-fail-to-match">Refutability: Whether a Pattern Might Fail to Match</a></h2>
 <p>Patterns come in two forms: refutable and irrefutable. Patterns that will match
 for any possible value passed are <em>irrefutable</em>. An example would be <code>x</code> in the
@@ -25668,7 +25687,7 @@ error: could not compile `patterns` (bin "patterns") due to 1 previous error
 pattern <code>Some(x)</code>, Rust rightfully produces a compiler error.</p>
 <p>If we have a refutable pattern where an irrefutable pattern is needed, we can
 fix it by changing the code that uses the pattern: instead of using <code>let</code>, we
-can use <code>if let</code>. Then if the pattern doesn’t match, the code will just skip
+can use <code>let else</code>. Then, if the pattern doesn’t match, the code will just skip
 the code in the curly brackets, giving it a way to continue validly. Listing
 19-9 shows how to fix the code in Listing 19-8.</p>
 <figure class="listing" id="listing-19-9">
@@ -25680,20 +25699,20 @@ the code in the curly brackets, giving it a way to continue validly. Listing
 <span class="boring">}</span></code></pre></pre>
 <figcaption><a href="ch19-02-refutability.html#listing-19-9">Listing 19-9</a>: Using <code>let...else</code> and a block with refutable patterns instead of <code>let</code></figcaption>
 </figure>
-<p>We’ve given the code an out! This code is perfectly valid now. However,
-if we give <code>if let</code> an irrefutable pattern (a pattern that will always
-match), such as <code>x</code>, as shown in Listing 19-10, the compiler will give a
-warning.</p>
+<p>We’ve given the code an out! This code is perfectly valid, although it means we
+cannot use an irrefutable pattern without receiving a warning. If we give
+<code>let...else</code> a pattern that will always match, such as <code>x</code>, as shown in Listing
+19-10, the compiler will give a warning.</p>
 <figure class="listing" id="listing-19-10">
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let x = 5 else {
         return;
     };
 <span class="boring">}</span></code></pre></pre>
-<figcaption><a href="ch19-02-refutability.html#listing-19-10">Listing 19-10</a>: Attempting to use an irrefutable pattern with <code>if let</code></figcaption>
+<figcaption><a href="ch19-02-refutability.html#listing-19-10">Listing 19-10</a>: Attempting to use an irrefutable pattern with <code>let...else</code></figcaption>
 </figure>
-<p>Rust complains that it doesn’t make sense to use <code>if let</code> with an irrefutable
-pattern:</p>
+<p>Rust complains that it doesn’t make sense to use <code>let...else</code> with an
+irrefutable pattern:</p>
 <pre><code class="language-console">$ cargo run
    Compiling patterns v0.1.0 (file:///projects/patterns)
 warning: irrefutable `let...else` pattern
@@ -25734,20 +25753,20 @@ following code gives some examples:</p>
         _ =&gt; println!("anything"),
     }
 <span class="boring">}</span></code></pre></pre>
-<p>This code prints <code>one</code> because the value in <code>x</code> is 1. This syntax is useful
+<p>This code prints <code>one</code> because the value in <code>x</code> is <code>1</code>. This syntax is useful
 when you want your code to take an action if it gets a particular concrete
 value.</p>
 <h3 id="matching-named-variables"><a class="header" href="#matching-named-variables">Matching Named Variables</a></h3>
 <p>Named variables are irrefutable patterns that match any value, and we’ve used
 them many times in this book. However, there is a complication when you use
 named variables in <code>match</code>, <code>if let</code>, or <code>while let</code> expressions. Because each
-of these kinds of expression starts a new scope, variables declared as part of a
-pattern inside the expression will shadow those with the same name outside, as
-is the case with all variables. In Listing 19-11, we declare a variable named
-<code>x</code> with the value <code>Some(5)</code> and a variable <code>y</code> with the value <code>10</code>. We then
-create a <code>match</code> expression on the value <code>x</code>. Look at the patterns in the match
-arms and <code>println!</code> at the end, and try to figure out what the code will print
-before running this code or reading further.</p>
+of these kinds of expressions starts a new scope, variables declared as part of
+a pattern inside these expressions will shadow those with the same name outside
+the constructs, as is the case with all variables. In Listing 19-11, we declare
+a variable named <code>x</code> with the value <code>Some(5)</code> and a variable <code>y</code> with the value
+<code>10</code>. We then create a <code>match</code> expression on the value <code>x</code>. Look at the
+patterns in the match arms and <code>println!</code> at the end, and try to figure out
+what the code will print before running this code or reading further.</p>
 <figure class="listing" id="listing-19-11">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
@@ -25787,10 +25806,11 @@ variable, we would need to use a match guard conditional instead. We’ll talk
 about match guards later in <a href="ch19-03-pattern-syntax.html#extra-conditionals-with-match-guards">“Extra Conditionals with Match
 Guards”</a><!-- ignore -->.</p>
 <h3 id="multiple-patterns"><a class="header" href="#multiple-patterns">Multiple Patterns</a></h3>
-<p>You can match multiple patterns using the <code>|</code> syntax, which is the pattern <em>or</em>
-operator. For example, in the following code we match the value of <code>x</code> against
-the match arms, the first of which has an <em>or</em> option, meaning if the value of
-<code>x</code> matches either of the values in that arm, that arm’s code will run:</p>
+<p>In <code>match</code> expressions, you can match multiple patterns using the <code>|</code> syntax,
+which is the pattern <em>or</em> operator. For example, in the following code we match
+the value of <code>x</code> against the match arms, the first of which has an <em>or</em> option,
+meaning if the value of <code>x</code> matches either of the values in that arm, that
+arm’s code will run:</p>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let x = 1;
 
@@ -25814,9 +25834,9 @@ range, that arm will execute:</p>
     }
 <span class="boring">}</span></code></pre></pre>
 <p>If <code>x</code> is <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, or <code>5</code>, the first arm will match. This syntax is
-more convenient for multiple match values than using the <code>|</code> operator to express
-the same idea; if we were to use <code>|</code> we would have to specify <code>1 | 2 | 3 | 4 | 5</code>. Specifying a range is much shorter, especially if we want to match, say, any
-number between 1 and 1,000!</p>
+more convenient for multiple match values than using the <code>|</code> operator to
+express the same idea; if we were to use <code>|</code>, we would have to specify <code>1 | 2 | 3 | 4 | 5</code>. Specifying a range is much shorter, especially if we want to match,
+say, any number between 1 and 1,000!</p>
 <p>The compiler checks that the range isn’t empty at compile time, and because the
 only types for which Rust can tell if a range is empty or not are <code>char</code> and
 numeric values, ranges are only allowed with numeric or <code>char</code> values.</p>
@@ -25923,11 +25943,11 @@ containing a <code>0</code>, so this code will print <code>On the y axis at 7</c
 first matching pattern, so even though <code>Point { x: 0, y: 0}</code> is on the <code>x</code> axis
 and the <code>y</code> axis, this code would only print <code>On the x axis at 0</code>.</p>
 <h4 id="destructuring-enums"><a class="header" href="#destructuring-enums">Destructuring Enums</a></h4>
-<p>We’ve destructured enums in this book (for example, Listing 6-5), but we haven’t
-yet explicitly discussed that the pattern to destructure an enum corresponds to
-the way the data stored within the enum is defined. As an example, in Listing
-19-15 we use the <code>Message</code> enum from Listing 6-2 and write a <code>match</code> with
-patterns that will destructure each inner value.</p>
+<p>We’ve destructured enums in this book (for example, Listing 6-5 in Chapter 6),
+but haven’t yet explicitly discussed that the pattern to destructure an enum
+corresponds to the way the data stored within the enum is defined. As an
+example, in Listing 19-15 we use the <code>Message</code> enum from Listing 6-2 and write
+a <code>match</code> with patterns that will destructure each inner value.</p>
 <figure class="listing" id="listing-19-15">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust edition2024">enum Message {
@@ -26029,7 +26049,7 @@ the values we’re interested in separately.</p>
 as the value from each field in a struct, separately from each other.</p>
 <h3 id="ignoring-values-in-a-pattern"><a class="header" href="#ignoring-values-in-a-pattern">Ignoring Values in a Pattern</a></h3>
 <p>You’ve seen that it’s sometimes useful to ignore values in a pattern, such as
-in the last arm of a <code>match</code>, to get a catchall that doesn’t actually do
+in the last arm of a <code>match</code>, to get a catch-all that doesn’t actually do
 anything but does account for all remaining possible values. There are a few
 ways to ignore entire values or parts of values in a pattern: using the <code>_</code>
 pattern (which you’ve seen), using the <code>_</code> pattern within another pattern,
@@ -26148,7 +26168,7 @@ distinction matters, Listing 19-21 will provide us with an error.</p>
 
     println!("{s:?}");
 <span class="boring">}</span></code></pre>
-<figcaption><a href="ch19-03-pattern-syntax.html#listing-19-21">Listing 19-21</a>: An unused variable starting with an underscore still binds the value, which might take ownership of the value</figcaption>
+<figcaption><a href="ch19-03-pattern-syntax.html#listing-19-21">Listing 19-21</a>: An unused variable starting with an underscore still binds the value, which might take ownership of the value.</figcaption>
 </figure>
 <p>We’ll receive an error because the <code>s</code> value will still be moved into <code>_s</code>,
 which prevents us from using <code>s</code> again. However, using the underscore by itself
@@ -26164,7 +26184,7 @@ because <code>s</code> doesn’t get moved into <code>_</code>.</p>
 
     println!("{s:?}");
 <span class="boring">}</span></code></pre></pre>
-<figcaption><a href="ch19-03-pattern-syntax.html#listing-19-22">Listing 19-22</a>: Using an underscore does not bind the value</figcaption>
+<figcaption><a href="ch19-03-pattern-syntax.html#listing-19-22">Listing 19-22</a>: Using an underscore does not bind the value.</figcaption>
 </figure>
 <p>This code works just fine because we never bind <code>s</code> to anything; it isn’t moved.</p>
 <p><a id="ignoring-remaining-parts-of-a-value-with-"></a></p>
@@ -26211,8 +26231,8 @@ shows how to use <code>..</code> with a tuple.</p>
 }</code></pre></pre>
 <figcaption><a href="ch19-03-pattern-syntax.html#listing-19-24">Listing 19-24</a>: Matching only the first and last values in a tuple and ignoring all other values</figcaption>
 </figure>
-<p>In this code, the first and last value are matched with <code>first</code> and <code>last</code>. The
-<code>..</code> will match and ignore everything in the middle.</p>
+<p>In this code, the first and last values are matched with <code>first</code> and <code>last</code>.
+The <code>..</code> will match and ignore everything in the middle.</p>
 <p>However, using <code>..</code> must be unambiguous. If it is unclear which values are
 intended for matching and which should be ignored, Rust will give us an error.
 Listing 19-25 shows an example of using <code>..</code> ambiguously, so it will not
@@ -26254,7 +26274,7 @@ compiler error because using <code>..</code> in two places like this is ambiguou
 <p>A <em>match guard</em> is an additional <code>if</code> condition, specified after the pattern in
 a <code>match</code> arm, that must also match for that arm to be chosen. Match guards are
 useful for expressing more complex ideas than a pattern alone allows. Note,
-however, that they are only available in <code>match</code> expressions, not in <code>if let</code> or
+however, that they are only available in <code>match</code> expressions, not <code>if let</code> or
 <code>while let</code> expressions.</p>
 <p>The condition can use variables created in the pattern. Listing 19-26 shows a
 <code>match</code> where the first arm has the pattern <code>Some(x)</code> and also has a match
@@ -26336,11 +26356,11 @@ applies to <code>6</code>.</p>
 <p>The match condition states that the arm only matches if the value of <code>x</code> is
 equal to <code>4</code>, <code>5</code>, or <code>6</code> <em>and</em> if <code>y</code> is <code>true</code>. When this code runs, the
 pattern of the first arm matches because <code>x</code> is <code>4</code>, but the match guard <code>if y</code>
-is <code>false</code>, so the first arm is not chosen. The code moves on to the second arm,
-which does match, and this program prints <code>no</code>. The reason is that the <code>if</code>
-condition applies to the whole pattern <code>4 | 5 | 6</code>, not just to the last value
-<code>6</code>. In other words, the precedence of a match guard in relation to a pattern
-behaves like this:</p>
+is <code>false</code>, so the first arm is not chosen. The code moves on to the second
+arm, which does match, and this program prints <code>no</code>. The reason is that the
+<code>if</code> condition applies to the whole pattern <code>4 | 5 | 6</code>, not just to the last
+value <code>6</code>. In other words, the precedence of a match guard in relation to a
+pattern behaves like this:</p>
 <pre><code class="language-text">(4 | 5 | 6) if y =&gt; ...
 </code></pre>
 <p>rather than this:</p>
@@ -26352,11 +26372,10 @@ were applied only to the final value in the list of values specified using the
 <code>yes</code>.</p>
 <h3 id="-bindings"><a class="header" href="#-bindings"><code>@</code> Bindings</a></h3>
 <p>The <em>at</em> operator <code>@</code> lets us create a variable that holds a value at the same
-time we’re testing that value for a pattern match. In Listing 19-29, we want
-to test that a <code>Message::Hello</code> <code>id</code> field is within the range <code>3..=7</code>. We also
-want to bind the value to the variable <code>id_variable</code> so we can use it in the
-code associated with the arm. We could name this variable <code>id</code>, the same as the
-field, but for this example we’ll use a different name.</p>
+time we’re testing that value for a pattern match. In Listing 19-29, we want to
+test that a <code>Message::Hello</code> <code>id</code> field is within the range <code>3..=7</code>. We also
+want to bind the value to the variable <code>id</code> so we can use it in the code
+associated with the arm.</p>
 <figure class="listing" id="listing-19-29">
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    enum Message {
@@ -26367,8 +26386,8 @@ field, but for this example we’ll use a different name.</p>
 
     match msg {
         Message::Hello {
-            id: id_variable @ 3..=7,
-        } =&gt; println!("Found an id in range: {id_variable}"),
+            id: id @ 3..=7,
+        } =&gt; println!("Found an id in range: {id}"),
         Message::Hello { id: 10..=12 } =&gt; {
             println!("Found an id in another range")
         }
@@ -26377,8 +26396,9 @@ field, but for this example we’ll use a different name.</p>
 <span class="boring">}</span></code></pre></pre>
 <figcaption><a href="ch19-03-pattern-syntax.html#listing-19-29">Listing 19-29</a>: Using <code>@</code> to bind to a value in a pattern while also testing it</figcaption>
 </figure>
-<p>This example will print <code>Found an id in range: 5</code>. By specifying <code>id_variable @</code> before the range <code>3..=7</code>, we’re capturing whatever value matched the range
-while also testing that the value matched the range pattern.</p>
+<p>This example will print <code>Found an id in range: 5</code>. By specifying <code>id @</code> before
+the range <code>3..=7</code>, we’re capturing whatever value matched the range in a
+variable named <code>id</code> while also testing that the value matched the range pattern.</p>
 <p>In the second arm, where we only have a range specified in the pattern, the code
 associated with the arm doesn’t have a variable that contains the actual value
 of the <code>id</code> field. The <code>id</code> field’s value could have been 10, 11, or 12, but
@@ -26396,8 +26416,8 @@ first two arms: any value would match this pattern.</p>
 data. When used in <code>match</code> expressions, Rust ensures your patterns cover every
 possible value, or your program won’t compile. Patterns in <code>let</code> statements and
 function parameters make those constructs more useful, enabling the
-destructuring of values into smaller parts at the same time as assigning those
-parts to variables. We can create simple or complex patterns to suit our needs.</p>
+destructuring of values into smaller parts and assigning those parts to
+variables. We can create simple or complex patterns to suit our needs.</p>
 <p>Next, for the penultimate chapter of the book, we’ll look at some advanced
 aspects of a variety of Rust’s features.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="advanced-features"><a class="header" href="#advanced-features">Advanced Features</a></h1>
@@ -32079,6 +32099,7 @@ of Rust.</p>
             window.setTimeout(window.print, 100);
         });
         </script>
+
 
     </div>
     </body>

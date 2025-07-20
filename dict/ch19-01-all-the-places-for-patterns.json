@@ -210,5 +210,41 @@
   "At this point, you’ve seen several ways to use patterns, but patterns don’t work the same in every place we can use them. In some places, the patterns must be irrefutable; in other circumstances, they can be refutable. We’ll discuss these two concepts next.": {
     "_translate": "到目前为止，您已经看到了使用模式的几种方法，但模式在我们使用它们的每个地方并不都以相同的方式工作。在某些地方，模式必须是不可反驳的；在其他情况下，它们可以是可反驳的。接下来我们将讨论这两个概念。",
     "_note": ""
+  },
+  "To see the pattern-matching aspect of let more clearly, consider Listing 19-1, which uses a pattern with let to destructure a tuple.": {
+    "_translate": "为了更清楚地了解 <code>let</code> 的模式匹配方面，请考虑列表 19-1，它使用带有 <code>let</code> 的模式来解构一个元组。",
+    "_note": ""
+  },
+  "Here, we match a tuple against a pattern. Rust compares the value (1, 2, 3) to the pattern (x, y, z) and sees that the value matches the pattern, in that it sees that the number of elements is the same in both, so Rust binds 1 to x, 2 to y, and 3 to z. You can think of this tuple pattern as nesting three individual variable patterns inside it.": {
+    "_translate": "在这里，我们将一个元组与一个模式进行匹配。Rust 将值 <code>(1, 2, 3)</code>\n与模式 <code>(x, y, z)</code> 进行比较，发现值与模式匹配，因为它们的元素数量相同，所以 Rust 将 <code>1</code> 绑定到\n<code>x</code>，<code>2</code> 绑定到 <code>y</code>，<code>3</code> 绑定到 <code>z</code>。你可以将这个元组模式视为嵌套了三个单独的变量模式。",
+    "_note": ""
+  },
+  "If the number of elements in the pattern doesn’t match the number of elements in the tuple, the overall type won’t match and we’ll get a compiler error. For example, Listing 19-2 shows an attempt to destructure a tuple with three elements into two variables, which won’t work.": {
+    "_translate": "如果模式中的元素数量与元组中的元素数量不匹配，整体类型将不匹配，我们将收到编译器错误。例如，列表 19-2 显示了尝试将包含三个元素的元组解构为两个变量的情况，这将无法工作。",
+    "_note": ""
+  },
+  "The code in Listing 19-3 determines what color to make your background based on a series of checks for several conditions. For this example, we’ve created variables with hardcoded values that a real program might receive from user input.": {
+    "_translate": "清单 19-3 中的代码根据一系列检查多个条件来确定背景颜色。在这个例子中，我们创建了具有硬编码值的变量，这些值在实际程序中可能是从用户输入接收的。",
+    "_note": ""
+  },
+  "Listing 19-3 shows that it’s also possible to mix and match if let, else if, and else if let expressions. Doing so gives us more flexibility than a match expression in which we can express only one value to compare with the patterns. Also, Rust doesn’t require that the conditions in a series of if let, else if, and else if let arms relate to each other.": {
+    "_translate": "列表19-3展示了也可以混合使用<code>if let</code>、<code>else if</code>和<code>else if let</code>表达式。这样做比只能表达一个值与模式进行比较的<code>match</code>表达式提供了更多的灵活性。此外，Rust不要求一系列<code>if let</code>、<code>else if</code>和<code>else if let</code>分支中的条件相互关联。",
+    "_note": ""
+  },
+  "Similar in construction to if let, the while let conditional loop allows a while loop to run for as long as a pattern continues to match. In Listing 19-4 we show a while let loop that waits on messages sent between threads, but in this case checking a Result instead of an Option.": {
+    "_translate": "与 <code>if let</code> 的构造类似，<code>while let</code> 条件循环允许 <code>while</code> 循环在模式继续匹配的情况下运行。在清单 19-4 中，我们展示了一个 <code>while let</code> 循环，该循环等待线程之间发送的消息，但在此情况下检查的是 <code>Result</code> 而不是 <code>Option</code>。",
+    "_note": ""
+  },
+  "This example prints 1, 2, and then 3. The recv method takes the first message out of the receiver side of the channel and returns an Ok(value). When we first saw recv back in Chapter 16, we unwrapped the error directly, or interacted with it as an iterator using a for loop. As Listing 19-4 shows, though, we can also use while let, because the recv method returns an Ok each time a message arrives, as long as the sender exists, and then produces an Err once the sender side disconnects.": {
+    "_translate": "这个示例打印 <code>1</code>，<code>2</code>，然后是 <code>3</code>。<code>recv</code> 方法从通道的接收端取出第一条消息并返回一个 <code>Ok(value)</code>。当我们第一次在第 16 章看到 <code>recv</code> 时，我们直接解包了错误，或者使用 <code>for</code> 循环作为迭代器与之交互。然而，如清单 19-4 所示，我们也可以使用 <code>while let</code>，因为只要发送方存在，每次消息到达时 <code>recv</code> 方法都会返回一个 <code>Ok</code>，然后在发送方断开连接后生成一个 <code>Err</code>。",
+    "_note": ""
+  },
+  "The code in Listing 19-5 will print the following:": {
+    "_translate": "列表 19-5 中的代码将打印以下内容：",
+    "_note": ""
+  },
+  "In a for loop, the value that directly follows the keyword for is a pattern. For example, in for x in y, the x is the pattern. Listing 19-5 demonstrates how to use a pattern in a for loop to destructure, or break apart, a tuple as part of the for loop.": {
+    "_translate": "在 <code>for</code> 循环中，直接跟在 <code>for</code> 关键字后面的值是一个模式。例如，在 <code>for x in y</code> 中，<code>x</code> 就是模式。列表 19-5 展示了如何在 <code>for</code> 循环中使用模式来 <em>解构</em>，或拆分，一个元组作为 <code>for</code> 循环的一部分。",
+    "_note": ""
   }
 }

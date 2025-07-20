@@ -474,5 +474,29 @@
   "Rust’s patterns are very useful in distinguishing between different kinds of data. When used in match expressions, Rust ensures your patterns cover every possible value, or your program won’t compile. Patterns in let statements and function parameters make those constructs more useful, enabling the destructuring of values into smaller parts at the same time as assigning those parts to variables. We can create simple or complex patterns to suit our needs.": {
     "_translate": "Rust 的模式非常有用，可以区分不同类型的数据。当在 <code>match</code> 表达式中使用时，Rust 确保您的模式覆盖了所有可能的值，否则程序将无法编译。在 <code>let</code> 语句和函数参数中的模式使这些结构更加有用，能够在将值拆分为更小部分的同时将这些部分分配给变量。我们可以创建简单或复杂的模式以满足我们的需求。",
     "_note": ""
+  },
+  "If x is 1, 2, 3, 4, or 5, the first arm will match. This syntax is more convenient for multiple match values than using the | operator to express the same idea; if we were to use |, we would have to specify 1 | 2 | 3 | 4 | 5. Specifying a range is much shorter, especially if we want to match, say, any number between 1 and 1,000!": {
+    "_translate": "如果 <code>x</code> 是 <code>1</code>、<code>2</code>、<code>3</code>、<code>4</code> 或 <code>5</code>，第一个分支将匹配。这种语法比使用 <code>|</code> 运算符表达相同的概念更方便；如果我们使用 <code>|</code>，我们必须指定 <code>1 | 2 | 3 | 4 | 5</code>。指定一个范围要短得多，特别是如果我们想要匹配，比如说，1 到 1,000 之间的任何数字！",
+    "_note": ""
+  },
+  "Named variables are irrefutable patterns that match any value, and we’ve used them many times in this book. However, there is a complication when you use named variables in match, if let, or while let expressions. Because each of these kinds of expressions starts a new scope, variables declared as part of a pattern inside these expressions will shadow those with the same name outside the constructs, as is the case with all variables. In Listing 19-11, we declare a variable named x with the value Some(5) and a variable y with the value 10. We then create a match expression on the value x. Look at the patterns in the match arms and println! at the end, and try to figure out what the code will print before running this code or reading further.": {
+    "_translate": "命名变量是不可反驳的模式，可以匹配任何值，我们在本书中多次使用了它们。然而，当你在 <code>match</code>、<code>if let</code> 或 <code>while let</code> 表达式中使用命名变量时，会出现一个复杂情况。因为这些表达式每种都会开启一个新的作用域，所以在这些表达式内部作为模式声明的变量会遮蔽外部同名的变量，这与所有变量的情况一样。在清单 19-11 中，我们声明了一个名为 <code>x</code> 的变量，其值为 <code>Some(5)</code>，以及一个值为 <code>10</code> 的变量 <code>y</code>。然后，我们对值 <code>x</code> 创建了一个 <code>match</code> 表达式。查看匹配臂中的模式和最后的 <code>println!</code>，并尝试在运行此代码或继续阅读之前，弄清楚代码将打印什么。",
+    "_note": ""
+  },
+  "In this code, the first and last values are matched with first and last. The .. will match and ignore everything in the middle.": {
+    "_translate": "在这个代码中，第一个和最后一个值分别与<code>first</code>和<code>last</code>匹配。<code>..</code>将匹配并忽略中间的所有内容。",
+    "_note": ""
+  },
+  "A match guard is an additional if condition, specified after the pattern in a match arm, that must also match for that arm to be chosen. Match guards are useful for expressing more complex ideas than a pattern alone allows. Note, however, that they are only available in match expressions, not if let or while let expressions.": {
+    "_translate": "一个 <em>匹配卫士</em> 是一个额外的 <code>if</code> 条件，在 <code>match</code> 分支的模式之后指定，该分支要被选中，此条件也必须匹配。匹配卫士对于表达比单独的模式更复杂的想法非常有用。但是，请注意，它们仅在 <code>match</code> 表达式中可用，而不是在 <code>if let</code> 或 <code>while let</code> 表达式中。",
+    "_note": ""
+  },
+  "The at operator @ lets us create a variable that holds a value at the same time we’re testing that value for a pattern match. In Listing 19-29, we want to test that a Message::Hello id field is within the range 3..=7. We also want to bind the value to the variable id so we can use it in the code associated with the arm.": {
+    "_translate": "<em>at</em> 操作符 <code>@</code> 让我们可以在测试值是否符合模式匹配的同时，创建一个持有该值的变量。在清单 19-29 中，我们希望测试 <code>Message::Hello</code> 的 <code>id</code> 字段是否在范围 <code>3..=7</code> 内。我们还希望将该值绑定到变量 <code>id</code>，以便在与该分支关联的代码中使用。",
+    "_note": ""
+  },
+  "This example will print Found an id in range: 5. By specifying id @ before the range 3..=7, we’re capturing whatever value matched the range in a variable named id while also testing that the value matched the range pattern.": {
+    "_translate": "这个示例将打印 <code>Found an id in range: 5</code>。通过在范围 <code>3..=7</code> 前指定 <code>id @</code>，我们不仅测试了值是否匹配范围模式，还捕获了匹配范围的值到一个名为 <code>id</code> 的变量中。",
+    "_note": ""
   }
 }
