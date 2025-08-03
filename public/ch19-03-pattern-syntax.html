@@ -697,9 +697,9 @@ error: could not compile `patterns` (bin "patterns") due to 1 previous error
     let msg = Message::Hello { id: 5 };
 
     match msg {
-        Message::Hello {
-            id: id @ 3..=7,
-        } =&gt; println!("Found an id in range: {id}"),
+        Message::Hello { id: id @ 3..=7 } =&gt; {
+            println!("Found an id in range: {id}")
+        }
         Message::Hello { id: 10..=12 } =&gt; {
             println!("Found an id in another range")
         }

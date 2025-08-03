@@ -38,5 +38,9 @@
   "Macros: ways to define code that defines more code at compile time": {
     "_translate": "宏：在编译时定义更多代码的代码定义方式",
     "_note": ""
+  },
+  "By now, you’ve learned the most commonly used parts of the Rust programming language. Before we do one more project, in Chapter 21, we’ll look at a few aspects of the language you might run into every once in a while, but may not use every day. You can use this chapter as a reference for when you encounter any unknowns. The features covered here are useful in very specific situations. Although you might not reach for them often, we want to make sure you have a grasp of all the features Rust has to offer.": {
+    "_translate": "到目前为止，您已经学习了 Rust 编程语言中最常用的部分。在我们进行第 21 章的最后一个项目之前，我们将简要介绍一些您可能会偶尔遇到但不一定会每天使用的语言特性。您可以将本章用作遇到任何未知内容时的参考。这里涵盖的特性在非常特定的情况下非常有用。虽然您可能不会经常使用它们，但我们希望确保您对 Rust 提供的所有特性都有所了解。",
+    "_note": ""
   }
 }

@@ -16149,7 +16149,6 @@ compile, because we need to update the function body.</p>
 </span><span class="boring">        process::exit(1);
 </span><span class="boring">    });
 </span><span class="boring">
-</span><span class="boring">
 </span><span class="boring">    if let Err(e) = run(config) {
 </span><span class="boring">        eprintln!("Application error: {e}");
 </span><span class="boring">        process::exit(1);
@@ -26385,9 +26384,9 @@ associated with the arm.</p>
     let msg = Message::Hello { id: 5 };
 
     match msg {
-        Message::Hello {
-            id: id @ 3..=7,
-        } =&gt; println!("Found an id in range: {id}"),
+        Message::Hello { id: id @ 3..=7 } =&gt; {
+            println!("Found an id in range: {id}")
+        }
         Message::Hello { id: 10..=12 } =&gt; {
             println!("Found an id in another range")
         }
@@ -26422,7 +26421,7 @@ variables. We can create simple or complex patterns to suit our needs.</p>
 aspects of a variety of Rust’s features.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="advanced-features"><a class="header" href="#advanced-features">Advanced Features</a></h1>
 <p>By now, you’ve learned the most commonly used parts of the Rust programming
-language. Before we do one more project in Chapter 21, we’ll look at a few
+language. Before we do one more project, in Chapter 21, we’ll look at a few
 aspects of the language you might run into every once in a while, but may not
 use every day. You can use this chapter as a reference for when you encounter
 any unknowns. The features covered here are useful in very specific situations.
@@ -26466,18 +26465,18 @@ Rust and how to do it.</p>
 that holds the unsafe code. You can take five actions in unsafe Rust that you
 can’t in safe Rust, which we call <em>unsafe superpowers</em>. Those superpowers
 include the ability to:</p>
-<ul>
+<ol>
 <li>Dereference a raw pointer</li>
 <li>Call an unsafe function or method</li>
 <li>Access or modify a mutable static variable</li>
 <li>Implement an unsafe trait</li>
-<li>Access fields of a <code>union</code></li>
-</ul>
+<li>Access fields of <code>union</code>s</li>
+</ol>
 <p>It’s important to understand that <code>unsafe</code> doesn’t turn off the borrow checker
 or disable any of Rust’s other safety checks: if you use a reference in unsafe
 code, it will still be checked. The <code>unsafe</code> keyword only gives you access to
 these five features that are then not checked by the compiler for memory
-safety. You’ll still get some degree of safety inside of an unsafe block.</p>
+safety. You’ll still get some degree of safety inside an unsafe block.</p>
 <p>In addition, <code>unsafe</code> does not mean the code inside the block is necessarily
 dangerous or that it will definitely have memory safety problems: the intent is
 that as the programmer, you’ll ensure the code inside an <code>unsafe</code> block will
@@ -26498,7 +26497,7 @@ abstraction is safe.</p>
 <p>Let’s look at each of the five unsafe superpowers in turn. We’ll also look at
 some abstractions that provide a safe interface to unsafe code.</p>
 <h3 id="dereferencing-a-raw-pointer"><a class="header" href="#dereferencing-a-raw-pointer">Dereferencing a Raw Pointer</a></h3>
-<p>In <a href="ch04-02-references-and-borrowing.html#dangling-references">“Dangling References”</a><!-- ignore --> in Chapter 4, we
+<p>In Chapter 4, in <a href="ch04-02-references-and-borrowing.html#dangling-references">“Dangling References”</a><!-- ignore -->, we
 mentioned that the compiler ensures references are always valid. Unsafe Rust has
 two new types called <em>raw pointers</em> that are similar to references. As with
 references, raw pointers can be immutable or mutable and are written as <code>*const T</code> and <code>*mut T</code>, respectively. The asterisk isn’t the dereference operator; it’s
@@ -26533,13 +26532,14 @@ creates a <code>*const i32</code> immutable raw pointer, and <code>&amp;raw mut 
 variable, we know these particular raw pointers are valid, but we can’t make
 that assumption about just any raw pointer.</p>
 <p>To demonstrate this, next we’ll create a raw pointer whose validity we can’t be
-so certain of, using <code>as</code> to cast a value instead of using the raw borrow
-operators. Listing 20-2 shows how to create a raw pointer to an arbitrary
+so certain of, using the keyword <code>as</code> to cast a value instead of using the raw
+borrow operator. Listing 20-2 shows how to create a raw pointer to an arbitrary
 location in memory. Trying to use arbitrary memory is undefined: there might be
-data at that address or there might not, the compiler might optimize the code so
-there is no memory access, or the program might terminate with a segmentation
-fault. Usually, there is no good reason to write code like this, especially in
-cases where you can use a raw borrow operator instead, but it is possible.</p>
+data at that address or there might not, the compiler might optimize the code
+so there is no memory access, or the program might terminate with a
+segmentation fault. Usually, there is no good reason to write code like this,
+especially in cases where you can use a raw borrow operator instead, but it is
+possible.</p>
 <figure class="listing" id="listing-20-2">
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let address = 0x012345usize;
@@ -26566,8 +26566,7 @@ dereference operator <code>*</code> on a raw pointer that requires an <code>unsa
 </figure>
 <p>Creating a pointer does no harm; it’s only when we try to access the value that
 it points at that we might end up dealing with an invalid value.</p>
-<p>Note also that in Listing 20-1 and 20-3, we created <code>*const i32</code> and <code>*mut i32</code>
-raw pointers that both pointed to the same memory location, where <code>num</code> is
+<p>Note also that in Listings 20-1 and 20-3, we created <code>*const i32</code> and <code>*mut i32</code> raw pointers that both pointed to the same memory location, where <code>num</code> is
 stored. If we instead tried to create an immutable and a mutable reference to
 <code>num</code>, the code would not have compiled because Rust’s ownership rules don’t
 allow a mutable reference at the same time as any immutable references. With
@@ -26575,12 +26574,10 @@ raw pointers, we can create a mutable pointer and an immutable pointer to the
 same location and change data through the mutable pointer, potentially creating
 a data race. Be careful!</p>
 <p>With all of these dangers, why would you ever use raw pointers? One major use
-case is when interfacing with C code, as you’ll see in the next section,
-<a href="ch20-01-unsafe-rust.html#calling-an-unsafe-function-or-method">“Calling an Unsafe Function or
-Method.”</a><!-- ignore --> Another case is
-when building up safe abstractions that the borrow checker doesn’t understand.
-We’ll introduce unsafe functions and then look at an example of a safe
-abstraction that uses unsafe code.</p>
+case is when interfacing with C code, as you’ll see in the next section.
+Another case is when building up safe abstractions that the borrow checker
+doesn’t understand. We’ll introduce unsafe functions and then look at an
+example of a safe abstraction that uses unsafe code.</p>
 <h3 id="calling-an-unsafe-function-or-method"><a class="header" href="#calling-an-unsafe-function-or-method">Calling an Unsafe Function or Method</a></h3>
 <p>The second type of operation you can perform in an unsafe block is calling
 unsafe functions. Unsafe functions and methods look exactly like regular
@@ -26617,11 +26614,11 @@ error: could not compile `unsafe-example` (bin "unsafe-example") due to 1 previo
 <p>With the <code>unsafe</code> block, we’re asserting to Rust that we’ve read the function’s
 documentation, we understand how to use it properly, and we’ve verified that
 we’re fulfilling the contract of the function.</p>
-<p>To perform unsafe operations in the body of an unsafe function, you still need
-to use an <code>unsafe</code> block, just as within a regular function, and the compiler
-will warn you if you forget. This helps to keep <code>unsafe</code> blocks as small as
-possible, as unsafe operations may not be needed across the whole function
-body.</p>
+<p>To perform unsafe operations in the body of an <code>unsafe</code> function, you still
+need to use an <code>unsafe</code> block, just as within a regular function, and the
+compiler will warn you if you forget. This helps us keep <code>unsafe</code> blocks as
+small as possible, as unsafe operations may not be needed across the whole
+function body.</p>
 <h4 id="creating-a-safe-abstraction-over-unsafe-code"><a class="header" href="#creating-a-safe-abstraction-over-unsafe-code">Creating a Safe Abstraction over Unsafe Code</a></h4>
 <p>Just because a function contains unsafe code doesn’t mean we need to mark the
 entire function as unsafe. In fact, wrapping unsafe code in a safe function is
@@ -26670,7 +26667,7 @@ before it attempts to use that index.</p>
 <p>Then we return two mutable slices in a tuple: one from the start of the
 original slice to the <code>mid</code> index and another from <code>mid</code> to the end of the
 slice.</p>
-<p>When we try to compile the code in Listing 20-5, we’ll get an error.</p>
+<p>When we try to compile the code in Listing 20-5, we’ll get an error:</p>
 <pre><code class="language-console">$ cargo run
    Compiling unsafe-example v0.1.0 (file:///projects/unsafe-example)
 error[E0499]: cannot borrow `*values` as mutable more than once at a time
@@ -26722,18 +26719,18 @@ fn split_at_mut(values: &amp;mut [i32], mid: usize) -&gt; (&amp;mut [i32], &amp;
 <figcaption><a href="ch20-01-unsafe-rust.html#listing-20-6">Listing 20-6</a>: Using unsafe code in the implementation of the <code>split_at_mut</code> function</figcaption>
 </figure>
 <p>Recall from <a href="ch04-03-slices.html#the-slice-type">“The Slice Type”</a><!-- ignore --> in Chapter 4 that
-slices are a pointer to some data and the length of the slice. We use the <code>len</code>
+a slice is a pointer to some data and the length of the slice. We use the <code>len</code>
 method to get the length of a slice and the <code>as_mut_ptr</code> method to access the
 raw pointer of a slice. In this case, because we have a mutable slice to <code>i32</code>
 values, <code>as_mut_ptr</code> returns a raw pointer with the type <code>*mut i32</code>, which we’ve
 stored in the variable <code>ptr</code>.</p>
 <p>We keep the assertion that the <code>mid</code> index is within the slice. Then we get to
 the unsafe code: the <code>slice::from_raw_parts_mut</code> function takes a raw pointer
-and a length, and it creates a slice. We use it to create a slice that starts
-from <code>ptr</code> and is <code>mid</code> items long. Then we call the <code>add</code> method on <code>ptr</code> with
-<code>mid</code> as an argument to get a raw pointer that starts at <code>mid</code>, and we create a
-slice using that pointer and the remaining number of items after <code>mid</code> as the
-length.</p>
+and a length, and it creates a slice. We use this function to create a slice
+that starts from <code>ptr</code> and is <code>mid</code> items long. Then we call the <code>add</code>
+method on <code>ptr</code> with <code>mid</code> as an argument to get a raw pointer that starts at
+<code>mid</code>, and we create a slice using that pointer and the remaining number of
+items after <code>mid</code> as the length.</p>
 <p>The function <code>slice::from_raw_parts_mut</code> is unsafe because it takes a raw
 pointer and must trust that this pointer is valid. The <code>add</code> method on raw
 pointers is also unsafe because it must trust that the offset location is also
@@ -26766,17 +26763,17 @@ location and creates a slice 10,000 items long.</p>
 that the slice this code creates contains valid <code>i32</code> values. Attempting to use
 <code>values</code> as though it’s a valid slice results in undefined behavior.</p>
 <h4 id="using-extern-functions-to-call-external-code"><a class="header" href="#using-extern-functions-to-call-external-code">Using <code>extern</code> Functions to Call External Code</a></h4>
-<p>Sometimes, your Rust code might need to interact with code written in another
+<p>Sometimes your Rust code might need to interact with code written in another
 language. For this, Rust has the keyword <code>extern</code> that facilitates the creation
-and use of a <em>Foreign Function Interface (FFI)</em>. An FFI is a way for a
+and use of a <em>Foreign Function Interface (FFI)</em>, which is a way for a
 programming language to define functions and enable a different (foreign)
 programming language to call those functions.</p>
 <p>Listing 20-8 demonstrates how to set up an integration with the <code>abs</code> function
 from the C standard library. Functions declared within <code>extern</code> blocks are
 generally unsafe to call from Rust code, so <code>extern</code> blocks must also be marked
 <code>unsafe</code>. The reason is that other languages don’t enforce Rust’s rules and
-guarantees, and Rust can’t check them, so responsibility falls on the programmer
-to ensure safety.</p>
+guarantees, and Rust can’t check them, so responsibility falls on the
+programmer to ensure safety.</p>
 <figure class="listing" id="listing-20-8">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust edition2024">unsafe extern "C" {
@@ -26791,12 +26788,12 @@ fn main() {
 <figcaption><a href="ch20-01-unsafe-rust.html#listing-20-8">Listing 20-8</a>: Declaring and calling an <code>extern</code> function defined in another language</figcaption>
 </figure>
 <p>Within the <code>unsafe extern "C"</code> block, we list the names and signatures of
-external functions from another language we want to call. The <code>"C"</code> part defines
-which <em>application binary interface (ABI)</em> the external function uses: the ABI
-defines how to call the function at the assembly level. The <code>"C"</code> ABI is the
-most common and follows the C programming language’s ABI. Information about all
-the ABIs Rust supports is available in <a href="../reference/items/external-blocks.html#abi">the Rust Reference</a>.</p>
-<p>Every item declared within an <code>unsafe extern</code> block is implicitly <code>unsafe</code>.
+external functions from another language we want to call. The <code>"C"</code> part
+defines which <em>application binary interface (ABI)</em> the external function uses:
+the ABI defines how to call the function at the assembly level. The <code>"C"</code> ABI
+is the most common and follows the C programming language’s ABI. Information
+about all the ABIs Rust supports is available in <a href="../reference/items/external-blocks.html#abi">the Rust Reference</a>.</p>
+<p>Every item declared within an <code>unsafe extern</code> block is implicitly unsafe.
 However, some FFI functions <em>are</em> safe to call. For example, the <code>abs</code> function
 from C’s standard library does not have any memory safety considerations and we
 know it can be called with any <code>i32</code>. In cases like this, we can use the <code>safe</code>
@@ -26815,35 +26812,31 @@ fn main() {
 <figcaption><a href="ch20-01-unsafe-rust.html#listing-20-9">Listing 20-9</a>: Explicitly marking a function as <code>safe</code> within an <code>unsafe extern</code> block and calling it safely</figcaption>
 </figure>
 <p>Marking a function as <code>safe</code> does not inherently make it safe! Instead, it is
-like a promise you are making to Rust that it <em>is</em> safe. It is still your
+like a promise you are making to Rust that it is safe. It is still your
 responsibility to make sure that promise is kept!</p>
-<section class="note" aria-role="note">
 <h4 id="calling-rust-functions-from-other-languages"><a class="header" href="#calling-rust-functions-from-other-languages">Calling Rust Functions from Other Languages</a></h4>
 <p>We can also use <code>extern</code> to create an interface that allows other languages to
 call Rust functions. Instead of creating a whole <code>extern</code> block, we add the
 <code>extern</code> keyword and specify the ABI to use just before the <code>fn</code> keyword for
-the relevant function. We also need to add an <code>#[unsafe(no_mangle)]</code>
-annotation to tell the Rust compiler not to mangle the name of this function.
-<em>Mangling</em> is when a compiler changes the name we’ve given a function to a
-different name that contains more information for other parts of the
-compilation process to consume but is less human readable. Every programming
-language compiler mangles names slightly differently, so for a Rust function
-to be nameable by other languages, we must disable the Rust compiler’s name
-mangling. This is unsafe because there might be name collisions across
-libraries without the built-in mangling, so it is our responsibility to make
-sure the name we choose is safe to export without mangling.</p>
-<p>In the following example, we make the <code>call_from_c</code> function accessible from
-C code, after it’s compiled to a shared library and linked from C:</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>#[unsafe(no_mangle)]
+the relevant function. We also need to add an <code>#[unsafe(no_mangle)]</code> annotation
+to tell the Rust compiler not to mangle the name of this function. <em>Mangling</em>
+is when a compiler changes the name we’ve given a function to a different name
+that contains more information for other parts of the compilation process to
+consume but is less human readable. Every programming language compiler mangles
+names slightly differently, so for a Rust function to be nameable by other
+languages, we must disable the Rust compiler’s name mangling. This is unsafe
+because there might be name collisions across libraries without the built-in
+mangling, so it is our responsibility to make sure the name we choose is safe
+to export without mangling.</p>
+<p>In the following example, we make the <code>call_from_c</code> function accessible from C
+code, after it’s compiled to a shared library and linked from C:</p>
+<pre><code>#[unsafe(no_mangle)]
 pub extern "C" fn call_from_c() {
     println!("Just called a Rust function from C!");
 }
-<span class="boring">}</span></code></pre></pre>
+</code></pre>
 <p>This usage of <code>extern</code> requires <code>unsafe</code> only in the attribute, not on the
 <code>extern</code> block.</p>
-</section>
 <h3 id="accessing-or-modifying-a-mutable-static-variable"><a class="header" href="#accessing-or-modifying-a-mutable-static-variable">Accessing or Modifying a Mutable Static Variable</a></h3>
 <p>In this book, we’ve not yet talked about global variables, which Rust does
 support but can be problematic with Rust’s ownership rules. If two threads are
@@ -26856,7 +26849,7 @@ value.</p>
 <pre><pre class="playground"><code class="language-rust edition2024">static HELLO_WORLD: &amp;str = "Hello, world!";
 
 fn main() {
-    println!("name is: {HELLO_WORLD}");
+    println!("value is: {HELLO_WORLD}");
 }</code></pre></pre>
 <figcaption><a href="ch20-01-unsafe-rust.html#listing-20-10">Listing 20-10</a>: Defining and using an immutable static variable</figcaption>
 </figure>
@@ -26894,26 +26887,30 @@ fn main() {
         println!("COUNTER: {}", *(&amp;raw const COUNTER));
     }
 }</code></pre></pre>
-<figcaption><a href="ch20-01-unsafe-rust.html#listing-20-11">Listing 20-11</a>: Reading from or writing to a mutable static variable is unsafe</figcaption>
+<figcaption><a href="ch20-01-unsafe-rust.html#listing-20-11">Listing 20-11</a>: Reading from or writing to a mutable static variable is unsafe.</figcaption>
 </figure>
 <p>As with regular variables, we specify mutability using the <code>mut</code> keyword. Any
-code that reads or writes from <code>COUNTER</code> must be within an <code>unsafe</code> block. This
-code compiles and prints <code>COUNTER: 3</code> as we would expect because it’s single
-threaded. Having multiple threads access <code>COUNTER</code> would likely result in data
-races, so it is undefined behavior. Therefore, we need to mark the entire
-function as <code>unsafe</code>, and document the safety limitation, so anyone calling the
-function knows what they are and are not allowed to do safely.</p>
+code that reads or writes from <code>COUNTER</code> must be within an <code>unsafe</code> block. The
+code in Listing 20-11 compiles and prints <code>COUNTER: 3</code> as we would expect
+because it’s single threaded. Having multiple threads access <code>COUNTER</code> would
+likely result in data races, so it is undefined behavior. Therefore, we need to
+mark the entire function as <code>unsafe</code> and document the safety limitation, so
+anyone calling the function knows what they are and are not allowed to do
+safely.</p>
 <p>Whenever we write an unsafe function, it is idiomatic to write a comment
 starting with <code>SAFETY</code> and explaining what the caller needs to do to call the
 function safely. Likewise, whenever we perform an unsafe operation, it is
 idiomatic to write a comment starting with <code>SAFETY</code> to explain how the safety
 rules are upheld.</p>
-<p>Additionally, the compiler will not allow you to create references to a mutable
-static variable. You can only access it via a raw pointer, created with one of
-the raw borrow operators. That includes in cases where the reference is created
-invisibly, as when it is used in the <code>println!</code> in this code listing. The
-requirement that references to static mutable variables can only be created via
-raw pointers helps make the safety requirements for using them more obvious.</p>
+<p>Additionally, the compiler will deny by default any attempt to create
+references to a mutable static variable through a compiler lint. You must
+either explicitly opt-out of that lint’s protections by adding an
+<code>#[allow(static_mut_refs)]</code> annotation or access the mutable static variable
+via a raw pointer created with one of the raw borrow operators. That includes
+cases where the reference is created invisibly, as when it is used in the
+<code>println!</code> in this code listing. Requiring references to static mutable
+variables to be created via raw pointers helps make the safety requirements for
+using them more obvious.</p>
 <p>With mutable data that is globally accessible, it’s difficult to ensure there
 are no data races, which is why Rust considers mutable static variables to be
 unsafe. Where possible, it’s preferable to use the concurrency techniques and
@@ -26939,69 +26936,99 @@ unsafe impl Foo for i32 {
 </figure>
 <p>By using <code>unsafe impl</code>, we’re promising that we’ll uphold the invariants that
 the compiler can’t verify.</p>
-<p>As an example, recall the <code>Sync</code> and <code>Send</code> marker traits we discussed in
-<a href="ch16-04-extensible-concurrency-sync-and-send.html#extensible-concurrency-with-the-sync-and-send-traits">“Extensible Concurrency with the <code>Sync</code> and <code>Send</code>
-Traits”</a><!-- ignore --> in
-Chapter 16: the compiler implements these traits automatically if our types are
-composed entirely of other types that implement <code>Send</code> and <code>Sync</code>. If we
+<p>As an example, recall the <code>Send</code> and <code>Sync</code> marker traits we discussed in
+<a href="ch16-04-extensible-concurrency-sync-and-send.html#extensible-concurrency-with-the-send-and-sync-traits">“Extensible Concurrency with the <code>Send</code> and <code>Sync</code>
+Traits”</a><!-- ignore -->
+in Chapter 16: the compiler implements these traits automatically if our types
+are composed entirely of other types that implement <code>Send</code> and <code>Sync</code>. If we
 implement a type that contains a type that does not implement <code>Send</code> or <code>Sync</code>,
-such as raw pointers, and we want to mark that type as <code>Send</code> or <code>Sync</code>, we must
-use <code>unsafe</code>. Rust can’t verify that our type upholds the guarantees that it can
-be safely sent across threads or accessed from multiple threads; therefore, we
-need to do those checks manually and indicate as such with <code>unsafe</code>.</p>
+such as raw pointers, and we want to mark that type as <code>Send</code> or <code>Sync</code>, we
+must use <code>unsafe</code>. Rust can’t verify that our type upholds the guarantees that
+it can be safely sent across threads or accessed from multiple threads;
+therefore, we need to do those checks manually and indicate as such with
+<code>unsafe</code>.</p>
 <h3 id="accessing-fields-of-a-union"><a class="header" href="#accessing-fields-of-a-union">Accessing Fields of a Union</a></h3>
-<p>The final action that works only with <code>unsafe</code> is accessing fields of a union. A
-<code>union</code> is similar to a <code>struct</code>, but only one declared field is used in a
+<p>The final action that works only with <code>unsafe</code> is accessing fields of a union.
+A <em>union</em> is similar to a <code>struct</code>, but only one declared field is used in a
 particular instance at one time. Unions are primarily used to interface with
 unions in C code. Accessing union fields is unsafe because Rust can’t guarantee
-the type of the data currently being stored in the union instance. You can learn
-more about unions in <a href="../reference/items/unions.html">the Rust Reference</a>.</p>
+the type of the data currently being stored in the union instance. You can
+learn more about unions in <a href="../reference/items/unions.html">the Rust Reference</a>.</p>
 <h3 id="using-miri-to-check-unsafe-code"><a class="header" href="#using-miri-to-check-unsafe-code">Using Miri to Check Unsafe Code</a></h3>
 <p>When writing unsafe code, you might want to check that what you have written
-actually is safe and correct. One of the best ways to do that is to use
-Miri, an official Rust tool for detecting undefined behavior. Whereas
-the borrow checker is a <em>static</em> tool that works at compile time, Miri is a
-<em>dynamic</em> tool that works at runtime. It checks your code by running your
-program, or its test suite, and detecting when you violate the rules it
-understands about how Rust should work.</p>
+actually is safe and correct. One of the best ways to do that is to use Miri,
+an official Rust tool for detecting undefined behavior. Whereas the borrow
+checker is a <em>static</em> tool which works at compile time, Miri is a <em>dynamic</em>
+tool which works at runtime. It checks your code by running your program, or
+its test suite, and detecting when you violate the rules it understands about
+how Rust should work.</p>
 <p>Using Miri requires a nightly build of Rust (which we talk about more in
-<a href="appendix-07-nightly-rust.html">Appendix G: How Rust is Made and “Nightly Rust”</a>). You can install
-both a nightly version of Rust and the Miri tool by typing <code>rustup +nightly component add miri</code>. This does not change what version of Rust your project
-uses; it only adds the tool to your system so you can use it when you want to.
-You can run Miri on a project by typing <code>cargo +nightly miri run</code> or <code>cargo +nightly miri test</code>.</p>
+<a href="appendix-07-nightly-rust.html">Appendix G: How Rust is Made and “Nightly Rust”</a><!-- ignore -->). You
+can install both a nightly version of Rust and the Miri tool by typing <code>rustup +nightly component add miri</code>. This does not change what version of Rust your
+project uses; it only adds the tool to your system so you can use it when you
+want to. You can run Miri on a project by typing <code>cargo +nightly miri run</code> or
+<code>cargo +nightly miri test</code>.</p>
 <p>For an example of how helpful this can be, consider what happens when we run it
-against Listing 20-11.</p>
+against Listing 20-7.</p>
 <pre><code class="language-console">$ cargo +nightly miri run
    Compiling unsafe-example v0.1.0 (file:///projects/unsafe-example)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.01s
      Running `file:///home/.rustup/toolchains/nightly/bin/cargo-miri runner target/miri/debug/unsafe-example`
-COUNTER: 3
+warning: integer-to-pointer cast
+ --&gt; src/main.rs:5:13
+  |
+5 |     let r = address as *mut i32;
+  |             ^^^^^^^^^^^^^^^^^^^ integer-to-pointer cast
+  |
+  = help: this program is using integer-to-pointer casts or (equivalently) `ptr::with_exposed_provenance`, which means that Miri might miss pointer bugs in this program
+  = help: see https://doc.rust-lang.org/nightly/std/ptr/fn.with_exposed_provenance.html for more details on that operation
+  = help: to ensure that Miri does not miss bugs in your program, use Strict Provenance APIs (https://doc.rust-lang.org/nightly/std/ptr/index.html#strict-provenance, https://crates.io/crates/sptr) instead
+  = help: you can then set `MIRIFLAGS=-Zmiri-strict-provenance` to ensure you are not relying on `with_exposed_provenance` semantics
+  = help: alternatively, `MIRIFLAGS=-Zmiri-permissive-provenance` disables this warning
+  = note: BACKTRACE:
+  = note: inside `main` at src/main.rs:5:13: 5:32
+
+error: Undefined Behavior: pointer not dereferenceable: pointer must be dereferenceable for 40000 bytes, but got 0x1234[noalloc] which is a dangling pointer (it has no provenance)
+ --&gt; src/main.rs:7:35
+  |
+7 |     let values: &amp;[i32] = unsafe { slice::from_raw_parts_mut(r, 10000) };
+  |                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here
+  |
+  = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior
+  = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information
+  = note: BACKTRACE:
+  = note: inside `main` at src/main.rs:7:35: 7:70
+
+note: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace
+
+error: aborting due to 1 previous error; 1 warning emitted
+
 </code></pre>
-<p>Miri correctly warns us that we have shared references to mutable data. Here,
-Miri issues only a warning because this is not guaranteed to be undefined
-behavior in this case, and it does not tell us how to fix the problem. but at
-least we know there is a risk of undefined behavior and can think about how to
-make the code safe. In some cases, Miri can also detect outright errors—code
-patterns that are <em>sure</em> to be wrong—and make recommendations about how to fix
-those errors.</p>
-<p>Miri doesn’t catch everything you might get wrong when writing unsafe code. Miri
-is a dynamic analysis tool, so it only catches problems with code that actually
-gets run. That means you will need to use it in conjunction with good testing
-techniques to increase your confidence about the unsafe code you have written.
-Miri also does not cover every possible way your code can be unsound.</p>
+<p>Miri correctly warns us that we’re casting an integer to a pointer, which might
+be a problem but Miri can’t detect if there is because it doesn’t know how the
+pointer originated. Then, Miri returns an error where Listing 20-7 has
+undefined behavior because we have a dangling pointer. Thanks to Miri, we now
+know there is a risk of undefined behavior, and we can think about how to make
+the code safe. In some cases, Miri can even make recommendations about how to
+fix errors.</p>
+<p>Miri doesn’t catch everything you might get wrong when writing unsafe code.
+Miri is a dynamic analysis tool, so it only catches problems with code that
+actually gets run. That means you will need to use it in conjunction with good
+testing techniques to increase your confidence about the unsafe code you have
+written. Miri also does not cover every possible way your code can be unsound.</p>
 <p>Put another way: If Miri <em>does</em> catch a problem, you know there’s a bug, but
 just because Miri <em>doesn’t</em> catch a bug doesn’t mean there isn’t a problem. It
 can catch a lot, though. Try running it on the other examples of unsafe code in
 this chapter and see what it says!</p>
 <p>You can learn more about Miri at <a href="https://github.com/rust-lang/miri">its GitHub repository</a>.</p>
 <h3 id="when-to-use-unsafe-code"><a class="header" href="#when-to-use-unsafe-code">When to Use Unsafe Code</a></h3>
-<p>Using <code>unsafe</code> to use one of the five superpowers just discussed
-isn’t wrong or even frowned upon, but it is trickier to get <code>unsafe</code> code
-correct because the compiler can’t help uphold memory safety. When you have a
-reason to use <code>unsafe</code> code, you can do so, and having the explicit <code>unsafe</code>
-annotation makes it easier to track down the source of problems when they occur.
-Whenever you write unsafe code, you can use Miri to help you be more confident
-that the code you have written upholds Rust’s rules.</p>
+<p>Using <code>unsafe</code> to use one of the five superpowers just discussed isn’t wrong or
+even frowned upon, but it is trickier to get <code>unsafe</code> code correct because the
+compiler can’t help uphold memory safety. When you have a reason to use
+<code>unsafe</code> code, you can do so, and having the explicit <code>unsafe</code> annotation makes
+it easier to track down the source of problems when they occur. Whenever you
+write unsafe code, you can use Miri to help you be more confident that the code
+you have written upholds Rust’s rules.</p>
 <p>For a much deeper exploration of how to work effectively with unsafe Rust, read
 Rust’s official guide to the subject, the <a href="https://doc.rust-lang.org/nomicon/">Rustonomicon</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="advanced-traits"><a class="header" href="#advanced-traits">Advanced Traits</a></h2>
@@ -27087,11 +27114,11 @@ the concrete types of the generic type parameters each time. When we use the
 <code>next</code> method on <code>Counter</code>, we would have to provide type annotations to
 indicate which implementation of <code>Iterator</code> we want to use.</p>
 <p>With associated types, we don’t need to annotate types because we can’t
-implement a trait on a type multiple times. In Listing 20-13 with the definition
-that uses associated types, we can choose what the type of <code>Item</code> will be only
-once, because there can be only one <code>impl Iterator for Counter</code>. We don’t have
-to specify that we want an iterator of <code>u32</code> values everywhere that we call
-<code>next</code> on <code>Counter</code>.</p>
+implement a trait on a type multiple times. In Listing 20-13 with the
+definition that uses associated types, we can choose what the type of <code>Item</code>
+will be only once because there can be only one <code>impl Iterator for Counter</code>. We
+don’t have to specify that we want an iterator of <code>u32</code> values everywhere we
+call <code>next</code> on <code>Counter</code>.</p>
 <p>Associated types also become part of the trait’s contract: implementors of the
 trait must provide a type to stand in for the associated type placeholder.
 Associated types often have a name that describes how the type will be used,
@@ -27166,8 +27193,8 @@ the <code>Add</code> trait where we want to customize the <code>Rhs</code> type 
 default.</p>
 <p>We have two structs, <code>Millimeters</code> and <code>Meters</code>, holding values in different
 units. This thin wrapping of an existing type in another struct is known as the
-<em>newtype pattern</em>, which we describe in more detail in the <a href="ch20-02-advanced-traits.html#using-the-newtype-pattern-to-implement-external-traits-on-external-types">“Using the Newtype
-Pattern to Implement External Traits on External Types”</a><!-- ignore
+<em>newtype pattern</em>, which we describe in more detail in the <a href="ch20-02-advanced-traits.html#using-the-newtype-pattern-to-implement-external-traits">“Using the Newtype
+Pattern to Implement External Traits”</a><!-- ignore
 --> section. We want to add values in millimeters to values in meters and have
 the implementation of <code>Add</code> do the conversion correctly. We can implement <code>Add</code>
 for <code>Millimeters</code> with <code>Meters</code> as the <code>Rhs</code>, as shown in Listing 20-16.</p>
@@ -27185,7 +27212,7 @@ impl Add&lt;Meters&gt; for Millimeters {
         Millimeters(self.0 + (other.0 * 1000))
     }
 }</code></pre>
-<figcaption><a href="ch20-02-advanced-traits.html#listing-20-16">Listing 20-16</a>: Implementing the <code>Add</code> trait on <code>Millimeters</code> to add <code>Millimeters</code> to <code>Meters</code></figcaption>
+<figcaption><a href="ch20-02-advanced-traits.html#listing-20-16">Listing 20-16</a>: Implementing the <code>Add</code> trait on <code>Millimeters</code> to add <code>Millimeters</code> and <code>Meters</code></figcaption>
 </figure>
 <p>To add <code>Millimeters</code> and <code>Meters</code>, we specify <code>impl Add&lt;Meters&gt;</code> to set the
 value of the <code>Rhs</code> type parameter instead of using the default of <code>Self</code>.</p>
@@ -27247,7 +27274,7 @@ impl Human {
 }
 <span class="boring">
 </span><span class="boring">fn main() {}</span></code></pre></pre>
-<figcaption><a href="ch20-02-advanced-traits.html#listing-20-17">Listing 20-17</a>: Two traits are defined to have a <code>method and are implemented on the</code>Human<code>type, and a</code>fly<code>method is implemented on</code>Human` directly.</figcaption>
+<figcaption><a href="ch20-02-advanced-traits.html#listing-20-17">Listing 20-17</a>: Two traits are defined to have a <code>fly</code> method and are implemented on the <code>Human</code> type, and a <code>fly</code> method is implemented on <code>Human</code> directly.</figcaption>
 </figure>
 <p>When we call <code>fly</code> on an instance of <code>Human</code>, the compiler defaults to calling
 the method that is directly implemented on the type, as shown in Listing 20-18.</p>
@@ -27350,11 +27377,11 @@ trait to use based on the type of <code>self</code>.</p>
 <p>However, associated functions that are not methods don’t have a <code>self</code>
 parameter. When there are multiple types or traits that define non-method
 functions with the same function name, Rust doesn’t always know which type you
-mean unless you use <em>fully qualified syntax</em>. For example, in Listing 20-20 we
-create a trait for an animal shelter that wants to name all baby dogs <em>Spot</em>.
-We make an <code>Animal</code> trait with an associated non-method function <code>baby_name</code>.
-The <code>Animal</code> trait is implemented for the struct <code>Dog</code>, on which we also
-provide an associated non-method function <code>baby_name</code> directly.</p>
+mean unless you use fully qualified syntax. For example, in Listing 20-20 we
+create a trait for an animal shelter that wants to name all baby dogs Spot. We
+make an <code>Animal</code> trait with an associated non-method function <code>baby_name</code>. The
+<code>Animal</code> trait is implemented for the struct <code>Dog</code>, on which we also provide an
+associated non-method function <code>baby_name</code> directly.</p>
 <figure class="listing" id="listing-20-20">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust edition2024">trait Animal {
@@ -27650,19 +27677,22 @@ impl fmt::Display for Point {
 <p>Then, implementing the <code>OutlinePrint</code> trait on <code>Point</code> will compile
 successfully, and we can call <code>outline_print</code> on a <code>Point</code> instance to display
 it within an outline of asterisks.</p>
-<h3 id="using-the-newtype-pattern-to-implement-external-traits-on-external-types"><a class="header" href="#using-the-newtype-pattern-to-implement-external-traits-on-external-types">Using the Newtype Pattern to Implement External Traits on External Types</a></h3>
-<p>In <a href="ch10-02-traits.html#implementing-a-trait-on-a-type">“Implementing a Trait on a Type”</a><!-- ignore
---> in Chapter 10, we mentioned the orphan rule that states we’re only allowed
-to implement a trait on a type if either the trait or the type, or both, are
-local to our crate. It’s possible to get around this restriction using the
-<em>newtype pattern</em>, which involves creating a new type in a tuple struct. (We
-covered tuple structs in <a href="ch05-01-defining-structs.html#using-tuple-structs-without-named-fields-to-create-different-types">“Using Tuple Structs Without Named Fields to Create
-Different Types”</a><!-- ignore --> in Chapter 5.) The tuple struct
-will have one field and be a thin wrapper around the type for which we want to
-implement a trait. Then the wrapper type is local to our crate, and we can
-implement the trait on the wrapper. <em>Newtype</em> is a term that originates from the
-Haskell programming language. There is no runtime performance penalty for using
-this pattern, and the wrapper type is elided at compile time.</p>
+<!-- Old link, do not remove -->
+<p><a id="using-the-newtype-pattern-to-implement-external-traits-on-external-types"></a></p>
+<h3 id="using-the-newtype-pattern-to-implement-external-traits"><a class="header" href="#using-the-newtype-pattern-to-implement-external-traits">Using the Newtype Pattern to Implement External Traits</a></h3>
+<p>In <a href="ch10-02-traits.html#implementing-a-trait-on-a-type">“Implementing a Trait on a Type”</a><!--
+ignore --> in Chapter 10, we mentioned the orphan rule that states we’re only
+allowed to implement a trait on a type if either the trait or the type, or
+both, are local to our crate. It’s possible to get around this restriction
+using the <em>newtype pattern</em>, which involves creating a new type in a tuple
+struct. (We covered tuple structs in <a href="ch05-01-defining-structs.html#using-tuple-structs-without-named-fields-to-create-different-types">“Using Tuple Structs Without Named Fields
+to Create Different Types”</a><!-- ignore --> in Chapter 5.) The
+tuple struct will have one field and be a thin wrapper around the type for
+which we want to implement a trait. Then the wrapper type is local to our
+crate, and we can implement the trait on the wrapper. <em>Newtype</em> is a term that
+originates from the Haskell programming language. There is no runtime
+performance penalty for using this pattern, and the wrapper type is elided at
+compile time.</p>
 <p>As an example, let’s say we want to implement <code>Display</code> on <code>Vec&lt;T&gt;</code>, which the
 orphan rule prevents us from doing directly because the <code>Display</code> trait and the
 <code>Vec&lt;T&gt;</code> type are defined outside our crate. We can make a <code>Wrapper</code> struct
@@ -27686,20 +27716,20 @@ fn main() {
 }</code></pre></pre>
 <figcaption><a href="ch20-02-advanced-traits.html#listing-20-24">Listing 20-24</a>: Creating a <code>Wrapper</code> type around <code>Vec&lt;String&gt;</code> to implement <code>Display</code></figcaption>
 </figure>
-<p>The implementation of <code>Display</code> uses <code>self.0</code> to access the inner <code>Vec&lt;T&gt;</code>,
+<p>The implementation of <code>Display</code> uses <code>self.0</code> to access the inner <code>Vec&lt;T&gt;</code>
 because <code>Wrapper</code> is a tuple struct and <code>Vec&lt;T&gt;</code> is the item at index 0 in the
 tuple. Then we can use the functionality of the <code>Display</code> trait on <code>Wrapper</code>.</p>
 <p>The downside of using this technique is that <code>Wrapper</code> is a new type, so it
 doesn’t have the methods of the value it’s holding. We would have to implement
-all the methods of <code>Vec&lt;T&gt;</code> directly on <code>Wrapper</code> such that the methods delegate
-to <code>self.0</code>, which would allow us to treat <code>Wrapper</code> exactly like a <code>Vec&lt;T&gt;</code>. If
-we wanted the new type to have every method the inner type has, implementing the
-<code>Deref</code> trait on the <code>Wrapper</code> to return the inner type would be a solution (we
-discussed implementing the <code>Deref</code> trait in <a href="ch15-02-deref.html#treating-smart-pointers-like-regular-references-with-the-deref-trait">“Treating Smart Pointers Like
-Regular References with the <code>Deref</code> Trait”</a><!-- ignore -->
-in Chapter 15). If we didn’t want the <code>Wrapper</code> type to have all the methods of
-the inner type—for example, to restrict the <code>Wrapper</code> type’s behavior—we would
-have to implement just the methods we do want manually.</p>
+all the methods of <code>Vec&lt;T&gt;</code> directly on <code>Wrapper</code> such that the methods
+delegate to <code>self.0</code>, which would allow us to treat <code>Wrapper</code> exactly like a
+<code>Vec&lt;T&gt;</code>. If we wanted the new type to have every method the inner type has,
+implementing the <code>Deref</code> trait on the <code>Wrapper</code> to return the inner type would
+be a solution (we discussed implementing the <code>Deref</code> trait in <a href="ch15-02-deref.html#treating-smart-pointers-like-regular-references-with-the-deref-trait">“Treating Smart
+Pointers Like Regular References with <code>Deref</code>”</a><!-- ignore
+--> in Chapter 15). If we didn’t want the <code>Wrapper</code> type to have all the
+methods of the inner type—for example, to restrict the <code>Wrapper</code> type’s
+behavior—we would have to implement just the methods we do want manually.</p>
 <p>This newtype pattern is also useful even when traits are not involved. Let’s
 switch focus and look at some advanced ways to interact with Rust’s type system.</p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="advanced-types"><a class="header" href="#advanced-types">Advanced Types</a></h2>
@@ -27709,9 +27739,9 @@ newtypes are useful as types. Then we’ll move on to type aliases, a feature
 similar to newtypes but with slightly different semantics. We’ll also discuss
 the <code>!</code> type and dynamically sized types.</p>
 <h3 id="using-the-newtype-pattern-for-type-safety-and-abstraction"><a class="header" href="#using-the-newtype-pattern-for-type-safety-and-abstraction">Using the Newtype Pattern for Type Safety and Abstraction</a></h3>
-<p>This section assumes you’ve read the earlier section <a href="ch20-02-advanced-traits.html#using-the-newtype-pattern-to-implement-external-traits-on-external-types">“Using the Newtype Pattern
-to Implement External Traits on External Types.”</a><!--
-ignore --> The newtype pattern is also useful for tasks beyond those we’ve
+<p>This section assumes you’ve read the earlier section <a href="ch20-02-advanced-traits.html#using-the-newtype-pattern-to-implement-external-traits">“Using the Newtype Pattern
+to Implement External Traits”</a><!--
+ignore -->. The newtype pattern is also useful for tasks beyond those we’ve
 discussed so far, including statically enforcing that values are never confused
 and indicating the units of a value. You saw an example of using newtypes to
 indicate units in Listing 20-16: recall that the <code>Millimeters</code> and <code>Meters</code>
@@ -27728,7 +27758,7 @@ associated with their name. Code using <code>People</code> would only interact w
 public API we provide, such as a method to add a name string to the <code>People</code>
 collection; that code wouldn’t need to know that we assign an <code>i32</code> ID to names
 internally. The newtype pattern is a lightweight way to achieve encapsulation to
-hide implementation details, which we discussed in <a href="ch18-01-what-is-oo.html#encapsulation-that-hides-implementation-details">“Encapsulation That Hides
+hide implementation details, which we discussed in <a href="ch18-01-what-is-oo.html#encapsulation-that-hides-implementation-details">“Encapsulation that Hides
 Implementation Details”</a><!--
 ignore --> in Chapter 18.</p>
 <h3 id="creating-type-synonyms-with-type-aliases"><a class="header" href="#creating-type-synonyms-with-type-aliases">Creating Type Synonyms with Type Aliases</a></h3>
@@ -27743,7 +27773,7 @@ the alias <code>Kilometers</code> to <code>i32</code> like so:</p>
 </span><span class="boring">
 </span><span class="boring">    println!("x + y = {}", x + y);
 </span><span class="boring">}</span></code></pre></pre>
-<p>Now, the alias <code>Kilometers</code> is a <em>synonym</em> for <code>i32</code>; unlike the <code>Millimeters</code>
+<p>Now the alias <code>Kilometers</code> is a <em>synonym</em> for <code>i32</code>; unlike the <code>Millimeters</code>
 and <code>Meters</code> types we created in Listing 20-16, <code>Kilometers</code> is not a separate,
 new type. Values that have the type <code>Kilometers</code> will be treated the same as
 values of type <code>i32</code>:</p>
@@ -27800,7 +27830,7 @@ can replace all uses of the type with the shorter alias <code>Thunk</code>.</p>
 <span class="boring">        Box::new(|| ())
 </span>    }
 <span class="boring">}</span></code></pre></pre>
-<figcaption><a href="ch20-03-advanced-types.html#listing-20-26">Listing 20-26</a>: Introducing a type alias <code>Thunk</code> to reduce repetition</figcaption>
+<figcaption><a href="ch20-03-advanced-types.html#listing-20-26">Listing 20-26</a>: Introducing a type alias, <code>Thunk</code>, to reduce repetition</figcaption>
 </figure>
 <p>This code is much easier to read and write! Choosing a meaningful name for a
 type alias can help communicate your intent as well (<em>thunk</em> is a word for code
@@ -27865,7 +27895,7 @@ return. Here is an example:</p>
 <span class="boring">    panic!();
 </span>}</code></pre>
 <p>This code is read as “the function <code>bar</code> returns never.” Functions that return
-never are called <em>diverging functions</em>. We can’t create values of the type <code>!</code>
+never are called <em>diverging functions</em>. We can’t create values of the type <code>!</code>,
 so <code>bar</code> can never possibly return.</p>
 <p>But what use is a type you can never create values for? Recall the code from
 Listing 2-5, part of the number-guessing game; we’ve reproduced a bit of it
@@ -27915,10 +27945,10 @@ here in Listing 20-27.</p>
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="ch20-03-advanced-types.html#listing-20-27">Listing 20-27</a>: A <code>match</code> with an arm that ends in <code>continue</code></figcaption>
 </figure>
-<p>At the time, we skipped over some details in this code. In <a href="ch06-02-match.html#the-match-control-flow-operator">“The <code>match</code> Control
-Flow Operator”</a><!-- ignore --> in Chapter 6, we
-discussed that <code>match</code> arms must all return the same type. So, for example, the
-following code doesn’t work:</p>
+<p>At the time, we skipped over some details in this code. In <a href="ch06-02-match.html#the-match-control-flow-construct">“The <code>match</code>
+Control Flow Construct”</a><!-- ignore --> in
+Chapter 6, we discussed that <code>match</code> arms must all return the same type. So,
+for example, the following code doesn’t work:</p>
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">fn main() {
 </span><span class="boring">    let guess = "3";
 </span>    let guess = match guess.trim().parse() {
@@ -27981,9 +28011,10 @@ Sometimes referred to as <em>DSTs</em> or <em>unsized types</em>, these types le
 code using values whose size we can know only at runtime.</p>
 <p>Let’s dig into the details of a dynamically sized type called <code>str</code>, which
 we’ve been using throughout the book. That’s right, not <code>&amp;str</code>, but <code>str</code> on
-its own, is a DST. We can’t know how long the string is until runtime, meaning
-we can’t create a variable of type <code>str</code>, nor can we take an argument of type
-<code>str</code>. Consider the following code, which does not work:</p>
+its own, is a DST. In many cases, such as when storing text entered by a user,
+we can’t know how long the string is until runtime. That means we can’t create
+a variable of type <code>str</code>, nor can we take an argument of type <code>str</code>. Consider
+the following code, which does not work:</p>
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">fn main() {
 </span>    let s1: str = "Hello there!";
     let s2: str = "How's it going?";
@@ -27997,7 +28028,7 @@ holding a dynamically sized type.</p>
 <p>So what do we do? In this case, you already know the answer: we make the types
 of <code>s1</code> and <code>s2</code> a <code>&amp;str</code> rather than a <code>str</code>. Recall from <a href="ch04-03-slices.html#string-slices">“String
 Slices”</a><!-- ignore --> in Chapter 4 that the slice data
-structure just stores the starting position and the length of the slice. So
+structure just stores the starting position and the length of the slice. So,
 although a <code>&amp;T</code> is a single value that stores the memory address of where the
 <code>T</code> is located, a <code>&amp;str</code> is <em>two</em> values: the address of the <code>str</code> and its
 length. As such, we can know the size of a <code>&amp;str</code> value at compile time: it’s
@@ -28010,12 +28041,10 @@ a pointer of some kind.</p>
 <p>We can combine <code>str</code> with all kinds of pointers: for example, <code>Box&lt;str&gt;</code> or
 <code>Rc&lt;str&gt;</code>. In fact, you’ve seen this before but with a different dynamically
 sized type: traits. Every trait is a dynamically sized type we can refer to by
-using the name of the trait. In <a href="ch18-02-trait-objects.html#using-trait-objects-that-allow-for-values-of-different-types">“Using Trait Objects That Allow for Values of
-Different
-Types”</a><!-- ignore
---> in Chapter 18, we mentioned that to use traits as trait objects, we must put
-them behind a pointer, such as <code>&amp;dyn Trait</code> or <code>Box&lt;dyn Trait&gt;</code> (<code>Rc&lt;dyn Trait&gt;</code>
-would work too).</p>
+using the name of the trait. In <a href="ch18-02-trait-objects.html#using-trait-objects-to-abstract-over-shared-behavior">“Using Trait Objects to Abstract over Shared
+Behavior”</a><!-- ignore -->
+in Chapter 18, we mentioned that to use traits as trait objects, we must put
+them behind a pointer, such as <code>&amp;dyn Trait</code> or <code>Box&lt;dyn Trait&gt;</code> (<code>Rc&lt;dyn Trait&gt;</code> would work too).</p>
 <p>To work with DSTs, Rust provides the <code>Sized</code> trait to determine whether or not
 a type’s size is known at compile time. This trait is automatically implemented
 for everything whose size is known at compile time. In addition, Rust
@@ -28049,10 +28078,10 @@ including function pointers and returning closures.</p>
 <p>We’ve talked about how to pass closures to functions; you can also pass regular
 functions to functions! This technique is useful when you want to pass a
 function you’ve already defined rather than defining a new closure. Functions
-coerce to the type <code>fn</code> (with a lowercase <em>f</em>), not to be confused with the <code>Fn</code>
-closure trait. The <code>fn</code> type is called a <em>function pointer</em>. Passing functions
-with function pointers will allow you to use functions as arguments to other
-functions.</p>
+coerce to the type <code>fn</code> (with a lowercase <em>f</em>), not to be confused with the
+<code>Fn</code> closure trait. The <code>fn</code> type is called a <em>function pointer</em>. Passing
+functions with function pointers will allow you to use functions as arguments
+to other functions.</p>
 <p>The syntax for specifying that a parameter is a function pointer is similar to
 that of closures, as shown in Listing 20-28, where we’ve defined a function
 <code>add_one</code> that adds 1 to its parameter. The function <code>do_twice</code> takes two
@@ -28105,7 +28134,7 @@ numbers into a vector of strings, we could use a closure, as in Listing 20-29.</
 <span class="boring">}</span></code></pre></pre>
 <figcaption><a href="ch20-04-advanced-functions-and-closures.html#listing-20-29">Listing 20-29</a>: Using a closure with the <code>map</code> method to convert numbers to strings</figcaption>
 </figure>
-<p>Or we could name a function as the argument to map instead of the closure.
+<p>Or we could name a function as the argument to <code>map</code> instead of the closure.
 Listing 20-30 shows what this would look like.</p>
 <figure class="listing" id="listing-20-30">
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
@@ -28113,7 +28142,7 @@ Listing 20-30 shows what this would look like.</p>
     let list_of_strings: Vec&lt;String&gt; =
         list_of_numbers.iter().map(ToString::to_string).collect();
 <span class="boring">}</span></code></pre></pre>
-<figcaption><a href="ch20-04-advanced-functions-and-closures.html#listing-20-30">Listing 20-30</a>: Using the <code>String::to_string</code> method to convert numbers to strings</figcaption>
+<figcaption><a href="ch20-04-advanced-functions-and-closures.html#listing-20-30">Listing 20-30</a>: Using the <code>String::to_string</code> function with the <code>map</code> method method to convert numbers to strings</figcaption>
 </figure>
 <p>Note that we must use the fully qualified syntax that we talked about in
 <a href="ch20-02-advanced-traits.html#advanced-traits">“Advanced Traits”</a><!-- ignore --> because there are multiple
@@ -28121,7 +28150,7 @@ functions available named <code>to_string</code>.</p>
 <p>Here, we’re using the <code>to_string</code> function defined in the <code>ToString</code> trait,
 which the standard library has implemented for any type that implements
 <code>Display</code>.</p>
-<p>Recall from <a href="ch06-01-defining-an-enum.html#enum-values">“Enum values”</a><!-- ignore --> in Chapter 6 that the
+<p>Recall from <a href="ch06-01-defining-an-enum.html#enum-values">“Enum Values”</a><!-- ignore --> in Chapter 6 that the
 name of each enum variant that we define also becomes an initializer function.
 We can use these initializer functions as function pointers that implement the
 closure traits, which means we can specify the initializer functions as
@@ -28135,9 +28164,9 @@ arguments for methods that take closures, as seen in Listing 20-31.</p>
 
     let list_of_statuses: Vec&lt;Status&gt; = (0u32..20).map(Status::Value).collect();
 <span class="boring">}</span></code></pre></pre>
-<figcaption><a href="ch20-04-advanced-functions-and-closures.html#listing-20-31">Listing 20-31</a>: Using an enum initializers with the <code>map</code> method to create a <code>Status</code> instance from numbers</figcaption>
+<figcaption><a href="ch20-04-advanced-functions-and-closures.html#listing-20-31">Listing 20-31</a>: Using an enum initializer with the <code>map</code> method to create a <code>Status</code> instance from numbers</figcaption>
 </figure>
-<p>Here we create <code>Status::Value</code> instances using each <code>u32</code> value in the range
+<p>Here, we create <code>Status::Value</code> instances using each <code>u32</code> value in the range
 that <code>map</code> is called on by using the initializer function of <code>Status::Value</code>.
 Some people prefer this style and some people prefer to use closures. They
 compile to the same code, so use whichever style is clearer to you.</p>
@@ -28146,12 +28175,12 @@ compile to the same code, so use whichever style is clearer to you.</p>
 directly. In most cases where you might want to return a trait, you can instead
 use the concrete type that implements the trait as the return value of the
 function. However, you can’t usually do that with closures because they don’t
-have a concrete type that is returnable. You’re not allowed to use the function
-pointer <code>fn</code> as a return type if the closure captures any values from its scope,
-for example.</p>
+have a concrete type that is returnable; you’re not allowed to use the function
+pointer <code>fn</code> as a return type if the closure captures any values from its
+scope, for example.</p>
 <p>Instead, you will normally use the <code>impl Trait</code> syntax we learned about in
 Chapter 10. You can return any function type, using <code>Fn</code>, <code>FnOnce</code> and <code>FnMut</code>.
-For example, the code in Listing 20-32 will work just fine.</p>
+For example, the code in Listing 20-32 will compile just fine.</p>
 <figure class="listing" id="listing-20-32">
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
@@ -28184,10 +28213,10 @@ fn returns_closure() -&gt; impl Fn(i32) -&gt; i32 {
 fn returns_initialized_closure(init: i32) -&gt; impl Fn(i32) -&gt; i32 {
     move |x| x + init
 }</code></pre>
-<figcaption><a href="ch20-04-advanced-functions-and-closures.html#listing-20-33">Listing 20-33</a>: Creating a <code>Vec&lt;T&gt;</code> of closures defined by functions that return <code>impl Fn</code></figcaption>
+<figcaption><a href="ch20-04-advanced-functions-and-closures.html#listing-20-33">Listing 20-33</a>: Creating a <code>Vec&lt;T&gt;</code> of closures defined by functions that return <code>impl Fn</code> types</figcaption>
 </figure>
 <p>Here we have two functions, <code>returns_closure</code> and <code>returns_initialized_closure</code>,
-which both return <code>impl Fn(i32) -&gt; i32</code>. Notice that he closures that they
+which both return <code>impl Fn(i32) -&gt; i32</code>. Notice that the closures that they
 return are different, even though they implement the same type. If we try to
 compile this, Rust lets us know that it won’t work:</p>
 <pre><code class="language-text">$ cargo build
@@ -28211,15 +28240,16 @@ error[E0308]: mismatched types
 For more information about this error, try `rustc --explain E0308`.
 error: could not compile `functions-example` (bin "functions-example") due to 1 previous error
 </code></pre>
-<p>The error message tells us that whenever we return an <code>impl Trait</code> Rust creates
-a unique <em>opaque type</em>, a type where we cannot see into the details of what Rust
-constructs for us. So even though these functions both return closures that
-implements the same trait, <code>Fn(i32) -&gt; i32</code>, the opaque types Rust generates for
-each are distinct. (This is similar to how Rust produces different concrete
-types for distinct async blocks even when they have the same output type, as we
-saw in <a href="ch17-03-more-futures.html">“Working with Any Number of Futures”</a> in Chapter
-17. We have seen a solution to this problem a few times now: we can use a trait
-object, as in Listing 20-34.</p>
+<p>The error message tells us that whenever we return an <code>impl Trait</code>, Rust
+creates a unique <em>opaque type</em>, a type where we cannot see into the details of
+what Rust constructs for us, nor can we guess the type Rust will generate to
+write ourselves. So even though these functions return closures that implement
+the same trait, <code>Fn(i32) -&gt; i32</code>, the opaque types Rust generates for each are
+distinct. (This is similar to how Rust produces different concrete types for
+distinct async blocks even when they have the same output type, as we saw in
+<a href="ch17-03-more-futures.html">“Working with Any Number of Futures”</a><!-- ignore --> in
+Chapter 17.) We have seen a solution to this problem a few times now: we can
+use a trait object, as in Listing 20-34.</p>
 <figure class="listing" id="listing-20-34">
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span><span class="boring">    let handlers = vec![returns_closure(), returns_initialized_closure(123)];
@@ -28239,7 +28269,7 @@ fn returns_initialized_closure(init: i32) -&gt; Box&lt;dyn Fn(i32) -&gt; i32&gt;
 <figcaption><a href="ch20-04-advanced-functions-and-closures.html#listing-20-34">Listing 20-34</a>: Creating a <code>Vec&lt;T&gt;</code> of closures defined by functions that return <code>Box&lt;dyn Fn&gt;</code> so they have the same type</figcaption>
 </figure>
 <p>This code will compile just fine. For more about trait objects, refer to the
-section <a href="ch18-02-trait-objects.html#using-trait-objects-that-allow-for-values-of-different-types">“Using Trait Objects That Allow for Values of Different
+section <a href="ch18-02-trait-objects.html#using-trait-objects-to-abstract-over-shared-behavior">“Using Trait Objects That Allow for Values of Different
 Types”</a><!-- ignore
 --> in Chapter 18.</p>
 <p>Next, let’s look at macros!</p>
@@ -28354,9 +28384,9 @@ parentheses that captures values that match the pattern within the parentheses
 for use in the replacement code. Within <code>$()</code> is <code>$x:expr</code>, which matches any
 Rust expression and gives the expression the name <code>$x</code>.</p>
 <p>The comma following <code>$()</code> indicates that a literal comma separator character
-must appear between each instance of the code that matches the code within
-<code>$()</code>. The <code>*</code> specifies that the pattern matches zero or more of whatever
-precedes the <code>*</code>.</p>
+must appear between each instance of the code that matches the code in <code>$()</code>.
+The <code>*</code> specifies that the pattern matches zero or more of whatever precedes
+the <code>*</code>.</p>
 <p>When we call this macro with <code>vec![1, 2, 3];</code>, the <code>$x</code> pattern matches three
 times with the three expressions <code>1</code>, <code>2</code>, and <code>3</code>.</p>
 <p>Now let’s look at the pattern in the body of the code associated with this arm:
@@ -28435,7 +28465,8 @@ fn main() {
 first step is to make a new library crate, like this:</p>
 <pre><code class="language-console">$ cargo new hello_macro --lib
 </code></pre>
-<p>Next, we’ll define the <code>HelloMacro</code> trait and its associated function:</p>
+<p>Next, in Listing 20-38, we’ll define the <code>HelloMacro</code> trait and its associated
+function.</p>
 <figure class="listing" id="listing-20-38">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">pub trait HelloMacro {
@@ -28528,10 +28559,11 @@ writing a procedural macro more convenient. The code in the outer function
 procedural macro crate you see or create. The code you specify in the body of
 the inner function (<code>impl_hello_macro</code> in this case) will be different
 depending on your procedural macro’s purpose.</p>
-<p>We’ve introduced three new crates: <code>proc_macro</code>, <a href="https://crates.io/crates/syn"><code>syn</code></a>, and <a href="https://crates.io/crates/quote"><code>quote</code></a>. The
-<code>proc_macro</code> crate comes with Rust, so we didn’t need to add that to the
-dependencies in <em>Cargo.toml</em>. The <code>proc_macro</code> crate is the compiler’s API that
-allows us to read and manipulate Rust code from our code.</p>
+<p>We’ve introduced three new crates: <code>proc_macro</code>, <a href="https://crates.io/crates/syn"><code>syn</code></a><!--ignore -->,
+and <a href="https://crates.io/crates/quote"><code>quote</code></a><!-- ignore -->. The <code>proc_macro</code> crate comes with Rust,
+so we didn’t need to add that to the dependencies in <em>Cargo.toml</em>. The
+<code>proc_macro</code> crate is the compiler’s API that allows us to read and manipulate
+Rust code from our code.</p>
 <p>The <code>syn</code> crate parses Rust code from a string into a data structure that we
 can perform operations on. The <code>quote</code> crate turns <code>syn</code> data structures back
 into Rust code. These crates make it much simpler to parse any sort of Rust
@@ -28617,10 +28649,10 @@ into a <code>DeriveInput</code> instance, let’s generate the code that impleme
 <figcaption><a href="ch20-05-macros.html#listing-20-42">Listing 20-42</a>: Implementing the <code>HelloMacro</code> trait using the parsed Rust code</figcaption>
 </figure>
 <p>We get an <code>Ident</code> struct instance containing the name (identifier) of the
-annotated type using <code>ast.ident</code>. The struct in Listing 20-33 shows that when
-we run the <code>impl_hello_macro</code> function on the code in Listing 20-31, the
-<code>ident</code> we get will have the <code>ident</code> field with a value of <code>"Pancakes"</code>. Thus,
-the <code>name</code> variable in Listing 20-34 will contain an <code>Ident</code> struct instance
+annotated type using <code>ast.ident</code>. The struct in Listing 20-41 shows that when
+we run the <code>impl_hello_macro</code> function on the code in Listing 20-37, the
+<code>ident</code> we get will have the <code>ident</code> field with a value of <code>"Pancakes"</code>. Thus
+the <code>name</code> variable in Listing 20-42 will contain an <code>Ident</code> struct instance
 that, when printed, will be the string <code>"Pancakes"</code>, the name of the struct in
 Listing 20-37.</p>
 <p>The <code>quote!</code> macro lets us define the Rust code that we want to return. The
@@ -28646,13 +28678,15 @@ expression to print literally, so we use <code>stringify!</code>. Using <code>st
 saves an allocation by converting <code>#name</code> to a string literal at compile time.</p>
 <p>At this point, <code>cargo build</code> should complete successfully in both <code>hello_macro</code>
 and <code>hello_macro_derive</code>. Let’s hook up these crates to the code in Listing
-20-31 to see the procedural macro in action! Create a new binary project in
+20-37 to see the procedural macro in action! Create a new binary project in
 your <em>projects</em> directory using <code>cargo new pancakes</code>. We need to add
 <code>hello_macro</code> and <code>hello_macro_derive</code> as dependencies in the <code>pancakes</code>
 crate’s <em>Cargo.toml</em>. If you’re publishing your versions of <code>hello_macro</code> and
-<code>hello_macro_derive</code> to <a href="https://crates.io/">crates.io</a>, they would be regular
-dependencies; if not, you can specify them as <code>path</code> dependencies as follows:</p>
-<pre><code class="language-toml">hello_macro = { path = "../hello_macro" }
+<code>hello_macro_derive</code> to <a href="https://crates.io/">crates.io</a><!-- ignore -->, they
+would be regular dependencies; if not, you can specify them as <code>path</code>
+dependencies as follows:</p>
+<pre><code class="language-toml">[dependencies]
+hello_macro = { path = "../hello_macro" }
 hello_macro_derive = { path = "../hello_macro/hello_macro_derive" }
 </code></pre>
 <p>Put the code in Listing 20-37 into <em>src/main.rs</em>, and run <code>cargo run</code>: it
@@ -28662,7 +28696,7 @@ should print <code>Hello, Macro! My name is Pancakes!</code> The implementation 
 trait implementation.</p>
 <p>Next, let’s explore how the other kinds of procedural macros differ from custom
 <code>derive</code> macros.</p>
-<h3 id="attribute-like-macros"><a class="header" href="#attribute-like-macros">Attribute-Like macros</a></h3>
+<h3 id="attribute-like-macros"><a class="header" href="#attribute-like-macros">Attribute-Like Macros</a></h3>
 <p>Attribute-like macros are similar to custom <code>derive</code> macros, but instead of
 generating code for the <code>derive</code> attribute, they allow you to create new
 attributes. They’re also more flexible: <code>derive</code> only works for structs and
@@ -28682,13 +28716,13 @@ of the function’s body.</p>
 <p>Other than that, attribute-like macros work the same way as custom <code>derive</code>
 macros: you create a crate with the <code>proc-macro</code> crate type and implement a
 function that generates the code you want!</p>
-<h3 id="function-like-macros"><a class="header" href="#function-like-macros">Function-Like macros</a></h3>
+<h3 id="function-like-macros"><a class="header" href="#function-like-macros">Function-Like Macros</a></h3>
 <p>Function-like macros define macros that look like function calls. Similarly to
 <code>macro_rules!</code> macros, they’re more flexible than functions; for example, they
 can take an unknown number of arguments. However, <code>macro_rules!</code> macros can only
 be defined using the match-like syntax we discussed in <a href="ch20-05-macros.html#declarative-macros-with-macro_rules-for-general-metaprogramming">“Declarative Macros with
 <code>macro_rules!</code> for General Metaprogramming”</a><!-- ignore --> earlier.
-Function-like macros take a <code>TokenStream</code> parameter and their definition
+Function-like macros take a <code>TokenStream</code> parameter, and their definition
 manipulates that <code>TokenStream</code> using Rust code as the other two types of
 procedural macros do. An example of a function-like macro is an <code>sql!</code> macro
 that might be called like so:</p>
@@ -28717,8 +28751,6 @@ concepts we covered in the final chapters, as well as recap some earlier
 lessons.</p>
 <p>For our final project, we’ll make a web server that says “hello” and looks like
 Figure 21-1 in a web browser.</p>
-<p><img src="img/trpl21-01.png" alt="hello from rust" /></p>
-<p><span class="caption">Figure 21-1: Our final shared project</span></p>
 <p>Here is our plan for building the web server:</p>
 <ol>
 <li>Learn a bit about TCP and HTTP.</li>
@@ -28727,9 +28759,11 @@ Figure 21-1 in a web browser.</p>
 <li>Create a proper HTTP response.</li>
 <li>Improve the throughput of our server with a thread pool.</li>
 </ol>
+<p><img src="img/trpl21-01.png" alt="hello from rust" /></p>
+<p><span class="caption">Figure 21-1: Our final shared project</span></p>
 <p>Before we get started, we should mention two details. First, the method we’ll
 use won’t be the best way to build a web server with Rust. Community members
-have published a number of production-ready crates available on
+have published a number of production-ready crates available at
 <a href="https://crates.io/">crates.io</a> that provide more complete web server and thread
 pool implementations than we’ll build. However, our intention in this chapter is
 to help you learn, not to take the easy route. Because Rust is a systems
@@ -28790,7 +28824,7 @@ fn main() {
 <code>127.0.0.1:7878</code>. In the address, the section before the colon is an IP address
 representing your computer (this is the same on every computer and doesn’t
 represent the authors’ computer specifically), and <code>7878</code> is the port. We’ve
-chosen this port for two reasons: HTTP isn’t normally accepted on this port so
+chosen this port for two reasons: HTTP isn’t normally accepted on this port, so
 our server is unlikely to conflict with any other web server you might have
 running on your machine, and 7878 is <em>rust</em> typed on a telephone.</p>
 <p>The <code>bind</code> function in this scenario works like the <code>new</code> function in that it
@@ -28798,14 +28832,11 @@ will return a new <code>TcpListener</code> instance. The function is called <cod
 because, in networking, connecting to a port to listen to is known as “binding
 to a port.”</p>
 <p>The <code>bind</code> function returns a <code>Result&lt;T, E&gt;</code>, which indicates that it’s
-possible for binding to fail. For example, connecting to port 80 requires
-administrator privileges (non-administrators can listen only on ports higher
-than 1023), so if we tried to connect to port 80 without being an
-administrator, binding wouldn’t work. Binding also wouldn’t work, for example,
-if we ran two instances of our program and so had two programs listening to the
-same port. Because we’re writing a basic server just for learning purposes, we
-won’t worry about handling these kinds of errors; instead, we use <code>unwrap</code> to
-stop the program if errors happen.</p>
+possible for binding to fail. For example, if we ran two instances of our
+program and so had two programs listening to the same port. Because we’re
+writing a basic server just for learning purposes, we won’t worry about
+handling these kinds of errors; instead, we use <code>unwrap</code> to stop the program if
+errors happen.</p>
 <p>The <code>incoming</code> method on <code>TcpListener</code> returns an iterator that gives us a
 sequence of streams (more specifically, streams of type <code>TcpStream</code>). A single
 <em>stream</em> represents an open connection between the client and the server. A
@@ -28846,14 +28877,14 @@ of scope and is dropped at the end of the loop, the connection is closed as
 part of the <code>drop</code> implementation. Browsers sometimes deal with closed
 connections by retrying, because the problem might be temporary.</p>
 <p>Browsers also sometimes open multiple connections to the server without sending
-any requests, so that if they <em>do</em> later send requests, they can happen faster.
-When this happens, our server will see each connection, regardless of whether
-there are any requests over that connection. Many versions of Chrome-based
-browsers do this, for example; you can disable that optimization by using =
-private browsing mode or use a different browser.</p>
+any requests, so that if they <em>do</em> later send requests, those requests can
+happen faster. When this happens, our server will see each connection,
+regardless of whether there are any requests over that connection. Many
+versions of Chrome-based browsers do this, for example; you can disable that
+optimization by using private browsing mode or using a different browser.</p>
 <p>The important factor is that we’ve successfully gotten a handle to a TCP
 connection!</p>
-<p>Remember to stop the program by pressing <kbd>ctrl</kbd>-<kbd>c</kbd> when
+<p>Remember to stop the program by pressing <kbd>ctrl</kbd>-<kbd>C</kbd> when
 you’re done running a particular version of the code. Then restart the program
 by invoking the <code>cargo run</code> command after you’ve made each set of code changes
 to make sure you’re running the newest code.</p>
@@ -28899,8 +28930,8 @@ loop in the <code>main</code> function, instead of printing a message that says 
 connection, we now call the new <code>handle_connection</code> function and pass the
 <code>stream</code> to it.</p>
 <p>In the <code>handle_connection</code> function, we create a new <code>BufReader</code> instance that
-wraps a reference to the <code>stream</code>. The <code>BufReader</code> adds buffering by managing calls
-to the <code>std::io::Read</code> trait methods for us.</p>
+wraps a reference to the <code>stream</code>. The <code>BufReader</code> adds buffering by managing
+calls to the <code>std::io::Read</code> trait methods for us.</p>
 <p>We create a variable named <code>http_request</code> to collect the lines of the request
 the browser sends to our server. We indicate that we want to collect these
 lines in a vector by adding the <code>Vec&lt;_&gt;</code> type annotation.</p>
@@ -28963,7 +28994,7 @@ information.</p>
 identifier</em> <em>(URI)</em> the client is requesting: a URI is almost, but not quite,
 the same as a <em>uniform resource locator</em> <em>(URL)</em>. The difference between URIs
 and URLs isn’t important for our purposes in this chapter, but the HTTP spec
-uses the term URI, so we can just mentally substitute <em>URL</em> for <em>URI</em> here.</p>
+uses the term <em>URI</em>, so we can just mentally substitute <em>URL</em> for <em>URI</em> here.</p>
 <p>The last part is the HTTP version the client uses, and then the request line
 ends in a CRLF sequence. (CRLF stands for <em>carriage return</em> and <em>line feed</em>,
 which are terms from the typewriter days!) The CRLF sequence can also be
@@ -29124,7 +29155,7 @@ request to <em>/</em>.</p>
 <h3 id="validating-the-request-and-selectively-responding"><a class="header" href="#validating-the-request-and-selectively-responding">Validating the Request and Selectively Responding</a></h3>
 <p>Right now, our web server will return the HTML in the file no matter what the
 client requested. Let’s add functionality to check that the browser is
-requesting <em>/</em> before returning the HTML file and return an error if the
+requesting <em>/</em> before returning the HTML file, and return an error if the
 browser requests anything else. For this we need to modify <code>handle_connection</code>,
 as shown in Listing 21-6. This new code checks the content of the request
 received against what we know a request for <em>/</em> looks like and adds <code>if</code> and
@@ -29238,7 +29269,7 @@ indicating the response to the end user.</p>
 <p>Here, our response has a status line with status code 404 and the reason phrase
 <code>NOT FOUND</code>. The body of the response will be the HTML in the file <em>404.html</em>.
 You’ll need to create a <em>404.html</em> file next to <em>hello.html</em> for the error
-page; again feel free to use any HTML you want or use the example HTML in
+page; again feel free to use any HTML you want, or use the example HTML in
 Listing 21-8.</p>
 <figure class="listing" id="listing-21-8">
 <span class="file-name">Filename: 404.html</span>
@@ -29333,7 +29364,9 @@ less optimal. If the server receives a request that takes a long time to
 process, subsequent requests will have to wait until the long request is
 finished, even if the new requests can be processed quickly. We’ll need to fix
 this, but first we’ll look at the problem in action.</p>
-<h3 id="simulating-a-slow-request-in-the-current-server-implementation"><a class="header" href="#simulating-a-slow-request-in-the-current-server-implementation">Simulating a Slow Request in the Current Server Implementation</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="simulating-a-slow-request-in-the-current-server-implementation"></a></p>
+<h3 id="simulating-a-slow-request"><a class="header" href="#simulating-a-slow-request">Simulating a Slow Request</a></h3>
 <p>We’ll look at how a slow-processing request can affect other requests made to
 our current server implementation. Listing 21-10 implements handling a request
 to <em>/sleep</em> with a simulated slow response that will cause the server to sleep
@@ -29384,10 +29417,10 @@ fn handle_connection(mut stream: TcpStream) {
 </span><span class="boring">
 </span><span class="boring">    stream.write_all(response.as_bytes()).unwrap();
 </span>}</code></pre></pre>
-<figcaption><a href="ch21-02-multithreaded.html#listing-21-10">Listing 21-10</a>: Simulating a slow request by sleeping for 5 seconds</figcaption>
+<figcaption><a href="ch21-02-multithreaded.html#listing-21-10">Listing 21-10</a>: Simulating a slow request by sleeping for five seconds</figcaption>
 </figure>
 <p>We switched from <code>if</code> to <code>match</code> now that we have three cases. We need to
-explicitly match on a slice of <code>request_line</code> to pattern match against the
+explicitly match on a slice of <code>request_line</code> to pattern-match against the
 string literal values; <code>match</code> doesn’t do automatic referencing and
 dereferencing, like the equality method does.</p>
 <p>The first arm is the same as the <code>if</code> block from Listing 21-9. The second arm
@@ -29397,7 +29430,7 @@ is the same as the <code>else</code> block from Listing 21-9.</p>
 <p>You can see how primitive our server is: real libraries would handle the
 recognition of multiple requests in a much less verbose way!</p>
 <p>Start the server using <code>cargo run</code>. Then open two browser windows: one for
-<em>http://127.0.0.1:7878/</em> and the other for <em>http://127.0.0.1:7878/sleep</em>. If
+<em>http://127.0.0.1:7878</em> and the other for <em>http://127.0.0.1:7878/sleep</em>. If
 you enter the <em>/</em> URI a few times, as before, you’ll see it respond quickly.
 But if you enter <em>/sleep</em> and then load <em>/</em>, you’ll see that <em>/</em> waits until
 <code>sleep</code> has slept for its full five seconds before loading.</p>
@@ -29451,9 +29484,9 @@ we’ll explore the technique we’re not going to use as a starting point.</p>
 every connection. As mentioned earlier, this isn’t our final plan due to the
 problems with potentially spawning an unlimited number of threads, but it is a
 starting point to get a working multithreaded server first. Then we’ll add the
-thread pool as an improvement, and contrasting the two solutions will be
-easier. Listing 21-11 shows the changes to make to <code>main</code> to spawn a new thread
-to handle each stream within the <code>for</code> loop.</p>
+thread pool as an improvement, and contrasting the two solutions will be easier.</p>
+<p>Listing 21-11 shows the changes to make to <code>main</code> to spawn a new thread to
+handle each stream within the <code>for</code> loop.</p>
 <figure class="listing" id="listing-21-11">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust no_run edition2024"><span class="boring">use std::{
@@ -29566,10 +29599,10 @@ of threads, in this case four. Then, in the <code>for</code> loop, <code>pool.ex
 similar interface as <code>thread::spawn</code> in that it takes a closure the pool should
 run for each stream. We need to implement <code>pool.execute</code> so it takes the
 closure and gives it to a thread in the pool to run. This code won’t yet
-compile, but we’ll try so the compiler can guide us in how to fix it.</p>
+compile, but we’ll try so that the compiler can guide us in how to fix it.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="building-the-threadpool-struct-using-compiler-driven-development"></a></p>
-<h4 id="building-threadpool-using-compiler-driven-development"><a class="header" href="#building-threadpool-using-compiler-driven-development">Building <code>ThreadPool</code> Using Compiler Driven Development</a></h4>
+<h4 id="building-threadpool-using-compiler-driven-development"><a class="header" href="#building-threadpool-using-compiler-driven-development">Building <code>ThreadPool</code> Using Compiler-Driven Development</a></h4>
 <p>Make the changes in Listing 21-12 to <em>src/main.rs</em>, and then let’s use the
 compiler errors from <code>cargo check</code> to drive our development. Here is the first
 error we get:</p>
@@ -29597,7 +29630,7 @@ definition of a <code>ThreadPool</code> struct that we can have for now:</p>
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">pub struct ThreadPool;</code></pre>
 </figure>
-<p>Then edit <em>main.rs</em> file to bring <code>ThreadPool</code> into scope from the library
+<p>Then edit the <em>main.rs</em> file to bring <code>ThreadPool</code> into scope from the library
 crate by adding the following code to the top of <em>src/main.rs</em>:</p>
 <figure class="listing">
 <span class="file-name">Filename: src/main.rs</span>
@@ -29760,7 +29793,7 @@ were building a real, complete project, this would be a good time to start
 writing unit tests to check that the code compiles <em>and</em> has the behavior we
 want.</p>
 </section>
-<p>Consider: what would be different here if we were going to execute a <em>future</em>
+<p>Consider: what would be different here if we were going to execute a future
 instead of a closure?</p>
 <h4 id="validating-the-number-of-threads-in-new"><a class="header" href="#validating-the-number-of-threads-in-new">Validating the Number of Threads in <code>new</code></a></h4>
 <p>We aren’t doing anything with the parameters to <code>new</code> and <code>execute</code>. Let’s
@@ -29877,7 +29910,9 @@ vector. Because we know we need to store <code>size</code> elements in the vecto
 this allocation up front is slightly more efficient than using <code>Vec::new</code>,
 which resizes itself as elements are inserted.</p>
 <p>When you run <code>cargo check</code> again, it should succeed.</p>
-<h4 id="a-worker-struct-responsible-for-sending-code-from-the-threadpool-to-a-thread"><a class="header" href="#a-worker-struct-responsible-for-sending-code-from-the-threadpool-to-a-thread">A <code>Worker</code> Struct Responsible for Sending Code from the <code>ThreadPool</code> to a Thread</a></h4>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id ="a-worker-struct-responsible-for-sending-code-from-the-threadpool-to-a-thread"></a></p>
+<h4 id="sending-code-from-the-threadpool-to-a-thread"><a class="header" href="#sending-code-from-the-threadpool-to-a-thread">Sending Code from the <code>ThreadPool</code> to a Thread</a></h4>
 <p>We left a comment in the <code>for</code> loop in Listing 21-14 regarding the creation of
 threads. Here, we’ll look at how we actually create threads. The standard
 library provides <code>thread::spawn</code> as a way to create threads, and
@@ -29890,10 +29925,10 @@ implement it manually.</p>
 <code>ThreadPool</code> and the threads that will manage this new behavior. We’ll call
 this data structure <em>Worker</em>, which is a common term in pooling
 implementations. The <code>Worker</code> picks up code that needs to be run and runs the
-code in the Worker’s thread.</p>
+code in its thread.</p>
 <p>Think of people working in the kitchen at a restaurant: the workers wait until
 orders come in from customers, and then they’re responsible for taking those
-orders and fulfilling them.</p>
+orders and filling them.</p>
 <p>Instead of storing a vector of <code>JoinHandle&lt;()&gt;</code> instances in the thread pool,
 we’ll store instances of the <code>Worker</code> struct. Each <code>Worker</code> will store a single
 <code>JoinHandle&lt;()&gt;</code> instance. Then we’ll implement a method on <code>Worker</code> that will
@@ -29910,7 +29945,7 @@ set up in this way:</p>
 <code>Worker</code> instance that holds the <code>id</code> and a thread spawned with an empty
 closure.</li>
 <li>In <code>ThreadPool::new</code>, use the <code>for</code> loop counter to generate an <code>id</code>, create
-a new <code>Worker</code> with that <code>id</code>, and store the worker in the vector.</li>
+a new <code>Worker</code> with that <code>id</code>, and store the <code>Worker</code> in the vector.</li>
 </ol>
 <p>If you’re up for a challenge, try implementing these changes on your own before
 looking at the code in Listing 21-15.</p>
@@ -30487,8 +30522,9 @@ limitation is not caused by our web server.</p>
 and 21-20 would be different if we were using futures instead of a closure for
 the work to be done. What types would change? How would the method signatures be
 different, if at all? What parts of the code would stay the same?</p>
-<p>After learning about the <code>while let</code> loop in Chapters 17 and 18, you might be
-wondering why we didn’t write the worker thread code as shown in Listing 21-21.</p>
+<p>After learning about the <code>while let</code> loop in Chapter 17 and Chapter 19, you
+might be wondering why we didn’t write the <code>Worker</code> thread code as shown in
+Listing 21-21.</p>
 <figure class="listing" id="listing-21-21">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust ignore not_desired_behavior"><span class="boring">use std::{
@@ -30569,7 +30605,7 @@ lock. However, this implementation can also result in the lock being held
 longer than intended if we aren’t mindful of the lifetime of the
 <code>MutexGuard&lt;T&gt;</code>.</p>
 <p>The code in Listing 21-20 that uses <code>let job = receiver.lock().unwrap().recv().unwrap();</code> works because with <code>let</code>, any
-temporary values used in the expression on the right hand side of the equal
+temporary values used in the expression on the right-hand side of the equal
 sign are immediately dropped when the <code>let</code> statement ends. However, <code>while let</code> (and <code>if let</code> and <code>match</code>) does not drop temporary values until the end of
 the associated block. In Listing 21-21, the lock remains held for the duration
 of the call to <code>job()</code>, meaning other <code>Worker</code> instances cannot receive jobs.</p>
@@ -30578,7 +30614,7 @@ of the call to <code>job()</code>, meaning other <code>Worker</code> instances c
 use of a thread pool, as we intended. We get some warnings about the <code>workers</code>,
 <code>id</code>, and <code>thread</code> fields that we’re not using in a direct way that reminds us
 we’re not cleaning up anything. When we use the less elegant
-<kbd>ctrl</kbd>-<kbd>c</kbd> method to halt the main thread, all other threads
+<kbd>ctrl</kbd>-<kbd>C</kbd> method to halt the main thread, all other threads
 are stopped immediately as well, even if they’re in the middle of serving a
 request.</p>
 <p>Next, then, we’ll implement the <code>Drop</code> trait to call <code>join</code> on each of the
@@ -30675,9 +30711,9 @@ quite work yet.</p>
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="ch21-03-graceful-shutdown-and-cleanup.html#listing-21-22">Listing 21-22</a>: Joining each thread when the thread pool goes out of scope</figcaption>
 </figure>
-<p>First, we loop through each of the thread pool <code>workers</code>. We use <code>&amp;mut</code> for this
+<p>First we loop through each of the thread pool <code>workers</code>. We use <code>&amp;mut</code> for this
 because <code>self</code> is a mutable reference, and we also need to be able to mutate
-<code>worker</code>. For each worker, we print a message saying that this particular
+<code>worker</code>. For each <code>worker</code>, we print a message saying that this particular
 <code>Worker</code> instance is shutting down, and then we call <code>join</code> on that <code>Worker</code>
 instance’s thread. If the call to <code>join</code> fails, we use <code>unwrap</code> to make Rust
 panic and go into an ungraceful shutdown.</p>
@@ -30711,13 +30747,13 @@ wouldn’t have a thread to run.</p>
 <p>However, the <em>only</em> time this would come up would be when dropping the <code>Worker</code>.
 In exchange, we’d have to deal with an <code>Option&lt;thread::JoinHandle&lt;()&gt;&gt;</code> anywhere
 we accessed <code>worker.thread</code>. Idiomatic Rust uses <code>Option</code> quite a bit, but when
-you find yourself wrapping something you know will always be present in <code>Option</code>
-as a workaround like this, it’s a good idea to look for alternative approaches.
-They can make your code cleaner and less error-prone.</p>
+you find yourself wrapping something you know will always be present in an
+<code>Option</code> as a workaround like this, it’s a good idea to look for alternative
+approaches to make your code cleaner and less error-prone.</p>
 <p>In this case, a better alternative exists: the <code>Vec::drain</code> method. It accepts
-a range parameter to specify which items to remove from the <code>Vec</code>, and returns
+a range parameter to specify which items to remove from the vector and returns
 an iterator of those items. Passing the <code>..</code> range syntax will remove <em>every</em>
-value from the <code>Vec</code>.</p>
+value from the vector.</p>
 <p>So we need to update the <code>ThreadPool</code> <code>drop</code> implementation like this:</p>
 <figure class="listing">
 <span class="file-name">Filename: src/lib.rs</span>
@@ -30802,15 +30838,18 @@ value from the <code>Vec</code>.</p>
 </span><span class="boring">}</span></code></pre></pre>
 </figure>
 <p>This resolves the compiler error and does not require any other changes to our
-code.</p>
+code. Note that, because drop can be called when panicking, the unwrap
+could also panic and cause a double panic, which immediately crashes the
+program and ends any cleanup in progress. This is fine for an example program,
+but isn’t recommended for production code.</p>
 <h3 id="signaling-to-the-threads-to-stop-listening-for-jobs"><a class="header" href="#signaling-to-the-threads-to-stop-listening-for-jobs">Signaling to the Threads to Stop Listening for Jobs</a></h3>
 <p>With all the changes we’ve made, our code compiles without any warnings.
 However, the bad news is that this code doesn’t function the way we want it to
 yet. The key is the logic in the closures run by the threads of the <code>Worker</code>
-instances: at the moment, we call <code>join</code>, but that won’t shut down the threads
-because they <code>loop</code> forever looking for jobs. If we try to drop our <code>ThreadPool</code>
-with our current implementation of <code>drop</code>, the main thread will block forever,
-waiting for the first thread to finish.</p>
+instances: at the moment, we call <code>join</code>, but that won’t shut down the threads,
+because they <code>loop</code> forever looking for jobs. If we try to drop our
+<code>ThreadPool</code> with our current implementation of <code>drop</code>, the main thread will
+block forever, waiting for the first thread to finish.</p>
 <p>To fix this problem, we’ll need a change in the <code>ThreadPool</code> <code>drop</code>
 implementation and then a change in the <code>Worker</code> loop.</p>
 <p>First we’ll change the <code>ThreadPool</code> <code>drop</code> implementation to explicitly drop
@@ -30904,7 +30943,7 @@ impl Drop for ThreadPool {
 </span><span class="boring">        Worker { id, thread }
 </span><span class="boring">    }
 </span><span class="boring">}</span></code></pre>
-<figcaption><a href="ch21-03-graceful-shutdown-and-cleanup.html#listing-21-23">Listing 21-23</a>: Explicitly drop <code>sender</code> before joining the <code>Worker</code> threads</figcaption>
+<figcaption><a href="ch21-03-graceful-shutdown-and-cleanup.html#listing-21-23">Listing 21-23</a>: Explicitly dropping <code>sender</code> before joining the <code>Worker</code> threads</figcaption>
 </figure>
 <p>Dropping <code>sender</code> closes the channel, which indicates no more messages will be
 sent. When that happens, all the calls to <code>recv</code> that the <code>Worker</code> instances do
@@ -31100,7 +31139,7 @@ wait for each <code>Worker</code> thread to finish.</p>
 <p>Notice one interesting aspect of this particular execution: the <code>ThreadPool</code>
 dropped the <code>sender</code>, and before any <code>Worker</code> received an error, we tried to
 join <code>Worker</code> 0. <code>Worker</code> 0 had not yet gotten an error from <code>recv</code>, so the main
-thread blocked waiting for <code>Worker</code> 0 to finish. In the meantime, <code>Worker</code> 3
+thread blocked, waiting for <code>Worker</code> 0 to finish. In the meantime, <code>Worker</code> 3
 received a job and then all threads received an error. When <code>Worker</code> 0 finished,
 the main thread waited for the rest of the <code>Worker</code> instances to finish. At that
 point, they had all exited their loops and stopped.</p>
@@ -31463,7 +31502,7 @@ locations.</p>
 <p><span class="caption">Table B-2: Stand-Alone Syntax</span></p>
 <div class="table-wrapper"><table><thead><tr><th>Symbol</th><th>Explanation</th></tr></thead><tbody>
 <tr><td><code>'ident</code></td><td>Named lifetime or loop label</td></tr>
-<tr><td><code>...u8</code>, <code>...i32</code>, <code>...f64</code>, <code>...usize</code>, etc.</td><td>Numeric literal of specific type</td></tr>
+<tr><td>Digits immediately followed by <code>u8</code>, <code>i32</code>,  <code>f64</code>, <code>usize</code>, and so on</td><td>Numeric literal of specific type</td></tr>
 <tr><td><code>"..."</code></td><td>String literal</td></tr>
 <tr><td><code>r"..."</code>, <code>r#"..."#</code>, <code>r##"..."##</code>, etc.</td><td>Raw string literal, escape characters not processed</td></tr>
 <tr><td><code>b"..."</code></td><td>Byte string literal; constructs an array of bytes instead of a string</td></tr>
@@ -31523,8 +31562,8 @@ macros and specifying attributes on an item.</p>
 <tr><td><code>#[meta]</code></td><td>Outer attribute</td></tr>
 <tr><td><code>#![meta]</code></td><td>Inner attribute</td></tr>
 <tr><td><code>$ident</code></td><td>Macro substitution</td></tr>
-<tr><td><code>$ident:kind</code></td><td>Macro capture</td></tr>
-<tr><td><code>$(…)…</code></td><td>Macro repetition</td></tr>
+<tr><td><code>$ident:kind</code></td><td>Macro metavariable</td></tr>
+<tr><td><code>$(...)...</code></td><td>Macro repetition</td></tr>
 <tr><td><code>ident!(...)</code>, <code>ident!{...}</code>, <code>ident![...]</code></td><td>Macro invocation</td></tr>
 </tbody></table>
 </div>
@@ -31555,7 +31594,7 @@ macros and specifying attributes on an item.</p>
 <p><span class="caption">Table B-9: Curly Brackets</span></p>
 <div class="table-wrapper"><table><thead><tr><th>Context</th><th>Explanation</th></tr></thead><tbody>
 <tr><td><code>{...}</code></td><td>Block expression</td></tr>
-<tr><td><code>Type {...}</code></td><td><code>struct</code> literal</td></tr>
+<tr><td><code>Type {...}</code></td><td>Struct literal</td></tr>
 </tbody></table>
 </div>
 <p>Table B-10 shows the contexts in which square brackets are used.</p>
@@ -31717,17 +31756,11 @@ warning fixes, a linter, and integrating with IDEs.</p>
 <p>The <code>rustfmt</code> tool reformats your code according to the community code style.
 Many collaborative projects use <code>rustfmt</code> to prevent arguments about which
 style to use when writing Rust: everyone formats their code using the tool.</p>
-<p>Rust installations include rustfmt by default, so you should already have the
+<p>Rust installations include <code>rustfmt</code> by default, so you should already have the
 programs <code>rustfmt</code> and <code>cargo-fmt</code> on your system. These two commands are
 analogous to <code>rustc</code> and <code>cargo</code> in that <code>rustfmt</code> allows finer-grained control
 and <code>cargo-fmt</code> understands conventions of a project that uses Cargo. To format
 any Cargo project, enter the following:</p>
-<pre><code class="language-sh">$ cargo fmt
-</code></pre>
-<p>Running this command reformats all the Rust code in the current crate. This
-should only change the code style, not the code semantics.</p>
-<p>This command gives you <code>rustfmt</code> and <code>cargo-fmt</code>, similar to how Rust gives you
-both <code>rustc</code> and <code>cargo</code>. To format any Cargo project, enter the following:</p>
 <pre><code class="language-console">$ cargo fmt
 </code></pre>
 <p>Running this command reformats all the Rust code in the current crate. This
@@ -31736,7 +31769,7 @@ on <code>rustfmt</code>, see <a href="https://github.com/rust-lang/rustfmt">its 
 <h3 id="fix-your-code-with-rustfix"><a class="header" href="#fix-your-code-with-rustfix">Fix Your Code with <code>rustfix</code></a></h3>
 <p>The <code>rustfix</code> tool is included with Rust installations and can automatically fix
 compiler warnings that have a clear way to correct the problem that’s likely
-what you want. It’s likely you’ve seen compiler warnings before. For example,
+what you want. You’ve probably seen compiler warnings before. For example,
 consider this code:</p>
 <p><span class="filename">Filename: src/main.rs</span></p>
 <pre><pre class="playground"><code class="language-rust edition2024">fn main() {
@@ -31771,7 +31804,7 @@ code:</p>
     let x = 42;
     println!("{x}");
 }</code></pre></pre>
-<p>The <code>x</code> variable is now immutable, and the warning no longer appears.</p>
+<p>The variable <code>x</code> is now immutable, and the warning no longer appears.</p>
 <p>You can also use the <code>cargo fix</code> command to transition your code between
 different Rust editions. Editions are covered in <a href="appendix-05-editions.html">Appendix E</a>.</p>
 <h3 id="more-lints-with-clippy"><a class="header" href="#more-lints-with-clippy">More Lints with Clippy</a></h3>
@@ -31804,8 +31837,8 @@ mathematical constant, such as pi, as this program does:</p>
 </code></pre>
 <p>This error lets you know that Rust already has a more precise <code>PI</code> constant
 defined, and that your program would be more correct if you used the constant
-instead. You would then change your code to use the <code>PI</code> constant. The
-following code doesn’t result in any errors or warnings from Clippy:</p>
+instead. You would then change your code to use the <code>PI</code> constant.</p>
+<p>The following code doesn’t result in any errors or warnings from Clippy:</p>
 <figure class="listing">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust edition2024">fn main() {
@@ -31816,15 +31849,15 @@ following code doesn’t result in any errors or warnings from Clippy:</p>
 </figure>
 <p>For more information on Clippy, see <a href="https://github.com/rust-lang/rust-clippy">its documentation</a>.</p>
 <h3 id="ide-integration-using-rust-analyzer"><a class="header" href="#ide-integration-using-rust-analyzer">IDE Integration Using <code>rust-analyzer</code></a></h3>
-<p>To help IDE integration, the Rust community recommends using
+<p>To help with IDE integration, the Rust community recommends using
 <a href="https://rust-analyzer.github.io"><code>rust-analyzer</code></a><!-- ignore -->. This tool is a set of
-compiler-centric utilities that speaks the <a href="http://langserver.org/">Language Server Protocol</a><!--
+compiler-centric utilities that speak <a href="http://langserver.org/">Language Server Protocol</a><!--
 ignore -->, which is a specification for IDEs and programming languages to
 communicate with each other. Different clients can use <code>rust-analyzer</code>, such as
 <a href="https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer">the Rust analyzer plug-in for Visual Studio Code</a>.</p>
 <p>Visit the <code>rust-analyzer</code> project’s <a href="https://rust-analyzer.github.io">home page</a><!-- ignore -->
 for installation instructions, then install the language server support in your
-particular IDE. Your IDE will gain abilities such as autocompletion, jump to
+particular IDE. Your IDE will gain capabilities such as autocompletion, jump to
 definition, and inline errors.</p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="appendix-e---editions"><a class="header" href="#appendix-e---editions">Appendix E - Editions</a></h2>
 <p>In Chapter 1, you saw that <code>cargo new</code> adds a bit of metadata to your

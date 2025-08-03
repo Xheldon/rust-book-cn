@@ -206,5 +206,33 @@
   "Well done! You’ve made it to the end of the book! We want to thank you for joining us on this tour of Rust. You’re now ready to implement your own Rust projects and help with other people’s projects. Keep in mind that there is a welcoming community of other Rustaceans who would love to help you with any challenges you encounter on your Rust journey.": {
     "_translate": "干得好！你已经读到了这本书的最后！我们要感谢你加入我们这次的Rust之旅。你现在可以开始实现自己的Rust项目，并帮助其他人的项目。请记住，有一个欢迎你的Rustaceans社区，他们很乐意在你的Rust之旅中遇到的任何挑战时帮助你。",
     "_note": ""
+  },
+  "The code in Listing 21-20 is responding to requests asynchronously through the use of a thread pool, as we intended. We get some warnings about the workers, id, and thread fields that we’re not using in a direct way that reminds us we’re not cleaning up anything. When we use the less elegant ctrl-C method to halt the main thread, all other threads are stopped immediately as well, even if they’re in the middle of serving a request.": {
+    "_translate": "列表 21-20 中的代码通过使用线程池异步响应请求，正如我们所期望的那样。我们得到了一些关于 <code>workers</code>、<code>id</code> 和 <code>thread</code> 字段的警告，这些字段我们没有直接使用，这提醒我们没有清理任何东西。当我们使用不太优雅的 <kbd>ctrl</kbd>-<kbd>C</kbd> 方法来停止主线程时，所有其他线程也会立即停止，即使它们正在处理请求。",
+    "_note": ""
+  },
+  "First we loop through each of the thread pool workers. We use &mut for this because self is a mutable reference, and we also need to be able to mutate worker. For each worker, we print a message saying that this particular Worker instance is shutting down, and then we call join on that Worker instance’s thread. If the call to join fails, we use unwrap to make Rust panic and go into an ungraceful shutdown.": {
+    "_translate": "首先我们遍历线程池中的每个 <code>workers</code>。我们使用 <code>&amp;mut</code>，因为 <code>self</code> 是一个可变引用，同时我们也需要能够修改 <code>worker</code>。对于每个 <code>worker</code>，我们打印一条消息，说明这个特定的 <code>Worker</code> 实例正在关闭，然后我们调用该 <code>Worker</code> 实例的线程的 <code>join</code> 方法。如果 <code>join</code> 调用失败，我们使用 <code>unwrap</code> 使 Rust 恐慌并进入不优雅的关闭。",
+    "_note": ""
+  },
+  "In this case, a better alternative exists: the Vec::drain method. It accepts a range parameter to specify which items to remove from the vector and returns an iterator of those items. Passing the .. range syntax will remove every value from the vector.": {
+    "_translate": "在这种情况下，存在一个更好的选择：<code>Vec::drain</code> 方法。它接受一个范围参数来指定要从向量中移除的项，并返回这些项的迭代器。传递 <code>..</code> 范围语法将移除 <em>所有</em> 值。",
+    "_note": ""
+  },
+  "However, the only time this would come up would be when dropping the Worker. In exchange, we’d have to deal with an Option<thread::JoinHandle<()>> anywhere we accessed worker.thread. Idiomatic Rust uses Option quite a bit, but when you find yourself wrapping something you know will always be present in an Option as a workaround like this, it’s a good idea to look for alternative approaches to make your code cleaner and less error-prone.": {
+    "_translate": "然而，这只有在丢弃<code>Worker</code>时才会出现。作为交换，我们在访问<code>worker.thread</code>的任何地方都必须处理一个<code>Option&lt;thread::JoinHandle&lt;()&gt;&gt;</code>。惯用的Rust代码大量使用<code>Option</code>，但当你发现自己将某个已知始终存在的东西包装在<code>Option</code>中作为变通方法时，最好寻找替代方法以使代码更干净、更少出错。",
+    "_note": ""
+  },
+  "This resolves the compiler error and does not require any other changes to our code. Note that, because drop can be called when panicking, the unwrap could also panic and cause a double panic, which immediately crashes the program and ends any cleanup in progress. This is fine for an example program, but isn’t recommended for production code.": {
+    "_translate": "这解决了编译器错误，并且不需要对我们的代码进行任何其他更改。请注意，因为 drop 可能在 panic 时被调用，unwrap 也可能导致 panic 并引起双重 panic，这会立即崩溃程序并结束任何正在进行的清理。对于示例程序来说这是可以的，但不建议在生产代码中使用。",
+    "_note": ""
+  },
+  "With all the changes we’ve made, our code compiles without any warnings. However, the bad news is that this code doesn’t function the way we want it to yet. The key is the logic in the closures run by the threads of the Worker instances: at the moment, we call join, but that won’t shut down the threads, because they loop forever looking for jobs. If we try to drop our ThreadPool with our current implementation of drop, the main thread will block forever, waiting for the first thread to finish.": {
+    "_translate": "随着我们所做的所有更改，我们的代码编译时没有任何警告。\n然而，坏消息是这段代码还没有按我们希望的方式工作。关键在于由 <code>Worker</code> 实例的线程运行的闭包中的逻辑：目前，我们调用 <code>join</code>，但这不会关闭线程，因为它们会无限循环地寻找任务。如果我们尝试使用当前的 <code>drop</code> 实现来删除我们的 <code>ThreadPool</code>，主线程将永远阻塞，等待第一个线程完成。",
+    "_note": ""
+  },
+  "Notice one interesting aspect of this particular execution: the ThreadPool dropped the sender, and before any Worker received an error, we tried to join Worker 0. Worker 0 had not yet gotten an error from recv, so the main thread blocked, waiting for Worker 0 to finish. In the meantime, Worker 3 received a job and then all threads received an error. When Worker 0 finished, the main thread waited for the rest of the Worker instances to finish. At that point, they had all exited their loops and stopped.": {
+    "_translate": "注意这个特定执行的一个有趣方面：<code>ThreadPool</code> 丢弃了 <code>sender</code>，并且在任何 <code>Worker</code> 收到错误之前，我们尝试加入 <code>Worker</code> 0。 <code>Worker</code> 0 尚未从 <code>recv</code> 收到错误，因此主线程阻塞，等待 <code>Worker</code> 0 完成。在此期间，<code>Worker</code> 3 收到了一个任务，然后所有线程都收到了错误。当 <code>Worker</code> 0 完成时，主线程等待其余的 <code>Worker</code> 实例完成。那时，它们都已退出循环并停止。",
+    "_note": ""
   }
 }

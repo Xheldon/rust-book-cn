@@ -514,5 +514,61 @@
   "Using unsafe to use one of the five superpowers just discussed isn’t wrong or even frowned upon, but it is trickier to get unsafe code correct because the compiler can’t help uphold memory safety. When you have a reason to use unsafe code, you can do so, and having the explicit unsafe annotation makes it easier to track down the source of problems when they occur. Whenever you write unsafe code, you can use Miri to help you be more confident that the code you have written upholds Rust’s rules.": {
     "_translate": "使用 <code>unsafe</code> 来使用上述五个超级能力之一并不是错误的，甚至也不被反对，但要使 <code>unsafe</code> 代码正确会更棘手，因为编译器无法帮助维护内存安全。当你有理由使用 <code>unsafe</code> 代码时，你可以这样做，而显式的 <code>unsafe</code> 注解使得在出现问题时更容易追踪问题的来源。每当你编写不安全的代码时，你可以使用 Miri 来帮助你更有信心地确保你编写的代码符合 Rust 的规则。",
     "_note": ""
+  },
+  "Access fields of unions": {
+    "_translate": "访问 <code>union</code> 的字段",
+    "_note": ""
+  },
+  "It’s important to understand that unsafe doesn’t turn off the borrow checker or disable any of Rust’s other safety checks: if you use a reference in unsafe code, it will still be checked. The unsafe keyword only gives you access to these five features that are then not checked by the compiler for memory safety. You’ll still get some degree of safety inside an unsafe block.": {
+    "_translate": "理解 <code>unsafe</code> 并不会关闭借用检查器或禁用 Rust 的其他任何安全检查：如果你在不安全代码中使用引用，它仍然会被检查。<code>unsafe</code> 关键字只给你访问这五个特性，这些特性不会被编译器检查以确保内存安全。你仍然会在不安全块内获得一定程度的安全性。",
+    "_note": ""
+  },
+  "To demonstrate this, next we’ll create a raw pointer whose validity we can’t be so certain of, using the keyword as to cast a value instead of using the raw borrow operator. Listing 20-2 shows how to create a raw pointer to an arbitrary location in memory. Trying to use arbitrary memory is undefined: there might be data at that address or there might not, the compiler might optimize the code so there is no memory access, or the program might terminate with a segmentation fault. Usually, there is no good reason to write code like this, especially in cases where you can use a raw borrow operator instead, but it is possible.": {
+    "_translate": "为了演示这一点，接下来我们将创建一个有效性不太确定的原始指针，使用关键字<code>as</code>来转换值，而不是使用原始借用操作符。列表 20-2 显示了如何创建指向内存中任意位置的原始指针。尝试使用任意内存是未定义的：该地址可能有数据，也可能没有，编译器可能会优化代码，使其不访问内存，或者程序可能会以段错误终止。通常，编写这样的代码没有好的理由，特别是在可以使用原始借用操作符的情况下，但这是可能的。",
+    "_note": ""
+  },
+  "Note also that in Listings 20-1 and 20-3, we created *const i32 and *mut i32 raw pointers that both pointed to the same memory location, where num is stored. If we instead tried to create an immutable and a mutable reference to num, the code would not have compiled because Rust’s ownership rules don’t allow a mutable reference at the same time as any immutable references. With raw pointers, we can create a mutable pointer and an immutable pointer to the same location and change data through the mutable pointer, potentially creating a data race. Be careful!": {
+    "_translate": "请注意，在清单 20-1 和 20-3 中，我们创建了 <code>*const i32</code> 和 <code>*mut i32</code> 原始指针，它们都指向存储 <code>num</code> 的同一内存位置。如果我们尝试创建 <code>num</code> 的不可变引用和可变引用，代码将无法编译，因为 Rust 的所有权规则不允许同时存在可变引用和任何不可变引用。使用原始指针，我们可以创建指向同一位置的可变指针和不可变指针，并通过可变指针更改数据，这可能会导致数据竞争。小心！",
+    "_note": ""
+  },
+  "With all of these dangers, why would you ever use raw pointers? One major use case is when interfacing with C code, as you’ll see in the next section. Another case is when building up safe abstractions that the borrow checker doesn’t understand. We’ll introduce unsafe functions and then look at an example of a safe abstraction that uses unsafe code.": {
+    "_translate": "有了所有这些危险，为什么你还会使用原始指针？一个主要的用例是在与C代码接口时，你将在下一节中看到。另一个情况是在构建借检查器不理解的安全抽象时。我们将介绍不安全的函数，然后看一个使用不安全代码的安全抽象的例子。",
+    "_note": ""
+  },
+  "When we try to compile the code in Listing 20-5, we’ll get an error:": {
+    "_translate": "当我们尝试编译列表 20-5 中的代码时，我们会遇到一个错误：",
+    "_note": ""
+  },
+  "To perform unsafe operations in the body of an unsafe function, you still need to use an unsafe block, just as within a regular function, and the compiler will warn you if you forget. This helps us keep unsafe blocks as small as possible, as unsafe operations may not be needed across the whole function body.": {
+    "_translate": "要在 <code>unsafe</code> 函数的主体中执行不安全操作，您仍然需要使用 <code>unsafe</code> 块，就像在普通函数中一样，编译器会在您忘记时提醒您。这有助于我们将 <code>unsafe</code> 块保持尽可能小，因为不安全操作可能并不需要在整个函数体中使用。",
+    "_note": ""
+  },
+  "Sometimes your Rust code might need to interact with code written in another language. For this, Rust has the keyword extern that facilitates the creation and use of a Foreign Function Interface (FFI), which is a way for a programming language to define functions and enable a different (foreign) programming language to call those functions.": {
+    "_translate": "有时，您的 Rust 代码可能需要与用其他语言编写的代码进行交互。为此，Rust 提供了 <code>extern</code> 关键字，该关键字有助于创建和使用 <em>Foreign Function Interface (FFI)</em>，这是一种编程语言定义函数并使不同的（外部）编程语言能够调用这些函数的方式。",
+    "_note": ""
+  },
+  "Recall from “The Slice Type” in Chapter 4 that a slice is a pointer to some data and the length of the slice. We use the len method to get the length of a slice and the as_mut_ptr method to access the raw pointer of a slice. In this case, because we have a mutable slice to i32 values, as_mut_ptr returns a raw pointer with the type *mut i32, which we’ve stored in the variable ptr.": {
+    "_translate": "回想第 4 章<a href=\"ch04-03-slices.html#the-slice-type\">“切片类型”</a><!-- ignore -->中\n切片是指向某些数据的指针和切片的长度。我们使用 <code>len</code>\n方法获取切片的长度，使用 <code>as_mut_ptr</code> 方法访问切片的原始指针。在这种情况下，因为我们有一个可变的 <code>i32</code>\n值的切片，<code>as_mut_ptr</code> 返回一个类型为 <code>*mut i32</code> 的原始指针，我们将其存储在变量 <code>ptr</code> 中。",
+    "_note": ""
+  },
+  "As with regular variables, we specify mutability using the mut keyword. Any code that reads or writes from COUNTER must be within an unsafe block. The code in Listing 20-11 compiles and prints COUNTER: 3 as we would expect because it’s single threaded. Having multiple threads access COUNTER would likely result in data races, so it is undefined behavior. Therefore, we need to mark the entire function as unsafe and document the safety limitation, so anyone calling the function knows what they are and are not allowed to do safely.": {
+    "_translate": "与常规变量一样，我们使用 <code>mut</code> 关键字指定可变性。任何读取或写入 <code>COUNTER</code> 的代码都必须在 <code>unsafe</code> 块中。清单 20-11 中的代码编译并打印 <code>COUNTER: 3</code>，这符合我们的预期，因为它是在单线程中运行的。如果多个线程访问 <code>COUNTER</code>，可能会导致数据竞争，因此这是未定义行为。因此，我们需要将整个函数标记为 <code>unsafe</code> 并记录安全限制，以便调用该函数的任何人都知道他们可以安全地做什么和不能做什么。",
+    "_note": ""
+  },
+  "Additionally, the compiler will deny by default any attempt to create references to a mutable static variable through a compiler lint. You must either explicitly opt-out of that lint’s protections by adding an #[allow(static_mut_refs)] annotation or access the mutable static variable via a raw pointer created with one of the raw borrow operators. That includes cases where the reference is created invisibly, as when it is used in the println! in this code listing. Requiring references to static mutable variables to be created via raw pointers helps make the safety requirements for using them more obvious.": {
+    "_translate": "此外，默认情况下，编译器会通过编译器 lint 拒绝任何尝试创建对可变静态变量的引用。你必须通过添加 <code>#[allow(static_mut_refs)]</code> 注解来显式地选择退出该 lint 的保护，或者通过使用其中一个原始借用操作符创建的原始指针来访问可变静态变量。这包括引用是在不可见的情况下创建的情况，例如在 <code>println!</code> 中使用时。要求通过原始指针创建对静态可变变量的引用有助于使使用它们的安全要求更加明显。",
+    "_note": ""
+  },
+  "For an example of how helpful this can be, consider what happens when we run it against Listing 20-7.": {
+    "_translate": "为了举例说明这一点有多有帮助，考虑当我们将其运行在示例 20-7 上时会发生什么。",
+    "_note": ""
+  },
+  "As an example, recall the Send and Sync marker traits we discussed in “Extensible Concurrency with the Send and Sync Traits” in Chapter 16: the compiler implements these traits automatically if our types are composed entirely of other types that implement Send and Sync. If we implement a type that contains a type that does not implement Send or Sync, such as raw pointers, and we want to mark that type as Send or Sync, we must use unsafe. Rust can’t verify that our type upholds the guarantees that it can be safely sent across threads or accessed from multiple threads; therefore, we need to do those checks manually and indicate as such with unsafe.": {
+    "_translate": "例如，回想我们在第 16 章<a href=\"ch16-04-extensible-concurrency-sync-and-send.html#extensible-concurrency-with-the-send-and-sync-traits\">“使用 <code>Send</code> 和 <code>Sync</code> 特性实现可扩展的并发”</a>中讨论的 <code>Send</code> 和 <code>Sync</code> 标记特性：如果我们的类型完全由实现了 <code>Send</code> 和 <code>Sync</code> 的其他类型组成，编译器会自动实现这些特性。如果我们实现的类型包含一个未实现 <code>Send</code> 或 <code>Sync</code> 的类型，例如原始指针，并且我们希望将该类型标记为 <code>Send</code> 或 <code>Sync</code>，我们必须使用 <code>unsafe</code>。Rust 无法验证我们的类型是否满足可以安全地跨线程发送或从多个线程访问的保证；因此，我们需要手动进行这些检查，并使用 <code>unsafe</code> 指示。",
+    "_note": ""
+  },
+  "Miri correctly warns us that we’re casting an integer to a pointer, which might be a problem but Miri can’t detect if there is because it doesn’t know how the pointer originated. Then, Miri returns an error where Listing 20-7 has undefined behavior because we have a dangling pointer. Thanks to Miri, we now know there is a risk of undefined behavior, and we can think about how to make the code safe. In some cases, Miri can even make recommendations about how to fix errors.": {
+    "_translate": "Miri 正确地警告我们，我们正在将一个整数转换为指针，这可能是一个问题，但 Miri 无法检测到是否有问题，因为它不知道指针是如何产生的。然后，Miri 返回一个错误，指出列表 20-7 中存在未定义行为，因为我们有一个悬空指针。多亏了 Miri，我们现在知道存在未定义行为的风险，并可以考虑如何使代码安全。在某些情况下，Miri 甚至可以提出关于如何修复错误的建议。",
+    "_note": ""
   }
 }

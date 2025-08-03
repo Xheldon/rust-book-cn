@@ -306,5 +306,29 @@
   "The important factor is that we’ve successfully gotten a handle to a TCP connection!": {
     "_translate": "重要的因素是我们已经成功地获取了一个TCP连接的句柄！",
     "_note": ""
+  },
+  "Using TcpListener, we can listen for TCP connections at the address 127.0.0.1:7878. In the address, the section before the colon is an IP address representing your computer (this is the same on every computer and doesn’t represent the authors’ computer specifically), and 7878 is the port. We’ve chosen this port for two reasons: HTTP isn’t normally accepted on this port, so our server is unlikely to conflict with any other web server you might have running on your machine, and 7878 is rust typed on a telephone.": {
+    "_translate": "使用 <code>TcpListener</code>，我们可以在地址 <code>127.0.0.1:7878</code> 监听 TCP 连接。在地址中，冒号前的部分是表示您计算机的 IP 地址（这在每台计算机上都相同，并不代表作者的计算机），而 <code>7878</code> 是端口。我们选择这个端口有两个原因：HTTP 通常不接受这个端口，因此我们的服务器不太可能与您计算机上可能运行的任何其他 Web 服务器冲突，而且 7878 是在电话上输入的 <em>rust</em>。",
+    "_note": ""
+  },
+  "The bind function returns a Result<T, E>, which indicates that it’s possible for binding to fail. For example, if we ran two instances of our program and so had two programs listening to the same port. Because we’re writing a basic server just for learning purposes, we won’t worry about handling these kinds of errors; instead, we use unwrap to stop the program if errors happen.": {
+    "_translate": "<code>bind</code> 函数返回一个 <code>Result&lt;T, E&gt;</code>，这表明绑定可能会失败。例如，如果我们运行了我们程序的两个实例，因此有两个程序监听同一个端口。因为我们编写的是一个仅供学习的基本服务器，所以我们不会担心处理这类错误；相反，我们使用 <code>unwrap</code> 在发生错误时停止程序。",
+    "_note": ""
+  },
+  "Browsers also sometimes open multiple connections to the server without sending any requests, so that if they do later send requests, those requests can happen faster. When this happens, our server will see each connection, regardless of whether there are any requests over that connection. Many versions of Chrome-based browsers do this, for example; you can disable that optimization by using private browsing mode or using a different browser.": {
+    "_translate": "浏览器有时也会在没有发送任何请求的情况下打开与服务器的多个连接，这样如果它们<em>确实</em>稍后发送请求，这些请求可以更快地发生。当这种情况发生时，我们的服务器将看到每个连接，无论该连接上是否有任何请求。例如，许多基于 Chrome 的浏览器版本都会这样做；您可以通过使用隐私浏览模式或使用不同的浏览器来禁用这种优化。",
+    "_note": ""
+  },
+  "Remember to stop the program by pressing ctrl-C when you’re done running a particular version of the code. Then restart the program by invoking the cargo run command after you’ve made each set of code changes to make sure you’re running the newest code.": {
+    "_translate": "记住，当你完成运行某个版本的代码时，通过按 <kbd>ctrl</kbd>-<kbd>C</kbd> 来停止程序。然后在每次进行代码更改后，通过调用 <code>cargo run</code> 命令重新启动程序，以确保你正在运行最新的代码。",
+    "_note": ""
+  },
+  "Right now, our web server will return the HTML in the file no matter what the client requested. Let’s add functionality to check that the browser is requesting / before returning the HTML file, and return an error if the browser requests anything else. For this we need to modify handle_connection, as shown in Listing 21-6. This new code checks the content of the request received against what we know a request for / looks like and adds if and else blocks to treat requests differently.": {
+    "_translate": "现在，我们的Web服务器无论客户端请求什么，都会返回文件中的HTML。让我们添加功能，检查浏览器是否请求了<em>/</em>，然后再返回HTML文件，如果浏览器请求了其他内容，则返回错误。为此，我们需要修改<code>handle_connection</code>，如清单21-6所示。这段新代码会检查接收到的请求内容是否与我们已知的请求<em>/</em>的样子相符，并添加<code>if</code>和<code>else</code>块来不同地处理请求。",
+    "_note": ""
+  },
+  "Here, our response has a status line with status code 404 and the reason phrase NOT FOUND. The body of the response will be the HTML in the file 404.html. You’ll need to create a 404.html file next to hello.html for the error page; again feel free to use any HTML you want, or use the example HTML in Listing 21-8.": {
+    "_translate": "在这里，我们的响应有一个带有状态码 404 和原因短语 <code>NOT FOUND</code> 的状态行。响应的正文将是文件 <em>404.html</em> 中的 HTML。\n你需要在 <em>hello.html</em> 旁边创建一个 <em>404.html</em> 文件作为错误页面；同样，你可以使用任何你想要的 HTML，或者使用列表 21-8 中的示例 HTML。",
+    "_note": ""
   }
 }

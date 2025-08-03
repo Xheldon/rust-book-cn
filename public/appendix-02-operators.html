@@ -319,7 +319,7 @@ blockquote {
 <p data-x-en="Table B-2: Stand-Alone Syntax"><span class="caption">表 B-2：独立语法</span></p>
 <div class="table-wrapper"><table><thead><tr><th>Symbol</th><th>Explanation</th></tr></thead><tbody>
 <tr><td><code>'ident</code></td><td>Named lifetime or loop label</td></tr>
-<tr><td><code>...u8</code>, <code>...i32</code>, <code>...f64</code>, <code>...usize</code>, etc.</td><td>Numeric literal of specific type</td></tr>
+<tr><td>Digits immediately followed by <code>u8</code>, <code>i32</code>,  <code>f64</code>, <code>usize</code>, and so on</td><td>Numeric literal of specific type</td></tr>
 <tr><td><code>"..."</code></td><td>String literal</td></tr>
 <tr><td><code>r"..."</code>, <code>r#"..."#</code>, <code>r##"..."##</code>, etc.</td><td>Raw string literal, escape characters not processed</td></tr>
 <tr><td><code>b"..."</code></td><td>Byte string literal; constructs an array of bytes instead of a string</td></tr>
@@ -375,8 +375,8 @@ blockquote {
 <tr><td><code>#[meta]</code></td><td>Outer attribute</td></tr>
 <tr><td><code>#![meta]</code></td><td>Inner attribute</td></tr>
 <tr><td><code>$ident</code></td><td>Macro substitution</td></tr>
-<tr><td><code>$ident:kind</code></td><td>Macro capture</td></tr>
-<tr><td><code>$(…)…</code></td><td>Macro repetition</td></tr>
+<tr><td><code>$ident:kind</code></td><td>Macro metavariable</td></tr>
+<tr><td><code>$(...)...</code></td><td>Macro repetition</td></tr>
 <tr><td><code>ident!(...)</code>, <code>ident!{...}</code>, <code>ident![...]</code></td><td>Macro invocation</td></tr>
 </tbody></table>
 </div>
@@ -407,7 +407,7 @@ blockquote {
 <p data-x-en="Table B-9: Curly Brackets"><span class="caption">表 B-9：大括号</span></p>
 <div class="table-wrapper"><table><thead><tr><th>Context</th><th>Explanation</th></tr></thead><tbody>
 <tr><td><code>{...}</code></td><td>Block expression</td></tr>
-<tr><td><code>Type {...}</code></td><td><code>struct</code> literal</td></tr>
+<tr><td><code>Type {...}</code></td><td>Struct literal</td></tr>
 </tbody></table>
 </div>
 <p data-x-en="Table B-10 shows the contexts in which square brackets are used.">表 B-10 显示了方括号使用的上下文。</p>

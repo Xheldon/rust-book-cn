@@ -134,5 +134,29 @@
   "The Clippy tool is a collection of lints to analyze your code so you can catch common mistakes and improve your Rust code. Clippy is included with standard Rust installations.": {
     "_translate": "Clippy 工具是一组用于分析代码的 lint，可以帮助你发现常见的错误并改进你的 Rust 代码。Clippy 包含在标准的 Rust 安装中。",
     "_note": ""
+  },
+  "The rustfix tool is included with Rust installations and can automatically fix compiler warnings that have a clear way to correct the problem that’s likely what you want. You’ve probably seen compiler warnings before. For example, consider this code:": {
+    "_translate": "<code>rustfix</code> 工具随 Rust 安装包一起提供，可以自动修复有明确修正方法的编译器警告，这些警告的修正方法很可能是你想要的。你可能之前见过编译器警告。例如，考虑以下代码：",
+    "_note": ""
+  },
+  "The variable x is now immutable, and the warning no longer appears.": {
+    "_translate": "变量 <code>x</code> 现在是不可变的，警告不再出现。",
+    "_note": ""
+  },
+  "This error lets you know that Rust already has a more precise PI constant defined, and that your program would be more correct if you used the constant instead. You would then change your code to use the PI constant.": {
+    "_translate": "这个错误提示你 Rust 已经定义了一个更精确的 <code>PI</code> 常量，如果你使用这个常量，你的程序会更准确。然后，你应该将代码修改为使用 <code>PI</code> 常量。",
+    "_note": ""
+  },
+  "The following code doesn’t result in any errors or warnings from Clippy:": {
+    "_translate": "以下代码不会导致 Clippy 产生任何错误或警告：",
+    "_note": ""
+  },
+  "Visit the rust-analyzer project’s home page for installation instructions, then install the language server support in your particular IDE. Your IDE will gain capabilities such as autocompletion, jump to definition, and inline errors.": {
+    "_translate": "访问 <code>rust-analyzer</code> 项目的 <a href=\"https://rust-analyzer.github.io\">主页</a> 获取安装说明，然后在您特定的 IDE 中安装语言服务器支持。您的 IDE 将获得诸如自动完成、跳转到定义和内联错误等功能。",
+    "_note": ""
+  },
+  "To help with IDE integration, the Rust community recommends using rust-analyzer. This tool is a set of compiler-centric utilities that speak Language Server Protocol, which is a specification for IDEs and programming languages to communicate with each other. Different clients can use rust-analyzer, such as the Rust analyzer plug-in for Visual Studio Code.": {
+    "_translate": "为了帮助集成开发环境（IDE），Rust 社区推荐使用\n<a href=\"https://rust-analyzer.github.io\"><code>rust-analyzer</code></a><!-- ignore -->。这个工具是一组\n以编译器为中心的实用工具，它们使用 <a href=\"http://langserver.org/\">语言服务器协议</a><!--\nignore -->，这是一种 IDE 和编程语言之间通信的规范。不同的客户端可以使用 <code>rust-analyzer</code>，例如\n<a href=\"https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer\">Visual Studio Code 的 Rust 分析器插件</a>。",
+    "_note": ""
   }
 }

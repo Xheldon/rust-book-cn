@@ -254,15 +254,11 @@ blockquote {
 <h3 id="automatic-formatting-with-rustfmt"><a class="header" href="#automatic-formatting-with-rustfmt">使用 <code>rustfmt</code> 自动格式化</a></h3>
 <p data-x-en="The rustfmt tool reformats your code according to the community code style. Many collaborative projects use rustfmt to prevent arguments about which style to use when writing Rust: everyone formats their code using the tool."><code>rustfmt</code> 工具根据社区代码风格重新格式化您的代码。许多协作项目使用 <code>rustfmt</code> 来防止关于编写 Rust 时使用哪种风格的争论：每个人都使用该工具格式化他们的代码。</p>
 <p data-x-en="Rust installations include rustfmt by default, so you should already have the programs rustfmt and cargo-fmt on your system. These two commands are analogous to rustc and cargo in that rustfmt allows finer-grained control and cargo-fmt understands conventions of a project that uses Cargo. To format any Cargo project, enter the following:">Rust 安装默认包含 rustfmt，因此你的系统上应该已经有 <code>rustfmt</code> 和 <code>cargo-fmt</code> 程序。这两个命令类似于 <code>rustc</code> 和 <code>cargo</code>，其中 <code>rustfmt</code> 允许更细粒度的控制，而 <code>cargo-fmt</code> 理解使用 Cargo 的项目的约定。要格式化任何 Cargo 项目，请输入以下内容：</p>
-<pre><code class="language-sh">$ cargo fmt
-</code></pre>
-<p data-x-en="Running this command reformats all the Rust code in the current crate. This should only change the code style, not the code semantics.">运行此命令将重新格式化当前包中的所有 Rust 代码。这应该只改变代码风格，而不是代码语义。</p>
-<p data-x-en="This command gives you rustfmt and cargo-fmt, similar to how Rust gives you both rustc and cargo. To format any Cargo project, enter the following:">这个命令给你 <code>rustfmt</code> 和 <code>cargo-fmt</code>，类似于 Rust 给你 <code>rustc</code> 和 <code>cargo</code> 的方式。要格式化任何 Cargo 项目，请输入以下内容：</p>
 <pre><code class="language-console">$ cargo fmt
 </code></pre>
 <p data-x-en="Running this command reformats all the Rust code in the current crate. This should only change the code style, not the code semantics. For more information on rustfmt, see its documentation.">运行此命令将重新格式化当前包中的所有 Rust 代码。这只会更改代码风格，而不会更改代码语义。有关 <code>rustfmt</code> 的更多信息，请参阅 <a href="https://github.com/rust-lang/rustfmt">其文档</a>。</p>
 <h3 id="fix-your-code-with-rustfix"><a class="header" href="#fix-your-code-with-rustfix">使用 <code>rustfix</code> 修复您的代码</a></h3>
-<p data-x-en="The rustfix tool is included with Rust installations and can automatically fix compiler warnings that have a clear way to correct the problem that’s likely what you want. It’s likely you’ve seen compiler warnings before. For example, consider this code:">rustfix 工具随 Rust 安装包一起提供，可以自动修复有明确修正方法的编译器警告，这些修正方法很可能是你想要的。你可能之前见过编译器警告。例如，考虑以下代码：</p>
+<p data-x-en="The rustfix tool is included with Rust installations and can automatically fix compiler warnings that have a clear way to correct the problem that’s likely what you want. You’ve probably seen compiler warnings before. For example, consider this code:"><code>rustfix</code> 工具随 Rust 安装包一起提供，可以自动修复有明确修正方法的编译器警告，这些警告的修正方法很可能是你想要的。你可能之前见过编译器警告。例如，考虑以下代码：</p>
 <p data-x-en="Filename: src/main.rs"><span class="filename">文件名: src/main.rs</span></p>
 <pre><pre class="playground"><code class="language-rust edition2024">fn main() {
     let mut x = 42;
@@ -293,7 +289,7 @@ warning: variable does not need to be mutable
     let x = 42;
     println!("{x}");
 }</code></pre></pre>
-<p data-x-en="The x variable is now immutable, and the warning no longer appears."><code>x</code> 变量现在是不可变的，警告不再出现。</p>
+<p data-x-en="The variable x is now immutable, and the warning no longer appears.">变量 <code>x</code> 现在是不可变的，警告不再出现。</p>
 <p data-x-en="You can also use the cargo fix command to transition your code between different Rust editions. Editions are covered in Appendix E.">您还可以使用 <code>cargo fix</code> 命令在不同的 Rust 版本之间转换您的代码。版本在 <a href="appendix-05-editions.html">附录 E</a> 中介绍。</p>
 <h3 id="more-lints-with-clippy"><a class="header" href="#more-lints-with-clippy">更多 Clippy 检查</a></h3>
 <p data-x-en="The Clippy tool is a collection of lints to analyze your code so you can catch common mistakes and improve your Rust code. Clippy is included with standard Rust installations.">Clippy 工具是一组用于分析代码的 lint，可以帮助你发现常见的错误并改进你的 Rust 代码。Clippy 包含在标准的 Rust 安装中。</p>
@@ -320,7 +316,8 @@ warning: variable does not need to be mutable
   = help: consider using the constant directly
   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#approx_constant
 </code></pre>
-<p data-x-en="This error lets you know that Rust already has a more precise PI constant defined, and that your program would be more correct if you used the constant instead. You would then change your code to use the PI constant. The following code doesn’t result in any errors or warnings from Clippy:">这个错误提示你 Rust 已经定义了一个更精确的 <code>PI</code> 常量，如果你使用这个常量，你的程序会更准确。然后，你会将代码更改为使用 <code>PI</code> 常量。以下代码不会从 Clippy 产生任何错误或警告：</p>
+<p data-x-en="This error lets you know that Rust already has a more precise PI constant defined, and that your program would be more correct if you used the constant instead. You would then change your code to use the PI constant.">这个错误提示你 Rust 已经定义了一个更精确的 <code>PI</code> 常量，如果你使用这个常量，你的程序会更准确。然后，你应该将代码修改为使用 <code>PI</code> 常量。</p>
+<p data-x-en="The following code doesn’t result in any errors or warnings from Clippy:">以下代码不会导致 Clippy 产生任何错误或警告：</p>
 <figure class="listing">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><pre class="playground"><code class="language-rust edition2024">fn main() {
@@ -331,13 +328,12 @@ warning: variable does not need to be mutable
 </figure>
 <p data-x-en="For more information on Clippy, see its documentation.">有关 Clippy 的更多信息，请参见 <a href="https://github.com/rust-lang/rust-clippy">其文档</a>。</p>
 <h3 id="ide-integration-using-rust-analyzer"><a class="header" href="#ide-integration-using-rust-analyzer">使用 <code>rust-analyzer</code> 进行 IDE 集成</a></h3>
-<p data-x-en="To help IDE integration, the Rust community recommends using rust-analyzer. This tool is a set of compiler-centric utilities that speaks the Language Server Protocol, which is a specification for IDEs and programming languages to communicate with each other. Different clients can use rust-analyzer, such as the Rust analyzer plug-in for Visual Studio Code.">为了帮助集成开发环境（IDE），Rust 社区推荐使用
+<p data-x-en="To help with IDE integration, the Rust community recommends using rust-analyzer. This tool is a set of compiler-centric utilities that speak Language Server Protocol, which is a specification for IDEs and programming languages to communicate with each other. Different clients can use rust-analyzer, such as the Rust analyzer plug-in for Visual Studio Code.">为了帮助集成开发环境（IDE），Rust 社区推荐使用
 <a href="https://rust-analyzer.github.io"><code>rust-analyzer</code></a><!-- ignore -->。这个工具是一组
-以编译器为中心的实用程序，它使用<a href="http://langserver.org/">语言服务器协议</a><!--
-ignore -->，这是一种 IDE 和编程语言之间通信的规范。不同的客户端可以使用<code>rust-analyzer</code>，例如
+以编译器为中心的实用工具，它们使用 <a href="http://langserver.org/">语言服务器协议</a><!--
+ignore -->，这是一种 IDE 和编程语言之间通信的规范。不同的客户端可以使用 <code>rust-analyzer</code>，例如
 <a href="https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer">Visual Studio Code 的 Rust 分析器插件</a>。</p>
-<p data-x-en="Visit the rust-analyzer project’s home page for installation instructions, then install the language server support in your particular IDE. Your IDE will gain abilities such as autocompletion, jump to definition, and inline errors.">访问 <code>rust-analyzer</code> 项目的 <a href="https://rust-analyzer.github.io">主页</a><!-- ignore -->
-获取安装说明，然后在您特定的 IDE 中安装语言服务器支持。您的 IDE 将获得诸如自动完成、跳转到定义和内联错误等功能。</p>
+<p data-x-en="Visit the rust-analyzer project’s home page for installation instructions, then install the language server support in your particular IDE. Your IDE will gain capabilities such as autocompletion, jump to definition, and inline errors.">访问 <code>rust-analyzer</code> 项目的 <a href="https://rust-analyzer.github.io">主页</a> 获取安装说明，然后在您特定的 IDE 中安装语言服务器支持。您的 IDE 将获得诸如自动完成、跳转到定义和内联错误等功能。</p>
 
                     </main>
 

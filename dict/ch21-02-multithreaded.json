@@ -518,5 +518,61 @@
   "This technique is just one of many ways to improve the throughput of a web server. Other options you might explore are the fork/join model, the single-threaded async I/O model, and the multithreaded async I/O model. If you’re interested in this topic, you can read more about other solutions and try to implement them; with a low-level language like Rust, all of these options are possible.": {
     "_translate": "这种技术只是提高Web服务器吞吐量的众多方法之一。其他你可以探索的选项包括分叉/加入模型、单线程异步I/O模型和多线程异步I/O模型。如果你对这个话题感兴趣，可以阅读更多关于其他解决方案的信息并尝试实现它们；使用像Rust这样的低级语言，所有这些选项都是可能的。",
     "_note": ""
+  },
+  "Simulating a Slow Request": {
+    "_translate": "<a class=\"header\" href=\"#simulating-a-slow-request\">模拟慢请求</a>",
+    "_note": ""
+  },
+  "We switched from if to match now that we have three cases. We need to explicitly match on a slice of request_line to pattern-match against the string literal values; match doesn’t do automatic referencing and dereferencing, like the equality method does.": {
+    "_translate": "我们现在从 <code>if</code> 切换到 <code>match</code>，因为我们有三种情况。我们需要显式地匹配 <code>request_line</code> 的切片，以便对字符串字面值进行模式匹配；<code>match</code> 不会像等式方法那样自动引用和取消引用。",
+    "_note": ""
+  },
+  "Start the server using cargo run. Then open two browser windows: one for http://127.0.0.1:7878 and the other for http://127.0.0.1:7878/sleep. If you enter the / URI a few times, as before, you’ll see it respond quickly. But if you enter /sleep and then load /, you’ll see that / waits until sleep has slept for its full five seconds before loading.": {
+    "_translate": "使用 <code>cargo run</code> 启动服务器。然后打开两个浏览器窗口：一个用于 <em>http://127.0.0.1:7878</em>，另一个用于 <em>http://127.0.0.1:7878/sleep</em>。如果你多次输入 <em>/</em> URI，就像之前一样，你会看到它响应很快。但如果你输入 <em>/sleep</em> 然后加载 <em>/</em>，你会看到 <em>/</em> 会等待 <code>sleep</code> 完成其完整的五秒后才加载。",
+    "_note": ""
+  },
+  "First, let’s explore how our code might look if it did create a new thread for every connection. As mentioned earlier, this isn’t our final plan due to the problems with potentially spawning an unlimited number of threads, but it is a starting point to get a working multithreaded server first. Then we’ll add the thread pool as an improvement, and contrasting the two solutions will be easier.": {
+    "_translate": "首先，让我们看看如果为每个连接创建一个新线程，代码可能会是什么样子。正如前面提到的，这不是我们的最终计划，因为可能会产生无限数量的线程，但这是一个起点，首先实现一个可以工作的多线程服务器。然后我们将添加线程池作为改进，对比这两种解决方案将更容易。",
+    "_note": ""
+  },
+  "Listing 21-11 shows the changes to make to main to spawn a new thread to handle each stream within the for loop.": {
+    "_translate": "列表 21-11 显示了对 <code>main</code> 进行的更改，以在 <code>for</code> 循环中为每个流派生一个新线程来处理。",
+    "_note": ""
+  },
+  "Building ThreadPool Using Compiler-Driven Development": {
+    "_translate": "<a class=\"header\" href=\"#building-threadpool-using-compiler-driven-development\">使用编译器驱动开发构建 <code>ThreadPool</code></a>",
+    "_note": ""
+  },
+  "We use ThreadPool::new to create a new thread pool with a configurable number of threads, in this case four. Then, in the for loop, pool.execute has a similar interface as thread::spawn in that it takes a closure the pool should run for each stream. We need to implement pool.execute so it takes the closure and gives it to a thread in the pool to run. This code won’t yet compile, but we’ll try so that the compiler can guide us in how to fix it.": {
+    "_translate": "我们使用<code>ThreadPool::new</code>来创建一个具有可配置线程数的新线程池，在这种情况下是四个。然后，在<code>for</code>循环中，<code>pool.execute</code>的接口与<code>thread::spawn</code>类似，因为它接受一个闭包，池中的每个流都应该运行这个闭包。我们需要实现<code>pool.execute</code>，使其接受闭包并将其交给池中的一个线程来运行。这段代码还不能编译，但我们会尝试一下，以便编译器可以指导我们如何修复它。",
+    "_note": ""
+  },
+  "Sending Code from the ThreadPool to a Thread": {
+    "_translate": "<a class=\"header\" href=\"#sending-code-from-the-threadpool-to-a-thread\">从 <code>ThreadPool</code> 向线程发送代码</a>",
+    "_note": ""
+  },
+  "Then edit the main.rs file to bring ThreadPool into scope from the library crate by adding the following code to the top of src/main.rs:": {
+    "_translate": "然后编辑 <em>main.rs</em> 文件，通过在 <em>src/main.rs</em> 文件的顶部添加以下代码，将 <code>ThreadPool</code> 从库 crate 引入作用域：",
+    "_note": ""
+  },
+  "Think of people working in the kitchen at a restaurant: the workers wait until orders come in from customers, and then they’re responsible for taking those orders and filling them.": {
+    "_translate": "想想在餐厅厨房工作的人员：工人们等待顾客的订单，然后他们负责接受这些订单并完成它们。",
+    "_note": ""
+  },
+  "We’ll implement this behavior by introducing a new data structure between the ThreadPool and the threads that will manage this new behavior. We’ll call this data structure Worker, which is a common term in pooling implementations. The Worker picks up code that needs to be run and runs the code in its thread.": {
+    "_translate": "我们将通过在 <code>ThreadPool</code> 和线程之间引入一个新的数据结构来实现这种行为，该数据结构将管理这种新行为。我们将这个数据结构称为 <em>Worker</em>，这是池实现中常用的一个术语。<code>Worker</code> 会拾取需要运行的代码并在其线程中运行该代码。",
+    "_note": ""
+  },
+  "In ThreadPool::new, use the for loop counter to generate an id, create a new Worker with that id, and store the Worker in the vector.": {
+    "_translate": "在 <code>ThreadPool::new</code> 中，使用 <code>for</code> 循环计数器生成一个 <code>id</code>，创建一个带有该 <code>id</code> 的新 <code>Worker</code>，并将 <code>Worker</code> 存储在向量中。",
+    "_note": ""
+  },
+  "After learning about the while let loop in Chapter 17 and Chapter 19, you might be wondering why we didn’t write the Worker thread code as shown in Listing 21-21.": {
+    "_translate": "在学习了第 17 章和第 19 章的 <code>while let</code> 循环之后，你可能会想知道为什么我们没有像清单 21-21 那样编写 <code>Worker</code> 线程代码。",
+    "_note": ""
+  },
+  "The code in Listing 21-20 that uses let job = receiver.lock().unwrap().recv().unwrap(); works because with let, any temporary values used in the expression on the right-hand side of the equal sign are immediately dropped when the let statement ends. However, while let (and if let and match) does not drop temporary values until the end of the associated block. In Listing 21-21, the lock remains held for the duration of the call to job(), meaning other Worker instances cannot receive jobs.": {
+    "_translate": "列表 21-20 中的代码使用 <code>let job = receiver.lock().unwrap().recv().unwrap();</code> 可以工作，因为使用 <code>let</code> 时，等号右侧表达式中使用的任何临时值在 <code>let</code> 语句结束时会立即被丢弃。然而，<code>while let</code>（以及 <code>if let</code> 和 <code>match</code>）不会在关联块结束之前丢弃临时值。在列表 21-21 中，锁在整个调用 <code>job()</code> 期间一直被持有，这意味着其他 <code>Worker</code> 实例无法接收任务。",
+    "_note": ""
   }
 }

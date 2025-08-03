@@ -146,5 +146,29 @@
   "This code will compile just fine. For more about trait objects, refer to the section “Using Trait Objects That Allow for Values of Different Types” in Chapter 18.": {
     "_translate": "这段代码可以顺利编译。有关 trait 对象的更多信息，请参阅第 18 章的章节 <a href=\"ch18-02-trait-objects.html#using-trait-objects-that-allow-for-values-of-different-types\">“使用允许不同类型值的 trait 对象”</a>。",
     "_note": ""
+  },
+  "Recall from “Enum Values” in Chapter 6 that the name of each enum variant that we define also becomes an initializer function. We can use these initializer functions as function pointers that implement the closure traits, which means we can specify the initializer functions as arguments for methods that take closures, as seen in Listing 20-31.": {
+    "_translate": "回忆在第 6 章的<a href=\"ch06-01-defining-an-enum.html#enum-values\">“枚举值”</a><!-- ignore -->中，我们定义的每个枚举变体的名称也成为了初始化函数。我们可以将这些初始化函数用作实现闭包特征的函数指针，这意味着我们可以将初始化函数指定为接受闭包的方法的参数，如清单 20-31 所示。",
+    "_note": ""
+  },
+  "Here, we create Status::Value instances using each u32 value in the range that map is called on by using the initializer function of Status::Value. Some people prefer this style and some people prefer to use closures. They compile to the same code, so use whichever style is clearer to you.": {
+    "_translate": "在这里，我们使用 <code>map</code> 被调用的范围中的每个 <code>u32</code> 值通过 <code>Status::Value</code> 的初始化函数来创建 <code>Status::Value</code> 实例。\n有些人喜欢这种风格，有些人则喜欢使用闭包。它们编译成相同的代码，所以使用对你来说更清晰的风格。",
+    "_note": ""
+  },
+  "Closures are represented by traits, which means you can’t return closures directly. In most cases where you might want to return a trait, you can instead use the concrete type that implements the trait as the return value of the function. However, you can’t usually do that with closures because they don’t have a concrete type that is returnable; you’re not allowed to use the function pointer fn as a return type if the closure captures any values from its scope, for example.": {
+    "_translate": "闭包由特征（traits）表示，这意味着你不能直接返回闭包。在大多数你可能想要返回特征的情况下，你可以改用实现该特征的具体类型作为函数的返回值。然而，通常你不能对闭包这样做，因为它们没有可返回的具体类型；例如，如果闭包捕获了其作用域中的任何值，你不能使用函数指针 <code>fn</code> 作为返回类型。",
+    "_note": ""
+  },
+  "Instead, you will normally use the impl Trait syntax we learned about in Chapter 10. You can return any function type, using Fn, FnOnce and FnMut. For example, the code in Listing 20-32 will compile just fine.": {
+    "_translate": "相反，你通常会使用我们在第 10 章中学到的 <code>impl Trait</code> 语法。你可以返回任何函数类型，使用 <code>Fn</code>、<code>FnOnce</code> 和 <code>FnMut</code>。例如，列表 20-32 中的代码将能够正常编译。",
+    "_note": ""
+  },
+  "Here we have two functions, returns_closure and returns_initialized_closure, which both return impl Fn(i32) -> i32. Notice that the closures that they return are different, even though they implement the same type. If we try to compile this, Rust lets us know that it won’t work:": {
+    "_translate": "这里我们有两个函数，<code>returns_closure</code> 和 <code>returns_initialized_closure</code>，它们都返回 <code>impl Fn(i32) -&gt; i32</code>。请注意，它们返回的闭包是不同的，即使它们实现了相同的类型。如果我们尝试编译这个代码，Rust 会告诉我们这行不通：",
+    "_note": ""
+  },
+  "The error message tells us that whenever we return an impl Trait, Rust creates a unique opaque type, a type where we cannot see into the details of what Rust constructs for us, nor can we guess the type Rust will generate to write ourselves. So even though these functions return closures that implement the same trait, Fn(i32) -> i32, the opaque types Rust generates for each are distinct. (This is similar to how Rust produces different concrete types for distinct async blocks even when they have the same output type, as we saw in “Working with Any Number of Futures” in Chapter 17.) We have seen a solution to this problem a few times now: we can use a trait object, as in Listing 20-34.": {
+    "_translate": "错误信息告诉我们，每当我们返回一个<code>impl Trait</code>时，Rust 会创建一个独特的<em>不透明类型</em>，这是一种我们无法看到 Rust 为我们构建的详细信息，也无法猜测 Rust 将生成的类型来自己编写的类型。所以即使这些函数返回实现相同特质的闭包，<code>Fn(i32) -&gt; i32</code>，Rust 为每个生成的不透明类型也是不同的。（这类似于 Rust 为不同的异步块生成不同的具体类型，即使它们具有相同的输出类型，正如我们在<a href=\"ch17-03-more-futures.html\">“处理任意数量的 Future”</a><!-- ignore -->中第 17 章所看到的。）我们已经多次看到这个问题的解决方案：我们可以使用特质对象，如清单 20-34 所示。",
+    "_note": ""
   }
 }
