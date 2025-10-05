@@ -364,7 +364,9 @@ copy output below; the output updating script doesn't handle subdirectories in p
 Hello, world! 10 plus one is 11!
 </code></pre>
 <p data-x-en="This runs the code in adder/src/main.rs, which depends on the add_one crate.">这会运行 <em>adder/src/main.rs</em> 中的代码，该代码依赖于 <code>add_one</code> crate。</p>
-<h4 id="depending-on-an-external-package-in-a-workspace"><a class="header" href="#depending-on-an-external-package-in-a-workspace">在工作区中依赖外部包</a></h4>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="depending-on-an-external-package-in-a-workspace"></a></p>
+<h3 id="depending-on-an-external-package" data-x-en="Depending on an External Package"><a class="header" href="#depending-on-an-external-package">依赖外部包</a></h3>
 <p data-x-en="Notice that the workspace has only one Cargo.lock file at the top level, rather than having a Cargo.lock in each crate’s directory. This ensures that all crates are using the same version of all dependencies. If we add the rand package to the adder/Cargo.toml and add_one/Cargo.toml files, Cargo will resolve both of those to one version of rand and record that in the one Cargo.lock. Making all crates in the workspace use the same dependencies means the crates will always be compatible with each other. Let’s add the rand crate to the [dependencies] section in the add_one/Cargo.toml file so we can use the rand crate in the add_one crate:">注意，工作区只有一个位于顶级的<em>Cargo.lock</em>文件，而不是每个crate的目录中都有一个<em>Cargo.lock</em>。这确保了所有crate都使用所有依赖的同一版本。如果我们向<em>adder/Cargo.toml</em>和<em>add_one/Cargo.toml</em>文件中添加<code>rand</code>包，Cargo将把这两个都解析为<code>rand</code>的一个版本，并将其记录在唯一的<em>Cargo.lock</em>中。使工作区中的所有crate使用相同的依赖意味着这些crate将始终彼此兼容。让我们在<em>add_one/Cargo.toml</em>文件的<code>[dependencies]</code>部分中添加<code>rand</code>crate，以便我们可以在<code>add_one</code>crate中使用<code>rand</code>crate：</p>
 <!-- When updating the version of `rand` used, also update the version of
 `rand` used in these files so they all match:
@@ -416,7 +418,7 @@ error[E0432]: unresolved import `rand`
 </code></pre>
 <p data-x-en="To fix this, edit the Cargo.toml file for the adder package and indicate that rand is a dependency for it as well. Building the adder package will add rand to the list of dependencies for adder in Cargo.lock, but no additional copies of rand will be downloaded. Cargo will ensure that every crate in every package in the workspace using the rand package will use the same version as long as they specify compatible versions of rand, saving us space and ensuring that the crates in the workspace will be compatible with each other.">要解决这个问题，请编辑 <em>Cargo.toml</em> 文件中的 <code>adder</code> 包，并指明 <code>rand</code> 也是它的依赖项。构建 <code>adder</code> 包会将 <code>rand</code> 添加到 <em>Cargo.lock</em> 中 <code>adder</code> 的依赖项列表中，但不会下载额外的 <code>rand</code> 副本。Cargo 会确保工作区中每个包中使用 <code>rand</code> 包的每个 crate 都使用相同版本的 <code>rand</code>，只要它们指定了兼容版本的 <code>rand</code>，这可以节省空间并确保工作区中的 crate 之间相互兼容。</p>
 <p data-x-en="If crates in the workspace specify incompatible versions of the same dependency, Cargo will resolve each of them, but will still try to resolve as few versions as possible.">如果工作区中的 crate 指定了相同依赖的不同版本，Cargo 将解析每个版本，但仍会尽量减少解析的版本数量。</p>
-<h4 id="adding-a-test-to-a-workspace"><a class="header" href="#adding-a-test-to-a-workspace">在工作区中添加测试</a></h4>
+<h3 id="adding-a-test-to-a-workspace"><a class="header" href="#adding-a-test-to-a-workspace">在工作区中添加测试</a></h3>
 <p data-x-en="For another enhancement, let’s add a test of the add_one::add_one function within the add_one crate:">为了另一个增强，让我们在 <code>add_one</code> crate 中添加一个 <code>add_one::add_one</code> 函数的测试：</p>
 <p data-x-en="Filename: add_one/src/lib.rs"><span class="filename">文件名: add_one/src/lib.rs</span></p>
 <pre><code class="language-rust noplayground">pub fn add_one(x: i32) -&gt; i32 {

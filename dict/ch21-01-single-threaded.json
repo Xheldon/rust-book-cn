@@ -330,5 +330,13 @@
   "Here, our response has a status line with status code 404 and the reason phrase NOT FOUND. The body of the response will be the HTML in the file 404.html. You’ll need to create a 404.html file next to hello.html for the error page; again feel free to use any HTML you want, or use the example HTML in Listing 21-8.": {
     "_translate": "在这里，我们的响应有一个带有状态码 404 和原因短语 <code>NOT FOUND</code> 的状态行。响应的正文将是文件 <em>404.html</em> 中的 HTML。\n你需要在 <em>hello.html</em> 旁边创建一个 <em>404.html</em> 文件作为错误页面；同样，你可以使用任何你想要的 HTML，或者使用列表 21-8 中的示例 HTML。",
     "_note": ""
+  },
+  "Looking Closer at an HTTP Request": {
+    "_translate": "<a class=\"header\" href=\"#looking-closer-at-an-http-request\">更仔细地查看HTTP请求</a>",
+    "_note": ""
+  },
+  "Refactoring": {
+    "_translate": "<a class=\"header\" href=\"#refactoring\">重构</a>",
+    "_note": ""
   }
 }

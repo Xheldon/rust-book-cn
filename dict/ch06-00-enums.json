@@ -10,5 +10,9 @@
   "Enums and Pattern Matching - The Rust Programming Language": {
     "_translate": "枚举和模式匹配 - 《Rust编程语言》",
     "_note": ""
+  },
+  "In this chapter, we’ll look at enumerations, also referred to as enums. Enums allow you to define a type by enumerating its possible variants. First we’ll define and use an enum to show how an enum can encode meaning along with data. Next, we’ll explore a particularly useful enum, called Option, which expresses that a value can be either something or nothing. Then, we’ll look at how pattern matching in the match expression makes it easy to run different code for different values of an enum. Finally, we’ll cover how the if let construct is another convenient and concise idiom available to handle enums in your code.": {
+    "_translate": "在本章中，我们将研究枚举，也称为<em>枚举</em>。枚举允许您通过列举其可能的变体来定义类型。首先，我们将定义并使用一个枚举来展示枚举如何与数据一起编码意义。接下来，我们将探讨一个特别有用的枚举，称为<code>Option</code>，它表达了一个值可以是某个值或没有值。然后，我们将研究<code>match</code>表达式中的模式匹配如何使针对枚举的不同值运行不同代码变得容易。最后，我们将介绍<code>if let</code>结构是如何成为处理代码中枚举的另一个方便且简洁的惯用法。",
+    "_note": ""
   }
 }

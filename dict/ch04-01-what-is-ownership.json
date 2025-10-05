@@ -378,5 +378,93 @@
   "Accessing data in the heap is generally slower than accessing data on the stack because you have to follow a pointer to get there. Contemporary processors are faster if they jump around less in memory. Continuing the analogy, consider a server at a restaurant taking orders from many tables. It’s most efficient to get all the orders at one table before moving on to the next table. Taking an order from table A, then an order from table B, then one from A again, and then one from B again would be a much slower process. By the same token, a processor can usually do its job better if it works on data that’s close to other data (as it is on the stack) rather than farther away (as it can be on the heap).": {
     "_translate": "访问堆中的数据通常比访问栈中的数据要慢，因为您需要通过指针来访问。现代处理器在内存中跳转较少时速度更快。继续这个比喻，考虑一家餐厅的服务员从多个桌子接订单的情况。最有效的方法是在移动到下一个桌子之前先收集完一个桌子的所有订单。从A桌接一个订单，然后从B桌接一个订单，再回到A桌接一个订单，然后再回到B桌接一个订单，这样的过程会慢得多。同样，处理器通常在处理靠近其他数据的数据（如在栈上）时，比处理远离其他数据的数据（如在堆上）时表现更好。",
     "_note": ""
+  },
+  "Ownership is a set of rules that govern how a Rust program manages memory. All programs have to manage the way they use a computer’s memory while running. Some languages have garbage collection that regularly looks for no-longer-used memory as the program runs; in other languages, the programmer must explicitly allocate and free the memory. Rust uses a third approach: Memory is managed through a system of ownership with a set of rules that the compiler checks. If any of the rules are violated, the program won’t compile. None of the features of ownership will slow down your program while it’s running.": {
+    "_translate": "<em>所有权</em>是一组管理 Rust 程序如何管理内存的规则。\n所有程序在运行时都必须管理它们使用计算机内存的方式。\n有些语言具有垃圾回收机制，可以在程序运行时定期查找不再使用的内存；而在其他语言中，程序员必须显式地分配和释放内存。Rust 采用第三种方法：通过所有权系统管理内存，该系统有一组编译器检查的规则。如果违反了任何规则，程序将无法编译。所有权的任何特性都不会在程序运行时减慢程序的速度。",
+    "_note": ""
+  },
+  "Both the stack and the heap are parts of memory available to your code to use at runtime, but they are structured in different ways. The stack stores values in the order it gets them and removes the values in the opposite order. This is referred to as last in, first out (LIFO). Think of a stack of plates: When you add more plates, you put them on top of the pile, and when you need a plate, you take one off the top. Adding or removing plates from the middle or bottom wouldn’t work as well! Adding data is called pushing onto the stack, and removing data is called popping off the stack. All data stored on the stack must have a known, fixed size. Data with an unknown size at compile time or a size that might change must be stored on the heap instead.": {
+    "_translate": "堆栈和堆都是在运行时可供代码使用的内存部分，但它们的结构方式不同。堆栈按照接收值的顺序存储值，并以相反的顺序移除值。这被称为<em>后进先出 (LIFO)</em>。想象一下一叠盘子：当你添加更多盘子时，你会把它们放在堆的顶部，当你需要一个盘子时，你会从顶部取一个。从中间或底部添加或移除盘子效果不会很好！添加数据称为<em>推入堆栈</em>，移除数据称为<em>从堆栈弹出</em>。堆栈上存储的所有数据都必须具有已知的固定大小。编译时大小未知或可能变化的数据必须存储在堆上。",
+    "_note": ""
+  },
+  "The heap is less organized: When you put data on the heap, you request a certain amount of space. The memory allocator finds an empty spot in the heap that is big enough, marks it as being in use, and returns a pointer, which is the address of that location. This process is called allocating on the heap and is sometimes abbreviated as just allocating (pushing values onto the stack is not considered allocating). Because the pointer to the heap is a known, fixed size, you can store the pointer on the stack, but when you want the actual data, you must follow the pointer. Think of being seated at a restaurant. When you enter, you state the number of people in your group, and the host finds an empty table that fits everyone and leads you there. If someone in your group comes late, they can ask where you’ve been seated to find you.": {
+    "_translate": "堆内存的组织性较差：当你将数据放在堆上时，你会请求一定量的空间。内存分配器会在堆中找到一个足够大的空闲位置，将其标记为正在使用，并返回一个<em>指针</em>，即该位置的地址。这个过程称为<em>在堆上分配</em>，有时简称为<em>分配</em>（将值推送到栈上不被视为分配）。因为指向堆的指针是一个已知的固定大小，你可以将指针存储在栈上，但当你需要实际数据时，必须跟随指针。想象一下在餐厅就座的情景。当你进入时，你会说明你团队中的人数，服务员会找到一个适合所有人的空桌并引导你到那里。如果你团队中的人晚到，他们可以询问你坐在哪里来找到你。",
+    "_note": ""
+  },
+  "Keeping track of what parts of code are using what data on the heap, minimizing the amount of duplicate data on the heap, and cleaning up unused data on the heap so that you don’t run out of space are all problems that ownership addresses. Once you understand ownership, you won’t need to think about the stack and the heap very often. But knowing that the main purpose of ownership is to manage heap data can help explain why it works the way it does.": {
+    "_translate": "跟踪代码的哪些部分正在使用堆上的哪些数据，最小化堆上的重复数据量，以及清理堆上未使用的数据以防止空间耗尽，这些都是所有权要解决的问题。一旦你理解了所有权，你就不会经常需要考虑栈和堆了。但知道所有权的主要目的是管理堆数据，这有助于解释它为何如此运作。",
+    "_note": ""
+  },
+  "Now that we’re past basic Rust syntax, we won’t include all the fn main() { code in the examples, so if you’re following along, make sure to put the following examples inside a main function manually. As a result, our examples will be a bit more concise, letting us focus on the actual details rather than boilerplate code.": {
+    "_translate": "现在我们已经过了基本的 Rust 语法，所以在示例中将不再包含所有的 <code>fn main() {</code>\n代码，因此如果你在跟着做，确保将以下示例手动放在一个 <code>main</code> 函数中。因此，我们的示例\n将更加简洁，让我们可以专注于实际的细节而不是样板代码。",
+    "_note": ""
+  },
+  "We’ll concentrate on the parts of String that relate to ownership. These aspects also apply to other complex data types, whether they are provided by the standard library or created by you. We’ll discuss non-ownership aspects of String in Chapter 8.": {
+    "_translate": "我们将集中讨论与所有权有关的<code>String</code>部分。这些方面也适用于其他复杂数据类型，无论是标准库提供的还是你创建的。我们将在<a href=\"ch08-02-strings.html\">第8章</a>讨论<code>String</code>的非所有权方面。",
+    "_note": ""
+  },
+  "We’ve already seen string literals, where a string value is hardcoded into our program. String literals are convenient, but they aren’t suitable for every situation in which we may want to use text. One reason is that they’re immutable. Another is that not every string value can be known when we write our code: For example, what if we want to take user input and store it? It is for these situations that Rust has the String type. This type manages data allocated on the heap and as such is able to store an amount of text that is unknown to us at compile time. You can create a String from a string literal using the from function, like so:": {
+    "_translate": "我们已经看到了字符串字面量，其中字符串值被硬编码到我们的程序中。字符串字面量很方便，但它们并不适用于我们可能想要使用文本的每种情况。一个原因是它们是不可变的。另一个原因是并不是每个字符串值在我们编写代码时都能知道：例如，如果我们想获取用户输入并存储它怎么办？正是为了这些情况，Rust 提供了 <code>String</code> 类型。这种类型管理在堆上分配的数据，因此能够存储在编译时对我们未知的文本量。你可以使用 <code>from</code> 函数从字符串字面量创建 <code>String</code>，如下所示：",
+    "_note": ""
+  },
+  "The double colon :: operator allows us to namespace this particular from function under the String type rather than using some sort of name like string_from. We’ll discuss this syntax more in the “Methods” section of Chapter 5, and when we talk about namespacing with modules in “Paths for Referring to an Item in the Module Tree” in Chapter 7.": {
+    "_translate": "双冒号 <code>::</code> 操作符允许我们将这个特定的 <code>from</code> 函数命名空间化在 <code>String</code> 类型下，而不是使用类似 <code>string_from</code> 这样的名称。我们将在第 5 章的 <a href=\"ch05-03-method-syntax.html#methods\">“方法”</a><!--\nignore --> 部分更多地讨论这种语法，以及在第 7 章的 <a href=\"ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html\">“模块树中引用项的路径”</a><!-- ignore --> 部分讨论使用模块进行命名空间化。",
+    "_note": ""
+  },
+  "That first part is done by us: When we call String::from, its implementation requests the memory it needs. This is pretty much universal in programming languages.": {
+    "_translate": "那第一部分是由我们完成的：当我们调用<code>String::from</code>时，它的实现会请求它需要的内存。这在编程语言中几乎是普遍的。",
+    "_note": ""
+  },
+  "Multiple variables can interact with the same data in different ways in Rust. Listing 4-2 shows an example using an integer.": {
+    "_translate": "多个变量可以以不同的方式与相同的数据交互。\n列表 4-2 显示了一个使用整数的示例。",
+    "_note": ""
+  },
+  "Rust takes a different path: The memory is automatically returned once the variable that owns it goes out of scope. Here’s a version of our scope example from Listing 4-1 using a String instead of a string literal:": {
+    "_translate": "Rust 采取了不同的方法：一旦拥有内存的变量超出作用域，内存就会自动返回。这是使用 <code>String</code> 而不是字符串字面量的第 4-1 列表中作用域示例的版本：",
+    "_note": ""
+  },
+  "This looks very similar, so we might assume that the way it works would be the same: That is, the second line would make a copy of the value in s1 and bind it to s2. But this isn’t quite what happens.": {
+    "_translate": "这看起来非常相似，所以我们可能会认为它的运作方式也是一样的：也就是说，第二行会复制 <code>s1</code> 中的值并将其绑定到 <code>s2</code>。但事实并非如此。",
+    "_note": ""
+  },
+  "We can probably guess what this is doing: “Bind the value 5 to x; then, make a copy of the value in x and bind it to y.” We now have two variables, x and y, and both equal 5. This is indeed what is happening, because integers are simple values with a known, fixed size, and these two 5 values are pushed onto the stack.": {
+    "_translate": "我们可以猜到这是在做什么：“将值<code>5</code>绑定到<code>x</code>；然后，复制<code>x</code>中的值并将其绑定到<code>y</code>。”现在我们有两个变量<code>x</code>和<code>y</code>，它们都等于<code>5</code>。这确实是在发生的事情，因为整数是具有已知固定大小的简单值，这两个<code>5</code>值被推送到栈上。",
+    "_note": ""
+  },
+  "Figure 4-1: The representation in memory of a String holding the value \"hello\" bound to s1": {
+    "_translate": "<span class=\"caption\">图4-1: 绑定到 <code>s1</code> 的 <code>String</code> 类型值 <code>\"hello\"</code> 在内存中的表示</span>",
+    "_note": ""
+  },
+  "Figure 4-2: The representation in memory of the variable s2 that has a copy of the pointer, length, and capacity of s1": {
+    "_translate": "<span class=\"caption\">图4-2：变量 <code>s2</code> 在内存中的表示，它包含了 <code>s1</code> 的指针、长度和容量的副本</span>",
+    "_note": ""
+  },
+  "Figure 4-4: The representation in memory after s1 has been invalidated": {
+    "_translate": "<span class=\"caption\">图4-4：在 <code>s1</code> 被无效化后的内存表示</span>",
+    "_note": ""
+  },
+  "Earlier, we said that when a variable goes out of scope, Rust automatically calls the drop function and cleans up the heap memory for that variable. But Figure 4-2 shows both data pointers pointing to the same location. This is a problem: When s2 and s1 go out of scope, they will both try to free the same memory. This is known as a double free error and is one of the memory safety bugs we mentioned previously. Freeing memory twice can lead to memory corruption, which can potentially lead to security vulnerabilities.": {
+    "_translate": "早些时候，我们说过当一个变量超出作用域时，Rust 会自动调用 <code>drop</code> 函数并清理该变量的堆内存。但是图 4-2 显示两个数据指针指向同一位置。这是一个问题：当 <code>s2</code> 和 <code>s1</code> 超出作用域时，它们都会尝试释放同一块内存。这被称为 <em>双重释放</em> 错误，是我们之前提到的内存安全漏洞之一。两次释放内存可能导致内存损坏，进而可能引发安全漏洞。",
+    "_note": ""
+  },
+  "Figure 4-5: The representation in memory after the initial value has been replaced in its entirety": {
+    "_translate": "<span class=\"caption\">图4-5：初始值被完全替换后的内存表示</span>",
+    "_note": ""
+  },
+  "We initially declare a variable s and bind it to a String with the value \"hello\". Then, we immediately create a new String with the value \"ahoy\" and assign it to s. At this point, nothing is referring to the original value on the heap at all. Figure 4-5 illustrates the stack and heap data now:": {
+    "_translate": "我们最初声明一个变量<code>s</code>并将其绑定到一个值为<code>\"hello\"</code>的<code>String</code>。然后，我们立即创建一个值为<code>\"ahoy\"</code>的新<code>String</code>并将其赋值给<code>s</code>。此时，没有任何东西引用堆上的原始值。图4-5展示了现在的栈和堆数据：",
+    "_note": ""
+  },
+  "But this code seems to contradict what we just learned: We don’t have a call to clone, but x is still valid and wasn’t moved into y.": {
+    "_translate": "但这段代码似乎与我们刚刚学到的内容相矛盾：我们没有调用 <code>clone</code>，但 <code>x</code> 仍然有效，并且没有被移动到 <code>y</code> 中。",
+    "_note": ""
+  },
+  "The ownership of a variable follows the same pattern every time: Assigning a value to another variable moves it. When a variable that includes data on the heap goes out of scope, the value will be cleaned up by drop unless ownership of the data has been moved to another variable.": {
+    "_translate": "变量的所有权每次遵循相同的模式：将值赋给另一个变量会移动它。当包含堆上数据的变量超出作用域时，除非数据的所有权已移交给另一个变量，否则该值将由<code>drop</code>清理。",
+    "_note": ""
+  },
+  "But this is too much ceremony and a lot of work for a concept that should be common. Luckily for us, Rust has a feature for using a value without transferring ownership: references.": {
+    "_translate": "但这对于一个应该常见的概念来说，太过繁琐和费力。幸运的是，Rust 有一个特性可以在不转移所有权的情况下使用值：引用。",
+    "_note": ""
   }
 }

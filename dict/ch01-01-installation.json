@@ -138,5 +138,17 @@
   "This will cache the downloads for these packages so you will not need to download them later. Once you have run this command, you do not need to keep the get-dependencies folder. If you have run this command, you can use the --offline flag with all cargo commands in the rest of the book to use these cached versions instead of attempting to use the network.": {
     "_translate": "这将缓存这些包的下载，因此你以后不需要再下载它们。一旦你运行了这个命令，你就不需要保留<code>get-dependencies</code>文件夹。如果你已经运行了这个命令，你可以在本书其余部分的所有<code>cargo</code>命令中使用<code>--offline</code>标志来使用这些缓存版本，而不是尝试使用网络。",
     "_note": ""
+  },
+  "Reading the Local Documentation": {
+    "_translate": "<a class=\"header\" href=\"#reading-the-local-documentation\">阅读本地文档</a>",
+    "_note": ""
+  },
+  "On Windows, go to https://www.rust-lang.org/tools/install and follow the instructions for installing Rust. At some point in the installation, you’ll be prompted to install Visual Studio. This provides a linker and the native libraries needed to compile programs. If you need more help with this step, see https://rust-lang.github.io/rustup/installation/windows-msvc.html.": {
+    "_translate": "在 Windows 上，前往 <a href=\"https://www.rust-lang.org/tools/install\">https://www.rust-lang.org/tools/install</a><!-- ignore\n--> 并按照安装 Rust 的说明进行操作。在安装过程中，您将被提示安装 Visual Studio。这提供了编译程序所需链接器和本机库。如果您需要更多帮助，请参阅\n<a href=\"https://rust-lang.github.io/rustup/installation/windows-msvc.html\">https://rust-lang.github.io/rustup/installation/windows-msvc.html</a><!--\nignore -->。",
+    "_note": ""
+  },
+  "Using Text Editors and IDEs": {
+    "_translate": "<a class=\"header\" href=\"#using-text-editors-and-ides\">使用文本编辑器和IDE</a>",
+    "_note": ""
   }
 }

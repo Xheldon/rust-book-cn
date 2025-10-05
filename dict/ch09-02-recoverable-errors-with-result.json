@@ -262,5 +262,69 @@
   "Where the ? Operator Can Be Used": {
     "_translate": "<a class=\"header\" href=\"#where-the--operator-can-be-used\">？操作符可以使用的地方</a>",
     "_note": ""
+  },
+  "Most errors aren’t serious enough to require the program to stop entirely. Sometimes when a function fails, it’s for a reason that you can easily interpret and respond to. For example, if you try to open a file and that operation fails because the file doesn’t exist, you might want to create the file instead of terminating the process.": {
+    "_translate": "大多数错误并不严重到需要程序完全停止。\n有时，当一个函数失败时，原因是你很容易解释和应对的。例如，如果你尝试打开一个文件，而该操作失败是因为文件不存在，你可能希望创建该文件而不是终止进程。",
+    "_note": ""
+  },
+  "Let’s call a function that returns a Result value because the function could fail. In Listing 9-3, we try to open a file.": {
+    "_translate": "让我们调用一个返回 <code>Result</code> 值的函数，因为该函数可能会失败。在示例 9-3 中，我们尝试打开一个文件。",
+    "_note": ""
+  },
+  "The T and E are generic type parameters: We’ll discuss generics in more detail in Chapter 10. What you need to know right now is that T represents the type of the value that will be returned in a success case within the Ok variant, and E represents the type of the error that will be returned in a failure case within the Err variant. Because Result has these generic type parameters, we can use the Result type and the functions defined on it in many different situations where the success value and error value we want to return may differ.": {
+    "_translate": "<code>T</code> 和 <code>E</code> 是泛型类型参数：我们将在第 10 章中更详细地讨论泛型。你现在需要知道的是，<code>T</code> 表示在 <code>Ok</code> 变体中成功情况下将返回的值的类型，而 <code>E</code> 表示在 <code>Err</code> 变体中失败情况下将返回的错误的类型。因为 <code>Result</code> 有这些泛型类型参数，我们可以在许多不同的情况下使用 <code>Result</code> 类型及其定义的函数，这些情况下我们想要返回的成功值和错误值可能不同。",
+    "_note": ""
+  },
+  "The return type of File::open is a Result<T, E>. The generic parameter T has been filled in by the implementation of File::open with the type of the success value, std::fs::File, which is a file handle. The type of E used in the error value is std::io::Error. This return type means the call to File::open might succeed and return a file handle that we can read from or write to. The function call also might fail: For example, the file might not exist, or we might not have permission to access the file. The File::open function needs to have a way to tell us whether it succeeded or failed and at the same time give us either the file handle or error information. This information is exactly what the Result enum conveys.": {
+    "_translate": "<code>File::open</code> 的返回类型是 <code>Result&lt;T, E&gt;</code>。泛型参数 <code>T</code>\n已被 <code>File::open</code> 的实现填充为成功值的类型，即 <code>std::fs::File</code>，这是一个文件句柄。错误值中使用的 <code>E</code> 类型是 <code>std::io::Error</code>。这种返回类型意味着对 <code>File::open</code> 的调用可能会成功并返回一个我们可以从中读取或写入的文件句柄。函数调用也可能会失败：例如，文件可能不存在，或者我们可能没有访问文件的权限。<code>File::open</code>\n函数需要有一种方式告诉我们它是否成功或失败，同时提供文件句柄或错误信息。这正是 <code>Result</code> 枚举所传达的信息。",
+    "_note": ""
+  },
+  "The type of the value that File::open returns inside the Err variant is io::Error, which is a struct provided by the standard library. This struct has a method, kind, that we can call to get an io::ErrorKind value. The enum io::ErrorKind is provided by the standard library and has variants representing the different kinds of errors that might result from an io operation. The variant we want to use is ErrorKind::NotFound, which indicates the file we’re trying to open doesn’t exist yet. So, we match on greeting_file_result, but we also have an inner match on error.kind().": {
+    "_translate": "<code>File::open</code> 在 <code>Err</code> 变体中返回的值的类型是 <code>io::Error</code>，这是一个由标准库提供的结构体。这个结构体有一个方法 <code>kind</code>，我们可以调用它来获取一个 <code>io::ErrorKind</code> 值。枚举 <code>io::ErrorKind</code> 由标准库提供，具有表示可能从 <code>io</code> 操作中产生的不同类型的错误的变体。我们想要使用的变体是 <code>ErrorKind::NotFound</code>，它表示我们试图打开的文件还不存在。因此，我们对 <code>greeting_file_result</code> 进行匹配，但我们也对 <code>error.kind()</code> 进行内部匹配。",
+    "_note": ""
+  },
+  "Shortcuts for Panic on Error": {
+    "_translate": "<a class=\"header\" href=\"#shortcuts-for-panic-on-error\">错误时快速引发恐慌的快捷方式</a>",
+    "_note": ""
+  },
+  "Although this code has the same behavior as Listing 9-5, it doesn’t contain any match expressions and is cleaner to read. Come back to this example after you’ve read Chapter 13 and look up the unwrap_or_else method in the standard library documentation. Many more of these methods can clean up huge, nested match expressions when you’re dealing with errors.": {
+    "_translate": "虽然这段代码的行为与清单 9-5 相同，但它不包含任何 <code>match</code> 表达式，读起来更干净。在阅读完第 13 章后，回过头来看这个例子，并查阅标准库文档中的 <code>unwrap_or_else</code> 方法。当你处理错误时，许多这样的方法可以清理巨大的、嵌套的 <code>match</code> 表达式。",
+    "_note": ""
+  },
+  "The body of the function starts by calling the File::open function. Then, we handle the Result value with a match similar to the match in Listing 9-4. If File::open succeeds, the file handle in the pattern variable file becomes the value in the mutable variable username_file and the function continues. In the Err case, instead of calling panic!, we use the return keyword to return early out of the function entirely and pass the error value from File::open, now in the pattern variable e, back to the calling code as this function’s error value.": {
+    "_translate": "函数体首先调用 <code>File::open</code> 函数。然后，我们使用一个类似于列表 9-4 中的 <code>match</code> 来处理 <code>Result</code> 值。如果 <code>File::open</code> 成功，模式变量 <code>file</code> 中的文件句柄将成为可变变量 <code>username_file</code> 的值，函数继续执行。在 <code>Err</code> 情况下，我们没有调用 <code>panic!</code>，而是使用 <code>return</code> 关键字提前从函数中返回，并将 <code>File::open</code> 的错误值，现在在模式变量 <code>e</code> 中，作为此函数的错误值传递给调用代码。",
+    "_note": ""
+  },
+  "The ? Operator Shortcut": {
+    "_translate": "<a class=\"header\" href=\"#the--operator-shortcut\">问号 <code>?</code> 操作符快捷方式</a>",
+    "_note": ""
+  },
+  "So, if we have a file handle in username_file, the function then creates a new String in variable username and calls the read_to_string method on the file handle in username_file to read the contents of the file into username. The read_to_string method also returns a Result because it might fail, even though File::open succeeded. So, we need another match to handle that Result: If read_to_string succeeds, then our function has succeeded, and we return the username from the file that’s now in username wrapped in an Ok. If read_to_string fails, we return the error value in the same way that we returned the error value in the match that handled the return value of File::open. However, we don’t need to explicitly say return, because this is the last expression in the function.": {
+    "_translate": "所以，如果我们有一个文件句柄在 <code>username_file</code> 中，该函数会在变量 <code>username</code> 中创建一个新的 <code>String</code>，并调用 <code>username_file</code> 中文件句柄的 <code>read_to_string</code> 方法，将文件内容读取到 <code>username</code> 中。<code>read_to_string</code> 方法也会返回一个 <code>Result</code>，因为它可能会失败，即使 <code>File::open</code> 成功了。因此，我们需要另一个 <code>match</code> 来处理这个 <code>Result</code>：如果 <code>read_to_string</code> 成功，那么我们的函数就成功了，我们返回一个包含在 <code>Ok</code> 中的文件中的用户名，该用户名现在在 <code>username</code> 中。如果 <code>read_to_string</code> 失败，我们以与处理 <code>File::open</code> 返回值的 <code>match</code> 中返回错误值相同的方式返回错误值。然而，我们不需要显式地说 <code>return</code>，因为这是函数中的最后一个表达式。",
+    "_note": ""
+  },
+  "The ? placed after a Result value is defined to work in almost the same way as the match expressions that we defined to handle the Result values in Listing 9-6. If the value of the Result is an Ok, the value inside the Ok will get returned from this expression, and the program will continue. If the value is an Err, the Err will be returned from the whole function as if we had used the return keyword so that the error value gets propagated to the calling code.": {
+    "_translate": "放置在 <code>Result</code> 值后面的 <code>?</code> 被定义为几乎以相同的方式工作，就像我们在清单 9-6 中定义的用于处理 <code>Result</code> 值的 <code>match</code> 表达式一样。如果 <code>Result</code> 的值是 <code>Ok</code>，则 <code>Ok</code> 内部的值将从这个表达式返回，程序将继续执行。如果值是 <code>Err</code>，则 <code>Err</code> 将从整个函数返回，就像我们使用了 <code>return</code> 关键字一样，从而使错误值传播到调用代码。",
+    "_note": ""
+  },
+  "There is a difference between what the match expression from Listing 9-6 does and what the ? operator does: Error values that have the ? operator called on them go through the from function, defined in the From trait in the standard library, which is used to convert values from one type into another. When the ? operator calls the from function, the error type received is converted into the error type defined in the return type of the current function. This is useful when a function returns one error type to represent all the ways a function might fail, even if parts might fail for many different reasons.": {
+    "_translate": "<code>match</code> 表达式（如清单 9-6 所示）和 <code>?</code> 操作符之间存在差异：调用 <code>?</code> 操作符的错误值会通过标准库中定义的 <code>From</code> 特性中的 <code>from</code> 函数进行处理，该函数用于将值从一种类型转换为另一种类型。当 <code>?</code> 操作符调用 <code>from</code> 函数时，接收到的错误类型会被转换为当前函数返回类型中定义的错误类型。这在函数返回一种错误类型以表示函数可能失败的所有方式时非常有用，即使某些部分可能因多种不同原因而失败。",
+    "_note": ""
+  },
+  "Where to Use the ? Operator": {
+    "_translate": "<a class=\"header\" href=\"#where-to-use-the--operator\">在哪里使用 <code>?</code> 操作符</a>",
+    "_note": ""
+  },
+  "The error message also mentioned that ? can be used with Option<T> values as well. As with using ? on Result, you can only use ? on Option in a function that returns an Option. The behavior of the ? operator when called on an Option<T> is similar to its behavior when called on a Result<T, E>: If the value is None, the None will be returned early from the function at that point. If the value is Some, the value inside the Some is the resultant value of the expression, and the function continues. Listing 9-11 has an example of a function that finds the last character of the first line in the given text.": {
+    "_translate": "错误消息还提到，<code>?</code> 也可以与 <code>Option&lt;T&gt;</code> 值一起使用。与在 <code>Result</code> 上使用 <code>?</code> 一样，你只能在返回 <code>Option</code> 的函数中使用 <code>?</code>。当在 <code>Option&lt;T&gt;</code> 上调用 <code>?</code> 操作符时，其行为类似于在 <code>Result&lt;T, E&gt;</code> 上调用时的行为：如果值是 <code>None</code>，则函数会在该点提前返回 <code>None</code>。如果值是 <code>Some</code>，则 <code>Some</code> 内的值是表达式的结果值，函数继续执行。列表 9-11 有一个示例函数，该函数查找给定文本中第一行的最后一个字符。",
+    "_note": ""
+  },
+  "The Box<dyn Error> type is a trait object, which we’ll talk about in “Using Trait Objects to Abstract over Shared Behavior” in Chapter 18. For now, you can read Box<dyn Error> to mean “any kind of error.” Using ? on a Result value in a main function with the error type Box<dyn Error> is allowed because it allows any Err value to be returned early. Even though the body of this main function will only ever return errors of type std::io::Error, by specifying Box<dyn Error>, this signature will continue to be correct even if more code that returns other errors is added to the body of main.": {
+    "_translate": "<code>Box&lt;dyn Error&gt;</code> 类型是一个特征对象，我们将在第 18 章的 <a href=\"ch18-02-trait-objects.html#using-trait-objects-to-abstract-over-shared-behavior\">“使用特征对象抽象共享行为”</a><!-- ignore -->\n中讨论。现在，你可以将 <code>Box&lt;dyn Error&gt;</code> 理解为“任何类型的错误”。在具有错误类型 <code>Box&lt;dyn Error&gt;</code> 的 <code>main</code> 函数中对 <code>Result</code> 值使用 <code>?</code> 是允许的，因为它允许任何 <code>Err</code> 值提前返回。尽管这个 <code>main</code> 函数的主体将只会返回 <code>std::io::Error</code> 类型的错误，但通过指定 <code>Box&lt;dyn Error&gt;</code>，即使在 <code>main</code> 函数的主体中添加了返回其他错误的代码，此签名也将继续正确。",
+    "_note": ""
+  },
+  "When a main function returns a Result<(), E>, the executable will exit with a value of 0 if main returns Ok(()) and will exit with a nonzero value if main returns an Err value. Executables written in C return integers when they exit: Programs that exit successfully return the integer 0, and programs that error return some integer other than 0. Rust also returns integers from executables to be compatible with this convention.": {
+    "_translate": "当 <code>main</code> 函数返回一个 <code>Result&lt;(), E&gt;</code> 时，如果 <code>main</code> 返回 <code>Ok(())</code>，可执行文件将退出并返回值 <code>0</code>；如果 <code>main</code> 返回一个 <code>Err</code> 值，可执行文件将退出并返回一个非零值。用 C 语言编写的可执行文件在退出时返回整数：成功退出的程序返回整数 <code>0</code>，而发生错误的程序返回一个非零整数。Rust 也从可执行文件返回整数，以兼容这一惯例。",
+    "_note": ""
   }
 }

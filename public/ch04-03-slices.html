@@ -251,9 +251,9 @@ blockquote {
                     <main>
                         <h2 id="the-slice-type"><a class="header" href="#the-slice-type">切片类型</a></h2>
 <p data-x-en="Slices let you reference a contiguous sequence of elements in a collection. A slice is a kind of reference, so it does not have ownership."><em>切片</em> 让你引用一个 <a href="ch08-00-common-collections.html">集合</a><!-- ignore --> 中连续的元素序列。切片是一种引用，因此它没有所有权。</p>
-<p data-x-en="Here’s a small programming problem: write a function that takes a string of words separated by spaces and returns the first word it finds in that string. If the function doesn’t find a space in the string, the whole string must be one word, so the entire string should be returned.">这是一个小的编程问题：编写一个函数，该函数接受一个由空格分隔的单词字符串，并返回在该字符串中找到的第一个单词。如果函数在字符串中找不到空格，则整个字符串必须是一个单词，因此应返回整个字符串。</p>
+<p data-x-en="Here’s a small programming problem: Write a function that takes a string of words separated by spaces and returns the first word it finds in that string. If the function doesn’t find a space in the string, the whole string must be one word, so the entire string should be returned.">这是一个小的编程问题：编写一个函数，该函数接收一个由空格分隔的单词字符串，并返回在该字符串中找到的第一个单词。如果函数在字符串中找不到空格，则整个字符串必须是一个单词，因此应返回整个字符串。</p>
 <section class="note" aria-role="note">
-<p data-x-en="Note: For the purposes of introducing string slices, we are assuming ASCII only in this section; a more thorough discussion of UTF-8 handling is in the “Storing UTF-8 Encoded Text with Strings” section of Chapter 8.">注意：为了介绍字符串切片，本节假设只使用 ASCII；关于 UTF-8 处理的更详细讨论，请参见第 8 章的 <a href="ch08-02-strings.html#storing-utf-8-encoded-text-with-strings">“使用字符串存储 UTF-8 编码的文本”</a><!-- ignore --> 部分。</p>
+<p data-x-en="Note: For the purposes of introducing slices, we are assuming ASCII only in this section; a more thorough discussion of UTF-8 handling is in the “Storing UTF-8 Encoded Text with Strings” section of Chapter 8.">注意：为了介绍切片，我们在本节中假设只使用 ASCII；关于 UTF-8 处理的更详细讨论，请参阅第 8 章的<a href="ch08-02-strings.html#storing-utf-8-encoded-text-with-strings">“使用字符串存储 UTF-8 编码的文本”</a>部分。</p>
 </section>
 <p data-x-en="Let’s work through how we’d write the signature of this function without using slices, to understand the problem that slices will solve:">让我们逐步了解如何在不使用切片的情况下编写此函数的签名，以理解切片将解决的问题:</p>
 <pre><code class="language-rust ignore">fn first_word(s: &amp;String) -&gt; ?</code></pre>
@@ -351,7 +351,7 @@ blockquote {
 <figcaption><a href="#listing-4-8">Listing 4-8</a>: Storing the result from calling the <code>first_word</code> function and then changing the <code>String</code> contents</figcaption>
 </figure>
 <p data-x-en="This program compiles without any errors and would also do so if we used word after calling s.clear(). Because word isn’t connected to the state of s at all, word still contains the value 5. We could use that value 5 with the variable s to try to extract the first word out, but this would be a bug because the contents of s have changed since we saved 5 in word.">这个程序编译时没有任何错误，即使我们在调用 <code>s.clear()</code> 之后使用 <code>word</code> 也会如此。因为 <code>word</code> 完全不依赖于 <code>s</code> 的状态，<code>word</code> 仍然包含值 <code>5</code>。我们可以使用该值 <code>5</code> 与变量 <code>s</code> 试图提取出第一个单词，但这将是一个错误，因为自我们保存 <code>5</code> 到 <code>word</code> 以来，<code>s</code> 的内容已经发生了变化。</p>
-<p data-x-en="Having to worry about the index in word getting out of sync with the data in s is tedious and error prone! Managing these indices is even more brittle if we write a second_word function. Its signature would have to look like this:">在 <code>word</code> 中的索引与 <code>s</code> 中的数据不同步是一个繁琐且容易出错的问题！如果我们要编写一个 <code>second_word</code> 函数，管理这些索引会更加脆弱。它的签名必须像这样：</p>
+<p data-x-en="Having to worry about the index in word getting out of sync with the data in s is tedious and error-prone! Managing these indices is even more brittle if we write a second_word function. Its signature would have to look like this:">在 <code>word</code> 中的索引与 <code>s</code> 中的数据不同步是一个繁琐且容易出错的问题！如果我们要编写一个 <code>second_word</code> 函数，管理这些索引会更加脆弱。它的签名将不得不像这样：</p>
 <pre><code class="language-rust ignore">fn second_word(s: &amp;String) -&gt; (usize, usize) {</code></pre>
 <p data-x-en="Now we’re tracking a starting and an ending index, and we have even more values that were calculated from data in a particular state but aren’t tied to that state at all. We have three unrelated variables floating around that need to be kept in sync.">现在我们正在跟踪一个起始 <em>和</em> 结束索引，我们甚至有更多的值是从特定状态的数据计算出来的，但完全不依赖于该状态。我们有三个互不相关的变量需要保持同步。</p>
 <p data-x-en="Luckily, Rust has a solution to this problem: string slices.">幸运的是，Rust 有一个解决这个问题的方案：字符串切片。</p>
@@ -363,13 +363,13 @@ blockquote {
     let hello = &amp;s[0..5];
     let world = &amp;s[6..11];
 <span class="boring">}</span></code></pre></pre>
-<p data-x-en="Rather than a reference to the entire String, hello is a reference to a portion of the String, specified in the extra [0..5] bit. We create slices using a range within brackets by specifying [starting_index..ending_index], where starting_index is the first position in the slice and ending_index is one more than the last position in the slice. Internally, the slice data structure stores the starting position and the length of the slice, which corresponds to ending_index minus starting_index. So, in the case of let world = &amp;s[6..11];, world would be a slice that contains a pointer to the byte at index 6 of s with a length value of 5.">而不是对整个 <code>String</code> 的引用，<code>hello</code> 是对 <code>String</code> 的一部分的引用，这部分由额外的 <code>[0..5]</code> 指定。我们通过在括号内使用范围指定 <code>[starting_index..ending_index]</code> 来创建切片，其中 <code>starting_index</code> 是切片的第一个位置，<code>ending_index</code> 是切片最后一个位置的下一个位置。内部，切片数据结构存储切片的起始位置和长度，这对应于 <code>ending_index</code> 减去 <code>starting_index</code>。因此，在 <code>let world = &amp;s[6..11];</code> 的情况下，<code>world</code> 将是一个包含指向 <code>s</code> 中索引 6 的字节的指针和长度值为 <code>5</code> 的切片。</p>
+<p data-x-en="Rather than a reference to the entire String, hello is a reference to a portion of the String, specified in the extra [0..5] bit. We create slices using a range within square brackets by specifying [starting_index..ending_index], where starting_index is the first position in the slice and ending_index is one more than the last position in the slice. Internally, the slice data structure stores the starting position and the length of the slice, which corresponds to ending_index minus starting_index. So, in the case of let world = &amp;s[6..11];, world would be a slice that contains a pointer to the byte at index 6 of s with a length value of 5.">而不是对整个 <code>String</code> 的引用，<code>hello</code> 是对 <code>String</code> 的一部分的引用，这部分由额外的 <code>[0..5]</code> 指定。我们通过在方括号内指定 <code>[starting_index..ending_index]</code> 来创建切片，其中 <em><code>starting_index</code></em> 是切片的第一个位置，<em><code>ending_index</code></em> 是切片最后一个位置的下一个位置。内部，切片数据结构存储了切片的起始位置和长度，这个长度对应于 <em><code>ending_index</code></em> 减去 <em><code>starting_index</code></em>。因此，在 <code>let world = &amp;s[6..11];</code> 的情况下，<code>world</code> 将是一个包含指向 <code>s</code> 中索引 6 的字节的指针和长度值为 <code>5</code> 的切片。</p>
 <p data-x-en="Figure 4-7 shows this in a diagram.">图4-7以图表形式展示了这一点。</p>
 <p><img alt="Three tables: a table representing the stack data of s, which points
 to the byte at index 0 in a table of the string data &quot;hello world&quot; on
-the heap. The third table rep-resents the stack data of the slice world, which
+the heap. The third table represents the stack data of the slice world, which
 has a length value of 5 and points to byte 6 of the heap data table." src="img/trpl04-07.svg" class="center" style="width: 50%;"></p>
-<p data-x-en="Figure 4-7: String slice referring to part of a String"><span class="caption">图4-7：指向 <code>String</code> 部分的字符串切片</span></p>
+<p data-x-en="Figure 4-7: A string slice referring to part of a String"><span class="caption">图4-7：指向 <code>String</code> 部分的字符串切片</span></p>
 <p data-x-en="With Rust’s .. range syntax, if you want to start at index 0, you can drop the value before the two periods. In other words, these are equal:">使用 Rust 的 <code>..</code> 范围语法，如果你想从索引 0 开始，可以省略两个点之前的值。换句话说，这些是相等的：</p>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
@@ -388,7 +388,7 @@ let len = s.len();
 let slice = &amp;s[3..len];
 let slice = &amp;s[3..];
 <span class="boring">}</span></code></pre></pre>
-<p data-x-en="You can also drop both values to take a slice of the entire string. So these are equal:">你也可以丢弃两个值来获取整个字符串的切片。所以这些是相等的：</p>
+<p data-x-en="You can also drop both values to take a slice of the entire string. So, these are equal:">你也可以丢弃这两个值来获取整个字符串的切片。所以，这些是相等的：</p>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>let s = String::from("hello");
@@ -422,7 +422,7 @@ let slice = &amp;s[..];
 <p data-x-en="Now when we call first_word, we get back a single value that is tied to the underlying data. The value is made up of a reference to the starting point of the slice and the number of elements in the slice.">现在当我们调用<code>first_word</code>时，我们得到一个与底层数据关联的单一值。该值由对切片起点的引用和切片中的元素数量组成。</p>
 <p data-x-en="Returning a slice would also work for a second_word function:">返回一个切片对于 <code>second_word</code> 函数也同样适用：</p>
 <pre><code class="language-rust ignore">fn second_word(s: &amp;String) -&gt; &amp;str {</code></pre>
-<p data-x-en="We now have a straightforward API that’s much harder to mess up because the compiler will ensure the references into the String remain valid. Remember the bug in the program in Listing 4-8, when we got the index to the end of the first word but then cleared the string so our index was invalid? That code was logically incorrect but didn’t show any immediate errors. The problems would show up later if we kept trying to use the first word index with an emptied string. Slices make this bug impossible and let us know we have a problem with our code much sooner. Using the slice version of first_word will throw a compile-time error:">我们现在有一个更简单的 API，它更难出错，因为编译器会确保对 <code>String</code> 的引用保持有效。还记得第 4-8 列表中的程序错误吗？当我们获取了第一个单词的索引，但随后清空了字符串，使我们的索引无效。那段代码逻辑上是错误的，但没有立即显示错误。如果我们继续尝试使用第一个单词的索引与一个已清空的字符串，问题会在稍后出现。切片使这个错误变得不可能，并让我们更早地知道代码有问题。使用 <code>first_word</code> 的切片版本会在编译时抛出错误：</p>
+<p data-x-en="We now have a straightforward API that’s much harder to mess up because the compiler will ensure that the references into the String remain valid. Remember the bug in the program in Listing 4-8, when we got the index to the end of the first word but then cleared the string so our index was invalid? That code was logically incorrect but didn’t show any immediate errors. The problems would show up later if we kept trying to use the first word index with an emptied string. Slices make this bug impossible and let us know much sooner that we have a problem with our code. Using the slice version of first_word will throw a compile-time error:">我们现在有一个更难出错的简单 API，因为编译器会确保对 <code>String</code> 的引用保持有效。还记得第 4-8 列表中的程序错误吗？当我们获取了第一个单词的索引，但随后清空了字符串，导致索引无效。那段代码逻辑上是错误的，但没有立即显示任何错误。如果我们继续尝试使用清空后的字符串的第一个单词索引，问题会在稍后出现。切片使这个错误变得不可能，并让我们更早地知道代码有问题。使用 <code>first_word</code> 的切片版本会在编译时抛出错误：</p>
 <figure class="listing">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">fn first_word(s: &amp;String) -&gt; &amp;str {
@@ -466,7 +466,7 @@ For more information about this error, try `rustc --explain E0502`.
 error: could not compile `ownership` (bin "ownership") due to 1 previous error
 </code></pre>
 <p data-x-en="Recall from the borrowing rules that if we have an immutable reference to something, we cannot also take a mutable reference. Because clear needs to truncate the String, it needs to get a mutable reference. The println! after the call to clear uses the reference in word, so the immutable reference must still be active at that point. Rust disallows the mutable reference in clear and the immutable reference in word from existing at the same time, and compilation fails. Not only has Rust made our API easier to use, but it has also eliminated an entire class of errors at compile time!">回想借用规则，如果我们对某个东西有一个不可变引用，我们就不能同时获取一个可变引用。因为 <code>clear</code> 需要截断 <code>String</code>，所以它需要获取一个可变引用。<code>println!</code> 在调用 <code>clear</code> 之后使用了 <code>word</code> 中的引用，因此此时不可变引用仍然必须是活跃的。Rust 禁止 <code>clear</code> 中的可变引用和 <code>word</code> 中的不可变引用同时存在，因此编译失败。Rust 不仅使我们的 API 更易于使用，而且还消除了整个一类编译时错误！</p>
-<!-- Old heading. Do not remove or links may break. -->
+<!-- Old headings. Do not remove or links may break. -->
 <p><a id="string-literals-are-slices"></a></p>
 <h4 id="string-literals-as-slices"><a class="header" href="#string-literals-as-slices">字符串字面量作为切片</a></h4>
 <p data-x-en="Recall that we talked about string literals being stored inside the binary. Now that we know about slices, we can properly understand string literals:">回想我们提到字符串字面量是存储在二进制文件中的。现在我们了解了切片，可以正确理解字符串字面量：</p>
@@ -474,7 +474,7 @@ error: could not compile `ownership` (bin "ownership") due to 1 previous error
 </span><span class="boring">fn main() {
 </span>let s = "Hello, world!";
 <span class="boring">}</span></code></pre></pre>
-<p data-x-en="The type of s here is &amp;str: it’s a slice pointing to that specific point of the binary. This is also why string literals are immutable; &amp;str is an immutable reference.">这里的 <code>s</code> 的类型是 <code>&amp;str</code>：它是指向二进制文件中特定位置的切片。这也是为什么字符串字面量是不可变的；<code>&amp;str</code> 是一个不可变引用。</p>
+<p data-x-en="The type of s here is &amp;str: It’s a slice pointing to that specific point of the binary. This is also why string literals are immutable; &amp;str is an immutable reference.">这里的 <code>s</code> 类型是 <code>&amp;str</code>：它是指向二进制文件中特定位置的切片。这也是为什么字符串字面量是不可变的；<code>&amp;str</code> 是一个不可变引用。</p>
 <h4 id="string-slices-as-parameters"><a class="header" href="#string-slices-as-parameters">字符串切片作为参数</a></h4>
 <p data-x-en="Knowing that you can take slices of literals and String values leads us to one more improvement on first_word, and that’s its signature:">知道可以对字面量和<code>String</code>值进行切片，这引导我们对<code>first_word</code>进行一个改进，那就是它的签名：</p>
 <pre><code class="language-rust ignore">fn first_word(s: &amp;String) -&gt; &amp;str {</code></pre>
@@ -515,7 +515,8 @@ error: could not compile `ownership` (bin "ownership") due to 1 previous error
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-4-9">Listing 4-9</a>: Improving the <code>first_word</code> function by using a string slice for the type of the <code>s</code> parameter</figcaption>
 </figure>
-<p data-x-en="If we have a string slice, we can pass that directly. If we have a String, we can pass a slice of the String or a reference to the String. This flexibility takes advantage of deref coercions, a feature we will cover in the “Implicit Deref Coercions with Functions and Methods” section of Chapter 15.">如果我们有一个字符串切片，我们可以直接传递它。如果我们有一个 <code>String</code>，我们可以传递 <code>String</code> 的切片或 <code>String</code> 的引用。这种灵活性利用了 <em>解引用强制转换</em>，这是我们在第 15 章的 <a href="ch15-02-deref.html#implicit-deref-coercions-with-functions-and-methods">“函数和方法中的隐式解引用强制转换”</a><!--ignore--> 部分将要讨论的一个特性。</p>
+<p data-x-en="If we have a string slice, we can pass that directly. If we have a String, we can pass a slice of the String or a reference to the String. This flexibility takes advantage of deref coercions, a feature we will cover in the “Using Deref Coercions in Functions and Methods” section of Chapter 15.">如果我们有一个字符串切片，我们可以直接传递它。如果我们有一个 <code>String</code>，我们可以传递 <code>String</code> 的切片或 <code>String</code> 的引用。这种灵活性利用了 deref 强制转换，这是我们在第 15 章的 <a href="ch15-02-deref.html#using-deref-coercions-in-functions-and-methods">“在函数和方法中使用 deref 强制转换”</a><!--
+ignore --> 部分将要讨论的一个特性。</p>
 <p data-x-en="Defining a function to take a string slice instead of a reference to a String makes our API more general and useful without losing any functionality:">将函数定义为接受字符串切片而不是 <code>String</code> 的引用，可以使我们的 API 更加通用和有用，而不会失去任何功能：</p>
 <figure class="listing">
 <span class="file-name">Filename: src/main.rs</span>
@@ -570,7 +571,7 @@ assert_eq!(slice, &amp;[2, 3]);
 <span class="boring">}</span></code></pre></pre>
 <p data-x-en="This slice has the type &amp;[i32]. It works the same way as string slices do, by storing a reference to the first element and a length. You’ll use this kind of slice for all sorts of other collections. We’ll discuss these collections in detail when we talk about vectors in Chapter 8.">这个切片的类型为<code>&amp;[i32]</code>。它的工作方式与字符串切片相同，通过存储对第一个元素的引用和长度来实现。你将使用这种切片处理各种其他集合。我们将在第 8 章讨论向量时详细讨论这些集合。</p>
 <h2 id="summary"><a class="header" href="#summary">摘要</a></h2>
-<p data-x-en="The concepts of ownership, borrowing, and slices ensure memory safety in Rust programs at compile time. The Rust language gives you control over your memory usage in the same way as other systems programming languages, but having the owner of data automatically clean up that data when the owner goes out of scope means you don’t have to write and debug extra code to get this control.">所有权、借用和切片的概念确保了 Rust 程序在编译时的内存安全。Rust 语言让你像其他系统编程语言一样控制内存使用，但数据的所有者在超出作用域时自动清理数据意味着你不必编写和调试额外的代码来获得这种控制。</p>
+<p data-x-en="The concepts of ownership, borrowing, and slices ensure memory safety in Rust programs at compile time. The Rust language gives you control over your memory usage in the same way as other systems programming languages. But having the owner of data automatically clean up that data when the owner goes out of scope means you don’t have to write and debug extra code to get this control.">所有权、借用和切片的概念确保了 Rust 程序在编译时的内存安全。Rust 语言让你像其他系统编程语言一样控制内存使用。但是，数据的所有者在超出作用域时自动清理数据，这意味着你不必编写和调试额外的代码来获得这种控制。</p>
 <p data-x-en="Ownership affects how lots of other parts of Rust work, so we’ll talk about these concepts further throughout the rest of the book. Let’s move on to Chapter 5 and look at grouping pieces of data together in a struct.">所有权影响 Rust 的许多其他部分的工作方式，因此我们将在本书的其余部分进一步讨论这些概念。让我们继续第 5 章，看看如何在 <code>struct</code> 中将数据片段组合在一起。</p>
 
                     </main>

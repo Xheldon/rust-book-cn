@@ -142,5 +142,53 @@
   "Methods are similar to functions: we declare them with the fn keyword and a name, they can have parameters and a return value, and they contain some code that’s run when the method is called from somewhere else. Unlike functions, methods are defined within the context of a struct (or an enum or a trait object, which we cover in Chapter 6 and Chapter 18, respectively), and their first parameter is always self, which represents the instance of the struct the method is being called on.": {
     "_translate": "<em>方法</em> 与函数类似：我们使用 <code>fn</code> 关键字和一个名称声明它们，它们可以有参数和返回值，并且包含一些代码，当从其他地方调用该方法时，这些代码将运行。与函数不同，方法是在结构体（或枚举或特征对象，我们将在 <a href=\"ch06-00-enums.html\">第六章</a><!-- ignore --> 和 <a href=\"ch18-02-trait-objects.html\">第十八章</a><!-- ignore --> 中分别介绍）的上下文中定义的，并且它们的第一个参数始终是 <code>self</code>，表示调用该方法的结构体实例。",
     "_note": ""
+  },
+  "Methods - The Rust Programming Language": {
+    "_translate": "方法 - 《Rust 编程语言》",
+    "_note": ""
+  },
+  "Methods": {
+    "_translate": "<a class=\"header\" href=\"#methods\">方法</a>",
+    "_note": ""
+  },
+  "Methods are similar to functions: We declare them with the fn keyword and a name, they can have parameters and a return value, and they contain some code that’s run when the method is called from somewhere else. Unlike functions, methods are defined within the context of a struct (or an enum or a trait object, which we cover in Chapter 6 and Chapter 18, respectively), and their first parameter is always self, which represents the instance of the struct the method is being called on.": {
+    "_translate": "方法类似于函数：我们使用 <code>fn</code> 关键字和一个名称声明它们，它们可以有参数和返回值，并且包含一些代码，当从其他地方调用该方法时会运行这些代码。与函数不同，方法是在结构体（或枚举或特征对象，我们分别在 <a href=\"ch06-00-enums.html\">第六章</a><!-- ignore --> 和 <a href=\"ch18-02-trait-objects.html\">第十八章</a><!-- ignore --> 中介绍）的上下文中定义的，并且它们的第一个参数总是 <code>self</code>，表示调用该方法的结构体实例。",
+    "_note": ""
+  },
+  "To define the function within the context of Rectangle, we start an impl (implementation) block for Rectangle. Everything within this impl block will be associated with the Rectangle type. Then, we move the area function within the impl curly brackets and change the first (and in this case, only) parameter to be self in the signature and everywhere within the body. In main, where we called the area function and passed rect1 as an argument, we can instead use method syntax to call the area method on our Rectangle instance. The method syntax goes after an instance: We add a dot followed by the method name, parentheses, and any arguments.": {
+    "_translate": "要在 <code>Rectangle</code> 的上下文中定义函数，我们为 <code>Rectangle</code> 开始一个 <code>impl</code>\n（实现）块。此 <code>impl</code> 块中的所有内容都将与 <code>Rectangle</code> 类型关联。然后，我们将 <code>area</code> 函数\n移到 <code>impl</code> 花括号内，并将签名和主体中第一个（也是唯一一个）参数更改为 <code>self</code>。在\n<code>main</code> 中，我们调用了 <code>area</code> 函数并传递了 <code>rect1</code> 作为参数，现在可以使用 <em>方法语法</em>\n在 <code>Rectangle</code> 实例上调用 <code>area</code> 方法。方法语法位于实例之后：我们添加一个点，后跟\n方法名、括号和任何参数。",
+    "_note": ""
+  },
+  "We chose &self here for the same reason we used &Rectangle in the function version: We don’t want to take ownership, and we just want to read the data in the struct, not write to it. If we wanted to change the instance that we’ve called the method on as part of what the method does, we’d use &mut self as the first parameter. Having a method that takes ownership of the instance by using just self as the first parameter is rare; this technique is usually used when the method transforms self into something else and you want to prevent the caller from using the original instance after the transformation.": {
+    "_translate": "我们在这里选择<code>&amp;self</code>的原因与我们在函数版本中使用<code>&amp;Rectangle</code>的原因相同：我们不想获取所有权，我们只是想读取结构体中的数据，而不是写入数据。如果我们希望作为方法的一部分更改我们调用方法的实例，我们会使用<code>&amp;mut self</code>作为第一个参数。通过仅使用<code>self</code>作为第一个参数来获取实例所有权的方法很少见；这种技术通常用于当方法将<code>self</code>转换为其他内容并且你想防止调用者在转换后使用原始实例时。",
+    "_note": ""
+  },
+  "Here, we’re choosing to make the width method return true if the value in the instance’s width field is greater than 0 and false if the value is 0: We can use a field within a method of the same name for any purpose. In main, when we follow rect1.width with parentheses, Rust knows we mean the method width. When we don’t use parentheses, Rust knows we mean the field width.": {
+    "_translate": "在这里，我们选择让 <code>width</code> 方法在实例的 <code>width</code> 字段值大于 <code>0</code> 时返回 <code>true</code>，如果值为 <code>0</code> 则返回 <code>false</code>：我们可以在同名方法中将字段用于任何目的。在 <code>main</code> 中，当我们跟随 <code>rect1.width</code> 使用括号时，Rust 知道我们指的是方法 <code>width</code>。当我们不使用括号时，Rust 知道我们指的是字段 <code>width</code>。",
+    "_note": ""
+  },
+  "Often, but not always, when we give a method the same name as a field we want it to only return the value in the field and do nothing else. Methods like this are called getters, and Rust does not implement them automatically for struct fields as some other languages do. Getters are useful because you can make the field private but the method public and thus enable read-only access to that field as part of the type’s public API. We will discuss what public and private are and how to designate a field or method as public or private in Chapter 7.": {
+    "_translate": "通常，但并非总是如此，当我们给一个方法起与字段同名的名字时，我们希望它只返回字段中的值而不做其他任何事情。像这样的方法被称为<em>getter</em>，Rust 并不会像某些其他语言那样为结构体字段自动实现这些方法。Getter 很有用，因为你可以将字段设为私有，但将方法设为公有，从而作为类型公有 API 的一部分提供对该字段的只读访问。我们将在<a href=\"ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html#exposing-paths-with-the-pub-keyword\">第 7 章</a><!-- ignore -->中讨论什么是公有和私有，以及如何将字段或方法指定为公有或私有。",
+    "_note": ""
+  },
+  "In C and C++, two different operators are used for calling methods: You use . if you’re calling a method on the object directly and -> if you’re calling the method on a pointer to the object and need to dereference the pointer first. In other words, if object is a pointer, object->something() is similar to (*object).something().": {
+    "_translate": "在 C 和 C++ 中，用于调用方法的有两个不同的运算符：如果你直接在对象上调用方法，使用 <code>.</code>；如果你在指向对象的指针上调用方法并且需要先取消引用指针，则使用 <code>-&gt;</code>。换句话说，如果 <code>object</code> 是一个指针，<code>object-&gt;something()</code> 类似于 <code>(*object).something()</code>。",
+    "_note": ""
+  },
+  "Here’s how it works: When you call a method with object.something(), Rust automatically adds in &, &mut, or * so that object matches the signature of the method. In other words, the following are the same:": {
+    "_translate": "这里是它的运作方式：当你使用 <code>object.something()</code> 调用方法时，Rust 会自动添加 <code>&amp;</code>、<code>&amp;mut</code> 或 <code>*</code>，使 <code>object</code> 与方法的签名匹配。换句话说，以下内容是相同的：",
+    "_note": ""
+  },
+  "To call this associated function, we use the :: syntax with the struct name; let sq = Rectangle::square(3); is an example. This function is namespaced by the struct: The :: syntax is used for both associated functions and namespaces created by modules. We’ll discuss modules in Chapter 7.": {
+    "_translate": "要调用这个关联函数，我们使用 <code>::</code> 语法与结构体名称一起；<code>let sq = Rectangle::square(3);</code> 就是一个例子。这个函数由结构体命名空间限定：<code>::</code> 语法用于关联函数和由模块创建的命名空间。我们将在 <a href=\"ch07-02-defining-modules-to-control-scope-and-privacy.html\">第 7 章</a><!-- ignore --> 讨论模块。",
+    "_note": ""
+  },
+  "But structs aren’t the only way you can create custom types: Let’s turn to Rust’s enum feature to add another tool to your toolbox.": {
+    "_translate": "但结构体并不是创建自定义类型的唯一方式：让我们转向 Rust 的枚举功能，为您的工具箱添加另一个工具。",
+    "_note": ""
+  },
+  "We know we want to define a method, so it will be within the impl Rectangle block. The method name will be can_hold, and it will take an immutable borrow of another Rectangle as a parameter. We can tell what the type of the parameter will be by looking at the code that calls the method: rect1.can_hold(&rect2) passes in &rect2, which is an immutable borrow to rect2, an instance of Rectangle. This makes sense because we only need to read rect2 (rather than write, which would mean we’d need a mutable borrow), and we want main to retain ownership of rect2 so that we can use it again after calling the can_hold method. The return value of can_hold will be a Boolean, and the implementation will check whether the width and height of self are greater than the width and height of the other Rectangle, respectively. Let’s add the new can_hold method to the impl block from Listing 5-13, shown in Listing 5-15.": {
+    "_translate": "我们知道要定义一个方法，所以它将在 <code>impl Rectangle</code> 块内。方法名将是 <code>can_hold</code>，并且它将接受另一个 <code>Rectangle</code> 的不可变借用作为参数。我们可以通过查看调用该方法的代码来判断参数的类型：<code>rect1.can_hold(&amp;rect2)</code> 传递了 <code>&amp;rect2</code>，这是对 <code>rect2</code>（一个 <code>Rectangle</code> 实例）的不可变借用。这很有道理，因为我们只需要读取 <code>rect2</code>（而不是写入，这将意味着我们需要一个可变借用），并且我们希望 <code>main</code> 保留 <code>rect2</code> 的所有权，以便在调用 <code>can_hold</code> 方法后可以再次使用它。<code>can_hold</code> 的返回值将是一个布尔值，实现将检查 <code>self</code> 的宽度和高度是否分别大于另一个 <code>Rectangle</code> 的宽度和高度。让我们将新的 <code>can_hold</code> 方法添加到列表 5-13 中的 <code>impl</code> 块中，如列表 5-15 所示。",
+    "_note": ""
   }
 }

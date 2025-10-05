@@ -210,5 +210,9 @@
   "Listing 16-4 provides a scenario that’s more likely to have a reference to v that won’t be valid.": {
     "_translate": "列表16-4提供了一个更可能有对<code>v</code>的引用无效的情况。",
     "_note": ""
+  },
+  "Waiting for All Threads to Finish": {
+    "_translate": "<a class=\"header\" href=\"#waiting-for-all-threads-to-finish\">等待所有线程完成</a>",
+    "_note": ""
   }
 }

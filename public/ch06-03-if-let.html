@@ -270,7 +270,7 @@ blockquote {
     }
 <span class="boring">}</span></code></pre></pre>
 <p data-x-en="The syntax if let takes a pattern and an expression separated by an equal sign. It works the same way as a match, where the expression is given to the match and the pattern is its first arm. In this case, the pattern is Some(max), and the max binds to the value inside the Some. We can then use max in the body of the if let block in the same way we used max in the corresponding match arm. The code in the if let block only runs if the value matches the pattern."><code>if let</code> 语法接受一个模式和一个表达式，二者由等号分隔。它的工作方式与 <code>match</code> 相同，其中表达式被传递给 <code>match</code>，而模式是其第一个分支。在这种情况下，模式是 <code>Some(max)</code>，而 <code>max</code> 绑定到 <code>Some</code> 内的值。然后我们可以在 <code>if let</code> 块的主体中使用 <code>max</code>，就像在对应的 <code>match</code> 分支中使用 <code>max</code> 一样。<code>if let</code> 块中的代码只有在值匹配模式时才会运行。</p>
-<p data-x-en="Using if let means less typing, less indentation, and less boilerplate code. However, you lose the exhaustive checking match enforces that ensures you aren’t forgetting to handle any cases. Choosing between match and if let depends on what you’re doing in your particular situation and whether gaining conciseness is an appropriate trade-off for losing exhaustive checking.">使用 <code>if let</code> 意味着更少的输入，更少的缩进，以及更少的样板代码。然而，你会失去 <code>match</code> 强制执行的详尽检查，这确保你不会忘记处理任何情况。在 <code>match</code> 和 <code>if let</code> 之间进行选择取决于你在特定情况下的具体需求，以及在失去详尽检查的情况下，获得简洁性是否是一个合适的权衡。</p>
+<p data-x-en="Using if let means less typing, less indentation, and less boilerplate code. However, you lose the exhaustive checking match enforces that ensures that you aren’t forgetting to handle any cases. Choosing between match and if let depends on what you’re doing in your particular situation and whether gaining conciseness is an appropriate trade-off for losing exhaustive checking.">使用<code>if let</code>意味着更少的输入，更少的缩进，以及更少的样板代码。然而，你会失去<code>match</code>强制执行的详尽检查，这确保了你没有忘记处理任何情况。在<code>match</code>和<code>if let</code>之间进行选择取决于你在特定情况下的操作，以及在获得简洁性与失去详尽检查之间是否是一个合适的权衡。</p>
 <p data-x-en="In other words, you can think of if let as syntax sugar for a match that runs code when the value matches one pattern and then ignores all other values.">换句话说，你可以将<code>if let</code>视为一种<code>match</code>的语法糖，它在值匹配一个模式时运行代码，然后忽略所有其他值。</p>
 <p data-x-en="We can include an else with an if let. The block of code that goes with the else is the same as the block of code that would go with the _ case in the match expression that is equivalent to the if let and else. Recall the Coin enum definition in Listing 6-4, where the Quarter variant also held a UsState value. If we wanted to count all non-quarter coins we see while also announcing the state of the quarters, we could do that with a match expression, like this:">我们可以包含一个 <code>else</code> 与 <code>if let</code> 一起使用。与 <code>else</code> 一起的代码块与等效于 <code>if let</code> 和 <code>else</code> 的 <code>match</code> 表达式中的 <code>_</code> 情况下的代码块相同。回想一下在清单 6-4 中的 <code>Coin</code> 枚举定义，其中 <code>Quarter</code> 变体还包含一个 <code>UsState</code> 值。如果我们想计算所有非季度硬币，同时宣布季度硬币的州，我们可以使用一个 <code>match</code> 表达式，如下所示：</p>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#[derive(Debug)]
@@ -320,7 +320,7 @@ blockquote {
     }
 <span class="boring">}</span></code></pre></pre>
 <h2 id="staying-on-the-happy-path-with-letelse"><a class="header" href="#staying-on-the-happy-path-with-letelse">使用 <code>let...else</code> 保持在“快乐路径”上</a></h2>
-<p data-x-en="The common pattern is to perform some computation when a value is present and return a default value otherwise. Continuing on with our example of coins with a UsState value, if we wanted to say something funny depending on how old the state on the quarter was, we might introduce a method on UsState to check the age of a state, like so:">常见的模式是在值存在时执行某些计算，否则返回默认值。继续我们关于带有 <code>UsState</code> 值的硬币的例子，如果我们想根据硬币上州的年龄说一些有趣的话，我们可以在 <code>UsState</code> 上引入一个方法来检查州的年龄，如下所示：</p>
+<p data-x-en="The common pattern is to perform some computation when a value is present and return a default value otherwise. Continuing with our example of coins with a UsState value, if we wanted to say something funny depending on how old the state on the quarter was, we might introduce a method on UsState to check the age of a state, like so:">常见的模式是在值存在时执行某些计算，否则返回默认值。继续我们关于带有 <code>UsState</code> 值的硬币的例子，如果我们想根据硬币上州的年龄说一些有趣的话，我们可能会在 <code>UsState</code> 上引入一个方法来检查州的年龄，如下所示：</p>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#[derive(Debug)] // so we can inspect the state in a minute
 </span><span class="boring">enum UsState {
 </span><span class="boring">    Alabama,
@@ -362,7 +362,7 @@ blockquote {
 </span><span class="boring">        println!("{desc}");
 </span><span class="boring">    }
 </span><span class="boring">}</span></code></pre></pre>
-<p data-x-en="Then we might use if let to match on the type of coin, introducing a state variable within the body of the condition, as in Listing 6-7.">然后我们可能会使用 <code>if let</code> 来匹配硬币的类型，在条件体中引入一个 <code>state</code> 变量，如列表 6-7 所示。</p>
+<p data-x-en="Then, we might use if let to match on the type of coin, introducing a state variable within the body of the condition, as in Listing 6-7.">然后，我们可能会使用 <code>if let</code> 来匹配硬币的类型，在条件体中引入一个 <code>state</code> 变量，如列表 6-7 所示。</p>
 <figure class="listing" id="listing-6-7">
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#[derive(Debug)] // so we can inspect the state in a minute
 </span><span class="boring">enum UsState {
@@ -405,9 +405,9 @@ blockquote {
 </span><span class="boring">        println!("{desc}");
 </span><span class="boring">    }
 </span><span class="boring">}</span></code></pre></pre>
-<figcaption><a href="#listing-6-7">Listing 6-7</a>: Checking whether a state existed in 1900 by using conditionals nested inside an <code>if let</code>.</figcaption>
+<figcaption><a href="#listing-6-7">Listing 6-7</a>: Checking whether a state existed in 1900 by using conditionals nested inside an <code>if let</code></figcaption>
 </figure>
-<p data-x-en="That gets the job done, but it has pushed the work into the body of the if let statement, and if the work to be done is more complicated, it might be hard to follow exactly how the top-level branches relate. We could also take advantage of the fact that expressions produce a value either to produce the state from the if let or to return early, as in Listing 6-8. (You could do similar with a match, too.)">这完成了任务，但将工作推到了 <code>if let</code> 语句的主体中，如果要完成的工作更复杂，可能很难跟踪顶级分支之间的关系。我们还可以利用表达式产生值这一事实，从 <code>if let</code> 生成 <code>state</code> 或提前返回，如列表 6-8 所示。（你也可以用 <code>match</code> 做类似的事情。）</p>
+<p data-x-en="That gets the job done, but it has pushed the work into the body of the if let statement, and if the work to be done is more complicated, it might be hard to follow exactly how the top-level branches relate. We could also take advantage of the fact that expressions produce a value either to produce the state from the if let or to return early, as in Listing 6-8. (You could do something similar with a match, too.)">这完成了任务，但将工作推到了 <code>if let</code> 语句的主体中，如果要完成的工作更复杂，可能很难跟踪顶级分支之间的关系。我们也可以利用表达式产生值的事实，从 <code>if let</code> 生成 <code>state</code> 或提前返回，如列表 6-8 所示。（你也可以用 <code>match</code> 做类似的事情。）</p>
 <figure class="listing" id="listing-6-8">
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#[derive(Debug)] // so we can inspect the state in a minute
 </span><span class="boring">enum UsState {
@@ -452,7 +452,7 @@ blockquote {
 </span><span class="boring">        println!("{desc}");
 </span><span class="boring">    }
 </span><span class="boring">}</span></code></pre></pre>
-<figcaption><a href="#listing-6-8">Listing 6-8</a>: Using <code>if let</code> to produce a value or return early.</figcaption>
+<figcaption><a href="#listing-6-8">Listing 6-8</a>: Using <code>if let</code> to produce a value or return early</figcaption>
 </figure>
 <p data-x-en="This is a bit annoying to follow in its own way, though! One branch of the if let produces a value, and the other one returns from the function entirely.">这以它自己的方式有点令人烦恼！<code>if let</code>的一个分支产生一个值，而另一个分支则完全从函数返回。</p>
 <p data-x-en="To make this common pattern nicer to express, Rust has let...else. The let...else syntax takes a pattern on the left side and an expression on the right, very similar to if let, but it does not have an if branch, only an else branch. If the pattern matches, it will bind the value from the pattern in the outer scope. If the pattern does not match, the program will flow into the else arm, which must return from the function.">为了使这种常见的模式表达得更优雅，Rust 引入了 <code>let...else</code>。<code>let...else</code> 语法在左侧接受一个模式，在右侧接受一个表达式，非常类似于 <code>if let</code>，但它没有 <code>if</code> 分支，只有 <code>else</code> 分支。如果模式匹配，它将在外部作用域中绑定模式中的值。如果模式 <em>不</em> 匹配，程序将流入 <code>else</code> 分支，该分支必须从函数返回。</p>
@@ -499,13 +499,13 @@ blockquote {
 </span><span class="boring">        println!("{desc}");
 </span><span class="boring">    }
 </span><span class="boring">}</span></code></pre></pre>
-<figcaption><a href="#listing-6-9">Listing 6-9</a>: Using <code>let...else</code> to clarify the flow through the function.</figcaption>
+<figcaption><a href="#listing-6-9">Listing 6-9</a>: Using <code>let...else</code> to clarify the flow through the function</figcaption>
 </figure>
-<p data-x-en="Notice that it stays “on the happy path” in the main body of the function this way, without having significantly different control flow for two branches the way the if let did.">请注意，这种方式在函数主体中保持“在快乐路径上”，而不会像 <code>if let</code> 那样为两个分支产生显著不同的控制流。</p>
+<p data-x-en="Notice that it stays on the “happy path” in the main body of the function this way, without having significantly different control flow for two branches the way the if let did.">请注意，这种方式在函数主体中保持在“顺利路径”上，而不会像 <code>if let</code> 那样为两个分支产生显著不同的控制流。</p>
 <p data-x-en="If you have a situation in which your program has logic that is too verbose to express using a match, remember that if let and let...else are in your Rust toolbox as well.">如果你的情况是程序中的逻辑过于冗长，无法用 <code>match</code> 表达，记得 <code>if let</code> 和 <code>let...else</code> 也是你 Rust 工具箱中的工具。</p>
 <h2 id="summary"><a class="header" href="#summary">摘要</a></h2>
 <p data-x-en="We’ve now covered how to use enums to create custom types that can be one of a set of enumerated values. We’ve shown how the standard library’s Option<T> type helps you use the type system to prevent errors. When enum values have data inside them, you can use match or if let to extract and use those values, depending on how many cases you need to handle.">我们现在介绍了如何使用枚举来创建可以是枚举值集之一的自定义类型。我们展示了标准库中的<code>Option&lt;T&gt;</code>类型如何帮助你利用类型系统来防止错误。当枚举值包含数据时，你可以根据需要处理的案例数量，使用<code>match</code>或<code>if let</code>来提取和使用这些值。</p>
-<p data-x-en="Your Rust programs can now express concepts in your domain using structs and enums. Creating custom types to use in your API ensures type safety: the compiler will make certain your functions only get values of the type each function expects.">您的 Rust 程序现在可以使用结构体和枚举来表达领域中的概念。创建自定义类型以在您的 API 中使用可以确保类型安全：编译器将确保您的函数只接收每个函数期望的类型的值。</p>
+<p data-x-en="Your Rust programs can now express concepts in your domain using structs and enums. Creating custom types to use in your API ensures type safety: The compiler will make certain your functions only get values of the type each function expects.">您的 Rust 程序现在可以使用结构体和枚举来表达领域中的概念。创建自定义类型以在您的 API 中使用可以确保类型安全：编译器将确保您的函数只接收每个函数期望的类型的值。</p>
 <p data-x-en="In order to provide a well-organized API to your users that is straightforward to use and only exposes exactly what your users will need, let’s now turn to Rust’s modules.">为了向用户提供一个组织良好且易于使用的API，并且只暴露用户需要的内容，现在让我们转向Rust的模块。</p>
 
                     </main>

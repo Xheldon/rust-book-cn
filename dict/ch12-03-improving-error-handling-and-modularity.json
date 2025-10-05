@@ -394,5 +394,9 @@
   "We add a use minigrep::search line to bring the search function from the library crate into the binary crate’s scope. Then, in the run function, rather than printing out the contents of the file, we call the search function and pass the config.query value and contents as arguments. Then run will use a for loop to print each line returned from search that matched the query. This is also a good time to remove the println! calls in the main function that displayed the query and the file path so that our program only prints the search results (if no errors occur).": {
     "_translate": "我们添加了一行 <code>use minigrep::search</code>，将 <code>search</code> 函数从库 crate 引入到二进制 crate 的作用域中。然后，在 <code>run</code> 函数中，我们不是打印文件的内容，而是调用 <code>search</code> 函数并将 <code>config.query</code> 值和 <code>contents</code> 作为参数传递。然后 <code>run</code> 将使用 <code>for</code> 循环打印从 <code>search</code> 返回的每一行匹配查询的结果。这也是一个好的时机，从 <code>main</code> 函数中移除显示查询和文件路径的 <code>println!</code> 调用，以便我们的程序只打印搜索结果（如果未发生错误）。",
     "_note": ""
+  },
+  "Separating Concerns in Binary Projects": {
+    "_translate": "<a class=\"header\" href=\"#separating-concerns-in-binary-projects\">在二进制项目中分离关注点</a>",
+    "_note": ""
   }
 }

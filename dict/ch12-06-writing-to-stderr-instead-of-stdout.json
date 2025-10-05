@@ -82,5 +82,13 @@
   "Writing Error Messages to Standard Error Instead of Standard Output - The Rust Programming Language": {
     "_translate": "将错误消息写入标准错误而不是标准输出 - 《Rust编程语言》",
     "_note": ""
+  },
+  "Redirecting Errors to Standard Error - The Rust Programming Language": {
+    "_translate": "将错误重定向到标准错误 - 《Rust编程语言》",
+    "_note": ""
+  },
+  "Redirecting Errors to Standard Error": {
+    "_translate": "<a class=\"header\" href=\"#redirecting-errors-to-standard-error\">将错误重定向到标准错误</a>",
+    "_note": ""
   }
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="zh-CN" class="light sidebar-visible" dir="ltr"><head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>将错误消息写入标准错误而不是标准输出 - 《Rust编程语言》</title>
+        <title>将错误重定向到标准错误 - 《Rust编程语言》</title>
 
 
         <!-- Custom HTML head -->
@@ -249,7 +249,9 @@ blockquote {
 
                 <div id="content" class="content">
                     <main>
-                        <h2 id="writing-error-messages-to-standard-error-instead-of-standard-output"><a class="header" href="#writing-error-messages-to-standard-error-instead-of-standard-output">将错误消息写入标准错误而不是标准输出</a></h2>
+                        <!-- Old headings. Do not remove or links may break. -->
+<p><a id="writing-error-messages-to-standard-error-instead-of-standard-output"></a></p>
+<h2 id="redirecting-errors-to-standard-error" data-x-en="Redirecting Errors to Standard Error"><a class="header" href="#redirecting-errors-to-standard-error">将错误重定向到标准错误</a></h2>
 <p data-x-en="At the moment, we’re writing all of our output to the terminal using the println! macro. In most terminals, there are two kinds of output: standard output (stdout) for general information and standard error (stderr) for error messages. This distinction enables users to choose to direct the successful output of a program to a file but still print error messages to the screen.">目前，我们正在使用 <code>println!</code> 宏将所有输出写入终端。在大多数终端中，有两种类型的输出：<em>标准输出</em> (<code>stdout</code>) 用于一般信息和 <em>标准错误</em> (<code>stderr</code>) 用于错误消息。这种区分使用户可以选择将程序的成功输出定向到文件，但仍然将错误消息打印到屏幕上。</p>
 <p data-x-en="The println! macro is only capable of printing to standard output, so we have to use something else to print to standard error."><code>println!</code> 宏只能打印到标准输出，所以我们需要使用其他方法来打印到标准错误。</p>
 <h3 id="checking-where-errors-are-written"><a class="header" href="#checking-where-errors-are-written">检查错误写入的位置</a></h3>

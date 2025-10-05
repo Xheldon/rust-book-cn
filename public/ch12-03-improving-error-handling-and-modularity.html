@@ -255,7 +255,9 @@ blockquote {
 <p data-x-en="The third problem is that we’ve used expect to print an error message when reading the file fails, but the error message just prints Should have been able to read the file. Reading a file can fail in a number of ways: for example, the file could be missing, or we might not have permission to open it. Right now, regardless of the situation, we’d print the same error message for everything, which wouldn’t give the user any information!">第三个问题是，我们使用了<code>expect</code>在读取文件失败时打印错误消息，但错误消息只是打印<code>Should have been able to read the file</code>。读取文件可能会以多种方式失败：例如，文件可能不存在，或者我们可能没有权限打开它。现在，无论情况如何，我们都会为所有情况打印相同的错误消息，这不会给用户提供任何信息！</p>
 <p data-x-en="Fourth, we use expect to handle an error, and if the user runs our program without specifying enough arguments, they’ll get an index out of bounds error from Rust that doesn’t clearly explain the problem. It would be best if all the error-handling code were in one place so future maintainers had only one place to consult the code if the error-handling logic needed to change. Having all the error-handling code in one place will also ensure that we’re printing messages that will be meaningful to our end users.">第四，我们使用<code>expect</code>来处理错误，如果用户在运行我们的程序时没有指定足够的参数，他们将收到一个来自Rust的<code>index out of bounds</code>错误，这个错误没有清楚地解释问题。如果所有的错误处理代码都在一个地方，那么将来维护者只需要在一个地方查看代码，如果需要更改错误处理逻辑，这样会更好。将所有的错误处理代码放在一个地方，还可以确保我们打印的消息对最终用户来说是有意义的。</p>
 <p data-x-en="Let’s address these four problems by refactoring our project.">让我们通过重构项目来解决这四个问题。</p>
-<h3 id="separation-of-concerns-for-binary-projects"><a class="header" href="#separation-of-concerns-for-binary-projects">二进制项目中的关注点分离</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="separation-of-concerns-for-binary-projects"></a></p>
+<h3 id="separating-concerns-in-binary-projects" data-x-en="Separating Concerns in Binary Projects"><a class="header" href="#separating-concerns-in-binary-projects">在二进制项目中分离关注点</a></h3>
 <p data-x-en="The organizational problem of allocating responsibility for multiple tasks to the main function is common to many binary projects. As a result, many Rust programmers find it useful to split up the separate concerns of a binary program when the main function starts getting large. This process has the following steps:">将多个任务的责任分配给 <code>main</code> 函数的组织问题是许多二进制项目中常见的问题。因此，许多 Rust 程序员发现，当 <code>main</code> 函数开始变大时，将二进制程序的各个关注点分开是有用的。这个过程有以下步骤：</p>
 <ul>
 <li data-x-en="Split your program into a main.rs file and a lib.rs file and move your program’s logic to lib.rs.">将您的程序拆分为 <em>main.rs</em> 文件和 <em>lib.rs</em> 文件，并将程序的逻辑移到 <em>lib.rs</em>。</li>
@@ -565,8 +567,8 @@ Problem parsing arguments: not enough arguments
 </code></pre>
 <p data-x-en="Great! This output is much friendlier for our users.">很好！这个输出对我们的用户更加友好。</p>
 <!-- Old headings. Do not remove or links may break. -->
-<p><a id="extracting-logic-from-main"></a></p>
-<h3 id="extracting-logic-from-the-main-function"><a class="header" href="#extracting-logic-from-the-main-function">从 <code>main</code> 函数中提取逻辑</a></h3>
+<p><a id="extracting-logic-from-the-main-function"></a></p>
+<h3 id="extracting-logic-from-main"><a class="header" href="#extracting-logic-from-main">从 <code>main</code> 中提取逻辑</a></h3>
 <p data-x-en="Now that we’ve finished refactoring the configuration parsing, let’s turn to the program’s logic. As we stated in “Separation of Concerns for Binary Projects”, we’ll extract a function named run that will hold all the logic currently in the main function that isn’t involved with setting up configuration or handling errors. When we’re done, the main function will be concise and easy to verify by inspection, and we’ll be able to write tests for all the other logic.">现在我们已经完成了配置解析的重构，让我们转向程序的逻辑。正如我们在<a href="#separation-of-concerns-for-binary-projects">“二进制项目中的关注点分离”</a>中所述，我们将提取一个名为<code>run</code>的函数，该函数将包含当前在<code>main</code>函数中与设置配置或处理错误无关的所有逻辑。完成后，<code>main</code>函数将简洁且易于通过检查验证，我们还将能够为所有其他逻辑编写测试。</p>
 <p data-x-en="Listing 12-11 shows the small, incremental improvement of extracting a run function.">列表 12-11 显示了提取一个 <code>run</code> 函数的小幅、渐进的改进。</p>
 <figure class="listing" id="listing-12-11">

@@ -198,5 +198,13 @@
   "When we use trait objects, Rust must use dynamic dispatch. The compiler doesn’t know all the types that might be used with the code that’s using trait objects, so it doesn’t know which method implemented on which type to call. Instead, at runtime, Rust uses the pointers inside the trait object to know which method to call. This lookup incurs a runtime cost that doesn’t occur with static dispatch. Dynamic dispatch also prevents the compiler from choosing to inline a method’s code, which in turn prevents some optimizations, and Rust has some rules about where you can and cannot use dynamic dispatch, called dyn compatibility. Those rules are beyond the scope of this discussion, but you can read more about them in the reference. However, we did get extra flexibility in the code that we wrote in Listing 18-5 and were able to support in Listing 18-9, so it’s a trade-off to consider.": {
     "_translate": "当我们使用特质对象时，Rust 必须使用动态分发。编译器不知道可能与使用特质对象的代码一起使用的所有类型，因此它不知道要调用哪个类型上实现的方法。相反，在运行时，Rust 使用特质对象内部的指针来确定要调用的方法。这种查找会产生运行时成本，而静态分发则不会产生这种成本。动态分发还阻止编译器选择内联方法的代码，这反过来又阻止了一些优化，Rust 有一些关于可以在哪里以及不能在哪里使用动态分发的规则，称为<em>dyn 兼容性</em>。这些规则超出了本次讨论的范围，但您可以在<a href=\"https://doc.rust-lang.org/reference/items/traits.html#dyn-compatibility\">参考手册</a><!-- ignore -->中阅读更多关于它们的信息。然而，我们在清单 18-5 中编写的代码确实获得了额外的灵活性，并且能够在清单 18-9 中支持，所以这是一个需要考虑的权衡。",
     "_note": ""
+  },
+  "Using Trait Objects to Abstract over Shared Behavior - The Rust Programming Language": {
+    "_translate": "使用Trait对象来抽象共享行为 - 《Rust编程语言》",
+    "_note": ""
+  },
+  "Performing Dynamic Dispatch": {
+    "_translate": "<a class=\"header\" href=\"#performing-dynamic-dispatch\">执行动态分发</a>",
+    "_note": ""
   }
 }

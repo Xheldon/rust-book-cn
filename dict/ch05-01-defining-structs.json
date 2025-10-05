@@ -134,5 +134,49 @@
   "Note that the black and origin values are different types because they’re instances of different tuple structs. Each struct you define is its own type, even though the fields within the struct might have the same types. For example, a function that takes a parameter of type Color cannot take a Point as an argument, even though both types are made up of three i32 values. Otherwise, tuple struct instances are similar to tuples in that you can destructure them into their individual pieces, and you can use a . followed by the index to access an individual value. Unlike tuples, tuple structs require you to name the type of the struct when you destructure them. For example, we would write let Point(x, y, z) = origin; to destructure the values in the origin point into variables named x, y, and z.": {
     "_translate": "请注意，<code>black</code> 和 <code>origin</code> 的值是不同类型的，因为它们是不同元组结构体的实例。你定义的每个结构体都是其自己的类型，即使结构体内的字段可能具有相同的类型。例如，一个接受 <code>Color</code> 类型参数的函数不能接受一个 <code>Point</code> 作为参数，即使这两种类型都由三个 <code>i32</code> 值组成。除此之外，元组结构体实例与元组类似，你可以将它们解构为单独的部分，并且可以使用 <code>.</code> 加上索引来访问单个值。与元组不同，元组结构体在解构时需要指定结构体的类型。例如，我们会写 <code>let Point(x, y, z) = origin;</code> 来将 <code>origin</code> 点中的值解构到名为 <code>x</code>、<code>y</code> 和 <code>z</code> 的变量中。",
     "_note": ""
+  },
+  "Structs are similar to tuples, discussed in “The Tuple Type” section, in that both hold multiple related values. Like tuples, the pieces of a struct can be different types. Unlike with tuples, in a struct you’ll name each piece of data so it’s clear what the values mean. Adding these names means that structs are more flexible than tuples: You don’t have to rely on the order of the data to specify or access the values of an instance.": {
+    "_translate": "结构体类似于在<a href=\"ch03-02-data-types.html#the-tuple-type\">“元组类型”</a>部分讨论的元组，因为它们都包含多个相关值。像元组一样，结构体的各个部分可以是不同的类型。与元组不同的是，在结构体中，您将为每个数据片段命名，以便明确值的含义。添加这些名称意味着结构体比元组更灵活：您不必依赖数据的顺序来指定或访问实例的值。",
+    "_note": ""
+  },
+  "Because the parameter names and the struct field names are exactly the same in Listing 5-4, we can use the field init shorthand syntax to rewrite build_user so that it behaves exactly the same but doesn’t have the repetition of username and email, as shown in Listing 5-5.": {
+    "_translate": "因为在列表 5-4 中参数名称和结构体字段名称完全相同，我们可以使用 <em>字段初始化简写</em> 语法重写 <code>build_user</code>，使其行为完全相同但不会重复 <code>username</code> 和 <code>email</code>，如列表 5-5 所示。",
+    "_note": ""
+  },
+  "Listing 5-4 shows a build_user function that returns a User instance with the given email and username. The active field gets the value true, and the sign_in_count gets a value of 1.": {
+    "_translate": "列表 5-4 显示了一个 <code>build_user</code> 函数，该函数返回一个带有给定电子邮件和用户名的 <code>User</code> 实例。<code>active</code> 字段的值为 <code>true</code>，<code>sign_in_count</code> 的值为 <code>1</code>。",
+    "_note": ""
+  },
+  "Creating Instances with Struct Update Syntax": {
+    "_translate": "<a class=\"header\" href=\"#creating-instances-with-struct-update-syntax\">使用结构体更新语法创建实例</a>",
+    "_note": ""
+  },
+  "It’s often useful to create a new instance of a struct that includes most of the values from another instance of the same type, but changes some of them. You can do this using struct update syntax.": {
+    "_translate": "通常很有用的是创建一个结构体的新实例，该实例包含同一类型另一个实例的大多数值，但更改其中的一些值。你可以使用结构体更新语法来实现这一点。",
+    "_note": ""
+  },
+  "Creating Different Types with Tuple Structs": {
+    "_translate": "<a class=\"header\" href=\"#creating-different-types-with-tuple-structs\">使用元组结构体创建不同类型的实例</a>",
+    "_note": ""
+  },
+  "First, in Listing 5-6 we show how to create a new User instance in user2 in the regular way, without the update syntax. We set a new value for email but otherwise use the same values from user1 that we created in Listing 5-2.": {
+    "_translate": "首先，在清单 5-6 中，我们展示了如何在 <code>user2</code> 中以常规方式创建一个新的 <code>User</code> 实例，而不使用更新语法。我们为 <code>email</code> 设置了一个新值，但其他方面都使用了我们在清单 5-2 中创建的 <code>user1</code> 的相同值。",
+    "_note": ""
+  },
+  "Defining Unit-Like Structs": {
+    "_translate": "<a class=\"header\" href=\"#defining-unit-like-structs\">定义单元结构体</a>",
+    "_note": ""
+  },
+  "It’s also possible for structs to store references to data owned by something else, but to do so requires the use of lifetimes, a Rust feature that we’ll discuss in Chapter 10. Lifetimes ensure that the data referenced by a struct is valid for as long as the struct is. Let’s say you try to store a reference in a struct without specifying lifetimes, like the following in src/main.rs; this won’t work:": {
+    "_translate": "也可以让结构体存储对其他所有者数据的引用，但这样做需要使用<em>生命周期</em>，这是我们在第10章将要讨论的Rust特性。生命周期确保结构体引用的数据在结构体存在期间始终有效。假设你尝试在结构体中存储一个引用而没有指定生命周期，如下所示在<em>src/main.rs</em>中；这将无法工作：",
+    "_note": ""
+  },
+  "To define AlwaysEqual, we use the struct keyword, the name we want, and then a semicolon. No need for curly brackets or parentheses! Then, we can get an instance of AlwaysEqual in the subject variable in a similar way: using the name we defined, without any curly brackets or parentheses. Imagine that later we’ll implement behavior for this type such that every instance of AlwaysEqual is always equal to every instance of any other type, perhaps to have a known result for testing purposes. We wouldn’t need any data to implement that behavior! You’ll see in Chapter 10 how to define traits and implement them on any type, including unit-like structs.": {
+    "_translate": "要定义<code>AlwaysEqual</code>，我们使用<code>struct</code>关键字、我们想要的名字，然后是一个分号。不需要大括号或括号！然后，我们可以通过类似的方式在<code>subject</code>变量中获取<code>AlwaysEqual</code>的实例：使用我们定义的名字，不需要任何大括号或括号。想象一下，稍后我们将为这种类型实现行为，使得每个<code>AlwaysEqual</code>的实例都等于任何其他类型的每个实例，也许是为了在测试中有一个已知的结果。实现这种行为我们不需要任何数据！你将在第10章中看到如何定义特征并在任何类型上实现它们，包括单元结构体。",
+    "_note": ""
+  },
+  "In Chapter 10, we’ll discuss how to fix these errors so that you can store references in structs, but for now, we’ll fix errors like these using owned types like String instead of references like &str.": {
+    "_translate": "在第 10 章中，我们将讨论如何修复这些错误，以便你可以在结构体中存储引用，但目前，我们将使用像 <code>String</code> 这样的拥有类型而不是像 <code>&amp;str</code> 这样的引用类型来修复这些错误。",
+    "_note": ""
   }
 }

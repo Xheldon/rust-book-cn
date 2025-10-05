@@ -138,5 +138,29 @@
   "Notice that it stays “on the happy path” in the main body of the function this way, without having significantly different control flow for two branches the way the if let did.": {
     "_translate": "请注意，这种方式在函数主体中保持“在快乐路径上”，而不会像 <code>if let</code> 那样为两个分支产生显著不同的控制流。",
     "_note": ""
+  },
+  "Using if let means less typing, less indentation, and less boilerplate code. However, you lose the exhaustive checking match enforces that ensures that you aren’t forgetting to handle any cases. Choosing between match and if let depends on what you’re doing in your particular situation and whether gaining conciseness is an appropriate trade-off for losing exhaustive checking.": {
+    "_translate": "使用<code>if let</code>意味着更少的输入，更少的缩进，以及更少的样板代码。然而，你会失去<code>match</code>强制执行的详尽检查，这确保了你没有忘记处理任何情况。在<code>match</code>和<code>if let</code>之间进行选择取决于你在特定情况下的操作，以及在获得简洁性与失去详尽检查之间是否是一个合适的权衡。",
+    "_note": ""
+  },
+  "The common pattern is to perform some computation when a value is present and return a default value otherwise. Continuing with our example of coins with a UsState value, if we wanted to say something funny depending on how old the state on the quarter was, we might introduce a method on UsState to check the age of a state, like so:": {
+    "_translate": "常见的模式是在值存在时执行某些计算，否则返回默认值。继续我们关于带有 <code>UsState</code> 值的硬币的例子，如果我们想根据硬币上州的年龄说一些有趣的话，我们可能会在 <code>UsState</code> 上引入一个方法来检查州的年龄，如下所示：",
+    "_note": ""
+  },
+  "Then, we might use if let to match on the type of coin, introducing a state variable within the body of the condition, as in Listing 6-7.": {
+    "_translate": "然后，我们可能会使用 <code>if let</code> 来匹配硬币的类型，在条件体中引入一个 <code>state</code> 变量，如列表 6-7 所示。",
+    "_note": ""
+  },
+  "Notice that it stays on the “happy path” in the main body of the function this way, without having significantly different control flow for two branches the way the if let did.": {
+    "_translate": "请注意，这种方式在函数主体中保持在“顺利路径”上，而不会像 <code>if let</code> 那样为两个分支产生显著不同的控制流。",
+    "_note": ""
+  },
+  "That gets the job done, but it has pushed the work into the body of the if let statement, and if the work to be done is more complicated, it might be hard to follow exactly how the top-level branches relate. We could also take advantage of the fact that expressions produce a value either to produce the state from the if let or to return early, as in Listing 6-8. (You could do something similar with a match, too.)": {
+    "_translate": "这完成了任务，但将工作推到了 <code>if let</code> 语句的主体中，如果要完成的工作更复杂，可能很难跟踪顶级分支之间的关系。我们也可以利用表达式产生值的事实，从 <code>if let</code> 生成 <code>state</code> 或提前返回，如列表 6-8 所示。（你也可以用 <code>match</code> 做类似的事情。）",
+    "_note": ""
+  },
+  "Your Rust programs can now express concepts in your domain using structs and enums. Creating custom types to use in your API ensures type safety: The compiler will make certain your functions only get values of the type each function expects.": {
+    "_translate": "您的 Rust 程序现在可以使用结构体和枚举来表达领域中的概念。创建自定义类型以在您的 API 中使用可以确保类型安全：编译器将确保您的函数只接收每个函数期望的类型的值。",
+    "_note": ""
   }
 }

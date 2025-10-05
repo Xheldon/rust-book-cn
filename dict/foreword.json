@@ -34,5 +34,33 @@
   "Foreword - The Rust Programming Language": {
     "_translate": "前言 - 《Rust编程语言》",
     "_note": ""
+  },
+  "The Rust programming language has come a long way in a few short years, from its creation and incubation by a small and nascent community of enthusiasts, to becoming one of the most loved and in-demand programming languages in the world. Looking back, it was inevitable that the power and promise of Rust would turn heads and gain a foothold in systems programming. What was not inevitable was the global growth in interest and innovation that permeated through open source communities and catalyzed wide-scale adoption across industries.": {
+    "_translate": "Rust 编程语言在短短几年内取得了长足的进步，从由一小群热心爱好者创建和孵化，到成为世界上最受喜爱和需求量最大的编程语言之一。回顾过去，Rust 的强大和潜力必然会吸引人们的注意，并在系统编程中占据一席之地。但全球范围内兴趣和创新的增长，渗透到开源社区并催化各行各业的广泛采用，这并不是必然的。",
+    "_note": ""
+  },
+  "At this point in time, it is easy to point to the wonderful features that Rust has to offer to explain this explosion in interest and adoption. Who doesn’t want memory safety, and fast performance, and a friendly compiler, and great tooling, among a host of other wonderful features? The Rust language you see today combines years of research in systems programming with the practical wisdom of a vibrant and passionate community. This language was designed with purpose and crafted with care, offering developers a tool that makes it easier to write safe, fast, and reliable code.": {
+    "_translate": "目前，很容易指出 Rust 拥有的出色特性来解释这种兴趣和采用的爆炸性增长。谁不想要内存安全，<em>和</em>高性能，<em>和</em>友好的编译器，<em>和</em>出色的工具，以及其他许多出色的特性呢？你今天看到的 Rust 语言结合了多年在系统编程领域的研究和一个充满活力且热情的社区的实践经验。这门语言是有目的性地设计和精心打造的，为开发者提供了一个更容易编写安全、快速和可靠代码的工具。",
+    "_note": ""
+  },
+  "But what makes Rust truly special is its roots in empowering you, the user, to achieve your goals. This is a language that wants you to succeed, and the principle of empowerment runs through the core of the community that builds, maintains, and advocates for this language. Since the previous edition of this definitive text, Rust has further developed into a truly global and trusted language. The Rust Project is now robustly supported by the Rust Foundation, which also invests in key initiatives to ensure that Rust is secure, stable, and sustainable.": {
+    "_translate": "但是，使 Rust 真正特别的是它植根于赋予你，用户，实现目标的能力。这是一种希望你成功的语言，赋权的原则贯穿于构建、维护和推广这种语言的社区的核心。自上一版这本权威文本以来，Rust 已进一步发展成为一种真正全球性和值得信赖的语言。Rust 项目现在得到了 Rust 基金会的有力支持，该基金会还投资于关键计划，以确保 Rust 的安全性、稳定性和可持续性。",
+    "_note": ""
+  },
+  "This edition of The Rust Programming Language is a comprehensive update, reflecting the language’s evolution over the years and providing valuable new information. But it is not just a guide to syntax and libraries—it’s an invitation to join a community that values quality, performance, and thoughtful design. Whether you’re a seasoned developer looking to explore Rust for the first time or an experienced Rustacean looking to refine your skills, this edition offers something for everyone.": {
+    "_translate": "这版的<em>The Rust Programming Language</em>是一次全面的更新，反映了多年来语言的演变，并提供了宝贵的新信息。但这不仅仅是一本关于语法和库的指南——它是一份邀请，邀请您加入一个重视质量、性能和深思熟虑设计的社区。无论您是第一次探索Rust的经验丰富的开发人员，还是希望精进技能的资深Rustacean，这版都为每个人提供了内容。",
+    "_note": ""
+  },
+  "The Rust journey has been one of collaboration, learning, and iteration. The growth of the language and its ecosystem is a direct reflection of the vibrant, diverse community behind it. The contributions of thousands of developers, from core language designers to casual contributors, are what make Rust such a unique and powerful tool. By picking up this book, you’re not just learning a new programming language—you’re joining a movement to make software better, safer, and more enjoyable to work with.": {
+    "_translate": "Rust 的旅程是一段协作、学习和迭代的过程。语言及其生态系统的成长直接反映了其背后充满活力、多样化的社区。成千上万的开发者的贡献，从核心语言设计者到偶尔的贡献者，使得 Rust 成为一种独特而强大的工具。通过拿起这本书，你不仅是在学习一门新的编程语言——你正在加入一个使软件更好、更安全、更愉快的运动。",
+    "_note": ""
+  },
+  "Welcome to the Rust community!": {
+    "_translate": "欢迎加入 Rust 社区！",
+    "_note": ""
+  },
+  "Bec Rumbul, Executive Director of the Rust Foundation": {
+    "_translate": "Bec Rumbul，Rust 基金会执行董事",
+    "_note": ""
   }
 }

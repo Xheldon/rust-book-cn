@@ -270,5 +270,61 @@
   "When we run this code, we’ll see the same output as in Listing 3-4. More importantly, we’ve now increased the safety of the code and eliminated the chance of bugs that might result from going beyond the end of the array or not going far enough and missing some items. Machine code generated from for loops can be more efficient as well, because the index doesn’t need to be compared to the length of the array at every iteration.": {
     "_translate": "当我们运行这段代码时，我们将看到与清单 3-4 中相同的输出。更重要的是，我们现在提高了代码的安全性，并消除了因超出数组末尾或未能足够深入而导致遗漏某些项的错误可能性。<code>for</code> 循环生成的机器代码也可以更高效，因为索引在每次迭代时不需要与数组的长度进行比较。",
     "_note": ""
+  },
+  "The ability to run some code depending on whether a condition is true and the ability to run some code repeatedly while a condition is true are basic building blocks in most programming languages. The most common constructs that let you control the flow of execution of Rust code are if expressions and loops.": {
+    "_translate": "根据条件是否为<code>true</code>来运行某些代码的能力，以及在条件为<code>true</code>时重复运行某些代码的能力，是大多数编程语言的基本构建块。控制Rust代码执行流程的最常见结构是<code>if</code>表达式和循环。",
+    "_note": ""
+  },
+  "The loop keyword tells Rust to execute a block of code over and over again either forever or until you explicitly tell it to stop.": {
+    "_translate": "<code>loop</code> 关键字告诉 Rust 反复执行一段代码，要么永远执行，要么直到你明确告诉它停止。",
+    "_note": ""
+  },
+  "The expression in the if block evaluates to an integer, and the expression in the else block evaluates to a string. This won’t work, because variables must have a single type, and Rust needs to know definitively at compile time what type the number variable is. Knowing the type of number lets the compiler verify the type is valid everywhere we use number. Rust wouldn’t be able to do that if the type of number was only determined at runtime; the compiler would be more complex and would make fewer guarantees about the code if it had to keep track of multiple hypothetical types for any variable.": {
+    "_translate": "<code>if</code> 块中的表达式计算为整数，而 <code>else</code> 块中的表达式计算为字符串。这行不通，因为变量必须具有单一类型，Rust 需要在编译时确定 <code>number</code> 变量的类型。知道 <code>number</code> 的类型可以让编译器在我们使用 <code>number</code> 的每个地方验证类型是否有效。如果 <code>number</code> 的类型仅在运行时确定，Rust 将无法做到这一点；编译器会变得更加复杂，并且如果必须跟踪任何变量的多个假设类型，它对代码的保证会更少。",
+    "_note": ""
+  },
+  "When we run this program, we’ll see again! printed over and over continuously until we stop the program manually. Most terminals support the keyboard shortcut ctrl-C to interrupt a program that is stuck in a continual loop. Give it a try:": {
+    "_translate": "当我们运行这个程序时，我们会看到 <code>again!</code> 不断地打印出来，直到我们手动停止程序。大多数终端支持使用键盘快捷键 <kbd>ctrl</kbd>-<kbd>C</kbd> 来中断陷入持续循环的程序。试试看：",
+    "_note": ""
+  },
+  "The symbol ^C represents where you pressed ctrl-C.": {
+    "_translate": "符号<code>^C</code>表示您按下了<kbd>ctrl</kbd>-<kbd>C</kbd>。",
+    "_note": ""
+  },
+  "One of the uses of a loop is to retry an operation you know might fail, such as checking whether a thread has completed its job. You might also need to pass the result of that operation out of the loop to the rest of your code. To do this, you can add the value you want returned after the break expression you use to stop the loop; that value will be returned out of the loop so that you can use it, as shown here:": {
+    "_translate": "<code>loop</code> 的一个用途是重试你认为可能会失败的操作，例如检查线程是否已完成其任务。你可能还需要将该操作的结果传递出循环，以便在代码的其余部分中使用。为此，可以在用于停止循环的 <code>break</code> 表达式后添加你希望返回的值；该值将从循环中返回，以便你可以使用它，如下所示：",
+    "_note": ""
+  },
+  "Before the loop, we declare a variable named counter and initialize it to 0. Then, we declare a variable named result to hold the value returned from the loop. On every iteration of the loop, we add 1 to the counter variable, and then check whether the counter is equal to 10. When it is, we use the break keyword with the value counter * 2. After the loop, we use a semicolon to end the statement that assigns the value to result. Finally, we print the value in result, which in this case is 20.": {
+    "_translate": "在循环之前，我们声明一个名为 <code>counter</code> 的变量并将其初始化为 <code>0</code>。然后，我们声明一个名为 <code>result</code> 的变量来保存从循环返回的值。在循环的每次迭代中，我们将 <code>1</code> 加到 <code>counter</code> 变量上，然后检查 <code>counter</code> 是否等于 <code>10</code>。当它等于时，我们使用带有值 <code>counter * 2</code> 的 <code>break</code> 关键字。在循环之后，我们使用分号结束将值赋给 <code>result</code> 的语句。最后，我们打印 <code>result</code> 中的值，在这种情况下是 <code>20</code>。",
+    "_note": ""
+  },
+  "Disambiguating with Loop Labels": {
+    "_translate": "<a class=\"header\" href=\"#disambiguating-with-loop-labels\">使用循环标签进行消歧</a>",
+    "_note": ""
+  },
+  "Streamlining Conditional Loops with while": {
+    "_translate": "<a class=\"header\" href=\"#streamlining-conditional-loops-with-while\">使用 while 简化条件循环</a>",
+    "_note": ""
+  },
+  "Here, the code counts up through the elements in the array. It starts at index 0 and then loops until it reaches the final index in the array (that is, when index < 5 is no longer true). Running this code will print every element in the array:": {
+    "_translate": "这里，代码通过数组中的元素进行计数。它从索引<code>0</code>开始，然后循环直到到达数组的最后一个索引（即，当<code>index &lt; 5</code>不再为<code>true</code>时）。运行此代码将打印数组中的每个元素：",
+    "_note": ""
+  },
+  "A program will often need to evaluate a condition within a loop. While the condition is true, the loop runs. When the condition ceases to be true, the program calls break, stopping the loop. It’s possible to implement behavior like this using a combination of loop, if, else, and break; you could try that now in a program, if you’d like. However, this pattern is so common that Rust has a built-in language construct for it, called a while loop. In Listing 3-3, we use while to loop the program three times, counting down each time, and then, after the loop, to print a message and exit.": {
+    "_translate": "一个程序通常需要在循环中评估一个条件。当条件为<code>true</code>时，循环运行。当条件不再为<code>true</code>时，程序调用<code>break</code>，停止循环。可以使用<code>loop</code>、<code>if</code>、<code>else</code>和<code>break</code>的组合来实现类似的行为；如果你愿意，现在可以在一个程序中尝试这样做。然而，这种模式非常常见，以至于Rust为此提供了一个内置的语言结构，称为<code>while</code>循环。在清单3-3中，我们使用<code>while</code>循环三次，每次递减计数，然后在循环结束后打印一条消息并退出。",
+    "_note": ""
+  },
+  "However, this approach is error-prone; we could cause the program to panic if the index value or test condition is incorrect. For example, if you changed the definition of the a array to have four elements but forgot to update the condition to while index < 4, the code would panic. It’s also slow, because the compiler adds runtime code to perform the conditional check of whether the index is within the bounds of the array on every iteration through the loop.": {
+    "_translate": "然而，这种方法容易出错；如果索引值或测试条件不正确，我们可能会导致程序崩溃。例如，如果你将 <code>a</code> 数组的定义更改为包含四个元素，但忘记将条件更新为 <code>while index &lt; 4</code>，代码将会崩溃。此外，这种方法也很慢，因为编译器会在每次循环迭代时添加运行时代码来检查索引是否在数组的边界内。",
+    "_note": ""
+  },
+  "When we run this code, we’ll see the same output as in Listing 3-4. More importantly, we’ve now increased the safety of the code and eliminated the chance of bugs that might result from going beyond the end of the array or not going far enough and missing some items. Machine code generated from for loops can be more efficient as well because the index doesn’t need to be compared to the length of the array at every iteration.": {
+    "_translate": "当我们运行这段代码时，我们将看到与清单 3-4 中相同的输出。更重要的是，我们现在提高了代码的安全性，并消除了因超出数组末尾或未能足够深入而导致遗漏某些项的错误可能性。<code>for</code> 循环生成的机器代码也可以更高效，因为索引不需要在每次迭代时都与数组的长度进行比较。",
+    "_note": ""
+  },
+  "You made it! This was a sizable chapter: You learned about variables, scalar and compound data types, functions, comments, if expressions, and loops! To practice with the concepts discussed in this chapter, try building programs to do the following:": {
+    "_translate": "你做到了！这是一个相当大的章节：你学习了变量、标量和复合数据类型、函数、注释、<code>if</code> 表达式和循环！为了练习本章讨论的概念，尝试构建程序来完成以下任务：",
+    "_note": ""
   }
 }

@@ -270,5 +270,73 @@
   "You already know that answer will not be З, the first letter. When encoded in UTF-8, the first byte of З is 208 and the second is 151, so it would seem that answer should in fact be 208, but 208 is not a valid character on its own. Returning 208 is likely not what a user would want if they asked for the first letter of this string; however, that’s the only data that Rust has at byte index 0. Users generally don’t want the byte value returned, even if the string contains only Latin letters: if &\"hi\"[0] were valid code that returned the byte value, it would return 104, not h.": {
     "_translate": "你已经知道 <code>answer</code> 不会是 <code>З</code>，即第一个字母。当用 UTF-8 编码时，<code>З</code> 的第一个字节是 <code>208</code>，第二个字节是 <code>151</code>，所以看起来 <code>answer</code> 应该是 <code>208</code>，但 <code>208</code> 本身不是一个有效的字符。返回 <code>208</code> 可能不是用户询问此字符串的第一个字母时所希望的结果；然而，这是 Rust 在字节索引 0 处唯一拥有的数据。用户通常不希望返回字节值，即使字符串仅包含拉丁字母：<code>&amp;\"hi\"[0]</code> 如果是有效的代码并返回字节值，它会返回 <code>104</code>，而不是 <code>h</code>。",
     "_note": ""
+  },
+  "Defining Strings": {
+    "_translate": "<a class=\"header\" href=\"#defining-strings\">定义字符串</a>",
+    "_note": ""
+  },
+  "We discuss strings in the context of collections because strings are implemented as a collection of bytes, plus some methods to provide useful functionality when those bytes are interpreted as text. In this section, we’ll talk about the operations on String that every collection type has, such as creating, updating, and reading. We’ll also discuss the ways in which String is different from the other collections, namely, how indexing into a String is complicated by the differences between how people and computers interpret String data.": {
+    "_translate": "我们在讨论集合时提到字符串，因为字符串是作为字节的集合加上一些方法来提供有用的功能，当这些字节被解释为文本时。在这一节中，我们将讨论所有集合类型都具有的 <code>String</code> 操作，例如创建、更新和读取。我们还将讨论 <code>String</code> 与其他集合的不同之处，特别是，由于人们和计算机解释 <code>String</code> 数据方式的不同，索引到 <code>String</code> 的复杂性。",
+    "_note": ""
+  },
+  "We’ll first define what we mean by the term string. Rust has only one string type in the core language, which is the string slice str that is usually seen in its borrowed form, &str. In Chapter 4, we talked about string slices, which are references to some UTF-8 encoded string data stored elsewhere. String literals, for example, are stored in the program’s binary and are therefore string slices.": {
+    "_translate": "我们首先定义一下 <em>字符串</em> 这个术语的含义。Rust 在核心语言中只有一种字符串类型，即字符串切片 <code>str</code>，通常以借用形式 <code>&amp;str</code> 出现。在第 4 章中，我们讨论了字符串切片，它们是对存储在其他地方的 UTF-8 编码字符串数据的引用。例如，字符串字面量存储在程序的二进制文件中，因此是字符串切片。",
+    "_note": ""
+  },
+  "Appending with push_str or push": {
+    "_translate": "<a class=\"header\" href=\"#appending-with-push_str-or-push\">使用 <code>push_str</code> 或 <code>push</code> 追加</a>",
+    "_note": ""
+  },
+  "Concatenating with + or format!": {
+    "_translate": "<a class=\"header\" href=\"#concatenating-with--or-format\">使用 <code>+</code> 或 <code>format!</code> 连接</a>",
+    "_note": ""
+  },
+  "First, s2 has an &, meaning that we’re adding a reference of the second string to the first string. This is because of the s parameter in the add function: We can only add a string slice to a String; we can’t add two String values together. But wait—the type of &s2 is &String, not &str, as specified in the second parameter to add. So, why does Listing 8-18 compile?": {
+    "_translate": "首先，<code>s2</code> 有一个 <code>&amp;</code>，这意味着我们正在向第一个字符串添加第二个字符串的引用。这是由于 <code>add</code> 函数中的 <code>s</code> 参数：我们只能将字符串切片添加到 <code>String</code>；我们不能将两个 <code>String</code> 值相加。但是等等——<code>&amp;s2</code> 的类型是 <code>&amp;String</code>，而不是 <code>&amp;str</code>，如 <code>add</code> 的第二个参数所指定的。那么，为什么示例 8-18 能编译？",
+    "_note": ""
+  },
+  "The error tells the story: Rust strings don’t support indexing. But why not? To answer that question, we need to discuss how Rust stores strings in memory.": {
+    "_translate": "错误揭示了原因：Rust 字符串不支持索引。但为什么呢？要回答这个问题，我们需要讨论 Rust 是如何在内存中存储字符串的。",
+    "_note": ""
+  },
+  "In this case, len will be 4, which means the vector storing the string \"Hola\" is 4 bytes long. Each of these letters takes 1 byte when encoded in UTF-8. The following line, however, may surprise you (note that this string begins with the capital Cyrillic letter Ze, not the number 3):": {
+    "_translate": "在这种情况下，<code>len</code> 将是 <code>4</code>，这意味着存储字符串 <code>\"Hola\"</code> 的向量长度为 4 字节。这些字母中的每一个在 UTF-8 编码时都占用 1 字节。然而，下一行可能会让你感到惊讶（请注意，这个字符串以大写的西里尔字母 <em>Ze</em> 开头，而不是数字 3）：",
+    "_note": ""
+  },
+  "If you were asked how long the string is, you might say 12. In fact, Rust’s answer is 24: That’s the number of bytes it takes to encode “Здравствуйте” in UTF-8, because each Unicode scalar value in that string takes 2 bytes of storage. Therefore, an index into the string’s bytes will not always correlate to a valid Unicode scalar value. To demonstrate, consider this invalid Rust code:": {
+    "_translate": "如果你被问到这个字符串有多长，你可能会说12。事实上，Rust的答案是24：这是编码“Здравствуйте”所需的字节数，因为该字符串中的每个Unicode标量值都需要2个字节的存储空间。因此，字符串字节的索引并不总是对应于有效的Unicode标量值。为了演示，考虑这段无效的Rust代码：",
+    "_note": ""
+  },
+  "Bytes, Scalar Values, and Grapheme Clusters": {
+    "_translate": "<a class=\"header\" href=\"#bytes-scalar-values-and-grapheme-clusters\">字节、标量值和图形簇</a>",
+    "_note": ""
+  },
+  "There are six char values here, but the fourth and sixth are not letters: They’re diacritics that don’t make sense on their own. Finally, if we look at them as grapheme clusters, we’d get what a person would call the four letters that make up the Hindi word:": {
+    "_translate": "这里有六个 <code>char</code> 值，但第四个和第六个不是字母：它们是独立时没有意义的变音符号。最后，如果我们把它们看作是字母群，我们会得到人们所说的构成印地语单词的四个字母：",
+    "_note": ""
+  },
+  "You already know that answer will not be З, the first letter. When encoded in UTF-8, the first byte of З is 208 and the second is 151, so it would seem that answer should in fact be 208, but 208 is not a valid character on its own. Returning 208 is likely not what a user would want if they asked for the first letter of this string; however, that’s the only data that Rust has at byte index 0. Users generally don’t want the byte value returned, even if the string contains only Latin letters: If &\"hi\"[0] were valid code that returned the byte value, it would return 104, not h.": {
+    "_translate": "你已经知道 <code>answer</code> 不会是 <code>З</code>，即第一个字母。当用 UTF-8 编码时，<code>З</code> 的第一个字节是 <code>208</code>，第二个字节是 <code>151</code>，所以看起来 <code>answer</code> 应该是 <code>208</code>，但 <code>208</code> 本身不是一个有效的字符。返回 <code>208</code> 可能不是用户询问此字符串的第一个字母时所希望的结果；然而，这是 Rust 在字节索引 0 处唯一拥有的数据。用户通常不希望返回字节值，即使字符串仅包含拉丁字母：如果 <code>&amp;\"hi\"[0]</code> 是有效的代码并返回字节值，它将返回 <code>104</code>，而不是 <code>h</code>。",
+    "_note": ""
+  },
+  "Here, s will be a &str that contains the first 4 bytes of the string. Earlier, we mentioned that each of these characters was 2 bytes, which means s will be Зд.": {
+    "_translate": "这里，<code>s</code> 将是一个包含字符串前 4 个字节的 <code>&amp;str</code>。\n之前我们提到每个字符都是 2 个字节，这意味着\n<code>s</code> 将是 <code>Зд</code>。",
+    "_note": ""
+  },
+  "Iterating Over Strings": {
+    "_translate": "<a class=\"header\" href=\"#iterating-over-strings\">遍历字符串</a>",
+    "_note": ""
+  },
+  "This code will print the 4 bytes that make up this string:": {
+    "_translate": "这段代码将打印组成这个字符串的4个字节：",
+    "_note": ""
+  },
+  "But be sure to remember that valid Unicode scalar values may be made up of more than 1 byte.": {
+    "_translate": "但请务必记住，有效的 Unicode 标量值可能由多个字节组成。",
+    "_note": ""
+  },
+  "Handling the Complexities of Strings": {
+    "_translate": "<a class=\"header\" href=\"#handling-the-complexities-of-strings\">处理字符串的复杂性</a>",
+    "_note": ""
   }
 }

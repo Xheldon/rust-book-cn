@@ -166,5 +166,49 @@
   "Catch-All Patterns and the _ Placeholder": {
     "_translate": "<a class=\"header\" href=\"#catch-all-patterns-and-the-_-placeholder\">通配模式和 <code>_</code> 占位符</a>",
     "_note": ""
+  },
+  "Think of a match expression as being like a coin-sorting machine: Coins slide down a track with variously sized holes along it, and each coin falls through the first hole it encounters that it fits into. In the same way, values go through each pattern in a match, and at the first pattern the value “fits,” the value falls into the associated code block to be used during execution.": {
+    "_translate": "将 <code>match</code> 表达式想象成一个硬币分类机：硬币沿着轨道滑下，轨道上有各种大小的孔，每个硬币都会掉进它遇到的第一个适合的孔。同样地，值会通过 <code>match</code> 中的每个模式，当值“适合”第一个模式时，值就会掉进与之关联的代码块中，在执行期间被使用。",
+    "_note": ""
+  },
+  "When the match expression executes, it compares the resultant value against the pattern of each arm, in order. If a pattern matches the value, the code associated with that pattern is executed. If that pattern doesn’t match the value, execution continues to the next arm, much as in a coin-sorting machine. We can have as many arms as we need: In Listing 6-3, our match has four arms.": {
+    "_translate": "当 <code>match</code> 表达式执行时，它会按顺序将结果值与每个分支的模式进行比较。如果模式匹配该值，则执行与该模式关联的代码。如果该模式不匹配该值，则继续执行下一个分支，就像在硬币分类机中一样。我们可以根据需要拥有任意数量的分支：在清单 6-3 中，我们的 <code>match</code> 有四个分支。",
+    "_note": ""
+  },
+  "Let’s break down the match in the value_in_cents function. First, we list the match keyword followed by an expression, which in this case is the value coin. This seems very similar to a conditional expression used with if, but there’s a big difference: With if, the condition needs to evaluate to a Boolean value, but here it can be any type. The type of coin in this example is the Coin enum that we defined on the first line.": {
+    "_translate": "让我们来分析 <code>value_in_cents</code> 函数中的 <code>match</code>。首先，我们列出 <code>match</code> 关键字，后面跟着一个表达式，在这种情况下是值 <code>coin</code>。这看起来非常类似于使用 <code>if</code> 的条件表达式，但有一个很大的不同：<code>if</code> 的条件需要评估为布尔值，但在这里它可以是任何类型。<code>coin</code> 在这个例子中的类型是我们第一行定义的 <code>Coin</code> 枚举。",
+    "_note": ""
+  },
+  "In the match expression for this code, we add a variable called state to the pattern that matches values of the variant Coin::Quarter. When a Coin::Quarter matches, the state variable will bind to the value of that quarter’s state. Then, we can use state in the code for that arm, like so:": {
+    "_translate": "在这个代码的 match 表达式中，我们向匹配 <code>Coin::Quarter</code> 变体的模式中添加了一个名为 <code>state</code> 的变量。当 <code>Coin::Quarter</code> 匹配时，<code>state</code> 变量将绑定到该季度的状态值。然后，我们可以在该分支的代码中使用 <code>state</code>，如下所示：",
+    "_note": ""
+  },
+  "We don’t typically use curly brackets if the match arm code is short, as it is in Listing 6-3 where each arm just returns a value. If you want to run multiple lines of code in a match arm, you must use curly brackets, and the comma following the arm is then optional. For example, the following code prints “Lucky penny!” every time the method is called with a Coin::Penny, but it still returns the last value of the block, 1:": {
+    "_translate": "我们通常不在匹配臂代码很短时使用大括号，例如在清单 6-3 中，每个匹配臂只是返回一个值。如果你想在匹配臂中运行多行代码，你必须使用大括号，然后匹配臂后面的逗号就变成可选的了。例如，以下代码每次使用 <code>Coin::Penny</code> 调用方法时都会打印 “Lucky penny!”，但它仍然返回块的最后一个值，<code>1</code>：",
+    "_note": ""
+  },
+  "There’s one other aspect of match we need to discuss: The arms’ patterns must cover all possibilities. Consider this version of our plus_one function, which has a bug and won’t compile:": {
+    "_translate": "还有 <code>match</code> 的一个方面需要讨论：臂的模式必须覆盖所有可能性。考虑这个版本的 <code>plus_one</code> 函数，它有一个错误，无法编译：",
+    "_note": ""
+  },
+  "The Option<T> match Pattern": {
+    "_translate": "<a class=\"header\" href=\"#the-optiont-match-pattern\">The <code>Option&lt;T&gt;</code> <code>match</code> 模式</a>",
+    "_note": ""
+  },
+  "Rust knows that we didn’t cover every possible case and even knows which pattern we forgot! Matches in Rust are exhaustive: We must exhaust every last possibility in order for the code to be valid. Especially in the case of Option<T>, when Rust prevents us from forgetting to explicitly handle the None case, it protects us from assuming that we have a value when we might have null, thus making the billion-dollar mistake discussed earlier impossible.": {
+    "_translate": "Rust 知道我们没有覆盖所有可能的情况，甚至知道我们忘记了哪个模式！Rust 中的匹配是 <em>穷尽的</em>：我们必须穷尽每一种可能性，代码才能有效。特别是在处理 <code>Option&lt;T&gt;</code> 时，当 Rust 防止我们忘记显式处理 <code>None</code> 情况时，它保护我们不会在可能为 null 的情况下假设我们有值，从而使得前面讨论的“十亿美元错误”变得不可能。",
+    "_note": ""
+  },
+  "Using enums, we can also take special actions for a few particular values, but for all other values take one default action. Imagine we’re implementing a game where, if you roll a 3 on a dice roll, your player doesn’t move but instead gets a fancy new hat. If you roll a 7, your player loses a fancy hat. For all other values, your player moves that number of spaces on the game board. Here’s a match that implements that logic, with the result of the dice roll hardcoded rather than a random value, and all other logic represented by functions without bodies because actually implementing them is out of scope for this example:": {
+    "_translate": "使用枚举，我们也可以对少数特定值采取特殊操作，而对所有其他值采取一个默认操作。想象一下我们正在实现一个游戏，如果你掷出3，你的角色不会移动，而是会得到一顶华丽的新帽子。如果你掷出7，你的角色会失去一顶华丽的帽子。对于所有其他值，你的角色会在游戏板上移动相应的格数。以下是一个实现该逻辑的<code>match</code>，掷骰子的结果是硬编码的而不是随机值，所有其他逻辑由没有函数体的函数表示，因为实际实现它们超出了这个例子的范围：",
+    "_note": ""
+  },
+  "Let’s change the rules of the game: Now, if you roll anything other than a 3 or a 7, you must roll again. We no longer need to use the catch-all value, so we can change our code to use _ instead of the variable named other:": {
+    "_translate": "让我们改变游戏规则：现在，如果你掷出的不是3或7，你必须重新掷。我们不再需要使用通配值，所以我们可以将代码改为使用<code>_</code>而不是名为<code>other</code>的变量：",
+    "_note": ""
+  },
+  "This code compiles, even though we haven’t listed all the possible values a u8 can have, because the last pattern will match all values not specifically listed. This catch-all pattern meets the requirement that match must be exhaustive. Note that we have to put the catch-all arm last because the patterns are evaluated in order. If we had put the catch-all arm earlier, the other arms would never run, so Rust will warn us if we add arms after a catch-all!": {
+    "_translate": "这段代码可以编译，即使我们没有列出<code>u8</code>可以拥有的所有可能值，因为最后一个模式将匹配所有未特别列出的值。这个通配模式满足了<code>match</code>必须是穷尽的要求。请注意，我们必须把通配分支放在最后，因为模式是按顺序评估的。如果我们把通配分支放在前面，其他分支将永远不会运行，所以如果我们在通配分支之后添加分支，Rust 会警告我们！",
+    "_note": ""
   }
 }

@@ -98,5 +98,25 @@
   "src/front_of_house/hosting/mod.rs (older style, still supported path)": {
     "_translate": "<em>src/front_of_house/hosting/mod.rs</em> (较旧的风格，仍然支持的路径)",
     "_note": ""
+  },
+  "Then, we create a src/front_of_house directory and a hosting.rs file to contain the definitions made in the hosting module:": {
+    "_translate": "然后，我们创建一个 <em>src/front_of_house</em> 目录和一个 <em>hosting.rs</em> 文件来\n包含在 <code>hosting</code> 模块中定义的内容：",
+    "_note": ""
+  },
+  "First, we’ll extract the front_of_house module to its own file. Remove the code inside the curly brackets for the front_of_house module, leaving only the mod front_of_house; declaration, so that src/lib.rs contains the code shown in Listing 7-21. Note that this won’t compile until we create the src/front_of_house.rs file in Listing 7-22.": {
+    "_translate": "首先，我们将 <code>front_of_house</code> 模块提取到其自己的文件中。删除 <code>front_of_house</code> 模块的大括号内的代码，只保留 <code>mod front_of_house;</code> 声明，这样 <em>src/lib.rs</em> 将包含如清单 7-21 所示的代码。请注意，直到我们在清单 7-22 中创建 <em>src/front_of_house.rs</em> 文件之前，这将无法编译。",
+    "_note": ""
+  },
+  "If you use both styles for the same module, you’ll get a compiler error. Using a mix of both styles for different modules in the same project is allowed but might be confusing for people navigating your project.": {
+    "_translate": "如果您在同一模块中同时使用这两种风格，将会得到编译器错误。\n在同一项目中对不同模块使用这两种风格的混合是允许的，但可能会让浏览您项目的人感到困惑。",
+    "_note": ""
+  },
+  "If we instead put hosting.rs in the src directory, the compiler would expect the hosting.rs code to be in a hosting module declared in the crate root and not declared as a child of the front_of_house module. The compiler’s rules for which files to check for which modules’ code mean the directories and files more closely match the module tree.": {
+    "_translate": "如果我们把 <em>hosting.rs</em> 放在 <em>src</em> 目录中，编译器会期望 <em>hosting.rs</em> 代码在 crate 根目录中声明的 <code>hosting</code> 模块中，而不是作为 <code>front_of_house</code> 模块的子模块声明。编译器关于检查哪些模块代码的规则意味着目录和文件更接近模块树。",
+    "_note": ""
+  },
+  "Rust lets you split a package into multiple crates and a crate into modules so that you can refer to items defined in one module from another module. You can do this by specifying absolute or relative paths. These paths can be brought into scope with a use statement so that you can use a shorter path for multiple uses of the item in that scope. Module code is private by default, but you can make definitions public by adding the pub keyword.": {
+    "_translate": "Rust 让你可以将一个包拆分为多个 crate，并将一个 crate 拆分为模块，这样你就可以从一个模块引用在另一个模块中定义的项。你可以通过指定绝对路径或相对路径来实现这一点。这些路径可以通过 <code>use</code> 语句引入作用域，这样你就可以在该作用域中多次使用较短的路径来引用项。模块代码默认是私有的，但你可以通过添加 <code>pub</code> 关键字来使定义公开。",
+    "_note": ""
   }
 }

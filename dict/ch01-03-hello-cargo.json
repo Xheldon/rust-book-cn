@@ -206,5 +206,41 @@
   "Create and run a new project using the conventions of Cargo": {
     "_translate": "使用 Cargo 的约定创建并运行一个新项目",
     "_note": ""
+  },
+  "Cargo has generated a “Hello, world!” program for you, just like the one we wrote in Listing 1-1! So far, the differences between our project and the project Cargo generated are that Cargo placed the code in the src directory, and we have a Cargo.toml configuration file in the top directory.": {
+    "_translate": "Cargo 为您生成了一个“Hello, world!”程序，就像我们在清单 1-1 中编写的一样！到目前为止，我们的项目和 Cargo 生成的项目之间的区别在于 Cargo 将代码放在了 <em>src</em> 目录中，而我们在顶级目录中有一个 <em>Cargo.toml</em> 配置文件。",
+    "_note": ""
+  },
+  "Leveraging Cargo’s Conventions": {
+    "_translate": "<a class=\"header\" href=\"#leveraging-cargos-conventions\">利用 Cargo 的约定</a>",
+    "_note": ""
+  },
+  "Why would you not want an executable? Often, cargo check is much faster than cargo build because it skips the step of producing an executable. If you’re continually checking your work while writing the code, using cargo check will speed up the process of letting you know if your project is still compiling! As such, many Rustaceans run cargo check periodically as they write their program to make sure it compiles. Then, they run cargo build when they’re ready to use the executable.": {
+    "_translate": "为什么你不需要一个可执行文件？通常，<code>cargo check</code> 比 <code>cargo build</code> 快得多，因为它跳过了生成可执行文件的步骤。如果你在编写代码时不断检查你的工作，使用 <code>cargo check</code> 会加快告知你项目是否仍在编译的过程！因此，许多 Rustaceans 在编写程序时会定期运行 <code>cargo check</code> 以确保它能编译。然后，当他们准备使用可执行文件时，他们会运行 <code>cargo build</code>。",
+    "_note": ""
+  },
+  "You’re already off to a great start on your Rust journey! In this chapter, you learned how to:": {
+    "_translate": "你已经在你的 Rust 之旅中有了一个很好的开始！在本章中，你 学习了如何：",
+    "_note": ""
+  },
+  "Update to a newer Rust version.": {
+    "_translate": "更新到更新的 Rust 版本。",
+    "_note": ""
+  },
+  "Install the latest stable version of Rust using rustup.": {
+    "_translate": "使用 <code>rustup</code> 安装最新稳定版本的 Rust。",
+    "_note": ""
+  },
+  "Open locally installed documentation.": {
+    "_translate": "打开本地安装的文档。",
+    "_note": ""
+  },
+  "Write and run a “Hello, world!” program using rustc directly.": {
+    "_translate": "使用 <code>rustc</code> 直接编写并运行一个“Hello, world!”程序。",
+    "_note": ""
+  },
+  "Create and run a new project using the conventions of Cargo.": {
+    "_translate": "使用 Cargo 的约定创建并运行一个新项目。",
+    "_note": ""
   }
 }

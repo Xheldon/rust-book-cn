@@ -170,5 +170,37 @@
   "Function definitions are also statements; the entire preceding example is a statement in itself. (As we’ll see below, calling a function is not a statement, though.)": {
     "_translate": "函数定义也是语句；前面整个例子本身就是一个语句。（正如我们将在下面看到的，<em>调用</em>函数并不是一个语句。）",
     "_note": ""
+  },
+  "Function definitions are also statements; the entire preceding example is a statement in itself. (As we’ll see shortly, calling a function is not a statement, though.)": {
+    "_translate": "函数定义也是语句；前面整个例子本身就是一个语句。（我们很快会看到，调用函数并不是一个语句。）",
+    "_note": ""
+  },
+  "In function signatures, you must declare the type of each parameter. This is a deliberate decision in Rust’s design: Requiring type annotations in function definitions means the compiler almost never needs you to use them elsewhere in the code to figure out what type you mean. The compiler is also able to give more-helpful error messages if it knows what types the function expects.": {
+    "_translate": "在函数签名中，你<em>必须</em>声明每个参数的类型。这是 Rust 设计中的一个故意决定：要求在函数定义中使用类型注解意味着编译器几乎不需要你在代码的其他地方使用它们来确定你指的是什么类型。如果编译器知道函数期望的类型，它也能够给出更有帮助的错误信息。",
+    "_note": ""
+  },
+  "is a block that, in this case, evaluates to 4. That value gets bound to y as part of the let statement. Note the x + 1 line without a semicolon at the end, which is unlike most of the lines you’ve seen so far. Expressions do not include ending semicolons. If you add a semicolon to the end of an expression, you turn it into a statement, and it will then not return a value. Keep this in mind as you explore function return values and expressions next.": {
+    "_translate": "是一个块，在这种情况下，求值为<code>4</code>。该值通过<code>let</code>语句绑定到<code>y</code>。注意没有分号结尾的<code>x + 1</code>行，这与你迄今为止看到的大多数行不同。表达式不包括结尾的分号。如果你在表达式的末尾添加分号，就会将其变成语句，然后它将不会返回值。在接下来探索函数返回值和表达式时，请记住这一点。",
+    "_note": ""
+  },
+  "Expressions evaluate to a value and make up most of the rest of the code that you’ll write in Rust. Consider a math operation, such as 5 + 6, which is an expression that evaluates to the value 11. Expressions can be part of statements: In Listing 3-1, the 6 in the statement let y = 6; is an expression that evaluates to the value 6. Calling a function is an expression. Calling a macro is an expression. A new scope block created with curly brackets is an expression, for example:": {
+    "_translate": "表达式会计算出一个值，并且构成了你将在 Rust 中编写的大部分其余代码。考虑一个数学运算，如 <code>5 + 6</code>，这是一个计算结果为 <code>11</code> 的表达式。表达式可以是语句的一部分：在清单 3-1 中，语句 <code>let y = 6;</code> 中的 <code>6</code> 是一个计算结果为 <code>6</code> 的表达式。调用函数是一个表达式。调用宏是一个表达式。用大括号创建的新作用域块是一个表达式，例如：",
+    "_note": ""
+  },
+  "Running this code will print The value of x is: 6. But what happens if we place a semicolon at the end of the line containing x + 1, changing it from an expression to a statement?": {
+    "_translate": "运行此代码将打印 <code>The value of x is: 6</code>。但如果我们在包含 <code>x + 1</code> 的行末添加一个分号，将其从表达式更改为语句，会发生什么？",
+    "_note": ""
+  },
+  "The 5 in five is the function’s return value, which is why the return type is i32. Let’s examine this in more detail. There are two important bits: First, the line let x = five(); shows that we’re using the return value of a function to initialize a variable. Because the function five returns a 5, that line is the same as the following:": {
+    "_translate": "<code>5</code> 在 <code>five</code> 中是函数的返回值，这就是为什么返回类型是 <code>i32</code>。让我们更详细地 examine this。有两个重要的部分：首先，<code>let x = five();</code> 这一行显示我们正在使用函数的返回值来初始化一个变量。因为函数 <code>five</code> 返回一个 <code>5</code>，所以这一行与以下内容相同：",
+    "_note": ""
+  },
+  "Compiling this code will produce an error, as follows:": {
+    "_translate": "编译此代码将产生以下错误：",
+    "_note": ""
+  },
+  "The main error message, mismatched types, reveals the core issue with this code. The definition of the function plus_one says that it will return an i32, but statements don’t evaluate to a value, which is expressed by (), the unit type. Therefore, nothing is returned, which contradicts the function definition and results in an error. In this output, Rust provides a message to possibly help rectify this issue: It suggests removing the semicolon, which would fix the error.": {
+    "_translate": "主要错误信息，<code>mismatched types</code>，揭示了这段代码的核心问题。函数 <code>plus_one</code> 的定义表明它将返回一个 <code>i32</code>，但语句不会评估为值，而是表示为 <code>()</code>，即单元类型。因此，没有任何值被返回，这与函数定义相矛盾，导致了错误。在这个输出中，Rust 提供了一条消息，可能有助于解决这个问题：它建议删除分号，这将修复错误。",
+    "_note": ""
   }
 }

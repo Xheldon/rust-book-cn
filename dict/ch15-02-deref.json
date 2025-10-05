@@ -262,5 +262,21 @@
   "As discussed in “Implementing a Trait on a Type” in Chapter 10, to implement a trait we need to provide implementations for the trait’s required methods. The Deref trait, provided by the standard library, requires us to implement one method named deref that borrows self and returns a reference to the inner data. Listing 15-10 contains an implementation of Deref to add to the definition of MyBox<T>.": {
     "_translate": "如<a href=\"ch10-02-traits.html#implementing-a-trait-on-a-type\">“在类型上实现特征”</a><!-- ignore -->在\n第 10 章中所述，要实现一个特征，我们需要为该特征的必需方法提供实现。标准库提供的<code>Deref</code>特征要求我们实现一个名为<code>deref</code>的方法，该方法借用<code>self</code>并返回对内部数据的引用。列表 15-10 包含了为<code>MyBox&lt;T&gt;</code>定义添加的<code>Deref</code>实现。",
     "_note": ""
+  },
+  "Treating Smart Pointers Like Regular References - The Rust Programming Language": {
+    "_translate": "将智能指针像常规引用一样处理 - 《Rust编程语言》",
+    "_note": ""
+  },
+  "Treating Smart Pointers Like Regular References": {
+    "_translate": "<a class=\"header\" href=\"#treating-smart-pointers-like-regular-references\">将智能指针视为常规引用</a>",
+    "_note": ""
+  },
+  "Using Deref Coercion in Functions and Methods": {
+    "_translate": "<a class=\"header\" href=\"#using-deref-coercion-in-functions-and-methods\">在函数和方法中使用 Deref 强制转换</a>",
+    "_note": ""
+  },
+  "Handling Deref Coercion with Mutable References": {
+    "_translate": "<a class=\"header\" href=\"#handling-deref-coercion-with-mutable-references\">处理可变引用的 Deref 强制转换</a>",
+    "_note": ""
   }
 }

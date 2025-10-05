@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="zh-CN" class="light sidebar-visible" dir="ltr"><head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>特质：定义共享行为 - 《Rust编程语言》</title>
+        <title>定义共享行为的特征 - 《Rust编程语言》</title>
 
 
         <!-- Custom HTML head -->
@@ -249,7 +249,9 @@ blockquote {
 
                 <div id="content" class="content">
                     <main>
-                        <h2 id="traits-defining-shared-behavior"><a class="header" href="#traits-defining-shared-behavior">特质：定义共享行为</a></h2>
+                        <!-- Old headings. Do not remove or links may break. -->
+<p><a id="traits-defining-shared-behavior"></a></p>
+<h2 id="defining-shared-behavior-with-traits" data-x-en="Defining Shared Behavior with Traits"><a class="header" href="#defining-shared-behavior-with-traits">使用特质定义共享行为</a></h2>
 <p data-x-en="A trait defines the functionality a particular type has and can share with other types. We can use traits to define shared behavior in an abstract way. We can use trait bounds to specify that a generic type can be any type that has certain behavior.">一个 <em>trait</em> 定义了特定类型具有的功能以及可以与其他类型共享的功能。我们可以使用 trait 以抽象的方式定义共享行为。我们可以使用 <em>trait bounds</em> 来指定泛型类型可以是具有某些行为的任何类型。</p>
 <section class="note" aria-role="note">
 <p data-x-en="Note: Traits are similar to a feature often called interfaces in other languages, although with some differences.">注意：Trait 与其它语言中经常称为 <em>接口</em> 的功能类似，尽管有一些不同。</p>
@@ -324,7 +326,9 @@ fn main() {
 特质引入作用域，以便在它们自己的类型上实现 <code>Summary</code>。需要注意的一个限制是，我们只能在特质或类型（或两者）之一是我们 crate 本地的情况下，在该类型上实现特质。例如，我们可以在我们的 <code>aggregator</code> crate 功能中为自定义类型 <code>SocialPost</code> 实现标准库特质如 <code>Display</code>，因为类型 <code>SocialPost</code> 是我们 <code>aggregator</code> crate 本地的。我们还可以在我们的 <code>aggregator</code> crate 中为 <code>Vec&lt;T&gt;</code> 实现 <code>Summary</code>，因为特质 <code>Summary</code> 是我们 <code>aggregator</code>
 crate 本地的。</p>
 <p data-x-en="But we can’t implement external traits on external types. For example, we can’t implement the Display trait on Vec<T> within our aggregator crate because Display and Vec<T> are both defined in the standard library and aren’t local to our aggregator crate. This restriction is part of a property called coherence, and more specifically the orphan rule, so named because the parent type is not present. This rule ensures that other people’s code can’t break your code and vice versa. Without the rule, two crates could implement the same trait for the same type, and Rust wouldn’t know which implementation to use.">但是我们不能为外部类型实现外部特征。例如，我们不能在我们的<code>aggregator</code> crate 中为 <code>Vec&lt;T&gt;</code> 实现 <code>Display</code> 特征，因为 <code>Display</code> 和 <code>Vec&lt;T&gt;</code> 都定义在标准库中，并不是我们 <code>aggregator</code> crate 的本地类型。这个限制是称为<em>一致性</em>的属性的一部分，更具体地说是<em>孤儿规则</em>，之所以这样命名是因为父类型不在场。这条规则确保其他人的代码不会破坏你的代码，反之亦然。如果没有这条规则，两个 crate 可以为同一类型实现相同的特征，Rust 将不知道使用哪个实现。</p>
-<h3 id="default-implementations"><a class="header" href="#default-implementations">默认实现</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="default-implementations"></a></p>
+<h3 id="using-default-implementations" data-x-en="Using Default Implementations"><a class="header" href="#using-default-implementations">使用默认实现</a></h3>
 <p data-x-en="Sometimes it’s useful to have default behavior for some or all of the methods in a trait instead of requiring implementations for all methods on every type. Then, as we implement the trait on a particular type, we can keep or override each method’s default behavior.">有时为特质中的某些或所有方法提供默认行为是有用的，而不是要求每个类型都实现所有方法。然后，当我们在这个特定类型上实现特质时，我们可以保留或覆盖每个方法的默认行为。</p>
 <p data-x-en="In Listing 10-14, we specify a default string for the summarize method of the Summary trait instead of only defining the method signature, as we did in Listing 10-12.">在清单 10-14 中，我们为 <code>Summary</code> 特性中的 <code>summarize</code> 方法指定了一个默认字符串，而不是像我们在清单 10-12 中那样仅定义方法签名。</p>
 <figure class="listing" id="listing-10-14">
@@ -436,7 +440,9 @@ crate 本地的。</p>
 <span class="boring">}</span></code></pre>
 <p data-x-en="This code prints 1 new post: (Read more from @horse_ebooks...).">这段代码打印 <code>1 new post: (Read more from @horse_ebooks...)</code>。</p>
 <p data-x-en="Note that it isn’t possible to call the default implementation from an overriding implementation of that same method.">请注意，无法从同一方法的重写实现中调用默认实现。</p>
-<h3 id="traits-as-parameters"><a class="header" href="#traits-as-parameters">特质作为参数</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="traits-as-parameters"></a></p>
+<h3 id="using-traits-as-parameters" data-x-en="Using Traits as Parameters"><a class="header" href="#using-traits-as-parameters">将特质用作参数</a></h3>
 <p data-x-en="Now that you know how to define and implement traits, we can explore how to use traits to define functions that accept many different types. We’ll use the Summary trait we implemented on the NewsArticle and SocialPost types in Listing 10-13 to define a notify function that calls the summarize method on its item parameter, which is of some type that implements the Summary trait. To do this, we use the impl Trait syntax, like this:">现在你已经知道如何定义和实现特质，我们可以探讨如何使用特质来定义接受多种不同类型的函数。我们将使用在清单 10-13 中为 <code>NewsArticle</code> 和 <code>SocialPost</code> 类型实现的 <code>Summary</code> 特质来定义一个 <code>notify</code> 函数，该函数在其 <code>item</code> 参数上调用 <code>summarize</code> 方法，该参数是实现了 <code>Summary</code> 特质的某种类型。为此，我们使用 <code>impl Trait</code> 语法，如下所示：</p>
 <pre><code class="language-rust ignore"><span class="boring">pub trait Summary {
 </span><span class="boring">    fn summarize(&amp;self) -&gt; String;
@@ -485,7 +491,9 @@ crate 本地的。</p>
 <p data-x-en="Using impl Trait is appropriate if we want this function to allow item1 and item2 to have different types (as long as both types implement Summary). If we want to force both parameters to have the same type, however, we must use a trait bound, like this:">使用 <code>impl Trait</code> 是合适的，如果我们希望这个函数允许 <code>item1</code> 和 <code>item2</code> 具有不同的类型（只要这两种类型都实现了 <code>Summary</code>）。然而，如果我们希望强制两个参数具有相同的类型，我们必须使用一个特质边界，如下所示：</p>
 <pre><code class="language-rust ignore">pub fn notify&lt;T: Summary&gt;(item1: &amp;T, item2: &amp;T) {</code></pre>
 <p data-x-en="The generic type T specified as the type of the item1 and item2 parameters constrains the function such that the concrete type of the value passed as an argument for item1 and item2 must be the same.">指定为 <code>item1</code> 和 <code>item2</code> 参数类型的泛型类型 <code>T</code> 约束了该函数，使得传递给 <code>item1</code> 和 <code>item2</code> 的参数值的具体类型必须相同。</p>
-<h4 id="specifying-multiple-trait-bounds-with-the--syntax"><a class="header" href="#specifying-multiple-trait-bounds-with-the--syntax">使用 <code>+</code> 语法指定多个特征约束</a></h4>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="specifying-multiple-trait-bounds-with-the--syntax"></a></p>
+<h4 id="multiple-trait-bounds-with-the--syntax" data-x-en="Multiple Trait Bounds with the + Syntax"><a class="header" href="#multiple-trait-bounds-with-the--syntax">使用 <code>+</code> 语法的多个特征约束</a></h4>
 <p data-x-en="We can also specify more than one trait bound. Say we wanted notify to use display formatting as well as summarize on item: we specify in the notify definition that item must implement both Display and Summary. We can do so using the + syntax:">我们也可以指定多个特征约束。假设我们希望 <code>notify</code> 使用显示格式化以及对 <code>item</code> 使用 <code>summarize</code>：我们在 <code>notify</code> 的定义中指定 <code>item</code> 必须同时实现 <code>Display</code> 和 <code>Summary</code>。我们可以使用 <code>+</code> 语法来实现：</p>
 <pre><code class="language-rust ignore">pub fn notify(item: &amp;(impl Summary + Display)) {</code></pre>
 <p data-x-en="The + syntax is also valid with trait bounds on generic types:"><code>+</code> 语法在泛型类型的特征边界上也是有效的：</p>

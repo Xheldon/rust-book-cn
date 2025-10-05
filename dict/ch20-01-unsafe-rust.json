@@ -570,5 +570,9 @@
   "Miri correctly warns us that we’re casting an integer to a pointer, which might be a problem but Miri can’t detect if there is because it doesn’t know how the pointer originated. Then, Miri returns an error where Listing 20-7 has undefined behavior because we have a dangling pointer. Thanks to Miri, we now know there is a risk of undefined behavior, and we can think about how to make the code safe. In some cases, Miri can even make recommendations about how to fix errors.": {
     "_translate": "Miri 正确地警告我们，我们正在将一个整数转换为指针，这可能是一个问题，但 Miri 无法检测到是否有问题，因为它不知道指针是如何产生的。然后，Miri 返回一个错误，指出列表 20-7 中存在未定义行为，因为我们有一个悬空指针。多亏了 Miri，我们现在知道存在未定义行为的风险，并可以考虑如何使代码安全。在某些情况下，Miri 甚至可以提出关于如何修复错误的建议。",
     "_note": ""
+  },
+  "Performing Unsafe Superpowers": {
+    "_translate": "<a class=\"header\" href=\"#performing-unsafe-superpowers\">执行不安全的超级能力</a>",
+    "_note": ""
   }
 }

@@ -498,5 +498,97 @@
   "If we hadn’t imported the io module with use std::io; at the beginning of the program, we could still use the function by writing this function call as std::io::stdin. The stdin function returns an instance of std::io::Stdin, which is a type that represents a handle to the standard input for your terminal.": {
     "_translate": "如果我们没有在程序开始时通过 <code>use std::io;</code> 导入 <code>io</code> 模块，我们仍然可以通过将此函数调用写为 <code>std::io::stdin</code> 来使用该函数。 <code>stdin</code> 函数返回一个 <a href=\"../std/io/struct.Stdin.html\"><code>std::io::Stdin</code></a><!-- ignore --> 的实例，这是一个表示终端标准输入句柄的类型。",
     "_note": ""
+  },
+  "We’ll implement a classic beginner programming problem: a guessing game. Here’s how it works: The program will generate a random integer between 1 and 100. It will then prompt the player to enter a guess. After a guess is entered, the program will indicate whether the guess is too low or too high. If the guess is correct, the game will print a congratulatory message and exit.": {
+    "_translate": "我们将实现一个经典的初学者编程问题：猜数字游戏。这里是如何工作的：程序将生成一个1到100之间的随机整数。然后提示玩家输入一个猜测。输入猜测后，程序将指示猜测是太低还是太高。如果猜测正确，游戏将打印一条祝贺消息并退出。",
+    "_note": ""
+  },
+  "Next, the line .read_line(&mut guess) calls the read_line method on the standard input handle to get input from the user. We’re also passing &mut guess as the argument to read_line to tell it what string to store the user input in. The full job of read_line is to take whatever the user types into standard input and append that into a string (without overwriting its contents), so we therefore pass that string as an argument. The string argument needs to be mutable so that the method can change the string’s content.": {
+    "_translate": "接下来，这行代码 <code>.read_line(&amp;mut guess)</code> 调用了标准输入句柄上的 <a href=\"../std/io/struct.Stdin.html#method.read_line\"><code>read_line</code></a><!--\nignore --> 方法以获取用户的输入。\n我们还传递了 <code>&amp;mut guess</code> 作为 <code>read_line</code> 的参数，以告诉它将用户输入存储在哪个字符串中。<code>read_line</code> 的完整任务是将用户在标准输入中输入的内容追加到一个字符串中（不会覆盖其内容），因此我们传递该字符串作为参数。字符串参数需要是可变的，以便方法可以更改字符串的内容。",
+    "_note": ""
+  },
+  "Values of the Result type, like values of any type, have methods defined on them. An instance of Result has an expect method that you can call. If this instance of Result is an Err value, expect will cause the program to crash and display the message that you passed as an argument to expect. If the read_line method returns an Err, it would likely be the result of an error coming from the underlying operating system. If this instance of Result is an Ok value, expect will take the return value that Ok is holding and return just that value to you so that you can use it. In this case, that value is the number of bytes in the user’s input.": {
+    "_translate": "<code>Result</code> 类型的值，像任何类型的值一样，都有定义在其上的方法。一个 <code>Result</code> 的实例有一个 <a href=\"../std/result/enum.Result.html#method.expect\"><code>expect</code> 方法</a><!-- ignore -->\n你可以调用。如果这个 <code>Result</code> 实例是一个 <code>Err</code> 值，<code>expect</code>\n将导致程序崩溃并显示你传递给 <code>expect</code> 的消息。如果 <code>read_line</code> 方法返回一个 <code>Err</code>，它可能是来自底层操作系统的错误导致的。\n如果这个 <code>Result</code> 实例是一个 <code>Ok</code> 值，<code>expect</code> 将获取 <code>Ok</code> 持有的返回值并仅返回该值给你，以便你可以使用它。在这种情况下，该值是用户输入的字节数。",
+    "_note": ""
+  },
+  "At this point, the first part of the game is done: We’re getting input from the keyboard and then printing it.": {
+    "_translate": "到目前为止，游戏的第一部分已经完成：我们从键盘获取输入，然后打印出来。",
+    "_note": ""
+  },
+  "This line prints the string that now contains the user’s input. The {} set of curly brackets is a placeholder: Think of {} as little crab pincers that hold a value in place. When printing the value of a variable, the variable name can go inside the curly brackets. When printing the result of evaluating an expression, place empty curly brackets in the format string, then follow the format string with a comma-separated list of expressions to print in each empty curly bracket placeholder in the same order. Printing a variable and the result of an expression in one call to println! would look like this:": {
+    "_translate": "这行代码打印现在包含用户输入的字符串。`<code>{}</code>` 这组大括号是一个占位符：可以将 `<code>{}</code>` 想象为小螃蟹的钳子，用来夹住一个值。当打印变量的值时，变量名可以放在大括号内。当打印表达式求值的结果时，在格式字符串中放置空的大括号，然后在格式字符串后面跟随一个以逗号分隔的表达式列表，按顺序打印每个空大括号占位符中的内容。在一个 `println!` 调用中同时打印变量和表达式的结果如下所示：",
+    "_note": ""
+  },
+  "Increasing Functionality with a Crate": {
+    "_translate": "<a class=\"header\" href=\"#increasing-functionality-with-a-crate\">通过使用库增加功能</a>",
+    "_note": ""
+  },
+  "Next, we need to generate a secret number that the user will try to guess. The secret number should be different every time so that the game is fun to play more than once. We’ll use a random number between 1 and 100 so that the game isn’t too difficult. Rust doesn’t yet include random number functionality in its standard library. However, the Rust team does provide a rand crate with said functionality.": {
+    "_translate": "接下来，我们需要生成一个用户将尝试猜测的秘密数字。秘密数字每次都应该不同，这样游戏才能多次玩也不失乐趣。我们将使用1到100之间的随机数，以确保游戏不会太难。Rust 的标准库中尚未包含随机数功能。但是，Rust 团队确实提供了一个 <a href=\"https://crates.io/crates/rand\"><code>rand</code> 库</a>，具有所需的功能。",
+    "_note": ""
+  },
+  "Cargo considers these versions to have public APIs compatible with version 0.8.5, and this specification ensures that you’ll get the latest patch release that will still compile with the code in this chapter. Any version 0.9.0 or greater is not guaranteed to have the same API as what the following examples use.": {
+    "_translate": "Cargo 认为这些版本与版本 0.8.5 具有兼容的公共 API，并且此规范确保您将获得最新的补丁版本，该版本仍可与本章中的代码编译。任何 0.9.0 或更高版本都不保证具有与以下示例相同的 API。",
+    "_note": ""
+  },
+  "Ensuring Reproducible Builds": {
+    "_translate": "<a class=\"header\" href=\"#ensuring-reproducible-builds\">确保可重现的构建</a>",
+    "_note": ""
+  },
+  "In the Cargo.toml file, everything that follows a header is part of that section that continues until another section starts. In [dependencies], you tell Cargo which external crates your project depends on and which versions of those crates you require. In this case, we specify the rand crate with the semantic version specifier 0.8.5. Cargo understands Semantic Versioning (sometimes called SemVer), which is a standard for writing version numbers. The specifier 0.8.5 is actually shorthand for ^0.8.5, which means any version that is at least 0.8.5 but below 0.9.0.": {
+    "_translate": "在 <em>Cargo.toml</em> 文件中，跟随某个标题的所有内容都是该部分的一部分，直到另一个部分开始。在 <code>[dependencies]</code> 中，您告诉 Cargo 您的项目依赖于哪些外部 crate 以及您需要这些 crate 的哪些版本。在这种情况下，我们指定了版本为 <code>0.8.5</code> 的 <code>rand</code> crate。Cargo 理解 <a href=\"http://semver.org\">语义化版本控制</a><!-- ignore -->（有时称为 <em>SemVer</em>），这是一种编写版本号的标准。版本说明符 <code>0.8.5</code> 实际上是 <code>^0.8.5</code> 的简写，这意味着任何版本至少为 0.8.5 但低于 0.9.0。",
+    "_note": ""
+  },
+  "Cargo has a mechanism that ensures that you can rebuild the same artifact every time you or anyone else builds your code: Cargo will use only the versions of the dependencies you specified until you indicate otherwise. For example, say that next week version 0.8.6 of the rand crate comes out, and that version contains an important bug fix, but it also contains a regression that will break your code. To handle this, Rust creates the Cargo.lock file the first time you run cargo build, so we now have this in the guessing_game directory.": {
+    "_translate": "Cargo 有一个机制，确保你或任何人在构建你的代码时都能重建相同的工件：Cargo 将仅使用你指定的依赖版本，直到你另行指示。例如，假设下周发布了 <code>rand</code> crate 的 0.8.6 版本，该版本包含一个重要的 bug 修复，但也包含一个会导致你的代码出问题的回归。为了处理这种情况，Rust 在你第一次运行 <code>cargo build</code> 时创建了 <em>Cargo.lock</em> 文件，因此我们现在在 <em>guessing_game</em> 目录中有了这个文件。",
+    "_note": ""
+  },
+  "When you do want to update a crate, Cargo provides the command update, which will ignore the Cargo.lock file and figure out all the latest versions that fit your specifications in Cargo.toml. Cargo will then write those versions to the Cargo.lock file. Otherwise, by default, Cargo will only look for versions greater than 0.8.5 and less than 0.9.0. If the rand crate has released the two new versions 0.8.6 and 0.9.0, you would see the following if you ran cargo update:": {
+    "_translate": "当你<em>确实</em>想要更新一个 crate 时，Cargo 提供了 <code>update</code> 命令，\n该命令将忽略 <em>Cargo.lock</em> 文件并找出 <em>Cargo.toml</em> 中符合你指定的所有最新版本。Cargo 然后会将这些\n版本写入 <em>Cargo.lock</em> 文件。否则，默认情况下，Cargo 只会查找大于 0.8.5 且小于 0.9.0 的版本。如果 <code>rand</code> crate 发布了两个新版本 0.8.6 和 0.9.0，如果你运行 <code>cargo update</code>，你会看到以下内容：",
+    "_note": ""
+  },
+  "First, we add the line use rand::Rng;. The Rng trait defines methods that random number generators implement, and this trait must be in scope for us to use those methods. Chapter 10 will cover traits in detail.": {
+    "_translate": "首先，我们添加一行 <code>use rand::Rng;</code>。这个 <code>Rng</code> 特性定义了随机数生成器实现的方法，而且这个特性必须在作用域内，我们才能使用这些方法。第 10 章将详细讨论特性。",
+    "_note": ""
+  },
+  "First, we add another use statement, bringing a type called std::cmp::Ordering into scope from the standard library. The Ordering type is another enum and has the variants Less, Greater, and Equal. These are the three outcomes that are possible when you compare two values.": {
+    "_translate": "首先，我们添加另一个 <code>use</code> 语句，从标准库中引入一个名为 <code>std::cmp::Ordering</code> 的类型。<code>Ordering</code> 类型是另一个枚举，具有 <code>Less</code>、<code>Greater</code> 和 <code>Equal</code> 变体。这些是当你比较两个值时可能出现的三种结果。",
+    "_note": ""
+  },
+  "Next, we’re adding two lines in the middle. In the first line, we call the rand::thread_rng function that gives us the particular random number generator we’re going to use: one that is local to the current thread of execution and is seeded by the operating system. Then, we call the gen_range method on the random number generator. This method is defined by the Rng trait that we brought into scope with the use rand::Rng; statement. The gen_range method takes a range expression as an argument and generates a random number in the range. The kind of range expression we’re using here takes the form start..=end and is inclusive on the lower and upper bounds, so we need to specify 1..=100 to request a number between 1 and 100.": {
+    "_translate": "接下来，我们在中间添加两行。在第一行中，我们调用 <code>rand::thread_rng</code> 函数，该函数为我们提供了一个特定的随机数生成器：一个当前执行线程本地的，并由操作系统播种的生成器。然后，我们在随机数生成器上调用 <code>gen_range</code> 方法。此方法由我们通过 <code>use rand::Rng;</code> 语句引入作用域的 <code>Rng</code> 特性定义。<code>gen_range</code> 方法接受一个范围表达式作为参数，并生成该范围内的一个随机数。我们在这里使用的范围表达式形式为 <code>start..=end</code>，并且在下限和上限上都是包含的，因此我们需要指定 <code>1..=100</code> 以请求 1 到 100 之间的数字。",
+    "_note": ""
+  },
+  "Then, we add five new lines at the bottom that use the Ordering type. The cmp method compares two values and can be called on anything that can be compared. It takes a reference to whatever you want to compare with: Here, it’s comparing guess to secret_number. Then, it returns a variant of the Ordering enum we brought into scope with the use statement. We use a match expression to decide what to do next based on which variant of Ordering was returned from the call to cmp with the values in guess and secret_number.": {
+    "_translate": "然后，我们在底部添加五行新代码，使用 <code>Ordering</code> 类型。<code>cmp</code> 方法可以比较两个值，可以对任何可以比较的事物调用。它接受一个你想要比较的对象的引用：在这里，它将 <code>guess</code> 与 <code>secret_number</code> 进行比较。然后，它返回一个我们在 <code>use</code> 语句中引入的 <code>Ordering</code> 枚举的变体。我们使用一个 <a href=\"ch06-02-match.html\"><code>match</code></a><!-- ignore --> 表达式，根据从 <code>cmp</code> 调用返回的 <code>Ordering</code> 变体来决定接下来要做什么，这里的值是 <code>guess</code> 和 <code>secret_number</code>。",
+    "_note": ""
+  },
+  "A match expression is made up of arms. An arm consists of a pattern to match against, and the code that should be run if the value given to match fits that arm’s pattern. Rust takes the value given to match and looks through each arm’s pattern in turn. Patterns and the match construct are powerful Rust features: They let you express a variety of situations your code might encounter, and they make sure you handle them all. These features will be covered in detail in Chapter 6 and Chapter 19, respectively.": {
+    "_translate": "一个 <code>match</code> 表达式由 <em>臂</em> 组成。一个臂包含一个 <em>模式</em> 用于匹配，以及如果给定给 <code>match</code> 的值符合该臂的模式时应运行的代码。Rust 会取 <code>match</code> 给定的值，并依次检查每个臂的模式。模式和 <code>match</code> 构造是 Rust 的强大特性：它们让你能够表达代码可能遇到的各种情况，并确保你处理了所有这些情况。这些特性将分别在第 6 章和第 19 章中详细讨论。",
+    "_note": ""
+  },
+  "Ultimately, we want to convert the String the program reads as input into a number type so that we can compare it numerically to the secret number. We do so by adding this line to the main function body:": {
+    "_translate": "最终，我们希望将程序读取的 <code>String</code> 转换为数字类型，以便我们可以将其与秘密数字进行数值比较。我们通过在 <code>main</code> 函数体中添加以下行来实现这一点：",
+    "_note": ""
+  },
+  "Additionally, the u32 annotation in this example program and the comparison with secret_number means Rust will infer that secret_number should be a u32 as well. So, now the comparison will be between two values of the same type!": {
+    "_translate": "此外，此示例程序中的 <code>u32</code> 注解和与 <code>secret_number</code> 的比较意味着 Rust 将推断 <code>secret_number</code> 也应该是 <code>u32</code>。因此，现在比较将在两个相同类型的值之间进行！",
+    "_note": ""
+  },
+  "Nice! Even though spaces were added before the guess, the program still figured out that the user guessed 76. Run the program a few times to verify the different behavior with different kinds of input: Guess the number correctly, guess a number that is too high, and guess a number that is too low.": {
+    "_translate": "不错！即使在猜测前添加了空格，程序仍然判断出用户猜测的是76。运行几次程序以验证不同输入下的不同行为：正确猜中数字、猜的数字太高和猜的数字太低。",
+    "_note": ""
+  },
+  "The user could always interrupt the program by using the keyboard shortcut ctrl-C. But there’s another way to escape this insatiable monster, as mentioned in the parse discussion in “Comparing the Guess to the Secret Number”: If the user enters a non-number answer, the program will crash. We can take advantage of that to allow the user to quit, as shown here:": {
+    "_translate": "用户可以随时通过使用键盘快捷键<kbd>ctrl</kbd>-<kbd>C</kbd>来中断程序。但还有另一种方法可以逃离这个贪得无厌的怪物，正如在<a href=\"#comparing-the-guess-to-the-secret-number\">“将猜测与秘密数字进行比较”</a>中提到的<code>parse</code>讨论：如果用户输入非数字答案，程序将崩溃。我们可以利用这一点允许用户退出，如下所示：",
+    "_note": ""
+  },
+  "To further refine the game’s behavior, rather than crashing the program when the user inputs a non-number, let’s make the game ignore a non-number so that the user can continue guessing. We can do that by altering the line where guess is converted from a String to a u32, as shown in Listing 2-5.": {
+    "_translate": "为了进一步完善游戏的行为，而不是在用户输入非数字时使程序崩溃，让我们让游戏忽略非数字，以便用户可以继续猜测。我们可以通过修改将 <code>guess</code> 从 <code>String</code> 转换为 <code>u32</code> 的那一行来实现，如清单 2-5 所示。",
+    "_note": ""
+  },
+  "If parse is not able to turn the string into a number, it will return an Err value that contains more information about the error. The Err value does not match the Ok(num) pattern in the first match arm, but it does match the Err(_) pattern in the second arm. The underscore, _, is a catch-all value; in this example, we’re saying we want to match all Err values, no matter what information they have inside them. So, the program will execute the second arm’s code, continue, which tells the program to go to the next iteration of the loop and ask for another guess. So, effectively, the program ignores all errors that parse might encounter!": {
+    "_translate": "如果 <code>parse</code> 无法将字符串转换为数字，它将返回一个包含更多错误信息的 <code>Err</code> 值。<code>Err</code> 值不匹配第一个 <code>match</code> 分支中的 <code>Ok(num)</code> 模式，但确实匹配第二个分支中的 <code>Err(_)</code> 模式。下划线 <code>_</code> 是一个通配符值；在这个例子中，我们表示我们希望匹配所有 <code>Err</code> 值，无论它们内部包含什么信息。因此，程序将执行第二个分支的代码 <code>continue</code>，这告诉程序跳到 <code>loop</code> 的下一次迭代并请求另一个猜测。因此，程序实际上忽略了 <code>parse</code> 可能遇到的所有错误！",
+    "_note": ""
   }
 }

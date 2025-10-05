@@ -446,5 +446,17 @@
   "Another downside is that we’ve duplicated some logic. To eliminate some of the duplication, we might try to make default implementations for the request_review and approve methods on the State trait that return self. However, this wouldn’t work: when using State as a trait object, the trait doesn’t know what the concrete self will be exactly, so the return type isn’t known at compile time. (This is one of the dyn compatibility rules mentioned earlier.)": {
     "_translate": "另一个缺点是我们复制了一些逻辑。为了减少一些重复，我们可能会尝试为 <code>State</code> 特性上的 <code>request_review</code> 和 <code>approve</code> 方法提供默认实现，这些方法返回 <code>self</code>。然而，这行不通：当将 <code>State</code> 用作特性对象时，特性不知道具体的 <code>self</code> 会是什么，因此返回类型在编译时是未知的。（这是前面提到的 <code>dyn</code> 兼容性规则之一。）",
     "_note": ""
+  },
+  "Defining Post and Creating a New Instance": {
+    "_translate": "<a class=\"header\" href=\"#defining-post-and-creating-a-new-instance\">定义 <code>Post</code> 和创建新实例</a>",
+    "_note": ""
+  },
+  "Adding approve to Change content’s Behavior": {
+    "_translate": "<a class=\"header\" href=\"#adding-approve-to-change-contents-behavior\">添加 <code>approve</code> 以更改 <code>content</code> 的行为</a>",
+    "_note": ""
+  },
+  "Evaluating the State Pattern": {
+    "_translate": "<a class=\"header\" href=\"#evaluating-the-state-pattern\">评估状态模式</a>",
+    "_note": ""
   }
 }

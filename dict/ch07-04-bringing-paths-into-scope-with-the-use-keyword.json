@@ -182,5 +182,37 @@
   "This use statement brings all public items defined in std::collections into the current scope. Be careful when using the glob operator! Glob can make it harder to tell what names are in scope and where a name used in your program was defined. Additionally, if the dependency changes its definitions, what you’ve imported changes as well, which may lead to compiler errors when you upgrade the dependency if the dependency adds a definition with the same name as a definition of yours in the same scope, for example.": {
     "_translate": "这个 <code>use</code> 语句将 <code>std::collections</code> 中定义的所有公共项引入当前作用域。使用通配符时要小心！通配符会使确定哪些名称在作用域内以及程序中使用的名称是在哪里定义的变得更加困难。此外，如果依赖项更改了其定义，你导入的内容也会随之更改，这可能会导致在你升级依赖项时出现编译错误，例如，如果依赖项添加了一个与你在同一作用域中定义的名称相同的定义。",
     "_note": ""
+  },
+  "Having to write out the paths to call functions can feel inconvenient and repetitive. In Listing 7-7, whether we chose the absolute or relative path to the add_to_waitlist function, every time we wanted to call add_to_waitlist we had to specify front_of_house and hosting too. Fortunately, there’s a way to simplify this process: We can create a shortcut to a path with the use keyword once and then use the shorter name everywhere else in the scope.": {
+    "_translate": "不得不写出调用函数的路径可能会感觉不方便且重复。在清单 7-7 中，无论我们选择 <code>add_to_waitlist</code> 函数的绝对路径还是相对路径，每次调用 <code>add_to_waitlist</code> 时，都必须指定 <code>front_of_house</code> 和 <code>hosting</code>。幸运的是，有一种方法可以简化这个过程：我们可以使用 <code>use</code> 关键字创建一个路径的快捷方式，然后在作用域中的其他地方使用较短的名称。",
+    "_note": ""
+  },
+  "In Listing 7-11, we bring the crate::front_of_house::hosting module into the scope of the eat_at_restaurant function so that we only have to specify hosting::add_to_waitlist to call the add_to_waitlist function in eat_at_restaurant.": {
+    "_translate": "在清单 7-11 中，我们将 <code>crate::front_of_house::hosting</code> 模块引入 <code>eat_at_restaurant</code> 函数的作用域，这样我们只需要指定 <code>hosting::add_to_waitlist</code> 就可以在 <code>eat_at_restaurant</code> 中调用 <code>add_to_waitlist</code> 函数。",
+    "_note": ""
+  },
+  "There’s no strong reason behind this idiom: It’s just the convention that has emerged, and folks have gotten used to reading and writing Rust code this way.": {
+    "_translate": "这个惯用法背后没有强烈的原因：这只是已经形成的惯例，人们已经习惯了以这种方式阅读和编写 Rust 代码。",
+    "_note": ""
+  },
+  "There’s another solution to the problem of bringing two types of the same name into the same scope with use: After the path, we can specify as and a new local name, or alias, for the type. Listing 7-16 shows another way to write the code in Listing 7-15 by renaming one of the two Result types using as.": {
+    "_translate": "还有另一种解决方案，可以使用 <code>use</code> 将同名的两种类型引入同一作用域：在路径之后，我们可以指定 <code>as</code> 和一个新的本地名称，或称为 <em>别名</em>，来为类型命名。列表 7-16 展示了通过使用 <code>as</code> 重命名两个 <code>Result</code> 类型之一来编写列表 7-15 中代码的另一种方法。",
+    "_note": ""
+  },
+  "Re-exporting is useful when the internal structure of your code is different from how programmers calling your code would think about the domain. For example, in this restaurant metaphor, the people running the restaurant think about “front of house” and “back of house.” But customers visiting a restaurant probably won’t think about the parts of the restaurant in those terms. With pub use, we can write our code with one structure but expose a different structure. Doing so makes our library well organized for programmers working on the library and programmers calling the library. We’ll look at another example of pub use and how it affects your crate’s documentation in “Exporting a Convenient Public API” in Chapter 14.": {
+    "_translate": "重新导出在你的代码内部结构与调用你代码的程序员对领域的理解不同时非常有用。例如，在这个餐厅比喻中，经营餐厅的人会想到“前台”和“后台”。但访问餐厅的顾客可能不会用这些术语来思考餐厅的各个部分。通过<code>pub use</code>，我们可以用一种结构编写代码，但暴露另一种结构。这样做可以使我们的库对编写库的程序员和调用库的程序员都组织良好。我们将在第14章的<a href=\"ch14-02-publishing-to-crates-io.html#exporting-a-convenient-public-api\">“导出一个方便的公共API”</a>中查看另一个<code>pub use</code>的例子以及它如何影响你的crate的文档。",
+    "_note": ""
+  },
+  "Using Nested Paths to Clean Up use Lists": {
+    "_translate": "<a class=\"header\" href=\"#using-nested-paths-to-clean-up-use-lists\">使用嵌套路径清理 <code>use</code> 列表</a>",
+    "_note": ""
+  },
+  "Importing Items with the Glob Operator": {
+    "_translate": "<a class=\"header\" href=\"#importing-items-with-the-glob-operator\">使用通配符导入项</a>",
+    "_note": ""
+  },
+  "The glob operator is often used when testing to bring everything under test into the tests module; we’ll talk about that in “How to Write Tests” in Chapter 11. The glob operator is also sometimes used as part of the prelude pattern: See the standard library documentation for more information on that pattern.": {
+    "_translate": "通配符操作符通常在测试时用于将所有要测试的内容引入到 <code>tests</code> 模块；我们将在第 11 章的 <a href=\"ch11-01-writing-tests.html#how-to-write-tests\">“如何编写测试”</a><!-- ignore --> 中讨论这个问题。通配符操作符也经常作为前言模式的一部分使用：有关该模式的更多信息，请参阅 <a href=\"../std/prelude/index.html#other-preludes\">标准库文档</a><!-- ignore -->。",
+    "_note": ""
   }
 }

@@ -186,5 +186,45 @@
   "We can construct relative paths that begin in the parent module, rather than the current module or the crate root, by using super at the start of the path. This is like starting a filesystem path with the .. syntax that means to go to the parent directory. Using super allows us to reference an item that we know is in the parent module, which can make rearranging the module tree easier when the module is closely related to the parent but the parent might be moved elsewhere in the module tree someday.": {
     "_translate": "我们可以通过在路径的开头使用<code>super</code>来构建从父模块而不是当前模块或crate根开始的相对路径。这类似于使用<code>..</code>语法在文件系统路径中表示进入父目录。使用<code>super</code>可以让我们引用我们知道在父模块中的项，这在模块与父模块紧密相关但父模块将来可能被移动到模块树的其他位置时，可以使重新排列模块树更加容易。",
     "_note": ""
+  },
+  "Returning to Listing 7-1, say we want to call the add_to_waitlist function. This is the same as asking: What’s the path of the add_to_waitlist function? Listing 7-3 contains Listing 7-1 with some of the modules and functions removed.": {
+    "_translate": "回到清单 7-1，假设我们想要调用 <code>add_to_waitlist</code> 函数。\n这相当于问：<code>add_to_waitlist</code> 函数的路径是什么？\n清单 7-3 包含了清单 7-1 的内容，但移除了一些模块和函数。",
+    "_note": ""
+  },
+  "Items in a parent module can’t use the private items inside child modules, but items in child modules can use the items in their ancestor modules. This is because child modules wrap and hide their implementation details, but the child modules can see the context in which they’re defined. To continue with our metaphor, think of the privacy rules as being like the back office of a restaurant: What goes on in there is private to restaurant customers, but office managers can see and do everything in the restaurant they operate.": {
+    "_translate": "父模块中的项不能使用子模块中的私有项，但子模块中的项可以使用其祖先模块中的项。这是因为子模块封装并隐藏了它们的实现细节，但子模块可以看到它们被定义的上下文。继续我们的比喻，可以把隐私规则想象成餐厅的后台办公室：后台发生的事情对餐厅顾客来说是私密的，但办公室经理可以看到并操作他们经营的餐厅中的一切。",
+    "_note": ""
+  },
+  "The first time we call the add_to_waitlist function in eat_at_restaurant, we use an absolute path. The add_to_waitlist function is defined in the same crate as eat_at_restaurant, which means we can use the crate keyword to start an absolute path. We then include each of the successive modules until we make our way to add_to_waitlist. You can imagine a filesystem with the same structure: We’d specify the path /front_of_house/hosting/add_to_waitlist to run the add_to_waitlist program; using the crate name to start from the crate root is like using / to start from the filesystem root in your shell.": {
+    "_translate": "我们第一次在 <code>eat_at_restaurant</code> 中调用 <code>add_to_waitlist</code> 函数时，\n我们使用了一个绝对路径。<code>add_to_waitlist</code> 函数定义在与 <code>eat_at_restaurant</code> 相同的\ncrate 中，这意味着我们可以使用 <code>crate</code> 关键字来\n开始一个绝对路径。然后我们包含每个后续的模块，直到我们到达 <code>add_to_waitlist</code>。你可以想象一个具有相同\n结构的文件系统：我们会指定路径 <code>/front_of_house/hosting/add_to_waitlist</code> 来\n运行 <code>add_to_waitlist</code> 程序；使用 <code>crate</code> 名称从\ncrate 根开始就像在你的 shell 中使用 <code>/</code> 从文件系统根开始一样。",
+    "_note": ""
+  },
+  "Rust chose to have the module system function this way so that hiding inner implementation details is the default. That way, you know which parts of the inner code you can change without breaking the outer code. However, Rust does give you the option to expose inner parts of child modules’ code to outer ancestor modules by using the pub keyword to make an item public.": {
+    "_translate": "Rust 选择让模块系统以这种方式工作，以便隐藏内部实现细节成为默认行为。这样，你就知道可以在不破坏外部代码的情况下更改内部代码的哪些部分。然而，Rust 确实提供了通过使用 <code>pub</code> 关键字将项公开的选项，以使子模块的内部代码对父模块可见。",
+    "_note": ""
+  },
+  "In the absolute path, we start with crate, the root of our crate’s module tree. The front_of_house module is defined in the crate root. While front_of_house isn’t public, because the eat_at_restaurant function is defined in the same module as front_of_house (that is, eat_at_restaurant and front_of_house are siblings), we can refer to front_of_house from eat_at_restaurant. Next is the hosting module marked with pub. We can access the parent module of hosting, so we can access hosting. Finally, the add_to_waitlist function is marked with pub, and we can access its parent module, so this function call works!": {
+    "_translate": "在绝对路径中，我们从 <code>crate</code> 开始，这是我们的 crate 模块树的根。 <code>front_of_house</code> 模块在 crate 根中定义。虽然 <code>front_of_house</code> 不是公共的，但由于 <code>eat_at_restaurant</code> 函数与 <code>front_of_house</code> 定义在同一个模块中（即 <code>eat_at_restaurant</code> 和 <code>front_of_house</code> 是同级的），我们可以从 <code>eat_at_restaurant</code> 引用 <code>front_of_house</code>。接下来是标记为 <code>pub</code> 的 <code>hosting</code> 模块。我们可以访问 <code>hosting</code> 的父模块，因此我们可以访问 <code>hosting</code>。最后， <code>add_to_waitlist</code> 函数标记为 <code>pub</code>，并且我们可以访问其父模块，所以这个函数调用可以工作！",
+    "_note": ""
+  },
+  "In the relative path, the logic is the same as the absolute path except for the first step: Rather than starting from the crate root, the path starts from front_of_house. The front_of_house module is defined within the same module as eat_at_restaurant, so the relative path starting from the module in which eat_at_restaurant is defined works. Then, because hosting and add_to_waitlist are marked with pub, the rest of the path works, and this function call is valid!": {
+    "_translate": "在相对路径中，逻辑与绝对路径相同，只是第一步不同：不是从crate根开始，而是从<code>front_of_house</code>开始。<code>front_of_house</code>模块与<code>eat_at_restaurant</code>定义在同一个模块中，因此从<code>eat_at_restaurant</code>定义的模块开始的相对路径是有效的。然后，因为<code>hosting</code>和<code>add_to_waitlist</code>被标记为<code>pub</code>，所以路径的其余部分有效，这个函数调用是有效的！",
+    "_note": ""
+  },
+  "The module tree should be defined in src/lib.rs. Then, any public items can be used in the binary crate by starting paths with the name of the package. The binary crate becomes a user of the library crate just like a completely external crate would use the library crate: It can only use the public API. This helps you design a good API; not only are you the author, but you’re also a client!": {
+    "_translate": "模块树应该在 <em>src/lib.rs</em> 中定义。然后，任何公共项都可以通过以包的名称开头的路径在二进制 crate 中使用。\n二进制 crate 成为库 crate 的用户，就像完全外部的 crate 使用库 crate 一样：它只能使用公共 API。\n这有助于你设计一个好的 API；不仅是作者，你也是客户端！",
+    "_note": ""
+  },
+  "If you plan to share your library crate so that other projects can use your code, your public API is your contract with users of your crate that determines how they can interact with your code. There are many considerations around managing changes to your public API to make it easier for people to depend on your crate. These considerations are beyond the scope of this book; if you’re interested in this topic, see the Rust API Guidelines.": {
+    "_translate": "如果你计划共享你的库crate，以便其他项目可以使用你的代码，那么你的公共API就是你与crate用户之间的契约，决定了他们如何与你的代码交互。在管理公共API的变更时有许多需要考虑的问题，以使人们更容易依赖你的crate。这些考虑超出了本书的范围；如果你对这个话题感兴趣，可以参见<a href=\"https://rust-lang.github.io/api-guidelines/\">Rust API Guidelines</a>。",
+    "_note": ""
+  },
+  "Also, note that because back_of_house::Breakfast has a private field, the struct needs to provide a public associated function that constructs an instance of Breakfast (we’ve named it summer here). If Breakfast didn’t have such a function, we couldn’t create an instance of Breakfast in eat_at_restaurant, because we couldn’t set the value of the private seasonal_fruit field in eat_at_restaurant.": {
+    "_translate": "另外，请注意，因为 <code>back_of_house::Breakfast</code> 有一个私有字段，所以该结构体需要提供一个公共关联函数来构造一个 <code>Breakfast</code> 实例（在这里我们将其命名为 <code>summer</code>）。如果 <code>Breakfast</code> 没有这样一个函数，我们就无法在 <code>eat_at_restaurant</code> 中创建一个 <code>Breakfast</code> 实例，因为我们在 <code>eat_at_restaurant</code> 中无法设置私有字段 <code>seasonal_fruit</code> 的值。",
+    "_note": ""
+  },
+  "The fix_incorrect_order function is in the back_of_house module, so we can use super to go to the parent module of back_of_house, which in this case is crate, the root. From there, we look for deliver_order and find it. Success! We think the back_of_house module and the deliver_order function are likely to stay in the same relationship to each other and get moved together should we decide to reorganize the crate’s module tree. Therefore, we used super so that we’ll have fewer places to update code in the future if this code gets moved to a different module.": {
+    "_translate": "<code>fix_incorrect_order</code> 函数位于 <code>back_of_house</code> 模块中，因此我们可以使用 <code>super</code> 转到 <code>back_of_house</code> 的父模块，在这种情况下是 <code>crate</code>，即根模块。从那里，我们查找 <code>deliver_order</code> 并找到它。成功！我们认为 <code>back_of_house</code> 模块和 <code>deliver_order</code> 函数可能会保持彼此之间的关系，并且如果决定重组 crate 的模块树，它们会被一起移动。因此，我们使用了 <code>super</code>，这样如果这段代码将来被移动到不同的模块，我们需要更新的代码位置就会更少。",
+    "_note": ""
   }
 }

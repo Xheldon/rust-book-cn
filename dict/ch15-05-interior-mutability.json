@@ -290,5 +290,25 @@
   "We can’t modify the MockMessenger to keep track of the messages because the send method takes an immutable reference to self. We also can’t take the suggestion from the error text to use &mut self in both the impl method and the trait definition. We do not want to change the Messenger trait solely for the sake of testing. Instead, we need to find a way to make our test code work correctly with our existing design.": {
     "_translate": "我们不能修改<code>MockMessenger</code>来跟踪消息，因为<code>send</code>方法接受一个不可变的<code>self</code>引用。我们也不能采纳错误文本中的建议，在<code>impl</code>方法和特征定义中都使用<code>&mut self</code>。我们不希望为了测试而改变<code>Messenger</code>特征。相反，我们需要找到一种方法，使我们的测试代码与现有的设计正确地工作。",
     "_note": ""
+  },
+  "Enforcing Borrowing Rules at Runtime": {
+    "_translate": "<a class=\"header\" href=\"#enforcing-borrowing-rules-at-runtime\">在运行时强制执行借用规则</a>",
+    "_note": ""
+  },
+  "Using Interior Mutability": {
+    "_translate": "<a class=\"header\" href=\"#using-interior-mutability\">使用内部可变性</a>",
+    "_note": ""
+  },
+  "Testing with Mock Objects": {
+    "_translate": "<a class=\"header\" href=\"#testing-with-mock-objects\">使用模拟对象进行测试</a>",
+    "_note": ""
+  },
+  "Tracking Borrows at Runtime": {
+    "_translate": "<a class=\"header\" href=\"#tracking-borrows-at-runtime\">运行时跟踪借用</a>",
+    "_note": ""
+  },
+  "Allowing Multiple Owners of Mutable Data": {
+    "_translate": "<a class=\"header\" href=\"#allowing-multiple-owners-of-mutable-data\">允许多个所有者拥有可变数据</a>",
+    "_note": ""
   }
 }

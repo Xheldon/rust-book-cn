@@ -287,7 +287,9 @@ blockquote {
 <p data-x-en="If x had been a None value instead of Some(5), the patterns in the first two arms wouldn’t have matched, so the value would have matched to the underscore. We didn’t introduce the x variable in the pattern of the underscore arm, so the x in the expression is still the outer x that hasn’t been shadowed. In this hypothetical case, the match would print Default case, x = None.">如果 <code>x</code> 是一个 <code>None</code> 值而不是 <code>Some(5)</code>，前两个分支的模式将不会匹配，因此值将匹配到下划线。我们在下划线分支的模式中没有引入 <code>x</code> 变量，因此表达式中的 <code>x</code> 仍然是未被遮蔽的外部 <code>x</code>。在这种假设情况下，<code>match</code> 将会打印 <code>Default case, x = None</code>。</p>
 <p data-x-en="When the match expression is done, its scope ends, and so does the scope of the inner y. The last println! produces at the end: x = Some(5), y = 10.">当 <code>match</code> 表达式结束时，其作用域结束，内部的 <code>y</code> 的作用域也随之结束。最后一个 <code>println!</code> 产生 <code>at the end: x = Some(5), y = 10</code>。</p>
 <p data-x-en="To create a match expression that compares the values of the outer x and y, rather than introducing a new variable that shadows the existing y variable, we would need to use a match guard conditional instead. We’ll talk about match guards later in “Extra Conditionals with Match Guards”.">要创建一个比较外部 <code>x</code> 和 <code>y</code> 值的 <code>match</code> 表达式，而不是引入一个遮蔽现有 <code>y</code> 变量的新变量，我们需要使用匹配卫条件。我们将在 <a href="#extra-conditionals-with-match-guards">“使用匹配卫条件的额外条件”</a> 中讨论匹配卫条件。</p>
-<h3 id="multiple-patterns"><a class="header" href="#multiple-patterns">多个模式</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="multiple-patterns"></a></p>
+<h3 id="matching-multiple-patterns" data-x-en="Matching Multiple Patterns"><a class="header" href="#matching-multiple-patterns">匹配多个模式</a></h3>
 <p data-x-en="In match expressions, you can match multiple patterns using the | syntax, which is the pattern or operator. For example, in the following code we match the value of x against the match arms, the first of which has an or option, meaning if the value of x matches either of the values in that arm, that arm’s code will run:">在 <code>match</code> 表达式中，您可以使用 <code>|</code> 语法匹配多个模式，这是模式 <em>或</em> 操作符。例如，在以下代码中，我们匹配 <code>x</code> 的值与匹配臂，其中第一个匹配臂有一个 <em>或</em> 选项，这意味着如果 <code>x</code> 的值与该臂中的任何一个值匹配，该臂的代码将运行：</p>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let x = 1;
@@ -324,7 +326,9 @@ blockquote {
 <p data-x-en="Rust can tell that 'c' is within the first pattern’s range and prints early ASCII letter.">Rust 可以判断出 <code>'c'</code> 在第一个模式的范围内，并打印 <code>early ASCII letter</code>。</p>
 <h3 id="destructuring-to-break-apart-values"><a class="header" href="#destructuring-to-break-apart-values">解构以拆分值</a></h3>
 <p data-x-en="We can also use patterns to destructure structs, enums, and tuples to use different parts of these values. Let’s walk through each value.">我们也可以使用模式来解构结构体、枚举和元组，以使用这些值的不同部分。让我们逐一了解每个值。</p>
-<h4 id="destructuring-structs"><a class="header" href="#destructuring-structs">解构结构体</a></h4>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="destructuring-structs"></a></p>
+<h4 id="structs" data-x-en="Structs"><a class="header" href="#structs">结构体</a></h4>
 <p data-x-en="Listing 19-12 shows a Point struct with two fields, x and y, that we can break apart using a pattern with a let statement.">列表 19-12 显示了一个带有两个字段 <code>x</code> 和 <code>y</code> 的 <code>Point</code> 结构体，我们可以使用带有 <code>let</code> 语句的模式将其拆分。</p>
 <figure class="listing" id="listing-19-12">
 <span class="file-name">Filename: src/main.rs</span>
@@ -386,7 +390,9 @@ fn main() {
 <p data-x-en="Similarly, the second arm matches any point on the y axis by specifying that the x field matches if its value is 0 and creates a variable y for the value of the y field. The third arm doesn’t specify any literals, so it matches any other Point and creates variables for both the x and y fields.">同样，第二个分支通过指定 <code>x</code> 字段的值为 <code>0</code> 来匹配 <code>y</code> 轴上的任何点，并为 <code>y</code> 字段的值创建一个变量 <code>y</code>。第三个分支没有指定任何字面量，因此它匹配任何其他 <code>Point</code>，并为 <code>x</code> 和 <code>y</code> 字段创建变量。</p>
 <p data-x-en="In this example, the value p matches the second arm by virtue of x containing a 0, so this code will print On the y axis at 7.">在这个例子中，值 <code>p</code> 由于 <code>x</code> 包含 0 而匹配第二个分支，因此这段代码将打印 <code>On the y axis at 7</code>。</p>
 <p data-x-en="Remember that a match expression stops checking arms once it has found the first matching pattern, so even though Point { x: 0, y: 0} is on the x axis and the y axis, this code would only print On the x axis at 0.">记住，<code>match</code> 表达式在找到第一个匹配的模式后就会停止检查其他分支，因此即使 <code>Point { x: 0, y: 0}</code> 位于 <code>x</code> 轴和 <code>y</code> 轴上，这段代码也只会打印 <code>On the x axis at 0</code>。</p>
-<h4 id="destructuring-enums"><a class="header" href="#destructuring-enums">解构枚举</a></h4>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="destructuring-enums"></a></p>
+<h4 id="enums" data-x-en="Enums"><a class="header" href="#enums">枚举</a></h4>
 <p data-x-en="We’ve destructured enums in this book (for example, Listing 6-5 in Chapter 6), but haven’t yet explicitly discussed that the pattern to destructure an enum corresponds to the way the data stored within the enum is defined. As an example, in Listing 19-15 we use the Message enum from Listing 6-2 and write a match with patterns that will destructure each inner value.">我们在本书中已经解构了枚举（例如，第 6 章的示例 6-5），但尚未明确讨论解构枚举的模式对应于枚举中存储的数据的定义方式。例如，在示例 19-15 中，我们使用了来自示例 6-2 的 <code>Message</code> 枚举，并编写了一个 <code>match</code>，其中的模式将解构每个内部值。</p>
 <figure class="listing" id="listing-19-15">
 <span class="file-name">Filename: src/main.rs</span>
@@ -421,7 +427,9 @@ fn main() {
 <p data-x-en="For enum variants without any data, like Message::Quit, we can’t destructure the value any further. We can only match on the literal Message::Quit value, and no variables are in that pattern.">对于没有数据的枚举变体，如<code>Message::Quit</code>，我们无法进一步解构该值。我们只能匹配字面值<code>Message::Quit</code>，并且该模式中没有变量。</p>
 <p data-x-en="For struct-like enum variants, such as Message::Move, we can use a pattern similar to the pattern we specify to match structs. After the variant name, we place curly brackets and then list the fields with variables so we break apart the pieces to use in the code for this arm. Here we use the shorthand form as we did in Listing 19-13.">对于类似结构体的枚举变体，如<code>Message::Move</code>，我们可以使用与匹配结构体时指定的模式相似的模式。在变体名称之后，我们放置大括号，然后列出带有变量的字段，以便将各个部分拆分出来，在此臂的代码中使用。在这里，我们使用了简写形式，就像我们在清单19-13中所做的那样。</p>
 <p data-x-en="For tuple-like enum variants, like Message::Write that holds a tuple with one element and Message::ChangeColor that holds a tuple with three elements, the pattern is similar to the pattern we specify to match tuples. The number of variables in the pattern must match the number of elements in the variant we’re matching.">对于像 <code>Message::Write</code> 这样持有一个元素的元组的枚举变体，以及像 <code>Message::ChangeColor</code> 这样持有三个元素的元组的枚举变体，模式与我们指定用于匹配元组的模式相似。模式中的变量数量必须与我们要匹配的变体中的元素数量相匹配。</p>
-<h4 id="destructuring-nested-structs-and-enums"><a class="header" href="#destructuring-nested-structs-and-enums">解构嵌套的结构体和枚举</a></h4>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="destructuring-nested-structs-and-enums"></a></p>
+<h4 id="nested-structs-and-enums" data-x-en="Nested Structs and Enums"><a class="header" href="#nested-structs-and-enums">嵌套的结构体和枚举</a></h4>
 <p data-x-en="So far, our examples have all been matching structs or enums one level deep, but matching can work on nested items too! For example, we can refactor the code in Listing 19-15 to support RGB and HSV colors in the ChangeColor message, as shown in Listing 19-16.">到目前为止，我们的示例都只匹配了一层深度的结构体或枚举，但匹配也可以作用于嵌套项！例如，我们可以重构列表 19-15 中的代码，以支持 <code>ChangeColor</code> 消息中的 RGB 和 HSV 颜色，如列表 19-16 所示。</p>
 <figure class="listing" id="listing-19-16">
 <pre><pre class="playground"><code class="language-rust edition2024">enum Color {
@@ -452,7 +460,9 @@ fn main() {
 <figcaption><a href="#listing-19-16">Listing 19-16</a>: Matching on nested enums</figcaption>
 </figure>
 <p data-x-en="The pattern of the first arm in the match expression matches a Message::ChangeColor enum variant that contains a Color::Rgb variant; then the pattern binds to the three inner i32 values. The pattern of the second arm also matches a Message::ChangeColor enum variant, but the inner enum matches Color::Hsv instead. We can specify these complex conditions in one match expression, even though two enums are involved."><code>match</code> 表达式的第一臂的模式匹配包含 <code>Color::Rgb</code> 变体的 <code>Message::ChangeColor</code> 枚举变体；然后模式绑定到三个内部的 <code>i32</code> 值。第二臂的模式也匹配 <code>Message::ChangeColor</code> 枚举变体，但内部枚举匹配的是 <code>Color::Hsv</code>。即使涉及两个枚举，我们也可以在一个 <code>match</code> 表达式中指定这些复杂的条件。</p>
-<h4 id="destructuring-structs-and-tuples"><a class="header" href="#destructuring-structs-and-tuples">解构结构体和元组</a></h4>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="destructuring-structs-and-tuples"></a></p>
+<h4 id="structs-and-tuples" data-x-en="Structs and Tuples"><a class="header" href="#structs-and-tuples">结构体和元组</a></h4>
 <p data-x-en="We can mix, match, and nest destructuring patterns in even more complex ways. The following example shows a complicated destructure where we nest structs and tuples inside a tuple and destructure all the primitive values out:">我们可以更复杂地混合、匹配和嵌套解构模式。<br>以下示例展示了一个复杂的解构，其中我们在元组中嵌套了结构体和元组，并解构出所有的原始值：</p>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span><span class="boring">    struct Point {
@@ -466,7 +476,7 @@ fn main() {
 <p data-x-en="Destructuring with patterns is a convenient way to use pieces of values, such as the value from each field in a struct, separately from each other.">使用模式解构是一种方便地单独使用值的各个部分的方法，例如从结构体的每个字段中分别获取值。</p>
 <h3 id="ignoring-values-in-a-pattern"><a class="header" href="#ignoring-values-in-a-pattern">在模式中忽略值</a></h3>
 <p data-x-en="You’ve seen that it’s sometimes useful to ignore values in a pattern, such as in the last arm of a match, to get a catch-all that doesn’t actually do anything but does account for all remaining possible values. There are a few ways to ignore entire values or parts of values in a pattern: using the _ pattern (which you’ve seen), using the _ pattern within another pattern, using a name that starts with an underscore, or using .. to ignore remaining parts of a value. Let’s explore how and why to use each of these patterns.">你已经看到，在模式中有时忽略值是有用的，例如在 <code>match</code> 的最后一个分支中，得到一个实际上不执行任何操作但确实考虑了所有剩余可能值的通配。有几种方法可以在模式中忽略整个值或值的部分：使用 <code>_</code> 模式（你已经见过），在另一个模式中使用 <code>_</code> 模式，使用以下划线开头的名称，或使用 <code>..</code> 忽略值的剩余部分。让我们探讨如何以及为什么使用这些模式。</p>
-<!-- Old link, do not remove -->
+<!-- Old headings. Do not remove or links may break. -->
 <p><a id="ignoring-an-entire-value-with-_"></a></p>
 <h4 id="an-entire-value-with-_"><a class="header" href="#an-entire-value-with-_">使用 <code>_</code> 代表整个值</a></h4>
 <p data-x-en="We’ve used the underscore as a wildcard pattern that will match any value but not bind to the value. This is especially useful as the last arm in a match expression, but we can also use it in any pattern, including function parameters, as shown in Listing 19-17.">我们使用下划线作为通配符模式，它可以匹配任何值但不会绑定到该值。这在 <code>match</code> 表达式的最后一个分支中特别有用，但我们也可以在任何模式中使用它，包括函数参数，如列表 19-17 所示。</p>
@@ -523,7 +533,7 @@ fn main() {
 <figcaption><a href="#listing-19-19">Listing 19-19</a>: Ignoring multiple parts of a tuple</figcaption>
 </figure>
 <p data-x-en="This code will print Some numbers: 2, 8, 32, and the values 4 and 16 will be ignored.">这段代码将打印 <code>Some numbers: 2, 8, 32</code>，并且值 4 和 16 将被忽略。</p>
-<!-- Old link, do not remove -->
+<!-- Old headings. Do not remove or links may break. -->
 <p><a id="ignoring-an-unused-variable-by-starting-its-name-with-_"></a></p>
 <h4 id="an-unused-variable-by-starting-its-name-with-_"><a class="header" href="#an-unused-variable-by-starting-its-name-with-_">通过名称以<code>_</code>开头来表示一个未使用的变量</a></h4>
 <p data-x-en="If you create a variable but don’t use it anywhere, Rust will usually issue a warning because an unused variable could be a bug. However, sometimes it’s useful to be able to create a variable you won’t use yet, such as when you’re prototyping or just starting a project. In this situation, you can tell Rust not to warn you about the unused variable by starting the name of the variable with an underscore. In Listing 19-20, we create two unused variables, but when we compile this code, we should only get a warning about one of them.">如果您创建了一个变量但没有在任何地方使用它，Rust 通常会发出警告，因为未使用的变量可能是错误。但是，有时能够创建一个您暂时不会使用的变量是有用的，例如在原型设计或刚开始一个项目时。在这种情况下，您可以通过在变量名称前加上下划线来告诉 Rust 不要警告您有关未使用的变量。在清单 19-20 中，我们创建了两个未使用的变量，但当我们编译此代码时，我们应该只收到其中一个变量的警告。</p>
@@ -627,7 +637,9 @@ error: `..` can only be used once per tuple pattern
 error: could not compile `patterns` (bin "patterns") due to 1 previous error
 </code></pre>
 <p data-x-en="It’s impossible for Rust to determine how many values in the tuple to ignore before matching a value with second and then how many further values to ignore thereafter. This code could mean that we want to ignore 2, bind second to 4, and then ignore 8, 16, and 32; or that we want to ignore 2 and 4, bind second to 8, and then ignore 16 and 32; and so forth. The variable name second doesn’t mean anything special to Rust, so we get a compiler error because using .. in two places like this is ambiguous.">在匹配 <code>second</code> 之前，Rust 无法确定元组中有多少个值需要忽略，以及之后还需要忽略多少个值。这段代码可能意味着我们想要忽略 <code>2</code>，将 <code>second</code> 绑定到 <code>4</code>，然后忽略 <code>8</code>、<code>16</code> 和 <code>32</code>；或者我们想要忽略 <code>2</code> 和 <code>4</code>，将 <code>second</code> 绑定到 <code>8</code>，然后忽略 <code>16</code> 和 <code>32</code>；等等。变量名 <code>second</code> 对 Rust 没有特殊意义，因此由于在这种情况下使用 <code>..</code> 是模糊的，我们会得到一个编译错误。</p>
-<h3 id="extra-conditionals-with-match-guards"><a class="header" href="#extra-conditionals-with-match-guards">使用匹配卫语句的额外条件</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="extra-conditionals-with-match-guards"></a></p>
+<h3 id="adding-conditionals-with-match-guards" data-x-en="Adding Conditionals with Match Guards"><a class="header" href="#adding-conditionals-with-match-guards">使用匹配卫语句添加条件</a></h3>
 <p data-x-en="A match guard is an additional if condition, specified after the pattern in a match arm, that must also match for that arm to be chosen. Match guards are useful for expressing more complex ideas than a pattern alone allows. Note, however, that they are only available in match expressions, not if let or while let expressions.">一个 <em>匹配卫士</em> 是一个额外的 <code>if</code> 条件，在 <code>match</code> 分支的模式之后指定，该分支要被选中，此条件也必须匹配。匹配卫士对于表达比单独的模式更复杂的想法非常有用。但是，请注意，它们仅在 <code>match</code> 表达式中可用，而不是在 <code>if let</code> 或 <code>while let</code> 表达式中。</p>
 <p data-x-en="The condition can use variables created in the pattern. Listing 19-26 shows a match where the first arm has the pattern Some(x) and also has a match guard of if x % 2 == 0 (which will be true if the number is even).">条件可以使用在模式中创建的变量。列表 19-26 显示了一个 <code>match</code>，其中第一个分支的模式为 <code>Some(x)</code>，并且还有一个匹配卫士 <code>if x % 2 == 0</code>（如果数字是偶数，这将为真）。</p>
 <figure class="listing" id="listing-19-26">
@@ -686,7 +698,9 @@ error: could not compile `patterns` (bin "patterns") due to 1 previous error
 <pre><code class="language-text">4 | 5 | (6 if y) =&gt; ...
 </code></pre>
 <p data-x-en="After running the code, the precedence behavior is evident: if the match guard were applied only to the final value in the list of values specified using the | operator, the arm would have matched and the program would have printed yes.">在运行代码后，优先级行为很明显：如果匹配卫士仅应用于使用 <code>|</code> 操作符指定的值列表中的最后一个值，该臂就会匹配，程序将打印 <code>yes</code>。</p>
-<h3 id="-bindings"><a class="header" href="#-bindings"><code>@</code> 绑定</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="-bindings"></a></p>
+<h3 id="using--bindings" data-x-en="Using @ Bindings"><a class="header" href="#using--bindings">使用 <code>@</code> 绑定</a></h3>
 <p data-x-en="The at operator @ lets us create a variable that holds a value at the same time we’re testing that value for a pattern match. In Listing 19-29, we want to test that a Message::Hello id field is within the range 3..=7. We also want to bind the value to the variable id so we can use it in the code associated with the arm."><em>at</em> 操作符 <code>@</code> 让我们可以在测试值是否符合模式匹配的同时，创建一个持有该值的变量。在清单 19-29 中，我们希望测试 <code>Message::Hello</code> 的 <code>id</code> 字段是否在范围 <code>3..=7</code> 内。我们还希望将该值绑定到变量 <code>id</code>，以便在与该分支关联的代码中使用。</p>
 <figure class="listing" id="listing-19-29">
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {

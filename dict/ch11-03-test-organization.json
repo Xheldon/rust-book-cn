@@ -182,5 +182,13 @@
   "This is the older naming convention that Rust also understands that we mentioned in “Alternate File Paths” in Chapter 7. Naming the file this way tells Rust not to treat the common module as an integration test file. When we move the setup function code into tests/common/mod.rs and delete the tests/common.rs file, the section in the test output will no longer appear. Files in subdirectories of the tests directory don’t get compiled as separate crates or have sections in the test output.": {
     "_translate": "这是我们在第 7 章<a href=\"ch07-05-separating-modules-into-different-files.html#alternate-file-paths\">“备用文件路径”</a><!-- ignore -->中提到的旧命名约定，Rust 也理解这种命名方式。这样命名文件可以告诉 Rust 不要将 <code>common</code> 模块视为集成测试文件。当我们把 <code>setup</code> 函数的代码移到 <em>tests/common/mod.rs</em> 并删除 <em>tests/common.rs</em> 文件时，测试输出中的部分将不再出现。<em>tests</em> 目录的子目录中的文件不会被编译为单独的 crate，也不会在测试输出中显示部分。",
     "_note": ""
+  },
+  "The tests Module and #[cfg(test)]": {
+    "_translate": "<a class=\"header\" href=\"#the-tests-module-and-cfgtest\">测试模块和 <code>#[cfg(test)]</code></a>",
+    "_note": ""
+  },
+  "Private Function Tests": {
+    "_translate": "<a class=\"header\" href=\"#private-function-tests\">私有函数测试</a>",
+    "_note": ""
   }
 }

@@ -574,5 +574,13 @@
   "The code in Listing 21-20 that uses let job = receiver.lock().unwrap().recv().unwrap(); works because with let, any temporary values used in the expression on the right-hand side of the equal sign are immediately dropped when the let statement ends. However, while let (and if let and match) does not drop temporary values until the end of the associated block. In Listing 21-21, the lock remains held for the duration of the call to job(), meaning other Worker instances cannot receive jobs.": {
     "_translate": "列表 21-20 中的代码使用 <code>let job = receiver.lock().unwrap().recv().unwrap();</code> 可以工作，因为使用 <code>let</code> 时，等号右侧表达式中使用的任何临时值在 <code>let</code> 语句结束时会立即被丢弃。然而，<code>while let</code>（以及 <code>if let</code> 和 <code>match</code>）不会在关联块结束之前丢弃临时值。在列表 21-21 中，锁在整个调用 <code>job()</code> 期间一直被持有，这意味着其他 <code>Worker</code> 实例无法接收任务。",
     "_note": ""
+  },
+  "From Single-Threaded to Multithreaded Server - The Rust Programming Language": {
+    "_translate": "从单线程到多线程服务器 - 《Rust编程语言》",
+    "_note": ""
+  },
+  "From Single-Threaded to Multithreaded Server": {
+    "_translate": "<a class=\"header\" href=\"#from-single-threaded-to-multithreaded-server\">从单线程到多线程服务器</a>",
+    "_note": ""
   }
 }

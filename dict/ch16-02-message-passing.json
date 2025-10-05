@@ -202,5 +202,25 @@
   "In Listing 16-10 we’ve made some modifications that will prove the code in Listing 16-8 is running concurrently: the spawned thread will now send multiple messages and pause for a second between each message.": {
     "_translate": "在清单 16-10 中，我们进行了一些修改，以证明清单 16-8 中的代码是并发运行的：现在生成的线程将发送多条消息，并在每条消息之间暂停一秒。",
     "_note": ""
+  },
+  "Transfer Data Between Threads with Message Passing - The Rust Programming Language": {
+    "_translate": "使用消息传递在线程间传输数据 - 《Rust编程语言》",
+    "_note": ""
+  },
+  "Transfer Data Between Threads with Message Passing": {
+    "_translate": "<a class=\"header\" href=\"#transfer-data-between-threads-with-message-passing\">使用消息传递在线程间传输数据</a>",
+    "_note": ""
+  },
+  "Transferring Ownership Through Channels": {
+    "_translate": "<a class=\"header\" href=\"#transferring-ownership-through-channels\">通过通道转移所有权</a>",
+    "_note": ""
+  },
+  "Creating Multiple Producers": {
+    "_translate": "<a class=\"header\" href=\"#creating-multiple-producers\">创建多个生产者</a>",
+    "_note": ""
+  },
+  "Sending Multiple Values": {
+    "_translate": "<a class=\"header\" href=\"#sending-multiple-values\">发送多个值</a>",
+    "_note": ""
   }
 }

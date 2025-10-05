@@ -122,5 +122,37 @@
   "Variables and Mutability - The Rust Programming Language": {
     "_translate": "变量和可变性 - 《Rust编程语言》",
     "_note": ""
+  },
+  "It’s important that we get compile-time errors when we attempt to change a value that’s designated as immutable, because this very situation can lead to bugs. If one part of our code operates on the assumption that a value will never change and another part of our code changes that value, it’s possible that the first part of the code won’t do what it was designed to do. The cause of this kind of bug can be difficult to track down after the fact, especially when the second piece of code changes the value only sometimes. The Rust compiler guarantees that when you state that a value won’t change, it really won’t change, so you don’t have to keep track of it yourself. Your code is thus easier to reason through.": {
+    "_translate": "当我们试图更改被指定为不可变的值时，获得编译时错误是很重要的，因为这种情况可能会导致错误。如果我们的代码的一部分基于某个值永远不会改变的假设运行，而代码的另一部分改变了该值，那么代码的第一部分可能无法按设计执行。这种错误的原因在事后可能很难追踪，特别是当代码的第二部分只在<em>某些时候</em>改变该值时。Rust编译器保证，当你声明一个值不会改变时，它确实不会改变，因此你不必自己跟踪它。因此，你的代码更容易理解。",
+    "_note": ""
+  },
+  "But mutability can be very useful and can make code more convenient to write. Although variables are immutable by default, you can make them mutable by adding mut in front of the variable name as you did in Chapter 2. Adding mut also conveys intent to future readers of the code by indicating that other parts of the code will be changing this variable’s value.": {
+    "_translate": "但是可变性非常有用，可以使代码更方便编写。\n虽然变量默认是不可变的，但您可以通过在变量名前添加<code>mut</code>来使其可变，就像您在<a href=\"ch02-00-guessing-game-tutorial.html#storing-values-with-variables\">第2章</a><!-- ignore -->中所做的那样。添加<code>mut</code>还可以向未来的代码阅读者传达意图，表明代码的其他部分将更改此变量的值。",
+    "_note": ""
+  },
+  "Declaring Constants": {
+    "_translate": "<a class=\"header\" href=\"#declaring-constants\">声明常量</a>",
+    "_note": ""
+  },
+  "Naming hardcoded values used throughout your program as constants is useful in conveying the meaning of that value to future maintainers of the code. It also helps to have only one place in your code that you would need to change if the hardcoded value needed to be updated in the future.": {
+    "_translate": "将程序中到处使用的硬编码值命名为常量，有助于向未来的代码维护者传达该值的含义。同时，如果将来需要更新硬编码值，这样做也可以确保你只需要在一个地方进行更改。",
+    "_note": ""
+  },
+  "The constant’s name is THREE_HOURS_IN_SECONDS, and its value is set to the result of multiplying 60 (the number of seconds in a minute) by 60 (the number of minutes in an hour) by 3 (the number of hours we want to count in this program). Rust’s naming convention for constants is to use all uppercase with underscores between words. The compiler is able to evaluate a limited set of operations at compile time, which lets us choose to write out this value in a way that’s easier to understand and verify, rather than setting this constant to the value 10,800. See the Rust Reference’s section on constant evaluation for more information on what operations can be used when declaring constants.": {
+    "_translate": "常量的名称是<code>THREE_HOURS_IN_SECONDS</code>，其值设置为60（一分钟的秒数）乘以60（一小时的分钟数）再乘以3（我们在这个程序中想要计算的小时数）。Rust中常量的命名约定是全部使用大写，并在单词之间使用下划线。编译器能够在编译时评估有限的操作，这使我们能够选择以一种更容易理解和验证的方式写出这个值，而不是将这个常量设置为10,800。有关声明常量时可以使用哪些操作的更多信息，请参阅<a href=\"../reference/const_eval.html\">Rust参考手册中关于常量评估的部分</a>。",
+    "_note": ""
+  },
+  "This program first binds x to a value of 5. Then, it creates a new variable x by repeating let x =, taking the original value and adding 1 so that the value of x is 6. Then, within an inner scope created with the curly brackets, the third let statement also shadows x and creates a new variable, multiplying the previous value by 2 to give x a value of 12. When that scope is over, the inner shadowing ends and x returns to being 6. When we run this program, it will output the following:": {
+    "_translate": "这个程序首先将 <code>x</code> 绑定到值 <code>5</code>。然后，它通过重复 <code>let x =</code> 创建一个新的变量 <code>x</code>，将原始值加 <code>1</code>，使 <code>x</code> 的值变为 <code>6</code>。然后，在用大括号创建的内部作用域中，第三个 <code>let</code> 语句也遮蔽了 <code>x</code> 并创建了一个新的变量，将前一个值乘以 <code>2</code>，使 <code>x</code> 的值变为 <code>12</code>。当该作用域结束时，内部遮蔽结束，<code>x</code> 变回 <code>6</code>。当我们运行这个程序时，它将输出以下内容：",
+    "_note": ""
+  },
+  "Shadowing is different from marking a variable as mut because we’ll get a compile-time error if we accidentally try to reassign to this variable without using the let keyword. By using let, we can perform a few transformations on a value but have the variable be immutable after those transformations have completed.": {
+    "_translate": "遮蔽（Shadowing）与将变量标记为<code>mut</code>不同，因为如果我们不小心尝试在没有使用<code>let</code>关键字的情况下重新赋值给这个变量，我们会得到一个编译时错误。通过使用<code>let</code>，我们可以在值上执行一些转换，但在这些转换完成后，变量将变为不可变。",
+    "_note": ""
+  },
+  "The first spaces variable is a string type, and the second spaces variable is a number type. Shadowing thus spares us from having to come up with different names, such as spaces_str and spaces_num; instead, we can reuse the simpler spaces name. However, if we try to use mut for this, as shown here, we’ll get a compile-time error:": {
+    "_translate": "第一个 <code>spaces</code> 变量是字符串类型，第二个 <code>spaces</code> 变量是数字类型。因此，遮蔽让我们不必想出不同的名称，例如 <code>spaces_str</code> 和 <code>spaces_num</code>；相反，我们可以重用更简单的 <code>spaces</code> 名称。但是，如果我们尝试为此使用 <code>mut</code>，如这里所示，我们将得到一个编译时错误：",
+    "_note": ""
   }
 }

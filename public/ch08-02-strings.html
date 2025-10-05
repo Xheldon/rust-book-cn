@@ -252,9 +252,11 @@ blockquote {
                         <h2 id="storing-utf-8-encoded-text-with-strings"><a class="header" href="#storing-utf-8-encoded-text-with-strings">使用字符串存储 UTF-8 编码的文本</a></h2>
 <p data-x-en="We talked about strings in Chapter 4, but we’ll look at them in more depth now. New Rustaceans commonly get stuck on strings for a combination of three reasons: Rust’s propensity for exposing possible errors, strings being a more complicated data structure than many programmers give them credit for, and UTF-8. These factors combine in a way that can seem difficult when you’re coming from other programming languages.">我们在第 4 章讨论过字符串，但现在我们将更深入地探讨它们。
 新 Rustaceans 通常会因为三个原因在字符串上遇到困难：Rust 倾向于暴露可能的错误，字符串比许多程序员认为的要复杂得多，以及 UTF-8。这些因素结合在一起，当你从其他编程语言转过来时，可能会显得很难。</p>
-<p data-x-en="We discuss strings in the context of collections because strings are implemented as a collection of bytes, plus some methods to provide useful functionality when those bytes are interpreted as text. In this section, we’ll talk about the operations on String that every collection type has, such as creating, updating, and reading. We’ll also discuss the ways in which String is different from the other collections, namely how indexing into a String is complicated by the differences between how people and computers interpret String data.">我们讨论字符串时将其放在集合的背景下，因为字符串是作为字节的集合实现的，加上一些方法，当这些字节被解释为文本时提供有用的功能。在这一节中，我们将讨论所有集合类型都有的 <code>String</code> 操作，例如创建、更新和读取。我们还将讨论 <code>String</code> 与其他集合的不同之处，特别是如何通过人和计算机对 <code>String</code> 数据的不同解释使对 <code>String</code> 的索引变得复杂。</p>
-<h3 id="what-is-a-string"><a class="header" href="#what-is-a-string">什么是字符串？</a></h3>
-<p data-x-en="We’ll first define what we mean by the term string. Rust has only one string type in the core language, which is the string slice str that is usually seen in its borrowed form &amp;str. In Chapter 4, we talked about string slices, which are references to some UTF-8 encoded string data stored elsewhere. String literals, for example, are stored in the program’s binary and are therefore string slices.">我们首先定义一下 <em>字符串</em> 这个术语的含义。Rust 在核心语言中只有一种字符串类型，即字符串切片 <code>str</code>，通常以借用形式 <code>&amp;str</code> 出现。在第 4 章中，我们讨论了 <em>字符串切片</em>，它们是对存储在其他地方的 UTF-8 编码字符串数据的引用。例如，字符串字面量存储在程序的二进制文件中，因此是字符串切片。</p>
+<p data-x-en="We discuss strings in the context of collections because strings are implemented as a collection of bytes, plus some methods to provide useful functionality when those bytes are interpreted as text. In this section, we’ll talk about the operations on String that every collection type has, such as creating, updating, and reading. We’ll also discuss the ways in which String is different from the other collections, namely, how indexing into a String is complicated by the differences between how people and computers interpret String data.">我们在讨论集合时提到字符串，因为字符串是作为字节的集合加上一些方法来提供有用的功能，当这些字节被解释为文本时。在这一节中，我们将讨论所有集合类型都具有的 <code>String</code> 操作，例如创建、更新和读取。我们还将讨论 <code>String</code> 与其他集合的不同之处，特别是，由于人们和计算机解释 <code>String</code> 数据方式的不同，索引到 <code>String</code> 的复杂性。</p>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="what-is-a-string"></a></p>
+<h3 id="defining-strings" data-x-en="Defining Strings"><a class="header" href="#defining-strings">定义字符串</a></h3>
+<p data-x-en="We’ll first define what we mean by the term string. Rust has only one string type in the core language, which is the string slice str that is usually seen in its borrowed form, &amp;str. In Chapter 4, we talked about string slices, which are references to some UTF-8 encoded string data stored elsewhere. String literals, for example, are stored in the program’s binary and are therefore string slices.">我们首先定义一下 <em>字符串</em> 这个术语的含义。Rust 在核心语言中只有一种字符串类型，即字符串切片 <code>str</code>，通常以借用形式 <code>&amp;str</code> 出现。在第 4 章中，我们讨论了字符串切片，它们是对存储在其他地方的 UTF-8 编码字符串数据的引用。例如，字符串字面量存储在程序的二进制文件中，因此是字符串切片。</p>
 <p data-x-en="The String type, which is provided by Rust’s standard library rather than coded into the core language, is a growable, mutable, owned, UTF-8 encoded string type. When Rustaceans refer to “strings” in Rust, they might be referring to either the String or the string slice &amp;str types, not just one of those types. Although this section is largely about String, both types are used heavily in Rust’s standard library, and both String and string slices are UTF-8 encoded."><code>String</code> 类型是由 Rust 的标准库提供的，而不是编码在核心语言中，是一种可增长、可变、拥有所有权、UTF-8 编码的字符串类型。当 Rustaceans 在 Rust 中提到“字符串”时，他们可能指的是 <code>String</code> 或字符串切片 <code>&amp;str</code> 类型，而不仅仅是其中一种类型。虽然本节主要讨论 <code>String</code>，但这两种类型在 Rust 的标准库中都被大量使用，且 <code>String</code> 和字符串切片都是 UTF-8 编码的。</p>
 <h3 id="creating-a-new-string"><a class="header" href="#creating-a-new-string">创建一个新的字符串</a></h3>
 <p data-x-en="Many of the same operations available with Vec<T> are available with String as well because String is actually implemented as a wrapper around a vector of bytes with some extra guarantees, restrictions, and capabilities. An example of a function that works the same way with Vec<T> and String is the new function to create an instance, shown in Listing 8-11.">许多与 <code>Vec&lt;T&gt;</code> 可用的操作对于 <code>String</code> 也同样可用，因为 <code>String</code> 实际上是围绕一个带有某些额外保证、限制和功能的字节向量实现的。一个在 <code>Vec&lt;T&gt;</code> 和 <code>String</code> 中以相同方式工作的函数示例是用于创建实例的 <code>new</code> 函数，如清单 8-11 所示。</p>
@@ -305,7 +307,9 @@ blockquote {
 <p data-x-en="All of these are valid String values.">所有这些都是有效的 <code>String</code> 值。</p>
 <h3 id="updating-a-string"><a class="header" href="#updating-a-string">更新字符串</a></h3>
 <p data-x-en="A String can grow in size and its contents can change, just like the contents of a Vec<T>, if you push more data into it. In addition, you can conveniently use the + operator or the format! macro to concatenate String values.">一个 <code>String</code> 可以增长大小，其内容也可以改变，就像 <code>Vec&lt;T&gt;</code> 的内容一样，如果你向其中添加更多数据。此外，你可以方便地使用 <code>+</code> 运算符或 <code>format!</code> 宏来连接 <code>String</code> 值。</p>
-<h4 id="appending-to-a-string-with-push_str-and-push"><a class="header" href="#appending-to-a-string-with-push_str-and-push">使用 <code>push_str</code> 和 <code>push</code> 追加到字符串</a></h4>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="appending-to-a-string-with-push_str-and-push"></a></p>
+<h4 id="appending-with-push_str-or-push" data-x-en="Appending with push_str or push"><a class="header" href="#appending-with-push_str-or-push">使用 <code>push_str</code> 或 <code>push</code> 追加</a></h4>
 <p data-x-en="We can grow a String by using the push_str method to append a string slice, as shown in Listing 8-15.">我们可以使用 <code>push_str</code> 方法来追加一个字符串切片，从而扩展 <code>String</code>，如清单 8-15 所示。</p>
 <figure class="listing" id="listing-8-15">
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
@@ -334,7 +338,9 @@ blockquote {
 <figcaption><a href="#listing-8-17">Listing 8-17</a>: Adding one character to a <code>String</code> value using <code>push</code></figcaption>
 </figure>
 <p data-x-en="As a result, s will contain lol.">因此，<code>s</code> 将包含 <code>lol</code>。</p>
-<h4 id="concatenation-with-the--operator-or-the-format-macro"><a class="header" href="#concatenation-with-the--operator-or-the-format-macro">使用 <code>+</code> 运算符或 <code>format!</code> 宏进行连接</a></h4>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="concatenation-with-the--operator-or-the-format-macro"></a></p>
+<h4 id="concatenating-with--or-format" data-x-en="Concatenating with + or format!"><a class="header" href="#concatenating-with--or-format">使用 <code>+</code> 或 <code>format!</code> 连接</a></h4>
 <p data-x-en="Often, you’ll want to combine two existing strings. One way to do so is to use the + operator, as shown in Listing 8-18.">经常地，你可能想要将两个已有的字符串组合起来。一种方法是使用 <code>+</code> 运算符，如清单 8-18 所示。</p>
 <figure class="listing" id="listing-8-18">
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
@@ -347,7 +353,7 @@ blockquote {
 <p data-x-en="The string s3 will contain Hello, world!. The reason s1 is no longer valid after the addition, and the reason we used a reference to s2, has to do with the signature of the method that’s called when we use the + operator. The + operator uses the add method, whose signature looks something like this:">字符串 <code>s3</code> 将包含 <code>Hello, world!</code>。在添加之后 <code>s1</code> 不再有效，以及我们使用 <code>s2</code> 的引用的原因，与调用的方法的签名有关，当我们使用 <code>+</code> 运算符时。 <code>+</code> 运算符使用 <code>add</code> 方法，其签名看起来像这样：</p>
 <pre><code class="language-rust ignore">fn add(self, s: &amp;str) -&gt; String {</code></pre>
 <p data-x-en="In the standard library, you’ll see add defined using generics and associated types. Here, we’ve substituted in concrete types, which is what happens when we call this method with String values. We’ll discuss generics in Chapter 10. This signature gives us the clues we need in order to understand the tricky bits of the + operator.">在标准库中，你会看到 <code>add</code> 使用泛型和关联类型定义。在这里，我们替换了具体的类型，这就是当我们用 <code>String</code> 值调用此方法时发生的情况。我们将在第 10 章讨论泛型。此签名为我们提供了理解 <code>+</code> 运算符复杂部分所需的线索。</p>
-<p data-x-en="First, s2 has an &amp;, meaning that we’re adding a reference of the second string to the first string. This is because of the s parameter in the add function: we can only add a &amp;str to a String; we can’t add two String values together. But wait—the type of &amp;s2 is &amp;String, not &amp;str, as specified in the second parameter to add. So why does Listing 8-18 compile?">首先，<code>s2</code> 有一个 <code>&amp;</code>，这意味着我们正在向第一个字符串添加第二个字符串的 <em>引用</em>。这是由于 <code>add</code> 函数中的 <code>s</code> 参数：我们只能将一个 <code>&amp;str</code> 添加到一个 <code>String</code>；我们不能将两个 <code>String</code> 值相加。但是等等——<code>&amp;s2</code> 的类型是 <code>&amp;String</code>，而不是 <code>&amp;str</code>，如 <code>add</code> 的第二个参数所指定的。那么为什么示例 8-18 能编译呢？</p>
+<p data-x-en="First, s2 has an &amp;, meaning that we’re adding a reference of the second string to the first string. This is because of the s parameter in the add function: We can only add a string slice to a String; we can’t add two String values together. But wait—the type of &amp;s2 is &amp;String, not &amp;str, as specified in the second parameter to add. So, why does Listing 8-18 compile?">首先，<code>s2</code> 有一个 <code>&amp;</code>，这意味着我们正在向第一个字符串添加第二个字符串的引用。这是由于 <code>add</code> 函数中的 <code>s</code> 参数：我们只能将字符串切片添加到 <code>String</code>；我们不能将两个 <code>String</code> 值相加。但是等等——<code>&amp;s2</code> 的类型是 <code>&amp;String</code>，而不是 <code>&amp;str</code>，如 <code>add</code> 的第二个参数所指定的。那么，为什么示例 8-18 能编译？</p>
 <p data-x-en="The reason we’re able to use &amp;s2 in the call to add is that the compiler can coerce the &amp;String argument into a &amp;str. When we call the add method, Rust uses a deref coercion, which here turns &amp;s2 into &amp;s2[..]. We’ll discuss deref coercion in more depth in Chapter 15. Because add does not take ownership of the s parameter, s2 will still be a valid String after this operation.">我们能够在调用 <code>&amp;s2</code> 时使用 <code>add</code> 是因为编译器可以将 <code>&amp;String</code> 参数 <em>强制转换</em> 为 <code>&amp;str</code>。当我们调用 <code>add</code> 方法时，Rust 使用 <em>解引用强制转换</em>，这会将 <code>&amp;s2</code> 转换为 <code>&amp;s2[..]</code>。我们将在第 15 章更深入地讨论解引用强制转换。因为 <code>add</code> 不会获取 <code>s</code> 参数的所有权，所以在此次操作后 <code>s2</code> 仍然是一个有效的 <code>String</code>。</p>
 <p data-x-en="Second, we can see in the signature that add takes ownership of self because self does not have an &amp;. This means s1 in Listing 8-18 will be moved into the add call and will no longer be valid after that. So, although let s3 = s1 + &amp;s2; looks like it will copy both strings and create a new one, this statement actually takes ownership of s1, appends a copy of the contents of s2, and then returns ownership of the result. In other words, it looks like it’s making a lot of copies, but it isn’t; the implementation is more efficient than copying.">其次，我们从签名中可以看到 <code>add</code> 获取了 <code>self</code> 的所有权，因为 <code>self</code> 没有 <code>&amp;</code>。这意味着在示例 8-18 中的 <code>s1</code> 将被移动到 <code>add</code> 调用中，并且在那之后将不再有效。因此，虽然 <code>let s3 = s1 + &amp;s2;</code> 看起来像是会复制两个字符串并创建一个新的，但实际上这个语句获取了 <code>s1</code> 的所有权，追加了 <code>s2</code> 内容的副本，然后返回结果的所有权。换句话说，它看起来像是在做很多复制，但实际上并没有；实现比复制更高效。</p>
 <p data-x-en="If we need to concatenate multiple strings, the behavior of the + operator gets unwieldy:">如果我们需要连接多个字符串，<code>+</code> 运算符的行为会变得难以管理：</p>
@@ -374,7 +380,7 @@ blockquote {
 </span>    let s1 = String::from("hi");
     let h = s1[0];
 <span class="boring">}</span></code></pre>
-<figcaption><a href="#listing-8-19">Listing 8-19</a>: Attempting to use indexing syntax with a String</figcaption>
+<figcaption><a href="#listing-8-19">Listing 8-19</a>: Attempting to use indexing syntax with a <code>String</code></figcaption>
 </figure>
 <p data-x-en="This code will result in the following error:">这段代码将导致以下错误：</p>
 <pre><code class="language-console">$ cargo run
@@ -395,9 +401,7 @@ error[E0277]: the type `str` cannot be indexed by `{integer}`
 For more information about this error, try `rustc --explain E0277`.
 error: could not compile `collections` (bin "collections") due to 1 previous error
 </code></pre>
-<p data-x-en="The error and the note tell the story: Rust strings don’t support indexing. But why not? To answer that question, we need to discuss how Rust stores strings in memory.">错误和注释讲述了故事：Rust 字符串不支持索引。但是
-为什么呢？要回答这个问题，我们需要讨论 Rust 是如何在
-内存中存储字符串的。</p>
+<p data-x-en="The error tells the story: Rust strings don’t support indexing. But why not? To answer that question, we need to discuss how Rust stores strings in memory.">错误揭示了原因：Rust 字符串不支持索引。但为什么呢？要回答这个问题，我们需要讨论 Rust 是如何在内存中存储字符串的。</p>
 <h4 id="internal-representation"><a class="header" href="#internal-representation">内部表示</a></h4>
 <p data-x-en="A String is a wrapper over a Vec<u8>. Let’s look at some of our properly encoded UTF-8 example strings from Listing 8-14. First, this one:">一个 <code>String</code> 是 <code>Vec&lt;u8&gt;</code> 的包装。让我们看看来自列表 8-14 的一些正确编码的 UTF-8 示例字符串。首先，这个：</p>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
@@ -413,7 +417,7 @@ error: could not compile `collections` (bin "collections") due to 1 previous err
 </span><span class="boring">    let hello = String::from("Здравствуйте");
 </span>    let hello = String::from("Hola");
 <span class="boring">}</span></code></pre></pre>
-<p data-x-en="In this case, len will be 4, which means the vector storing the string &quot;Hola&quot; is 4 bytes long. Each of these letters takes one byte when encoded in UTF-8. The following line, however, may surprise you (note that this string begins with the capital Cyrillic letter Ze, not the number 3):">在这种情况下，<code>len</code> 将是 <code>4</code>，这意味着存储字符串 <code>"Hola"</code> 的向量长度为 4 个字节。这些字母中的每一个在 UTF-8 编码中都占用一个字节。然而，下一行可能会让你感到惊讶（注意，这个字符串以大写的西里尔字母 <em>Ze</em> 开头，而不是数字 3）：</p>
+<p data-x-en="In this case, len will be 4, which means the vector storing the string &quot;Hola&quot; is 4 bytes long. Each of these letters takes 1 byte when encoded in UTF-8. The following line, however, may surprise you (note that this string begins with the capital Cyrillic letter Ze, not the number 3):">在这种情况下，<code>len</code> 将是 <code>4</code>，这意味着存储字符串 <code>"Hola"</code> 的向量长度为 4 字节。这些字母中的每一个在 UTF-8 编码时都占用 1 字节。然而，下一行可能会让你感到惊讶（请注意，这个字符串以大写的西里尔字母 <em>Ze</em> 开头，而不是数字 3）：</p>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span><span class="boring">    let hello = String::from("السلام عليكم");
 </span><span class="boring">    let hello = String::from("Dobrý den");
@@ -427,12 +431,14 @@ error: could not compile `collections` (bin "collections") due to 1 previous err
 </span>    let hello = String::from("Здравствуйте");
 <span class="boring">    let hello = String::from("Hola");
 </span><span class="boring">}</span></code></pre></pre>
-<p data-x-en="If you were asked how long the string is, you might say 12. In fact, Rust’s answer is 24: that’s the number of bytes it takes to encode “Здравствуйте” in UTF-8, because each Unicode scalar value in that string takes 2 bytes of storage. Therefore, an index into the string’s bytes will not always correlate to a valid Unicode scalar value. To demonstrate, consider this invalid Rust code:">如果您被问到这个字符串有多长，您可能会说12。事实上，Rust的答案是24：这是编码“Здравствуйте”所需的字节数，因为该字符串中的每个Unicode标量值都需要2个字节的存储空间。因此，字符串字节的索引并不总是与有效的Unicode标量值相对应。为了演示，考虑以下无效的Rust代码：</p>
+<p data-x-en="If you were asked how long the string is, you might say 12. In fact, Rust’s answer is 24: That’s the number of bytes it takes to encode “Здравствуйте” in UTF-8, because each Unicode scalar value in that string takes 2 bytes of storage. Therefore, an index into the string’s bytes will not always correlate to a valid Unicode scalar value. To demonstrate, consider this invalid Rust code:">如果你被问到这个字符串有多长，你可能会说12。事实上，Rust的答案是24：这是编码“Здравствуйте”所需的字节数，因为该字符串中的每个Unicode标量值都需要2个字节的存储空间。因此，字符串字节的索引并不总是对应于有效的Unicode标量值。为了演示，考虑这段无效的Rust代码：</p>
 <pre><code class="language-rust ignore does_not_compile">let hello = "Здравствуйте";
 let answer = &amp;hello[0];</code></pre>
-<p data-x-en="You already know that answer will not be З, the first letter. When encoded in UTF-8, the first byte of З is 208 and the second is 151, so it would seem that answer should in fact be 208, but 208 is not a valid character on its own. Returning 208 is likely not what a user would want if they asked for the first letter of this string; however, that’s the only data that Rust has at byte index 0. Users generally don’t want the byte value returned, even if the string contains only Latin letters: if &amp;&quot;hi&quot;[0] were valid code that returned the byte value, it would return 104, not h.">你已经知道 <code>answer</code> 不会是 <code>З</code>，即第一个字母。当用 UTF-8 编码时，<code>З</code> 的第一个字节是 <code>208</code>，第二个字节是 <code>151</code>，所以看起来 <code>answer</code> 应该是 <code>208</code>，但 <code>208</code> 本身不是一个有效的字符。返回 <code>208</code> 可能不是用户询问此字符串的第一个字母时所希望的结果；然而，这是 Rust 在字节索引 0 处唯一拥有的数据。用户通常不希望返回字节值，即使字符串仅包含拉丁字母：<code>&amp;"hi"[0]</code> 如果是有效的代码并返回字节值，它会返回 <code>104</code>，而不是 <code>h</code>。</p>
+<p data-x-en="You already know that answer will not be З, the first letter. When encoded in UTF-8, the first byte of З is 208 and the second is 151, so it would seem that answer should in fact be 208, but 208 is not a valid character on its own. Returning 208 is likely not what a user would want if they asked for the first letter of this string; however, that’s the only data that Rust has at byte index 0. Users generally don’t want the byte value returned, even if the string contains only Latin letters: If &amp;&quot;hi&quot;[0] were valid code that returned the byte value, it would return 104, not h.">你已经知道 <code>answer</code> 不会是 <code>З</code>，即第一个字母。当用 UTF-8 编码时，<code>З</code> 的第一个字节是 <code>208</code>，第二个字节是 <code>151</code>，所以看起来 <code>answer</code> 应该是 <code>208</code>，但 <code>208</code> 本身不是一个有效的字符。返回 <code>208</code> 可能不是用户询问此字符串的第一个字母时所希望的结果；然而，这是 Rust 在字节索引 0 处唯一拥有的数据。用户通常不希望返回字节值，即使字符串仅包含拉丁字母：如果 <code>&amp;"hi"[0]</code> 是有效的代码并返回字节值，它将返回 <code>104</code>，而不是 <code>h</code>。</p>
 <p data-x-en="The answer, then, is that to avoid returning an unexpected value and causing bugs that might not be discovered immediately, Rust doesn’t compile this code at all and prevents misunderstandings early in the development process.">那么，答案是，为了避免返回意外值并导致可能不会立即被发现的错误，Rust 根本不会编译这段代码，并且在开发过程的早期防止误解。</p>
-<h4 id="bytes-and-scalar-values-and-grapheme-clusters-oh-my"><a class="header" href="#bytes-and-scalar-values-and-grapheme-clusters-oh-my">字节、标量值和图形簇！天哪！</a></h4>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="bytes-and-scalar-values-and-grapheme-clusters-oh-my"></a></p>
+<h4 id="bytes-scalar-values-and-grapheme-clusters" data-x-en="Bytes, Scalar Values, and Grapheme Clusters"><a class="header" href="#bytes-scalar-values-and-grapheme-clusters">字节、标量值和图形簇</a></h4>
 <p data-x-en="Another point about UTF-8 is that there are actually three relevant ways to look at strings from Rust’s perspective: as bytes, scalar values, and grapheme clusters (the closest thing to what we would call letters).">关于 UTF-8 的另一个点是，从 Rust 的角度来看，实际上有三种相关的方式来查看字符串：作为字节、标量值和字母簇（最接近我们所说的<em>字母</em>）。</p>
 <p data-x-en="If we look at the Hindi word “नमस्ते” written in the Devanagari script, it is stored as a vector of u8 values that looks like this:">如果我们查看用天城文书写的新德里词“नमस्ते”，它被存储为一个 <code>u8</code> 值的向量，看起来像这样：</p>
 <pre><code class="language-text">[224, 164, 168, 224, 164, 174, 224, 164, 184, 224, 165, 141, 224, 164, 164,
@@ -441,7 +447,7 @@ let answer = &amp;hello[0];</code></pre>
 <p data-x-en="That’s 18 bytes and is how computers ultimately store this data. If we look at them as Unicode scalar values, which are what Rust’s char type is, those bytes look like this:">那是 18 个字节，这就是计算机最终存储这些数据的方式。如果我们把它们看作是 Unicode 标量值，即 Rust 的 <code>char</code> 类型，这些字节看起来像这样：</p>
 <pre><code class="language-text">['न', 'म', 'स', '्', 'त', 'े']
 </code></pre>
-<p data-x-en="There are six char values here, but the fourth and sixth are not letters: they’re diacritics that don’t make sense on their own. Finally, if we look at them as grapheme clusters, we’d get what a person would call the four letters that make up the Hindi word:">这里有六个 <code>char</code> 值，但第四个和第六个不是字母：它们是独立时没有意义的变音符号。最后，如果我们把它们看作是图形单元，我们会得到人们所说的构成印地语单词的四个字母：</p>
+<p data-x-en="There are six char values here, but the fourth and sixth are not letters: They’re diacritics that don’t make sense on their own. Finally, if we look at them as grapheme clusters, we’d get what a person would call the four letters that make up the Hindi word:">这里有六个 <code>char</code> 值，但第四个和第六个不是字母：它们是独立时没有意义的变音符号。最后，如果我们把它们看作是字母群，我们会得到人们所说的构成印地语单词的四个字母：</p>
 <pre><code class="language-text">["न", "म", "स्", "ते"]
 </code></pre>
 <p data-x-en="Rust provides different ways of interpreting the raw string data that computers store so that each program can choose the interpretation it needs, no matter what human language the data is in.">Rust 提供了不同的方式来解释计算机存储的原始字符串数据，以便每个程序可以选择它需要的解释方式，无论数据使用的是哪种人类语言。</p>
@@ -455,8 +461,8 @@ let answer = &amp;hello[0];</code></pre>
 
 let s = &amp;hello[0..4];
 <span class="boring">}</span></code></pre></pre>
-<p data-x-en="Here, s will be a &amp;str that contains the first four bytes of the string. Earlier, we mentioned that each of these characters was two bytes, which means s will be Зд.">这里，<code>s</code> 将是一个包含字符串前四个字节的 <code>&amp;str</code>。
-之前我们提到每个字符都是两个字节，这意味着
+<p data-x-en="Here, s will be a &amp;str that contains the first 4 bytes of the string. Earlier, we mentioned that each of these characters was 2 bytes, which means s will be Зд.">这里，<code>s</code> 将是一个包含字符串前 4 个字节的 <code>&amp;str</code>。
+之前我们提到每个字符都是 2 个字节，这意味着
 <code>s</code> 将是 <code>Зд</code>。</p>
 <p data-x-en="If we were to try to slice only part of a character’s bytes with something like &amp;hello[0..1], Rust would panic at runtime in the same way as if an invalid index were accessed in a vector:">如果我们尝试使用类似<code>&amp;hello[0..1]</code>的方式只切片一个字符的部分字节，Rust 会在运行时像访问向量中的无效索引一样引发恐慌：</p>
 <pre><code class="language-console">$ cargo run
@@ -469,7 +475,9 @@ byte index 1 is not a char boundary; it is inside 'З' (bytes 0..2) of `Здра
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 </code></pre>
 <p data-x-en="You should use caution when creating string slices with ranges, because doing so can crash your program.">您在使用范围创建字符串切片时应谨慎，因为这样做可能会导致程序崩溃。</p>
-<h3 id="methods-for-iterating-over-strings"><a class="header" href="#methods-for-iterating-over-strings">遍历字符串的方法</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="methods-for-iterating-over-strings"></a></p>
+<h3 id="iterating-over-strings" data-x-en="Iterating Over Strings"><a class="header" href="#iterating-over-strings">遍历字符串</a></h3>
 <p data-x-en="The best way to operate on pieces of strings is to be explicit about whether you want characters or bytes. For individual Unicode scalar values, use the chars method. Calling chars on “Зд” separates out and returns two values of type char, and you can iterate over the result to access each element:">操作字符串片段的最佳方式是明确你想要的是字符还是字节。对于单个 Unicode 标量值，使用 <code>chars</code> 方法。对 “Зд” 调用 <code>chars</code> 会分离并返回两个类型为 <code>char</code> 的值，你可以遍历结果以访问每个元素：</p>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
@@ -488,15 +496,17 @@ note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
     println!("{b}");
 }
 <span class="boring">}</span></code></pre></pre>
-<p data-x-en="This code will print the four bytes that make up this string:">这段代码将打印组成这个字符串的四个字节：</p>
+<p data-x-en="This code will print the 4 bytes that make up this string:">这段代码将打印组成这个字符串的4个字节：</p>
 <pre><code class="language-text">208
 151
 208
 180
 </code></pre>
-<p data-x-en="But be sure to remember that valid Unicode scalar values may be made up of more than one byte.">但是请务必记住，有效的 Unicode 标量值可能由多个字节组成。</p>
+<p data-x-en="But be sure to remember that valid Unicode scalar values may be made up of more than 1 byte.">但请务必记住，有效的 Unicode 标量值可能由多个字节组成。</p>
 <p data-x-en="Getting grapheme clusters from strings, as with the Devanagari script, is complex, so this functionality is not provided by the standard library. Crates are available on crates.io if this is the functionality you need.">从字符串中获取图形单元（grapheme clusters），如天城文（Devanagari）脚本，是复杂的，因此标准库不提供此功能。如果您需要此功能，可以在<a href="https://crates.io/">crates.io</a><!-- ignore --> 上找到相关的 crate。</p>
-<h3 id="strings-are-not-so-simple"><a class="header" href="#strings-are-not-so-simple">字符串并不那么简单</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="strings-are-not-so-simple"></a></p>
+<h3 id="handling-the-complexities-of-strings" data-x-en="Handling the Complexities of Strings"><a class="header" href="#handling-the-complexities-of-strings">处理字符串的复杂性</a></h3>
 <p data-x-en="To summarize, strings are complicated. Different programming languages make different choices about how to present this complexity to the programmer. Rust has chosen to make the correct handling of String data the default behavior for all Rust programs, which means programmers have to put more thought into handling UTF-8 data up front. This trade-off exposes more of the complexity of strings than is apparent in other programming languages, but it prevents you from having to handle errors involving non-ASCII characters later in your development life cycle.">总之，字符串很复杂。不同的编程语言在如何向程序员展示这种复杂性方面做出了不同的选择。Rust 选择使 <code>String</code> 数据的正确处理成为所有 Rust 程序的默认行为，这意味着程序员需要在一开始就更多地考虑处理 UTF-8 数据。这种权衡使字符串的复杂性比其他编程语言中更明显，但它可以防止你在开发生命周期的后期处理涉及非 ASCII 字符的错误。</p>
 <p data-x-en="The good news is that the standard library offers a lot of functionality built off the String and &amp;str types to help handle these complex situations correctly. Be sure to check out the documentation for useful methods like contains for searching in a string and replace for substituting parts of a string with another string.">好消息是，标准库提供了大量基于 <code>String</code> 和 <code>&amp;str</code> 类型的功能，帮助正确处理这些复杂情况。务必查看文档，了解诸如 <code>contains</code> 用于在字符串中搜索和 <code>replace</code> 用于将字符串的一部分替换为另一个字符串的有用方法。</p>
 <p data-x-en="Let’s switch to something a bit less complex: hash maps!">让我们切换到一个稍微简单点的主题：哈希映射！</p>

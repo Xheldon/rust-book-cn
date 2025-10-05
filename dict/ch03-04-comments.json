@@ -34,5 +34,9 @@
   "Comments - The Rust Programming Language": {
     "_translate": "注释 - 《Rust 编程语言》",
     "_note": ""
+  },
+  "All programmers strive to make their code easy to understand, but sometimes extra explanation is warranted. In these cases, programmers leave comments in their source code that the compiler will ignore but that people reading the source code may find useful.": {
+    "_translate": "所有程序员都努力使他们的代码易于理解，但有时需要额外的解释。在这些情况下，程序员会在源代码中留下<em>注释</em>，编译器会忽略这些注释，但阅读源代码的人可能会发现它们很有用。",
+    "_note": ""
   }
 }

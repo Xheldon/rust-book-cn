@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="zh-CN" class="light sidebar-visible" dir="ltr"><head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>将我们的单线程服务器变成多线程服务器 - 《Rust编程语言》</title>
+        <title>从单线程到多线程服务器 - 《Rust编程语言》</title>
 
 
         <!-- Custom HTML head -->
@@ -249,7 +249,9 @@ blockquote {
 
                 <div id="content" class="content">
                     <main>
-                        <h2 id="turning-our-single-threaded-server-into-a-multithreaded-server"><a class="header" href="#turning-our-single-threaded-server-into-a-multithreaded-server">将我们的单线程服务器转换为多线程服务器</a></h2>
+                        <!-- Old headings. Do not remove or links may break. -->
+<p><a id="turning-our-single-threaded-server-into-a-multithreaded-server"></a></p>
+<h2 id="from-single-threaded-to-multithreaded-server" data-x-en="From Single-Threaded to Multithreaded Server"><a class="header" href="#from-single-threaded-to-multithreaded-server">从单线程到多线程服务器</a></h2>
 <p data-x-en="Right now, the server will process each request in turn, meaning it won’t process a second connection until the first is finished processing. If the server received more and more requests, this serial execution would be less and less optimal. If the server receives a request that takes a long time to process, subsequent requests will have to wait until the long request is finished, even if the new requests can be processed quickly. We’ll need to fix this, but first we’ll look at the problem in action.">目前，服务器会依次处理每个请求，这意味着它不会在处理完第一个请求之前处理第二个连接。如果服务器接收到越来越多的请求，这种串行执行将变得越来越不高效。如果服务器接收到一个需要很长时间处理的请求，后续的请求将不得不等待，直到长时间的请求处理完毕，即使新的请求可以快速处理。我们需要解决这个问题，但首先我们将看看问题的实际表现。</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="simulating-a-slow-request-in-the-current-server-implementation"></a></p>

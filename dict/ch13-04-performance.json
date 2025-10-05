@@ -74,5 +74,13 @@
   "In many cases, Rust code using iterators compiles to the same assembly you’d write by hand. Optimizations such as loop unrolling and eliminating bounds checking on array access apply and make the resultant code extremely efficient. Now that you know this, you can use iterators and closures without fear! They make code seem like it’s higher level but don’t impose a runtime performance penalty for doing so.": {
     "_translate": "在许多情况下，使用迭代器的 Rust 代码编译后的汇编代码与你手工编写的相同。诸如循环展开和消除数组访问的边界检查等优化措施使生成的代码极其高效。现在你已经知道这一点，可以放心地使用迭代器和闭包！它们使代码看起来像是更高层次的，但并不会因此而带来运行时性能的损失。",
     "_note": ""
+  },
+  "Performance in Loops vs. Iterators - The Rust Programming Language": {
+    "_translate": "性能对比：循环与迭代器 - 《Rust 编程语言》",
+    "_note": ""
+  },
+  "Performance in Loops vs. Iterators": {
+    "_translate": "<a class=\"header\" href=\"#performance-in-loops-vs-iterators\">循环与迭代器的性能比较</a>",
+    "_note": ""
   }
 }

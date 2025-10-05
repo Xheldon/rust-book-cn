@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="zh-CN" class="light sidebar-visible" dir="ltr"><head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>使用允许不同类型值的 Trait 对象 - 《Rust 编程语言》</title>
+        <title>使用Trait对象来抽象共享行为 - 《Rust编程语言》</title>
 
 
         <!-- Custom HTML head -->
@@ -454,7 +454,9 @@ For more information about this error, try `rustc --explain E0277`.
 error: could not compile `gui` (bin "gui") due to 1 previous error
 </code></pre>
 <p data-x-en="This error lets us know that either we’re passing something to Screen that we didn’t mean to pass and so should pass a different type, or we should implement Draw on String so that Screen is able to call draw on it.">这个错误告诉我们，要么我们传递给<code>Screen</code>的内容不是我们本意要传递的，因此应该传递一个不同的类型，要么我们应该在<code>String</code>上实现<code>Draw</code>，以便<code>Screen</code>能够调用其<code>draw</code>方法。</p>
-<h3 id="trait-objects-perform-dynamic-dispatch"><a class="header" href="#trait-objects-perform-dynamic-dispatch">Trait 对象执行动态分发</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="trait-objects-perform-dynamic-dispatch"></a></p>
+<h3 id="performing-dynamic-dispatch" data-x-en="Performing Dynamic Dispatch"><a class="header" href="#performing-dynamic-dispatch">执行动态分发</a></h3>
 <p data-x-en="Recall in “Performance of Code Using Generics” in Chapter 10 our discussion on the monomorphization process performed on generics by the compiler: the compiler generates nongeneric implementations of functions and methods for each concrete type that we use in place of a generic type parameter. The code that results from monomorphization is doing static dispatch, which is when the compiler knows what method you’re calling at compile time. This is opposed to dynamic dispatch, which is when the compiler can’t tell at compile time which method you’re calling. In dynamic dispatch cases, the compiler emits code that at runtime will know which method to call.">回忆在<a href="ch10-01-syntax.html#performance-of-code-using-generics">“使用泛型的代码性能”</a><!-- ignore --> 第10章中我们关于编译器对泛型执行的单态化过程的讨论：编译器为每个我们用作泛型类型参数的具体类型生成非泛型的函数和方法实现。单态化产生的代码执行的是<em>静态分发</em>，即编译器在编译时就知道你调用的是哪个方法。这与<em>动态分发</em>相反，即编译器在编译时无法确定你调用的是哪个方法。在动态分发的情况下，编译器会生成在运行时确定调用哪个方法的代码。</p>
 <p data-x-en="When we use trait objects, Rust must use dynamic dispatch. The compiler doesn’t know all the types that might be used with the code that’s using trait objects, so it doesn’t know which method implemented on which type to call. Instead, at runtime, Rust uses the pointers inside the trait object to know which method to call. This lookup incurs a runtime cost that doesn’t occur with static dispatch. Dynamic dispatch also prevents the compiler from choosing to inline a method’s code, which in turn prevents some optimizations, and Rust has some rules about where you can and cannot use dynamic dispatch, called dyn compatibility. Those rules are beyond the scope of this discussion, but you can read more about them in the reference. However, we did get extra flexibility in the code that we wrote in Listing 18-5 and were able to support in Listing 18-9, so it’s a trade-off to consider.">当我们使用特质对象时，Rust 必须使用动态分发。编译器不知道可能与使用特质对象的代码一起使用的所有类型，因此它不知道要调用哪个类型上实现的方法。相反，在运行时，Rust 使用特质对象内部的指针来确定要调用的方法。这种查找会产生运行时成本，而静态分发则不会产生这种成本。动态分发还阻止编译器选择内联方法的代码，这反过来又阻止了一些优化，Rust 有一些关于可以在哪里以及不能在哪里使用动态分发的规则，称为<em>dyn 兼容性</em>。这些规则超出了本次讨论的范围，但您可以在<a href="https://doc.rust-lang.org/reference/items/traits.html#dyn-compatibility">参考手册</a><!-- ignore -->中阅读更多关于它们的信息。然而，我们在清单 18-5 中编写的代码确实获得了额外的灵活性，并且能够在清单 18-9 中支持，所以这是一个需要考虑的权衡。</p>
 

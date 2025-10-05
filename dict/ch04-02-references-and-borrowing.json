@@ -186,5 +186,33 @@
   "Note that a reference’s scope starts from where it is introduced and continues through the last time that reference is used. For instance, this code will compile because the last usage of the immutable references is in the println!, before the mutable reference is introduced:": {
     "_translate": "请注意，引用的作用域从其被引入的地方开始，一直持续到最后一次使用该引用的地方。例如，这段代码可以编译，因为不可变引用的最后使用是在 <code>println!</code> 中，而在那之后才引入了可变引用：",
     "_note": ""
+  },
+  "So, what happens if we try to modify something we’re borrowing? Try the code in Listing 4-6. Spoiler alert: It doesn’t work!": {
+    "_translate": "那么，如果我们尝试修改我们借用的内容会发生什么？试试清单 4-6 中的代码。剧透警告：它不起作用！",
+    "_note": ""
+  },
+  "The issue with the tuple code in Listing 4-5 is that we have to return the String to the calling function so that we can still use the String after the call to calculate_length, because the String was moved into calculate_length. Instead, we can provide a reference to the String value. A reference is like a pointer in that it’s an address we can follow to access the data stored at that address; that data is owned by some other variable. Unlike a pointer, a reference is guaranteed to point to a valid value of a particular type for the life of that reference.": {
+    "_translate": "列表 4-5 中元组代码的问题在于我们必须将 <code>String</code> 返回给调用函数，以便在调用 <code>calculate_length</code> 之后我们仍然可以使用 <code>String</code>，因为 <code>String</code> 已经被移动到了 <code>calculate_length</code> 中。相反，我们可以提供一个指向 <code>String</code> 值的引用。引用类似于指针，它是一个我们可以跟随的地址，用于访问该地址处存储的数据；这些数据由其他某个变量拥有。与指针不同，引用在其生命周期内保证指向特定类型的有效值。",
+    "_note": ""
+  },
+  "First, we change s to be mut. Then, we create a mutable reference with &mut s where we call the change function and update the function signature to accept a mutable reference with some_string: &mut String. This makes it very clear that the change function will mutate the value it borrows.": {
+    "_translate": "首先，我们将 <code>s</code> 更改为 <code>mut</code>。然后，我们使用 <code>&amp;mut s</code> 创建一个可变引用，在调用 <code>change</code> 函数时更新函数签名，以接受一个可变引用 <code>some_string: &amp;mut String</code>。这使得 <code>change</code> 函数将修改其借用的值这一点非常明确。",
+    "_note": ""
+  },
+  "Mutable references have one big restriction: If you have a mutable reference to a value, you can have no other references to that value. This code that attempts to create two mutable references to s will fail:": {
+    "_translate": "可变引用有一个重要的限制：如果你有一个指向值的可变引用，那么你不能有其他任何指向该值的引用。尝试创建两个指向 <code>s</code> 的可变引用的代码将会失败：",
+    "_note": ""
+  },
+  "Even though borrowing errors may be frustrating at times, remember that it’s the Rust compiler pointing out a potential bug early (at compile time rather than at runtime) and showing you exactly where the problem is. Then, you don’t have to track down why your data isn’t what you thought it was.": {
+    "_translate": "尽管借用错误有时可能会令人沮丧，但请记住，这是 Rust 编译器在早期（编译时而不是运行时）指出一个潜在的错误，并准确地告诉你问题所在。然后，你就不必费心去追踪为什么你的数据不是你所认为的样子。",
+    "_note": ""
+  },
+  "The scopes of the immutable references r1 and r2 end after the println! where they are last used, which is before the mutable reference r3 is created. These scopes don’t overlap, so this code is allowed: The compiler can tell that the reference is no longer being used at a point before the end of the scope.": {
+    "_translate": "不可变引用 <code>r1</code> 和 <code>r2</code> 的作用域在它们最后一次被使用的 <code>println!</code> 之后结束，这发生在可变引用 <code>r3</code> 创建之前。这些作用域不重叠，因此这段代码是允许的：编译器可以判断引用在作用域结束之前的一个点上不再被使用。",
+    "_note": ""
+  },
+  "In languages with pointers, it’s easy to erroneously create a dangling pointer—a pointer that references a location in memory that may have been given to someone else—by freeing some memory while preserving a pointer to that memory. In Rust, by contrast, the compiler guarantees that references will never be dangling references: If you have a reference to some data, the compiler will ensure that the data will not go out of scope before the reference to the data does.": {
+    "_translate": "在具有指针的语言中，很容易错误地创建一个<em>悬空指针</em>——一个指向可能已被分配给其他人的内存位置的指针——通过释放某些内存同时保留对该内存的指针。相比之下，在 Rust 中，编译器保证引用永远不会是悬空引用：如果你对某些数据有引用，编译器将确保该数据不会在引用数据之前超出作用域。",
+    "_note": ""
   }
 }

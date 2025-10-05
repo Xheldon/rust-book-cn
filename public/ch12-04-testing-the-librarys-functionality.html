@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="zh-CN" class="light sidebar-visible" dir="ltr"><head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>使用测试驱动开发开发库的功能 - 《Rust编程语言》</title>
+        <title>添加功能与测试驱动开发 - 《Rust编程语言》</title>
 
 
         <!-- Custom HTML head -->
@@ -249,7 +249,9 @@ blockquote {
 
                 <div id="content" class="content">
                     <main>
-                        <h2 id="developing-the-librarys-functionality-with-test-driven-development"><a class="header" href="#developing-the-librarys-functionality-with-test-driven-development">使用测试驱动开发开发库的功能</a></h2>
+                        <!-- Old headings. Do not remove or links may break. -->
+<p><a id="developing-the-librarys-functionality-with-test-driven-development"></a></p>
+<h2 id="adding-functionality-with-test-driven-development" data-x-en="Adding Functionality with Test-Driven Development"><a class="header" href="#adding-functionality-with-test-driven-development">使用测试驱动开发添加功能</a></h2>
 <p data-x-en="Now that we have the search logic in src/lib.rs separate from the main function, it’s much easier to write tests for the core functionality of our code. We can call functions directly with various arguments and check return values without having to call our binary from the command line.">现在我们已经将搜索逻辑放在 <em>src/lib.rs</em> 中，与 <code>main</code>
 函数分离，为我们的代码核心功能编写测试变得更加容易。我们可以直接调用带有不同参数的函数并检查返回值，而无需从命令行调用我们的二进制文件。</p>
 <p data-x-en="In this section, we’ll add the searching logic to the minigrep program using the test-driven development (TDD) process with the following steps:">在本节中，我们将使用测试驱动开发（TDD）过程为<code>minigrep</code>程序添加搜索逻辑，具体步骤如下：</p>

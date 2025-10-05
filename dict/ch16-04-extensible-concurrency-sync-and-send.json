@@ -126,5 +126,21 @@
   "The smart pointer Rc<T> also doesn’t implement Sync for the same reasons that it doesn’t implement Send. The RefCell<T> type (which we talked about in Chapter 15) and the family of related Cell<T> types don’t implement Sync. The implementation of borrow checking that RefCell<T> does at runtime is not thread-safe. The smart pointer Mutex<T> implements Sync and can be used to share access with multiple threads, as you saw in “Sharing a Mutex<T> Between Multiple Threads”.": {
     "_translate": "智能指针 <code>Rc&lt;T&gt;</code> 也没有实现 <code>Sync</code>，原因与它不实现 <code>Send</code> 的原因相同。我们在第 15 章讨论过的 <code>RefCell&lt;T&gt;</code> 类型及其相关的 <code>Cell&lt;T&gt;</code> 类型系列也没有实现 <code>Sync</code>。<code>RefCell&lt;T&gt;</code> 在运行时执行的借用检查实现不是线程安全的。<code>Mutex&lt;T&gt;</code> 智能指针实现了 <code>Sync</code>，可以用于在多个线程之间共享访问，如你在 <a href=\"ch16-03-shared-state.html#sharing-a-mutext-between-multiple-threads\">“在多个线程之间共享 <code>Mutex&lt;T&gt;</code>”</a> 中所见。",
     "_note": ""
+  },
+  "Extensible Concurrency with Send and Sync - The Rust Programming Language": {
+    "_translate": "可扩展的并发性与 Send 和 Sync - 《Rust 编程语言》",
+    "_note": ""
+  },
+  "Extensible Concurrency with Send and Sync": {
+    "_translate": "<a class=\"header\" href=\"#extensible-concurrency-with-send-and-sync\">通过 <code>Send</code> 和 <code>Sync</code> 实现可扩展的并发</a>",
+    "_note": ""
+  },
+  "Transferring Ownership Between Threads": {
+    "_translate": "<a class=\"header\" href=\"#transferring-ownership-between-threads\">在线程之间转移所有权</a>",
+    "_note": ""
+  },
+  "Accessing from Multiple Threads": {
+    "_translate": "<a class=\"header\" href=\"#accessing-from-multiple-threads\">从多个线程访问</a>",
+    "_note": ""
   }
 }

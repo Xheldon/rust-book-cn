@@ -138,5 +138,9 @@
   "First we lowercase the query string and store it in a new variable with the same name, shadowing the original query. Calling to_lowercase on the query is necessary so that no matter whether the user’s query is \"rust\", \"RUST\", \"Rust\", or \"``rUsT``\", we’ll treat the query as if it were \"rust\" and be insensitive to the case. While to_lowercase will handle basic Unicode, it won’t be 100 percent accurate. If we were writing a real application, we’d want to do a bit more work here, but this section is about environment variables, not Unicode, so we’ll leave it at that here.": {
     "_translate": "首先我们将 <code>query</code> 字符串转换为小写，并将其存储在一个同名的新变量中，覆盖原始的 <code>query</code>。对查询调用 <code>to_lowercase</code> 是必要的，这样无论用户的查询是 <code>\"rust\"</code>、<code>\"RUST\"</code>、<code>\"Rust\"</code> 还是 <code>\"``rUsT``\"</code>，我们都会将其视为 <code>\"rust\"</code> 并忽略大小写。虽然 <code>to_lowercase</code> 会处理基本的 Unicode，但它不会 100% 准确。如果我们正在编写一个真实的应用程序，我们在这里需要做更多的工作，但本节是关于环境变量的，而不是 Unicode，所以我们在这里就不再深入了。",
     "_note": ""
+  },
+  "Writing a Failing Test for Case-Insensitive Search": {
+    "_translate": "<a class=\"header\" href=\"#writing-a-failing-test-for-case-insensitive-search\">编写一个用于大小写不敏感搜索的失败测试</a>",
+    "_note": ""
   }
 }

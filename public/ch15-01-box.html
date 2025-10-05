@@ -262,7 +262,9 @@ blockquote {
 因为数据会在栈上被复制。为了在这种情况下提高性能，我们可以将大量数据存储在堆上的一个Box中。然后，
 只有少量的指针数据会在栈上被复制，而它引用的数据会保持在堆上的一个位置。第三种情况被称为<em>trait对象</em>，第18章的<a href="ch18-02-trait-objects.html#using-trait-objects-that-allow-for-values-of-different-types">“使用允许不同类型的值的trait对象”</a><!-- ignore -->专门讨论了这个主题。
 所以你在这里学到的内容在那一节中也会再次应用！</p>
-<h3 id="using-boxt-to-store-data-on-the-heap"><a class="header" href="#using-boxt-to-store-data-on-the-heap">使用 <code>Box&lt;T&gt;</code> 在堆上存储数据</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="using-boxt-to-store-data-on-the-heap"></a></p>
+<h3 id="storing-data-on-the-heap" data-x-en="Storing Data on the Heap"><a class="header" href="#storing-data-on-the-heap">在堆上存储数据</a></h3>
 <p data-x-en="Before we discuss the heap storage use case for Box<T>, we’ll cover the syntax and how to interact with values stored within a Box<T>.">在我们讨论 <code>Box&lt;T&gt;</code> 的堆存储用例之前，我们将介绍其语法以及如何与存储在 <code>Box&lt;T&gt;</code> 中的值进行交互。</p>
 <p data-x-en="Listing 15-1 shows how to use a box to store an i32 value on the heap.">列表 15-1 显示了如何使用一个盒子在堆上存储一个 <code>i32</code> 值。</p>
 <figure class="listing" id="listing-15-1">
@@ -278,7 +280,9 @@ blockquote {
 <h3 id="enabling-recursive-types-with-boxes"><a class="header" href="#enabling-recursive-types-with-boxes">使用 Box 启用递归类型</a></h3>
 <p data-x-en="A value of a recursive type can have another value of the same type as part of itself. Recursive types pose an issue because Rust needs to know at compile time how much space a type takes up. However, the nesting of values of recursive types could theoretically continue infinitely, so Rust can’t know how much space the value needs. Because boxes have a known size, we can enable recursive types by inserting a box in the recursive type definition.">一个<em>递归类型</em>的值可以包含另一个相同类型的值作为其自身的一部分。递归类型存在问题，因为Rust需要在编译时知道一个类型占用多少空间。然而，递归类型值的嵌套理论上可以无限继续，所以Rust无法知道该值需要多少空间。因为盒子有一个已知的大小，我们可以通过在递归类型定义中插入一个盒子来启用递归类型。</p>
 <p data-x-en="As an example of a recursive type, let’s explore the cons list. This is a data type commonly found in functional programming languages. The cons list type we’ll define is straightforward except for the recursion; therefore, the concepts in the example we’ll work with will be useful any time you get into more complex situations involving recursive types.">作为递归类型的一个例子，让我们探讨一下<em>cons list</em>。这是一种在函数式编程语言中常见的数据类型。我们将定义的 cons list 类型除了递归之外非常直接；因此，我们将在示例中使用的概念在涉及更复杂递归类型的情况时也会很有用。</p>
-<h4 id="more-information-about-the-cons-list"><a class="header" href="#more-information-about-the-cons-list">关于 Cons 列表的更多信息</a></h4>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="more-information-about-the-cons-list"></a></p>
+<h4 id="understanding-the-cons-list" data-x-en="Understanding the Cons List"><a class="header" href="#understanding-the-cons-list">理解 Cons 列表</a></h4>
 <p data-x-en="A cons list is a data structure that comes from the Lisp programming language and its dialects, is made up of nested pairs, and is the Lisp version of a linked list. Its name comes from the cons function (short for construct function) in Lisp that constructs a new pair from its two arguments. By calling cons on a pair consisting of a value and another pair, we can construct cons lists made up of recursive pairs.">一个 <em>cons list</em> 是一种来自 Lisp 编程语言及其方言的数据结构，由嵌套的对组成，是 Lisp 版本的链表。它的名称来源于 Lisp 中的 <code>cons</code> 函数（即 <em>构造函数</em> 的缩写），该函数从其两个参数构建一个新的对。通过在由一个值和另一个对组成的对上调用 <code>cons</code>，我们可以构建由递归对组成的 cons 列表。</p>
 <p data-x-en="For example, here’s a pseudocode representation of a cons list containing the list 1, 2, 3 with each pair in parentheses:">例如，以下是一个包含列表 1, 2, 3 的 cons 列表的伪代码表示，每对元素用括号表示：</p>
 <pre><code class="language-text">(1, (2, (3, Nil)))
@@ -368,7 +372,9 @@ error: could not compile `cons-list` (bin "cons-list") due to 2 previous errors
 <p data-x-en="Contrast this with what happens when Rust tries to determine how much space a recursive type like the List enum in Listing 15-2 needs. The compiler starts by looking at the Cons variant, which holds a value of type i32 and a value of type List. Therefore, Cons needs an amount of space equal to the size of an i32 plus the size of a List. To figure out how much memory the List type needs, the compiler looks at the variants, starting with the Cons variant. The Cons variant holds a value of type i32 and a value of type List, and this process continues infinitely, as shown in Figure 15-1.">将此与 Rust 尝试确定像 Listing 15-2 中的 <code>List</code> 枚举这样的递归类型需要多少空间时发生的情况进行对比。编译器首先查看 <code>Cons</code> 变体，它包含一个类型为 <code>i32</code> 的值和一个类型为 <code>List</code> 的值。因此，<code>Cons</code> 需要的空间量等于 <code>i32</code> 的大小加上 <code>List</code> 的大小。为了确定 <code>List</code> 类型需要多少内存，编译器查看变体，从 <code>Cons</code> 变体开始。<code>Cons</code> 变体包含一个类型为 <code>i32</code> 的值和一个类型为 <code>List</code> 的值，这个过程会无限继续，如图 15-1 所示。</p>
 <img alt="An infinite Cons list: a rectangle labeled 'Cons' split into two smaller rectangles. The first smaller rectangle holds the label 'i32', and the second smaller rectangle holds the label 'Cons' and a smaller version of the outer 'Cons' rectangle. The 'Cons' rectangles continue to hold smaller and smaller versions of themselves until the smallest comfortably-sized rectangle holds an infinity symbol, indicating that this repetition goes on forever" src="img/trpl15-01.svg" class="center" style="width: 50%;">
 <p data-x-en="Figure 15-1: An infinite List consisting of infinite Cons variants"><span class="caption">图15-1：由无限的 <code>Cons</code> 变体组成的无限 <code>List</code></span></p>
-<h4 id="using-boxt-to-get-a-recursive-type-with-a-known-size"><a class="header" href="#using-boxt-to-get-a-recursive-type-with-a-known-size">使用 <code>Box&lt;T&gt;</code> 获取具有已知大小的递归类型</a></h4>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="using-boxt-to-get-a-recursive-type-with-a-known-size"></a></p>
+<h4 id="getting-a-recursive-type-with-a-known-size" data-x-en="Getting a Recursive Type with a Known Size"><a class="header" href="#getting-a-recursive-type-with-a-known-size">获取具有已知大小的递归类型</a></h4>
 <p data-x-en="Because Rust can’t figure out how much space to allocate for recursively defined types, the compiler gives an error with this helpful suggestion:">因为 Rust 无法确定为递归定义的类型分配多少空间，编译器会给出一个带有此有用建议的错误：</p>
 <!-- manual-regeneration
 after doing automatic regeneration, look at listings/ch15-smart-pointers/listing-15-03/output.txt and copy the relevant line

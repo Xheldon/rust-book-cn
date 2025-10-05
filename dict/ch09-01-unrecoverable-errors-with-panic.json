@@ -74,5 +74,13 @@
   "Unrecoverable Errors with panic! - The Rust Programming Language": {
     "_translate": "不可恢复的错误与 panic! - 《Rust 编程语言》",
     "_note": ""
+  },
+  "By default, when a panic occurs, the program starts unwinding, which means Rust walks back up the stack and cleans up the data from each function it encounters. However, walking back and cleaning up is a lot of work. Rust therefore allows you to choose the alternative of immediately aborting, which ends the program without cleaning up.": {
+    "_translate": "默认情况下，当发生 panic 时，程序开始 <em>unwinding</em>，这意味着 Rust 会回溯调用栈并清理每个遇到的函数中的数据。然而，回溯和清理是一项繁重的工作。因此，Rust 允许你选择立即 <em>aborting</em>，即在不进行清理的情况下结束程序。",
+    "_note": ""
+  },
+  "The note: line tells us that we can set the RUST_BACKTRACE environment variable to get a backtrace of exactly what happened to cause the error. A backtrace is a list of all the functions that have been called to get to this point. Backtraces in Rust work as they do in other languages: The key to reading the backtrace is to start from the top and read until you see files you wrote. That’s the spot where the problem originated. The lines above that spot are code that your code has called; the lines below are code that called your code. These before-and-after lines might include core Rust code, standard library code, or crates that you’re using. Let’s try to get a backtrace by setting the RUST_BACKTRACE environment variable to any value except 0. Listing 9-2 shows output similar to what you’ll see.": {
+    "_translate": "<code>note:</code> 行告诉我们可以通过设置 <code>RUST_BACKTRACE</code> 环境变量来获取导致错误的详细回溯。一个 <em>回溯</em> 是到达此点时调用的所有函数的列表。Rust 中的回溯与其他语言中的工作方式相同：阅读回溯的关键是从顶部开始，直到看到你编写的文件。那就是问题的起源点。该点之上的行是你代码调用的代码；该点之下的行是调用你代码的代码。这些前后行可能包括核心 Rust 代码、标准库代码或你正在使用的 crates。让我们通过将 <code>RUST_BACKTRACE</code> 环境变量设置为任何非 <code>0</code> 的值来尝试获取回溯。列表 9-2 显示了你将看到的类似输出。",
+    "_note": ""
   }
 }

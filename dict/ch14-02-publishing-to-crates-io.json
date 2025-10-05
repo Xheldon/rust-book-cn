@@ -338,5 +338,17 @@
   "When you’ve made changes to your crate and are ready to release a new version, you change the version value specified in your Cargo.toml file and republish. Use the Semantic Versioning rules to decide what an appropriate next version number is, based on the kinds of changes you’ve made. Then run cargo publish to upload the new version.": {
     "_translate": "当你对你的 crate 做出更改并准备发布新版本时，你需要更改 <em>Cargo.toml</em> 文件中指定的 <code>version</code> 值并重新发布。使用 <a href=\"https://semver.org/\">语义化版本控制规则</a> 来决定一个合适的下一个版本号，这取决于你所做的更改类型。然后运行 <code>cargo publish</code> 来上传新版本。",
     "_note": ""
+  },
+  "Contained Item Comments": {
+    "_translate": "<a class=\"header\" href=\"#contained-item-comments\">包含的项注释</a>",
+    "_note": ""
+  },
+  "Exporting a Convenient Public API": {
+    "_translate": "<a class=\"header\" href=\"#exporting-a-convenient-public-api\">导出方便的公共API</a>",
+    "_note": ""
+  },
+  "Deprecating Versions from Crates.io": {
+    "_translate": "<a class=\"header\" href=\"#deprecating-versions-from-cratesio\">从 Crates.io 退役版本</a>",
+    "_note": ""
   }
 }

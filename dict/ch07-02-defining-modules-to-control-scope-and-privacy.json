@@ -134,5 +134,29 @@
   "We define a module with the mod keyword followed by the name of the module (in this case, front_of_house). The body of the module then goes inside curly brackets. Inside modules, we can place other modules, as in this case with the modules hosting and serving. Modules can also hold definitions for other items, such as structs, enums, constants, traits, and as in Listing 7-1, functions.": {
     "_translate": "我们使用 <code>mod</code> 关键字后跟模块的名称（在本例中为 <code>front_of_house</code>）来定义一个模块。模块的主体内容则放在大括号内。在模块内部，我们可以放置其他模块，如本例中的 <code>hosting</code> 和 <code>serving</code> 模块。模块还可以包含其他项目的定义，例如结构体、枚举、常量、特征，以及如清单 7-1 所示的函数。",
     "_note": ""
+  },
+  "Control Scope and Privacy with Modules - The Rust Programming Language": {
+    "_translate": "使用模块控制作用域和隐私 - 《Rust编程语言》",
+    "_note": ""
+  },
+  "Control Scope and Privacy with Modules": {
+    "_translate": "<a class=\"header\" href=\"#control-scope-and-privacy-with-modules\">使用模块控制作用域和隐私</a>",
+    "_note": ""
+  },
+  "Start from the crate root: When compiling a crate, the compiler first looks in the crate root file (usually src/lib.rs for a library crate and src/main.rs for a binary crate) for code to compile.": {
+    "_translate": "<strong>从crate根开始</strong>: 在编译crate时，编译器首先\n在crate根文件（通常为库crate的<em>src/lib.rs</em>和\n二进制crate的<em>src/main.rs</em>）中查找要编译的代码。",
+    "_note": ""
+  },
+  "The use keyword: Within a scope, the use keyword creates shortcuts to items to reduce repetition of long paths. In any scope that can refer to crate::garden::vegetables::Asparagus, you can create a shortcut with use crate::garden::vegetables::Asparagus;, and from then on you only need to write Asparagus to make use of that type in the scope.": {
+    "_translate": "<strong>关键字 <code>use</code></strong>: 在一个作用域内，<code>use</code> 关键字创建到项目的快捷方式，以减少长路径的重复。在任何可以引用 <code>crate::garden::vegetables::Asparagus</code> 的作用域中，你可以通过 <code>use crate::garden::vegetables::Asparagus;</code> 创建一个快捷方式，从那时起，你只需要写 <code>Asparagus</code> 就可以在作用域中使用该类型。",
+    "_note": ""
+  },
+  "To structure our crate in this way, we can organize its functions into nested modules. Create a new library named restaurant by running cargo new restaurant --lib. Then, enter the code in Listing 7-1 into src/lib.rs to define some modules and function signatures; this code is the front of house section.": {
+    "_translate": "要以这种方式构建我们的 crate，我们可以将其函数组织成嵌套的模块。通过运行 <code>cargo new restaurant --lib</code> 创建一个名为 <code>restaurant</code> 的新库。然后，将列表 7-1 中的代码输入到 <em>src/lib.rs</em> 中，以定义一些模块和函数签名；这段代码是前台部分。",
+    "_note": ""
+  },
+  "Earlier, we mentioned that src/main.rs and src/lib.rs are called crate roots_. The reason for their name is that the contents of either of these two files form a module named crate at the root of the crate’s module structure, known as the module tree.": {
+    "_translate": "之前，我们提到 <em>src/main.rs</em> 和 <em>src/lib.rs</em> 被称为 <em>crate roots</em>。它们之所以被称为 crate roots，是因为这两个文件中的内容在 crate 的模块结构的根部形成一个名为 <code>crate</code> 的模块，这个模块结构被称为 <em>模块树</em>。",
+    "_note": ""
   }
 }

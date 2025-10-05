@@ -214,5 +214,13 @@
   "Rust can’t know which of the two parameters we need for the output, so we need to tell it explicitly. Note that the help text suggests specifying the same lifetime parameter for all the parameters and the output type, which is incorrect! Because contents is the parameter that contains all of our text and we want to return the parts of that text that match, we know contents is the only parameter that should be connected to the return value using the lifetime syntax.": {
     "_translate": "Rust 无法知道我们输出需要的是哪两个参数中的哪一个，所以我们需要明确地告诉它。请注意，帮助文本建议为所有参数和输出类型指定相同的生命周期参数，这是不正确的！因为 <code>contents</code> 是包含我们所有文本的参数，而我们希望返回与之匹配的文本部分，所以我们知道 <code>contents</code> 是唯一应该使用生命周期语法与返回值关联的参数。",
     "_note": ""
+  },
+  "Adding Functionality with Test Driven Development - The Rust Programming Language": {
+    "_translate": "添加功能与测试驱动开发 - 《Rust编程语言》",
+    "_note": ""
+  },
+  "Adding Functionality with Test-Driven Development": {
+    "_translate": "<a class=\"header\" href=\"#adding-functionality-with-test-driven-development\">使用测试驱动开发添加功能</a>",
+    "_note": ""
   }
 }

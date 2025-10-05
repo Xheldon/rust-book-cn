@@ -290,5 +290,21 @@
   "In contrast, Listing 13-8 shows an example of a closure that implements just the FnOnce trait, because it moves a value out of the environment. The compiler won’t let us use this closure with sort_by_key.": {
     "_translate": "与此相反，列表 13-8 显示了一个只实现了 <code>FnOnce</code> 特性的闭包示例，因为它将值移出了环境。编译器不会让我们使用这个闭包与 <code>sort_by_key</code>。",
     "_note": ""
+  },
+  "Closures - The Rust Programming Language": {
+    "_translate": "闭包 - 《Rust 编程语言》",
+    "_note": ""
+  },
+  "Closures": {
+    "_translate": "<a class=\"header\" href=\"#closures\">闭包</a>",
+    "_note": ""
+  },
+  "Inferring and Annotating Closure Types": {
+    "_translate": "<a class=\"header\" href=\"#inferring-and-annotating-closure-types\">推断和注解闭包类型</a>",
+    "_note": ""
+  },
+  "Moving Captured Values Out of Closures": {
+    "_translate": "<a class=\"header\" href=\"#moving-captured-values-out-of-closures\">将捕获的值移出闭包</a>",
+    "_note": ""
   }
 }

@@ -226,5 +226,17 @@
   "The Cons variant needs the size of an i32 plus the space to store the box’s pointer data. The Nil variant stores no values, so it needs less space on the stack than the Cons variant. We now know that any List value will take up the size of an i32 plus the size of a box’s pointer data. By using a box, we’ve broken the infinite, recursive chain, so the compiler can figure out the size it needs to store a List value. Figure 15-2 shows what the Cons variant looks like now.": {
     "_translate": "<code>Cons</code> 变体需要一个 <code>i32</code> 的大小加上存储盒子指针数据的空间。<code>Nil</code> 变体不存储任何值，因此它在栈上占用的空间比 <code>Cons</code> 变体少。我们现在知道，任何 <code>List</code> 值都将占用一个 <code>i32</code> 的大小加上一个盒子指针数据的大小。通过使用盒子，我们打破了无限递归链，因此编译器可以计算出存储 <code>List</code> 值所需的空间。图 15-2 显示了现在的 <code>Cons</code> 变体的样子。",
     "_note": ""
+  },
+  "Storing Data on the Heap": {
+    "_translate": "<a class=\"header\" href=\"#storing-data-on-the-heap\">在堆上存储数据</a>",
+    "_note": ""
+  },
+  "Understanding the Cons List": {
+    "_translate": "<a class=\"header\" href=\"#understanding-the-cons-list\">理解 Cons 列表</a>",
+    "_note": ""
+  },
+  "Getting a Recursive Type with a Known Size": {
+    "_translate": "<a class=\"header\" href=\"#getting-a-recursive-type-with-a-known-size\">获取具有已知大小的递归类型</a>",
+    "_note": ""
   }
 }

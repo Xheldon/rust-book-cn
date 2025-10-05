@@ -290,7 +290,7 @@ edition = "2024"
 <pre><pre class="playground"><code class="language-rust edition2024">fn main() {
     println!("Hello, world!");
 }</code></pre></pre>
-<p data-x-en="Cargo has generated a “Hello, world!” program for you, just like the one we wrote in Listing 1-1! So far, the differences between our project and the project Cargo generated are that Cargo placed the code in the src directory and we have a Cargo.toml configuration file in the top directory.">Cargo 为您生成了一个“Hello, world!”程序，就像我们在清单 1-1 中编写的一样！到目前为止，我们的项目和 Cargo 生成的项目之间的区别在于 Cargo 将代码放在了 <em>src</em> 目录中，而我们在顶级目录中有一个 <em>Cargo.toml</em> 配置文件。</p>
+<p data-x-en="Cargo has generated a “Hello, world!” program for you, just like the one we wrote in Listing 1-1! So far, the differences between our project and the project Cargo generated are that Cargo placed the code in the src directory, and we have a Cargo.toml configuration file in the top directory.">Cargo 为您生成了一个“Hello, world!”程序，就像我们在清单 1-1 中编写的一样！到目前为止，我们的项目和 Cargo 生成的项目之间的区别在于 Cargo 将代码放在了 <em>src</em> 目录中，而我们在顶级目录中有一个 <em>Cargo.toml</em> 配置文件。</p>
 <p data-x-en="Cargo expects your source files to live inside the src directory. The top-level project directory is just for README files, license information, configuration files, and anything else not related to your code. Using Cargo helps you organize your projects. There’s a place for everything, and everything is in its place.">Cargo 期望您的源文件位于 <em>src</em> 目录中。顶级项目目录仅用于 README 文件、许可信息、配置文件以及与您的代码无关的任何其他内容。使用 Cargo 可以帮助您组织项目。每个东西都有其位置，每个东西都在其位置。</p>
 <p data-x-en="If you started a project that doesn’t use Cargo, as we did with the “Hello, world!” project, you can convert it to a project that does use Cargo. Move the project code into the src directory and create an appropriate Cargo.toml file. One easy way to get that Cargo.toml file is to run cargo init, which will create it for you automatically.">如果您开始了一个不使用 Cargo 的项目，就像我们用 “Hello, world!” 项目那样，您可以将其转换为使用 Cargo 的项目。将项目代码移动到 <em>src</em> 目录，并创建一个适当的 <em>Cargo.toml</em> 文件。一种简单的方法是运行 <code>cargo init</code>，这将为您自动创建该文件。</p>
 <h3 id="building-and-running-a-cargo-project"><a class="header" href="#building-and-running-a-cargo-project">构建和运行 Cargo 项目</a></h3>
@@ -323,7 +323,7 @@ Hello, world!
    Checking hello_cargo v0.1.0 (file:///projects/hello_cargo)
     Finished dev [unoptimized + debuginfo] target(s) in 0.32 secs
 </code></pre>
-<p data-x-en="Why would you not want an executable? Often, cargo check is much faster than cargo build because it skips the step of producing an executable. If you’re continually checking your work while writing the code, using cargo check will speed up the process of letting you know if your project is still compiling! As such, many Rustaceans run cargo check periodically as they write their program to make sure it compiles. Then they run cargo build when they’re ready to use the executable.">为什么你不需要一个可执行文件？通常，<code>cargo check</code> 比 <code>cargo build</code> 快得多，因为它跳过了生成可执行文件的步骤。如果你在编写代码时不断检查你的工作，使用 <code>cargo check</code> 会加快让你知道项目是否仍然可以编译的过程！因此，许多 Rustaceans 在编写程序时会定期运行 <code>cargo check</code> 以确保它可以编译。然后在他们准备好使用可执行文件时运行 <code>cargo build</code>。</p>
+<p data-x-en="Why would you not want an executable? Often, cargo check is much faster than cargo build because it skips the step of producing an executable. If you’re continually checking your work while writing the code, using cargo check will speed up the process of letting you know if your project is still compiling! As such, many Rustaceans run cargo check periodically as they write their program to make sure it compiles. Then, they run cargo build when they’re ready to use the executable.">为什么你不需要一个可执行文件？通常，<code>cargo check</code> 比 <code>cargo build</code> 快得多，因为它跳过了生成可执行文件的步骤。如果你在编写代码时不断检查你的工作，使用 <code>cargo check</code> 会加快告知你项目是否仍在编译的过程！因此，许多 Rustaceans 在编写程序时会定期运行 <code>cargo check</code> 以确保它能编译。然后，当他们准备使用可执行文件时，他们会运行 <code>cargo build</code>。</p>
 <p data-x-en="Let’s recap what we’ve learned so far about Cargo:">让我们回顾一下到目前为止关于 Cargo 的学习内容：</p>
 <ul>
 <li data-x-en="We can create a project using cargo new.">我们可以使用 <code>cargo new</code> 创建一个项目。</li>
@@ -335,7 +335,9 @@ Hello, world!
 <p data-x-en="An additional advantage of using Cargo is that the commands are the same no matter which operating system you’re working on. So, at this point, we’ll no longer provide specific instructions for Linux and macOS versus Windows.">使用 Cargo 的另一个优点是，无论您使用的是哪种操作系统，命令都是相同的。因此，从现在开始，我们将不再为 Linux 和 macOS 与 Windows 提供具体的指令。</p>
 <h3 id="building-for-release"><a class="header" href="#building-for-release">构建发布版本</a></h3>
 <p data-x-en="When your project is finally ready for release, you can use cargo build --release to compile it with optimizations. This command will create an executable in target/release instead of target/debug. The optimizations make your Rust code run faster, but turning them on lengthens the time it takes for your program to compile. This is why there are two different profiles: one for development, when you want to rebuild quickly and often, and another for building the final program you’ll give to a user that won’t be rebuilt repeatedly and that will run as fast as possible. If you’re benchmarking your code’s running time, be sure to run cargo build --release and benchmark with the executable in target/release.">当您的项目最终准备发布时，可以使用<code>cargo build --release</code>来编译它以进行优化。此命令将在<em>target/release</em>而不是<em>target/debug</em>中创建一个可执行文件。优化可以使您的Rust代码运行得更快，但开启它们会延长程序编译的时间。这就是为什么有两种不同的配置文件：一种用于开发，当您希望快速且频繁地重建时，另一种用于构建最终将提供给用户的程序，该程序不会被反复重建，并且将尽可能快地运行。如果您正在测试代码的运行时间，请确保运行<code>cargo build --release</code>并使用<em>target/release</em>中的可执行文件进行基准测试。</p>
-<h3 id="cargo-as-convention"><a class="header" href="#cargo-as-convention">Cargo 作为惯例</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="cargo-as-convention"></a></p>
+<h3 id="leveraging-cargos-conventions" data-x-en="Leveraging Cargo’s Conventions"><a class="header" href="#leveraging-cargos-conventions">利用 Cargo 的约定</a></h3>
 <p data-x-en="With simple projects, Cargo doesn’t provide a lot of value over just using rustc, but it will prove its worth as your programs become more intricate. Once programs grow to multiple files or need a dependency, it’s much easier to let Cargo coordinate the build.">对于简单的项目，Cargo 并没有比直接使用 <code>rustc</code> 提供太多价值，但随着程序变得越来越复杂，Cargo 的价值将逐渐显现。一旦程序增长到多个文件或需要依赖项时，让 Cargo 协调构建会容易得多。</p>
 <p data-x-en="Even though the hello_cargo project is simple, it now uses much of the real tooling you’ll use in the rest of your Rust career. In fact, to work on any existing projects, you can use the following commands to check out the code using Git, change to that project’s directory, and build:">即使 <code>hello_cargo</code> 项目很简单，但它现在使用了你在今后的 Rust 职业生涯中会用到的许多真实工具。事实上，要参与任何现有项目，你可以使用以下命令通过 Git 检出代码，切换到该项目的目录，并构建：</p>
 <pre><code class="language-console">$ git clone example.org/someproject
@@ -344,14 +346,13 @@ $ cargo build
 </code></pre>
 <p data-x-en="For more information about Cargo, check out its documentation.">有关 Cargo 的更多信息，请查看 <a href="https://doc.rust-lang.org/cargo/">其文档</a>。</p>
 <h2 id="summary"><a class="header" href="#summary">摘要</a></h2>
-<p data-x-en="You’re already off to a great start on your Rust journey! In this chapter, you’ve learned how to:">你已经在你的 Rust 之旅中有了一个很好的开始！在本章中，  
-你已经学会了如何：</p>
+<p data-x-en="You’re already off to a great start on your Rust journey! In this chapter, you learned how to:">你已经在你的 Rust 之旅中有了一个很好的开始！在本章中，你 学习了如何：</p>
 <ul>
-<li data-x-en="Install the latest stable version of Rust using rustup">使用 <code>rustup</code> 安装最新稳定版本的 Rust</li>
-<li data-x-en="Update to a newer Rust version">更新到更新的 Rust 版本</li>
-<li data-x-en="Open locally installed documentation">打开本地安装的文档</li>
-<li data-x-en="Write and run a “Hello, world!” program using rustc directly">使用 <code>rustc</code> 直接编写并运行一个“Hello, world!”程序</li>
-<li data-x-en="Create and run a new project using the conventions of Cargo">使用 Cargo 的约定创建并运行一个新项目</li>
+<li data-x-en="Install the latest stable version of Rust using rustup.">使用 <code>rustup</code> 安装最新稳定版本的 Rust。</li>
+<li data-x-en="Update to a newer Rust version.">更新到更新的 Rust 版本。</li>
+<li data-x-en="Open locally installed documentation.">打开本地安装的文档。</li>
+<li data-x-en="Write and run a “Hello, world!” program using rustc directly.">使用 <code>rustc</code> 直接编写并运行一个“Hello, world!”程序。</li>
+<li data-x-en="Create and run a new project using the conventions of Cargo.">使用 Cargo 的约定创建并运行一个新项目。</li>
 </ul>
 <p data-x-en="This is a great time to build a more substantial program to get used to reading and writing Rust code. So, in Chapter 2, we’ll build a guessing game program. If you would rather start by learning how common programming concepts work in Rust, see Chapter 3 and then return to Chapter 2.">这是构建一个更实质性的程序以习惯阅读和编写 Rust 代码的好时机。因此，在第 2 章中，我们将构建一个猜数字游戏程序。如果您更愿意先了解常见的编程概念在 Rust 中是如何工作的，请参阅第 3 章，然后再回到第 2 章。</p>
 

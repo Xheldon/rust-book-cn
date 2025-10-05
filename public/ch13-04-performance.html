@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="zh-CN" class="light sidebar-visible" dir="ltr"><head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>比较性能：循环与迭代器 - 《Rust 编程语言》</title>
+        <title>性能对比：循环与迭代器 - 《Rust 编程语言》</title>
 
 
         <!-- Custom HTML head -->
@@ -249,7 +249,9 @@ blockquote {
 
                 <div id="content" class="content">
                     <main>
-                        <h2 id="comparing-performance-loops-vs-iterators"><a class="header" href="#comparing-performance-loops-vs-iterators">性能比较：循环与迭代器</a></h2>
+                        <!-- Old headings. Do not remove or links may break. -->
+<p><a id="comparing-performance-loops-vs-iterators"></a></p>
+<h2 id="performance-in-loops-vs-iterators" data-x-en="Performance in Loops vs. Iterators"><a class="header" href="#performance-in-loops-vs-iterators">循环与迭代器的性能比较</a></h2>
 <p data-x-en="To determine whether to use loops or iterators, you need to know which implementation is faster: the version of the search function with an explicit for loop or the version with iterators.">要确定是否使用循环或迭代器，您需要知道哪个实现更快：<code>search</code> 函数的显式 <code>for</code> 循环版本还是迭代器版本。</p>
 <p data-x-en="We ran a benchmark by loading the entire contents of The Adventures of Sherlock Holmes by Sir Arthur Conan Doyle into a String and looking for the word the in the contents. Here are the results of the benchmark on the version of search using the for loop and the version using iterators:">我们通过将阿瑟·柯南·道尔爵士的《福尔摩斯探案集》的全部内容加载到一个<code>String</code>中，并在内容中查找单词<em>the</em>来进行了一次基准测试。以下是使用<code>for</code>循环和使用迭代器的<code>search</code>版本的基准测试结果：</p>
 <pre><code class="language-text">test bench_search_for  ... bench:  19,620,300 ns/iter (+/- 915,700)

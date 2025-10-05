@@ -258,5 +258,9 @@
   "When we create the branch node, it will also have a new Weak<Node> reference in the parent field because branch doesn’t have a parent node. We still have leaf as one of the children of branch. Once we have the Node instance in branch, we can modify leaf to give it a Weak<Node> reference to its parent. We use the borrow_mut method on the RefCell<Weak<Node>> in the parent field of leaf, and then we use the Rc::downgrade function to create a Weak<Node> reference to branch from the Rc<Node> in branch.": {
     "_translate": "当我们创建 <code>branch</code> 节点时，它在 <code>parent</code> 字段中也会有一个新的 <code>Weak&lt;Node&gt;</code>\n引用，因为 <code>branch</code> 没有父节点。\n我们仍然有 <code>leaf</code> 作为 <code>branch</code> 的一个子节点。一旦我们在 <code>branch</code> 中有了\n<code>Node</code> 实例，我们就可以修改 <code>leaf</code> 以给它一个指向其父节点的 <code>Weak&lt;Node&gt;</code>\n引用。我们在 <code>leaf</code> 的 <code>parent</code> 字段中的 <code>RefCell&lt;Weak&lt;Node&gt;&gt;</code> 上使用\n<code>borrow_mut</code> 方法，然后使用 <code>Rc::downgrade</code> 函数从 <code>branch</code> 中的\n<code>Rc&lt;Node&gt;</code> 创建一个指向 <code>branch</code> 的 <code>Weak&lt;Node&gt;</code> 引用。",
     "_note": ""
+  },
+  "Creating a Tree Data Structure": {
+    "_translate": "<a class=\"header\" href=\"#creating-a-tree-data-structure\">创建树数据结构</a>",
+    "_note": ""
   }
 }

@@ -498,5 +498,33 @@
   "This example will print Found an id in range: 5. By specifying id @ before the range 3..=7, we’re capturing whatever value matched the range in a variable named id while also testing that the value matched the range pattern.": {
     "_translate": "这个示例将打印 <code>Found an id in range: 5</code>。通过在范围 <code>3..=7</code> 前指定 <code>id @</code>，我们不仅测试了值是否匹配范围模式，还捕获了匹配范围的值到一个名为 <code>id</code> 的变量中。",
     "_note": ""
+  },
+  "Matching Multiple Patterns": {
+    "_translate": "<a class=\"header\" href=\"#matching-multiple-patterns\">匹配多个模式</a>",
+    "_note": ""
+  },
+  "Structs": {
+    "_translate": "<a class=\"header\" href=\"#structs\">结构体</a>",
+    "_note": ""
+  },
+  "Enums": {
+    "_translate": "<a class=\"header\" href=\"#enums\">枚举</a>",
+    "_note": ""
+  },
+  "Structs and Tuples": {
+    "_translate": "<a class=\"header\" href=\"#structs-and-tuples\">结构体和元组</a>",
+    "_note": ""
+  },
+  "Nested Structs and Enums": {
+    "_translate": "<a class=\"header\" href=\"#nested-structs-and-enums\">嵌套的结构体和枚举</a>",
+    "_note": ""
+  },
+  "Adding Conditionals with Match Guards": {
+    "_translate": "<a class=\"header\" href=\"#adding-conditionals-with-match-guards\">使用匹配卫语句添加条件</a>",
+    "_note": ""
+  },
+  "Using @ Bindings": {
+    "_translate": "<a class=\"header\" href=\"#using--bindings\">使用 <code>@</code> 绑定</a>",
+    "_note": ""
   }
 }

@@ -198,5 +198,9 @@
   "Listing 13-14 shows an example of calling the iterator adapter method map, which takes a closure to call on each item as the items are iterated through. The map method returns a new iterator that produces the modified items. The closure here creates a new iterator in which each item from the vector will be incremented by 1.": {
     "_translate": "列表 13-14 显示了调用迭代器适配器方法 <code>map</code> 的示例，\n该方法接受一个闭包，该闭包将在迭代过程中对每个项目进行调用。\n<code>map</code> 方法返回一个新的迭代器，该迭代器生成修改后的项目。这里的闭包创建了一个新的迭代器，其中向量中的每个项目都将增加 1。",
     "_note": ""
+  },
+  "Closures That Capture Their Environment": {
+    "_translate": "<a class=\"header\" href=\"#closures-that-capture-their-environment\">捕获其环境的闭包</a>",
+    "_note": ""
   }
 }

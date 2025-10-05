@@ -30,5 +30,9 @@
   "The second-to-last line of the output shows the location and the name of the installed binary, which in the case of ripgrep is rg. As long as the installation directory is in your $PATH, as mentioned previously, you can then run rg --help and start using a faster, Rustier tool for searching files!": {
     "_translate": "输出的最后一行显示了安装的二进制文件的位置和名称，对于<code>ripgrep</code>来说是<code>rg</code>。只要安装目录在你的<code>$PATH</code>中，如前所述，你就可以运行<code>rg --help</code>并开始使用更快、更Rust风格的文件搜索工具！",
     "_note": ""
+  },
+  "Installing Binaries with cargo install - The Rust Programming Language": {
+    "_translate": "使用 cargo install 安装二进制文件 - 《Rust 编程语言》",
+    "_note": ""
   }
 }

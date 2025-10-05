@@ -290,5 +290,25 @@
   "Returning either a NewsArticle or a SocialPost isn’t allowed due to restrictions around how the impl Trait syntax is implemented in the compiler. We’ll cover how to write a function with this behavior in the “Using Trait Objects That Allow for Values of Different Types” section of Chapter 18.": {
     "_translate": "返回一个 <code>NewsArticle</code> 或 <code>SocialPost</code> 是不允许的，因为编译器在实现 <code>impl Trait</code> 语法时存在限制。我们将在第 18 章的 <a href=\"ch18-02-trait-objects.html#using-trait-objects-that-allow-for-values-of-different-types\">“使用允许不同类型值的特质对象”</a> 部分介绍如何编写具有此行为的函数。",
     "_note": ""
+  },
+  "Defining Shared Behavior with Traits - The Rust Programming Language": {
+    "_translate": "定义共享行为的特征 - 《Rust编程语言》",
+    "_note": ""
+  },
+  "Defining Shared Behavior with Traits": {
+    "_translate": "<a class=\"header\" href=\"#defining-shared-behavior-with-traits\">使用特质定义共享行为</a>",
+    "_note": ""
+  },
+  "Using Default Implementations": {
+    "_translate": "<a class=\"header\" href=\"#using-default-implementations\">使用默认实现</a>",
+    "_note": ""
+  },
+  "Using Traits as Parameters": {
+    "_translate": "<a class=\"header\" href=\"#using-traits-as-parameters\">将特质用作参数</a>",
+    "_note": ""
+  },
+  "Multiple Trait Bounds with the + Syntax": {
+    "_translate": "<a class=\"header\" href=\"#multiple-trait-bounds-with-the--syntax\">使用 <code>+</code> 语法的多个特征约束</a>",
+    "_note": ""
   }
 }

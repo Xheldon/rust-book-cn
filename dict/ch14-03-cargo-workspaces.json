@@ -198,5 +198,9 @@
   "Next, in the add directory, we create the Cargo.toml file that will configure the entire workspace. This file won’t have a [package] section. Instead, it will start with a [workspace] section that will allow us to add members to the workspace. We also make a point to use the latest and greatest version of Cargo’s resolver algorithm in our workspace by setting the resolver value to \"3\".": {
     "_translate": "接下来，在 <em>add</em> 目录中，我们创建 <em>Cargo.toml</em> 文件，该文件将配置整个工作区。此文件将没有 <code>[package]</code> 部分。\n相反，它将以 <code>[workspace]</code> 部分开始，这将允许我们向工作区添加成员。我们还通过将 <code>resolver</code> 值设置为 <code>\"3\"</code> 来确保在工作区中使用最新和最强大的 Cargo 解析算法。",
     "_note": ""
+  },
+  "Depending on an External Package": {
+    "_translate": "<a class=\"header\" href=\"#depending-on-an-external-package\">依赖外部包</a>",
+    "_note": ""
   }
 }

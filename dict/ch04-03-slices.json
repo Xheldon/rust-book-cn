@@ -210,5 +210,45 @@
   "Note: String slice range indices must occur at valid UTF-8 character boundaries. If you attempt to create a string slice in the middle of a multibyte character, your program will exit with an error.": {
     "_translate": "注意：字符串切片范围索引必须位于有效的 UTF-8 字符边界。如果你尝试在多字节字符的中间创建字符串切片，你的程序将因错误而退出。",
     "_note": ""
+  },
+  "Here’s a small programming problem: Write a function that takes a string of words separated by spaces and returns the first word it finds in that string. If the function doesn’t find a space in the string, the whole string must be one word, so the entire string should be returned.": {
+    "_translate": "这是一个小的编程问题：编写一个函数，该函数接收一个由空格分隔的单词字符串，并返回在该字符串中找到的第一个单词。如果函数在字符串中找不到空格，则整个字符串必须是一个单词，因此应返回整个字符串。",
+    "_note": ""
+  },
+  "Having to worry about the index in word getting out of sync with the data in s is tedious and error-prone! Managing these indices is even more brittle if we write a second_word function. Its signature would have to look like this:": {
+    "_translate": "在 <code>word</code> 中的索引与 <code>s</code> 中的数据不同步是一个繁琐且容易出错的问题！如果我们要编写一个 <code>second_word</code> 函数，管理这些索引会更加脆弱。它的签名将不得不像这样：",
+    "_note": ""
+  },
+  "Note: For the purposes of introducing slices, we are assuming ASCII only in this section; a more thorough discussion of UTF-8 handling is in the “Storing UTF-8 Encoded Text with Strings” section of Chapter 8.": {
+    "_translate": "注意：为了介绍切片，我们在本节中假设只使用 ASCII；关于 UTF-8 处理的更详细讨论，请参阅第 8 章的<a href=\"ch08-02-strings.html#storing-utf-8-encoded-text-with-strings\">“使用字符串存储 UTF-8 编码的文本”</a>部分。",
+    "_note": ""
+  },
+  "Figure 4-7: A string slice referring to part of a String": {
+    "_translate": "<span class=\"caption\">图4-7：指向 <code>String</code> 部分的字符串切片</span>",
+    "_note": ""
+  },
+  "You can also drop both values to take a slice of the entire string. So, these are equal:": {
+    "_translate": "你也可以丢弃这两个值来获取整个字符串的切片。所以，这些是相等的：",
+    "_note": ""
+  },
+  "Rather than a reference to the entire String, hello is a reference to a portion of the String, specified in the extra [0..5] bit. We create slices using a range within square brackets by specifying [starting_index..ending_index], where starting_index is the first position in the slice and ending_index is one more than the last position in the slice. Internally, the slice data structure stores the starting position and the length of the slice, which corresponds to ending_index minus starting_index. So, in the case of let world = &s[6..11];, world would be a slice that contains a pointer to the byte at index 6 of s with a length value of 5.": {
+    "_translate": "而不是对整个 <code>String</code> 的引用，<code>hello</code> 是对 <code>String</code> 的一部分的引用，这部分由额外的 <code>[0..5]</code> 指定。我们通过在方括号内指定 <code>[starting_index..ending_index]</code> 来创建切片，其中 <em><code>starting_index</code></em> 是切片的第一个位置，<em><code>ending_index</code></em> 是切片最后一个位置的下一个位置。内部，切片数据结构存储了切片的起始位置和长度，这个长度对应于 <em><code>ending_index</code></em> 减去 <em><code>starting_index</code></em>。因此，在 <code>let world = &amp;s[6..11];</code> 的情况下，<code>world</code> 将是一个包含指向 <code>s</code> 中索引 6 的字节的指针和长度值为 <code>5</code> 的切片。",
+    "_note": ""
+  },
+  "We now have a straightforward API that’s much harder to mess up because the compiler will ensure that the references into the String remain valid. Remember the bug in the program in Listing 4-8, when we got the index to the end of the first word but then cleared the string so our index was invalid? That code was logically incorrect but didn’t show any immediate errors. The problems would show up later if we kept trying to use the first word index with an emptied string. Slices make this bug impossible and let us know much sooner that we have a problem with our code. Using the slice version of first_word will throw a compile-time error:": {
+    "_translate": "我们现在有一个更难出错的简单 API，因为编译器会确保对 <code>String</code> 的引用保持有效。还记得第 4-8 列表中的程序错误吗？当我们获取了第一个单词的索引，但随后清空了字符串，导致索引无效。那段代码逻辑上是错误的，但没有立即显示任何错误。如果我们继续尝试使用清空后的字符串的第一个单词索引，问题会在稍后出现。切片使这个错误变得不可能，并让我们更早地知道代码有问题。使用 <code>first_word</code> 的切片版本会在编译时抛出错误：",
+    "_note": ""
+  },
+  "The type of s here is &str: It’s a slice pointing to that specific point of the binary. This is also why string literals are immutable; &str is an immutable reference.": {
+    "_translate": "这里的 <code>s</code> 类型是 <code>&amp;str</code>：它是指向二进制文件中特定位置的切片。这也是为什么字符串字面量是不可变的；<code>&amp;str</code> 是一个不可变引用。",
+    "_note": ""
+  },
+  "The concepts of ownership, borrowing, and slices ensure memory safety in Rust programs at compile time. The Rust language gives you control over your memory usage in the same way as other systems programming languages. But having the owner of data automatically clean up that data when the owner goes out of scope means you don’t have to write and debug extra code to get this control.": {
+    "_translate": "所有权、借用和切片的概念确保了 Rust 程序在编译时的内存安全。Rust 语言让你像其他系统编程语言一样控制内存使用。但是，数据的所有者在超出作用域时自动清理数据，这意味着你不必编写和调试额外的代码来获得这种控制。",
+    "_note": ""
+  },
+  "If we have a string slice, we can pass that directly. If we have a String, we can pass a slice of the String or a reference to the String. This flexibility takes advantage of deref coercions, a feature we will cover in the “Using Deref Coercions in Functions and Methods” section of Chapter 15.": {
+    "_translate": "如果我们有一个字符串切片，我们可以直接传递它。如果我们有一个 <code>String</code>，我们可以传递 <code>String</code> 的切片或 <code>String</code> 的引用。这种灵活性利用了 deref 强制转换，这是我们在第 15 章的 <a href=\"ch15-02-deref.html#using-deref-coercions-in-functions-and-methods\">“在函数和方法中使用 deref 强制转换”</a><!--\nignore --> 部分将要讨论的一个特性。",
+    "_note": ""
   }
 }

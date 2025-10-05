@@ -142,5 +142,37 @@
   "Here, we’ve defined a struct and named it Rectangle. Inside the curly brackets, we defined the fields as width and height, both of which have type u32. Then, in main, we created a particular instance of Rectangle that has a width of 30 and a height of 50.": {
     "_translate": "这里，我们定义了一个结构体并命名为<code>Rectangle</code>。在大括号内，我们定义了字段为<code>width</code>和<code>height</code>，它们的类型都是<code>u32</code>。然后，在<code>main</code>中，我们创建了一个特定的<code>Rectangle</code>实例，其宽度为<code>30</code>，高度为<code>50</code>。",
     "_note": ""
+  },
+  "To understand when we might want to use structs, let’s write a program that calculates the area of a rectangle. We’ll start by using single variables and then refactor the program until we’re using structs instead.": {
+    "_translate": "为了理解我们何时可能想要使用结构体，让我们编写一个计算矩形面积的程序。我们将从使用单个变量开始，然后重构程序，直到我们使用结构体代替。",
+    "_note": ""
+  },
+  "In one way, this program is better. Tuples let us add a bit of structure, and we’re now passing just one argument. But in another way, this version is less clear: Tuples don’t name their elements, so we have to index into the parts of the tuple, making our calculation less obvious.": {
+    "_translate": "在一方面，这个程序更好。元组让我们增加了一些结构，并且我们现在只传递一个参数。但在另一方面，这个版本不太清晰：元组不命名它们的元素，所以我们必须对元组的部分进行索引，使我们的计算变得不那么明显。",
+    "_note": ""
+  },
+  "Refactoring with Structs": {
+    "_translate": "<a class=\"header\" href=\"#refactoring-with-structs\">使用结构体重构</a>",
+    "_note": ""
+  },
+  "Adding Functionality with Derived Traits": {
+    "_translate": "<a class=\"header\" href=\"#adding-functionality-with-derived-traits\">使用派生特征添加功能</a>",
+    "_note": ""
+  },
+  "The area function accesses the width and height fields of the Rectangle instance (note that accessing fields of a borrowed struct instance does not move the field values, which is why you often see borrows of structs). Our function signature for area now says exactly what we mean: Calculate the area of Rectangle, using its width and height fields. This conveys that the width and height are related to each other, and it gives descriptive names to the values rather than using the tuple index values of 0 and 1. This is a win for clarity.": {
+    "_translate": "<code>area</code> 函数访问 <code>Rectangle</code> 实例的 <code>width</code> 和 <code>height</code> 字段（注意，访问借用的结构体实例的字段不会移动字段值，这就是为什么你经常看到结构体的借用）。我们的 <code>area</code> 函数签名现在准确地表达了我们的意思：使用 <code>Rectangle</code> 的 <code>width</code> 和 <code>height</code> 字段计算其面积。这传达了宽度和高度是相互关联的，并且它为这些值提供了描述性的名称，而不是使用元组索引值 <code>0</code> 和 <code>1</code>。这提高了清晰度。",
+    "_note": ""
+  },
+  "Let’s try it! The println! macro call will now look like println!(\"rect1 is {rect1:?}\");. Putting the specifier :? inside the curly brackets tells println! we want to use an output format called Debug. The Debug trait enables us to print our struct in a way that is useful for developers so that we can see its value while we’re debugging our code.": {
+    "_translate": "让我们试试！<code>println!</code> 宏调用现在将看起来像 <code>println!(\"rect1 is {rect1:?}\");</code>。在大括号内放置说明符 <code>:?</code> 告诉 <code>println!</code> 我们想要使用一种称为 <code>Debug</code> 的输出格式。<code>Debug</code> 特性使我们能够以对开发者有用的方式打印我们的结构体，这样我们可以在调试代码时看到其值。",
+    "_note": ""
+  },
+  "Note: Calling the dbg! macro prints to the standard error console stream (stderr), as opposed to println!, which prints to the standard output console stream (stdout). We’ll talk more about stderr and stdout in the “Redirecting Errors to Standard Error” section in Chapter 12.": {
+    "_translate": "注意：调用 <code>dbg!</code> 宏会打印到标准错误控制台流 (<code>stderr</code>)，而 <code>println!</code> 则打印到标准输出控制台流 (<code>stdout</code>)。我们将在第 12 章的 <a href=\"ch12-06-writing-to-stderr-instead-of-stdout.html\">“将错误重定向到标准错误”部分</a><!-- ignore --> 讨论更多关于 <code>stderr</code> 和 <code>stdout</code> 的内容。",
+    "_note": ""
+  },
+  "Our area function is very specific: It only computes the area of rectangles. It would be helpful to tie this behavior more closely to our Rectangle struct because it won’t work with any other type. Let’s look at how we can continue to refactor this code by turning the area function into an area method defined on our Rectangle type.": {
+    "_translate": "我们的 <code>area</code> 函数非常具体：它只计算矩形的面积。\n将这种行为更紧密地与我们的 <code>Rectangle</code> 结构体关联起来会更有帮助，\n因为它对其他任何类型都无效。让我们看看如何通过将 <code>area</code> 函数转换为定义在 <code>Rectangle</code> 类型上的 <code>area</code> 方法来继续重构这段代码。",
+    "_note": ""
   }
 }

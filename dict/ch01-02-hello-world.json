@@ -170,5 +170,37 @@
   "First, println! calls a Rust macro. If it had called a function instead, it would be entered as println (without the !). Rust macros are a way to write code that generates code to extend Rust syntax, and we’ll discuss them in more detail in Chapter 20. For now, you just need to know that using a ! means that you’re calling a macro instead of a normal function and that macros don’t always follow the same rules as functions.": {
     "_translate": "首先，<code>println!</code> 调用了一个 Rust 宏。如果它调用的是一个函数，那么它将被写为 <code>println</code>（没有 <code>!</code>）。Rust 宏是一种编写生成代码的代码以扩展 Rust 语法的方式，我们将在 <a href=\"ch20-05-macros.html\">第 20 章</a><!-- ignore --> 中更详细地讨论它们。现在，你只需要知道使用 <code>!</code> 意味着你调用的是一个宏而不是一个普通函数，并且宏并不总是遵循与函数相同的规则。",
     "_note": ""
+  },
+  "Project Directory Setup": {
+    "_translate": "<a class=\"header\" href=\"#project-directory-setup\">项目目录设置</a>",
+    "_note": ""
+  },
+  "Rust Program Basics": {
+    "_translate": "<a class=\"header\" href=\"#rust-program-basics\">Rust 程序基础</a>",
+    "_note": ""
+  },
+  "Note: This book assumes basic familiarity with the command line. Rust makes no specific demands about your editing or tooling or where your code lives, so if you prefer to use an IDE instead of the command line, feel free to use your favorite IDE. Many IDEs now have some degree of Rust support; check the IDE’s documentation for details. The Rust team has been focusing on enabling great IDE support via rust-analyzer. See Appendix D for more details.": {
+    "_translate": "注意：本书假定读者对命令行有基本的了解。Rust 对你的编辑器、工具或代码存放位置没有特定要求，因此，如果你更喜欢使用 IDE 而不是命令行，可以自由选择你最喜欢的 IDE。许多 IDE 现在都提供一定程度的 Rust 支持；请查阅 IDE 的文档以获取详细信息。Rust 团队一直致力于通过 <code>rust-analyzer</code> 提供出色的 IDE 支持。有关更多详细信息，请参阅 <a href=\"appendix-04-useful-development-tools.html\">附录 D</a><!-- ignore -->。",
+    "_note": ""
+  },
+  "The Anatomy of a Rust Program": {
+    "_translate": "<a class=\"header\" href=\"#the-anatomy-of-a-rust-program\">Rust 程序的结构</a>",
+    "_note": ""
+  },
+  "This line does all the work in this little program: It prints text to the screen. There are three important details to notice here.": {
+    "_translate": "这行代码完成了这个小程序的所有工作：它将文本打印到屏幕上。这里有三个重要的细节需要注意。",
+    "_note": ""
+  },
+  "These lines define a function named main. The main function is special: It is always the first code that runs in every executable Rust program. Here, the first line declares a function named main that has no parameters and returns nothing. If there were parameters, they would go inside the parentheses (()).": {
+    "_translate": "这些行定义了一个名为 <code>main</code> 的函数。 <code>main</code> 函数是特殊的：它是每个可执行 Rust 程序中首先运行的代码。在这里，第一行声明了一个名为 <code>main</code> 的函数，该函数没有参数且不返回任何值。如果有参数，它们将放在括号 (<code>()</code>) 内。",
+    "_note": ""
+  },
+  "Compilation and Execution": {
+    "_translate": "<a class=\"header\" href=\"#compilation-and-execution\">编译和执行</a>",
+    "_note": ""
+  },
+  "Third, we end the line with a semicolon (;), which indicates that this expression is over, and the next one is ready to begin. Most lines of Rust code end with a semicolon.": {
+    "_translate": "第三，我们在行末加上分号（<code>;</code>），这表示该表达式已结束，下一个表达式可以开始。大多数 Rust 代码行以分号结尾。",
+    "_note": ""
   }
 }

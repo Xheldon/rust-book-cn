@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="zh-CN" class="light sidebar-visible" dir="ltr"><head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>定义模块以控制作用域和隐私 - 《Rust编程语言》</title>
+        <title>使用模块控制作用域和隐私 - 《Rust编程语言》</title>
 
 
         <!-- Custom HTML head -->
@@ -249,13 +249,15 @@ blockquote {
 
                 <div id="content" class="content">
                     <main>
-                        <h2 id="defining-modules-to-control-scope-and-privacy"><a class="header" href="#defining-modules-to-control-scope-and-privacy">定义模块以控制作用域和隐私</a></h2>
+                        <!-- Old headings. Do not remove or links may break. -->
+<p><a id="defining-modules-to-control-scope-and-privacy"></a></p>
+<h2 id="control-scope-and-privacy-with-modules" data-x-en="Control Scope and Privacy with Modules"><a class="header" href="#control-scope-and-privacy-with-modules">使用模块控制作用域和隐私</a></h2>
 <p data-x-en="In this section, we’ll talk about modules and other parts of the module system, namely paths, which allow you to name items; the use keyword that brings a path into scope; and the pub keyword to make items public. We’ll also discuss the as keyword, external packages, and the glob operator.">在本节中，我们将讨论模块和其他模块系统的部分，即 <em>路径</em>，它们允许你命名项目；<code>use</code> 关键字，它将路径引入作用域；以及 <code>pub</code> 关键字，用于使项目公开。我们还将讨论 <code>as</code> 关键字、外部包和通配符操作符。</p>
 <h3 id="modules-cheat-sheet"><a class="header" href="#modules-cheat-sheet">模块速查表</a></h3>
 <p data-x-en="Before we get to the details of modules and paths, here we provide a quick reference on how modules, paths, the use keyword, and the pub keyword work in the compiler, and how most developers organize their code. We’ll be going through examples of each of these rules throughout this chapter, but this is a great place to refer to as a reminder of how modules work.">在我们深入模块和路径的细节之前，这里提供了一个快速参考，介绍了模块、路径、<code>use</code> 关键字和 <code>pub</code> 关键字在编译器中的工作原理，以及大多数开发人员如何组织他们的代码。我们将在本章中通过每个规则的示例进行讲解，但这是一个很好的地方，可以作为模块工作方式的提醒。</p>
 <ul>
-<li data-x-en="Start from the crate root: When compiling a crate, the compiler first looks in the crate root file (usually src/lib.rs for a library crate or src/main.rs for a binary crate) for code to compile."><strong>从crate根开始</strong>: 在编译crate时，编译器首先
-在crate根文件（通常为库crate的<em>src/lib.rs</em>或
+<li data-x-en="Start from the crate root: When compiling a crate, the compiler first looks in the crate root file (usually src/lib.rs for a library crate and src/main.rs for a binary crate) for code to compile."><strong>从crate根开始</strong>: 在编译crate时，编译器首先
+在crate根文件（通常为库crate的<em>src/lib.rs</em>和
 二进制crate的<em>src/main.rs</em>）中查找要编译的代码。</li>
 <li data-x-en="Declaring modules: In the crate root file, you can declare new modules; say you declare a “garden” module with mod garden;. The compiler will look for the module’s code in these places: Inline, within curly brackets that replace the semicolon following mod garden In the file src/garden.rs In the file src/garden/mod.rs"><strong>声明模块</strong>：在crate根文件中，你可以声明新的模块；比如说你声明了一个“garden”模块，使用<code>mod garden;</code>。编译器将在以下位置查找模块的代码：
 <ul>
@@ -271,7 +273,7 @@ blockquote {
 </ul></li>
 <li data-x-en="Paths to code in modules: Once a module is part of your crate, you can refer to code in that module from anywhere else in that same crate, as long as the privacy rules allow, using the path to the code. For example, an Asparagus type in the garden vegetables module would be found at crate::garden::vegetables::Asparagus."><strong>模块中的代码路径</strong>: 一旦一个模块成为你的crate的一部分，你就可以从该crate的任何其他地方引用该模块中的代码，只要隐私规则允许，使用代码的路径即可。例如，garden模块中的vegetables模块里的<code>Asparagus</code>类型将位于<code>crate::garden::vegetables::Asparagus</code>。</li>
 <li data-x-en="Private vs. public: Code within a module is private from its parent modules by default. To make a module public, declare it with pub mod instead of mod. To make items within a public module public as well, use pub before their declarations."><strong>私有与公有</strong>: 模块内的代码默认对其父模块是私有的。要使一个模块公有，使用 <code>pub mod</code> 而不是 <code>mod</code> 来声明它。要使公有模块中的项目也公有，需在它们的声明前使用 <code>pub</code>。</li>
-<li data-x-en="The use keyword: Within a scope, the use keyword creates shortcuts to items to reduce repetition of long paths. In any scope that can refer to crate::garden::vegetables::Asparagus, you can create a shortcut with use crate::garden::vegetables::Asparagus; and from then on you only need to write Asparagus to make use of that type in the scope."><strong><code>use</code> 关键字</strong>: 在一个作用域内，<code>use</code> 关键字创建到项目的快捷方式，以减少长路径的重复。在任何可以引用 <code>crate::garden::vegetables::Asparagus</code> 的作用域中，你可以通过 <code>use crate::garden::vegetables::Asparagus;</code> 创建一个快捷方式，从那时起，你只需要写 <code>Asparagus</code> 就可以在该作用域中使用该类型。</li>
+<li data-x-en="The use keyword: Within a scope, the use keyword creates shortcuts to items to reduce repetition of long paths. In any scope that can refer to crate::garden::vegetables::Asparagus, you can create a shortcut with use crate::garden::vegetables::Asparagus;, and from then on you only need to write Asparagus to make use of that type in the scope."><strong>关键字 <code>use</code></strong>: 在一个作用域内，<code>use</code> 关键字创建到项目的快捷方式，以减少长路径的重复。在任何可以引用 <code>crate::garden::vegetables::Asparagus</code> 的作用域中，你可以通过 <code>use crate::garden::vegetables::Asparagus;</code> 创建一个快捷方式，从那时起，你只需要写 <code>Asparagus</code> 就可以在作用域中使用该类型。</li>
 </ul>
 <p data-x-en="Here, we create a binary crate named backyard that illustrates these rules. The crate’s directory, also named backyard, contains these files and directories:">在这里，我们创建了一个名为<code>backyard</code>的二进制crate，以说明这些规则。
 crate的目录，也命名为<code>backyard</code>，包含这些文件和目录：</p>
@@ -310,7 +312,7 @@ pub struct Asparagus {}</code></pre>
 模块还允许我们控制 <em>私有性</em>，因为模块内的代码默认是私有的。私有项是内部实现细节，不可供外部使用。我们可以选择将模块及其内部的项公开，这将使它们对外部代码可见，允许外部代码使用和依赖它们。</p>
 <p data-x-en="As an example, let’s write a library crate that provides the functionality of a restaurant. We’ll define the signatures of functions but leave their bodies empty to concentrate on the organization of the code rather than the implementation of a restaurant.">作为示例，让我们编写一个提供餐厅功能的库crate。我们将定义函数的签名，但留空它们的主体，以便专注于代码的组织而不是餐厅的实现。</p>
 <p data-x-en="In the restaurant industry, some parts of a restaurant are referred to as front of house and others as back of house. Front of house is where customers are; this encompasses where the hosts seat customers, servers take orders and payment, and bartenders make drinks. Back of house is where the chefs and cooks work in the kitchen, dishwashers clean up, and managers do administrative work.">在餐饮业中，餐厅的某些部分被称为<em>前厅</em>，其他部分则被称为<em>后厨</em>。前厅是顾客所在的地方；这包括接待员安排顾客就座、服务员点餐和结账，以及调酒师制作饮品的地方。后厨是厨师和烹饪人员在厨房工作、洗碗工清理以及经理进行行政工作的地方。</p>
-<p data-x-en="To structure our crate in this way, we can organize its functions into nested modules. Create a new library named restaurant by running cargo new restaurant --lib. Then enter the code in Listing 7-1 into src/lib.rs to define some modules and function signatures; this code is the front of house section.">要以这种方式构建我们的 crate，我们可以将其函数组织成嵌套的模块。通过运行 <code>cargo new restaurant --lib</code> 创建一个名为 <code>restaurant</code> 的新库。然后将列表 7-1 中的代码输入到 <em>src/lib.rs</em> 中，以定义一些模块和函数签名；这段代码是前厅部分。</p>
+<p data-x-en="To structure our crate in this way, we can organize its functions into nested modules. Create a new library named restaurant by running cargo new restaurant --lib. Then, enter the code in Listing 7-1 into src/lib.rs to define some modules and function signatures; this code is the front of house section.">要以这种方式构建我们的 crate，我们可以将其函数组织成嵌套的模块。通过运行 <code>cargo new restaurant --lib</code> 创建一个名为 <code>restaurant</code> 的新库。然后，将列表 7-1 中的代码输入到 <em>src/lib.rs</em> 中，以定义一些模块和函数签名；这段代码是前台部分。</p>
 <figure class="listing" id="listing-7-1">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">mod front_of_house {
@@ -332,7 +334,7 @@ pub struct Asparagus {}</code></pre>
 </figure>
 <p data-x-en="We define a module with the mod keyword followed by the name of the module (in this case, front_of_house). The body of the module then goes inside curly brackets. Inside modules, we can place other modules, as in this case with the modules hosting and serving. Modules can also hold definitions for other items, such as structs, enums, constants, traits, and as in Listing 7-1, functions.">我们使用 <code>mod</code> 关键字后跟模块的名称（在本例中为 <code>front_of_house</code>）来定义一个模块。模块的主体内容则放在大括号内。在模块内部，我们可以放置其他模块，如本例中的 <code>hosting</code> 和 <code>serving</code> 模块。模块还可以包含其他项目的定义，例如结构体、枚举、常量、特征，以及如清单 7-1 所示的函数。</p>
 <p data-x-en="By using modules, we can group related definitions together and name why they’re related. Programmers using this code can navigate the code based on the groups rather than having to read through all the definitions, making it easier to find the definitions relevant to them. Programmers adding new functionality to this code would know where to place the code to keep the program organized.">通过使用模块，我们可以将相关的定义组合在一起，并命名它们为什么相关。使用此代码的程序员可以根据这些组来导航代码，而不需要阅读所有的定义，这使得更容易找到与他们相关的定义。向此代码添加新功能的程序员会知道将代码放置在哪里以保持程序的组织性。</p>
-<p data-x-en="Earlier, we mentioned that src/main.rs and src/lib.rs are called crate roots. The reason for their name is that the contents of either of these two files form a module named crate at the root of the crate’s module structure, known as the module tree.">早些时候，我们提到 <em>src/main.rs</em> 和 <em>src/lib.rs</em> 被称为 crate 根。它们之所以被称为 crate 根，是因为这两个文件中的内容在 crate 的模块结构（称为 <em>模块树</em>）的根部形成一个名为 <code>crate</code> 的模块。</p>
+<p data-x-en="Earlier, we mentioned that src/main.rs and src/lib.rs are called crate roots_. The reason for their name is that the contents of either of these two files form a module named crate at the root of the crate’s module structure, known as the module tree.">之前，我们提到 <em>src/main.rs</em> 和 <em>src/lib.rs</em> 被称为 <em>crate roots</em>。它们之所以被称为 crate roots，是因为这两个文件中的内容在 crate 的模块结构的根部形成一个名为 <code>crate</code> 的模块，这个模块结构被称为 <em>模块树</em>。</p>
 <p data-x-en="Listing 7-2 shows the module tree for the structure in Listing 7-1.">列表 7-2 显示了列表 7-1 中结构的模块树。</p>
 <figure class="listing" id="listing-7-2">
 <pre><code class="language-text">crate

@@ -22,5 +22,13 @@
   "Keywords": {
     "_translate": "<a class=\"header\" href=\"#keywords\">关键字</a>",
     "_note": ""
+  },
+  "This chapter covers concepts that appear in almost every programming language and how they work in Rust. Many programming languages have much in common at their core. None of the concepts presented in this chapter are unique to Rust, but we’ll discuss them in the context of Rust and explain the conventions around using them.": {
+    "_translate": "本章涵盖了几乎每种编程语言中都会出现的概念以及它们在 Rust 中的工作方式。许多编程语言在其核心部分有很多共同之处。本章介绍的概念并非 Rust 独有，但我们将讨论它们在 Rust 中的使用，并解释围绕这些概念的约定。",
+    "_note": ""
+  },
+  "The Rust language has a set of keywords that are reserved for use by the language only, much as in other languages. Keep in mind that you cannot use these words as names of variables or functions. Most of the keywords have special meanings, and you’ll be using them to do various tasks in your Rust programs; a few have no current functionality associated with them but have been reserved for functionality that might be added to Rust in the future. You can find the list of the keywords in Appendix A.": {
+    "_translate": "Rust 语言有一组仅由语言本身保留使用的 <em>关键字</em>，这与其他语言中的情况类似。请注意，您不能将这些词用作变量或函数的名称。大多数关键字都有特殊含义，您将在 Rust 程序中使用它们来完成各种任务；少数关键字目前没有与之关联的功能，但已为将来可能添加到 Rust 的功能预留。您可以在 <a href=\"appendix-01-keywords.html\">附录 A</a><!-- ignore --> 中找到关键字的列表。",
+    "_note": ""
   }
 }

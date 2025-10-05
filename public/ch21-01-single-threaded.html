@@ -351,7 +351,9 @@ Request: [
 </code></pre>
 <p data-x-en="Depending on your browser, you might get slightly different output. Now that we’re printing the request data, we can see why we get multiple connections from one browser request by looking at the path after GET in the first line of the request. If the repeated connections are all requesting /, we know the browser is trying to fetch / repeatedly because it’s not getting a response from our program.">根据您的浏览器，您可能会得到略有不同的输出。现在我们打印了请求数据，可以通过查看请求第一行 <code>GET</code> 后的路径来了解为什么从一个浏览器请求中会收到多次连接。如果重复的连接都在请求 <em>/</em>，我们知道浏览器是因为没有从我们的程序中得到响应而反复尝试获取 <em>/</em>。</p>
 <p data-x-en="Let’s break down this request data to understand what the browser is asking of our program.">让我们分解这个请求数据，以了解浏览器向我们的程序提出了什么请求。</p>
-<h3 id="a-closer-look-at-an-http-request"><a class="header" href="#a-closer-look-at-an-http-request">深入研究 HTTP 请求</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="a-closer-look-at-an-http-request"></a></p>
+<h3 id="looking-closer-at-an-http-request" data-x-en="Looking Closer at an HTTP Request"><a class="header" href="#looking-closer-at-an-http-request">更仔细地查看HTTP请求</a></h3>
 <p data-x-en="HTTP is a text-based protocol, and a request takes this format:">HTTP 是一种基于文本的协议，请求的格式如下：</p>
 <pre><code class="language-text">Method Request-URI HTTP-Version CRLF
 headers CRLF
@@ -582,7 +584,9 @@ fn handle_connection(mut stream: TcpStream) {
 <figcaption><a href="#listing-21-8">Listing 21-8</a>: Sample content for the page to send back with any 404 response</figcaption>
 </figure>
 <p data-x-en="With these changes, run your server again. Requesting 127.0.0.1:7878 should return the contents of hello.html, and any other request, like 127.0.0.1:7878/foo, should return the error HTML from 404.html.">有了这些更改，再次运行您的服务器。请求<em>127.0.0.1:7878</em>应该返回<em>hello.html</em>的内容，而任何其他请求，如<em>127.0.0.1:7878/foo</em>，应该返回来自<em>404.html</em>的错误HTML。</p>
-<h3 id="a-touch-of-refactoring"><a class="header" href="#a-touch-of-refactoring">一点重构</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="a-touch-of-refactoring"></a></p>
+<h3 id="refactoring" data-x-en="Refactoring"><a class="header" href="#refactoring">重构</a></h3>
 <p data-x-en="At the moment, the if and else blocks have a lot of repetition: they’re both reading files and writing the contents of the files to the stream. The only differences are the status line and the filename. Let’s make the code more concise by pulling out those differences into separate if and else lines that will assign the values of the status line and the filename to variables; we can then use those variables unconditionally in the code to read the file and write the response. Listing 21-9 shows the resultant code after replacing the large if and else blocks.">目前，<code>if</code> 和 <code>else</code> 块有很多重复：它们都在读取文件并将文件内容写入流中。唯一的区别是状态行和文件名。让我们通过将这些差异提取到单独的 <code>if</code> 和 <code>else</code> 行中，将状态行和文件名的值分配给变量，从而使代码更简洁；然后我们可以在读取文件和写入响应的代码中无条件地使用这些变量。列表 21-9 显示了替换大的 <code>if</code> 和 <code>else</code> 块后的代码。</p>
 <figure class="listing" id="listing-21-9">
 <span class="file-name">Filename: src/main.rs</span>

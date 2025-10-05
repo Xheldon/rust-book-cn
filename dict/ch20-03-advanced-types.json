@@ -242,5 +242,13 @@
   "So what do we do? In this case, you already know the answer: we make the types of s1 and s2 a &str rather than a str. Recall from “String Slices” in Chapter 4 that the slice data structure just stores the starting position and the length of the slice. So, although a &T is a single value that stores the memory address of where the T is located, a &str is two values: the address of the str and its length. As such, we can know the size of a &str value at compile time: it’s twice the length of a usize. That is, we always know the size of a &str, no matter how long the string it refers to is. In general, this is the way in which dynamically sized types are used in Rust: they have an extra bit of metadata that stores the size of the dynamic information. The golden rule of dynamically sized types is that we must always put values of dynamically sized types behind a pointer of some kind.": {
     "_translate": "那么我们该怎么做呢？在这种情况下，你已经知道答案：我们将 <code>s1</code> 和 <code>s2</code> 的类型改为 <code>&amp;str</code> 而不是 <code>str</code>。回想第 4 章<a href=\"ch04-03-slices.html#string-slices\">“字符串切片”</a><!-- ignore --> 中的内容，切片数据结构只是存储切片的起始位置和长度。因此，虽然 <code>&amp;T</code> 是一个存储 <code>T</code> 所在内存地址的单个值，<code>&amp;str</code> 是 <em>两个</em> 值：<code>str</code> 的地址和它的长度。因此，我们可以在编译时知道 <code>&amp;str</code> 值的大小：它是 <code>usize</code> 长度的两倍。也就是说，无论它引用的字符串有多长，我们总是知道 <code>&amp;str</code> 的大小。一般来说，这就是 Rust 中动态大小类型使用的方式：它们有一个额外的元数据位来存储动态信息的大小。动态大小类型的黄金法则是，我们必须始终将动态大小类型的值放在某种指针后面。",
     "_note": ""
+  },
+  "Type Safety and Abstraction with the Newtype Pattern": {
+    "_translate": "<a class=\"header\" href=\"#type-safety-and-abstraction-with-the-newtype-pattern\">使用 Newtype 模式实现类型安全和抽象</a>",
+    "_note": ""
+  },
+  "Type Synonyms and Type Aliases": {
+    "_translate": "<a class=\"header\" href=\"#type-synonyms-and-type-aliases\">类型同义词和类型别名</a>",
+    "_note": ""
   }
 }

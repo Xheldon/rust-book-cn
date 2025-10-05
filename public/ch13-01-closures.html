@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="zh-CN" class="light sidebar-visible" dir="ltr"><head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>闭包：捕获其环境的匿名函数 - 《Rust编程语言》</title>
+        <title>闭包 - 《Rust 编程语言》</title>
 
 
         <!-- Custom HTML head -->
@@ -249,9 +249,10 @@ blockquote {
 
                 <div id="content" class="content">
                     <main>
-                        <!-- Old heading. Do not remove or links may break. -->
-<p><a id="closures-anonymous-functions-that-can-capture-their-environment"></a></p>
-<h2 id="closures-anonymous-functions-that-capture-their-environment"><a class="header" href="#closures-anonymous-functions-that-capture-their-environment">闭包：捕获其环境的匿名函数</a></h2>
+                        <!-- Old headings. Do not remove or links may break. -->
+<p><a id="closures-anonymous-functions-that-can-capture-their-environment"></a>
+<a id="closures-anonymous-functions-that-capture-their-environment"></a></p>
+<h2 id="closures" data-x-en="Closures"><a class="header" href="#closures">闭包</a></h2>
 <p data-x-en="Rust’s closures are anonymous functions you can save in a variable or pass as arguments to other functions. You can create the closure in one place and then call the closure elsewhere to evaluate it in a different context. Unlike functions, closures can capture values from the scope in which they’re defined. We’ll demonstrate how these closure features allow for code reuse and behavior customization.">Rust 的闭包是你可以保存在变量中或作为参数传递给其他函数的匿名函数。你可以在一个地方创建闭包，然后在其他地方调用闭包以在不同的上下文中进行评估。与函数不同，闭包可以捕获其定义范围内 的值。我们将演示这些闭包特性如何允许代码重用和行为定制。</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="creating-an-abstraction-of-behavior-with-closures"></a>
@@ -328,7 +329,9 @@ The user with preference Some(Red) gets Red
 The user with preference None gets Blue
 </code></pre>
 <p data-x-en="One interesting aspect here is that we’ve passed a closure that calls self.most_stocked() on the current Inventory instance. The standard library didn’t need to know anything about the Inventory or ShirtColor types we defined, or the logic we want to use in this scenario. The closure captures an immutable reference to the self Inventory instance and passes it with the code we specify to the unwrap_or_else method. Functions, on the other hand, are not able to capture their environment in this way.">一个有趣的方面是我们传递了一个闭包，该闭包在当前的<code>Inventory</code>实例上调用了<code>self.most_stocked()</code>。标准库并不需要了解我们定义的<code>Inventory</code>或<code>ShirtColor</code>类型，也不需要了解在这种情况下我们想要使用的逻辑。闭包捕获了一个对<code>self</code> <code>Inventory</code>实例的不可变引用，并将其与我们指定的代码一起传递给<code>unwrap_or_else</code>方法。然而，函数并不能以这种方式捕获其环境。</p>
-<h3 id="closure-type-inference-and-annotation"><a class="header" href="#closure-type-inference-and-annotation">闭包类型推断和注解</a></h3>
+<!-- Old headings. Do not remove or links may break. -->
+<p><a id="closure-type-inference-and-annotation"></a></p>
+<h3 id="inferring-and-annotating-closure-types" data-x-en="Inferring and Annotating Closure Types"><a class="header" href="#inferring-and-annotating-closure-types">推断和注解闭包类型</a></h3>
 <p data-x-en="There are more differences between functions and closures. Closures don’t usually require you to annotate the types of the parameters or the return value like fn functions do. Type annotations are required on functions because the types are part of an explicit interface exposed to your users. Defining this interface rigidly is important for ensuring that everyone agrees on what types of values a function uses and returns. Closures, on the other hand, aren’t used in an exposed interface like this: they’re stored in variables and used without naming them and exposing them to users of our library.">函数和闭包之间还有更多的区别。闭包通常不需要像 <code>fn</code> 函数那样标注参数或返回值的类型。函数需要类型注解，因为类型是暴露给用户的一个显式接口的一部分。严格定义这个接口对于确保每个人都同意函数使用和返回的值的类型非常重要。另一方面，闭包不会在这种暴露的接口中使用：它们存储在变量中，不命名也不向我们的库的用户暴露。</p>
 <p data-x-en="Closures are typically short and relevant only within a narrow context rather than in any arbitrary scenario. Within these limited contexts, the compiler can infer the types of the parameters and the return type, similar to how it’s able to infer the types of most variables (there are rare cases where the compiler needs closure type annotations too).">闭包通常很短，并且只在狭窄的上下文中相关，而不是在任何任意场景中。在这些有限的上下文中，编译器可以推断参数和返回类型的类型，类似于它能够推断大多数变量的类型（有少数情况下编译器也需要闭包类型注解）。</p>
 <p data-x-en="As with variables, we can add type annotations if we want to increase explicitness and clarity at the cost of being more verbose than is strictly necessary. Annotating the types for a closure would look like the definition shown in Listing 13-2. In this example, we’re defining a closure and storing it in a variable rather than defining the closure in the spot we pass it as an argument, as we did in Listing 13-1.">与变量一样，如果我们要以增加冗余为代价来提高明确性和清晰度，可以添加类型注解。为闭包添加类型注解的定义如清单 13-2 所示。在这个例子中，我们定义了一个闭包并将其存储在一个变量中，而不是像在清单 13-1 中那样在传递闭包作为参数的位置定义闭包。</p>
@@ -484,8 +487,9 @@ fn main() {
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="storing-closures-using-generic-parameters-and-the-fn-traits"></a>
 <a id="limitations-of-the-cacher-implementation"></a>
-<a id="moving-captured-values-out-of-the-closure-and-the-fn-traits"></a></p>
-<h3 id="moving-captured-values-out-of-closures-and-the-fn-traits"><a class="header" href="#moving-captured-values-out-of-closures-and-the-fn-traits">将捕获的值移出闭包和 <code>Fn</code> 特性</a></h3>
+<a id="moving-captured-values-out-of-the-closure-and-the-fn-traits"></a>
+<a id="moving-captured-values-out-of-closures-and-the-fn-traits"></a></p>
+<h3 id="moving-captured-values-out-of-closures" data-x-en="Moving Captured Values Out of Closures"><a class="header" href="#moving-captured-values-out-of-closures">将捕获的值移出闭包</a></h3>
 <p data-x-en="Once a closure has captured a reference or captured ownership of a value from the environment where the closure is defined (thus affecting what, if anything, is moved into the closure), the code in the body of the closure defines what happens to the references or values when the closure is evaluated later (thus affecting what, if anything, is moved out of the closure).">一旦闭包从其定义的环境中捕获了一个引用或捕获了某个值的所有权（从而影响了什么，如果有的话，被<em>移入</em>闭包），闭包体中的代码定义了在闭包稍后被求值时引用或值会发生什么（从而影响了什么，如果有的话，被<em>移出</em>闭包）。</p>
 <p data-x-en="A closure body can do any of the following: move a captured value out of the closure, mutate the captured value, neither move nor mutate the value, or capture nothing from the environment to begin with.">闭包体可以执行以下任何操作：将捕获的值移出闭包，修改捕获的值，既不移出也不修改值，或者从一开始就什么都不从环境中捕获。</p>
 <p data-x-en="The way a closure captures and handles values from the environment affects which traits the closure implements, and traits are how functions and structs can specify what kinds of closures they can use. Closures will automatically implement one, two, or all three of these Fn traits, in an additive fashion, depending on how the closure’s body handles the values:">闭包捕获和处理环境中的值的方式会影响闭包实现哪些特质，而特质是函数和结构体指定它们可以使用什么类型的闭包的方式。闭包会根据闭包体如何处理值，自动实现这一个、两个或全部三个<code>Fn</code>特质，以累加的方式。</p>

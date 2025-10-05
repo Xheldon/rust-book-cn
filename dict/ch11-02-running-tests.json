@@ -134,5 +134,9 @@
   "Some command line options go to cargo test, and some go to the resultant test binary. To separate these two types of arguments, you list the arguments that go to cargo test followed by the separator -- and then the ones that go to the test binary. Running cargo test --help displays the options you can use with cargo test, and running cargo test -- --help displays the options you can use after the separator. Those options are also documented in the “Tests” section of the the rustc book.": {
     "_translate": "一些命令行选项传递给<code>cargo test</code>，而另一些则传递给生成的测试二进制文件。为了区分这两种类型的参数，您需要先列出传递给<code>cargo test</code>的参数，然后是分隔符<code>--</code>，接着是传递给测试二进制文件的参数。运行<code>cargo test --help</code>会显示您可以与<code>cargo test</code>一起使用的选项，而运行<code>cargo test -- --help</code>会显示分隔符后可以使用的选项。这些选项也在<a href=\"https://doc.rust-lang.org/rustc/tests/index.html\">“测试”部分</a>的<a href=\"https://doc.rust-lang.org/rustc/index.html\">rustc手册</a>中有文档说明。",
     "_note": ""
+  },
+  "Ignoring Tests Unless Specifically Requested": {
+    "_translate": "<a class=\"header\" href=\"#ignoring-tests-unless-specifically-requested\">除非特别要求，否则忽略测试</a>",
+    "_note": ""
   }
 }

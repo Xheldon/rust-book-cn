@@ -402,5 +402,25 @@
   "One detail we didn’t discuss in the “References and Borrowing” section in Chapter 4 is that every reference in Rust has a lifetime, which is the scope for which that reference is valid. Most of the time, lifetimes are implicit and inferred, just like most of the time, types are inferred. We are only required to annotate types when multiple types are possible. In a similar way, we have to annotate lifetimes when the lifetimes of references could be related in a few different ways. Rust requires us to annotate the relationships using generic lifetime parameters to ensure the actual references used at runtime will definitely be valid.": {
     "_translate": "我们在第 4 章的 <a href=\"ch04-02-references-and-borrowing.html#references-and-borrowing\">“引用和借用”</a> 部分没有讨论的一个细节是，Rust 中的每个引用都有一个 <em>生命周期</em>，即该引用有效的范围。大多数时候，生命周期是隐式的并且可以推断出来的，就像大多数时候类型可以推断出来一样。只有当存在多种可能的类型时，我们才需要标注类型。同样地，当引用的生命周期可能以几种不同的方式相关时，我们也需要标注生命周期。Rust 要求我们使用泛型生命周期参数来标注这些关系，以确保在运行时实际使用的引用肯定有效。",
     "_note": ""
+  },
+  "Dangling References": {
+    "_translate": "<a class=\"header\" href=\"#dangling-references\">悬垂引用</a>",
+    "_note": ""
+  },
+  "In Function Signatures": {
+    "_translate": "<a class=\"header\" href=\"#in-function-signatures\">在函数签名中</a>",
+    "_note": ""
+  },
+  "Relationships": {
+    "_translate": "<a class=\"header\" href=\"#relationships\">关系</a>",
+    "_note": ""
+  },
+  "In Struct Definitions": {
+    "_translate": "<a class=\"header\" href=\"#in-struct-definitions\">在结构体定义中</a>",
+    "_note": ""
+  },
+  "In Method Definitions": {
+    "_translate": "<a class=\"header\" href=\"#in-method-definitions\">在方法定义中</a>",
+    "_note": ""
   }
 }
