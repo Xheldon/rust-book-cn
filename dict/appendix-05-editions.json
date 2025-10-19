@@ -66,5 +66,17 @@
   "Every three years or so, the Rust team produces a new Rust edition. Each edition brings together the features that have landed into a clear package with fully updated documentation and tooling. New editions ship as part of the usual six-week release process.": {
     "_translate": "每隔三年左右，Rust 团队会发布一个新的 Rust <em>版本</em>。每个版本都会将已落地的功能整合到一个清晰的包中，并附带完全更新的文档和工具。新版本会作为常规的六周发布流程的一部分推出。",
     "_note": ""
+  },
+  "Appendix E: Editions": {
+    "_translate": "<a class=\"header\" href=\"#appendix-e-editions\">附录 E: 版本</a>",
+    "_note": ""
+  },
+  "To be clear: Most features will be available on all editions. Developers using any Rust edition will continue to see improvements as new stable releases are made. However, in some cases, mainly when new keywords are added, some new features might only be available in later editions. You will need to switch editions if you want to take advantage of such features.": {
+    "_translate": "为了明确：大多数功能将在所有版本中提供。使用任何 Rust 版本的开发人员将继续看到改进，因为新的稳定版本会不断发布。然而，在某些情况下，主要是当添加新关键字时，某些新功能可能仅在较新版本中可用。如果您想利用这些功能，需要切换版本。",
+    "_note": ""
+  },
+  "For more details, see The Rust Edition Guide. This is a complete book that enumerates the differences between editions and explains how to automatically upgrade your code to a new edition via cargo fix.": {
+    "_translate": "有关更多详细信息，请参见<a href=\"https://doc.rust-lang.org/stable/edition-guide\"><em>Rust 版本指南</em></a>。这是一本完整的书籍，列举了不同版本之间的差异，并解释了如何通过<code>cargo fix</code>自动将代码升级到新版本。",
+    "_note": ""
   }
 }

@@ -422,5 +422,121 @@
   "In Method Definitions": {
     "_translate": "<a class=\"header\" href=\"#in-method-definitions\">在方法定义中</a>",
     "_note": ""
+  },
+  "Annotating lifetimes is not even a concept most other programming languages have, so this is going to feel unfamiliar. Although we won’t cover lifetimes in their entirety in this chapter, we’ll discuss common ways you might encounter lifetime syntax so that you can get comfortable with the concept.": {
+    "_translate": "标注生命周期甚至不是一个大多数其他编程语言有的概念，所以这会让你感到不熟悉。虽然我们不会在本章中完全覆盖生命周期，但我们会讨论你可能会遇到的生命周期语法的常见方式，以便你能对这个概念感到熟悉。",
+    "_note": ""
+  },
+  "One detail we didn’t discuss in the “References and Borrowing” section in Chapter 4 is that every reference in Rust has a lifetime, which is the scope for which that reference is valid. Most of the time, lifetimes are implicit and inferred, just like most of the time, types are inferred. We are only required to annotate types when multiple types are possible. In a similar way, we must annotate lifetimes when the lifetimes of references could be related in a few different ways. Rust requires us to annotate the relationships using generic lifetime parameters to ensure that the actual references used at runtime will definitely be valid.": {
+    "_translate": "在第 4 章的<a href=\"ch04-02-references-and-borrowing.html#references-and-borrowing\">“引用和借用”</a>部分中，我们没有讨论的一个细节是，Rust 中的每个引用都有一个生命周期，即该引用有效的范围。大多数时候，生命周期是隐式的并且可以推断出来的，就像大多数时候类型可以推断出来一样。只有当存在多种可能的类型时，我们才需要注解类型。同样地，当引用的生命周期可能以几种不同的方式相关时，我们也必须注解生命周期。Rust 要求我们使用泛型生命周期参数注解这些关系，以确保在运行时实际使用的引用肯定有效。",
+    "_note": ""
+  },
+  "The main aim of lifetimes is to prevent dangling references, which, if they were allowed to exist, would cause a program to reference data other than the data it’s intended to reference. Consider the program in Listing 10-16, which has an outer scope and an inner scope.": {
+    "_translate": "生命周期的主要目的是防止悬垂引用，如果允许悬垂引用存在，会导致程序引用非预期的数据。考虑列表 10-16 中的程序，该程序具有一个外部作用域和一个内部作用域。",
+    "_note": ""
+  },
+  "Note: The examples in Listings 10-16, 10-17, and 10-23 declare variables without giving them an initial value, so the variable name exists in the outer scope. At first glance, this might appear to be in conflict with Rust having no null values. However, if we try to use a variable before giving it a value, we’ll get a compile-time error, which shows that indeed Rust does not allow null values.": {
+    "_translate": "注意：清单 10-16、10-17 和 10-23 中的示例声明了变量但没有给它们初始值，因此变量名存在于外部作用域中。乍一看，这似乎与 Rust 没有 null 值相冲突。然而，如果我们尝试在给变量赋值之前使用它，我们将得到一个编译时错误，这表明 Rust 确实不允许 null 值。",
+    "_note": ""
+  },
+  "The outer scope declares a variable named r with no initial value, and the inner scope declares a variable named x with the initial value of 5. Inside the inner scope, we attempt to set the value of r as a reference to x. Then, the inner scope ends, and we attempt to print the value in r. This code won’t compile, because the value that r is referring to has gone out of scope before we try to use it. Here is the error message:": {
+    "_translate": "外部作用域声明了一个名为<code>r</code>的变量，没有初始值，而内部作用域声明了一个名为<code>x</code>的变量，初始值为<code>5</code>。在内部作用域中，我们尝试将<code>r</code>的值设置为<code>x</code>的引用。然后，内部作用域结束，我们尝试打印<code>r</code>中的值。这段代码无法编译，因为<code>r</code>所引用的值在我们尝试使用它之前已经超出了作用域。这是错误信息：",
+    "_note": ""
+  },
+  "The error message says that the variable x “does not live long enough.” The reason is that x will be out of scope when the inner scope ends on line 7. But r is still valid for the outer scope; because its scope is larger, we say that it “lives longer.” If Rust allowed this code to work, r would be referencing memory that was deallocated when x went out of scope, and anything we tried to do with r wouldn’t work correctly. So, how does Rust determine that this code is invalid? It uses a borrow checker.": {
+    "_translate": "错误消息说变量<code>x</code>“生命周期不够长”。原因是当内部作用域在第7行结束时，<code>x</code>将超出作用域。但<code>r</code>对外部作用域仍然有效；因为其作用域更大，我们说它“生命周期更长”。如果Rust允许这段代码运行，<code>r</code>将引用在<code>x</code>超出作用域时被释放的内存，我们尝试使用<code>r</code>做的任何事情都不会正确工作。那么，Rust是如何确定这段代码无效的？它使用了借用检查器。",
+    "_note": ""
+  },
+  "Here, we’ve annotated the lifetime of r with 'a and the lifetime of x with 'b. As you can see, the inner 'b block is much smaller than the outer 'a lifetime block. At compile time, Rust compares the size of the two lifetimes and sees that r has a lifetime of 'a but that it refers to memory with a lifetime of 'b. The program is rejected because 'b is shorter than 'a: The subject of the reference doesn’t live as long as the reference.": {
+    "_translate": "这里，我们用<code>'a</code>注解了<code>r</code>的生命周期，用<code>'b</code>注解了<code>x</code>的生命周期。如你所见，内部的<code>'b</code>块比外部的<code>'a</code>生命周期块小得多。在编译时，Rust会比较两个生命周期的大小，并发现<code>r</code>的生命周期为<code>'a</code>，但它引用的内存的生命周期为<code>'b</code>。程序被拒绝是因为<code>'b</code>比<code>'a</code>短：引用的对象存活时间没有引用的时间长。",
+    "_note": ""
+  },
+  "Listing 10-18 fixes the code so that it doesn’t have a dangling reference and it compiles without any errors.": {
+    "_translate": "列表 10-18 修复了代码，使其没有悬垂引用，并且可以没有任何错误地编译。",
+    "_note": ""
+  },
+  "Now that you know where the lifetimes of references are and how Rust analyzes lifetimes to ensure that references will always be valid, let’s explore generic lifetimes in function parameters and return values.": {
+    "_translate": "现在你已经知道引用的生命周期在哪里，以及 Rust 如何分析生命周期以确保引用始终有效，让我们来探讨函数参数和返回值中的泛型生命周期。",
+    "_note": ""
+  },
+  "When we’re defining this function, we don’t know the concrete values that will be passed into this function, so we don’t know whether the if case or the else case will execute. We also don’t know the concrete lifetimes of the references that will be passed in, so we can’t look at the scopes as we did in Listings 10-17 and 10-18 to determine whether the reference we return will always be valid. The borrow checker can’t determine this either, because it doesn’t know how the lifetimes of x and y relate to the lifetime of the return value. To fix this error, we’ll add generic lifetime parameters that define the relationship between the references so that the borrow checker can perform its analysis.": {
+    "_translate": "当我们定义这个函数时，我们不知道将传递给此函数的具体值，因此我们不知道<code>if</code>分支还是<code>else</code>分支会执行。我们也不知道将传递的引用的具体生命周期，因此我们不能像在清单10-17和10-18中那样查看作用域来确定我们返回的引用是否总是有效的。借用检查器也无法确定这一点，因为它不知道<code>x</code>和<code>y</code>的生命周期与返回值的生命周期之间的关系。为了解决这个错误，我们将添加泛型生命周期参数，以定义引用之间的关系，从而使借用检查器可以执行其分析。",
+    "_note": ""
+  },
+  "Lifetime annotations have a slightly unusual syntax: The names of lifetime parameters must start with an apostrophe (') and are usually all lowercase and very short, like generic types. Most people use the name 'a for the first lifetime annotation. We place lifetime parameter annotations after the & of a reference, using a space to separate the annotation from the reference’s type.": {
+    "_translate": "生命周期注解的语法稍微有些不同：生命周期参数的名称必须以撇号（<code>'</code>）开头，并且通常全部小写且非常短，类似于泛型类型。大多数人使用 <code>'a</code> 作为第一个生命周期注解的名称。我们在引用的 <code>&amp;</code> 之后放置生命周期参数注解，使用空格将注解与引用的类型分开。",
+    "_note": ""
+  },
+  "Here are some examples—a reference to an i32 without a lifetime parameter, a reference to an i32 that has a lifetime parameter named 'a, and a mutable reference to an i32 that also has the lifetime 'a:": {
+    "_translate": "这里有一些例子—一个没有生命周期参数的 <code>i32</code> 的引用，一个具有名为 <code>'a</code> 的生命周期参数的 <code>i32</code> 的引用，以及一个具有生命周期 <code>'a</code> 的 <code>i32</code> 的可变引用：",
+    "_note": ""
+  },
+  "One lifetime annotation by itself doesn’t have much meaning, because the annotations are meant to tell Rust how generic lifetime parameters of multiple references relate to each other. Let’s examine how the lifetime annotations relate to each other in the context of the longest function.": {
+    "_translate": "单个生命周期注解本身并没有太多意义，因为这些注解的目的是告诉 Rust 多个引用的泛型生命周期参数是如何相互关联的。让我们 examine 如何在 <code>longest</code> 函数的上下文中理解这些生命周期注解之间的关系。",
+    "_note": ""
+  },
+  "We want the signature to express the following constraint: The returned reference will be valid as long as both of the parameters are valid. This is the relationship between lifetimes of the parameters and the return value. We’ll name the lifetime 'a and then add it to each reference, as shown in Listing 10-21.": {
+    "_translate": "我们希望签名表达以下约束：返回的引用将在两个参数都有效的情况下有效。这是参数和返回值的生命周期之间的关系。我们将生命周期命名为<code>'a</code>，然后将其添加到每个引用中，如清单10-21所示。",
+    "_note": ""
+  },
+  "Next, let’s try an example that shows that the lifetime of the reference in result must be the smaller lifetime of the two arguments. We’ll move the declaration of the result variable outside the inner scope but leave the assignment of the value to the result variable inside the scope with string2. Then, we’ll move the println! that uses result to outside the inner scope, after the inner scope has ended. The code in Listing 10-23 will not compile.": {
+    "_translate": "接下来，我们尝试一个示例，该示例显示 <code>result</code> 中引用的生命周期必须是两个参数中较短的生命周期。我们将 <code>result</code> 变量的声明移到内部作用域之外，但将 <code>result</code> 变量的值赋值保留在与 <code>string2</code> 相同的作用域内。然后，我们将使用 <code>result</code> 的 <code>println!</code> 移到内部作用域之外，在内部作用域结束之后。清单 10-23 中的代码将无法编译。",
+    "_note": ""
+  },
+  "Try designing more experiments that vary the values and lifetimes of the references passed in to the longest function and how the returned reference is used. Make hypotheses about whether or not your experiments will pass the borrow checker before you compile; then, check to see if you’re right!": {
+    "_translate": "尝试设计更多的实验，改变传递给<code>longest</code>函数的引用的值和生命周期，以及返回的引用如何使用。在编译之前，对你的实验是否能通过借用检查器做出假设；然后，检查你是否正确！",
+    "_note": ""
+  },
+  "The problem is that result goes out of scope and gets cleaned up at the end of the longest function. We’re also trying to return a reference to result from the function. There is no way we can specify lifetime parameters that would change the dangling reference, and Rust won’t let us create a dangling reference. In this case, the best fix would be to return an owned data type rather than a reference so that the calling function is then responsible for cleaning up the value.": {
+    "_translate": "问题在于 <code>result</code> 在 <code>longest</code> 函数结束时超出作用域并被清理。我们还试图从函数中返回对 <code>result</code> 的引用。没有办法指定生命周期参数来改变悬垂引用，Rust 也不会让我们创建悬垂引用。在这种情况下，最好的解决方法是返回一个拥有数据类型而不是引用，这样调用函数就负责清理该值。",
+    "_note": ""
+  },
+  "So far, the structs we’ve defined all hold owned types. We can define structs to hold references, but in that case, we would need to add a lifetime annotation on every reference in the struct’s definition. Listing 10-24 has a struct named ImportantExcerpt that holds a string slice.": {
+    "_translate": "到目前为止，我们定义的所有结构体都持有所有权类型。我们可以定义持有引用的结构体，但这种情况下，我们需要在结构体定义中的每个引用上添加生命周期注解。列表 10-24 有一个名为 <code>ImportantExcerpt</code> 的结构体，它持有一个字符串切片。",
+    "_note": ""
+  },
+  "The reason this function compiles without lifetime annotations is historical: In early versions (pre-1.0) of Rust, this code wouldn’t have compiled, because every reference needed an explicit lifetime. At that time, the function signature would have been written like this:": {
+    "_translate": "这个函数之所以能够在没有生命周期注解的情况下编译，是出于历史原因：\n在 Rust 的早期版本（1.0 之前），这段代码是无法编译的，因为\n每个引用都需要一个显式的生命周期。在那个时期，函数\n签名会这样写：",
+    "_note": ""
+  },
+  "This struct has the single field part that holds a string slice, which is a reference. As with generic data types, we declare the name of the generic lifetime parameter inside angle brackets after the name of the struct so that we can use the lifetime parameter in the body of the struct definition. This annotation means an instance of ImportantExcerpt can’t outlive the reference it holds in its part field.": {
+    "_translate": "这个结构体有一个名为 <code>part</code> 的字段，它持有一个字符串切片，即一个引用。与泛型数据类型一样，我们在结构体名称后的尖括号内声明泛型生命周期参数的名称，以便在结构体定义的主体中使用生命周期参数。此注解意味着 <code>ImportantExcerpt</code> 的实例不能比其 <code>part</code> 字段中持有的引用活得更久。",
+    "_note": ""
+  },
+  "Then, the compiler applies the first rule, which specifies that each parameter gets its own lifetime. We’ll call it 'a as usual, so now the signature is this:": {
+    "_translate": "然后，编译器应用第一条规则，该规则指定每个参数都有自己的生命周期。我们像往常一样称它为<code>'a</code>，所以现在的签名是这样的：",
+    "_note": ""
+  },
+  "After writing a lot of Rust code, the Rust team found that Rust programmers were entering the same lifetime annotations over and over in particular situations. These situations were predictable and followed a few deterministic patterns. The developers programmed these patterns into the compiler’s code so that the borrow checker could infer the lifetimes in these situations and wouldn’t need explicit annotations.": {
+    "_translate": "在编写了大量的 Rust 代码之后，Rust 团队发现 Rust 程序员在特定情况下反复输入相同的生命周期注解。这些情况是可以预测的，并遵循几个确定的模式。开发人员将这些模式编程到编译器的代码中，以便借用检查器可以推断这些情况下的生命周期，而不需要显式的注解。",
+    "_note": ""
+  },
+  "Let’s apply the first rule: Each parameter gets its own lifetime. This time we have two parameters instead of one, so we have two lifetimes:": {
+    "_translate": "让我们应用第一条规则：每个参数都有自己的生命周期。这次我们有两个参数而不是一个，所以我们有两个生命周期：",
+    "_note": ""
+  },
+  "You can see that the second rule doesn’t apply, because there is more than one input lifetime. The third rule doesn’t apply either, because longest is a function rather than a method, so none of the parameters are self. After working through all three rules, we still haven’t figured out what the return type’s lifetime is. This is why we got an error trying to compile the code in Listing 10-20: The compiler worked through the lifetime elision rules but still couldn’t figure out all the lifetimes of the references in the signature.": {
+    "_translate": "你可以看到，第二条规则不适用，因为有多个输入生命周期。第三条规则也不适用，因为<code>longest</code> 是一个函数而不是方法，所以没有参数是 <code>self</code>。在经过所有三条规则后，我们仍然没有弄清楚返回类型的生命周期是什么。这就是为什么我们在尝试编译清单 10-20 中的代码时遇到了错误：编译器经过了生命周期省略规则，但仍然无法弄清楚签名中所有引用的生命周期。",
+    "_note": ""
+  },
+  "First, we’ll use a method named level whose only parameter is a reference to self and whose return value is an i32, which is not a reference to anything:": {
+    "_translate": "首先，我们将使用一个名为 <code>level</code> 的方法，其唯一的参数是对 <code>self</code> 的引用，其返回值是一个 <code>i32</code>，它不是对任何事物的引用：",
+    "_note": ""
+  },
+  "The lifetime parameter declaration after impl and its use after the type name are required, but because of the first elision rule, we’re not required to annotate the lifetime of the reference to self.": {
+    "_translate": "在 <code>impl</code> 之后声明生命周期参数并在类型名称之后使用它是必需的，但由于第一个省略规则，我们不需要注解 <code>self</code> 引用的生命周期。",
+    "_note": ""
+  },
+  "You might see suggestions in error messages to use the 'static lifetime. But before specifying 'static as the lifetime for a reference, think about whether or not the reference you have actually lives the entire lifetime of your program, and whether you want it to. Most of the time, an error message suggesting the 'static lifetime results from attempting to create a dangling reference or a mismatch of the available lifetimes. In such cases, the solution is to fix those problems, not to specify the 'static lifetime.": {
+    "_translate": "你可能会在错误消息中看到建议使用<code>'static</code>生命周期。但在将<code>'static</code>指定为引用的生命周期之前，请考虑你拥有的引用是否确实存在于程序的整个生命周期中，以及你是否希望如此。大多数时候，错误消息建议使用<code>'static</code>生命周期是因为尝试创建悬空引用或生命周期不匹配。在这种情况下，解决方案是解决这些问题，而不是指定<code>'static</code>生命周期。",
+    "_note": ""
+  },
+  "Generic Type Parameters, Trait Bounds, and Lifetimes": {
+    "_translate": "<a class=\"header\" href=\"#generic-type-parameters-trait-bounds-and-lifetimes\">泛型类型参数、特征边界和生命周期</a>",
+    "_note": ""
+  },
+  "Believe it or not, there is much more to learn on the topics we discussed in this chapter: Chapter 18 discusses trait objects, which are another way to use traits. There are also more complex scenarios involving lifetime annotations that you will only need in very advanced scenarios; for those, you should read the Rust Reference. But next, you’ll learn how to write tests in Rust so that you can make sure your code is working the way it should.": {
+    "_translate": "不管你信不信，我们在本章讨论的主题还有更多内容可以学习：第18章讨论了特质对象，这是使用特质的另一种方式。还有一些涉及生命周期注解的更复杂场景，你只有在非常高级的情况下才会需要；对于这些，你应该阅读<a href=\"../reference/trait-bounds.html\">Rust参考手册</a>。但接下来，你将学习如何在Rust中编写测试，以确保你的代码按预期工作。",
+    "_note": ""
   }
 }

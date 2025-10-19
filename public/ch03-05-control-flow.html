@@ -445,7 +445,7 @@ again!
 <p data-x-en="You can also return from inside a loop. While break only exits the current loop, return always exits the current function.">你也可以从循环内部 <code>return</code>。虽然 <code>break</code> 只退出当前循环，<code>return</code> 总是退出当前函数。</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="loop-labels-to-disambiguate-between-multiple-loops"></a></p>
-<h4 id="disambiguating-with-loop-labels" data-x-en="Disambiguating with Loop Labels"><a class="header" href="#disambiguating-with-loop-labels">使用循环标签进行消歧</a></h4>
+<h4 id="disambiguating-with-loop-labels"><a class="header" href="#disambiguating-with-loop-labels">使用循环标签进行消歧</a></h4>
 <p data-x-en="If you have loops within loops, break and continue apply to the innermost loop at that point. You can optionally specify a loop label on a loop that you can then use with break or continue to specify that those keywords apply to the labeled loop instead of the innermost loop. Loop labels must begin with a single quote. Here’s an example with two nested loops:">如果您有嵌套的循环，<code>break</code> 和 <code>continue</code> 适用于该点最内层的循环。您可以选择在循环上指定一个 <em>循环标签</em>，然后可以使用 <code>break</code> 或 <code>continue</code> 与该标签一起指定这些关键字适用于标记的循环而不是最内层的循环。循环标签必须以单引号开头。以下是一个包含两个嵌套循环的示例：</p>
 <pre><pre class="playground"><code class="language-rust edition2024">fn main() {
     let mut count = 0;
@@ -486,7 +486,7 @@ End count = 2
 </code></pre>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="conditional-loops-with-while"></a></p>
-<h4 id="streamlining-conditional-loops-with-while" data-x-en="Streamlining Conditional Loops with while"><a class="header" href="#streamlining-conditional-loops-with-while">使用 while 简化条件循环</a></h4>
+<h4 id="streamlining-conditional-loops-with-while"><a class="header" href="#streamlining-conditional-loops-with-while">使用 while 简化条件循环</a></h4>
 <p data-x-en="A program will often need to evaluate a condition within a loop. While the condition is true, the loop runs. When the condition ceases to be true, the program calls break, stopping the loop. It’s possible to implement behavior like this using a combination of loop, if, else, and break; you could try that now in a program, if you’d like. However, this pattern is so common that Rust has a built-in language construct for it, called a while loop. In Listing 3-3, we use while to loop the program three times, counting down each time, and then, after the loop, to print a message and exit.">一个程序通常需要在循环中评估一个条件。当条件为<code>true</code>时，循环运行。当条件不再为<code>true</code>时，程序调用<code>break</code>，停止循环。可以使用<code>loop</code>、<code>if</code>、<code>else</code>和<code>break</code>的组合来实现类似的行为；如果你愿意，现在可以在一个程序中尝试这样做。然而，这种模式非常常见，以至于Rust为此提供了一个内置的语言结构，称为<code>while</code>循环。在清单3-3中，我们使用<code>while</code>循环三次，每次递减计数，然后在循环结束后打印一条消息并退出。</p>
 <figure class="listing" id="listing-3-3">
 <span class="file-name">Filename: src/main.rs</span>

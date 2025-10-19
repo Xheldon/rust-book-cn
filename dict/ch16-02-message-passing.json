@@ -222,5 +222,33 @@
   "Sending Multiple Values": {
     "_translate": "<a class=\"header\" href=\"#sending-multiple-values\">发送多个值</a>",
     "_note": ""
+  },
+  "We create a new channel using the mpsc::channel function; mpsc stands for multiple producer, single consumer. In short, the way Rust’s standard library implements channels means a channel can have multiple sending ends that produce values but only one receiving end that consumes those values. Imagine multiple streams flowing together into one big river: Everything sent down any of the streams will end up in one river at the end. We’ll start with a single producer for now, but we’ll add multiple producers when we get this example working.": {
+    "_translate": "我们使用 <code>mpsc::channel</code> 函数创建一个新的通道；<code>mpsc</code> 代表 <em>multiple producer, single consumer</em>（多个生产者，单个消费者）。简而言之，Rust 标准库实现通道的方式意味着一个通道可以有多个 <em>发送</em> 端来生成值，但只有一个 <em>接收</em> 端来消费这些值。想象多条溪流汇入一条大河：从任何一条溪流发送的所有东西最终都会汇入同一条河。我们先从一个生产者开始，但当这个例子运行起来后，我们会添加多个生产者。",
+    "_note": ""
+  },
+  "The transmitter has a send method that takes the value we want to send. The send method returns a Result<T, E> type, so if the receiver has already been dropped and there’s nowhere to send a value, the send operation will return an error. In this example, we’re calling unwrap to panic in case of an error. But in a real application, we would handle it properly: Return to Chapter 9 to review strategies for proper error handling.": {
+    "_translate": "发送方有一个 <code>send</code> 方法，用于接收我们想要发送的值。<code>send</code> 方法返回一个 <code>Result&lt;T, E&gt;</code> 类型，因此如果接收方已经被丢弃，没有地方可以发送值，发送操作将返回一个错误。在这个例子中，我们调用 <code>unwrap</code> 在出现错误时引发 panic。但在实际应用中，我们会妥善处理：返回第 9 章复习正确的错误处理策略。",
+    "_note": ""
+  },
+  "The try_recv method doesn’t block, but will instead return a Result<T, E> immediately: an Ok value holding a message if one is available and an Err value if there aren’t any messages this time. Using try_recv is useful if this thread has other work to do while waiting for messages: We could write a loop that calls try_recv every so often, handles a message if one is available, and otherwise does other work for a little while until checking again.": {
+    "_translate": "<code>try_recv</code> 方法不会阻塞，而是会立即返回一个 <code>Result&lt;T, E&gt;</code>：如果有可用的消息，则返回一个包含消息的 <code>Ok</code> 值；如果没有消息，则返回一个 <code>Err</code> 值。使用 <code>try_recv</code> 很有用，如果这个线程在等待消息时有其他工作要做：我们可以编写一个循环，每隔一段时间调用一次 <code>try_recv</code>，如果有可用的消息则处理它，否则在再次检查之前做一点其他工作。",
+    "_note": ""
+  },
+  "The ownership rules play a vital role in message sending because they help you write safe, concurrent code. Preventing errors in concurrent programming is the advantage of thinking about ownership throughout your Rust programs. Let’s do an experiment to show how channels and ownership work together to prevent problems: We’ll try to use a val value in the spawned thread after we’ve sent it down the channel. Try compiling the code in Listing 16-9 to see why this code isn’t allowed.": {
+    "_translate": "所有权规则在消息传递中起着至关重要的作用，因为它们帮助你编写安全的并发代码。防止并发编程中的错误是贯穿整个 Rust 程序思考所有权的优势。让我们做一个实验来展示通道和所有权如何协同工作以防止问题：我们将尝试在将 <code>val</code> 值通过通道发送 <em>之后</em> 在派生的线程中使用它。尝试编译清单 16-9 中的代码，看看为什么这段代码是不允许的。",
+    "_note": ""
+  },
+  "Here, we try to print val after we’ve sent it down the channel via tx.send. Allowing this would be a bad idea: Once the value has been sent to another thread, that thread could modify or drop it before we try to use the value again. Potentially, the other thread’s modifications could cause errors or unexpected results due to inconsistent or nonexistent data. However, Rust gives us an error if we try to compile the code in Listing 16-9:": {
+    "_translate": "在这里，我们尝试在通过 <code>tx.send</code> 将 <code>val</code> 发送到通道后打印它。\n允许这样做是一个坏主意：一旦值被发送到另一个线程，该线程可能在我们再次尝试使用该值之前对其进行修改或丢弃。潜在地，其他线程的修改可能会由于不一致或不存在的数据导致错误或意外结果。然而，如果我们尝试编译清单 16-9 中的代码，Rust 会给我们一个错误：",
+    "_note": ""
+  },
+  "In Listing 16-10, we’ve made some modifications that will prove the code in Listing 16-8 is running concurrently: The spawned thread will now send multiple messages and pause for a second between each message.": {
+    "_translate": "在清单 16-10 中，我们进行了一些修改，这些修改将证明清单 16-8 中的代码是并发运行的：新创建的线程现在将发送多条消息，并在每条消息之间暂停一秒。",
+    "_note": ""
+  },
+  "In the main thread, we’re not calling the recv function explicitly anymore: Instead, we’re treating rx as an iterator. For each value received, we’re printing it. When the channel is closed, iteration will end.": {
+    "_translate": "在主线程中，我们不再显式调用 <code>recv</code> 函数：\n相反，我们将 <code>rx</code> 作为迭代器处理。对于接收到的每个值，我们都会\n打印它。当通道关闭时，迭代将结束。",
+    "_note": ""
   }
 }

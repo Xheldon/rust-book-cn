@@ -251,8 +251,8 @@ blockquote {
                     <main>
                         <h2 id="running-code-on-cleanup-with-the-drop-trait"><a class="header" href="#running-code-on-cleanup-with-the-drop-trait">使用 <code>Drop</code> 特性在清理时运行代码</a></h2>
 <p data-x-en="The second trait important to the smart pointer pattern is Drop, which lets you customize what happens when a value is about to go out of scope. You can provide an implementation for the Drop trait on any type, and that code can be used to release resources like files or network connections.">智能指针模式中重要的第二个 trait 是 <code>Drop</code>，它让你可以自定义值即将超出作用域时发生的情况。你可以为任何类型提供 <code>Drop</code> trait 的实现，这些代码可以用于释放文件或网络连接等资源。</p>
-<p data-x-en="We’re introducing Drop in the context of smart pointers because the functionality of the Drop trait is almost always used when implementing a smart pointer. For example, when a Box<T> is dropped it will deallocate the space on the heap that the box points to.">我们正在智能指针的上下文中介绍<code>Drop</code>，因为<code>Drop</code>特征的功能几乎总是在实现智能指针时使用。例如，当<code>Box&lt;T&gt;</code>被丢弃时，它将释放该盒子指向的堆上的空间。</p>
-<p data-x-en="In some languages, for some types, the programmer must call code to free memory or resources every time they finish using an instance of those types. Examples include file handles, sockets, and locks. If they forget, the system might become overloaded and crash. In Rust, you can specify that a particular bit of code be run whenever a value goes out of scope, and the compiler will insert this code automatically. As a result, you don’t need to be careful about placing cleanup code everywhere in a program that an instance of a particular type is finished with—you still won’t leak resources!">在某些语言中，对于某些类型，程序员必须在每次使用这些类型的实例后调用代码来释放内存或资源。例如文件句柄、套接字和锁。如果他们忘记了，系统可能会过载并崩溃。在 Rust 中，你可以指定每当一个值超出作用域时运行一段特定的代码，编译器会自动插入这段代码。因此，你不需要在程序中每个使用特定类型实例的地方都小心地放置清理代码——你仍然不会泄露资源！</p>
+<p data-x-en="We’re introducing Drop in the context of smart pointers because the functionality of the Drop trait is almost always used when implementing a smart pointer. For example, when a Box<T> is dropped, it will deallocate the space on the heap that the box points to.">我们正在智能指针的上下文中介绍<code>Drop</code>，因为<code>Drop</code>特征的功能几乎总是在实现智能指针时使用。例如，当<code>Box&lt;T&gt;</code>被丢弃时，它将释放该盒子指向的堆上的空间。</p>
+<p data-x-en="In some languages, for some types, the programmer must call code to free memory or resources every time they finish using an instance of those types. Examples include file handles, sockets, and locks. If the programmer forgets, the system might become overloaded and crash. In Rust, you can specify that a particular bit of code be run whenever a value goes out of scope, and the compiler will insert this code automatically. As a result, you don’t need to be careful about placing cleanup code everywhere in a program that an instance of a particular type is finished with—you still won’t leak resources!">在某些语言中，对于某些类型，程序员必须在每次使用这些类型的实例后调用代码来释放内存或资源。例子包括文件句柄、套接字和锁。如果程序员忘记了，系统可能会过载并崩溃。在 Rust 中，你可以指定每当一个值超出作用域时运行一段特定的代码，编译器会自动插入这段代码。因此，你不需要在程序中每个使用特定类型实例的地方都小心地放置清理代码——你仍然不会泄露资源！</p>
 <p data-x-en="You specify the code to run when a value goes out of scope by implementing the Drop trait. The Drop trait requires you to implement one method named drop that takes a mutable reference to self. To see when Rust calls drop, let’s implement drop with println! statements for now.">您可以通过实现 <code>Drop</code> 特性来指定值超出作用域时运行的代码。<code>Drop</code> 特性要求您实现一个名为 <code>drop</code> 的方法，该方法接受一个可变的 <code>self</code> 引用。为了查看 Rust 何时调用 <code>drop</code>，让我们先用 <code>println!</code> 语句来实现 <code>drop</code>。</p>
 <p data-x-en="Listing 15-14 shows a CustomSmartPointer struct whose only custom functionality is that it will print Dropping CustomSmartPointer! when the instance goes out of scope, to show when Rust runs the drop method.">列表 15-14 显示了一个 <code>CustomSmartPointer</code> 结构体，其唯一的自定义功能是在实例超出作用域时打印 <code>Dropping CustomSmartPointer!</code>，以显示 Rust 何时运行 <code>drop</code> 方法。</p>
 <figure class="listing" id="listing-15-14">
@@ -274,7 +274,7 @@ fn main() {
     let d = CustomSmartPointer {
         data: String::from("other stuff"),
     };
-    println!("CustomSmartPointers created.");
+    println!("CustomSmartPointers created");
 }</code></pre></pre>
 <figcaption><a href="#listing-15-14">Listing 15-14</a>: A <code>CustomSmartPointer</code> struct that implements the <code>Drop</code> trait where we would put our cleanup code</figcaption>
 </figure>
@@ -285,15 +285,15 @@ fn main() {
    Compiling drop-example v0.1.0 (file:///projects/drop-example)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.60s
      Running `target/debug/drop-example`
-CustomSmartPointers created.
+CustomSmartPointers created
 Dropping CustomSmartPointer with data `other stuff`!
 Dropping CustomSmartPointer with data `my stuff`!
 </code></pre>
 <p data-x-en="Rust automatically called drop for us when our instances went out of scope, calling the code we specified. Variables are dropped in the reverse order of their creation, so d was dropped before c. This example’s purpose is to give you a visual guide to how the drop method works; usually you would specify the cleanup code that your type needs to run rather than a print message.">Rust 会在我们的实例超出作用域时自动调用 <code>drop</code>，调用我们指定的代码。变量的销毁顺序与它们的创建顺序相反，因此 <code>d</code> 在 <code>c</code> 之前被销毁。此示例的目的是为您提供一个关于 <code>drop</code> 方法如何工作的视觉指南；通常情况下，您会指定类型需要运行的清理代码，而不是打印消息。</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="dropping-a-value-early-with-std-mem-drop"></a></p>
-<p data-x-en="Unfortunately, it’s not straightforward to disable the automatic drop functionality. Disabling drop isn’t usually necessary; the whole point of the Drop trait is that it’s taken care of automatically. Occasionally, however, you might want to clean up a value early. One example is when using smart pointers that manage locks: you might want to force the drop method that releases the lock so that other code in the same scope can acquire the lock. Rust doesn’t let you call the Drop trait’s drop method manually; instead, you have to call the std::mem::drop function provided by the standard library if you want to force a value to be dropped before the end of its scope.">不幸的是，禁用自动 <code>drop</code> 功能并不简单。通常情况下，禁用 <code>drop</code> 并不必要；<code>Drop</code> 特性的整个目的是它会自动处理。然而，有时你可能希望提前清理一个值。一个例子是在使用管理锁的智能指针时：你可能希望强制调用释放锁的 <code>drop</code> 方法，以便同一作用域中的其他代码可以获取锁。Rust 不允许你手动调用 <code>Drop</code> 特性的 <code>drop</code> 方法；相反，如果你想强制一个值在作用域结束前被丢弃，必须调用标准库提供的 <code>std::mem::drop</code> 函数。</p>
-<p data-x-en="If we try to call the Drop trait’s drop method manually by modifying the main function from Listing 15-14, as shown in Listing 15-15, we’ll get a compiler error.">如果我们尝试通过修改列表 15-14 中的 <code>main</code> 函数手动调用 <code>Drop</code> 特性 的 <code>drop</code> 方法，如列表 15-15 所示，我们将得到一个编译器错误。</p>
+<p data-x-en="Unfortunately, it’s not straightforward to disable the automatic drop functionality. Disabling drop isn’t usually necessary; the whole point of the Drop trait is that it’s taken care of automatically. Occasionally, however, you might want to clean up a value early. One example is when using smart pointers that manage locks: You might want to force the drop method that releases the lock so that other code in the same scope can acquire the lock. Rust doesn’t let you call the Drop trait’s drop method manually; instead, you have to call the std::mem::drop function provided by the standard library if you want to force a value to be dropped before the end of its scope.">不幸的是，禁用自动 <code>drop</code> 功能并不简单。通常情况下，禁用 <code>drop</code> 并不必要；<code>Drop</code> 特性的整个目的是它会自动处理。然而，有时你可能希望提前清理一个值。一个例子是在使用管理锁的智能指针时：你可能希望强制调用释放锁的 <code>drop</code> 方法，以便同一作用域中的其他代码可以获取锁。Rust 不允许你手动调用 <code>Drop</code> 特性的 <code>drop</code> 方法；相反，如果你希望在作用域结束前强制释放一个值，必须调用标准库提供的 <code>std::mem::drop</code> 函数。</p>
+<p data-x-en="Trying to call the Drop trait’s drop method manually by modifying the main function from Listing 15-14 won’t work, as shown in Listing 15-15.">尝试通过修改列表 15-14 中的 <code>main</code> 函数手动调用 <code>Drop</code> 特性（trait）的 <code>drop</code> 方法是行不通的，如列表 15-15 所示。</p>
 <figure class="listing" id="listing-15-15">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">struct CustomSmartPointer {
@@ -310,9 +310,9 @@ Dropping CustomSmartPointer with data `my stuff`!
     let c = CustomSmartPointer {
         data: String::from("some data"),
     };
-    println!("CustomSmartPointer created.");
+    println!("CustomSmartPointer created");
     c.drop();
-    println!("CustomSmartPointer dropped before the end of main.");
+    println!("CustomSmartPointer dropped before the end of main");
 }</code></pre>
 <figcaption><a href="#listing-15-15">Listing 15-15</a>: Attempting to call the <code>drop</code> method from the <code>Drop</code> trait manually to clean up early</figcaption>
 </figure>
@@ -334,7 +334,7 @@ For more information about this error, try `rustc --explain E0040`.
 error: could not compile `drop-example` (bin "drop-example") due to 1 previous error
 </code></pre>
 <p data-x-en="This error message states that we’re not allowed to explicitly call drop. The error message uses the term destructor, which is the general programming term for a function that cleans up an instance. A destructor is analogous to a constructor, which creates an instance. The drop function in Rust is one particular destructor.">这个错误消息表明我们不允许显式调用<code>drop</code>。错误消息使用了术语<em>析构函数</em>，这是指清理一个实例的函数的一般编程术语。一个<em>析构函数</em>类似于<em>构造函数</em>，后者创建一个实例。Rust 中的<code>drop</code>函数就是一个特定的析构函数。</p>
-<p data-x-en="Rust doesn’t let us call drop explicitly because Rust would still automatically call drop on the value at the end of main. This would cause a double free error because Rust would be trying to clean up the same value twice.">Rust 不允许我们显式调用 <code>drop</code>，因为 Rust 仍然会在 <code>main</code> 结束时自动调用 <code>drop</code>。这会导致 <em>双重释放</em> 错误，因为 Rust 会尝试两次清理同一个值。</p>
+<p data-x-en="Rust doesn’t let us call drop explicitly, because Rust would still automatically call drop on the value at the end of main. This would cause a double free error because Rust would be trying to clean up the same value twice.">Rust 不允许我们显式调用 <code>drop</code>，因为 Rust 仍然会在 <code>main</code> 结束时自动调用 <code>drop</code>。这会导致双重释放错误，因为 Rust 会尝试两次清理同一个值。</p>
 <p data-x-en="We can’t disable the automatic insertion of drop when a value goes out of scope, and we can’t call the drop method explicitly. So, if we need to force a value to be cleaned up early, we use the std::mem::drop function.">我们不能禁用值超出作用域时自动插入的<code>drop</code>，也不能显式调用<code>drop</code>方法。所以，如果我们需要强制提前清理一个值，我们使用<code>std::mem::drop</code>函数。</p>
 <p data-x-en="The std::mem::drop function is different from the drop method in the Drop trait. We call it by passing as an argument the value we want to force-drop. The function is in the prelude, so we can modify main in Listing 15-15 to call the drop function, as shown in Listing 15-16."><code>std::mem::drop</code> 函数与 <code>Drop</code> 特性中的 <code>drop</code> 方法不同。我们通过传递要强制丢弃的值作为参数来调用它。该函数在前言中，因此我们可以修改列表 15-15 中的 <code>main</code> 来调用 <code>drop</code> 函数，如列表 15-16 所示。</p>
 <figure class="listing" id="listing-15-16">
@@ -353,9 +353,9 @@ error: could not compile `drop-example` (bin "drop-example") due to 1 previous e
     let c = CustomSmartPointer {
         data: String::from("some data"),
     };
-    println!("CustomSmartPointer created.");
+    println!("CustomSmartPointer created");
     drop(c);
-    println!("CustomSmartPointer dropped before the end of main.");
+    println!("CustomSmartPointer dropped before the end of main");
 }</code></pre></pre>
 <figcaption><a href="#listing-15-16">Listing 15-16</a>: Calling <code>std::mem::drop</code> to explicitly drop a value before it goes out of scope</figcaption>
 </figure>
@@ -364,13 +364,13 @@ error: could not compile `drop-example` (bin "drop-example") due to 1 previous e
    Compiling drop-example v0.1.0 (file:///projects/drop-example)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.73s
      Running `target/debug/drop-example`
-CustomSmartPointer created.
+CustomSmartPointer created
 Dropping CustomSmartPointer with data `some data`!
-CustomSmartPointer dropped before the end of main.
+CustomSmartPointer dropped before the end of main
 </code></pre>
-<p data-x-en="The text Dropping CustomSmartPointer with data `some data`! is printed between the CustomSmartPointer created. and CustomSmartPointer dropped before the end of main. text, showing that the drop method code is called to drop c at that point.">文本 <code>Dropping CustomSmartPointer with data `some data`!</code> 在 <code>CustomSmartPointer created.</code> 和 <code>CustomSmartPointer dropped before the end of main.</code> 之间打印，显示 <code>drop</code> 方法代码在该点被调用以释放 <code>c</code>。</p>
-<p data-x-en="You can use code specified in a Drop trait implementation in many ways to make cleanup convenient and safe: for instance, you could use it to create your own memory allocator! With the Drop trait and Rust’s ownership system, you don’t have to remember to clean up because Rust does it automatically.">你可以以多种方式使用在 <code>Drop</code> 特性实现中指定的代码，使清理既方便又安全：例如，你可以用它来创建你自己的内存分配器！通过 <code>Drop</code> 特性和 Rust 的所有权系统，你不必记得清理，因为 Rust 会自动完成。</p>
-<p data-x-en="You also don’t have to worry about problems resulting from accidentally cleaning up values still in use: the ownership system that makes sure references are always valid also ensures that drop gets called only once when the value is no longer being used.">你也不必担心因意外清理仍在使用中的值而产生的问题：确保引用始终有效的所有权系统也确保当值不再被使用时，<code>drop</code> 只会被调用一次。</p>
+<p data-x-en="The text Dropping CustomSmartPointer with data `some data`! is printed between the CustomSmartPointer created and CustomSmartPointer dropped before the end of main text, showing that the drop method code is called to drop c at that point.">文本 <code>Dropping CustomSmartPointer with data `some data`!</code> 在 <code>CustomSmartPointer created</code> 和 <code>CustomSmartPointer dropped before the end of main</code> 之间打印，显示 <code>drop</code> 方法代码在该点被调用以释放 <code>c</code>。</p>
+<p data-x-en="You can use code specified in a Drop trait implementation in many ways to make cleanup convenient and safe: For instance, you could use it to create your own memory allocator! With the Drop trait and Rust’s ownership system, you don’t have to remember to clean up, because Rust does it automatically.">你可以以多种方式使用在 <code>Drop</code> 特性实现中指定的代码，使清理既方便又安全：例如，你可以用它来创建自己的内存分配器！通过 <code>Drop</code> 特性和 Rust 的所有权系统，你不必记得清理，因为 Rust 会自动完成。</p>
+<p data-x-en="You also don’t have to worry about problems resulting from accidentally cleaning up values still in use: The ownership system that makes sure references are always valid also ensures that drop gets called only once when the value is no longer being used.">你也不必担心因意外清理仍在使用中的值而产生的问题：确保引用始终有效的所有权系统也确保当值不再被使用时，<code>drop</code> 只会被调用一次。</p>
 <p data-x-en="Now that we’ve examined Box<T> and some of the characteristics of smart pointers, let’s look at a few other smart pointers defined in the standard library.">现在我们已经研究了<code>Box&lt;T&gt;</code> 和一些智能指针的特性，让我们来看看标准库中定义的其他几个智能指针。</p>
 
                     </main>

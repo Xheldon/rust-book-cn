@@ -134,5 +134,37 @@
   "Cloning to Increase the Reference Count": {
     "_translate": "<a class=\"header\" href=\"#cloning-to-increase-the-reference-count\">克隆以增加引用计数</a>",
     "_note": ""
+  },
+  "Rc<T>, the Reference-Counted Smart Pointer": {
+    "_translate": "<a class=\"header\" href=\"#rct-the-reference-counted-smart-pointer\"><code>Rc&lt;T&gt;</code>，引用计数智能指针</a>",
+    "_note": ""
+  },
+  "In the majority of cases, ownership is clear: You know exactly which variable owns a given value. However, there are cases when a single value might have multiple owners. For example, in graph data structures, multiple edges might point to the same node, and that node is conceptually owned by all of the edges that point to it. A node shouldn’t be cleaned up unless it doesn’t have any edges pointing to it and so has no owners.": {
+    "_translate": "在大多数情况下，所有权是明确的：您确切地知道哪个变量拥有给定的值。然而，有些情况下单个值可能有多个所有者。例如，在图数据结构中，多条边可能指向同一个节点，而该节点在概念上由所有指向它的边共同拥有。除非节点没有任何边指向它，即没有所有者，否则不应清理该节点。",
+    "_note": ""
+  },
+  "We’ll create list a that contains 5 and then 10. Then, we’ll make two more lists: b that starts with 3 and c that starts with 4. Both the b and c lists will then continue on to the first a list containing 5 and 10. In other words, both lists will share the first list containing 5 and 10.": {
+    "_translate": "我们将创建一个包含 <code>5</code> 然后是 <code>10</code> 的列表 <code>a</code>。然后，我们将创建两个更多的列表：<code>b</code> 以 <code>3</code> 开头，<code>c</code> 以 <code>4</code> 开头。<code>b</code> 和 <code>c</code> 列表随后将继续到包含 <code>5</code> 和 <code>10</code> 的第一个 <code>a</code> 列表。换句话说，两个列表都将共享包含 <code>5</code> 和 <code>10</code> 的第一个列表。",
+    "_note": ""
+  },
+  "Let’s change our working example in Listing 15-18 so that we can see the reference counts changing as we create and drop references to the Rc<List> in a.": {
+    "_translate": "让我们修改列表 15-18 中的工作示例，以便在我们创建和删除对 <code>a</code> 中的 <code>Rc&lt;List&gt;</code> 的引用时，可以看到引用计数的变化。",
+    "_note": ""
+  },
+  "In Listing 15-19, we’ll change main so that it has an inner scope around list c; then, we can see how the reference count changes when c goes out of scope.": {
+    "_translate": "在清单 15-19 中，我们将更改 <code>main</code>，使其在列表 <code>c</code> 周围有一个内部作用域；然后，我们可以看到当 <code>c</code> 超出作用域时引用计数如何变化。",
+    "_note": ""
+  },
+  "We can see that the Rc<List> in a has an initial reference count of 1; then, each time we call clone, the count goes up by 1. When c goes out of scope, the count goes down by 1. We don’t have to call a function to decrease the reference count like we have to call Rc::clone to increase the reference count: The implementation of the Drop trait decreases the reference count automatically when an Rc<T> value goes out of scope.": {
+    "_translate": "我们可以看到，<code>a</code> 中的 <code>Rc&lt;List&gt;</code> 初始引用计数为 1；然后，每次我们调用 <code>clone</code> 时，计数增加 1。当 <code>c</code> 超出作用域时，计数减少 1。我们不需要像调用 <code>Rc::clone</code> 增加引用计数那样调用一个函数来减少引用计数：当 <code>Rc&lt;T&gt;</code> 值超出作用域时，<code>Drop</code> 特性的实现会自动减少引用计数。",
+    "_note": ""
+  },
+  "What we can’t see in this example is that when b and then a go out of scope at the end of main, the count is 0, and the Rc<List> is cleaned up completely. Using Rc<T> allows a single value to have multiple owners, and the count ensures that the value remains valid as long as any of the owners still exist.": {
+    "_translate": "在这个例子中我们看不到的是，当 <code>b</code> 和然后 <code>a</code> 在 <code>main</code> 结束时超出作用域，计数为 0，<code>Rc&lt;List&gt;</code> 完全被清理。使用 <code>Rc&lt;T&gt;</code> 允许单个值有多个所有者，计数确保只要有任何所有者存在，值就保持有效。",
+    "_note": ""
+  },
+  "Via immutable references, Rc<T> allows you to share data between multiple parts of your program for reading only. If Rc<T> allowed you to have multiple mutable references too, you might violate one of the borrowing rules discussed in Chapter 4: Multiple mutable borrows to the same place can cause data races and inconsistencies. But being able to mutate data is very useful! In the next section, we’ll discuss the interior mutability pattern and the RefCell<T> type that you can use in conjunction with an Rc<T> to work with this immutability restriction.": {
+    "_translate": "通过不可变引用，<code>Rc&lt;T&gt;</code> 允许你在程序的多个部分之间共享数据，但仅限于读取。如果 <code>Rc&lt;T&gt;</code> 也允许你有多个可变引用，你可能会违反在第 4 章讨论的借用规则之一：对同一位置的多个可变借用可能导致数据竞争和不一致。但能够修改数据是非常有用的！在下一节中，我们将讨论内部可变性模式和 <code>RefCell&lt;T&gt;</code> 类型，你可以将其与 <code>Rc&lt;T&gt;</code> 结合使用，以应对这种不可变性限制。",
+    "_note": ""
   }
 }

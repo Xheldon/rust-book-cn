@@ -54,5 +54,9 @@
   "Cargo has two main profiles: the dev profile Cargo uses when you run cargo build, and the release profile Cargo uses when you run cargo build --release. The dev profile is defined with good defaults for development, and the release profile has good defaults for release builds.": {
     "_translate": "Cargo 有两个主要配置文件：当你运行 <code>cargo build</code> 时 Cargo 使用的 <code>dev</code> 配置文件，以及当你运行 <code>cargo build --release</code> 时 Cargo 使用的 <code>release</code> 配置文件。<code>dev</code> 配置文件定义了开发时的良好默认设置，而 <code>release</code> 配置文件则为发布构建提供了良好的默认设置。",
     "_note": ""
+  },
+  "In Rust, release profiles are predefined, customizable profiles with different configurations that allow a programmer to have more control over various options for compiling code. Each profile is configured independently of the others.": {
+    "_translate": "在 Rust 中，<em>发布配置</em>是预定义的、可自定义的配置文件，具有不同的配置，允许程序员对编译代码的各种选项有更多的控制。每个配置文件都是独立配置的。",
+    "_note": ""
   }
 }

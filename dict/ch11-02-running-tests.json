@@ -138,5 +138,21 @@
   "Ignoring Tests Unless Specifically Requested": {
     "_translate": "<a class=\"header\" href=\"#ignoring-tests-unless-specifically-requested\">除非特别要求，否则忽略测试</a>",
     "_note": ""
+  },
+  "When you run multiple tests, by default they run in parallel using threads, meaning they finish running more quickly and you get feedback sooner. Because the tests are running at the same time, you must make sure your tests don’t depend on each other or on any shared state, including a shared environment, such as the current working directory or environment variables.": {
+    "_translate": "当你运行多个测试时，默认情况下它们会使用线程并行运行，这意味着它们会更快完成运行，你也能更快地得到反馈。因为测试是同时运行的，你必须确保你的测试之间不互相依赖，也不依赖于任何共享状态，包括共享的环境，如当前工作目录或环境变量。",
+    "_note": ""
+  },
+  "Some command line options go to cargo test, and some go to the resultant test binary. To separate these two types of arguments, you list the arguments that go to cargo test followed by the separator -- and then the ones that go to the test binary. Running cargo test --help displays the options you can use with cargo test, and running cargo test -- --help displays the options you can use after the separator. These options are also documented in the “Tests” section of The rustc Book.": {
+    "_translate": "一些命令行选项传递给<code>cargo test</code>，而另一些则传递给生成的测试二进制文件。为了区分这两种类型的参数，您需要先列出传递给<code>cargo test</code>的参数，然后是分隔符<code>--</code>，接着是传递给测试二进制文件的参数。运行<code>cargo test --help</code>会显示您可以与<code>cargo test</code>一起使用的选项，而运行<code>cargo test -- --help</code>会显示分隔符后可以使用的选项。这些选项也在<a href=\"https://doc.rust-lang.org/rustc/tests/index.html\">《<code>rustc</code>书》的“测试”部分</a>中进行了文档化。",
+    "_note": ""
+  },
+  "Running a full test suite can sometimes take a long time. If you’re working on code in a particular area, you might want to run only the tests pertaining to that code. You can choose which tests to run by passing cargo test the name or names of the test(s) you want to run as an argument.": {
+    "_translate": "运行完整的测试套件有时会花费很长时间。如果你正在处理特定区域的代码，你可能只想运行与该代码相关的测试。你可以通过将你想要运行的测试的名称或名称列表作为参数传递给 <code>cargo test</code> 来选择要运行的测试。",
+    "_note": ""
+  },
+  "For example, say each of your tests runs some code that creates a file on disk named test-output.txt and writes some data to that file. Then, each test reads the data in that file and asserts that the file contains a particular value, which is different in each test. Because the tests run at the same time, one test might overwrite the file in the time between when another test is writing and reading the file. The second test will then fail, not because the code is incorrect but because the tests have interfered with each other while running in parallel. One solution is to make sure each test writes to a different file; another solution is to run the tests one at a time.": {
+    "_translate": "例如，假设每个测试运行的代码都会在磁盘上创建一个名为<em>test-output.txt</em>的文件，并向该文件写入一些数据。然后，每个测试读取该文件中的数据，并断言文件包含一个特定的值，每个测试的值都不同。因为测试同时运行，一个测试可能在另一个测试写入和读取文件之间的时间内覆盖该文件。第二个测试将失败，不是因为代码错误，而是因为测试在并行运行时相互干扰。一种解决方案是确保每个测试写入不同的文件；另一种解决方案是依次运行测试。",
+    "_note": ""
   }
 }

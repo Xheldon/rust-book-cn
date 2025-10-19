@@ -70,5 +70,13 @@
   "Before we get started, we should mention two details. First, the method we’ll use won’t be the best way to build a web server with Rust. Community members have published a number of production-ready crates available at crates.io that provide more complete web server and thread pool implementations than we’ll build. However, our intention in this chapter is to help you learn, not to take the easy route. Because Rust is a systems programming language, we can choose the level of abstraction we want to work with and can go to a lower level than is possible or practical in other languages.": {
     "_translate": "在我们开始之前，我们应该提到两个细节。首先，我们将使用的方法不会是用 Rust 构建 web 服务器的最佳方式。社区成员在 <a href=\"https://crates.io/\">crates.io</a> 上发布了许多生产就绪的 crate，提供了比我们将要构建的更完整的 web 服务器和线程池实现。然而，本章的目的是帮助你学习，而不是走捷径。因为 Rust 是一种系统编程语言，我们可以选择我们想要工作的抽象层次，并且可以降到其他语言中不可能或不切实际的更低层次。",
     "_note": ""
+  },
+  "For our final project, we’ll make a web server that says “Hello!” and looks like Figure 21-1 in a web browser.": {
+    "_translate": "对于我们的最终项目，我们将制作一个在网页浏览器中显示“Hello!”的网页服务器，如图21-1所示。",
+    "_note": ""
+  },
+  "We’ll therefore write the basic HTTP server and thread pool manually so that you can learn the general ideas and techniques behind the crates you might use in the future.": {
+    "_translate": "因此，我们将手动编写基本的HTTP服务器和线程池，以便你可以学习将来可能使用的crates背后的一般思想和技术。",
+    "_note": ""
   }
 }

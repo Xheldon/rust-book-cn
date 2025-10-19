@@ -338,5 +338,69 @@
   "Refactoring": {
     "_translate": "<a class=\"header\" href=\"#refactoring\">重构</a>",
     "_note": ""
+  },
+  "The bind function returns a Result<T, E>, which indicates that it’s possible for binding to fail, for example, if we ran two instances of our program and so had two programs listening to the same port. Because we’re writing a basic server just for learning purposes, we won’t worry about handling these kinds of errors; instead, we use unwrap to stop the program if errors happen.": {
+    "_translate": "<code>bind</code> 函数返回一个 <code>Result&lt;T, E&gt;</code>，这表明绑定可能会失败，例如，如果我们运行了我们程序的两个实例，因此有两个程序监听同一个端口。因为我们编写的是一个仅用于学习目的的基本服务器，所以我们不会担心处理这类错误；相反，我们使用 <code>unwrap</code> 来在错误发生时停止程序。",
+    "_note": ""
+  },
+  "Browsers also sometimes open multiple connections to the server without sending any requests so that if they do later send requests, those requests can happen more quickly. When this occurs, our server will see each connection, regardless of whether there are any requests over that connection. Many versions of Chrome-based browsers do this, for example; you can disable that optimization by using private browsing mode or using a different browser.": {
+    "_translate": "浏览器有时也会在没有发送任何请求的情况下打开多个与服务器的连接，这样如果它们<em>确实</em>稍后发送请求，这些请求可以更快地发生。当这种情况发生时，我们的服务器将看到每个连接，无论该连接上是否有任何请求。例如，许多基于 Chrome 的浏览器版本都会这样做；您可以通过使用隐私浏览模式或使用不同的浏览器来禁用这种优化。",
+    "_note": ""
+  },
+  "The incoming method on TcpListener returns an iterator that gives us a sequence of streams (more specifically, streams of type TcpStream). A single stream represents an open connection between the client and the server. Connection is the name for the full request and response process in which a client connects to the server, the server generates a response, and the server closes the connection. As such, we will read from the TcpStream to see what the client sent and then write our response to the stream to send data back to the client. Overall, this for loop will process each connection in turn and produce a series of streams for us to handle.": {
+    "_translate": "<code>TcpListener</code> 上的 <code>incoming</code> 方法返回一个迭代器，该迭代器为我们提供了一序列的流（更具体地说，是 <code>TcpStream</code> 类型的流）。单个 <em>流</em> 表示客户端和服务器之间的一个开放连接。<em>连接</em> 是指客户端连接到服务器、服务器生成响应并关闭连接的整个请求和响应过程。因此，我们将从 <code>TcpStream</code> 中读取以查看客户端发送的内容，然后将我们的响应写入流中以将数据发送回客户端。总体而言，这个 <code>for</code> 循环将依次处理每个连接，并为我们生成一系列需要处理的流。",
+    "_note": ""
+  },
+  "Remember to stop the program by pressing ctrl-C when you’re done running a particular version of the code. Then, restart the program by invoking the cargo run command after you’ve made each set of code changes to make sure you’re running the newest code.": {
+    "_translate": "记住，当你完成运行特定版本的代码时，通过按 <kbd>ctrl</kbd>-<kbd>C</kbd> 来停止程序。然后，在每次进行代码更改后，通过调用 <code>cargo run</code> 命令重新启动程序，以确保你正在运行最新的代码。",
+    "_note": ""
+  },
+  "Let’s implement the functionality to read the request from the browser! To separate the concerns of first getting a connection and then taking some action with the connection, we’ll start a new function for processing connections. In this new handle_connection function, we’ll read data from the TCP stream and print it so that we can see the data being sent from the browser. Change the code to look like Listing 21-2.": {
+    "_translate": "让我们实现从浏览器读取请求的功能！为了将首先获取连接和然后对连接采取某些行动的关注点分开，我们将开始一个用于处理连接的新函数。在这个新的<code>handle_connection</code>函数中，我们将从TCP流中读取数据并打印出来，这样我们就可以看到从浏览器发送的数据。将代码更改为如清单21-2所示。",
+    "_note": ""
+  },
+  "We bring std::io::BufReader and std::io::prelude into scope to get access to traits and types that let us read from and write to the stream. In the for loop in the main function, instead of printing a message that says we made a connection, we now call the new handle_connection function and pass the stream to it.": {
+    "_translate": "我们引入 <code>std::io::BufReader</code> 和 <code>std::io::prelude</code> 以获得可以让我们从流中读取和写入的特性和类型。在 <code>main</code> 函数中的 <code>for</code> 循环中，我们不再打印一条消息说我们建立了一个连接，而是调用新的 <code>handle_connection</code> 函数并将 <code>stream</code> 传递给它。",
+    "_note": ""
+  },
+  "The browser signals the end of an HTTP request by sending two newline characters in a row, so to get one request from the stream, we take lines until we get a line that is the empty string. Once we’ve collected the lines into the vector, we’re printing them out using pretty debug formatting so that we can take a look at the instructions the web browser is sending to our server.": {
+    "_translate": "浏览器通过发送两个连续的换行符来表示HTTP请求的结束，因此为了从流中获取一个请求，我们接收行直到我们得到一个空字符串的行。一旦我们将这些行收集到向量中，我们就会使用漂亮的调试格式打印它们，以便我们可以查看浏览器发送给我们的服务器的指令。",
+    "_note": ""
+  },
+  "Looking More Closely at an HTTP Request": {
+    "_translate": "<a class=\"header\" href=\"#looking-more-closely-at-an-http-request\">更仔细地查看HTTP请求</a>",
+    "_note": ""
+  },
+  "Here is an example response that uses HTTP version 1.1 and has a status code of 200, an OK reason phrase, no headers, and no body:": {
+    "_translate": "这是一个使用 HTTP 1.1 版本的示例响应，状态码为 200，原因短语为 OK，没有头部和正文：",
+    "_note": ""
+  },
+  "The next part of the request line is /, which indicates the uniform resource identifier (URI) the client is requesting: A URI is almost, but not quite, the same as a uniform resource locator (URL). The difference between URIs and URLs isn’t important for our purposes in this chapter, but the HTTP spec uses the term URI, so we can just mentally substitute URL for URI here.": {
+    "_translate": "请求行的下一部分是<em>/</em>，这表示客户端请求的<em>统一资源标识符</em> <em>(URI)</em>：URI 几乎，但不完全是，与<em>统一资源定位符</em> <em>(URL)</em>相同。在本章中，URI 和 URL 之间的区别并不重要，但 HTTP 规范使用了<em>URI</em>一词，因此我们可以在这里将<em>URI</em>理解为<em>URL</em>。",
+    "_note": ""
+  },
+  "Next, we use format! to add the file’s contents as the body of the success response. To ensure a valid HTTP response, we add the Content-Length header, which is set to the size of our response body—in this case, the size of hello.html.": {
+    "_translate": "接下来，我们使用<code>format!</code>将文件的内容作为成功响应的正文添加。为了确保有效的HTTP响应，我们添加了<code>Content-Length</code>头，该头设置为响应正文的大小——在这种情况下，即<code>hello.html</code>的大小。",
+    "_note": ""
+  },
+  "The first new line defines the response variable that holds the success message’s data. Then, we call as_bytes on our response to convert the string data to bytes. The write_all method on stream takes a &[u8] and sends those bytes directly down the connection. Because the write_all operation could fail, we use unwrap on any error result as before. Again, in a real application, you would add error handling here.": {
+    "_translate": "第一行新代码定义了 <code>response</code> 变量，该变量保存成功消息的数据。然后，我们对 <code>response</code> 调用 <code>as_bytes</code> 将字符串数据转换为字节。<code>stream</code> 上的 <code>write_all</code> 方法接受一个 <code>&amp;[u8]</code> 并将这些字节直接发送到连接中。因为 <code>write_all</code> 操作可能会失败，所以我们像之前一样对任何错误结果使用 <code>unwrap</code>。同样，在实际应用中，您会在这里添加错误处理。",
+    "_note": ""
+  },
+  "Right now, our web server will return the HTML in the file no matter what the client requested. Let’s add functionality to check that the browser is requesting / before returning the HTML file and to return an error if the browser requests anything else. For this we need to modify handle_connection, as shown in Listing 21-6. This new code checks the content of the request received against what we know a request for / looks like and adds if and else blocks to treat requests differently.": {
+    "_translate": "现在，我们的 Web 服务器会返回文件中的 HTML，无论客户端请求了什么。让我们添加功能，检查浏览器是否请求了 <em>/</em>，然后再返回 HTML 文件，如果浏览器请求了其他任何内容，则返回错误。为此，我们需要修改 <code>handle_connection</code>，如清单 21-6 所示。这段新代码会检查接收到的请求内容是否与我们已知的请求 <em>/</em> 的样子相符，并添加 <code>if</code> 和 <code>else</code> 块来不同地处理请求。",
+    "_note": ""
+  },
+  "Here, our response has a status line with status code 404 and the reason phrase NOT FOUND. The body of the response will be the HTML in the file 404.html. You’ll need to create a 404.html file next to hello.html for the error page; again, feel free to use any HTML you want, or use the example HTML in Listing 21-8.": {
+    "_translate": "在这里，我们的响应有一个带有状态码 404 和原因短语 <code>NOT FOUND</code> 的状态行。响应的正文将是文件 <em>404.html</em> 中的 HTML。\n你需要在 <em>hello.html</em> 旁边创建一个 <em>404.html</em> 文件作为错误页面；同样，你可以使用任何你想要的 HTML，或者使用列表 21-8 中的示例 HTML。",
+    "_note": ""
+  },
+  "Currently, our server runs in a single thread, meaning it can only serve one request at a time. Let’s examine how that can be a problem by simulating some slow requests. Then, we’ll fix it so that our server can handle multiple requests at once.": {
+    "_translate": "目前，我们的服务器运行在单线程中，这意味着它一次只能处理一个请求。让我们通过模拟一些慢请求来 examine 这可能会如何成为一个问题。然后，我们将修复它，使我们的服务器能够同时处理多个请求。",
+    "_note": ""
+  },
+  "At the moment, the if and else blocks have a lot of repetition: They’re both reading files and writing the contents of the files to the stream. The only differences are the status line and the filename. Let’s make the code more concise by pulling out those differences into separate if and else lines that will assign the values of the status line and the filename to variables; we can then use those variables unconditionally in the code to read the file and write the response. Listing 21-9 shows the resultant code after replacing the large if and else blocks.": {
+    "_translate": "目前，<code>if</code> 和 <code>else</code> 块有很多重复：它们都在读取文件并将文件内容写入流中。唯一的区别是状态行和文件名。让我们通过将这些差异提取到单独的 <code>if</code> 和 <code>else</code> 行中，将状态行和文件名的值分配给变量，从而使代码更简洁；然后我们可以在代码中无条件地使用这些变量来读取文件并写入响应。列表 21-9 显示了替换大的 <code>if</code> 和 <code>else</code> 块后的代码。",
+    "_note": ""
   }
 }

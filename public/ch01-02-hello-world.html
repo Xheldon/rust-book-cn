@@ -257,7 +257,7 @@ blockquote {
 </section>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="creating-a-project-directory"></a></p>
-<h3 id="project-directory-setup" data-x-en="Project Directory Setup"><a class="header" href="#project-directory-setup">项目目录设置</a></h3>
+<h3 id="project-directory-setup"><a class="header" href="#project-directory-setup">项目目录设置</a></h3>
 <p data-x-en="You’ll start by making a directory to store your Rust code. It doesn’t matter to Rust where your code lives, but for the exercises and projects in this book, we suggest making a projects directory in your home directory and keeping all your projects there.">你将首先创建一个目录来存储你的Rust代码。Rust并不关心你的代码存放在哪里，但对于本书中的练习和项目，我们建议在你的主目录中创建一个<em>projects</em>目录，并将所有项目保存在那里。</p>
 <p data-x-en="Open a terminal and enter the following commands to make a projects directory and a directory for the “Hello, world!” project within the projects directory.">打开终端并输入以下命令以创建一个 <em>projects</em> 目录和在 <em>projects</em> 目录内的 “Hello, world!” 项目目录。</p>
 <p data-x-en="For Linux, macOS, and PowerShell on Windows, enter this:">对于 Linux、macOS 和 Windows 上的 PowerShell，请输入以下内容：</p>
@@ -274,7 +274,7 @@ $ cd hello_world
 </code></pre>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="writing-and-running-a-rust-program"></a></p>
-<h3 id="rust-program-basics" data-x-en="Rust Program Basics"><a class="header" href="#rust-program-basics">Rust 程序基础</a></h3>
+<h3 id="rust-program-basics"><a class="header" href="#rust-program-basics">Rust 程序基础</a></h3>
 <p data-x-en="Next, make a new source file and call it main.rs. Rust files always end with the .rs extension. If you’re using more than one word in your filename, the convention is to use an underscore to separate them. For example, use hello_world.rs rather than helloworld.rs.">接下来，创建一个新的源文件并将其命名为<em>main.rs</em>。Rust 文件总是以 <em>.rs</em> 扩展名结尾。如果你的文件名包含多个单词，惯例是使用下划线将它们分隔开。例如，使用 <em>hello_world.rs</em> 而不是 <em>helloworld.rs</em>。</p>
 <p data-x-en="Now open the main.rs file you just created and enter the code in Listing 1-1.">现在打开你刚刚创建的<em>main.rs</em>文件，并输入列表1-1中的代码。</p>
 <figure class="listing" id="listing-1-1">
@@ -298,7 +298,7 @@ Hello, world!
 <p data-x-en="If Hello, world! did print, congratulations! You’ve officially written a Rust program. That makes you a Rust programmer—welcome!">如果 <code>Hello, world!</code> 确实打印出来了，恭喜！您已经正式编写了一个 Rust 程序。这使您成为了一名 Rust 程序员——欢迎！</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="anatomy-of-a-rust-program"></a></p>
-<h3 id="the-anatomy-of-a-rust-program" data-x-en="The Anatomy of a Rust Program"><a class="header" href="#the-anatomy-of-a-rust-program">Rust 程序的结构</a></h3>
+<h3 id="the-anatomy-of-a-rust-program"><a class="header" href="#the-anatomy-of-a-rust-program">Rust 程序的结构</a></h3>
 <p data-x-en="Let’s review this “Hello, world!” program in detail. Here’s the first piece of the puzzle:">让我们详细回顾这个“Hello, world！”程序。这是第一个谜题部分：</p>
 <pre><pre class="playground"><code class="language-rust edition2024">fn main() {
 
@@ -319,7 +319,7 @@ Hello, world!
 <p data-x-en="Third, we end the line with a semicolon (;), which indicates that this expression is over, and the next one is ready to begin. Most lines of Rust code end with a semicolon.">第三，我们在行末加上分号（<code>;</code>），这表示该表达式已结束，下一个表达式可以开始。大多数 Rust 代码行以分号结尾。</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="compiling-and-running-are-separate-steps"></a></p>
-<h3 id="compilation-and-execution" data-x-en="Compilation and Execution"><a class="header" href="#compilation-and-execution">编译和执行</a></h3>
+<h3 id="compilation-and-execution"><a class="header" href="#compilation-and-execution">编译和执行</a></h3>
 <p data-x-en="You’ve just run a newly created program, so let’s examine each step in the process.">您刚刚运行了一个新创建的程序，所以让我们来检查过程中的每一步。</p>
 <p data-x-en="Before running a Rust program, you must compile it using the Rust compiler by entering the rustc command and passing it the name of your source file, like this:">在运行 Rust 程序之前，您必须使用 Rust 编译器通过输入 <code>rustc</code> 命令并传递您的源文件名来编译它，如下所示：</p>
 <pre><code class="language-console">$ rustc main.rs

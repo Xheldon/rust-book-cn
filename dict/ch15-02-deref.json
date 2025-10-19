@@ -278,5 +278,49 @@
   "Handling Deref Coercion with Mutable References": {
     "_translate": "<a class=\"header\" href=\"#handling-deref-coercion-with-mutable-references\">处理可变引用的 Deref 强制转换</a>",
     "_note": ""
+  },
+  "Let’s first look at how the dereference operator works with regular references. Then, we’ll try to define a custom type that behaves like Box<T> and see why the dereference operator doesn’t work like a reference on our newly defined type. We’ll explore how implementing the Deref trait makes it possible for smart pointers to work in ways similar to references. Then, we’ll look at Rust’s deref coercion feature and how it lets us work with either references or smart pointers.": {
+    "_translate": "让我们首先看看解引用运算符如何与常规引用一起工作。\n然后，我们将尝试定义一个像<code>Box&lt;T&gt;</code>一样行为的自定义类型，并看看为什么\n解引用运算符在我们新定义的类型上不像引用那样工作。我们将探讨实现<code>Deref</code>特征如何使\n智能指针能够以类似于引用的方式工作。然后，我们将看看\nRust的解引用强制转换特性以及它如何让我们使用引用或\n智能指针。",
+    "_note": ""
+  },
+  "The variable x holds an i32 value 5. We set y equal to a reference to x. We can assert that x is equal to 5. However, if we want to make an assertion about the value in y, we have to use *y to follow the reference to the value it’s pointing to (hence, dereference) so that the compiler can compare the actual value. Once we dereference y, we have access to the integer value y is pointing to that we can compare with 5.": {
+    "_translate": "变量 <code>x</code> 持有一个 <code>i32</code> 值 <code>5</code>。我们将 <code>y</code> 设置为对 <code>x</code> 的引用。我们可以断言 <code>x</code> 等于 <code>5</code>。然而，如果我们想对 <code>y</code> 中的值进行断言，我们必须使用 <code>*y</code> 来跟踪引用指向的值（因此，<em>解引用</em>），以便编译器可以比较实际的值。一旦我们解引用 <code>y</code>，我们就可以访问 <code>y</code> 指向的整数值，可以与 <code>5</code> 进行比较。",
+    "_note": ""
+  },
+  "Let’s build a wrapper type similar to the Box<T> type provided by the standard library to experience how smart pointer types behave differently from references by default. Then, we’ll look at how to add the ability to use the dereference operator.": {
+    "_translate": "让我们构建一个类似于标准库提供的<code>Box&lt;T&gt;</code>类型的包装类型，以体验智能指针类型默认情况下与引用的行为有何不同。然后，我们将看看如何添加使用解引用运算符的能力。",
+    "_note": ""
+  },
+  "Note: There’s one big difference between the MyBox<T> type we’re about to build and the real Box<T>: Our version will not store its data on the heap. We are focusing this example on Deref, so where the data is actually stored is less important than the pointer-like behavior.": {
+    "_translate": "注意：我们即将构建的 <code>MyBox&lt;T&gt;</code> 类型和真正的 <code>Box&lt;T&gt;</code> 之间有一个很大的区别：我们的版本不会将数据存储在堆上。我们在这个例子中关注的是 <code>Deref</code>，因此数据实际存储的位置不如指针行为重要。",
+    "_note": ""
+  },
+  "Let’s try adding the main function in Listing 15-7 to Listing 15-8 and changing it to use the MyBox<T> type we’ve defined instead of Box<T>. The code in Listing 15-9 won’t compile, because Rust doesn’t know how to dereference MyBox.": {
+    "_translate": "让我们尝试将清单 15-7 中的 <code>main</code> 函数添加到清单 15-8 中，并\n将其更改为使用我们定义的 <code>MyBox&lt;T&gt;</code> 类型而不是 <code>Box&lt;T&gt;</code>。 清单 15-9 中的代码将无法编译，因为 Rust 不知道如何对 <code>MyBox</code> 进行解引用。",
+    "_note": ""
+  },
+  "Without the Deref trait, the compiler can only dereference & references. The deref method gives the compiler the ability to take a value of any type that implements Deref and call the deref method to get a reference that it knows how to dereference.": {
+    "_translate": "没有 <code>Deref</code> 特性，编译器只能对 <code>&amp;</code> 引用进行解引用。\n<code>deref</code> 方法使编译器能够获取任何实现了 <code>Deref</code> 的类型的值，并调用 <code>deref</code> 方法以获得一个它知道如何解引用的引用。",
+    "_note": ""
+  },
+  "Rust substitutes the * operator with a call to the deref method and then a plain dereference so that we don’t have to think about whether or not we need to call the deref method. This Rust feature lets us write code that functions identically whether we have a regular reference or a type that implements Deref.": {
+    "_translate": "Rust 用对 <code>deref</code> 方法的调用和随后的简单解引用替换了 <code>*</code> 操作符，这样我们就不必考虑是否需要调用 <code>deref</code> 方法。这个 Rust 特性让我们可以编写功能相同的代码，无论我们使用的是普通引用还是实现了 <code>Deref</code> 的类型。",
+    "_note": ""
+  },
+  "We fill in the body of the deref method with &self.0 so that deref returns a reference to the value we want to access with the * operator; recall from “Creating Different Types with Tuple Structs” in Chapter 5 that .0 accesses the first value in a tuple struct. The main function in Listing 15-9 that calls * on the MyBox<T> value now compiles, and the assertions pass!": {
+    "_translate": "我们将 <code>deref</code> 方法的主体填充为 <code>&amp;self.0</code>，以便 <code>deref</code>\n返回一个引用，该引用指向我们希望用 <code>*</code> 操作符访问的值；\n回想一下在第 5 章的 <a href=\"ch05-01-defining-structs.html#creating-different-types-with-tuple-structs\">“使用元组结构体创建不同类型的实例”</a><!--\nignore --> 中，<code>.0</code> 用于访问元组结构体中的第一个值。\n现在，清单 15-9 中调用 <code>*</code> 操作符的 <code>MyBox&lt;T&gt;</code> 值的 <code>main</code> 函数可以编译，并且断言通过！",
+    "_note": ""
+  },
+  "The (*m) dereferences the MyBox<String> into a String. Then, the & and [..] take a string slice of the String that is equal to the whole string to match the signature of hello. This code without deref coercions is harder to read, write, and understand with all of these symbols involved. Deref coercion allows Rust to handle these conversions for us automatically.": {
+    "_translate": "<code>(*m)</code> 将 <code>MyBox&lt;String&gt;</code> 解引用为 <code>String</code>。然后，<code>&amp;</code> 和 <code>[..]</code> 从 <code>String</code> 中获取一个等于整个字符串的字符串切片，以匹配 <code>hello</code> 的签名。没有解引用强制转换的代码由于涉及这些符号而更难阅读、编写和理解。解引用强制转换允许 Rust 自动为我们处理这些转换。",
+    "_note": ""
+  },
+  "Deref coercion converts a reference to a type that implements the Deref trait into a reference to another type. For example, deref coercion can convert &String to &str because String implements the Deref trait such that it returns &str. Deref coercion is a convenience Rust performs on arguments to functions and methods, and it works only on types that implement the Deref trait. It happens automatically when we pass a reference to a particular type’s value as an argument to a function or method that doesn’t match the parameter type in the function or method definition. A sequence of calls to the deref method converts the type we provided into the type the parameter needs.": {
+    "_translate": "<em>Deref 强制转换</em> 将对实现了 <code>Deref</code> 特性的类型的引用转换为对另一种类型的引用。例如，Deref 强制转换可以将 <code>&amp;String</code> 转换为 <code>&amp;str</code>，因为 <code>String</code> 实现了 <code>Deref</code> 特性，使其返回 <code>&amp;str</code>。Deref 强制转换是 Rust 在函数和方法的参数上执行的一种便捷操作，它仅适用于实现了 <code>Deref</code> 特性的类型。当我们传递对特定类型值的引用作为参数给函数或方法时，如果该参数类型与函数或方法定义中的参数类型不匹配，Deref 强制转换会自动发生。通过一系列调用 <code>deref</code> 方法，可以将我们提供的类型转换为参数所需的类型。",
+    "_note": ""
+  },
+  "The third case is trickier: Rust will also coerce a mutable reference to an immutable one. But the reverse is not possible: Immutable references will never coerce to mutable references. Because of the borrowing rules, if you have a mutable reference, that mutable reference must be the only reference to that data (otherwise, the program wouldn’t compile). Converting one mutable reference to one immutable reference will never break the borrowing rules. Converting an immutable reference to a mutable reference would require that the initial immutable reference is the only immutable reference to that data, but the borrowing rules don’t guarantee that. Therefore, Rust can’t make the assumption that converting an immutable reference to a mutable reference is possible.": {
+    "_translate": "第三种情况更复杂：Rust 还会将可变引用强制转换为不可变引用。但相反的情况<em>不</em>可能：不可变引用永远不会强制转换为可变引用。由于借用规则，如果你有一个可变引用，那么这个可变引用必须是该数据的唯一引用（否则，程序将无法编译）。将一个可变引用转换为一个不可变引用永远不会违反借用规则。将不可变引用转换为可变引用需要初始的不可变引用是该数据的唯一不可变引用，但借用规则不能保证这一点。因此，Rust 不能假设将不可变引用转换为可变引用是可能的。",
+    "_note": ""
   }
 }

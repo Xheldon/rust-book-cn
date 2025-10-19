@@ -446,7 +446,7 @@ fn main() {
 <p data-x-en="This is an absolute path starting with std, the name of the standard library crate.">这是一个以 <code>std</code> 开头的绝对路径，<code>std</code> 是标准库 crate 的名称。</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="using-nested-paths-to-clean-up-large-use-lists"></a></p>
-<h3 id="using-nested-paths-to-clean-up-use-lists" data-x-en="Using Nested Paths to Clean Up use Lists"><a class="header" href="#using-nested-paths-to-clean-up-use-lists">使用嵌套路径清理 <code>use</code> 列表</a></h3>
+<h3 id="using-nested-paths-to-clean-up-use-lists"><a class="header" href="#using-nested-paths-to-clean-up-use-lists">使用嵌套路径清理 <code>use</code> 列表</a></h3>
 <p data-x-en="If we’re using multiple items defined in the same crate or same module, listing each item on its own line can take up a lot of vertical space in our files. For example, these two use statements we had in the guessing game in Listing 2-4 bring items from std into scope:">如果我们正在使用同一 crate 或同一模块中定义的多个项，那么将每个项单独列在一行上可能会占用我们文件中的大量垂直空间。例如，我们在第 2-4 列表的猜数字游戏中使用的这两个 <code>use</code> 语句将 <code>std</code> 中的项引入作用域：</p>
 <figure class="listing">
 <span class="file-name">Filename: src/main.rs</span>
@@ -532,7 +532,7 @@ use std::io::Write;</code></pre>
 <p data-x-en="This line brings std::io and std::io::Write into scope.">这行将 <code>std::io</code> 和 <code>std::io::Write</code> 引入作用域。</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="the-glob-operator"></a></p>
-<h3 id="importing-items-with-the-glob-operator" data-x-en="Importing Items with the Glob Operator"><a class="header" href="#importing-items-with-the-glob-operator">使用通配符导入项</a></h3>
+<h3 id="importing-items-with-the-glob-operator"><a class="header" href="#importing-items-with-the-glob-operator">使用通配符导入项</a></h3>
 <p data-x-en="If we want to bring all public items defined in a path into scope, we can specify that path followed by the * glob operator:">如果我们想将路径中定义的<em>所有</em>公共项引入作用域，我们可以指定该路径后跟<code>*</code>通配符：</p>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {

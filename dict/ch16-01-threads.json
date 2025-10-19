@@ -214,5 +214,13 @@
   "Waiting for All Threads to Finish": {
     "_translate": "<a class=\"header\" href=\"#waiting-for-all-threads-to-finish\">等待所有线程完成</a>",
     "_note": ""
+  },
+  "The calls to thread::sleep force a thread to stop its execution for a short duration, allowing a different thread to run. The threads will probably take turns, but that isn’t guaranteed: It depends on how your operating system schedules the threads. In this run, the main thread printed first, even though the print statement from the spawned thread appears first in the code. And even though we told the spawned thread to print until i is 9, it only got to 5 before the main thread shut down.": {
+    "_translate": "对 <code>thread::sleep</code> 的调用会强制线程停止执行一段时间，允许其他线程运行。线程可能会轮流执行，但这并不保证：这取决于操作系统如何调度线程。在这次运行中，主线程首先打印，尽管从派生线程的打印语句在代码中先出现。即使我们告诉派生线程打印直到 <code>i</code> 为 <code>9</code>，它也只打印到 <code>5</code> 就被主线程关闭了。",
+    "_note": ""
+  },
+  "Notice in Listing 16-1 that the closure we pass to thread::spawn takes no arguments: We’re not using any data from the main thread in the spawned thread’s code. To use data from the main thread in the spawned thread, the spawned thread’s closure must capture the values it needs. Listing 16-3 shows an attempt to create a vector in the main thread and use it in the spawned thread. However, this won’t work yet, as you’ll see in a moment.": {
+    "_translate": "注意在清单 16-1 中，我们传递给 <code>thread::spawn</code> 的闭包不带任何参数：我们在派生线程的代码中没有使用主线程中的任何数据。要在线程派生的代码中使用主线程的数据，派生线程的闭包必须捕获它需要的值。清单 16-3 展示了尝试在主线程中创建一个向量并在派生线程中使用它的例子。然而，这还不能工作，你马上就会看到。",
+    "_note": ""
   }
 }

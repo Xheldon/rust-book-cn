@@ -82,5 +82,9 @@
   "Performance in Loops vs. Iterators": {
     "_translate": "<a class=\"header\" href=\"#performance-in-loops-vs-iterators\">循环与迭代器的性能比较</a>",
     "_note": ""
+  },
+  "For a more comprehensive benchmark, you should check using various texts of various sizes as the contents, different words and words of different lengths as the query, and all kinds of other variations. The point is this: Iterators, although a high-level abstraction, get compiled down to roughly the same code as if you’d written the lower-level code yourself. Iterators are one of Rust’s zero-cost abstractions, by which we mean that using the abstraction imposes no additional runtime overhead. This is analogous to how Bjarne Stroustrup, the original designer and implementor of C++, defines zero-overhead in his 2012 ETAPS keynote presentation “Foundations of C++”:": {
+    "_translate": "为了进行更全面的基准测试，你应该使用不同大小的文本作为<code>contents</code>，不同的单词和不同长度的单词作为<code>query</code>，以及其他各种变化。重点是：迭代器虽然是一种高级抽象，但编译后的代码大致与你自己编写低级代码的结果相同。迭代器是 Rust 的<em>零成本抽象</em>之一，我们的意思是使用这种抽象不会增加任何额外的运行时开销。这类似于 C++ 的原始设计者和实现者 Bjarne Stroustrup 在 2012 年 ETAPS 主题演讲“C++ 的基础”中定义的零开销。",
+    "_note": ""
   }
 }

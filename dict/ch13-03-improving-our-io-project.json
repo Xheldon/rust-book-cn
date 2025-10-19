@@ -166,5 +166,21 @@
   "Clarifying Code with Iterator Adapters": {
     "_translate": "<a class=\"header\" href=\"#clarifying-code-with-iterator-adapters\">使用迭代器适配器澄清代码</a>",
     "_note": ""
+  },
+  "We needed clone here because we have a slice with String elements in the parameter args, but the build function doesn’t own args. To return ownership of a Config instance, we had to clone the values from the query and file_path fields of Config so that the Config instance can own its values.": {
+    "_translate": "我们需要在这里使用 <code>clone</code>，因为我们有一个包含 <code>String</code> 元素的切片 <code>args</code>，但 <code>build</code> 函数并不拥有 <code>args</code>。为了返回一个 <code>Config</code> 实例的所有权，我们必须从 <code>Config</code> 的 <code>query</code> 和 <code>file_path</code> 字段中克隆值，以便 <code>Config</code> 实例可以拥有其值。",
+    "_note": ""
+  },
+  "We’ve updated the signature of the Config::build function so that the parameter args has a generic type with the trait bounds impl Iterator<Item = String> instead of &[String]. This usage of the impl Trait syntax we discussed in the “Using Traits as Parameters” section of Chapter 10 means that args can be any type that implements the Iterator trait and returns String items.": {
+    "_translate": "我们已经更新了<code>Config::build</code>函数的签名，使得参数<code>args</code>具有带有特征边界<code>impl Iterator&lt;Item = String&gt;</code>的泛型类型，而不是<code>&amp;[String]</code>。这种使用<code>impl Trait</code>语法的方式我们在第十章的<a href=\"ch10-02-traits.html#traits-as-parameters\">“使用特征作为参数”</a>部分讨论过，意味着<code>args</code>可以是任何实现了<code>Iterator</code>特征并返回<code>String</code>项的类型。",
+    "_note": ""
+  },
+  "Remember that the first value in the return value of env::args is the name of the program. We want to ignore that and get to the next value, so first we call next and do nothing with the return value. Then, we call next to get the value we want to put in the query field of Config. If next returns Some, we use a match to extract the value. If it returns None, it means not enough arguments were given, and we return early with an Err value. We do the same thing for the file_path value.": {
+    "_translate": "记住，<code>env::args</code> 返回值中的第一个值是程序的名称。我们希望忽略它并获取下一个值，所以首先我们调用 <code>next</code> 并不对返回值做任何处理。然后，我们调用 <code>next</code> 来获取要放入 <code>Config</code> 的 <code>query</code> 字段的值。如果 <code>next</code> 返回 <code>Some</code>，我们使用 <code>match</code> 来提取值。如果它返回 <code>None</code>，则意味着提供的参数不足，我们将提前返回一个 <code>Err</code> 值。对于 <code>file_path</code> 值，我们也做同样的处理。",
+    "_note": ""
+  },
+  "The next logical question is which style you should choose in your own code and why: the original implementation in Listing 13-21 or the version using iterators in Listing 13-22 (assuming we’re collecting all the results before returning them rather than returning the iterator). Most Rust programmers prefer to use the iterator style. It’s a bit tougher to get the hang of at first, but once you get a feel for the various iterator adapters and what they do, iterators can be easier to understand. Instead of fiddling with the various bits of looping and building new vectors, the code focuses on the high-level objective of the loop. This abstracts away some of the commonplace code so that it’s easier to see the concepts that are unique to this code, such as the filtering condition each element in the iterator must pass.": {
+    "_translate": "下一个合乎逻辑的问题是，你应该在自己的代码中选择哪种风格，以及为什么：是选择列表 13-21 中的原始实现，还是选择列表 13-22 中使用迭代器的版本（假设我们是在返回结果之前收集所有结果，而不是返回迭代器）。大多数 Rust 程序员更喜欢使用迭代器风格。一开始可能稍微难掌握一些，但一旦你熟悉了各种迭代器适配器及其功能，迭代器就会更容易理解。代码不再纠结于各种循环和构建新向量的细节，而是专注于循环的高层次目标。这抽象掉了一些常见的代码，使得更容易看到此代码中独特的概念，例如迭代器中每个元素必须通过的过滤条件。",
+    "_note": ""
   }
 }

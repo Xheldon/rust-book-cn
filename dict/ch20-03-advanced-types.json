@@ -250,5 +250,53 @@
   "Type Synonyms and Type Aliases": {
     "_translate": "<a class=\"header\" href=\"#type-synonyms-and-type-aliases\">类型同义词和类型别名</a>",
     "_note": ""
+  },
+  "The Rust type system has some features that we’ve so far mentioned but haven’t yet discussed. We’ll start by discussing newtypes in general as we examine why they are useful as types. Then, we’ll move on to type aliases, a feature similar to newtypes but with slightly different semantics. We’ll also discuss the ! type and dynamically sized types.": {
+    "_translate": "Rust 类型系统有一些我们迄今为止提到但尚未讨论的特性。我们将从讨论新类型（newtypes）开始，探讨它们作为类型为何有用。然后，我们将讨论类型别名，这是一种与新类型类似但语义略有不同的特性。我们还将讨论 <code>!</code> 类型和动态大小类型。",
+    "_note": ""
+  },
+  "We can also use the newtype pattern to abstract away some implementation details of a type: The new type can expose a public API that is different from the API of the private inner type.": {
+    "_translate": "我们还可以使用新类型模式来抽象某个类型的某些实现细节：新类型可以暴露一个与私有内部类型API不同的公共API。",
+    "_note": ""
+  },
+  "This section assumes you’ve read the earlier section “Implementing External Traits with the Newtype Pattern”. The newtype pattern is also useful for tasks beyond those we’ve discussed so far, including statically enforcing that values are never confused and indicating the units of a value. You saw an example of using newtypes to indicate units in Listing 20-16: Recall that the Millimeters and Meters structs wrapped u32 values in a newtype. If we wrote a function with a parameter of type Millimeters, we wouldn’t be able to compile a program that accidentally tried to call that function with a value of type Meters or a plain u32.": {
+    "_translate": "本节假设您已经阅读了前面的部分<a href=\"ch20-02-advanced-traits.html#implementing-external-traits-with-the-newtype-pattern\">“使用Newtype模式实现外部特征”</a><!-- ignore -->。Newtype模式对于我们迄今为止讨论的任务之外的任务也非常有用，包括静态地强制值永不混淆和指示值的单位。您在列表20-16中看到了使用Newtype来指示单位的示例：回想一下，<code>Millimeters</code>和<code>Meters</code>结构体将<code>u32</code>值包装在一个Newtype中。如果我们编写了一个参数类型为<code>Millimeters</code>的函数，我们将无法编译一个意外尝试用<code>Meters</code>类型或普通<code>u32</code>值调用该函数的程序。",
+    "_note": ""
+  },
+  "Newtypes can also hide internal implementation. For example, we could provide a People type to wrap a HashMap<i32, String> that stores a person’s ID associated with their name. Code using People would only interact with the public API we provide, such as a method to add a name string to the People collection; that code wouldn’t need to know that we assign an i32 ID to names internally. The newtype pattern is a lightweight way to achieve encapsulation to hide implementation details, which we discussed in the “Encapsulation that Hides Implementation Details” section in Chapter 18.": {
+    "_translate": "新类型还可以隐藏内部实现。例如，我们可以提供一个 <code>People</code> 类型来包装一个 <code>HashMap&lt;i32, String&gt;</code>，该类型存储与人名相关联的 ID。使用 <code>People</code> 的代码只会与我们提供的公共 API 交互，例如一个将名称字符串添加到 <code>People</code> 集合的方法；该代码不需要知道我们在内部为名称分配了一个 <code>i32</code> ID。新类型模式是一种轻量级的方法，用于实现封装以隐藏实现细节，我们在第 18 章的 <a href=\"ch18-01-what-is-oo.html#encapsulation-that-hides-implementation-details\">“封装隐藏实现细节”</a> 部分讨论了这一点。",
+    "_note": ""
+  },
+  "Because Kilometers and i32 are the same type, we can add values of both types and can pass Kilometers values to functions that take i32 parameters. However, using this method, we don’t get the type-checking benefits that we get from the newtype pattern discussed earlier. In other words, if we mix up Kilometers and i32 values somewhere, the compiler will not give us an error.": {
+    "_translate": "因为 <code>Kilometers</code> 和 <code>i32</code> 是相同类型，我们可以将这两种类型的值相加，并且可以将 <code>Kilometers</code> 值传递给接受 <code>i32</code> 参数的函数。然而，使用这种方法，我们不会获得前面讨论的新类型模式带来的类型检查好处。换句话说，如果我们 somewhere 混淆了 <code>Kilometers</code> 和 <code>i32</code> 值，编译器不会给我们错误。",
+    "_note": ""
+  },
+  "Writing this lengthy type in function signatures and as type annotations all over the code can be tiresome and error-prone. Imagine having a project full of code like that in Listing 20-25.": {
+    "_translate": "在函数签名和类型注解中写这样冗长的类型，整个代码中到处都是，可能会让人感到厌烦且容易出错。想象一下，你的项目中充满了像清单 20-25 中那样的代码。",
+    "_note": ""
+  },
+  "The type alias helps in two ways: It makes code easier to write and it gives us a consistent interface across all of std::io. Because it’s an alias, it’s just another Result<T, E>, which means we can use any methods that work on Result<T, E> with it, as well as special syntax like the ? operator.": {
+    "_translate": "类型别名在两个方面有所帮助：它使代码更容易编写 <em>和</em> 它为我们提供了整个 <code>std::io</code> 的一致接口。因为它是别名，所以它只是另一个 <code>Result&lt;T, E&gt;</code>，这意味着我们可以使用任何适用于 <code>Result&lt;T, E&gt;</code> 的方法，以及像 <code>?</code> 运算符这样的特殊语法。",
+    "_note": ""
+  },
+  "At the time, we skipped over some details in this code. In “The match Control Flow Construct” section in Chapter 6, we discussed that match arms must all return the same type. So, for example, the following code doesn’t work:": {
+    "_translate": "当时，我们跳过了一些代码中的细节。在第 6 章的 <a href=\"ch06-02-match.html#the-match-control-flow-construct\">“<code>match</code> 控制流结构”</a><!-- ignore -->\n部分，我们讨论了 <code>match</code> 分支必须都返回相同的类型。所以，例如，以下代码无法工作：",
+    "_note": ""
+  },
+  "The type of guess in this code would have to be an integer and a string, and Rust requires that guess have only one type. So, what does continue return? How were we allowed to return a u32 from one arm and have another arm that ends with continue in Listing 20-27?": {
+    "_translate": "在这段代码中，<code>guess</code> 的类型必须是整数 <em>和</em> 字符串，而 Rust 要求 <code>guess</code> 只能有一种类型。那么，<code>continue</code> 返回什么？我们是如何在 Listing 20-27 中从一个分支返回 <code>u32</code>，而另一个分支以 <code>continue</code> 结束的？",
+    "_note": ""
+  },
+  "We can combine str with all kinds of pointers: for example, Box<str> or Rc<str>. In fact, you’ve seen this before but with a different dynamically sized type: traits. Every trait is a dynamically sized type we can refer to by using the name of the trait. In the “Using Trait Objects to Abstract over Shared Behavior” section in Chapter 18, we mentioned that to use traits as trait objects, we must put them behind a pointer, such as &dyn Trait or Box<dyn Trait> (Rc<dyn Trait> would work too).": {
+    "_translate": "我们可以将<code>str</code>与各种指针结合使用：例如，<code>Box&lt;str&gt;</code>或<code>Rc&lt;str&gt;</code>。实际上，你之前已经见过这种情况，但使用的是不同的动态大小类型：特质。每个特质都是一个我们可以通过特质名称引用的动态大小类型。在第18章的<a href=\"ch18-02-trait-objects.html#using-trait-objects-to-abstract-over-shared-behavior\">“使用特质对象抽象共享行为”</a><!--\nignore -->部分中，我们提到为了将特质用作特质对象，我们必须将它们放在指针后面，例如<code>&amp;dyn Trait</code>或<code>Box&lt;dyn Trait&gt;</code>（<code>Rc&lt;dyn Trait&gt;</code>也可以）。",
+    "_note": ""
+  },
+  "So, what do we do? In this case, you already know the answer: We make the type of s1 and s2 string slice (&str) rather than str. Recall from the “String Slices” section in Chapter 4 that the slice data structure only stores the starting position and the length of the slice. So, although &T is a single value that stores the memory address of where the T is located, a string slice is two values: the address of the str and its length. As such, we can know the size of a string slice value at compile time: It’s twice the length of a usize. That is, we always know the size of a string slice, no matter how long the string it refers to is. In general, this is the way in which dynamically sized types are used in Rust: They have an extra bit of metadata that stores the size of the dynamic information. The golden rule of dynamically sized types is that we must always put values of dynamically sized types behind a pointer of some kind.": {
+    "_translate": "那么，我们该怎么做？在这种情况下，你已经知道答案：我们将 <code>s1</code> 和 <code>s2</code> 的类型改为字符串切片 (<code>&amp;str</code>) 而不是 <code>str</code>。回想第 4 章 <a href=\"ch04-03-slices.html#string-slices\">“字符串切片”</a><!-- ignore --> 部分，切片数据结构仅存储切片的起始位置和长度。因此，虽然 <code>&amp;T</code> 是一个存储 <code>T</code> 所在内存地址的单个值，字符串切片是 <em>两个</em> 值：<code>str</code> 的地址及其长度。因此，我们可以在编译时知道字符串切片值的大小：它是 <code>usize</code> 长度的两倍。也就是说，无论字符串切片所引用的字符串有多长，我们总是知道字符串切片的大小。一般来说，这是 Rust 中使用动态大小类型的方式：它们有一个额外的元数据位来存储动态信息的大小。动态大小类型的黄金法则是，我们必须始终将动态大小类型的值放在某种指针后面。",
+    "_note": ""
+  },
+  "A trait bound on ?Sized means “T may or may not be Sized,” and this notation overrides the default that generic types must have a known size at compile time. The ?Trait syntax with this meaning is only available for Sized, not any other traits.": {
+    "_translate": "对 <code>?Sized</code> 的特征约束意味着 “<code>T</code> 可能是或可能不是 <code>Sized</code>，” 并且这种\n表示法覆盖了泛型类型在编译时必须具有已知大小的默认要求。这种含义的 <code>?Trait</code> 语法仅适用于\n<code>Sized</code>，不适用于任何其他特征。",
+    "_note": ""
   }
 }

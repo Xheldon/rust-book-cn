@@ -334,5 +334,81 @@
   "Implementing External Traits with the Newtype Pattern": {
     "_translate": "<a class=\"header\" href=\"#implementing-external-traits-with-the-newtype-pattern\">使用 Newtype 模式实现外部特征</a>",
     "_note": ""
+  },
+  "We first covered traits in the “Defining Shared Behavior with Traits” section in Chapter 10, but we didn’t discuss the more advanced details. Now that you know more about Rust, we can get into the nitty-gritty.": {
+    "_translate": "我们在第 10 章的<a href=\"ch10-02-traits.html\">“使用特质定义共享行为”</a>部分首次介绍了特质，但没有讨论更高级的细节。现在你对 Rust 有了更多的了解，我们可以深入探讨这些细节。",
+    "_note": ""
+  },
+  "We’ve described most of the advanced features in this chapter as being rarely needed. Associated types are somewhere in the middle: They’re used more rarely than features explained in the rest of the book but more commonly than many of the other features discussed in this chapter.": {
+    "_translate": "我们已经将本章中的大多数高级功能描述为很少需要的。关联类型处于中间位置：它们的使用频率低于书中其他部分解释的功能，但高于本章讨论的许多其他功能。",
+    "_note": ""
+  },
+  "This syntax seems comparable to that of generics. So, why not just define the Iterator trait with generics, as shown in Listing 20-14?": {
+    "_translate": "这种语法似乎与泛型的语法相当。那么，为什么不直接使用泛型来定义 <code>Iterator</code> 特性，如列表 20-14 所示？",
+    "_note": ""
+  },
+  "Associated types also become part of the trait’s contract: Implementors of the trait must provide a type to stand in for the associated type placeholder. Associated types often have a name that describes how the type will be used, and documenting the associated type in the API documentation is a good practice.": {
+    "_translate": "关联类型也成为特质的一部分契约：特质的实现者必须提供一个类型来替代关联类型占位符。关联类型通常有一个描述类型将如何使用的名称，并在API文档中记录关联类型是一个良好的实践。",
+    "_note": ""
+  },
+  "With associated types, we don’t need to annotate types, because we can’t implement a trait on a type multiple times. In Listing 20-13 with the definition that uses associated types, we can choose what the type of Item will be only once because there can be only one impl Iterator for Counter. We don’t have to specify that we want an iterator of u32 values everywhere we call next on Counter.": {
+    "_translate": "使用关联类型时，我们不需要标注类型，因为我们不能对同一类型多次实现同一特征。在使用关联类型的定义中（如清单 20-13 所示），我们只能选择一次 <code>Item</code> 的类型，因为只能有一个 <code>impl Iterator for Counter</code>。我们不必在每次调用 <code>Counter</code> 的 <code>next</code> 方法时都指定我们想要一个 <code>u32</code> 值的迭代器。",
+    "_note": ""
+  },
+  "Using Default Generic Parameters and Operator Overloading": {
+    "_translate": "<a class=\"header\" href=\"#using-default-generic-parameters-and-operator-overloading\">使用默认泛型参数和运算符重载</a>",
+    "_note": ""
+  },
+  "Rust doesn’t allow you to create your own operators or overload arbitrary operators. But you can overload the operations and corresponding traits listed in std::ops by implementing the traits associated with the operator. For example, in Listing 20-15, we overload the + operator to add two Point instances together. We do this by implementing the Add trait on a Point struct.": {
+    "_translate": "Rust 不允许你创建自己的运算符或重载任意运算符。但你可以通过实现与运算符关联的特征来重载 <code>std::ops</code> 中列出的操作和相应的特征。例如，在示例 20-15 中，我们重载了 <code>+</code> 运算符以将两个 <code>Point</code> 实例相加。我们通过在 <code>Point</code> 结构体上实现 <code>Add</code> 特征来实现这一点。",
+    "_note": ""
+  },
+  "This code should look generally familiar: a trait with one method and an associated type. The new part is Rhs=Self: This syntax is called default type parameters. The Rhs generic type parameter (short for “right-hand side”) defines the type of the rhs parameter in the add method. If we don’t specify a concrete type for Rhs when we implement the Add trait, the type of Rhs will default to Self, which will be the type we’re implementing Add on.": {
+    "_translate": "这段代码应该看起来很熟悉：一个带有方法和关联类型的特征。新的部分是<code>Rhs=Self</code>：这种语法称为<em>默认类型参数</em>。<code>Rhs</code>泛型类型参数（代表“右侧”）定义了<code>add</code>方法中<code>rhs</code>参数的类型。如果我们不在实现<code>Add</code>特征时指定<code>Rhs</code>的具体类型，<code>Rhs</code>的类型将默认为<code>Self</code>，即我们正在实现<code>Add</code>的类型。",
+    "_note": ""
+  },
+  "The standard library’s Add trait is an example of the second purpose: Usually, you’ll add two like types, but the Add trait provides the ability to customize beyond that. Using a default type parameter in the Add trait definition means you don’t have to specify the extra parameter most of the time. In other words, a bit of implementation boilerplate isn’t needed, making it easier to use the trait.": {
+    "_translate": "标准库的<code>Add</code>特征是第二个目的的一个例子：\n通常，你会添加两个相同类型的值，但<code>Add</code>特征提供了超出这一点的自定义能力。在<code>Add</code>特征定义中使用默认类型参数意味着大多数时候你不必指定额外的参数。换句话说，不需要一些实现样板代码，使得使用该特征更加容易。",
+    "_note": ""
+  },
+  "We have two structs, Millimeters and Meters, holding values in different units. This thin wrapping of an existing type in another struct is known as the newtype pattern, which we describe in more detail in the “Implementing External Traits with the Newtype Pattern” section. We want to add values in millimeters to values in meters and have the implementation of Add do the conversion correctly. We can implement Add for Millimeters with Meters as the Rhs, as shown in Listing 20-16.": {
+    "_translate": "我们有两个结构体，<code>Millimeters</code> 和 <code>Meters</code>，它们保存不同单位的值。这种在另一个结构体中对现有类型进行薄包装的做法被称为 <em>newtype 模式</em>，我们在 <a href=\"ch20-02-advanced-traits.html#implementing-external-traits-with-the-newtype-pattern\">“使用 newtype 模式实现外部特性”</a> 部分中对此进行了更详细的描述。我们希望将毫米值加到米值上，并让 <code>Add</code> 的实现正确地进行转换。我们可以为 <code>Millimeters</code> 实现 <code>Add</code>，并将 <code>Meters</code> 作为 <code>Rhs</code>，如列表 20-16 所示。",
+    "_note": ""
+  },
+  "The first purpose is similar to the second but in reverse: If you want to add a type parameter to an existing trait, you can give it a default to allow extension of the functionality of the trait without breaking the existing implementation code.": {
+    "_translate": "第一个目的与第二个类似但相反：如果您想为现有特征添加类型参数，可以为其提供默认值，以便在不破坏现有实现代码的情况下扩展特征的功能。",
+    "_note": ""
+  },
+  "This output isn’t what we wanted. We want to call the baby_name function that is part of the Animal trait that we implemented on Dog so that the code prints A baby dog is called a puppy. The technique of specifying the trait name that we used in Listing 20-19 doesn’t help here; if we change main to the code in Listing 20-21, we’ll get a compilation error.": {
+    "_translate": "这个输出不是我们想要的。我们想要调用作为我们在<code>Dog</code>上实现的<code>Animal</code>特质一部分的<code>baby_name</code>函数，使代码打印<code>A baby dog is called a puppy</code>。我们在列表20-19中使用的指定特质名称的技术在这里不起作用；如果我们把<code>main</code>改为列表20-21中的代码，我们将得到一个编译错误。",
+    "_note": ""
+  },
+  "However, associated functions that are not methods don’t have a self parameter. When there are multiple types or traits that define non-method functions with the same function name, Rust doesn’t always know which type you mean unless you use fully qualified syntax. For example, in Listing 20-20, we create a trait for an animal shelter that wants to name all baby dogs Spot. We make an Animal trait with an associated non-method function baby_name. The Animal trait is implemented for the struct Dog, on which we also provide an associated non-method function baby_name directly.": {
+    "_translate": "然而，非方法的关联函数没有 <code>self</code> 参数。当有多个类型或特征定义了具有相同函数名的非方法函数时，除非使用完全限定的语法，否则 Rust 并不总是知道你指的是哪个类型。例如，在清单 20-20 中，我们为一个动物收容所创建了一个特征，该收容所希望将所有小狗命名为 Spot。我们创建了一个 <code>Animal</code> 特征，其中包含一个关联的非方法函数 <code>baby_name</code>。该 <code>Animal</code> 特征被实现为结构体 <code>Dog</code>，我们还在其上直接提供了一个关联的非方法函数 <code>baby_name</code>。",
+    "_note": ""
+  },
+  "Sometimes you might write a trait definition that depends on another trait: For a type to implement the first trait, you want to require that type to also implement the second trait. You would do this so that your trait definition can make use of the associated items of the second trait. The trait your trait definition is relying on is called a supertrait of your trait.": {
+    "_translate": "有时你可能会编写一个依赖于另一个特征的特征定义：为了让某个类型实现第一个特征，你希望要求该类型也实现第二个特征。你这样做是为了让你的特征定义能够利用第二个特征的关联项。你的特征定义所依赖的特征被称为该特征的<em>超特征</em>。",
+    "_note": ""
+  },
+  "For associated functions that aren’t methods, there would not be a receiver: There would only be the list of other arguments. You could use fully qualified syntax everywhere that you call functions or methods. However, you’re allowed to omit any part of this syntax that Rust can figure out from other information in the program. You only need to use this more verbose syntax in cases where there are multiple implementations that use the same name and Rust needs help to identify which implementation you want to call.": {
+    "_translate": "对于不是方法的关联函数，将不会有 <code>receiver</code>：\n只有其他参数的列表。在调用函数或方法时，您可以使用完全限定的语法。然而，只要 Rust 能够从程序中的其他信息中推断出来，您就可以省略此语法的任何部分。只有在有多个实现使用相同名称且 Rust 需要帮助确定您想要调用哪个实现的情况下，才需要使用这种更冗长的语法。",
+    "_note": ""
+  },
+  "As an example, let’s say we want to implement Display on Vec<T>, which the orphan rule prevents us from doing directly because the Display trait and the Vec<T> type are defined outside our crate. We can make a Wrapper struct that holds an instance of Vec<T>; then, we can implement Display on Wrapper and use the Vec<T> value, as shown in Listing 20-24.": {
+    "_translate": "作为一个例子，让我们说我们想要在 <code>Vec&lt;T&gt;</code> 上实现 <code>Display</code>，但由于孤儿规则，我们不能直接这样做，因为 <code>Display</code> 特性和 <code>Vec&lt;T&gt;</code> 类型都是在我们的 crate 之外定义的。我们可以创建一个包含 <code>Vec&lt;T&gt;</code> 实例的 <code>Wrapper</code> 结构体；然后，我们可以在 <code>Wrapper</code> 上实现 <code>Display</code> 并使用 <code>Vec&lt;T&gt;</code> 值，如清单 20-24 所示。",
+    "_note": ""
+  },
+  "In the “Implementing a Trait on a Type” section in Chapter 10, we mentioned the orphan rule that states we’re only allowed to implement a trait on a type if either the trait or the type, or both, are local to our crate. It’s possible to get around this restriction using the newtype pattern, which involves creating a new type in a tuple struct. (We covered tuple structs in the “Creating Different Types with Tuple Structs” section in Chapter 5.) The tuple struct will have one field and be a thin wrapper around the type for which we want to implement a trait. Then, the wrapper type is local to our crate, and we can implement the trait on the wrapper. Newtype is a term that originates from the Haskell programming language. There is no runtime performance penalty for using this pattern, and the wrapper type is elided at compile time.": {
+    "_translate": "在第 10 章的 <a href=\"ch10-02-traits.html#implementing-a-trait-on-a-type\">“在类型上实现特征”</a><!--\nignore --> 部分，我们提到了孤儿规则，该规则指出只有当特征或类型（或两者）属于我们的 crate 时，我们才被允许在类型上实现特征。可以使用新类型模式绕过此限制，该模式涉及在元组结构体中创建一个新类型。（我们在第 5 章的 <a href=\"ch05-01-defining-structs.html#creating-different-types-with-tuple-structs\">“使用元组结构体创建不同类型”</a><!-- ignore --> 部分中介绍了元组结构体。）元组结构体将有一个字段，并且是围绕我们想要实现特征的类型的薄包装器。然后，包装器类型属于我们的 crate，我们可以在包装器上实现特征。<em>新类型</em> 是源自 Haskell 编程语言的术语。使用此模式不会产生运行时性能损失，并且编译时会省略包装器类型。",
+    "_note": ""
+  },
+  "The implementation of Display uses self.0 to access the inner Vec<T> because Wrapper is a tuple struct and Vec<T> is the item at index 0 in the tuple. Then, we can use the functionality of the Display trait on Wrapper.": {
+    "_translate": "<code>Display</code> 的实现使用 <code>self.0</code> 来访问内部的 <code>Vec&lt;T&gt;</code>，因为 <code>Wrapper</code> 是一个元组结构体，而 <code>Vec&lt;T&gt;</code> 是元组中索引为 0 的项。然后，我们可以在 <code>Wrapper</code> 上使用 <code>Display</code> 特性的功能。",
+    "_note": ""
+  },
+  "The downside of using this technique is that Wrapper is a new type, so it doesn’t have the methods of the value it’s holding. We would have to implement all the methods of Vec<T> directly on Wrapper such that the methods delegate to self.0, which would allow us to treat Wrapper exactly like a Vec<T>. If we wanted the new type to have every method the inner type has, implementing the Deref trait on the Wrapper to return the inner type would be a solution (we discussed implementing the Deref trait in the “Treating Smart Pointers Like Regular References” section in Chapter 15). If we didn’t want the Wrapper type to have all the methods of the inner type—for example, to restrict the Wrapper type’s behavior—we would have to implement just the methods we do want manually.": {
+    "_translate": "使用这种技术的缺点是 <code>Wrapper</code> 是一个新类型，因此它没有它所持有的值的方法。我们必须直接在 <code>Wrapper</code> 上实现 <code>Vec&lt;T&gt;</code> 的所有方法，使得这些方法委托给 <code>self.0</code>，这将使我们能够像处理 <code>Vec&lt;T&gt;</code> 一样处理 <code>Wrapper</code>。如果我们希望新类型具有内部类型的所有方法，可以在 <code>Wrapper</code> 上实现 <code>Deref</code> 特性以返回内部类型（我们在第 15 章的 <a href=\"ch15-02-deref.html#treating-smart-pointers-like-regular-references\">“将智能指针视为常规引用”</a><!-- ignore --> 部分讨论了实现 <code>Deref</code> 特性）。如果我们不希望 <code>Wrapper</code> 类型具有内部类型的所有方法——例如，为了限制 <code>Wrapper</code> 类型的行为——我们必须手动实现我们想要的方法。",
+    "_note": ""
   }
 }

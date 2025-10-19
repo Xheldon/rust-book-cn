@@ -74,5 +74,25 @@
   "Accepting Command Line Arguments - The Rust Programming Language": {
     "_translate": "接受命令行参数 - 《Rust 编程语言》",
     "_note": ""
+  },
+  "Let’s create a new project with, as always, cargo new. We’ll call our project minigrep to distinguish it from the grep tool that you might already have on your system:": {
+    "_translate": "让我们用一如既往的<code>cargo new</code>创建一个新项目。我们将把项目命名为<code>minigrep</code>，以区别于你系统中可能已经存在的<code>grep</code>工具：",
+    "_note": ""
+  },
+  "The code in Listing 12-1 allows your minigrep program to read any command line arguments passed to it and then collect the values into a vector.": {
+    "_translate": "清单 12-1 中的代码允许您的 <code>minigrep</code> 程序读取传递给它的任何命令行参数，然后将这些值收集到一个向量中。",
+    "_note": ""
+  },
+  "To enable minigrep to read the values of command line arguments we pass to it, we’ll need the std::env::args function provided in Rust’s standard library. This function returns an iterator of the command line arguments passed to minigrep. We’ll cover iterators fully in Chapter 13. For now, you only need to know two details about iterators: Iterators produce a series of values, and we can call the collect method on an iterator to turn it into a collection, such as a vector, which contains all the elements the iterator produces.": {
+    "_translate": "为了使 <code>minigrep</code> 能够读取我们传递给它的命令行参数的值，我们需要使用 Rust 标准库提供的 <code>std::env::args</code> 函数。这个函数返回一个迭代器，其中包含传递给 <code>minigrep</code> 的命令行参数。我们将在 <a href=\"ch13-00-functional-features.html\">第 13 章</a><!-- ignore\n--> 中详细介绍迭代器。现在，你只需要了解迭代器的两个细节：迭代器生成一系列值，我们可以在迭代器上调用 <code>collect</code> 方法将其转换为包含迭代器生成的所有元素的集合，例如向量。",
+    "_note": ""
+  },
+  "The program is currently able to access the values specified as command line arguments. Now we need to save the values of the two arguments in variables so that we can use the values throughout the rest of the program. We do that in Listing 12-2.": {
+    "_translate": "程序目前能够访问作为命令行参数指定的值。现在我们需要将这两个参数的值保存在变量中，以便我们可以在程序的其余部分使用这些值。我们在清单 12-2 中这样做。",
+    "_note": ""
+  },
+  "First, we bring the std::env module into scope with a use statement so that we can use its args function. Notice that the std::env::args function is nested in two levels of modules. As we discussed in Chapter 7, in cases where the desired function is nested in more than one module, we’ve chosen to bring the parent module into scope rather than the function. By doing so, we can easily use other functions from std::env. It’s also less ambiguous than adding use std::env::args and then calling the function with just args, because args might easily be mistaken for a function that’s defined in the current module.": {
+    "_translate": "首先，我们通过 <code>use</code> 语句将 <code>std::env</code> 模块引入作用域，这样我们就可以使用它的 <code>args</code> 函数。请注意，<code>std::env::args</code> 函数嵌套在两个模块层级中。正如我们在 <a href=\"ch07-04-bringing-paths-into-scope-with-the-use-keyword.html#creating-idiomatic-use-paths\">第 7 章</a><!-- ignore --> 中讨论的那样，在所需函数嵌套在多个模块中的情况下，我们选择将父模块引入作用域而不是函数本身。这样做，我们可以轻松使用 <code>std::env</code> 中的其他函数。这也比添加 <code>use std::env::args</code> 然后仅用 <code>args</code> 调用函数更清晰，因为 <code>args</code> 可能会被误认为是在当前模块中定义的函数。",
+    "_note": ""
   }
 }

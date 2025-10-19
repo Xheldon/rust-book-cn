@@ -158,5 +158,21 @@
   "To help with IDE integration, the Rust community recommends using rust-analyzer. This tool is a set of compiler-centric utilities that speak Language Server Protocol, which is a specification for IDEs and programming languages to communicate with each other. Different clients can use rust-analyzer, such as the Rust analyzer plug-in for Visual Studio Code.": {
     "_translate": "为了帮助集成开发环境（IDE），Rust 社区推荐使用\n<a href=\"https://rust-analyzer.github.io\"><code>rust-analyzer</code></a><!-- ignore -->。这个工具是一组\n以编译器为中心的实用工具，它们使用 <a href=\"http://langserver.org/\">语言服务器协议</a><!--\nignore -->，这是一种 IDE 和编程语言之间通信的规范。不同的客户端可以使用 <code>rust-analyzer</code>，例如\n<a href=\"https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer\">Visual Studio Code 的 Rust 分析器插件</a>。",
     "_note": ""
+  },
+  "Appendix D: Useful Development Tools": {
+    "_translate": "<a class=\"header\" href=\"#appendix-d-useful-development-tools\">附录 D: 有用的开发工具</a>",
+    "_note": ""
+  },
+  "The rustfmt tool reformats your code according to the community code style. Many collaborative projects use rustfmt to prevent arguments about which style to use when writing Rust: Everyone formats their code using the tool.": {
+    "_translate": "<code>rustfmt</code> 工具根据社区代码风格重新格式化你的代码。许多协作项目使用 <code>rustfmt</code> 来防止关于在编写 Rust 时使用哪种风格的争论：每个人都使用该工具格式化他们的代码。",
+    "_note": ""
+  },
+  "Rust installations include rustfmt by default, so you should already have the programs rustfmt and cargo-fmt on your system. These two commands are analogous to rustc and cargo in that rustfmt allows finer grained control and cargo-fmt understands conventions of a project that uses Cargo. To format any Cargo project, enter the following:": {
+    "_translate": "Rust 安装默认包含 <code>rustfmt</code>，因此你的系统上应该已经有 <code>rustfmt</code> 和 <code>cargo-fmt</code> 程序。这两个命令类似于 <code>rustc</code> 和 <code>cargo</code>，其中 <code>rustfmt</code> 允许更细粒度的控制，而 <code>cargo-fmt</code> 理解使用 Cargo 的项目的约定。要格式化任何 Cargo 项目，请输入以下内容：",
+    "_note": ""
+  },
+  "The Clippy tool is a collection of lints to analyze your code so that you can catch common mistakes and improve your Rust code. Clippy is included with standard Rust installations.": {
+    "_translate": "Clippy 工具是一组用于分析代码的 lint，可以帮助你捕捉常见错误并改进 Rust 代码。Clippy 包含在标准的 Rust 安装中。",
+    "_note": ""
   }
 }

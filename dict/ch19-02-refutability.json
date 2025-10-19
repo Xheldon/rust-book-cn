@@ -78,5 +78,17 @@
   "Rust complains that it doesn’t make sense to use let...else with an irrefutable pattern:": {
     "_translate": "Rust 抱怨说，在不可反驳的模式中使用 <code>let...else</code> 没有意义：",
     "_note": ""
+  },
+  "In general, you shouldn’t have to worry about the distinction between refutable and irrefutable patterns; however, you do need to be familiar with the concept of refutability so that you can respond when you see it in an error message. In those cases, you’ll need to change either the pattern or the construct you’re using the pattern with, depending on the intended behavior of the code.": {
+    "_translate": "通常，你不必担心可反驳和不可反驳模式之间的区别；然而，你需要熟悉可反驳性的概念，以便在错误消息中看到它时能够做出回应。在这些情况下，你需要根据代码的预期行为，更改模式或你正在使用的模式的构造。",
+    "_note": ""
+  },
+  "Function parameters, let statements, and for loops can only accept irrefutable patterns because the program cannot do anything meaningful when values don’t match. The if let and while let expressions and the let...else statement accept refutable and irrefutable patterns, but the compiler warns against irrefutable patterns because, by definition, they’re intended to handle possible failure: The functionality of a conditional is in its ability to perform differently depending on success or failure.": {
+    "_translate": "函数参数、<code>let</code> 语句和 <code>for</code> 循环只能接受不可反驳的模式，因为当值不匹配时，程序无法执行任何有意义的操作。<code>if let</code> 和 <code>while let</code> 表达式以及 <code>let...else</code> 语句接受可反驳和不可反驳的模式，但编译器会警告使用不可反驳的模式，因为按定义它们旨在处理可能的失败：条件语句的功能在于其能够根据成功或失败以不同的方式执行。",
+    "_note": ""
+  },
+  "If we have a refutable pattern where an irrefutable pattern is needed, we can fix it by changing the code that uses the pattern: Instead of using let, we can use let else. Then, if the pattern doesn’t match, the code will just skip the code in the curly brackets, giving it a way to continue validly. Listing 19-9 shows how to fix the code in Listing 19-8.": {
+    "_translate": "如果我们有一个在需要不可反驳模式的地方使用的可反驳模式，我们可以通过更改使用该模式的代码来修复它：我们可以使用 <code>let else</code> 而不是 <code>let</code>。然后，如果模式不匹配，代码将跳过大括号中的代码，从而使其能够继续有效执行。列表 19-9 显示了如何修复列表 19-8 中的代码。",
+    "_note": ""
   }
 }

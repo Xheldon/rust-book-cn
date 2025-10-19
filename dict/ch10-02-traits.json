@@ -310,5 +310,37 @@
   "Multiple Trait Bounds with the + Syntax": {
     "_translate": "<a class=\"header\" href=\"#multiple-trait-bounds-with-the--syntax\">使用 <code>+</code> 语法的多个特征约束</a>",
     "_note": ""
+  },
+  "A trait can have multiple methods in its body: The method signatures are listed one per line, and each line ends in a semicolon.": {
+    "_translate": "一个特质可以在其主体中拥有多个方法：方法签名按行列出，每行以分号结尾。",
+    "_note": ""
+  },
+  "But we can’t implement external traits on external types. For example, we can’t implement the Display trait on Vec<T> within our aggregator crate, because Display and Vec<T> are both defined in the standard library and aren’t local to our aggregator crate. This restriction is part of a property called coherence, and more specifically the orphan rule, so named because the parent type is not present. This rule ensures that other people’s code can’t break your code and vice versa. Without the rule, two crates could implement the same trait for the same type, and Rust wouldn’t know which implementation to use.": {
+    "_translate": "但是我们不能为外部类型实现外部特征。例如，我们不能在我们的<code>aggregator</code> crate 中为 <code>Vec&lt;T&gt;</code> 实现 <code>Display</code> 特征，因为 <code>Display</code> 和 <code>Vec&lt;T&gt;</code> 都是在标准库中定义的，并且不是我们 <code>aggregator</code> crate 的本地类型。这个限制是称为<em>一致性</em>的属性的一部分，更具体地说是<em>孤儿规则</em>，之所以这样命名是因为父类型不在场。这条规则确保其他人的代码不会破坏你的代码，反之亦然。如果没有这条规则，两个 crate 可以为同一类型实现相同的特征，而 Rust 不知道使用哪个实现。",
+    "_note": ""
+  },
+  "Instead of a concrete type for the item parameter, we specify the impl keyword and the trait name. This parameter accepts any type that implements the specified trait. In the body of notify, we can call any methods on item that come from the Summary trait, such as summarize. We can call notify and pass in any instance of NewsArticle or SocialPost. Code that calls the function with any other type, such as a String or an i32, won’t compile, because those types don’t implement Summary.": {
+    "_translate": "我们为 <code>item</code> 参数指定了 <code>impl</code> 关键字和特质名称，而不是具体的类型。这个参数接受任何实现了指定特质的类型。在 <code>notify</code> 的函数体中，我们可以调用来自 <code>Summary</code> 特质的任何方法，例如 <code>summarize</code>。我们可以调用 <code>notify</code> 并传入任何 <code>NewsArticle</code> 或 <code>SocialPost</code> 的实例。如果使用其他类型（如 <code>String</code> 或 <code>i32</code>）调用该函数，则不会编译，因为这些类型没有实现 <code>Summary</code>。",
+    "_note": ""
+  },
+  "This function’s signature is less cluttered: The function name, parameter list, and return type are close together, similar to a function without lots of trait bounds.": {
+    "_translate": "这个函数的签名更加简洁：函数名、参数列表和返回类型紧密相邻，类似于没有大量特征约束的函数。",
+    "_note": ""
+  },
+  "We can also specify more than one trait bound. Say we wanted notify to use display formatting as well as summarize on item: We specify in the notify definition that item must implement both Display and Summary. We can do so using the + syntax:": {
+    "_translate": "我们也可以指定多个特征约束。假设我们希望 <code>notify</code> 使用显示格式化以及在 <code>item</code> 上调用 <code>summarize</code>：我们在 <code>notify</code> 的定义中指定 <code>item</code> 必须同时实现 <code>Display</code> 和 <code>Summary</code>。我们可以使用 <code>+</code> 语法来实现：",
+    "_note": ""
+  },
+  "Returning either a NewsArticle or a SocialPost isn’t allowed due to restrictions around how the impl Trait syntax is implemented in the compiler. We’ll cover how to write a function with this behavior in the “Using Trait Objects to Abstract over Shared Behavior” section of Chapter 18.": {
+    "_translate": "返回一个 <code>NewsArticle</code> 或 <code>SocialPost</code> 是不允许的，因为编译器在实现 <code>impl Trait</code> 语法时存在限制。\n我们将在第 18 章的 <a href=\"ch18-02-trait-objects.html#using-trait-objects-to-abstract-over-shared-behavior\">“使用特质对象抽象共享行为”</a><!-- ignore -->\n部分中介绍如何编写具有这种行为的函数。",
+    "_note": ""
+  },
+  "By using a trait bound with an impl block that uses generic type parameters, we can implement methods conditionally for types that implement the specified traits. For example, the type Pair<T> in Listing 10-15 always implements the new function to return a new instance of Pair<T> (recall from the “Method Syntax” section of Chapter 5 that Self is a type alias for the type of the impl block, which in this case is Pair<T>). But in the next impl block, Pair<T> only implements the cmp_display method if its inner type T implements the PartialOrd trait that enables comparison and the Display trait that enables printing.": {
+    "_translate": "通过在使用泛型类型参数的 <code>impl</code> 块中使用特质约束，我们可以为实现指定特质的类型有条件地实现方法。例如，类型 <code>Pair&lt;T&gt;</code> 在清单 10-15 中始终实现 <code>new</code> 函数以返回 <code>Pair&lt;T&gt;</code> 的新实例（回想第 5 章的 <a href=\"ch05-03-method-syntax.html#method-syntax\">“方法语法”</a><!-- ignore --> 部分，<code>Self</code> 是 <code>impl</code> 块类型的类型别名，在这种情况下是 <code>Pair&lt;T&gt;</code>）。但在下一个 <code>impl</code> 块中，<code>Pair&lt;T&gt;</code> 仅在其内部类型 <code>T</code> 实现了启用比较的 <code>PartialOrd</code> 特质 <em>和</em> 启用打印的 <code>Display</code> 特质时，才实现 <code>cmp_display</code> 方法。",
+    "_note": ""
+  },
+  "Traits and trait bounds let us write code that uses generic type parameters to reduce duplication but also specify to the compiler that we want the generic type to have particular behavior. The compiler can then use the trait bound information to check that all the concrete types used with our code provide the correct behavior. In dynamically typed languages, we would get an error at runtime if we called a method on a type that didn’t define the method. But Rust moves these errors to compile time so that we’re forced to fix the problems before our code is even able to run. Additionally, we don’t have to write code that checks for behavior at runtime, because we’ve already checked at compile time. Doing so improves performance without having to give up the flexibility of generics.": {
+    "_translate": "特质和特质边界让我们可以使用泛型类型参数编写代码，以减少重复，但同时指定我们希望泛型类型具有特定的行为。编译器可以使用特质边界信息来检查所有使用我们代码的具体类型是否提供了正确的行为。在动态类型语言中，如果我们调用了一个未定义该方法的类型的方法，我们会在运行时得到错误。但 Rust 将这些错误移到了编译时，这样我们被迫在代码能够运行之前就修复问题。此外，我们不必编写在运行时检查行为的代码，因为我们在编译时已经检查过了。这样做在不放弃泛型灵活性的情况下提高了性能。",
+    "_note": ""
   }
 }

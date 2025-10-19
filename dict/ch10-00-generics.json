@@ -86,5 +86,33 @@
   "Update the two instances of duplicated code to call the function instead.": {
     "_translate": "将两个重复的代码实例更新为调用该函数。",
     "_note": ""
+  },
+  "Functions can take parameters of some generic type, instead of a concrete type like i32 or String, in the same way they take parameters with unknown values to run the same code on multiple concrete values. In fact, we already used generics in Chapter 6 with Option<T>, in Chapter 8 with Vec<T> and HashMap<K, V>, and in Chapter 9 with Result<T, E>. In this chapter, you’ll explore how to define your own types, functions, and methods with generics!": {
+    "_translate": "函数可以接受某种泛型类型的参数，而不是像<code>i32</code>或<code>String</code>这样的具体类型，这样它们可以接受带有未知值的参数来对多个具体值运行相同的代码。事实上，我们已经在第6章中使用了泛型<code>Option&lt;T&gt;</code>，在第8章中使用了<code>Vec&lt;T&gt;</code>和<code>HashMap&lt;K, V&gt;</code>，在第9章中使用了<code>Result&lt;T, E&gt;</code>。在本章中，你将探索如何定义你自己的带有泛型的类型、函数和方法！",
+    "_note": ""
+  },
+  "First, we’ll review how to extract a function to reduce code duplication. We’ll then use the same technique to make a generic function from two functions that differ only in the types of their parameters. We’ll also explain how to use generic types in struct and enum definitions.": {
+    "_translate": "首先，我们将回顾如何提取函数以减少代码重复。然后，我们将使用相同的技术从两个仅参数类型不同的函数中创建一个泛型函数。我们还将解释如何在结构体和枚举定义中使用泛型类型。",
+    "_note": ""
+  },
+  "Then, you’ll learn how to use traits to define behavior in a generic way. You can combine traits with generic types to constrain a generic type to accept only those types that have a particular behavior, as opposed to just any type.": {
+    "_translate": "然后，您将学习如何使用特征（traits）以通用方式定义行为。您可以将特征与泛型类型结合使用，以限制泛型类型只接受具有特定行为的类型，而不仅仅是任何类型。",
+    "_note": ""
+  },
+  "Finally, we’ll discuss lifetimes: a variety of generics that give the compiler information about how references relate to each other. Lifetimes allow us to give the compiler enough information about borrowed values so that it can ensure that references will be valid in more situations than it could without our help.": {
+    "_translate": "最后，我们将讨论<em>生命周期</em>：一种泛型，可以向编译器提供有关引用之间关系的信息。生命周期使我们能够向编译器提供足够的信息，以便它可以在更多情况下确保引用的有效性，而无需我们的帮助。",
+    "_note": ""
+  },
+  "Although this code works, duplicating code is tedious and error-prone. We also have to remember to update the code in multiple places when we want to change it.": {
+    "_translate": "虽然这段代码可以工作，但复制代码既繁琐又容易出错。我们还必须记住，当我们想要更改代码时，需要在多个地方更新代码。",
+    "_note": ""
+  },
+  "Generics allow us to replace specific types with a placeholder that represents multiple types to remove code duplication. Before diving into generics syntax, let’s first look at how to remove duplication in a way that doesn’t involve generic types by extracting a function that replaces specific values with a placeholder that represents multiple values. Then, we’ll apply the same technique to extract a generic function! By looking at how to recognize duplicated code you can extract into a function, you’ll start to recognize duplicated code that can use generics.": {
+    "_translate": "泛型允许我们用一个占位符替换特定类型，该占位符代表多种类型，以消除代码重复。在深入泛型语法之前，我们先来看看如何通过提取一个函数来消除重复，该函数用一个代表多个值的占位符替换特定值。然后，我们将应用相同的技术来提取一个泛型函数！通过了解如何识别可以提取到函数中的重复代码，你将开始识别可以使用泛型的重复代码。",
+    "_note": ""
+  },
+  "In Listing 10-3, we extract the code that finds the largest number into a function named largest. Then, we call the function to find the largest number in the two lists from Listing 10-2. We could also use the function on any other list of i32 values we might have in the future.": {
+    "_translate": "在清单 10-3 中，我们将查找最大数字的代码提取到一个名为 <code>largest</code> 的函数中。然后，我们调用该函数来查找清单 10-2 中两个列表的最大数字。我们也可以在将来可能拥有的任何其他 <code>i32</code> 值列表上使用该函数。",
+    "_note": ""
   }
 }

@@ -366,5 +366,81 @@
   "Structuring Test Functions": {
     "_translate": "<a class=\"header\" href=\"#structuring-test-functions\">构建测试函数</a>",
     "_note": ""
+  },
+  "Whenever we make a new library project with Cargo, a test module with a test function in it is automatically generated for us. This module gives you a template for writing your tests so that you don’t have to look up the exact structure and syntax every time you start a new project. You can add as many additional test functions and as many test modules as you want!": {
+    "_translate": "每当我们在 Cargo 中创建一个新的库项目时，都会自动生成一个包含测试函数的测试模块。这个模块为你提供了一个编写测试的模板，这样每次开始新项目时，你就不必查找确切的结构和语法了。你可以根据需要添加任意多的测试函数和测试模块！",
+    "_note": ""
+  },
+  "We’ll explore some aspects of how tests work by experimenting with the template test before we actually test any code. Then, we’ll write some real-world tests that call some code that we’ve written and assert that its behavior is correct.": {
+    "_translate": "我们将通过实验模板测试来探讨测试的一些方面，这在我们实际测试任何代码之前进行。然后，我们将编写一些实际的测试，调用我们编写的一些代码，并断言其行为是正确的。",
+    "_note": ""
+  },
+  "The file starts with an example add function so that we have something to test.": {
+    "_translate": "文件以一个示例 <code>add</code> 函数开始，这样我们就有东西可以测试。",
+    "_note": ""
+  },
+  "For now, let’s focus solely on the it_works function. Note the #[test] annotation: This attribute indicates this is a test function, so the test runner knows to treat this function as a test. We might also have non-test functions in the tests module to help set up common scenarios or perform common operations, so we always need to indicate which functions are tests.": {
+    "_translate": "现在，让我们只关注 <code>it_works</code> 函数。注意 <code>#[test]</code>\n注解：这个属性表示这是一个测试函数，因此测试运行器知道将这个函数视为测试。我们可能在 <code>tests</code> 模块中还有非测试函数，用于帮助设置常见场景或执行常见操作，所以我们总是需要标明哪些函数是测试函数。",
+    "_note": ""
+  },
+  "Then, run cargo test again. The output now shows exploration instead of it_works:": {
+    "_translate": "然后，再次运行 <code>cargo test</code>。现在的输出显示 <code>exploration</code> 而不是 <code>it_works</code>：",
+    "_note": ""
+  },
+  "It’s possible to mark a test as ignored so that it doesn’t run in a particular instance; we’ll cover that in the “Ignoring Tests Unless Specifically Requested” section later in this chapter. Because we haven’t done that here, the summary shows 0 ignored. We can also pass an argument to the cargo test command to run only tests whose name matches a string; this is called filtering, and we’ll cover it in the “Running a Subset of Tests by Name” section. Here, we haven’t filtered the tests being run, so the end of the summary shows 0 filtered out.": {
+    "_translate": "可以将测试标记为忽略，以便在特定情况下不运行；我们将在本章后面的<a href=\"ch11-02-running-tests.html#ignoring-tests-unless-specifically-requested\">“除非特别要求否则忽略测试”</a><!-- ignore -->部分中介绍。因为我们在这里没有这样做，所以摘要显示<code>0 ignored</code>。我们还可以向<code>cargo test</code>命令传递一个参数，以仅运行名称与字符串匹配的测试；这称为<em>过滤</em>，我们将在<a href=\"ch11-02-running-tests.html#running-a-subset-of-tests-by-name\">“按名称运行测试子集”</a><!-- ignore -->部分中介绍。在这里，我们没有过滤正在运行的测试，所以摘要的末尾显示<code>0 filtered out</code>。",
+    "_note": ""
+  },
+  "The summary line displays at the end: Overall, our test result is FAILED. We had one test pass and one test fail.": {
+    "_translate": "总结行显示在最后：总体而言，我们的测试结果是<code>FAILED</code>。我们有一个测试通过，一个测试失败。",
+    "_note": ""
+  },
+  "Instead of ok, the line test tests::another shows FAILED. Two new sections appear between the individual results and the summary: The first displays the detailed reason for each test failure. In this case, we get the details that tests::another failed because it panicked with the message Make this test fail on line 17 in the src/lib.rs file. The next section lists just the names of all the failing tests, which is useful when there are lots of tests and lots of detailed failing test output. We can use the name of a failing test to run just that test to debug it more easily; we’ll talk more about ways to run tests in the “Controlling How Tests Are Run” section.": {
+    "_translate": "而不是 <code>ok</code>，行 <code>test tests::another</code> 显示 <code>FAILED</code>。在各个结果和摘要之间出现了两个新的部分：第一部分显示每个测试失败的详细原因。在这种情况下，我们得到的详细信息是 <code>tests::another</code> 失败是因为在 <em>src/lib.rs</em> 文件的第 17 行触发了带有消息 <code>Make this test fail</code> 的 panic。下一部分列出了所有失败测试的名称，当有很多测试和很多详细的失败测试输出时，这非常有用。我们可以使用失败测试的名称来仅运行该测试以更轻松地调试；我们将在 <a href=\"ch11-02-running-tests.html#controlling-how-tests-are-run\">“控制测试的运行方式”</a> 部分中更详细地讨论运行测试的方法。",
+    "_note": ""
+  },
+  "Checking Results with assert!": {
+    "_translate": "<a class=\"header\" href=\"#checking-results-with-assert\">使用 <code>assert!</code> 检查结果</a>",
+    "_note": ""
+  },
+  "Two tests that pass! Now let’s see what happens to our test results when we introduce a bug in our code. We’ll change the implementation of the can_hold method by replacing the greater-than sign (>) with a less-than sign (<) when it compares the widths:": {
+    "_translate": "两个测试通过了！现在让我们看看当我们在代码中引入一个错误时，测试结果会发生什么变化。我们将通过将比较宽度时的大于号 (<code>&gt;</code>) 替换为小于号 (<code>&lt;</code>) 来更改 <code>can_hold</code> 方法的实现：",
+    "_note": ""
+  },
+  "We’ve named our test larger_can_hold_smaller, and we’ve created the two Rectangle instances that we need. Then, we called the assert! macro and passed it the result of calling larger.can_hold(&smaller). This expression is supposed to return true, so our test should pass. Let’s find out!": {
+    "_translate": "我们把测试命名为<code>larger_can_hold_smaller</code>，并且创建了我们需要的两个<code>Rectangle</code>实例。然后，我们调用了<code>assert!</code>宏，并传入了调用<code>larger.can_hold(&amp;smaller)</code>的结果。这个表达式应该返回<code>true</code>，所以我们的测试应该通过。让我们来验证一下！",
+    "_note": ""
+  },
+  "Testing Equality with assert_eq! and assert_ne!": {
+    "_translate": "<a class=\"header\" href=\"#testing-equality-with-assert_eq-and-assert_ne\">使用 <code>assert_eq!</code> 和 <code>assert_ne!</code> 测试相等性</a>",
+    "_note": ""
+  },
+  "In Listing 11-7, we write a function named add_two that adds 2 to its parameter, and then we test this function using the assert_eq! macro.": {
+    "_translate": "在清单 11-7 中，我们编写了一个名为 <code>add_two</code> 的函数，该函数将其参数加 <code>2</code>，然后我们使用 <code>assert_eq!</code> 宏测试此函数。",
+    "_note": ""
+  },
+  "We create a variable named result that holds the result of calling add_two(2). Then, we pass result and 4 as the arguments to the assert_eq! macro. The output line for this test is test tests::it_adds_two ... ok, and the ok text indicates that our test passed!": {
+    "_translate": "我们创建一个名为 <code>result</code> 的变量，该变量保存调用 <code>add_two(2)</code> 的结果。然后，我们将 <code>result</code> 和 <code>4</code> 作为参数传递给 <code>assert_eq!</code> 宏。此测试的输出行为 <code>test tests::it_adds_two ... ok</code>，<code>ok</code> 文本表示我们的测试通过了！",
+    "_note": ""
+  },
+  "Our test caught the bug! The tests::it_adds_two test failed, and the message tells us that the assertion that failed was left == right and what the left and right values are. This message helps us start debugging: The left argument, where we had the result of calling add_two(2), was 5, but the right argument was 4. You can imagine that this would be especially helpful when we have a lot of tests going on.": {
+    "_translate": "我们的测试捕获了这个bug！<code>tests::it_adds_two</code> 测试失败了，消息告诉我们失败的断言是 <code>left == right</code> 以及 <code>left</code> 和 <code>right</code> 的值是什么。这条消息帮助我们开始调试：<code>left</code> 参数，我们在其中调用了 <code>add_two(2)</code> 的结果，是 <code>5</code>，但 <code>right</code> 参数是 <code>4</code>。你可以想象，当我们有很多测试时，这会特别有帮助。",
+    "_note": ""
+  },
+  "The assert_ne! macro will pass if the two values we give it are not equal and will fail if they are equal. This macro is most useful for cases when we’re not sure what a value will be, but we know what the value definitely shouldn’t be. For example, if we’re testing a function that is guaranteed to change its input in some way, but the way in which the input is changed depends on the day of the week that we run our tests, the best thing to assert might be that the output of the function is not equal to the input.": {
+    "_translate": "<code>assert_ne!</code> 宏会在我们给它的两个值不相等时通过，并且在它们相等时失败。这个宏在我们不确定一个值 <em>将</em> 是什么，但知道这个值绝对 <em>不应该</em> 是什么的情况下最有用。例如，如果我们正在测试一个保证会以某种方式改变其输入的函数，但输入被改变的方式取决于我们运行测试的星期几，那么最好的断言可能是函数的输出不等于输入。",
+    "_note": ""
+  },
+  "You can also add a custom message to be printed with the failure message as optional arguments to the assert!, assert_eq!, and assert_ne! macros. Any arguments specified after the required arguments are passed along to the format! macro (discussed in “Concatenating with + or format!” in Chapter 8), so you can pass a format string that contains {} placeholders and values to go in those placeholders. Custom messages are useful for documenting what an assertion means; when a test fails, you’ll have a better idea of what the problem is with the code.": {
+    "_translate": "你还可以向 <code>assert!</code>、<code>assert_eq!</code> 和 <code>assert_ne!</code> 宏添加自定义消息，作为可选参数。在必需参数之后指定的任何参数都会传递给 <code>format!</code> 宏（在第 8 章的<a href=\"ch08-02-strings.html#concatenating-with--or-format\">“使用 <code>+</code> 或 <code>format!</code> 连接”</a><!--\nignore --> 中讨论），因此你可以传递一个包含 <code>{}</code> 占位符的格式字符串和要填入这些占位符的值。自定义消息对于记录断言的含义非常有用；当测试失败时，你将更好地了解代码的问题所在。",
+    "_note": ""
+  },
+  "All of our tests so far panic when they fail. We can also write tests that use Result<T, E>! Here’s the test from Listing 11-1, rewritten to use Result<T, E> and return an Err instead of panicking:": {
+    "_translate": "到目前为止，我们所有的测试在失败时都会引发恐慌。我们也可以编写使用<code>Result&lt;T, E&gt;</code>的测试！这是来自列表 11-1 的测试，重写为使用<code>Result&lt;T, E&gt;</code>并返回一个<code>Err</code>而不是引发恐慌：",
+    "_note": ""
+  },
+  "Writing tests so that they return a Result<T, E> enables you to use the question mark operator in the body of tests, which can be a convenient way to write tests that should fail if any operation within them returns an Err variant.": {
+    "_translate": "编写测试以使它们返回一个 <code>Result&lt;T, E&gt;</code> 可以让你在测试的主体中使用问号运算符，这是一种方便的方法来编写测试，如果其中的任何操作返回 <code>Err</code> 变体，测试应该失败。",
+    "_note": ""
   }
 }

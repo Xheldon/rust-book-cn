@@ -350,5 +350,61 @@
   "Deprecating Versions from Crates.io": {
     "_translate": "<a class=\"header\" href=\"#deprecating-versions-from-cratesio\">从 Crates.io 退役版本</a>",
     "_note": ""
+  },
+  "Figure 14-1: The HTML documentation for the add_one function": {
+    "_translate": "<span class=\"caption\">图14-1：<code>add_one</code> 函数的 HTML 文档</span>",
+    "_note": ""
+  },
+  "Panics: These are the scenarios in which the function being documented could panic. Callers of the function who don’t want their programs to panic should make sure they don’t call the function in these situations.": {
+    "_translate": "<strong>恐慌</strong>: 这些是被记录的函数可能会发生恐慌的情况。不希望程序恐慌的函数调用者应确保不在这些情况下调用该函数。",
+    "_note": ""
+  },
+  "Errors: If the function returns a Result, describing the kinds of errors that might occur and what conditions might cause those errors to be returned can be helpful to callers so that they can write code to handle the different kinds of errors in different ways.": {
+    "_translate": "<strong>错误</strong>: 如果函数返回一个 <code>Result</code>，描述可能发生的错误类型以及可能导致这些错误的条件，对调用者来说是有帮助的，这样他们可以编写代码以不同方式处理不同类型的错误。",
+    "_note": ""
+  },
+  "Now, if we change either the function or the example so that the assert_eq! in the example panics, and run cargo test again, we’ll see that the doc tests catch that the example and the code are out of sync with each other!": {
+    "_translate": "现在，如果我们更改函数或示例，使示例中的 <code>assert_eq!</code> 触发 panic，并再次运行 <code>cargo test</code>，我们会看到文档测试捕获到示例和代码之间不同步的问题！",
+    "_note": ""
+  },
+  "Adding example code blocks in your documentation comments can help demonstrate how to use your library and has an additional bonus: Running cargo test will run the code examples in your documentation as tests! Nothing is better than documentation with examples. But nothing is worse than examples that don’t work because the code has changed since the documentation was written. If we run cargo test with the documentation for the add_one function from Listing 14-1, we will see a section in the test results that looks like this:": {
+    "_translate": "在文档注释中添加示例代码块可以帮助演示如何使用您的库，并且还有一个额外的好处：运行<code>cargo test</code>会将文档中的代码示例作为测试运行！没有什么比带有示例的文档更好的了。但没有什么比那些因为代码自文档编写以来已更改而不工作的示例更糟糕的了。如果我们使用第14-1章中<code>add_one</code>函数的文档运行<code>cargo test</code>，我们将在测试结果中看到一个如下所示的部分：",
+    "_note": ""
+  },
+  "Figure 14-2: The rendered documentation for my_crate, including the comment describing the crate as a whole": {
+    "_translate": "<span class=\"caption\">图14-2: 渲染的 <code>my_crate</code> 文档，包括描述整个 crate 的注释</span>",
+    "_note": ""
+  },
+  "The good news is that if the structure isn’t convenient for others to use from another library, you don’t have to rearrange your internal organization: Instead, you can re-export items to make a public structure that’s different from your private structure by using pub use. Re-exporting takes a public item in one location and makes it public in another location, as if it were defined in the other location instead.": {
+    "_translate": "好消息是，如果该结构<em>不</em>便于其他库使用，你不必重新安排你的内部组织：相反，你可以通过使用<code>pub use</code>重新导出项来创建一个与你的私有结构不同的公共结构。<em>重新导出</em>会将一个位置的公共项在另一个位置也公开，就像它是在另一个位置定义的一样。",
+    "_note": ""
+  },
+  "Figure 14-3: The front page of the documentation for art that lists the kinds and utils modules": {
+    "_translate": "<span class=\"caption\">图14-3: <code>art</code> 文档的首页，列出了 <code>kinds</code> 和 <code>utils</code> 模块</span>",
+    "_note": ""
+  },
+  "Creating a useful public API structure is more an art than a science, and you can iterate to find the API that works best for your users. Choosing pub use gives you flexibility in how you structure your crate internally and decouples that internal structure from what you present to your users. Look at some of the code of crates you’ve installed to see if their internal structure differs from their public API.": {
+    "_translate": "创建一个有用的公共API结构更像是一门艺术而不是科学，你可以通过迭代来找到最适合你用户的API。选择<code>pub use</code>可以让你在内部结构化crate时具有灵活性，并且将这种内部结构与你呈现给用户的部分解耦。查看一些你已安装的crate的代码，看看它们的内部结构是否与其公共API不同。",
+    "_note": ""
+  },
+  "Before you can publish any crates, you need to create an account on crates.io and get an API token. To do so, visit the home page at crates.io and log in via a GitHub account. (The GitHub account is currently a requirement, but the site might support other ways of creating an account in the future.) Once you’re logged in, visit your account settings at https://crates.io/me/ and retrieve your API key. Then, run the cargo login command and paste your API key when prompted, like this:": {
+    "_translate": "在发布任何 crate 之前，您需要在 <a href=\"https://crates.io/\">crates.io</a><!-- ignore --> 上创建一个帐户并获取一个 API 令牌。为此，请访问 <a href=\"https://crates.io/\">crates.io</a><!-- ignore --> 的首页并通过 GitHub 帐户登录。（目前 GitHub 帐户是必需的，但该网站将来可能会支持其他创建帐户的方式。）登录后，访问您的帐户设置 <a href=\"https://crates.io/me/\">https://crates.io/me/</a><!-- ignore --> 并获取您的 API 密钥。然后，运行 <code>cargo login</code> 命令并在提示时粘贴您的 API 密钥，如下所示：",
+    "_note": ""
+  },
+  "This command will inform Cargo of your API token and store it locally in ~/.cargo/credentials.toml. Note that this token is a secret: Do not share it with anyone else. If you do share it with anyone for any reason, you should revoke it and generate a new token on crates.io.": {
+    "_translate": "此命令将告知 Cargo 您的 API 令牌，并将其存储在 <em>~/.cargo/credentials.toml</em> 中。请注意，此令牌是机密的：不要与任何人共享。如果您因任何原因与任何人共享了此令牌，您应该撤销它并在 <a href=\"https://crates.io/\">crates.io</a> 生成一个新的令牌。",
+    "_note": ""
+  },
+  "When you’ve made changes to your crate and are ready to release a new version, you change the version value specified in your Cargo.toml file and republish. Use the Semantic Versioning rules to decide what an appropriate next version number is, based on the kinds of changes you’ve made. Then, run cargo publish to upload the new version.": {
+    "_translate": "当你对你的 crate 做出更改并准备发布新版本时，你需要更改 <em>Cargo.toml</em> 文件中指定的 <code>version</code> 值并重新发布。使用 <a href=\"https://semver.org/\">语义化版本规则</a> 来决定一个合适的下一个版本号，这取决于你所做的更改类型。然后，运行 <code>cargo publish</code> 来上传新版本。",
+    "_note": ""
+  },
+  "This results in an error because you’re missing some crucial information: A description and license are required so that people will know what your crate does and under what terms they can use it. In Cargo.toml, add a description that’s just a sentence or two, because it will appear with your crate in search results. For the license field, you need to give a license identifier value. The Linux Foundation’s Software Package Data Exchange (SPDX) lists the identifiers you can use for this value. For example, to specify that you’ve licensed your crate using the MIT License, add the MIT identifier:": {
+    "_translate": "这会导致错误，因为你缺少一些关键信息：需要提供描述和许可证，以便人们知道你的 crate 是做什么的以及他们可以在什么条件下使用它。在 <em>Cargo.toml</em> 中，添加一个简短的描述，因为这将出现在搜索结果中与你的 crate 一起。对于 <code>license</code> 字段，你需要提供一个 <em>许可证标识符值</em>。<a href=\"https://spdx.org/licenses/\">Linux 基金会的软件包数据交换 (SPDX)</a> 列出了你可以用于此值的标识符。例如，要指定你使用 MIT 许可证授权你的 crate，添加 <code>MIT</code> 标识符：",
+    "_note": ""
+  },
+  "To yank a version of a crate, in the directory of the crate that you’ve previously published, run cargo yank and specify which version you want to yank. For example, if we’ve published a crate named guessing_game version 1.0.1 and we want to yank it, then we’d run the following in the project directory for guessing_game:": {
+    "_translate": "要撤销某个版本的 crate，在你之前发布的 crate 目录中运行 <code>cargo yank</code> 并指定要撤销的版本。例如，如果我们发布了一个名为 <code>guessing_game</code> 的 crate，版本为 1.0.1，现在我们想撤销它，那么我们将在 <code>guessing_game</code> 的项目目录中运行以下命令：",
+    "_note": ""
   }
 }

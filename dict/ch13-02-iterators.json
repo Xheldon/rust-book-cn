@@ -202,5 +202,21 @@
   "Closures That Capture Their Environment": {
     "_translate": "<a class=\"header\" href=\"#closures-that-capture-their-environment\">捕获其环境的闭包</a>",
     "_note": ""
+  },
+  "Note that we needed to make v1_iter mutable: Calling the next method on an iterator changes internal state that the iterator uses to keep track of where it is in the sequence. In other words, this code consumes, or uses up, the iterator. Each call to next eats up an item from the iterator. We didn’t need to make v1_iter mutable when we used a for loop, because the loop took ownership of v1_iter and made it mutable behind the scenes.": {
+    "_translate": "请注意，我们需要将 <code>v1_iter</code> 设为可变的：在迭代器上调用 <code>next</code> 方法会改变迭代器用于跟踪其在序列中位置的内部状态。换句话说，这段代码 <em>消耗</em> 或使用了迭代器。每次调用 <code>next</code> 都会从迭代器中消耗一个项目。当我们使用 <code>for</code> 循环时，不需要将 <code>v1_iter</code> 设为可变的，因为循环会获取 <code>v1_iter</code> 的所有权，并在幕后将其设为可变的。",
+    "_note": ""
+  },
+  "The code in Listing 13-14 doesn’t do anything; the closure we’ve specified never gets called. The warning reminds us why: Iterator adapters are lazy, and we need to consume the iterator here.": {
+    "_translate": "列表 13-14 中的代码什么也没做；我们指定的闭包从未被调用。警告提醒我们原因：迭代器适配器是惰性的，我们需要在这里消耗迭代器。",
+    "_note": ""
+  },
+  "We aren’t allowed to use v1_iter after the call to sum, because sum takes ownership of the iterator we call it on.": {
+    "_translate": "我们不能在调用 <code>sum</code> 之后再使用 <code>v1_iter</code>，因为 <code>sum</code> 会获取我们调用它的迭代器的所有权。",
+    "_note": ""
+  },
+  "In the body of shoes_in_size, we call into_iter to create an iterator that takes ownership of the vector. Then, we call filter to adapt that iterator into a new iterator that only contains elements for which the closure returns true.": {
+    "_translate": "在 <code>shoes_in_size</code> 的函数体中，我们调用 <code>into_iter</code> 来创建一个获取 vector 所有权的迭代器。然后，我们调用 <code>filter</code> 来将该迭代器转换为一个新的迭代器，该迭代器只包含闭包返回 <code>true</code> 的元素。",
+    "_note": ""
   }
 }

@@ -122,5 +122,33 @@
   "The std::mem::drop function is different from the drop method in the Drop trait. We call it by passing as an argument the value we want to force-drop. The function is in the prelude, so we can modify main in Listing 15-15 to call the drop function, as shown in Listing 15-16.": {
     "_translate": "<code>std::mem::drop</code> 函数与 <code>Drop</code> 特性中的 <code>drop</code> 方法不同。我们通过传递要强制丢弃的值作为参数来调用它。该函数在前言中，因此我们可以修改列表 15-15 中的 <code>main</code> 来调用 <code>drop</code> 函数，如列表 15-16 所示。",
     "_note": ""
+  },
+  "In some languages, for some types, the programmer must call code to free memory or resources every time they finish using an instance of those types. Examples include file handles, sockets, and locks. If the programmer forgets, the system might become overloaded and crash. In Rust, you can specify that a particular bit of code be run whenever a value goes out of scope, and the compiler will insert this code automatically. As a result, you don’t need to be careful about placing cleanup code everywhere in a program that an instance of a particular type is finished with—you still won’t leak resources!": {
+    "_translate": "在某些语言中，对于某些类型，程序员必须在每次使用这些类型的实例后调用代码来释放内存或资源。例子包括文件句柄、套接字和锁。如果程序员忘记了，系统可能会过载并崩溃。在 Rust 中，你可以指定每当一个值超出作用域时运行一段特定的代码，编译器会自动插入这段代码。因此，你不需要在程序中每个使用特定类型实例的地方都小心地放置清理代码——你仍然不会泄露资源！",
+    "_note": ""
+  },
+  "Trying to call the Drop trait’s drop method manually by modifying the main function from Listing 15-14 won’t work, as shown in Listing 15-15.": {
+    "_translate": "尝试通过修改列表 15-14 中的 <code>main</code> 函数手动调用 <code>Drop</code> 特性（trait）的 <code>drop</code> 方法是行不通的，如列表 15-15 所示。",
+    "_note": ""
+  },
+  "Unfortunately, it’s not straightforward to disable the automatic drop functionality. Disabling drop isn’t usually necessary; the whole point of the Drop trait is that it’s taken care of automatically. Occasionally, however, you might want to clean up a value early. One example is when using smart pointers that manage locks: You might want to force the drop method that releases the lock so that other code in the same scope can acquire the lock. Rust doesn’t let you call the Drop trait’s drop method manually; instead, you have to call the std::mem::drop function provided by the standard library if you want to force a value to be dropped before the end of its scope.": {
+    "_translate": "不幸的是，禁用自动 <code>drop</code> 功能并不简单。通常情况下，禁用 <code>drop</code> 并不必要；<code>Drop</code> 特性的整个目的是它会自动处理。然而，有时你可能希望提前清理一个值。一个例子是在使用管理锁的智能指针时：你可能希望强制调用释放锁的 <code>drop</code> 方法，以便同一作用域中的其他代码可以获取锁。Rust 不允许你手动调用 <code>Drop</code> 特性的 <code>drop</code> 方法；相反，如果你希望在作用域结束前强制释放一个值，必须调用标准库提供的 <code>std::mem::drop</code> 函数。",
+    "_note": ""
+  },
+  "Rust doesn’t let us call drop explicitly, because Rust would still automatically call drop on the value at the end of main. This would cause a double free error because Rust would be trying to clean up the same value twice.": {
+    "_translate": "Rust 不允许我们显式调用 <code>drop</code>，因为 Rust 仍然会在 <code>main</code> 结束时自动调用 <code>drop</code>。这会导致双重释放错误，因为 Rust 会尝试两次清理同一个值。",
+    "_note": ""
+  },
+  "The text Dropping CustomSmartPointer with data `some data`! is printed between the CustomSmartPointer created and CustomSmartPointer dropped before the end of main text, showing that the drop method code is called to drop c at that point.": {
+    "_translate": "文本 <code>Dropping CustomSmartPointer with data `some data`!</code> 在 <code>CustomSmartPointer created</code> 和 <code>CustomSmartPointer dropped before the end of main</code> 之间打印，显示 <code>drop</code> 方法代码在该点被调用以释放 <code>c</code>。",
+    "_note": ""
+  },
+  "You can use code specified in a Drop trait implementation in many ways to make cleanup convenient and safe: For instance, you could use it to create your own memory allocator! With the Drop trait and Rust’s ownership system, you don’t have to remember to clean up, because Rust does it automatically.": {
+    "_translate": "你可以以多种方式使用在 <code>Drop</code> 特性实现中指定的代码，使清理既方便又安全：例如，你可以用它来创建自己的内存分配器！通过 <code>Drop</code> 特性和 Rust 的所有权系统，你不必记得清理，因为 Rust 会自动完成。",
+    "_note": ""
+  },
+  "You also don’t have to worry about problems resulting from accidentally cleaning up values still in use: The ownership system that makes sure references are always valid also ensures that drop gets called only once when the value is no longer being used.": {
+    "_translate": "你也不必担心因意外清理仍在使用中的值而产生的问题：确保引用始终有效的所有权系统也确保当值不再被使用时，<code>drop</code> 只会被调用一次。",
+    "_note": ""
   }
 }

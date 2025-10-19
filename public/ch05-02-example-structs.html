@@ -314,7 +314,7 @@ fn area(dimensions: (u32, u32)) -&gt; u32 {
 <p data-x-en="Mixing up the width and height wouldn’t matter for the area calculation, but if we want to draw the rectangle on the screen, it would matter! We would have to keep in mind that width is the tuple index 0 and height is the tuple index 1. This would be even harder for someone else to figure out and keep in mind if they were to use our code. Because we haven’t conveyed the meaning of our data in our code, it’s now easier to introduce errors.">将宽度和高度混淆对于面积计算来说无关紧要，但如果我们想在屏幕上绘制矩形，这就会很重要！我们必须记住 <code>width</code> 是元组索引 <code>0</code>，<code>height</code> 是元组索引 <code>1</code>。如果其他人要使用我们的代码，他们要弄清楚并记住这一点会更加困难。因为我们没有在代码中传达数据的含义，现在更容易引入错误。</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="refactoring-with-structs-adding-more-meaning"></a></p>
-<h3 id="refactoring-with-structs" data-x-en="Refactoring with Structs"><a class="header" href="#refactoring-with-structs">使用结构体重构</a></h3>
+<h3 id="refactoring-with-structs"><a class="header" href="#refactoring-with-structs">使用结构体重构</a></h3>
 <p data-x-en="We use structs to add meaning by labeling the data. We can transform the tuple we’re using into a struct with a name for the whole as well as names for the parts, as shown in Listing 5-10.">我们使用结构体通过标记数据来增加意义。我们可以将正在使用的元组转换为一个具有整体名称以及各部分名称的结构体，如清单 5-10 所示。</p>
 <figure class="listing" id="listing-5-10">
 <span class="file-name">Filename: src/main.rs</span>
@@ -345,7 +345,7 @@ fn area(rectangle: &amp;Rectangle) -&gt; u32 {
 <p data-x-en="The area function accesses the width and height fields of the Rectangle instance (note that accessing fields of a borrowed struct instance does not move the field values, which is why you often see borrows of structs). Our function signature for area now says exactly what we mean: Calculate the area of Rectangle, using its width and height fields. This conveys that the width and height are related to each other, and it gives descriptive names to the values rather than using the tuple index values of 0 and 1. This is a win for clarity."><code>area</code> 函数访问 <code>Rectangle</code> 实例的 <code>width</code> 和 <code>height</code> 字段（注意，访问借用的结构体实例的字段不会移动字段值，这就是为什么你经常看到结构体的借用）。我们的 <code>area</code> 函数签名现在准确地表达了我们的意思：使用 <code>Rectangle</code> 的 <code>width</code> 和 <code>height</code> 字段计算其面积。这传达了宽度和高度是相互关联的，并且它为这些值提供了描述性的名称，而不是使用元组索引值 <code>0</code> 和 <code>1</code>。这提高了清晰度。</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="adding-useful-functionality-with-derived-traits"></a></p>
-<h3 id="adding-functionality-with-derived-traits" data-x-en="Adding Functionality with Derived Traits"><a class="header" href="#adding-functionality-with-derived-traits">使用派生特征添加功能</a></h3>
+<h3 id="adding-functionality-with-derived-traits"><a class="header" href="#adding-functionality-with-derived-traits">使用派生特征添加功能</a></h3>
 <p data-x-en="It’d be useful to be able to print an instance of Rectangle while we’re debugging our program and see the values for all its fields. Listing 5-11 tries using the println! macro as we have used in previous chapters. This won’t work, however.">在调试我们的程序时，能够打印 <code>Rectangle</code> 的实例并查看其所有字段的值会很有帮助。列表 5-11 尝试使用 <a href="https://doc.rust-lang.org/std/macro.println.html" target="_blank"><code>println!</code> 宏</a><!-- ignore -->，就像我们在前面的章节中使用的一样。然而，这将不起作用。</p>
 <figure class="listing" id="listing-5-11">
 <span class="file-name">Filename: src/main.rs</span>

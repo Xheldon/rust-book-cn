@@ -410,5 +410,69 @@
   "Custom derive Macros": {
     "_translate": "<a class=\"header\" href=\"#custom-derive-macros\">自定义 <code>derive</code> 宏</a>",
     "_note": ""
+  },
+  "We’ve used macros like println! throughout this book, but we haven’t fully explored what a macro is and how it works. The term macro refers to a family of features in Rust—declarative macros with macro_rules! and three kinds of procedural macros:": {
+    "_translate": "我们在这本书中使用了像 <code>println!</code> 这样的宏，但还没有完全探讨宏是什么以及它是如何工作的。术语 <em>宏</em> 指的是 Rust 中的一组特性——声明式宏使用 <code>macro_rules!</code> 和三种过程宏：",
+    "_note": ""
+  },
+  "A function signature must declare the number and type of parameters the function has. Macros, on the other hand, can take a variable number of parameters: We can call println!(\"hello\") with one argument or println!(\"hello {}\", name) with two arguments. Also, macros are expanded before the compiler interprets the meaning of the code, so a macro can, for example, implement a trait on a given type. A function can’t, because it gets called at runtime and a trait needs to be implemented at compile time.": {
+    "_translate": "函数签名必须声明函数的参数数量和类型。另一方面，宏可以接受可变数量的参数：我们可以用一个参数调用 <code>println!(\"hello\")</code> 或用两个参数调用 <code>println!(\"hello {}\", name)</code>。此外，宏在编译器解释代码含义之前就会展开，因此宏可以例如在给定类型上实现一个特质。函数则不能，因为函数是在运行时被调用的，而特质需要在编译时实现。",
+    "_note": ""
+  },
+  "The most widely used form of macros in Rust is the declarative macro. These are also sometimes referred to as “macros by example,” “macro_rules! macros,” or just plain “macros.” At their core, declarative macros allow you to write something similar to a Rust match expression. As discussed in Chapter 6, match expressions are control structures that take an expression, compare the resultant value of the expression to patterns, and then run the code associated with the matching pattern. Macros also compare a value to patterns that are associated with particular code: In this situation, the value is the literal Rust source code passed to the macro; the patterns are compared with the structure of that source code; and the code associated with each pattern, when matched, replaces the code passed to the macro. This all happens during compilation.": {
+    "_translate": "在 Rust 中最广泛使用的宏形式是<em>声明式宏</em>。这些宏有时也被称为“示例宏”、“<code>macro_rules!</code> 宏”或简单的“宏”。在核心上，声明式宏允许你编写类似于 Rust <code>match</code> 表达式的内容。正如在第 6 章中讨论的，<code>match</code> 表达式是控制结构，它们接受一个表达式，将该表达式的结果值与模式进行比较，然后运行与匹配模式相关联的代码。宏也对值与特定代码相关联的模式进行比较：在这种情况下，值是传递给宏的字面 Rust 源代码；模式与该源代码的结构进行比较；当匹配时，与每个模式相关联的代码将替换传递给宏的代码。这一切都在编译期间发生。",
+    "_note": ""
+  },
+  "The function that defines a procedural macro takes a TokenStream as an input and produces a TokenStream as an output. The TokenStream type is defined by the proc_macro crate that is included with Rust and represents a sequence of tokens. This is the core of the macro: The source code that the macro is operating on makes up the input TokenStream, and the code the macro produces is the output TokenStream. The function also has an attribute attached to it that specifies which kind of procedural macro we’re creating. We can have multiple kinds of procedural macros in the same crate.": {
+    "_translate": "定义过程宏的函数以 <code>TokenStream</code> 作为输入，并生成一个 <code>TokenStream</code> 作为输出。 <code>TokenStream</code> 类型由 Rust 自带的 <code>proc_macro</code> crate 定义，表示一个令牌序列。这是宏的核心：宏操作的源代码构成了输入 <code>TokenStream</code>，而宏生成的代码则是输出 <code>TokenStream</code>。该函数还附加了一个属性，指定了我们正在创建的过程宏的类型。我们可以在同一个 crate 中有多种类型的过程宏。",
+    "_note": ""
+  },
+  "The next step is to define the procedural macro. At the time of this writing, procedural macros need to be in their own crate. Eventually, this restriction might be lifted. The convention for structuring crates and macro crates is as follows: For a crate named foo, a custom derive procedural macro crate is called foo_derive. Let’s start a new crate called hello_macro_derive inside our hello_macro project:": {
+    "_translate": "下一步是定义过程宏。在撰写本文时，\n过程宏需要位于它们自己的 crate 中。最终，这一限制\n可能会被取消。crate 和宏 crate 的结构约定如下：对于名为 <code>foo</code> 的 crate，自定义 <code>derive</code> 过程宏 crate\n称为 <code>foo_derive</code>。让我们在 <code>hello_macro</code> 项目中\n开始一个名为 <code>hello_macro_derive</code> 的新 crate：",
+    "_note": ""
+  },
+  "Let’s create a crate named hello_macro that defines a trait named HelloMacro with one associated function named hello_macro. Rather than making our users implement the HelloMacro trait for each of their types, we’ll provide a procedural macro so that users can annotate their type with #[derive(HelloMacro)] to get a default implementation of the hello_macro function. The default implementation will print Hello, Macro! My name is TypeName! where TypeName is the name of the type on which this trait has been defined. In other words, we’ll write a crate that enables another programmer to write code like Listing 20-37 using our crate.": {
+    "_translate": "让我们创建一个名为 <code>hello_macro</code> 的 crate，该 crate 定义了一个名为 <code>HelloMacro</code> 的 trait，其中有一个关联函数名为 <code>hello_macro</code>。我们不是让用户为他们的每个类型实现 <code>HelloMacro</code> trait，而是提供一个过程宏，以便用户可以通过 <code>#[derive(HelloMacro)]</code> 注解他们的类型来获得 <code>hello_macro</code> 函数的默认实现。默认实现将打印 <code>Hello, Macro! My name is TypeName!</code>，其中 <code>TypeName</code> 是定义此 trait 的类型的名称。换句话说，我们将编写一个 crate，使其他程序员能够使用我们的 crate 编写如清单 20-37 所示的代码。",
+    "_note": ""
+  },
+  "Notice that we’ve split the code into the hello_macro_derive function, which is responsible for parsing the TokenStream, and the impl_hello_macro function, which is responsible for transforming the syntax tree: This makes writing a procedural macro more convenient. The code in the outer function (hello_macro_derive in this case) will be the same for almost every procedural macro crate you see or create. The code you specify in the body of the inner function (impl_hello_macro in this case) will be different depending on your procedural macro’s purpose.": {
+    "_translate": "注意，我们将代码分成了 <code>hello_macro_derive</code> 函数，该函数负责解析 <code>TokenStream</code>，以及 <code>impl_hello_macro</code> 函数，该函数负责转换语法树：这使得编写过程宏更加方便。外部函数中的代码（在这种情况下为 <code>hello_macro_derive</code>）对于你看到或创建的几乎每个过程宏 crate 都是相同的。你在内部函数体中指定的代码（在这种情况下为 <code>impl_hello_macro</code>）将根据你的过程宏的目的而不同。",
+    "_note": ""
+  },
+  "The syn crate parses Rust code from a string into a data structure that we can perform operations on. The quote crate turns syn data structures back into Rust code. These crates make it much simpler to parse any sort of Rust code we might want to handle: Writing a full parser for Rust code is no simple task.": {
+    "_translate": "<code>syn</code> crate 从字符串中解析 Rust 代码到我们可以操作的数据结构。<code>quote</code> crate 将 <code>syn</code> 数据结构转换回 Rust 代码。这些 crate 使解析我们可能需要处理的任何类型的 Rust 代码变得更加简单：编写一个完整的 Rust 代码解析器绝非易事。",
+    "_note": ""
+  },
+  "The quote! macro lets us define the Rust code that we want to return. The compiler expects something different from the direct result of the quote! macro’s execution, so we need to convert it to a TokenStream. We do this by calling the into method, which consumes this intermediate representation and returns a value of the required TokenStream type.": {
+    "_translate": "<code>quote!</code> 宏让我们定义我们想要返回的 Rust 代码。编译器期望从 <code>quote!</code> 宏的直接执行结果中得到不同的东西，所以我们需要将其转换为 <code>TokenStream</code>。我们通过调用 <code>into</code> 方法来实现这一点，该方法消耗这个中间表示并返回所需 <code>TokenStream</code> 类型的值。",
+    "_note": ""
+  },
+  "We get an Ident struct instance containing the name (identifier) of the annotated type using ast.ident. The struct in Listing 20-41 shows that when we run the impl_hello_macro function on the code in Listing 20-37, the ident we get will have the ident field with a value of \"Pancakes\". Thus, the name variable in Listing 20-42 will contain an Ident struct instance that, when printed, will be the string \"Pancakes\", the name of the struct in Listing 20-37.": {
+    "_translate": "我们使用 <code>ast.ident</code> 获取一个包含注解类型名称（标识符）的 <code>Ident</code> 结构体实例。列表 20-41 中的结构体显示，当我们对列表 20-37 中的代码运行 <code>impl_hello_macro</code> 函数时，我们得到的 <code>ident</code> 将具有值为 <code>\"Pancakes\"</code> 的 <code>ident</code> 字段。因此，列表 20-42 中的 <code>name</code> 变量将包含一个 <code>Ident</code> 结构体实例，当打印时，它将是字符串 <code>\"Pancakes\"</code>，即列表 20-37 中结构体的名称。",
+    "_note": ""
+  },
+  "The quote! macro also provides some very cool templating mechanics: We can enter #name, and quote! will replace it with the value in the variable name. You can even do some repetition similar to the way regular macros work. Check out the quote crate’s docs for a thorough introduction.": {
+    "_translate": "<code>quote!</code> 宏还提供了一些非常酷的模板机制：我们可以输入 <code>#name</code>，<code>quote!</code> 会将其替换为变量 <code>name</code> 中的值。你甚至可以像普通宏那样进行一些重复操作。查看 <a href=\"https://docs.rs/quote\">the <code>quote</code> crate’s docs</a> 以获得详细的介绍。",
+    "_note": ""
+  },
+  "The stringify! macro used here is built into Rust. It takes a Rust expression, such as 1 + 2, and at compile time turns the expression into a string literal, such as \"1 + 2\". This is different from format! or println!, which are macros that evaluate the expression and then turn the result into a String. There is a possibility that the #name input might be an expression to print literally, so we use stringify!. Using stringify! also saves an allocation by converting #name to a string literal at compile time.": {
+    "_translate": "这里使用的 <code>stringify!</code> 宏是 Rust 内置的。它接受一个 Rust 表达式，例如 <code>1 + 2</code>，并在编译时将该表达式转换为字符串字面量，例如 <code>\"1 + 2\"</code>。这与 <code>format!</code> 或 <code>println!</code> 不同，后者是评估表达式然后将结果转换为 <code>String</code> 的宏。有可能 <code>#name</code> 输入是一个需要字面打印的表达式，因此我们使用 <code>stringify!</code>。使用 <code>stringify!</code> 还可以通过在编译时将 <code>#name</code> 转换为字符串字面量来节省分配。",
+    "_note": ""
+  },
+  "Put the code in Listing 20-37 into src/main.rs, and run cargo run: It should print Hello, Macro! My name is Pancakes!. The implementation of the HelloMacro trait from the procedural macro was included without the pancakes crate needing to implement it; the #[derive(HelloMacro)] added the trait implementation.": {
+    "_translate": "将清单 20-37 中的代码放入 <em>src/main.rs</em>，并运行 <code>cargo run</code>：它应该打印 <code>Hello, Macro! My name is Pancakes!</code>。来自过程宏的 <code>HelloMacro</code> 特性的实现被包含进来，而无需 <code>pancakes</code> crate 实现它；<code>#[derive(HelloMacro)]</code> 添加了特性实现。",
+    "_note": ""
+  },
+  "Other than that, attribute-like macros work the same way as custom derive macros: You create a crate with the proc-macro crate type and implement a function that generates the code you want!": {
+    "_translate": "除此之外，属性宏的工作方式与自定义<code>derive</code>宏相同：您需要创建一个<code>proc-macro</code>类型的crate，并实现一个生成所需代码的函数！",
+    "_note": ""
+  },
+  "This definition is similar to the custom derive macro’s signature: We receive the tokens that are inside the parentheses and return the code we wanted to generate.": {
+    "_translate": "这个定义与自定义 <code>derive</code> 宏的签名类似：我们接收括号内的标记并返回我们想要生成的代码。",
+    "_note": ""
+  },
+  "Function-like macros define macros that look like function calls. Similarly to macro_rules! macros, they’re more flexible than functions; for example, they can take an unknown number of arguments. However, macro_rules! macros can only be defined using the match-like syntax we discussed in the “Declarative Macros for General Metaprogramming” section earlier. Function-like macros take a TokenStream parameter, and their definition manipulates that TokenStream using Rust code as the other two types of procedural macros do. An example of a function-like macro is an sql! macro that might be called like so:": {
+    "_translate": "函数式宏定义了看起来像函数调用的宏。类似于<code>macro_rules!</code>宏，它们比函数更灵活；例如，它们可以接受未知数量的参数。然而，<code>macro_rules!</code>宏只能使用我们在<a href=\"#declarative-macros-with-macro_rules-for-general-metaprogramming\">“声明式宏用于通用元编程”</a>部分中讨论的匹配语法来定义。函数式宏接受一个<code>TokenStream</code>参数，并且它们的定义使用Rust代码来操作这个<code>TokenStream</code>，就像其他两种过程宏一样。一个函数式宏的例子是<code>sql!</code>宏，它可能被这样调用：",
+    "_note": ""
   }
 }

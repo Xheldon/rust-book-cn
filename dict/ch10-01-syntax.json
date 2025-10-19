@@ -186,5 +186,45 @@
   "The help text mentions std::cmp::PartialOrd, which is a trait, and we’re going to talk about traits in the next section. For now, know that this error states that the body of largest won’t work for all possible types that T could be. Because we want to compare values of type T in the body, we can only use types whose values can be ordered. To enable comparisons, the standard library has the std::cmp::PartialOrd trait that you can implement on types (see Appendix C for more on this trait). To fix Listing 10-5, we can follow the help text’s suggestion and restrict the types valid for T to only those that implement PartialOrd. The listing will then compile, because the standard library implements PartialOrd on both i32 and char.": {
     "_translate": "帮助文本提到了 <code>std::cmp::PartialOrd</code>，这是一个 <em>trait</em>，我们将在下一节中讨论 trait。目前，你需要知道这个错误表明 <code>largest</code> 的主体不能适用于所有可能的 <code>T</code> 类型。因为我们在主体中想要比较 <code>T</code> 类型的值，所以我们只能使用可以排序的类型的值。为了启用比较，标准库提供了 <code>std::cmp::PartialOrd</code> trait，你可以在类型上实现这个 trait（有关此 trait 的更多信息，请参见附录 C）。要修复列表 10-5，我们可以遵循帮助文本的建议，将 <code>T</code> 有效的类型限制为仅实现 <code>PartialOrd</code> 的类型。然后列表将编译，因为标准库在 <code>i32</code> 和 <code>char</code> 上都实现了 <code>PartialOrd</code>。",
     "_note": ""
+  },
+  "We use generics to create definitions for items like function signatures or structs, which we can then use with many different concrete data types. Let’s first look at how to define functions, structs, enums, and methods using generics. Then, we’ll discuss how generics affect code performance.": {
+    "_translate": "我们使用泛型来为函数签名或结构体等项目创建定义，然后我们可以用这些定义来处理许多不同的具体数据类型。首先，让我们看看如何使用泛型来定义函数、结构体、枚举和方法。然后，我们将讨论泛型如何影响代码性能。",
+    "_note": ""
+  },
+  "When we use a parameter in the body of the function, we have to declare the parameter name in the signature so that the compiler knows what that name means. Similarly, when we use a type parameter name in a function signature, we have to declare the type parameter name before we use it. To define the generic largest function, we place type name declarations inside angle brackets, <>, between the name of the function and the parameter list, like this:": {
+    "_translate": "当我们在一个函数的主体中使用参数时，我们必须在签名中声明参数名称，以便编译器知道该名称的含义。同样，当我们在函数签名中使用类型参数名称时，我们必须在使用之前声明类型参数名称。为了定义泛型<code>largest</code>函数，我们在函数名称和参数列表之间使用尖括号<code>&lt;&gt;</code>内放置类型名称声明，如下所示：",
+    "_note": ""
+  },
+  "The syntax for using generics in struct definitions is similar to that used in function definitions. First, we declare the name of the type parameter inside angle brackets just after the name of the struct. Then, we use the generic type in the struct definition where we would otherwise specify concrete data types.": {
+    "_translate": "在结构体定义中使用泛型的语法与在函数定义中使用的语法相似。首先，我们在结构体名称后面的尖括号内声明类型参数的名称。然后，在结构体定义中，我们在本应指定具体数据类型的地方使用泛型类型。",
+    "_note": ""
+  },
+  "We read this definition as “The function largest is generic over some type T.” This function has one parameter named list, which is a slice of values of type T. The largest function will return a reference to a value of the same type T.": {
+    "_translate": "我们读这个定义为“函数 <code>largest</code> 对某种类型 <code>T</code> 是泛型的。”这个函数有一个名为 <code>list</code> 的参数，它是一个 <code>T</code> 类型值的切片。 <code>largest</code> 函数将返回一个指向相同类型 <code>T</code> 值的引用。",
+    "_note": ""
+  },
+  "In this example, when we assign the integer value 5 to x, we let the compiler know that the generic type T will be an integer for this instance of Point<T>. Then, when we specify 4.0 for y, which we’ve defined to have the same type as x, we’ll get a type mismatch error like this:": {
+    "_translate": "在这个例子中，当我们把整数值<code>5</code>赋给<code>x</code>时，我们让编译器知道泛型类型<code>T</code>在这个<code>Point&lt;T&gt;</code>实例中将是整数。然后，当我们为<code>y</code>指定<code>4.0</code>时，我们已经定义<code>y</code>具有与<code>x</code>相同的类型，这时我们会得到一个类型不匹配的错误，如下所示：",
+    "_note": ""
+  },
+  "Note that we have to declare T just after impl so that we can use T to specify that we’re implementing methods on the type Point<T>. By declaring T as a generic type after impl, Rust can identify that the type in the angle brackets in Point is a generic type rather than a concrete type. We could have chosen a different name for this generic parameter than the generic parameter declared in the struct definition, but using the same name is conventional. If you write a method within an impl that declares a generic type, that method will be defined on any instance of the type, no matter what concrete type ends up substituting for the generic type.": {
+    "_translate": "请注意，我们必须在 <code>impl</code> 之后声明 <code>T</code>，这样我们才能使用 <code>T</code> 来指定我们正在为类型 <code>Point&lt;T&gt;</code> 实现方法。通过在 <code>impl</code> 之后声明 <code>T</code> 为泛型类型，Rust 可以识别 <code>Point</code> 中尖括号内的类型是泛型类型而不是具体类型。我们可以选择与结构体定义中声明的泛型参数不同的名称，但使用相同的名称是惯例。如果你在一个声明了泛型类型的 <code>impl</code> 中编写方法，那么该方法将定义在该类型的任何实例上，无论最终用什么具体类型替代泛型类型。",
+    "_note": ""
+  },
+  "We can also specify constraints on generic types when defining methods on the type. We could, for example, implement methods only on Point<f32> instances rather than on Point<T> instances with any generic type. In Listing 10-10, we use the concrete type f32, meaning we don’t declare any types after impl.": {
+    "_translate": "我们还可以在定义类型的方法时指定泛型类型的约束。例如，我们可以只为 <code>Point&lt;f32&gt;</code> 实例实现方法，而不是为具有任何泛型类型的 <code>Point&lt;T&gt;</code> 实例实现方法。在清单 10-10 中，我们使用具体的类型 <code>f32</code>，这意味着我们在 <code>impl</code> 之后不声明任何类型。",
+    "_note": ""
+  },
+  "Generic type parameters in a struct definition aren’t always the same as those you use in that same struct’s method signatures. Listing 10-11 uses the generic types X1 and Y1 for the Point struct and X2 and Y2 for the mixup method signature to make the example clearer. The method creates a new Point instance with the x value from the self Point (of type X1) and the y value from the passed-in Point (of type Y2).": {
+    "_translate": "在结构体定义中的泛型类型参数并不总是与该结构体方法签名中使用的相同。清单 10-11 使用泛型类型 <code>X1</code> 和 <code>Y1</code> 用于 <code>Point</code> 结构体，<code>X2</code> 和 <code>Y2</code> 用于 <code>mixup</code> 方法签名，以使示例更清晰。该方法创建一个新的 <code>Point</code> 实例，使用来自 <code>self</code> <code>Point</code>（类型为 <code>X1</code>）的 <code>x</code> 值和来自传入的 <code>Point</code>（类型为 <code>Y2</code>）的 <code>y</code> 值。",
+    "_note": ""
+  },
+  "Rust accomplishes this by performing monomorphization of the code using generics at compile time. Monomorphization is the process of turning generic code into specific code by filling in the concrete types that are used when compiled. In this process, the compiler does the opposite of the steps we used to create the generic function in Listing 10-5: The compiler looks at all the places where generic code is called and generates code for the concrete types the generic code is called with.": {
+    "_translate": "Rust 通过在编译时使用泛型对代码进行单态化来实现这一点。 <em>单态化</em> 是将泛型代码转换为具体代码的过程，通过填充编译时使用的具体类型来完成。在这个过程中，编译器执行了与我们在列表 10-5 中创建泛型函数时所用步骤相反的操作：编译器查看所有调用泛型代码的地方，并为调用泛型代码的具体类型生成代码。",
+    "_note": ""
+  },
+  "When Rust compiles this code, it performs monomorphization. During that process, the compiler reads the values that have been used in Option<T> instances and identifies two kinds of Option<T>: One is i32 and the other is f64. As such, it expands the generic definition of Option<T> into two definitions specialized to i32 and f64, thereby replacing the generic definition with the specific ones.": {
+    "_translate": "当 Rust 编译这段代码时，它会执行单态化。在这个过程中，编译器读取在 <code>Option&lt;T&gt;</code> 实例中使用过的值，并识别出两种 <code>Option&lt;T&gt;</code>：一种是 <code>i32</code>，另一种是 <code>f64</code>。因此，它将 <code>Option&lt;T&gt;</code> 的泛型定义扩展为两个专门针对 <code>i32</code> 和 <code>f64</code> 的定义，从而用具体的定义替换了泛型定义。",
+    "_note": ""
   }
 }

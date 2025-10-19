@@ -250,52 +250,52 @@ blockquote {
                 <div id="content" class="content">
                     <main>
                         <h2 id="appendix-a-keywords"><a class="header" href="#appendix-a-keywords">附录 A: 关键字</a></h2>
-<p data-x-en="The following list contains keywords that are reserved for current or future use by the Rust language. As such, they cannot be used as identifiers (except as raw identifiers as we’ll discuss in the “Raw Identifiers” section). Identifiers are names of functions, variables, parameters, struct fields, modules, crates, constants, macros, static values, attributes, types, traits, or lifetimes.">以下列表包含 Rust 语言为当前或未来使用而保留的关键词。因此，它们不能用作标识符（除非作为原始标识符，我们将在“<a href="#raw-identifiers">原始标识符</a><!-- ignore -->”部分讨论）。标识符是函数、变量、参数、结构体字段、模块、crate、常量、宏、静态值、属性、类型、特征或生命周期的名称。</p>
+<p data-x-en="The following lists contain keywords that are reserved for current or future use by the Rust language. As such, they cannot be used as identifiers (except as raw identifiers, as we discuss in the “Raw Identifiers” section). Identifiers are names of functions, variables, parameters, struct fields, modules, crates, constants, macros, static values, attributes, types, traits, or lifetimes.">以下列表包含 Rust 语言为当前或未来使用而保留的关键词。因此，它们不能用作标识符（除非作为原始标识符，我们将在 <a href="#raw-identifiers">“原始标识符”</a><!-- ignore --> 部分讨论）。<em>标识符</em>是函数、变量、参数、结构体字段、模块、crate、常量、宏、静态值、属性、类型、特征或生命周期的名称。</p>
 <h3 id="keywords-currently-in-use"><a class="header" href="#keywords-currently-in-use">当前使用的关键词</a></h3>
 <p data-x-en="The following is a list of keywords currently in use, with their functionality described.">以下是在使用的关键词列表，以及它们的功能描述。</p>
 <ul>
-<li data-x-en="as - perform primitive casting, disambiguate the specific trait containing an item, or rename items in use statements"><code>as</code> - 执行原始类型转换，区分包含某个项的具体特征，或在 <code>use</code> 语句中重命名项</li>
-<li data-x-en="async - return a Future instead of blocking the current thread"><code>async</code> - 返回一个 <code>Future</code> 而不是阻塞当前线程</li>
-<li data-x-en="await - suspend execution until the result of a Future is ready"><code>await</code> - 暂停执行，直到 <code>Future</code> 的结果准备就绪</li>
-<li data-x-en="break - exit a loop immediately"><code>break</code> - 立即退出循环</li>
-<li data-x-en="const - define constant items or constant raw pointers"><code>const</code> - 定义常量项或常量原始指针</li>
-<li data-x-en="continue - continue to the next loop iteration"><code>continue</code> - 继续下一次循环迭代</li>
-<li data-x-en="crate - in a module path, refers to the crate root"><code>crate</code> - 在模块路径中，指的是 crate 根</li>
-<li data-x-en="dyn - dynamic dispatch to a trait object"><code>dyn</code> - 动态分发到特征对象</li>
-<li data-x-en="else - fallback for if and if let control flow constructs"><code>else</code> - <code>if</code> 和 <code>if let</code> 控制流结构的回退选项</li>
-<li data-x-en="enum - define an enumeration"><code>enum</code> - 定义一个枚举</li>
-<li data-x-en="extern - link an external function or variable"><code>extern</code> - 链接外部函数或变量</li>
-<li data-x-en="false - Boolean false literal"><code>false</code> - 布尔假字面值</li>
-<li data-x-en="fn - define a function or the function pointer type"><code>fn</code> - 定义一个函数或函数指针类型</li>
-<li data-x-en="for - loop over items from an iterator, implement a trait, or specify a higher-ranked lifetime"><code>for</code> - 遍历来自迭代器的项，实现一个特质，或指定一个高阶生命周期</li>
-<li data-x-en="if - branch based on the result of a conditional expression"><code>if</code> - 根据条件表达式的结果进行分支</li>
-<li data-x-en="impl - implement inherent or trait functionality"><code>impl</code> - 实现固有或特征功能</li>
-<li data-x-en="in - part of for loop syntax"><code>in</code> - <code>for</code> 循环语法的一部分</li>
-<li data-x-en="let - bind a variable"><code>let</code> - 绑定一个变量</li>
-<li data-x-en="loop - loop unconditionally"><code>loop</code> - 无条件循环</li>
-<li data-x-en="match - match a value to patterns"><code>match</code> - 将值与模式匹配</li>
-<li data-x-en="mod - define a module"><code>mod</code> - 定义一个模块</li>
-<li data-x-en="move - make a closure take ownership of all its captures"><code>move</code> - 使闭包拥有其所有捕获的变量</li>
-<li data-x-en="mut - denote mutability in references, raw pointers, or pattern bindings"><code>mut</code> - 在引用、原始指针或模式绑定中表示可变性</li>
-<li data-x-en="pub - denote public visibility in struct fields, impl blocks, or modules"><code>pub</code> - 表示结构体字段、<code>impl</code> 块或模块的公共可见性</li>
-<li data-x-en="ref - bind by reference"><code>ref</code> - 按引用绑定</li>
-<li data-x-en="return - return from function"><code>return</code> - 从函数返回</li>
-<li data-x-en="Self - a type alias for the type we are defining or implementing"><code>Self</code> - 一个类型别名，用于我们正在定义或实现的类型。</li>
-<li data-x-en="self - method subject or current module"><code>self</code> - 方法主体或当前模块</li>
-<li data-x-en="static - global variable or lifetime lasting the entire program execution"><code>static</code> - 全局变量或持续整个程序执行的生命周期</li>
-<li data-x-en="struct - define a structure"><code>struct</code> - 定义一个结构</li>
-<li data-x-en="super - parent module of the current module"><code>super</code> - 当前模块的父模块</li>
-<li data-x-en="trait - define a trait"><code>trait</code> - 定义一个特质</li>
-<li data-x-en="true - Boolean true literal"><code>true</code> - 布尔真值字面量</li>
-<li data-x-en="type - define a type alias or associated type"><code>type</code> - 定义类型别名或关联类型</li>
-<li data-x-en="union - define a union; is only a keyword when used in a union declaration"><code>union</code> - 定义一个 <a href="https://doc.rust-lang.org/reference/items/unions.html" target="_blank">联合体</a><!-- ignore -->; 仅在用于联合体声明时才是关键字</li>
-<li data-x-en="unsafe - denote unsafe code, functions, traits, or implementations"><code>unsafe</code> - 表示不安全的代码、函数、特质或实现</li>
-<li data-x-en="use - bring symbols into scope; specify precise captures for generic and lifetime bounds"><code>use</code> - 将符号引入作用域；为泛型和生命周期边界指定精确捕获；</li>
-<li data-x-en="where - denote clauses that constrain a type"><code>where</code> - 表示限制类型的子句</li>
-<li data-x-en="while - loop conditionally based on the result of an expression"><code>while</code> - 根据表达式的结果有条件地循环</li>
+<li data-x-en="as: Perform primitive casting, disambiguate the specific trait containing an item, or rename items in use statements."><strong><code>as</code></strong>: 执行原始类型转换，消除包含项的具体特征的歧义，或在 <code>use</code> 语句中重命名项。</li>
+<li data-x-en="async: Return a Future instead of blocking the current thread."><strong><code>async</code></strong>: 返回一个 <code>Future</code> 而不是阻塞当前线程。</li>
+<li data-x-en="await: Suspend execution until the result of a Future is ready."><strong><code>await</code></strong>: 暂停执行，直到 <code>Future</code> 的结果准备就绪。</li>
+<li data-x-en="break: Exit a loop immediately."><strong><code>break</code></strong>: 立即退出循环。</li>
+<li data-x-en="const: Define constant items or constant raw pointers."><strong><code>const</code></strong>: 定义常量项或常量原始指针。</li>
+<li data-x-en="continue: Continue to the next loop iteration."><strong><code>continue</code></strong>: 继续下一次循环迭代。</li>
+<li data-x-en="crate: In a module path, refers to the crate root."><strong><code>crate</code></strong>: 在模块路径中，指代 crate 根。</li>
+<li data-x-en="dyn: Dynamic dispatch to a trait object."><strong><code>dyn</code></strong>: 动态分发到特征对象。</li>
+<li data-x-en="else: Fallback for if and if let control flow constructs."><strong><code>else</code></strong>: <code>if</code> 和 <code>if let</code> 控制流结构的回退。</li>
+<li data-x-en="enum: Define an enumeration."><strong><code>enum</code></strong>: 定义一个枚举。</li>
+<li data-x-en="extern: Link an external function or variable."><strong><code>extern</code></strong>: 链接外部函数或变量。</li>
+<li data-x-en="false: Boolean false literal."><strong><code>false</code></strong>: 布尔假字面值。</li>
+<li data-x-en="fn: Define a function or the function pointer type."><strong><code>fn</code></strong>: 定义一个函数或函数指针类型。</li>
+<li data-x-en="for: Loop over items from an iterator, implement a trait, or specify a higher ranked lifetime."><strong><code>for</code></strong>: 遍历来自迭代器的项，实现一个特质，或指定一个高阶生命周期。</li>
+<li data-x-en="if: Branch based on the result of a conditional expression."><strong><code>if</code></strong>: 根据条件表达式的结果进行分支。</li>
+<li data-x-en="impl: Implement inherent or trait functionality."><strong><code>impl</code></strong>: 实现固有或特征功能。</li>
+<li data-x-en="in: Part of for loop syntax."><strong><code>in</code></strong>: <code>for</code> 循环语法的一部分。</li>
+<li data-x-en="let: Bind a variable."><strong><code>let</code></strong>: 绑定一个变量。</li>
+<li data-x-en="loop: Loop unconditionally."><strong><code>loop</code></strong>: 无条件循环。</li>
+<li data-x-en="match: Match a value to patterns."><strong><code>match</code></strong>: 将值与模式匹配。</li>
+<li data-x-en="mod: Define a module."><strong><code>mod</code></strong>: 定义一个模块。</li>
+<li data-x-en="move: Make a closure take ownership of all its captures."><strong><code>move</code></strong>: 使闭包拥有其所有捕获的变量。</li>
+<li data-x-en="mut: Denote mutability in references, raw pointers, or pattern bindings."><strong><code>mut</code></strong>: 在引用、原始指针或模式绑定中表示可变性。</li>
+<li data-x-en="pub: Denote public visibility in struct fields, impl blocks, or modules."><strong><code>pub</code></strong>: 在结构体字段、<code>impl</code> 块或模块中表示公共可见性。</li>
+<li data-x-en="ref: Bind by reference."><strong><code>ref</code></strong>: 按引用绑定。</li>
+<li data-x-en="return: Return from function."><strong><code>return</code></strong>: 从函数返回。</li>
+<li data-x-en="Self: A type alias for the type we are defining or implementing."><strong><code>Self</code></strong>: 一个类型别名，用于我们正在定义或实现的类型。</li>
+<li data-x-en="self: Method subject or current module."><strong><code>self</code></strong>: 方法主体或当前模块。</li>
+<li data-x-en="static: Global variable or lifetime lasting the entire program execution."><strong><code>static</code></strong>: 全局变量或持续整个程序执行的生命周期。</li>
+<li data-x-en="struct: Define a structure."><strong><code>struct</code></strong>: 定义一个结构。</li>
+<li data-x-en="super: Parent module of the current module."><strong><code>super</code></strong>: 当前模块的父模块。</li>
+<li data-x-en="trait: Define a trait."><strong><code>trait</code></strong>: 定义一个特质。</li>
+<li data-x-en="true: Boolean true literal."><strong><code>true</code></strong>: 布尔真值。</li>
+<li data-x-en="type: Define a type alias or associated type."><strong><code>type</code></strong>: 定义类型别名或关联类型。</li>
+<li data-x-en="union: Define a union; is a keyword only when used in a union declaration."><strong><code>union</code></strong>: 定义一个 <a href="https://doc.rust-lang.org/reference/items/unions.html" target="_blank">联合体</a><!-- ignore -->; 仅在用于联合体声明时是关键字。</li>
+<li data-x-en="unsafe: Denote unsafe code, functions, traits, or implementations."><strong><code>unsafe</code></strong>: 标记不安全的代码、函数、特质或实现。</li>
+<li data-x-en="use: Bring symbols into scope."><strong><code>use</code></strong>: 将符号引入作用域。</li>
+<li data-x-en="where: Denote clauses that constrain a type."><strong><code>where</code></strong>: 表示限制类型的子句。</li>
+<li data-x-en="while: Loop conditionally based on the result of an expression."><strong><code>while</code></strong>: 根据表达式的结果有条件地循环。</li>
 </ul>
 <h3 id="keywords-reserved-for-future-use"><a class="header" href="#keywords-reserved-for-future-use">为将来保留的关键词</a></h3>
-<p data-x-en="The following keywords do not yet have any functionality but are reserved by Rust for potential future use.">以下关键字目前尚无任何功能，但 Rust 保留了这些关键字以供将来可能使用。</p>
+<p data-x-en="The following keywords do not yet have any functionality but are reserved by Rust for potential future use:">以下关键字目前尚无任何功能，但已被 Rust 预留以供将来可能使用：</p>
 <ul>
 <li data-x-en="abstract"><code>抽象</code></li>
 <li data-x-en="become"><code>成为</code></li>

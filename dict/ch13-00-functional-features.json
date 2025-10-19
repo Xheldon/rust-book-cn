@@ -42,5 +42,13 @@
   "The performance of closures and iterators (spoiler alert: they’re faster than you might think!)": {
     "_translate": "闭包和迭代器的性能（剧透警告：它们可能比你想象的要快！）",
     "_note": ""
+  },
+  "The performance of closures and iterators (spoiler alert: They’re faster than you might think!)": {
+    "_translate": "闭包和迭代器的性能（剧透警告：它们可能比你想象的要快！）",
+    "_note": ""
+  },
+  "We’ve already covered some other Rust features, such as pattern matching and enums, that are also influenced by the functional style. Because mastering closures and iterators is an important part of writing fast, idiomatic, Rust code, we’ll devote this entire chapter to them.": {
+    "_translate": "我们已经介绍了一些其他受函数式风格影响的 Rust 特性，如模式匹配和枚举。因为掌握闭包和迭代器是编写快速、惯用的 Rust 代码的重要部分，我们将用这一整章来介绍它们。",
+    "_note": ""
   }
 }

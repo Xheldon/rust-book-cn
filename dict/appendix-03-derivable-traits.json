@@ -222,5 +222,37 @@
   "The Default::default function is commonly used in combination with the struct update syntax discussed in “Creating Instances from Other Instances with Struct Update Syntax” in Chapter 5. You can customize a few fields of a struct and then set and use a default value for the rest of the fields by using ..Default::default().": {
     "_translate": "<code>Default::default</code> 函数通常与结构体更新语法结合使用，相关内容在 <a href=\"ch05-01-defining-structs.html#creating-instances-from-other-instances-with-struct-update-syntax\">“使用结构体更新语法从其他实例创建实例”</a> 一节中有讨论。你可以自定义结构体的几个字段，然后使用 <code>..Default::default()</code> 为其余字段设置和使用默认值。",
     "_note": ""
+  },
+  "The Debug trait is required, for example, in the use of the assert_eq! macro. This macro prints the values of instances given as arguments if the equality assertion fails so that programmers can see why the two instances weren’t equal.": {
+    "_translate": "<code>Debug</code> 特性在使用 <code>assert_eq!</code> 宏时是必需的。这个宏在等式断言失败时会打印出作为参数给出的实例的值，以便程序员可以看到为什么这两个实例不相等。",
+    "_note": ""
+  },
+  "The list of derivable traits provided in this appendix is not comprehensive: Libraries can implement derive for their own traits, making the list of traits you can use derive with truly open ended. Implementing derive involves using a procedural macro, which is covered in the “Custom derive Macros” section in Chapter 20.": {
+    "_translate": "本附录中提供的可派生特征列表并不全面：\n库可以为其自己的特征实现<code>derive</code>，使您可以使用<code>derive</code>的特征列表真正开放。实现<code>derive</code>\n涉及使用过程宏，这在第20章的<a href=\"ch20-05-macros.html#custom-derive-macros\">“自定义<code>derive</code>\n宏”</a>部分中介绍。",
+    "_note": ""
+  },
+  "An example of when Eq is required is for keys in a HashMap<K, V> so that the HashMap<K, V> can tell whether two keys are the same.": {
+    "_translate": "一个需要 <code>Eq</code> 的例子是在 <code>HashMap&lt;K, V&gt;</code> 中的键，以便 <code>HashMap&lt;K, V&gt;</code> 可以判断两个键是否相同。",
+    "_note": ""
+  },
+  "The Eq trait has no methods. Its purpose is to signal that for every value of the annotated type, the value is equal to itself. The Eq trait can only be applied to types that also implement PartialEq, although not all types that implement PartialEq can implement Eq. One example of this is floating-point number types: The implementation of floating-point numbers states that two instances of the not-a-number (NaN) value are not equal to each other.": {
+    "_translate": "<code>Eq</code> 特性没有方法。它的目的是表明对于标注类型的每个值，该值都等于自身。<code>Eq</code> 特性只能应用于也实现了 <code>PartialEq</code> 的类型，尽管并非所有实现了 <code>PartialEq</code> 的类型都能实现 <code>Eq</code>。一个例子是浮点数类型：浮点数的实现规定两个非数字（<code>NaN</code>）值实例彼此不相等。",
+    "_note": ""
+  },
+  "The Clone trait allows you to explicitly create a deep copy of a value, and the duplication process might involve running arbitrary code and copying heap data. See the “Variables and Data Interacting with Clone” section in Chapter 4 for more information on Clone.": {
+    "_translate": "<code>Clone</code> 特性允许你显式地创建一个值的深拷贝，复制过程可能涉及运行任意代码和复制堆数据。有关 <code>Clone</code> 的更多信息，请参见第 4 章的 <a href=\"ch04-01-what-is-ownership.html#variables-and-data-interacting-with-clone\">“变量和数据与 Clone 交互”</a><!-- ignore --> 部分。",
+    "_note": ""
+  },
+  "Deriving PartialOrd implements the partial_cmp method, which returns an Option<Ordering> that will be None when the values given don’t produce an ordering. An example of a value that doesn’t produce an ordering, even though most values of that type can be compared, is the NaN floating point value. Calling partial_cmp with any floating-point number and the NaN floating-point value will return None.": {
+    "_translate": "派生 <code>PartialOrd</code> 实现了 <code>partial_cmp</code> 方法，该方法返回一个 <code>Option&lt;Ordering&gt;</code>，当给定的值无法产生排序时，该值将为 <code>None</code>。一个无法产生排序的值的例子是 <code>NaN</code> 浮点值，即使该类型的大多数值可以进行比较。使用任何浮点数和 <code>NaN</code> 浮点值调用 <code>partial_cmp</code> 都将返回 <code>None</code>。",
+    "_note": ""
+  },
+  "You can derive Copy on any type whose parts all implement Copy. A type that implements Copy must also implement Clone because a type that implements Copy has a trivial implementation of Clone that performs the same task as Copy.": {
+    "_translate": "你可以为所有部分都实现了<code>Copy</code>的任何类型派生<code>Copy</code>。一个实现了<code>Copy</code>的类型也必须实现<code>Clone</code>，因为一个实现了<code>Copy</code>的类型有一个简单的<code>Clone</code>实现，其执行的任务与<code>Copy</code>相同。",
+    "_note": ""
+  },
+  "The Default::default function is commonly used in combination with the struct update syntax discussed in the “Creating Instances from Other Instances with Struct Update Syntax” section in Chapter 5. You can customize a few fields of a struct and then set and use a default value for the rest of the fields by using ..Default::default().": {
+    "_translate": "<code>Default::default</code> 函数通常与结构体更新语法结合使用，相关内容在第 5 章的 <a href=\"ch05-01-defining-structs.html#creating-instances-from-other-instances-with-struct-update-syntax\">“使用结构体更新语法从其他实例创建实例”</a> 部分中讨论。你可以自定义结构体的几个字段，然后使用 <code>..Default::default()</code> 为其余字段设置和使用默认值。",
+    "_note": ""
   }
 }

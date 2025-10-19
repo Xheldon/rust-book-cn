@@ -110,5 +110,17 @@
   "Table B-8: Parentheses": {
     "_translate": "<span class=\"caption\">表 B-8：括号</span>",
     "_note": ""
+  },
+  "The following tables contain all symbols that don’t function as operators; that is, they don’t behave like a function or method call.": {
+    "_translate": "以下表格包含所有不作为运算符功能的符号；也就是说，它们的行为不像函数或方法调用。",
+    "_note": ""
+  },
+  "Table B-2: Stand-alone Syntax": {
+    "_translate": "<span class=\"caption\">表 B-2：独立语法</span>",
+    "_note": ""
+  },
+  "Table B-9 shows the contexts in which curly brackets are used.": {
+    "_translate": "表B-9显示了使用大括号的上下文。",
+    "_note": ""
   }
 }

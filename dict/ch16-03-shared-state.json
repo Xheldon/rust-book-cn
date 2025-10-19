@@ -238,5 +238,49 @@
   "Comparing RefCell<T>/Rc<T> and Mutex<T>/Arc<T>": {
     "_translate": "<a class=\"header\" href=\"#comparing-refcelltrct-and-mutextarct\">比较 <code>RefCell&lt;T&gt;</code>/<code>Rc&lt;T&gt;</code> 和 <code>Mutex&lt;T&gt;</code>/<code>Arc&lt;T&gt;</code></a>",
     "_note": ""
+  },
+  "In a way, channels in any programming language are similar to single ownership because once you transfer a value down a channel, you should no longer use that value. Shared-memory concurrency is like multiple ownership: Multiple threads can access the same memory location at the same time. As you saw in Chapter 15, where smart pointers made multiple ownership possible, multiple ownership can add complexity because these different owners need managing. Rust’s type system and ownership rules greatly assist in getting this management correct. For an example, let’s look at mutexes, one of the more common concurrency primitives for shared memory.": {
+    "_translate": "在某种程度上，任何编程语言中的通道都类似于单一所有权，因为一旦你通过通道传递一个值，你就不再应该使用该值。共享内存并发类似于多重所有权：多个线程可以同时访问同一内存位置。正如你在第15章中看到的，智能指针使得多重所有权成为可能，多重所有权可以增加复杂性，因为这些不同的所有者需要管理。Rust 的类型系统和所有权规则在正确管理这些所有者方面提供了极大的帮助。例如，让我们看看互斥锁，这是共享内存中最常见的并发原语之一。",
+    "_note": ""
+  },
+  "When you’re done with the data that the mutex guards, you must unlock the data so that other threads can acquire the lock.": {
+    "_translate": "当你完成对互斥锁保护的数据的操作后，必须解锁数据，以便其他线程可以获取锁。",
+    "_note": ""
+  },
+  "As with many types, we create a Mutex<T> using the associated function new. To access the data inside the mutex, we use the lock method to acquire the lock. This call will block the current thread so that it can’t do any work until it’s our turn to have the lock.": {
+    "_translate": "与许多类型一样，我们使用关联函数<code>new</code>来创建一个<code>Mutex&lt;T&gt;</code>。\n要访问互斥锁中的数据，我们使用<code>lock</code>方法来获取锁。此调用将阻塞当前线程，使其无法进行任何工作\n直到轮到我们拥有锁。",
+    "_note": ""
+  },
+  "We create a counter variable to hold an i32 inside a Mutex<T>, as we did in Listing 16-12. Next, we create 10 threads by iterating over a range of numbers. We use thread::spawn and give all the threads the same closure: one that moves the counter into the thread, acquires a lock on the Mutex<T> by calling the lock method, and then adds 1 to the value in the mutex. When a thread finishes running its closure, num will go out of scope and release the lock so that another thread can acquire it.": {
+    "_translate": "我们创建一个 <code>counter</code> 变量来在 <code>Mutex&lt;T&gt;</code> 中保存一个 <code>i32</code>，就像我们在清单 16-12 中所做的那样。接下来，我们通过遍历一个数字范围来创建 10 个线程。我们使用 <code>thread::spawn</code> 并给所有线程相同的闭包：一个将计数器移动到线程中，通过调用 <code>lock</code> 方法获取 <code>Mutex&lt;T&gt;</code> 的锁，然后将互斥锁中的值加 1 的闭包。当线程完成运行其闭包时，<code>num</code> 将超出作用域并释放锁，以便其他线程可以获取它。",
+    "_note": ""
+  },
+  "In Chapter 15, we gave a value to multiple owners by using the smart pointer Rc<T> to create a reference-counted value. Let’s do the same here and see what happens. We’ll wrap the Mutex<T> in Rc<T> in Listing 16-14 and clone the Rc<T> before moving ownership to the thread.": {
+    "_translate": "在第 15 章中，我们通过使用智能指针 <code>Rc&lt;T&gt;</code> 创建引用计数值，为多个所有者赋予了值。让我们在这里做同样的事情，看看会发生什么。我们将在 <code>Rc&lt;T&gt;</code> 中包装 <code>Mutex&lt;T&gt;</code>，如清单 16-14 所示，并在将所有权移至线程之前克隆 <code>Rc&lt;T&gt;</code>。",
+    "_note": ""
+  },
+  "Once again, we compile and get… different errors! The compiler is teaching us a lot:": {
+    "_translate": "再一次，我们编译并得到……不同的错误！编译器正在教我们很多：",
+    "_note": ""
+  },
+  "Wow, that error message is very wordy! Here’s the important part to focus on: `Rc<Mutex<i32>>` cannot be sent between threads safely. The compiler is also telling us the reason why: the trait `Send` is not implemented for `Rc<Mutex<i32>>`. We’ll talk about Send in the next section: It’s one of the traits that ensures that the types we use with threads are meant for use in concurrent situations.": {
+    "_translate": "哇，这个错误信息非常冗长！这里需要关注的重要部分是：<code>`Rc&lt;Mutex&lt;i32&gt;&gt;` 不能在线程间安全地传递</code>。编译器还告诉我们原因：<code>`Rc&lt;Mutex&lt;i32&gt;&gt;` 没有实现 `Send` 特性</code>。我们将在下一节讨论 <code>Send</code>：它是确保我们在线程中使用的类型适用于并发情况的特性之一。",
+    "_note": ""
+  },
+  "Fortunately, Arc<T> is a type like Rc<T> that is safe to use in concurrent situations. The a stands for atomic, meaning it’s an atomically reference-counted type. Atomics are an additional kind of concurrency primitive that we won’t cover in detail here: See the standard library documentation for std::sync::atomic for more details. At this point, you just need to know that atomics work like primitive types but are safe to share across threads.": {
+    "_translate": "Fortunately, <code>Arc&lt;T&gt;</code> <em>是</em> 一个像 <code>Rc&lt;T&gt;</code> 一样的类型，可以在并发情况下安全使用。<em>a</em> 代表 <em>原子</em>，意味着它是一个 <em>原子引用计数</em> 类型。原子是另一种并发原语，我们在这里不会详细讨论：有关更多详细信息，请参阅标准库文档 <a href=\"../std/sync/atomic/index.html\"><code>std::sync::atomic</code></a><!-- ignore -->。目前，你只需要知道原子像基本类型一样工作，但可以在线程间安全共享。",
+    "_note": ""
+  },
+  "Note that if you are doing simple numerical operations, there are types simpler than Mutex<T> types provided by the std::sync::atomic module of the standard library. These types provide safe, concurrent, atomic access to primitive types. We chose to use Mutex<T> with a primitive type for this example so that we could concentrate on how Mutex<T> works.": {
+    "_translate": "请注意，如果您正在进行简单的数值操作，标准库的<a href=\"../std/sync/atomic/index.html\"><code>std::sync::atomic</code>模块</a>提供了比<code>Mutex&lt;T&gt;</code>更简单的类型。这些类型提供了对基本类型的线程安全、并发、原子访问。我们在这个例子中选择使用带有基本类型的<code>Mutex&lt;T&gt;</code>，以便集中讲解<code>Mutex&lt;T&gt;</code>的工作原理。",
+    "_note": ""
+  },
+  "You might have noticed that counter is immutable but that we could get a mutable reference to the value inside it; this means Mutex<T> provides interior mutability, as the Cell family does. In the same way we used RefCell<T> in Chapter 15 to allow us to mutate contents inside an Rc<T>, we use Mutex<T> to mutate contents inside an Arc<T>.": {
+    "_translate": "你可能已经注意到 <code>counter</code> 是不可变的，但我们能够获取其内部值的可变引用；这意味着 <code>Mutex&lt;T&gt;</code> 提供了内部可变性，就像 <code>Cell</code> 系列一样。同样地，我们在第 15 章中使用 <code>RefCell&lt;T&gt;</code> 允许我们在 <code>Rc&lt;T&gt;</code> 内部修改内容，我们使用 <code>Mutex&lt;T&gt;</code> 来在 <code>Arc&lt;T&gt;</code> 内部修改内容。",
+    "_note": ""
+  },
+  "Another detail to note is that Rust can’t protect you from all kinds of logic errors when you use Mutex<T>. Recall from Chapter 15 that using Rc<T> came with the risk of creating reference cycles, where two Rc<T> values refer to each other, causing memory leaks. Similarly, Mutex<T> comes with the risk of creating deadlocks. These occur when an operation needs to lock two resources and two threads have each acquired one of the locks, causing them to wait for each other forever. If you’re interested in deadlocks, try creating a Rust program that has a deadlock; then, research deadlock mitigation strategies for mutexes in any language and have a go at implementing them in Rust. The standard library API documentation for Mutex<T> and MutexGuard offers useful information.": {
+    "_translate": "另一个需要注意的细节是，Rust 不能保护你免受所有类型的逻辑错误，当你使用 <code>Mutex&lt;T&gt;</code> 时。回想第 15 章，使用 <code>Rc&lt;T&gt;</code> 会带来创建引用循环的风险，其中两个 <code>Rc&lt;T&gt;</code> 值相互引用，导致内存泄漏。同样，<code>Mutex&lt;T&gt;</code> 也存在创建 <em>死锁</em> 的风险。这些情况发生在操作需要锁定两个资源，而两个线程各自获取了一个锁，导致它们永远等待对方。如果你对死锁感兴趣，可以尝试创建一个包含死锁的 Rust 程序；然后，研究任何语言中互斥锁的死锁缓解策略，并尝试在 Rust 中实现它们。<code>Mutex&lt;T&gt;</code> 和 <code>MutexGuard</code> 的标准库 API 文档提供了有用的信息。",
+    "_note": ""
   }
 }

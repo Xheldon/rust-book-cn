@@ -26,5 +26,9 @@
   "Cargo is designed so you can extend it with new subcommands without having to modify it. If a binary in your $PATH is named cargo-something, you can run it as if it were a Cargo subcommand by running cargo something. Custom commands like this are also listed when you run cargo --list. Being able to use cargo install to install extensions and then run them just like the built-in Cargo tools is a super-convenient benefit of Cargo’s design!": {
     "_translate": "Cargo 的设计允许你在不修改它的情况下扩展新的子命令。如果你的 <code>$PATH</code> 中有一个名为 <code>cargo-something</code> 的二进制文件，你可以通过运行 <code>cargo something</code> 来像运行 Cargo 子命令一样运行它。当你运行 <code>cargo --list</code> 时，这些自定义命令也会被列出。能够使用 <code>cargo install</code> 安装扩展，然后像内置的 Cargo 工具一样运行它们，这是 Cargo 设计的一个非常方便的好处！",
     "_note": ""
+  },
+  "Cargo is designed so that you can extend it with new subcommands without having to modify it. If a binary in your $PATH is named cargo-something, you can run it as if it were a Cargo subcommand by running cargo something. Custom commands like this are also listed when you run cargo --list. Being able to use cargo install to install extensions and then run them just like the built-in Cargo tools is a super-convenient benefit of Cargo’s design!": {
+    "_translate": "Cargo 的设计允许你在不修改它的情况下扩展新的子命令。如果你的 <code>$PATH</code> 中有一个二进制文件名为 <code>cargo-something</code>，你可以通过运行 <code>cargo something</code> 来像运行 Cargo 子命令一样运行它。当你运行 <code>cargo --list</code> 时，这些自定义命令也会被列出。能够使用 <code>cargo install</code> 安装扩展，然后像内置的 Cargo 工具一样运行它们，这是 Cargo 设计的一个非常方便的好处！",
+    "_note": ""
   }
 }

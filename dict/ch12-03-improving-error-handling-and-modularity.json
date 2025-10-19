@@ -398,5 +398,81 @@
   "Separating Concerns in Binary Projects": {
     "_translate": "<a class=\"header\" href=\"#separating-concerns-in-binary-projects\">在二进制项目中分离关注点</a>",
     "_note": ""
+  },
+  "To improve our program, we’ll fix four problems that have to do with the program’s structure and how it’s handling potential errors. First, our main function now performs two tasks: It parses arguments and reads files. As our program grows, the number of separate tasks the main function handles will increase. As a function gains responsibilities, it becomes more difficult to reason about, harder to test, and harder to change without breaking one of its parts. It’s best to separate functionality so that each function is responsible for one task.": {
+    "_translate": "为了改进我们的程序，我们将解决四个与程序结构和处理潜在错误相关的问题。首先，我们的<code>main</code>函数现在执行两个任务：解析参数和读取文件。随着程序的增长，<code>main</code>函数处理的独立任务数量将会增加。随着函数职责的增加，理解和测试它变得越来越困难，修改时也更容易破坏其某个部分。最好将功能分离，使每个函数只负责一个任务。",
+    "_note": ""
+  },
+  "This issue also ties into the second problem: Although query and file_path are configuration variables to our program, variables like contents are used to perform the program’s logic. The longer main becomes, the more variables we’ll need to bring into scope; the more variables we have in scope, the harder it will be to keep track of the purpose of each. It’s best to group the configuration variables into one structure to make their purpose clear.": {
+    "_translate": "这个问题也与第二个问题相关：虽然<code>query</code>和<code>file_path</code>是我们程序的配置变量，但像<code>contents</code>这样的变量用于执行程序的逻辑。随着<code>main</code>函数变得越来越长，我们需要引入更多变量；我们拥有的变量越多，跟踪每个变量的目的就越困难。最好将配置变量组合到一个结构中，以明确它们的目的。",
+    "_note": ""
+  },
+  "The third problem is that we’ve used expect to print an error message when reading the file fails, but the error message just prints Should have been able to read the file. Reading a file can fail in a number of ways: For example, the file could be missing, or we might not have permission to open it. Right now, regardless of the situation, we’d print the same error message for everything, which wouldn’t give the user any information!": {
+    "_translate": "第三个问题是，我们使用了<code>expect</code>在读取文件失败时打印错误消息，但错误消息只是打印<code>Should have been able to read the file</code>。读取文件可能会以多种方式失败：例如，文件可能不存在，或者我们可能没有权限打开它。现在，无论情况如何，我们都会为所有情况打印相同的错误消息，这不会给用户提供任何信息！",
+    "_note": ""
+  },
+  "Fourth, we use expect to handle an error, and if the user runs our program without specifying enough arguments, they’ll get an index out of bounds error from Rust that doesn’t clearly explain the problem. It would be best if all the error-handling code were in one place so that future maintainers had only one place to consult the code if the error-handling logic needed to change. Having all the error-handling code in one place will also ensure that we’re printing messages that will be meaningful to our end users.": {
+    "_translate": "第四，我们使用<code>expect</code>来处理错误，如果用户在运行我们的程序时没有指定足够的参数，他们将收到一个来自Rust的<code>index out of bounds</code>错误，这个错误没有清楚地解释问题。如果所有的错误处理代码都在一个地方，那么将来维护者只需要在一个地方查看代码，如果需要更改错误处理逻辑，这样会更好。将所有的错误处理代码放在一个地方，也可以确保我们打印的消息对最终用户来说是有意义的。",
+    "_note": ""
+  },
+  "We’ve updated main so that it places the instance of Config returned by parse_config into a variable named config, and we updated the code that previously used the separate query and file_path variables so that it now uses the fields on the Config struct instead.": {
+    "_translate": "我们已经更新了<code>main</code>，使其将<code>parse_config</code>返回的<code>Config</code>实例放入名为<code>config</code>的变量中，并且我们更新了之前使用单独的<code>query</code>和<code>file_path</code>变量的代码，使其现在使用<code>Config</code>结构体的字段。",
+    "_note": ""
+  },
+  "This output is better: We now have a reasonable error message. However, we also have extraneous information we don’t want to give to our users. Perhaps the technique we used in Listing 9-13 isn’t the best one to use here: A call to panic! is more appropriate for a programming problem than a usage problem, as discussed in Chapter 9. Instead, we’ll use the other technique you learned about in Chapter 9—returning a Result that indicates either success or an error.": {
+    "_translate": "这个输出更好：我们现在有一个合理的错误信息。然而，我们也有不想提供给用户的多余信息。也许我们在清单 9-13 中使用的技术在这里并不是最好的：<code>panic!</code> 调用更适合于编程问题而不是使用问题，<a href=\"ch09-03-to-panic-or-not-to-panic.html#guidelines-for-error-handling\">正如第 9 章中讨论的那样</a>。相反，我们将使用你在第 9 章中学到的另一种技术——<a href=\"ch09-02-recoverable-errors-with-result.html\">返回一个 <code>Result</code></a>，它表示成功或错误。",
+    "_note": ""
+  },
+  "So, now that the purpose of the parse_config function is to create a Config instance, we can change parse_config from a plain function to a function named new that is associated with the Config struct. Making this change will make the code more idiomatic. We can create instances of types in the standard library, such as String, by calling String::new. Similarly, by changing parse_config into a new function associated with Config, we’ll be able to create instances of Config by calling Config::new. Listing 12-7 shows the changes we need to make.": {
+    "_translate": "所以，现在 <code>parse_config</code> 函数的目的是创建一个 <code>Config</code> 实例，我们可以将 <code>parse_config</code> 从一个普通函数改为与 <code>Config</code> 结构体关联的名为 <code>new</code> 的函数。这样会使代码更加符合惯用法。我们可以调用 <code>String::new</code> 来创建标准库中的类型实例，例如 <code>String</code>。同样，通过将 <code>parse_config</code> 改为与 <code>Config</code> 关联的 <code>new</code> 函数，我们将能够通过调用 <code>Config::new</code> 来创建 <code>Config</code> 实例。列表 12-7 显示了我们需要进行的更改。",
+    "_note": ""
+  },
+  "We’ve made two changes in the body of the function: Instead of calling panic! when the user doesn’t pass enough arguments, we now return an Err value, and we’ve wrapped the Config return value in an Ok. These changes make the function conform to its new type signature.": {
+    "_translate": "我们在函数体中做了两个更改：当用户没有传递足够的参数时，我们不再调用<code>panic!</code>，而是返回一个<code>Err</code>值，并且我们将<code>Config</code>返回值包装在<code>Ok</code>中。这些更改使函数符合其新的类型签名。",
+    "_note": ""
+  },
+  "We can instead return a Result value that will contain a Config instance in the successful case and will describe the problem in the error case. We’re also going to change the function name from new to build because many programmers expect new functions to never fail. When Config::build is communicating to main, we can use the Result type to signal there was a problem. Then, we can change main to convert an Err variant into a more practical error for our users without the surrounding text about thread 'main' and RUST_BACKTRACE that a call to panic! causes.": {
+    "_translate": "我们可以返回一个<code>Result</code>值，在成功的情况下包含一个<code>Config</code>实例，在错误的情况下描述问题。我们还将函数名从<code>new</code>改为<code>build</code>，因为许多程序员期望<code>new</code>函数永远不会失败。当<code>Config::build</code>与<code>main</code>通信时，我们可以使用<code>Result</code>类型来信号有问题。然后，我们可以更改<code>main</code>以将<code>Err</code>变体转换为对用户更实用的错误，而不会出现<code>panic!</code>调用引起的关于<code>thread 'main'</code>和<code>RUST_BACKTRACE</code>的周围文本。",
+    "_note": ""
+  },
+  "We’ve added a new use line to bring process from the standard library into scope. The code in the closure that will be run in the error case is only two lines: We print the err value and then call process::exit. The process::exit function will stop the program immediately and return the number that was passed as the exit status code. This is similar to the panic!-based handling we used in Listing 12-8, but we no longer get all the extra output. Let’s try it:": {
+    "_translate": "我们添加了一行新的<code>use</code>，将标准库中的<code>process</code>引入作用域。闭包中将在错误情况下运行的代码只有两行：我们打印<code>err</code>值，然后调用<code>process::exit</code>。<code>process::exit</code>函数会立即停止程序，并返回作为退出状态码传递的数字。这与我们在示例12-8中使用的基于<code>panic!</code>的处理方式类似，但我们不再获得所有额外的输出。让我们尝试一下：",
+    "_note": ""
+  },
+  "In this listing, we’ve used a method we haven’t covered in detail yet: unwrap_or_else, which is defined on Result<T, E> by the standard library. Using unwrap_or_else allows us to define some custom, non-panic! error handling. If the Result is an Ok value, this method’s behavior is similar to unwrap: It returns the inner value that Ok is wrapping. However, if the value is an Err value, this method calls the code in the closure, which is an anonymous function we define and pass as an argument to unwrap_or_else. We’ll cover closures in more detail in Chapter 13. For now, you just need to know that unwrap_or_else will pass the inner value of the Err, which in this case is the static string \"not enough arguments\" that we added in Listing 12-9, to our closure in the argument err that appears between the vertical pipes. The code in the closure can then use the err value when it runs.": {
+    "_translate": "在这个列表中，我们使用了一个尚未详细讨论的方法：<code>unwrap_or_else</code>，这是标准库在<code>Result&lt;T, E&gt;</code>上定义的。使用<code>unwrap_or_else</code>允许我们定义一些自定义的、非<code>panic!</code>错误处理。如果<code>Result</code>是一个<code>Ok</code>值，这个方法的行为类似于<code>unwrap</code>：它返回<code>Ok</code>包装的内部值。然而，如果值是一个<code>Err</code>值，这个方法会调用闭包中的代码，这是一个我们定义并作为参数传递给<code>unwrap_or_else</code>的匿名函数。我们将在<a href=\"ch13-00-functional-features.html\">第13章</a><!-- ignore -->中更详细地讨论闭包。目前，你只需要知道<code>unwrap_or_else</code>会将<code>Err</code>的内部值，即我们在列表12-9中添加的静态字符串<code>\"not enough arguments\"</code>，传递给闭包中的参数<code>err</code>，该参数出现在竖线之间。闭包中的代码在运行时可以使用<code>err</code>值。",
+    "_note": ""
+  },
+  "Returning Errors from run": {
+    "_translate": "<a class=\"header\" href=\"#returning-errors-from-run\">从 <code>run</code> 返回错误</a>",
+    "_note": ""
+  },
+  "Now that we’ve finished refactoring the configuration parsing, let’s turn to the program’s logic. As we stated in “Separating Concerns in Binary Projects”, we’ll extract a function named run that will hold all the logic currently in the main function that isn’t involved with setting up configuration or handling errors. When we’re done, the main function will be concise and easy to verify by inspection, and we’ll be able to write tests for all the other logic.": {
+    "_translate": "现在我们已经完成了配置解析的重构，让我们转向程序的逻辑。正如我们在<a href=\"#separation-of-concerns-for-binary-projects\">“二进制项目中的关注点分离”</a>中所述，我们将提取一个名为<code>run</code>的函数，该函数将包含当前<code>main</code>函数中与设置配置或处理错误无关的所有逻辑。完成后，<code>main</code>函数将简洁且易于通过检查验证，我们还将能够为所有其他逻辑编写测试。",
+    "_note": ""
+  },
+  "For the error type, we used the trait object Box<dyn Error> (and we brought std::error::Error into scope with a use statement at the top). We’ll cover trait objects in Chapter 18. For now, just know that Box<dyn Error> means the function will return a type that implements the Error trait, but we don’t have to specify what particular type the return value will be. This gives us flexibility to return error values that may be of different types in different error cases. The dyn keyword is short for dynamic.": {
+    "_translate": "对于错误类型，我们使用了特质对象 <code>Box&lt;dyn Error&gt;</code>（并且我们在顶部通过 <code>use</code> 语句将 <code>std::error::Error</code> 引入了作用域）。我们将在 <a href=\"ch18-00-oop.html\">第 18 章</a><!-- ignore --> 中介绍特质对象。目前，只需知道 <code>Box&lt;dyn Error&gt;</code> 意味着函数将返回一个实现了 <code>Error</code> 特质的类型，但我们不必指定返回值的具体类型。这使我们能够在不同的错误情况下返回可能不同类型的错误值。<code>dyn</code> 关键字是 <em>动态</em> 的缩写。",
+    "_note": ""
+  },
+  "Third, the run function now returns an Ok value in the success case. We’ve declared the run function’s success type as () in the signature, which means we need to wrap the unit type value in the Ok value. This Ok(()) syntax might look a bit strange at first. But using () like this is the idiomatic way to indicate that we’re calling run for its side effects only; it doesn’t return a value we need.": {
+    "_translate": "第三，<code>run</code> 函数现在在成功情况下返回一个 <code>Ok</code> 值。\n我们已经在签名中声明 <code>run</code> 函数的成功类型为 <code>()</code>，\n这意味着我们需要将单元类型值包装在 <code>Ok</code> 值中。这\n<code>Ok(())</code> 语法一开始可能看起来有点奇怪。但这样使用 <code>()</code> 是\n表示我们仅为了其副作用而调用 <code>run</code> 的惯用方式；\n它不会返回我们需要的值。",
+    "_note": ""
+  },
+  "The bodies of the if let and the unwrap_or_else functions are the same in both cases: We print the error and exit.": {
+    "_translate": "<code>if let</code> 和 <code>unwrap_or_else</code> 函数的主体在这两种情况下是相同的：我们打印错误并退出。",
+    "_note": ""
+  },
+  "Note that the search function will be collecting all the results into a vector it returns before any printing happens. This implementation could be slow to display results when searching large files, because results aren’t printed as they’re found; we’ll discuss a possible way to fix this using iterators in Chapter 13.": {
+    "_translate": "请注意，搜索功能会将所有结果收集到一个向量中，然后才进行打印。这种实现方式在搜索大文件时可能会显示结果较慢，因为结果不是在找到时立即打印；我们将在第 13 章讨论使用迭代器可能的解决方法。",
+    "_note": ""
+  },
+  "We add a use minigrep::search line to bring the search function from the library crate into the binary crate’s scope. Then, in the run function, rather than printing out the contents of the file, we call the search function and pass the config.query value and contents as arguments. Then, run will use a for loop to print each line returned from search that matched the query. This is also a good time to remove the println! calls in the main function that displayed the query and the file path so that our program only prints the search results (if no errors occur).": {
+    "_translate": "我们添加了一行<code>use minigrep::search</code>，将<code>search</code>函数从库crate引入到二进制crate的作用域中。然后，在<code>run</code>函数中，我们不是打印文件的内容，而是调用<code>search</code>函数，并将<code>config.query</code>值和<code>contents</code>作为参数传递。然后，<code>run</code>将使用<code>for</code>循环打印从<code>search</code>返回的每个匹配查询的行。这也是一个好的时机，从<code>main</code>函数中移除显示查询和文件路径的<code>println!</code>调用，以便我们的程序只打印搜索结果（如果未发生错误）。",
+    "_note": ""
+  },
+  "Let’s take advantage of this newfound modularity by doing something that would have been difficult with the old code but is easy with the new code: We’ll write some tests!": {
+    "_translate": "让我们利用这种新获得的模块化特性来做一些在旧代码中很难但在新代码中很容易的事情：编写一些测试！",
+    "_note": ""
   }
 }

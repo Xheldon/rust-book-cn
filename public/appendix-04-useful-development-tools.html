@@ -249,11 +249,11 @@ blockquote {
 
                 <div id="content" class="content">
                     <main>
-                        <h2 id="appendix-d---useful-development-tools"><a class="header" href="#appendix-d---useful-development-tools">附录 D - 有用的开发工具</a></h2>
+                        <h2 id="appendix-d-useful-development-tools" data-x-en="Appendix D: Useful Development Tools"><a class="header" href="#appendix-d-useful-development-tools">附录 D: 有用的开发工具</a></h2>
 <p data-x-en="In this appendix, we talk about some useful development tools that the Rust project provides. We’ll look at automatic formatting, quick ways to apply warning fixes, a linter, and integrating with IDEs.">在本附录中，我们讨论了 Rust 项目提供的一些有用的开发工具。我们将介绍自动格式化、快速应用警告修复、代码检查器以及与 IDE 的集成。</p>
 <h3 id="automatic-formatting-with-rustfmt"><a class="header" href="#automatic-formatting-with-rustfmt">使用 <code>rustfmt</code> 自动格式化</a></h3>
-<p data-x-en="The rustfmt tool reformats your code according to the community code style. Many collaborative projects use rustfmt to prevent arguments about which style to use when writing Rust: everyone formats their code using the tool."><code>rustfmt</code> 工具根据社区代码风格重新格式化您的代码。许多协作项目使用 <code>rustfmt</code> 来防止关于编写 Rust 时使用哪种风格的争论：每个人都使用该工具格式化他们的代码。</p>
-<p data-x-en="Rust installations include rustfmt by default, so you should already have the programs rustfmt and cargo-fmt on your system. These two commands are analogous to rustc and cargo in that rustfmt allows finer-grained control and cargo-fmt understands conventions of a project that uses Cargo. To format any Cargo project, enter the following:">Rust 安装默认包含 rustfmt，因此你的系统上应该已经有 <code>rustfmt</code> 和 <code>cargo-fmt</code> 程序。这两个命令类似于 <code>rustc</code> 和 <code>cargo</code>，其中 <code>rustfmt</code> 允许更细粒度的控制，而 <code>cargo-fmt</code> 理解使用 Cargo 的项目的约定。要格式化任何 Cargo 项目，请输入以下内容：</p>
+<p data-x-en="The rustfmt tool reformats your code according to the community code style. Many collaborative projects use rustfmt to prevent arguments about which style to use when writing Rust: Everyone formats their code using the tool."><code>rustfmt</code> 工具根据社区代码风格重新格式化你的代码。许多协作项目使用 <code>rustfmt</code> 来防止关于在编写 Rust 时使用哪种风格的争论：每个人都使用该工具格式化他们的代码。</p>
+<p data-x-en="Rust installations include rustfmt by default, so you should already have the programs rustfmt and cargo-fmt on your system. These two commands are analogous to rustc and cargo in that rustfmt allows finer grained control and cargo-fmt understands conventions of a project that uses Cargo. To format any Cargo project, enter the following:">Rust 安装默认包含 <code>rustfmt</code>，因此你的系统上应该已经有 <code>rustfmt</code> 和 <code>cargo-fmt</code> 程序。这两个命令类似于 <code>rustc</code> 和 <code>cargo</code>，其中 <code>rustfmt</code> 允许更细粒度的控制，而 <code>cargo-fmt</code> 理解使用 Cargo 的项目的约定。要格式化任何 Cargo 项目，请输入以下内容：</p>
 <pre><code class="language-console">$ cargo fmt
 </code></pre>
 <p data-x-en="Running this command reformats all the Rust code in the current crate. This should only change the code style, not the code semantics. For more information on rustfmt, see its documentation.">运行此命令将重新格式化当前包中的所有 Rust 代码。这只会更改代码风格，而不会更改代码语义。有关 <code>rustfmt</code> 的更多信息，请参阅 <a href="https://github.com/rust-lang/rustfmt">其文档</a>。</p>
@@ -292,7 +292,7 @@ warning: variable does not need to be mutable
 <p data-x-en="The variable x is now immutable, and the warning no longer appears.">变量 <code>x</code> 现在是不可变的，警告不再出现。</p>
 <p data-x-en="You can also use the cargo fix command to transition your code between different Rust editions. Editions are covered in Appendix E.">您还可以使用 <code>cargo fix</code> 命令在不同的 Rust 版本之间转换您的代码。版本在 <a href="appendix-05-editions.html">附录 E</a> 中介绍。</p>
 <h3 id="more-lints-with-clippy"><a class="header" href="#more-lints-with-clippy">更多 Clippy 检查</a></h3>
-<p data-x-en="The Clippy tool is a collection of lints to analyze your code so you can catch common mistakes and improve your Rust code. Clippy is included with standard Rust installations.">Clippy 工具是一组用于分析代码的 lint，可以帮助你发现常见的错误并改进你的 Rust 代码。Clippy 包含在标准的 Rust 安装中。</p>
+<p data-x-en="The Clippy tool is a collection of lints to analyze your code so that you can catch common mistakes and improve your Rust code. Clippy is included with standard Rust installations.">Clippy 工具是一组用于分析代码的 lint，可以帮助你捕捉常见错误并改进 Rust 代码。Clippy 包含在标准的 Rust 安装中。</p>
 <p data-x-en="To run Clippy’s lints on any Cargo project, enter the following:">要在任何 Cargo 项目上运行 Clippy 的 lint，请输入以下内容：</p>
 <pre><code class="language-console">$ cargo clippy
 </code></pre>

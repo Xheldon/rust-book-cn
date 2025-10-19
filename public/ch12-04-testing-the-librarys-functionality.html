@@ -251,7 +251,7 @@ blockquote {
                     <main>
                         <!-- Old headings. Do not remove or links may break. -->
 <p><a id="developing-the-librarys-functionality-with-test-driven-development"></a></p>
-<h2 id="adding-functionality-with-test-driven-development" data-x-en="Adding Functionality with Test-Driven Development"><a class="header" href="#adding-functionality-with-test-driven-development">使用测试驱动开发添加功能</a></h2>
+<h2 id="adding-functionality-with-test-driven-development"><a class="header" href="#adding-functionality-with-test-driven-development">使用测试驱动开发添加功能</a></h2>
 <p data-x-en="Now that we have the search logic in src/lib.rs separate from the main function, it’s much easier to write tests for the core functionality of our code. We can call functions directly with various arguments and check return values without having to call our binary from the command line.">现在我们已经将搜索逻辑放在 <em>src/lib.rs</em> 中，与 <code>main</code>
 函数分离，为我们的代码核心功能编写测试变得更加容易。我们可以直接调用带有不同参数的函数并检查返回值，而无需从命令行调用我们的二进制文件。</p>
 <p data-x-en="In this section, we’ll add the searching logic to the minigrep program using the test-driven development (TDD) process with the following steps:">在本节中，我们将使用测试驱动开发（TDD）过程为<code>minigrep</code>程序添加搜索逻辑，具体步骤如下：</p>
@@ -261,10 +261,10 @@ blockquote {
 <li data-x-en="Refactor the code you just added or changed and make sure the tests continue to pass.">重构你刚刚添加或更改的代码，并确保测试继续通过。</li>
 <li data-x-en="Repeat from step 1!">从步骤1重复！</li>
 </ol>
-<p data-x-en="Though it’s just one of many ways to write software, TDD can help drive code design. Writing the test before you write the code that makes the test pass helps to maintain high test coverage throughout the process.">虽然这只是编写软件的众多方法之一，但 TDD 可以帮助驱动代码设计。在编写使测试通过的代码之前先编写测试，有助于在整个过程中保持高测试覆盖率。</p>
+<p data-x-en="Though it’s just one of many ways to write software, TDD can help drive code design. Writing the test before you write the code that makes the test pass helps maintain high test coverage throughout the process.">虽然这只是编写软件的众多方法之一，但 TDD 可以帮助驱动代码设计。在编写使测试通过的代码之前先编写测试，有助于在整个过程中保持高测试覆盖率。</p>
 <p data-x-en="We’ll test-drive the implementation of the functionality that will actually do the searching for the query string in the file contents and produce a list of lines that match the query. We’ll add this functionality in a function called search.">我们将测试实现的功能，该功能将在文件内容中搜索查询字符串，并生成与查询匹配的行列表。我们将在一个名为<code>search</code>的函数中添加此功能。</p>
 <h3 id="writing-a-failing-test"><a class="header" href="#writing-a-failing-test">编写一个失败的测试</a></h3>
-<p data-x-en="In src/lib.rs, we’ll add a tests module with a test function, as we did in Chapter 11. The test function specifies the behavior we want the search function to have: it will take a query and the text to search, and it will return only the lines from the text that contain the query. Listing 12-15 shows this test.">在 <em>src/lib.rs</em> 中，我们将添加一个 <code>tests</code> 模块，其中包含一个测试函数，就像我们在 <a href="ch11-01-writing-tests.html#the-anatomy-of-a-test-function">第 11 章</a><!-- ignore --> 中所做的那样。测试函数指定了我们希望 <code>search</code> 函数具有的行为：它将接受一个查询和要搜索的文本，并仅返回包含查询的文本行。列表 12-15 显示了这个测试。</p>
+<p data-x-en="In src/lib.rs, we’ll add a tests module with a test function, as we did in Chapter 11. The test function specifies the behavior we want the search function to have: It will take a query and the text to search, and it will return only the lines from the text that contain the query. Listing 12-15 shows this test.">在 <em>src/lib.rs</em> 中，我们将添加一个 <code>tests</code> 模块，其中包含一个测试函数，就像我们在 <a href="ch11-01-writing-tests.html#the-anatomy-of-a-test-function">第 11 章</a><!-- ignore --> 中所做的那样。测试函数指定了我们希望 <code>search</code> 函数具有的行为：它将接受一个查询和要搜索的文本，并仅返回包含查询的文本行。列表 12-15 显示了这个测试。</p>
 <figure class="listing" id="listing-12-15">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
@@ -291,7 +291,7 @@ Pick three.";
 <figcaption><a href="#listing-12-15">Listing 12-15</a>: Creating a failing test for the <code>search</code> function for the functionality we wish we had</figcaption>
 </figure>
 <p data-x-en="This test searches for the string &quot;duct&quot;. The text we’re searching is three lines, only one of which contains &quot;duct&quot; (note that the backslash after the opening double quote tells Rust not to put a newline character at the beginning of the contents of this string literal). We assert that the value returned from the search function contains only the line we expect.">这个测试查找字符串<code>"duct"</code>。我们要搜索的文本有三行，只有一行包含<code>"duct"</code>（注意，开头双引号后的反斜杠告诉Rust不要在该字符串字面量的开头添加换行符）。我们断言<code>search</code>函数返回的值只包含我们预期的那一行。</p>
-<p data-x-en="If we run this test, it will currently fail because the unimplemented! macro panics with the message “not implemented”. In accordance with TDD principles, we’ll take a small step of adding just enough code to get the test to not panic when calling the function by defining the search function to always return an empty vector, as shown in Listing 12-16. Then the test should compile and fail because an empty vector doesn’t match a vector containing the line &quot;safe, fast, productive.&quot;">如果我们运行这个测试，它目前会失败，因为<code>unimplemented!</code>宏会以“未实现”消息引发恐慌。根据TDD原则，我们将采取一个小步骤，添加足够的代码以使调用该函数时测试不会引发恐慌，即定义<code>search</code>函数始终返回一个空向量，如清单12-16所示。然后测试应该能够编译并通过，因为一个空向量不匹配包含行<code>"safe, fast, productive."</code>的向量。</p>
+<p data-x-en="If we run this test, it will currently fail because the unimplemented! macro panics with the message “not implemented”. In accordance with TDD principles, we’ll take a small step of adding just enough code to get the test to not panic when calling the function by defining the search function to always return an empty vector, as shown in Listing 12-16. Then, the test should compile and fail because an empty vector doesn’t match a vector containing the line &quot;safe, fast, productive.&quot;.">如果我们运行这个测试，它目前会失败，因为<code>unimplemented!</code>宏会以“not implemented”消息引发恐慌。根据TDD原则，我们将采取一个小步骤，添加足够的代码，使调用该函数时测试不会引发恐慌，即定义<code>search</code>函数始终返回一个空向量，如清单12-16所示。然后，测试应该能够编译并通过，但会因为一个空向量不匹配包含行<code>"safe, fast, productive."</code>的向量而失败。</p>
 <figure class="listing" id="listing-12-16">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
@@ -313,7 +313,7 @@ Pick three.";
 </span><span class="boring">        assert_eq!(vec!["safe, fast, productive."], search(query, contents));
 </span><span class="boring">    }
 </span><span class="boring">}</span></code></pre>
-<figcaption><a href="#listing-12-16">Listing 12-16</a>: Defining just enough of the <code>search</code> function so calling it won’t panic</figcaption>
+<figcaption><a href="#listing-12-16">Listing 12-16</a>: Defining just enough of the <code>search</code> function so that calling it won’t panic</figcaption>
 </figure>
 <p data-x-en="Now let’s discuss why we need to define an explicit lifetime 'a in the signature of search and use that lifetime with the contents argument and the return value. Recall in Chapter 10 that the lifetime parameters specify which argument lifetime is connected to the lifetime of the return value. In this case, we indicate that the returned vector should contain string slices that reference slices of the argument contents (rather than the argument query).">现在让我们讨论为什么需要在 <code>search</code> 的签名中定义一个显式的生命周期 <code>'a</code>，并使用该生命周期与 <code>contents</code> 参数和返回值。回想 <a href="ch10-03-lifetime-syntax.html">第 10 章</a><!-- ignore --> 中所述，生命周期参数指定了哪个参数的生命周期与返回值的生命周期相关联。在这种情况下，我们表示返回的向量应包含引用参数 <code>contents</code>（而不是参数 <code>query</code>）的字符串切片。</p>
 <p data-x-en="In other words, we tell Rust that the data returned by the search function will live as long as the data passed into the search function in the contents argument. This is important! The data referenced by a slice needs to be valid for the reference to be valid; if the compiler assumes we’re making string slices of query rather than contents, it will do its safety checking incorrectly.">换句话说，我们告诉 Rust <code>search</code> 函数返回的数据
@@ -375,7 +375,7 @@ error: could not compile `minigrep` (lib) due to 1 previous error
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-12-17">Listing 12-17</a>: Iterating through each line in <code>contents</code></figcaption>
 </figure>
-<p data-x-en="The lines method returns an iterator. We’ll talk about iterators in depth in Chapter 13, but recall that you saw this way of using an iterator in Listing 3-5, where we used a for loop with an iterator to run some code on each item in a collection."><code>lines</code> 方法返回一个迭代器。我们将在<a href="ch13-02-iterators.html">第 13 章</a><!-- ignore -->中深入讨论迭代器，但请回想一下，您在<a href="ch03-05-control-flow.html#looping-through-a-collection-with-for">示例 3-5</a><!-- ignore -->中看到了这种使用迭代器的方式，我们在其中使用了一个<code>for</code>循环和迭代器来对集合中的每个项目运行一些代码。</p>
+<p data-x-en="The lines method returns an iterator. We’ll talk about iterators in depth in Chapter 13. But recall that you saw this way of using an iterator in Listing 3-5, where we used a for loop with an iterator to run some code on each item in a collection."><code>lines</code> 方法返回一个迭代器。我们将在<a href="ch13-02-iterators.html">第 13 章</a><!-- ignore -->深入讨论迭代器。但回想一下，你在<a href="ch03-05-control-flow.html#looping-through-a-collection-with-for">示例 3-5</a><!-- ignore -->中看到了这种使用迭代器的方式，我们使用了一个<code>for</code>循环和迭代器来对集合中的每个项目运行一些代码。</p>
 <h4 id="searching-each-line-for-the-query"><a class="header" href="#searching-each-line-for-the-query">搜索每一行以查找查询内容</a></h4>
 <p data-x-en="Next, we’ll check whether the current line contains our query string. Fortunately, strings have a helpful method named contains that does this for us! Add a call to the contains method in the search function, as shown in Listing 12-18. Note that this still won’t compile yet.">接下来，我们将检查当前行是否包含我们的查询字符串。
 幸运的是，字符串有一个名为<code>contains</code>的有用方法，可以为我们完成这项工作！在<code>search</code>函数中添加对<code>contains</code>方法的调用，如清单12-18所示。请注意，这仍然无法编译。</p>
@@ -438,7 +438,7 @@ error: could not compile `minigrep` (lib) due to 1 previous error
 </span><span class="boring">        assert_eq!(vec!["safe, fast, productive."], search(query, contents));
 </span><span class="boring">    }
 </span><span class="boring">}</span></code></pre>
-<figcaption><a href="#listing-12-19">Listing 12-19</a>: Storing the lines that match so we can return them</figcaption>
+<figcaption><a href="#listing-12-19">Listing 12-19</a>: Storing the lines that match so that we can return them</figcaption>
 </figure>
 <p data-x-en="Now the search function should return only the lines that contain query, and our test should pass. Let’s run the test:">现在 <code>search</code> 函数应该只返回包含 <code>query</code> 的行，
 并且我们的测试应该通过。让我们运行测试：</p>

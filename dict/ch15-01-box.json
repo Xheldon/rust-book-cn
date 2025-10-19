@@ -238,5 +238,45 @@
   "Getting a Recursive Type with a Known Size": {
     "_translate": "<a class=\"header\" href=\"#getting-a-recursive-type-with-a-known-size\">获取具有已知大小的递归类型</a>",
     "_note": ""
+  },
+  "When you have a type whose size can’t be known at compile time, and you want to use a value of that type in a context that requires an exact size": {
+    "_translate": "当你有一个在编译时无法确定大小的类型，并且你想在需要确切大小的上下文中使用该类型的值时，",
+    "_note": ""
+  },
+  "When you have a large amount of data, and you want to transfer ownership but ensure that the data won’t be copied when you do so": {
+    "_translate": "当你有大量的数据，并且你想转移所有权，但确保在这样做时数据不会被复制，",
+    "_note": ""
+  },
+  "When you want to own a value, and you care only that it’s a type that implements a particular trait rather than being of a specific type": {
+    "_translate": "当你想要拥有一个值，并且你只关心它是一个实现了特定特征的类型，而不是特定的类型时，",
+    "_note": ""
+  },
+  "As an example of a recursive type, let’s explore the cons list. This is a data type commonly found in functional programming languages. The cons list type we’ll define is straightforward except for the recursion; therefore, the concepts in the example we’ll work with will be useful anytime you get into more complex situations involving recursive types.": {
+    "_translate": "作为递归类型的一个例子，让我们来探讨一下 cons 列表。这是一种在函数式编程语言中常见的数据类型。我们将定义的 cons 列表类型除了递归之外非常简单；因此，我们将在示例中使用的概念在涉及更复杂递归类型的情况时也会非常有用。",
+    "_note": ""
+  },
+  "We’ll demonstrate the first situation in “Enabling Recursive Types with Boxes”. In the second case, transferring ownership of a large amount of data can take a long time because the data is copied around on the stack. To improve performance in this situation, we can store the large amount of data on the heap in a box. Then, only the small amount of pointer data is copied around on the stack, while the data it references stays in one place on the heap. The third case is known as a trait object, and “Using Trait Objects to Abstract over Shared Behavior” in Chapter 18 is devoted to that topic. So, what you learn here you’ll apply again in that section!": {
+    "_translate": "我们将通过<a href=\"#enabling-recursive-types-with-boxes\">“使用Box启用递归类型”</a><!-- ignore -->来演示第一种情况。在第二种\n情况下，转移大量数据的所有权可能需要很长时间\n因为数据在栈上被复制。为了在这种情况下提高性能，我们可以将大量数据存储在堆上的一个Box中。然后，\n只有少量的指针数据在栈上被复制，而它引用的数据则保留在堆上的一个位置。第三种情况被称为<em>trait对象</em>，第18章的<a href=\"ch18-02-trait-objects.html#using-trait-objects-to-abstract-over-shared-behavior\">“使用trait对象来抽象共享行为”</a><!-- ignore -->专门讨论了这个\n主题。所以，你在这里学到的内容将在那一节中再次应用！",
+    "_note": ""
+  },
+  "Listing 15-2 contains an enum definition for a cons list. Note that this code won’t compile yet, because the List type doesn’t have a known size, which we’ll demonstrate.": {
+    "_translate": "列表 15-2 包含一个 cons 列表的枚举定义。请注意，此代码还不能编译，因为 <code>List</code> 类型没有已知的大小，我们将在后面演示。",
+    "_note": ""
+  },
+  "Each item in a cons list contains two elements: the value of the current item and of the next item. The last item in the list contains only a value called Nil without a next item. A cons list is produced by recursively calling the cons function. The canonical name to denote the base case of the recursion is Nil. Note that this is not the same as the “null” or “nil” concept discussed in Chapter 6, which is an invalid or absent value.": {
+    "_translate": "cons 列表中的每个项包含两个元素：当前项的值和下一个项的值。列表中的最后一项仅包含一个称为 <code>Nil</code> 的值，没有下一个项。cons 列表是通过递归调用 <code>cons</code> 函数生成的。递归的基本情况的规范名称是 <code>Nil</code>。请注意，这与第 6 章中讨论的“null”或“nil”概念不同，后者表示无效或不存在的值。",
+    "_note": ""
+  },
+  "The error shows this type “has infinite size.” The reason is that we’ve defined List with a variant that is recursive: It holds another value of itself directly. As a result, Rust can’t figure out how much space it needs to store a List value. Let’s break down why we get this error. First, we’ll look at how Rust decides how much space it needs to store a value of a non-recursive type.": {
+    "_translate": "错误显示这种类型“具有无限大小。”原因是我们在定义<code>List</code>时使用了一个递归的变体：它直接持有另一个自身的值。因此，Rust 无法确定存储一个<code>List</code>值需要多少空间。让我们分析为什么会发生这个错误。首先，我们将看看 Rust 是如何决定存储一个非递归类型值需要多少空间的。",
+    "_note": ""
+  },
+  "Figure 15-2: A List that is not infinitely sized, because Cons holds a Box": {
+    "_translate": "<span class=\"caption\">图15-2: 一个不是无限大小的<code>List</code>，因为<code>Cons</code>持有一个<code>Box</code></span>",
+    "_note": ""
+  },
+  "Because a Box<T> is a pointer, Rust always knows how much space a Box<T> needs: A pointer’s size doesn’t change based on the amount of data it’s pointing to. This means we can put a Box<T> inside the Cons variant instead of another List value directly. The Box<T> will point to the next List value that will be on the heap rather than inside the Cons variant. Conceptually, we still have a list, created with lists holding other lists, but this implementation is now more like placing the items next to one another rather than inside one another.": {
+    "_translate": "因为 <code>Box&lt;T&gt;</code> 是一个指针，Rust 始终知道 <code>Box&lt;T&gt;</code> 需要多少空间：指针的大小不会根据它指向的数据量而变化。这意味着我们可以将 <code>Box&lt;T&gt;</code> 放在 <code>Cons</code> 变体中，而不是直接放另一个 <code>List</code> 值。<code>Box&lt;T&gt;</code> 将指向堆上的下一个 <code>List</code> 值，而不是放在 <code>Cons</code> 变体内部。从概念上讲，我们仍然有一个列表，通过列表包含其他列表来创建，但这种实现现在更像是将项目并排放置而不是嵌套在一起。",
+    "_note": ""
   }
 }

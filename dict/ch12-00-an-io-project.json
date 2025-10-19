@@ -50,5 +50,9 @@
   "Writing tests (Chapter 11)": {
     "_translate": "编写测试 (<a href=\"ch11-00-testing.html\">第 11 章</a><!-- ignore -->)",
     "_note": ""
+  },
+  "Rust’s speed, safety, single binary output, and cross-platform support make it an ideal language for creating command line tools, so for our project, we’ll make our own version of the classic command line search tool grep (globally search a regular expression and print). In the simplest use case, grep searches a specified file for a specified string. To do so, grep takes as its arguments a file path and a string. Then, it reads the file, finds lines in that file that contain the string argument, and prints those lines.": {
+    "_translate": "Rust 的速度、安全性、单一二进制输出和跨平台支持使其成为创建命令行工具的理想语言，因此在我们的项目中，我们将创建经典命令行搜索工具 <code>grep</code> (<strong>g</strong>lobally search a <strong>r</strong>egular <strong>e</strong>xpression and <strong>p</strong>rint) 的我们自己的版本。在最简单的用例中，<code>grep</code> 在指定文件中搜索指定字符串。为此，<code>grep</code> 将文件路径和字符串作为其参数。然后，它读取文件，找到包含字符串参数的行，并打印这些行。",
+    "_note": ""
   }
 }

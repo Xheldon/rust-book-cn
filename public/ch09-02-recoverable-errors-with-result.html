@@ -356,7 +356,7 @@ fn main() {
 </section>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="shortcuts-for-panic-on-error-unwrap-and-expect"></a></p>
-<h4 id="shortcuts-for-panic-on-error" data-x-en="Shortcuts for Panic on Error"><a class="header" href="#shortcuts-for-panic-on-error">错误时快速引发恐慌的快捷方式</a></h4>
+<h4 id="shortcuts-for-panic-on-error"><a class="header" href="#shortcuts-for-panic-on-error">错误时快速引发恐慌的快捷方式</a></h4>
 <p data-x-en="Using match works well enough, but it can be a bit verbose and doesn’t always communicate intent well. The Result<T, E> type has many helper methods defined on it to do various, more specific tasks. The unwrap method is a shortcut method implemented just like the match expression we wrote in Listing 9-4. If the Result value is the Ok variant, unwrap will return the value inside the Ok. If the Result is the Err variant, unwrap will call the panic! macro for us. Here is an example of unwrap in action:">使用<code>match</code>效果很好，但有时会显得有些冗长，并且不总是能很好地传达意图。<code>Result&lt;T, E&gt;</code>类型定义了许多辅助方法，用于执行各种更具体的任务。<code>unwrap</code>方法是一个快捷方法，实现方式与我们在清单9-4中编写的<code>match</code>表达式相同。如果<code>Result</code>值是<code>Ok</code>变体，<code>unwrap</code>将返回<code>Ok</code>中的值。如果<code>Result</code>是<code>Err</code>变体，<code>unwrap</code>将为我们调用<code>panic!</code>宏。以下是一个<code>unwrap</code>的使用示例：</p>
 <figure class="listing">
 <span class="file-name">Filename: src/main.rs</span>
@@ -436,7 +436,7 @@ fn read_username_from_file() -&gt; Result&lt;String, io::Error&gt; {
 <p data-x-en="This pattern of propagating errors is so common in Rust that Rust provides the question mark operator ? to make this easier.">这种传播错误的模式在 Rust 中非常常见，以至于 Rust 提供了问号操作符 <code>?</code> 来使这变得更加容易。</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="a-shortcut-for-propagating-errors-the--operator"></a></p>
-<h4 id="the--operator-shortcut" data-x-en="The ? Operator Shortcut"><a class="header" href="#the--operator-shortcut">问号 <code>?</code> 操作符快捷方式</a></h4>
+<h4 id="the--operator-shortcut"><a class="header" href="#the--operator-shortcut">问号 <code>?</code> 操作符快捷方式</a></h4>
 <p data-x-en="Listing 9-7 shows an implementation of read_username_from_file that has the same functionality as in Listing 9-6, but this implementation uses the ? operator.">列表 9-7 显示了 <code>read_username_from_file</code> 的一个实现，该实现与列表 9-6 中的功能相同，但此实现使用了 <code>?</code> 操作符。</p>
 <figure class="listing" id="listing-9-7">
 <span class="file-name">Filename: src/main.rs</span>
@@ -503,7 +503,7 @@ fn read_username_from_file() -&gt; Result&lt;String, io::Error&gt; {
 <p data-x-en="Reading a file into a string is a fairly common operation, so the standard library provides the convenient fs::read_to_string function that opens the file, creates a new String, reads the contents of the file, puts the contents into that String, and returns it. Of course, using fs::read_to_string doesn’t give us the opportunity to explain all the error handling, so we did it the longer way first.">将文件读取到字符串中是一个相当常见的操作，因此标准库提供了方便的<code>fs::read_to_string</code>函数，该函数打开文件，创建一个新的<code>String</code>，读取文件内容，将内容放入该<code>String</code>中，并返回它。当然，使用<code>fs::read_to_string</code>不会给我们解释所有错误处理的机会，所以我们先用了更长的方法。</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="where-the--operator-can-be-used"></a></p>
-<h4 id="where-to-use-the--operator" data-x-en="Where to Use the ? Operator"><a class="header" href="#where-to-use-the--operator">在哪里使用 <code>?</code> 操作符</a></h4>
+<h4 id="where-to-use-the--operator"><a class="header" href="#where-to-use-the--operator">在哪里使用 <code>?</code> 操作符</a></h4>
 <p data-x-en="The ? operator can only be used in functions whose return type is compatible with the value the ? is used on. This is because the ? operator is defined to perform an early return of a value out of the function, in the same manner as the match expression we defined in Listing 9-6. In Listing 9-6, the match was using a Result value, and the early return arm returned an Err(e) value. The return type of the function has to be a Result so that it’s compatible with this return."><code>?</code> 操作符只能用于返回类型与 <code>?</code> 操作符所使用的值兼容的函数中。这是因为 <code>?</code> 操作符被定义为以与我们在清单 9-6 中定义的 <code>match</code> 表达式相同的方式，提前从函数中返回一个值。在清单 9-6 中，<code>match</code> 使用了一个 <code>Result</code> 值，提前返回的分支返回了一个 <code>Err(e)</code> 值。函数的返回类型必须是 <code>Result</code>，以便与这个 <code>return</code> 兼容。</p>
 <p data-x-en="In Listing 9-10, let’s look at the error we’ll get if we use the ? operator in a main function with a return type that is incompatible with the type of the value we use ? on.">在清单 9-10 中，让我们看看如果在返回类型与我们使用 <code>?</code> 的值类型不兼容的 <code>main</code> 函数中使用 <code>?</code> 操作符，将会得到什么错误。</p>
 <figure class="listing" id="listing-9-10">

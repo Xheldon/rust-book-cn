@@ -310,7 +310,7 @@ Blue: 10
 </code></pre>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="hash-maps-and-ownership"></a></p>
-<h3 id="managing-ownership-in-hash-maps" data-x-en="Managing Ownership in Hash Maps"><a class="header" href="#managing-ownership-in-hash-maps">在哈希映射中管理所有权</a></h3>
+<h3 id="managing-ownership-in-hash-maps"><a class="header" href="#managing-ownership-in-hash-maps">在哈希映射中管理所有权</a></h3>
 <p data-x-en="For types that implement the Copy trait, like i32, the values are copied into the hash map. For owned values like String, the values will be moved and the hash map will be the owner of those values, as demonstrated in Listing 8-22.">对于实现了 <code>Copy</code> 特性的类型，如 <code>i32</code>，值会被复制到哈希映射中。对于像 <code>String</code> 这样的拥有值，值将被移动，并且哈希映射将成为这些值的所有者，如清单 8-22 所示。</p>
 <figure class="listing" id="listing-8-22">
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {

@@ -526,5 +526,65 @@
   "Using @ Bindings": {
     "_translate": "<a class=\"header\" href=\"#using--bindings\">使用 <code>@</code> 绑定</a>",
     "_note": ""
+  },
+  "To create a match expression that compares the values of the outer x and y, rather than introducing a new variable that shadows the existing y variable, we would need to use a match guard conditional instead. We’ll talk about match guards later in the “Adding Conditionals with Match Guards” section.": {
+    "_translate": "要创建一个比较外部 <code>x</code> 和 <code>y</code> 值的 <code>match</code> 表达式，而不是引入一个新的变量来遮蔽现有的 <code>y</code> 变量，我们需要使用匹配卫条件。我们将在 <a href=\"#adding-conditionals-with-match-guards\">“使用匹配卫条件添加条件”</a> 部分讨论匹配卫条件。",
+    "_note": ""
+  },
+  "In match expressions, you can match multiple patterns using the | syntax, which is the pattern or operator. For example, in the following code, we match the value of x against the match arms, the first of which has an or option, meaning if the value of x matches either of the values in that arm, that arm’s code will run:": {
+    "_translate": "在 <code>match</code> 表达式中，您可以使用 <code>|</code> 语法匹配多个模式，这是模式 <em>或</em> 操作符。例如，在以下代码中，我们根据 <code>x</code> 的值匹配 match 分支，其中第一个分支有一个 <em>或</em> 选项，这意味着如果 <code>x</code> 的值与该分支中的任何一个值匹配，该分支的代码将运行：",
+    "_note": ""
+  },
+  "We’ve destructured enums in this book (for example, Listing 6-5 in Chapter 6), but we haven’t yet explicitly discussed that the pattern to destructure an enum corresponds to the way the data stored within the enum is defined. As an example, in Listing 19-15, we use the Message enum from Listing 6-2 and write a match with patterns that will destructure each inner value.": {
+    "_translate": "我们在本书中已经解构了枚举（例如，第 6 章的示例 6-5），但尚未明确讨论解构枚举的模式对应于枚举中存储的数据的定义方式。例如，在示例 19-15 中，我们使用了来自示例 6-2 的 <code>Message</code> 枚举，并编写了一个 <code>match</code>，其中的模式将解构每个内部值。",
+    "_note": ""
+  },
+  "This code creates the variables a and b that match the values of the x and y fields of the p struct. This example shows that the names of the variables in the pattern don’t have to match the field names of the struct. However, it’s common to match the variable names to the field names to make it easier to remember which variables came from which fields. Because of this common usage, and because writing let Point { x: x, y: y } = p; contains a lot of duplication, Rust has a shorthand for patterns that match struct fields: You only need to list the name of the struct field, and the variables created from the pattern will have the same names. Listing 19-13 behaves in the same way as the code in Listing 19-12, but the variables created in the let pattern are x and y instead of a and b.": {
+    "_translate": "这段代码创建了与 <code>p</code> 结构体的 <code>x</code> 和 <code>y</code> 字段值匹配的变量 <code>a</code> 和 <code>b</code>。这个例子表明，模式中的变量名称不必与结构体的字段名称匹配。然而，为了更容易记住哪些变量来自哪些字段，通常会将变量名称与字段名称匹配。由于这种常见的用法，以及编写 <code>let Point { x: x, y: y } = p;</code> 包含了大量的重复，Rust 为匹配结构体字段的模式提供了一种简写：你只需要列出结构体字段的名称，从模式中创建的变量将具有相同的名称。列表 19-13 的行为与列表 19-12 中的代码相同，但在 <code>let</code> 模式中创建的变量是 <code>x</code> 和 <code>y</code> 而不是 <code>a</code> 和 <code>b</code>。",
+    "_note": ""
+  },
+  "For struct-like enum variants, such as Message::Move, we can use a pattern similar to the pattern we specify to match structs. After the variant name, we place curly brackets and then list the fields with variables so that we break apart the pieces to use in the code for this arm. Here we use the shorthand form as we did in Listing 19-13.": {
+    "_translate": "对于类似结构体的枚举变体，如<code>Message::Move</code>，我们可以使用与匹配结构体时指定的模式类似的模式。在变体名称之后，我们放置大括号，然后列出带有变量的字段，以便将各个部分拆分出来用于此臂的代码中。在这里，我们使用了简写形式，就像我们在清单19-13中所做的那样。",
+    "_note": ""
+  },
+  "This code lets us break complex types into their component parts so that we can use the values we’re interested in separately.": {
+    "_translate": "这段代码让我们可以将复杂类型分解为其组成部分，这样我们就可以单独使用我们感兴趣的值。",
+    "_note": ""
+  },
+  "The pattern of the first arm in the match expression matches a Message::ChangeColor enum variant that contains a Color::Rgb variant; then, the pattern binds to the three inner i32 values. The pattern of the second arm also matches a Message::ChangeColor enum variant, but the inner enum matches Color::Hsv instead. We can specify these complex conditions in one match expression, even though two enums are involved.": {
+    "_translate": "<code>match</code> 表达式中第一个分支的模式匹配包含 <code>Color::Rgb</code> 变体的 <code>Message::ChangeColor</code> 枚举变体；然后，模式绑定到三个内部的 <code>i32</code> 值。第二个分支的模式也匹配 <code>Message::ChangeColor</code> 枚举变体，但内部的枚举匹配的是 <code>Color::Hsv</code>。即使涉及两个枚举，我们也可以在一个 <code>match</code> 表达式中指定这些复杂的条件。",
+    "_note": ""
+  },
+  "In most cases when you no longer need a particular function parameter, you would change the signature so that it doesn’t include the unused parameter. Ignoring a function parameter can be especially useful in cases when, for example, you’re implementing a trait when you need a certain type signature but the function body in your implementation doesn’t need one of the parameters. You then avoid getting a compiler warning about unused function parameters, as you would if you used a name instead.": {
+    "_translate": "在大多数情况下，当你不再需要某个特定的函数参数时，你会更改签名以不包括这个未使用的参数。忽略函数参数在某些情况下特别有用，例如，当你实现一个特质时，需要特定的类型签名，但你的实现中的函数体不需要其中一个参数。这样，你可以避免因为使用了名称而收到关于未使用函数参数的编译器警告。",
+    "_note": ""
+  },
+  "This example will print The number 4 is even. When num is compared to the pattern in the first arm, it matches because Some(4) matches Some(x). Then, the match guard checks whether the remainder of dividing x by 2 is equal to 0, and because it is, the first arm is selected.": {
+    "_translate": "这个示例将打印 <code>The number 4 is even</code>。当 <code>num</code> 与第一个分支中的模式进行比较时，它匹配，因为 <code>Some(4)</code> 匹配 <code>Some(x)</code>。然后，匹配卫语句检查 <code>x</code> 除以 2 的余数是否等于 0，因为确实等于 0，所以选择了第一个分支。",
+    "_note": ""
+  },
+  "When discussing Listing 19-11, we mentioned that we could use match guards to solve our pattern-shadowing problem. Recall that we created a new variable inside the pattern in the match expression instead of using the variable outside the match. That new variable meant we couldn’t test against the value of the outer variable. Listing 19-27 shows how we can use a match guard to fix this problem.": {
+    "_translate": "在讨论清单 19-11 时，我们提到可以使用匹配卫语来解决我们的模式遮蔽问题。回想一下，我们在 <code>match</code> 表达式中的模式内创建了一个新变量，而不是使用 <code>match</code> 外部的变量。这个新变量意味着我们无法测试外部变量的值。清单 19-27 显示了如何使用匹配卫语来解决这个问题。",
+    "_note": ""
+  },
+  "After running the code, the precedence behavior is evident: If the match guard were applied only to the final value in the list of values specified using the | operator, the arm would have matched, and the program would have printed yes.": {
+    "_translate": "运行代码后，优先级行为显而易见：如果匹配卫士仅应用于使用 <code>|</code> 操作符指定的值列表中的最后一个值，该臂就会匹配，程序就会打印 <code>yes</code>。",
+    "_note": ""
+  },
+  "The at operator @ lets us create a variable that holds a value at the same time we’re testing that value for a pattern match. In Listing 19-29, we want to test that a Message::Hello id field is within the range 3..=7. We also want to bind the value to the variable id so that we can use it in the code associated with the arm.": {
+    "_translate": "<em>at</em> 操作符 <code>@</code> 让我们可以在测试值是否符合模式匹配的同时，创建一个持有该值的变量。在清单 19-29 中，我们希望测试 <code>Message::Hello</code> 的 <code>id</code> 字段是否在范围 <code>3..=7</code> 内。我们还希望将该值绑定到变量 <code>id</code>，以便在与该分支关联的代码中使用。",
+    "_note": ""
+  },
+  "In the second arm, where we only have a range specified in the pattern, the code associated with the arm doesn’t have a variable that contains the actual value of the id field. The id field’s value could have been 10, 11, or 12, but the code that goes with that pattern doesn’t know which it is. The pattern code isn’t able to use the value from the id field because we haven’t saved the id value in a variable.": {
+    "_translate": "在第二个分支中，我们只在模式中指定了一个范围，与该分支关联的代码没有包含 <code>id</code> 字段实际值的变量。<code>id</code> 字段的值可能是 10、11 或 12，但与该模式关联的代码不知道具体是哪个值。由于我们没有将 <code>id</code> 值保存到变量中，因此模式代码无法使用 <code>id</code> 字段的值。",
+    "_note": ""
+  },
+  "In the last arm, where we’ve specified a variable without a range, we do have the value available to use in the arm’s code in a variable named id. The reason is that we’ve used the struct field shorthand syntax. But we haven’t applied any test to the value in the id field in this arm, as we did with the first two arms: Any value would match this pattern.": {
+    "_translate": "在最后一个分支中，我们指定了一个没有范围的变量，我们确实可以在分支的代码中使用一个名为<code>id</code>的变量来访问该值。原因是使用了结构体字段简写语法。但是在这个分支中，我们没有对<code>id</code>字段中的值进行任何测试，而前两个分支中我们进行了测试：任何值都会匹配这个模式。",
+    "_note": ""
+  },
+  "Rust’s patterns are very useful in distinguishing between different kinds of data. When used in match expressions, Rust ensures that your patterns cover every possible value, or your program won’t compile. Patterns in let statements and function parameters make those constructs more useful, enabling the destructuring of values into smaller parts and assigning those parts to variables. We can create simple or complex patterns to suit our needs.": {
+    "_translate": "Rust 的模式非常有用，可以区分不同类型的数据。当在 <code>match</code> 表达式中使用时，Rust 确保您的模式覆盖了所有可能的值，否则程序将无法编译。在 <code>let</code> 语句和函数参数中的模式使这些构造更加有用，能够将值解构为更小的部分，并将这些部分分配给变量。我们可以创建简单或复杂的模式以满足我们的需求。",
+    "_note": ""
   }
 }

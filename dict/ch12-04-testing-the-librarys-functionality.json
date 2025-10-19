@@ -222,5 +222,21 @@
   "Adding Functionality with Test-Driven Development": {
     "_translate": "<a class=\"header\" href=\"#adding-functionality-with-test-driven-development\">使用测试驱动开发添加功能</a>",
     "_note": ""
+  },
+  "Though it’s just one of many ways to write software, TDD can help drive code design. Writing the test before you write the code that makes the test pass helps maintain high test coverage throughout the process.": {
+    "_translate": "虽然这只是编写软件的众多方法之一，但 TDD 可以帮助驱动代码设计。在编写使测试通过的代码之前先编写测试，有助于在整个过程中保持高测试覆盖率。",
+    "_note": ""
+  },
+  "In src/lib.rs, we’ll add a tests module with a test function, as we did in Chapter 11. The test function specifies the behavior we want the search function to have: It will take a query and the text to search, and it will return only the lines from the text that contain the query. Listing 12-15 shows this test.": {
+    "_translate": "在 <em>src/lib.rs</em> 中，我们将添加一个 <code>tests</code> 模块，其中包含一个测试函数，就像我们在 <a href=\"ch11-01-writing-tests.html#the-anatomy-of-a-test-function\">第 11 章</a><!-- ignore --> 中所做的那样。测试函数指定了我们希望 <code>search</code> 函数具有的行为：它将接受一个查询和要搜索的文本，并仅返回包含查询的文本行。列表 12-15 显示了这个测试。",
+    "_note": ""
+  },
+  "If we run this test, it will currently fail because the unimplemented! macro panics with the message “not implemented”. In accordance with TDD principles, we’ll take a small step of adding just enough code to get the test to not panic when calling the function by defining the search function to always return an empty vector, as shown in Listing 12-16. Then, the test should compile and fail because an empty vector doesn’t match a vector containing the line \"safe, fast, productive.\".": {
+    "_translate": "如果我们运行这个测试，它目前会失败，因为<code>unimplemented!</code>宏会以“not implemented”消息引发恐慌。根据TDD原则，我们将采取一个小步骤，添加足够的代码，使调用该函数时测试不会引发恐慌，即定义<code>search</code>函数始终返回一个空向量，如清单12-16所示。然后，测试应该能够编译并通过，但会因为一个空向量不匹配包含行<code>\"safe, fast, productive.\"</code>的向量而失败。",
+    "_note": ""
+  },
+  "The lines method returns an iterator. We’ll talk about iterators in depth in Chapter 13. But recall that you saw this way of using an iterator in Listing 3-5, where we used a for loop with an iterator to run some code on each item in a collection.": {
+    "_translate": "<code>lines</code> 方法返回一个迭代器。我们将在<a href=\"ch13-02-iterators.html\">第 13 章</a><!-- ignore -->深入讨论迭代器。但回想一下，你在<a href=\"ch03-05-control-flow.html#looping-through-a-collection-with-for\">示例 3-5</a><!-- ignore -->中看到了这种使用迭代器的方式，我们使用了一个<code>for</code>循环和迭代器来对集合中的每个项目运行一些代码。",
+    "_note": ""
   }
 }

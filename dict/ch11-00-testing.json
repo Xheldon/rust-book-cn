@@ -30,5 +30,9 @@
   "In his 1972 essay “The Humble Programmer,” Edsger W. Dijkstra said that “program testing can be a very effective way to show the presence of bugs, but it is hopelessly inadequate for showing their absence.” That doesn’t mean we shouldn’t try to test as much as we can!": {
     "_translate": "在他的1972年论文《谦逊的程序员》中，Edsger W. Dijkstra 说，“程序测试可以是非常有效的方法来显示错误的存在，但对于证明错误的不存在则完全无能为力。”这并不意味着我们不应该尽力进行尽可能多的测试！",
     "_note": ""
+  },
+  "Testing is a complex skill: Although we can’t cover in one chapter every detail about how to write good tests, in this chapter we will discuss the mechanics of Rust’s testing facilities. We’ll talk about the annotations and macros available to you when writing your tests, the default behavior and options provided for running your tests, and how to organize tests into unit tests and integration tests.": {
+    "_translate": "测试是一项复杂的技能：虽然我们无法在本章中涵盖如何编写良好测试的每一个细节，但我们将讨论 Rust 测试设施的机制。我们将讨论编写测试时可用的注解和宏，运行测试时提供的默认行为和选项，以及如何将测试组织成单元测试和集成测试。",
+    "_note": ""
   }
 }

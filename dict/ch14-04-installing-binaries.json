@@ -34,5 +34,9 @@
   "Installing Binaries with cargo install - The Rust Programming Language": {
     "_translate": "使用 cargo install 安装二进制文件 - 《Rust 编程语言》",
     "_note": ""
+  },
+  "All binaries installed with cargo install are stored in the installation root’s bin folder. If you installed Rust using rustup.rs and don’t have any custom configurations, this directory will be $HOME/.cargo/bin. Ensure that this directory is in your $PATH to be able to run programs you’ve installed with cargo install.": {
+    "_translate": "所有使用 <code>cargo install</code> 安装的二进制文件都存储在安装根目录的 <em>bin</em> 文件夹中。如果您使用 <em>rustup.rs</em> 安装了 Rust 并且没有任何自定义配置，此目录将是 <em>$HOME/.cargo/bin</em>。确保此目录在您的 <code>$PATH</code> 中，以便能够运行使用 <code>cargo install</code> 安装的程序。",
+    "_note": ""
   }
 }

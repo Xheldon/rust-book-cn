@@ -250,7 +250,7 @@ blockquote {
                 <div id="content" class="content">
                     <main>
                         <h2 id="reading-a-file"><a class="header" href="#reading-a-file">读取文件</a></h2>
-<p data-x-en="Now we’ll add functionality to read the file specified in the file_path argument. First we need a sample file to test it with: we’ll use a file with a small amount of text over multiple lines with some repeated words. Listing 12-3 has an Emily Dickinson poem that will work well! Create a file called poem.txt at the root level of your project, and enter the poem “I’m Nobody! Who are you?”">现在我们将添加功能以读取在 <code>file_path</code> 参数中指定的文件。首先我们需要一个示例文件来测试它：我们将使用一个包含少量文本的文件，这些文本分布在多行中，并且有一些重复的单词。列表 12-3 有一首艾米莉·狄金森的诗，非常适合！在项目的根目录下创建一个名为 <em>poem.txt</em> 的文件，并输入诗“我是无名之辈！你是谁？”</p>
+<p data-x-en="Now we’ll add functionality to read the file specified in the file_path argument. First, we need a sample file to test it with: We’ll use a file with a small amount of text over multiple lines with some repeated words. Listing 12-3 has an Emily Dickinson poem that will work well! Create a file called poem.txt at the root level of your project, and enter the poem “I’m Nobody! Who are you?”">现在我们将添加功能以读取 <code>file_path</code> 参数中指定的文件。首先，我们需要一个示例文件来测试它：我们将使用一个包含少量文本的文件，这些文本分布在多行中，并且包含一些重复的单词。列表 12-3 有一首艾米莉·狄金森的诗，非常适合！在项目的根目录下创建一个名为 <em>poem.txt</em> 的文件，并输入诗“我是无名之辈！你是谁？”</p>
 <figure class="listing" id="listing-12-3">
 <span class="file-name">Filename: poem.txt</span>
 <pre><code class="language-text">I'm nobody! Who are you?
@@ -288,9 +288,9 @@ fn main() {
 }</code></pre>
 <figcaption><a href="#listing-12-4">Listing 12-4</a>: Reading the contents of the file specified by the second argument</figcaption>
 </figure>
-<p data-x-en="First we bring in a relevant part of the standard library with a use statement: we need std::fs to handle files.">首先我们通过一个 <code>use</code> 语句引入标准库的相关部分：我们需要 <code>std::fs</code> 来处理文件。</p>
+<p data-x-en="First, we bring in a relevant part of the standard library with a use statement: We need std::fs to handle files.">首先，我们通过一个 <code>use</code> 语句引入标准库的相关部分：我们需要 <code>std::fs</code> 来处理文件。</p>
 <p data-x-en="In main, the new statement fs::read_to_string takes the file_path, opens that file, and returns a value of type std::io::Result<String> that contains the file’s contents.">在 <code>main</code> 中，新的语句 <code>fs::read_to_string</code> 接受 <code>file_path</code>，打开该文件，并返回一个类型为 <code>std::io::Result&lt;String&gt;</code> 的值，该值包含文件的内容。</p>
-<p data-x-en="After that, we again add a temporary println! statement that prints the value of contents after the file is read, so we can check that the program is working so far.">之后，我们再次添加一个临时的<code>println!</code>语句，该语句在文件读取后打印<code>contents</code>的值，这样我们可以检查程序到目前为止是否正常工作。</p>
+<p data-x-en="After that, we again add a temporary println! statement that prints the value of contents after the file is read so that we can check that the program is working so far.">之后，我们再次添加一个临时的<code>println!</code>语句，该语句在文件读取后打印<code>contents</code>的值，以便我们可以检查程序到目前为止是否正常工作。</p>
 <p data-x-en="Let’s run this code with any string as the first command line argument (because we haven’t implemented the searching part yet) and the poem.txt file as the second argument:">让我们用任何字符串作为第一个命令行参数（因为我们还没有实现搜索部分）和<em>poem.txt</em>文件作为第二个参数来运行这段代码：</p>
 <pre><code class="language-console">$ cargo run -- the poem.txt
    Compiling minigrep v0.1.0 (file:///projects/minigrep)
@@ -310,7 +310,7 @@ To tell your name the livelong day
 To an admiring bog!
 
 </code></pre>
-<p data-x-en="Great! The code read and then printed the contents of the file. But the code has a few flaws. At the moment, the main function has multiple responsibilities: generally, functions are clearer and easier to maintain if each function is responsible for only one idea. The other problem is that we’re not handling errors as well as we could. The program is still small, so these flaws aren’t a big problem, but as the program grows, it will be harder to fix them cleanly. It’s a good practice to begin refactoring early on when developing a program because it’s much easier to refactor smaller amounts of code. We’ll do that next.">很好！代码读取并打印了文件的内容。但代码有一些缺陷。目前，<code>main</code> 函数有多个职责：通常，如果每个函数只负责一个概念，函数会更清晰且更容易维护。另一个问题是，我们没有很好地处理错误。程序仍然很小，所以这些缺陷不是大问题，但随着程序的增长，干净地修复它们将变得更加困难。在开发程序时，尽早开始重构是一个好习惯，因为重构少量代码要容易得多。我们接下来就做这件事。</p>
+<p data-x-en="Great! The code read and then printed the contents of the file. But the code has a few flaws. At the moment, the main function has multiple responsibilities: Generally, functions are clearer and easier to maintain if each function is responsible for only one idea. The other problem is that we’re not handling errors as well as we could. The program is still small, so these flaws aren’t a big problem, but as the program grows, it will be harder to fix them cleanly. It’s a good practice to begin refactoring early on when developing a program because it’s much easier to refactor smaller amounts of code. We’ll do that next.">很好！代码读取并打印了文件的内容。但是代码有一些缺陷。目前，<code>main</code> 函数承担了多个职责：通常，如果每个函数只负责一个概念，函数会更清晰且更容易维护。另一个问题是，我们没有很好地处理错误。程序仍然很小，所以这些缺陷不是大问题，但随着程序的增长，干净地修复这些问题将变得更加困难。在开发程序时，尽早开始重构是一个好习惯，因为重构少量代码要容易得多。我们接下来就做这件事。</p>
 
                     </main>
 

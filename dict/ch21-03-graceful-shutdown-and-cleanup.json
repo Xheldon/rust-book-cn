@@ -234,5 +234,45 @@
   "Notice one interesting aspect of this particular execution: the ThreadPool dropped the sender, and before any Worker received an error, we tried to join Worker 0. Worker 0 had not yet gotten an error from recv, so the main thread blocked, waiting for Worker 0 to finish. In the meantime, Worker 3 received a job and then all threads received an error. When Worker 0 finished, the main thread waited for the rest of the Worker instances to finish. At that point, they had all exited their loops and stopped.": {
     "_translate": "注意这个特定执行的一个有趣方面：<code>ThreadPool</code> 丢弃了 <code>sender</code>，并且在任何 <code>Worker</code> 收到错误之前，我们尝试加入 <code>Worker</code> 0。 <code>Worker</code> 0 尚未从 <code>recv</code> 收到错误，因此主线程阻塞，等待 <code>Worker</code> 0 完成。在此期间，<code>Worker</code> 3 收到了一个任务，然后所有线程都收到了错误。当 <code>Worker</code> 0 完成时，主线程等待其余的 <code>Worker</code> 实例完成。那时，它们都已退出循环并停止。",
     "_note": ""
+  },
+  "One thing to notice as we go: None of this affects the parts of the code that handle executing the closures, so everything here would be the same if we were using a thread pool for an async runtime.": {
+    "_translate": "需要注意的一点是：所有这些都不会影响处理执行闭包的代码部分，因此，如果我们使用的是异步运行时的线程池，这里的一切都会是相同的。",
+    "_note": ""
+  },
+  "Next, then, we’ll implement the Drop trait to call join on each of the threads in the pool so that they can finish the requests they’re working on before closing. Then, we’ll implement a way to tell the threads they should stop accepting new requests and shut down. To see this code in action, we’ll modify our server to accept only two requests before gracefully shutting down its thread pool.": {
+    "_translate": "接下来，我们将实现<code>Drop</code> trait，以便在池中的每个线程上调用<code>join</code>，使它们能够在关闭之前完成正在处理的请求。然后，我们将实现一种方法来通知线程它们应该停止接受新请求并关闭。为了看到这段代码的实际效果，我们将修改我们的服务器，使其仅接受两个请求后优雅地关闭其线程池。",
+    "_note": ""
+  },
+  "So, we need to update the ThreadPool drop implementation like this:": {
+    "_translate": "所以，我们需要像这样更新 <code>ThreadPool</code> 的 <code>drop</code> 实现：",
+    "_note": ""
+  },
+  "This resolves the compiler error and does not require any other changes to our code. Note that, because drop can be called when panicking, the unwrap could also panic and cause a double panic, which immediately crashes the program and ends any cleanup in progress. This is fine for an example program, but it isn’t recommended for production code.": {
+    "_translate": "这解决了编译器错误，并且不需要对我们的代码进行任何其他更改。请注意，因为 drop 可能在 panic 时被调用，unwrap 也可能导致 panic 并引起双重 panic，这会立即崩溃程序并结束任何正在进行的清理。对于示例程序来说这是可以的，但不建议在生产代码中使用。",
+    "_note": ""
+  },
+  "The error tells us we can’t call join because we only have a mutable borrow of each worker and join takes ownership of its argument. To solve this issue, we need to move the thread out of the Worker instance that owns thread so that join can consume the thread. One way to do this is to take the same approach we took in Listing 18-15. If Worker held an Option<thread::JoinHandle<()>>, we could call the take method on the Option to move the value out of the Some variant and leave a None variant in its place. In other words, a Worker that is running would have a Some variant in thread, and when we wanted to clean up a Worker, we’d replace Some with None so that the Worker wouldn’t have a thread to run.": {
+    "_translate": "错误告诉我们，我们不能调用<code>join</code>，因为我们只有每个<code>worker</code>的可变借用，而<code>join</code>需要获取其参数的所有权。为了解决这个问题，我们需要将线程从拥有<code>thread</code>的<code>Worker</code>实例中移出，以便<code>join</code>可以消耗该线程。一种方法是采用我们在清单18-15中使用的方法。如果<code>Worker</code>持有一个<code>Option<thread::JoinHandle<()>> </code>，我们可以在<code>Option</code>上调用<code>take</code>方法，将值从<code>Some</code>变体中移出，并在其位置留下一个<code>None</code>变体。换句话说，正在运行的<code>Worker</code>在<code>thread</code>中会有一个<code>Some</code>变体，而当我们想要清理一个<code>Worker</code>时，我们会将<code>Some</code>替换为<code>None</code>，这样<code>Worker</code>就不会有线程来运行。",
+    "_note": ""
+  },
+  "With all the changes we’ve made, our code compiles without any warnings. However, the bad news is that this code doesn’t function the way we want it to yet. The key is the logic in the closures run by the threads of the Worker instances: At the moment, we call join, but that won’t shut down the threads, because they loop forever looking for jobs. If we try to drop our ThreadPool with our current implementation of drop, the main thread will block forever, waiting for the first thread to finish.": {
+    "_translate": "随着我们所做的所有更改，我们的代码编译时没有任何警告。\n然而，坏消息是这段代码还没有按我们希望的方式工作。\n关键在于由 <code>Worker</code> 实例的线程运行的闭包中的逻辑：目前，我们调用 <code>join</code>，但这不会关闭线程，\n因为它们会无限循环地寻找任务。如果我们尝试使用当前的 <code>drop</code> 实现来删除我们的 <code>ThreadPool</code>，\n主线程将永远阻塞，等待第一个线程完成。",
+    "_note": ""
+  },
+  "First, we’ll change the ThreadPool drop implementation to explicitly drop the sender before waiting for the threads to finish. Listing 21-23 shows the changes to ThreadPool to explicitly drop sender. Unlike with the thread, here we do need to use an Option to be able to move sender out of ThreadPool with Option::take.": {
+    "_translate": "首先，我们将更改 <code>ThreadPool</code> 的 <code>drop</code> 实现，以在等待线程完成之前显式地释放 <code>sender</code>。列表 21-23 显示了对 <code>ThreadPool</code> 的更改，以显式地释放 <code>sender</code>。与线程不同，这里我们 <em>确实</em> 需要使用 <code>Option</code>，以便能够使用 <code>Option::take</code> 将 <code>sender</code> 从 <code>ThreadPool</code> 中移出。",
+    "_note": ""
+  },
+  "Start the server with cargo run and make three requests. The third request should error, and in your terminal, you should see output similar to this:": {
+    "_translate": "使用 <code>cargo run</code> 启动服务器并发出三个请求。第三个请求应该出错，并且在您的终端中，您应该看到类似的输出：",
+    "_note": ""
+  },
+  "Find a thread pool crate on crates.io and implement a similar web server using the crate instead. Then, compare its API and robustness to the thread pool we implemented.": {
+    "_translate": "在<a href=\"https://crates.io/\">crates.io</a>上找到一个线程池库，并使用该库实现一个类似的Web服务器。然后，将其API和健壮性与我们实现的线程池进行比较。",
+    "_note": ""
+  },
+  "Notice one interesting aspect of this particular execution: The ThreadPool dropped the sender, and before any Worker received an error, we tried to join Worker 0. Worker 0 had not yet gotten an error from recv, so the main thread blocked, waiting for Worker 0 to finish. In the meantime, Worker 3 received a job and then all threads received an error. When Worker 0 finished, the main thread waited for the rest of the Worker instances to finish. At that point, they had all exited their loops and stopped.": {
+    "_translate": "注意这个特定执行的一个有趣方面：<code>ThreadPool</code> 丢弃了 <code>sender</code>，并且在任何 <code>Worker</code> 收到错误之前，我们尝试加入 <code>Worker 0</code>。<code>Worker 0</code> 尚未从 <code>recv</code> 收到错误，因此主线程阻塞，等待 <code>Worker 0</code> 完成。在此期间，<code>Worker 3</code> 收到了一个任务，然后所有线程都收到了错误。当 <code>Worker 0</code> 完成时，主线程等待其余的 <code>Worker</code> 实例完成。那时，它们都已经退出了循环并停止。",
+    "_note": ""
   }
 }

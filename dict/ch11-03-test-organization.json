@@ -190,5 +190,25 @@
   "Private Function Tests": {
     "_translate": "<a class=\"header\" href=\"#private-function-tests\">私有函数测试</a>",
     "_note": ""
+  },
+  "Each file in the tests directory is a separate crate, so we need to bring our library into each test crate’s scope. For that reason, we add use adder::add_two; at the top of the code, which we didn’t need in the unit tests.": {
+    "_translate": "<em>tests</em> 目录中的每个文件都是一个单独的 crate，因此我们需要将我们的库引入每个测试 crate 的作用域。因此，我们在代码的顶部添加 <code>use adder::add_two;</code>，这在单元测试中是不需要的。",
+    "_note": ""
+  },
+  "Note that the internal_adder function is not marked as pub. Tests are just Rust code, and the tests module is just another module. As we discussed in “Paths for Referring to an Item in the Module Tree”, items in child modules can use the items in their ancestor modules. In this test, we bring all of the items belonging to the tests module’s parent into scope with use super::*, and then the test can call internal_adder. If you don’t think private functions should be tested, there’s nothing in Rust that will compel you to do so.": {
+    "_translate": "请注意，<code>internal_adder</code> 函数没有标记为 <code>pub</code>。测试只是 Rust 代码，<code>tests</code> 模块也只是另一个模块。正如我们在 <a href=\"ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html\">“模块树中引用项的路径”</a><!-- ignore --> 中讨论的那样，子模块中的项可以使用其祖先模块中的项。在这个测试中，我们使用 <code>use super::*</code> 将属于 <code>tests</code> 模块父模块的所有项引入作用域，然后测试就可以调用 <code>internal_adder</code>。如果你认为不应该测试私有函数，Rust 中没有任何东西会强迫你这样做。",
+    "_note": ""
+  },
+  "The three sections of output include the unit tests, the integration test, and the doc tests. Note that if any test in a section fails, the following sections will not be run. For example, if a unit test fails, there won’t be any output for integration and doc tests, because those tests will only be run if all unit tests are passing.": {
+    "_translate": "输出的三个部分包括单元测试、集成测试和文档测试。请注意，如果某个部分中的任何测试失败，后续的部分将不会运行。例如，如果单元测试失败，则不会有任何集成测试和文档测试的输出，因为这些测试只有在所有单元测试通过的情况下才会运行。",
+    "_note": ""
+  },
+  "The different behavior of tests directory files is most noticeable when you have a set of helper functions to use in multiple integration test files, and you try to follow the steps in the “Separating Modules into Different Files” section of Chapter 7 to extract them into a common module. For example, if we create tests/common.rs and place a function named setup in it, we can add some code to setup that we want to call from multiple test functions in multiple test files:": {
+    "_translate": "<em>tests</em> 目录文件的不同行为在你有一组要在多个集成测试文件中使用的辅助函数时最为明显，当你尝试遵循第 7 章的 <a href=\"ch07-05-separating-modules-into-different-files.html\">“将模块分离到不同的文件中”</a> 部分中的步骤将它们提取到一个公共模块时。例如，如果我们创建 <em>tests/common.rs</em> 并在其中放置一个名为 <code>setup</code> 的函数，我们可以在 <code>setup</code> 中添加一些代码，这些代码我们希望从多个测试文件中的多个测试函数中调用：",
+    "_note": ""
+  },
+  "Rust’s testing features provide a way to specify how code should function to ensure that it continues to work as you expect, even as you make changes. Unit tests exercise different parts of a library separately and can test private implementation details. Integration tests check that many parts of the library work together correctly, and they use the library’s public API to test the code in the same way external code will use it. Even though Rust’s type system and ownership rules help prevent some kinds of bugs, tests are still important to reduce logic bugs having to do with how your code is expected to behave.": {
+    "_translate": "Rust 的测试功能提供了一种指定代码应如何工作的方法，以确保即使在您进行更改时，代码仍能按预期工作。单元测试分别测试库的不同部分，并可以测试私有实现细节。集成测试检查库的许多部分是否能正确协同工作，并使用库的公共 API 以与外部代码使用相同的方式测试代码。尽管 Rust 的类型系统和所有权规则有助于防止某些类型的错误，但测试对于减少与代码预期行为相关的逻辑错误仍然很重要。",
+    "_note": ""
   }
 }
