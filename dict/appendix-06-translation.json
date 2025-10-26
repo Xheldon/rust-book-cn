@@ -106,5 +106,21 @@
   "Farsi, Persian (FA)": {
     "_translate": "<a href=\"https://github.com/RustFarsi/book\">波斯语</a>, <a href=\"https://github.com/persian-rust/book\">波斯语 (FA)</a>",
     "_note": ""
+  },
+  "O’zbek": {
+    "_translate": "<a href=\"https://github.com/rust-lang-uz/book\">乌兹别克</a>",
+    "_note": ""
+  },
+  "Tiếng Việt": {
+    "_translate": "<a href=\"https://github.com/tuanemdev/rust-book-vn\">中文</a>",
+    "_note": ""
+  },
+  "Italiano": {
+    "_translate": "<a href=\"https://nixxo.github.io/rust-lang-book-it/\">意大利语</a>",
+    "_note": ""
+  },
+  "বাংলা": {
+    "_translate": "<a href=\"https://github.com/IsmailHosenIsmailJames/rust-book-bn\">中文</a>",
+    "_note": ""
   }
 }

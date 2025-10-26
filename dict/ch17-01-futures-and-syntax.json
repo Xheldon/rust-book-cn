@@ -410,5 +410,113 @@
   "Once we have response_text, we can parse it into an instance of the Html type using Html::parse. Instead of a raw string, we now have a data type we can use to work with the HTML as a richer data structure. In particular, we can use the select_first method to find the first instance of a given CSS selector. By passing the string \"title\", we’ll get the first <title> element in the document, if there is one. Because there may not be any matching element, select_first returns an Option<ElementRef>. Finally, we use the Option::map method, which lets us work with the item in the Option if it’s present, and do nothing if it isn’t. (We could also use a match expression here, but map is more idiomatic.) In the body of the function we supply to map, we call inner_html on the title to get its content, which is a String. When all is said and done, we have an Option<String>.": {
     "_translate": "一旦我们有了<code>response_text</code>，我们可以使用<code>Html::parse</code>将其解析为<code>Html</code>类型的实例。现在我们有了一个可以用来处理HTML的更丰富的数据结构，而不仅仅是一个原始字符串。特别是，我们可以使用<code>select_first</code>方法来查找给定CSS选择器的第一个实例。通过传递字符串<code>\"title\"</code>，我们将获得文档中的第一个<code>&lt;title&gt;</code>元素（如果有的话）。因为可能没有匹配的元素，<code>select_first</code>返回一个<code>Option&lt;ElementRef&gt;</code>。最后，我们使用<code>Option::map</code>方法，这让我们可以在<code>Option</code>中处理项目（如果存在的话），如果不存在则不执行任何操作。（我们也可以在这里使用<code>match</code>表达式，但<code>map</code>更符合惯用法。）在我们提供给<code>map</code>的函数体中，我们调用<code>inner_html</code>来获取<code>title</code>的内容，这是一个<code>String</code>。最终，我们得到了一个<code>Option&lt;String&gt;</code>。",
     "_note": ""
+  },
+  "You can apply the async keyword to blocks and functions to specify that they can be interrupted and resumed. Within an async block or async function, you can use the await keyword to await a future (that is, wait for it to become ready). Any point where you await a future within an async block or function is a potential spot for that block or function to pause and resume. The process of checking with a future to see if its value is available yet is called polling.": {
+    "_translate": "您可以将 <code>async</code> 关键字应用于块和函数，以指定它们可以被中断和恢复。在 async 块或 async 函数中，您可以使用 <code>await</code> 关键字来 <em>等待一个未来</em>（即，等待它变得可用）。在 async 块或函数中等待一个未来的任何点都是该块或函数可能暂停和恢复的潜在位置。检查一个未来以查看其值是否可用的过程称为 <em>轮询</em>。",
+    "_note": ""
+  },
+  "Some other languages, such as C# and JavaScript, also use async and await keywords for async programming. If you’re familiar with those languages, you may notice some significant differences in how Rust handles the syntax. That’s for good reason, as we’ll see!": {
+    "_translate": "一些其他语言，如 C# 和 JavaScript，也使用 <code>async</code> 和 <code>await</code> 关键字进行异步编程。如果你对这些语言很熟悉，你可能会注意到 Rust 在处理语法时有一些显著的不同。这是有原因的，我们会看到！",
+    "_note": ""
+  },
+  "Let’s start by writing a function that takes one page URL as a parameter, makes a request to it, and returns the text of the <title> element (see Listing 17-1).": {
+    "_translate": "让我们先编写一个函数，该函数接受一个页面URL作为参数，向其发送请求，并返回<code>&lt;title&gt;</code>元素的文本（参见清单17-1）。",
+    "_note": ""
+  },
+  "First, we define a function named page_title and mark it with the async keyword. Then we use the trpl::get function to fetch whatever URL is passed in and add the await keyword to await the response. To get the text of the response, we call its text method and once again await it with the await keyword. Both of these steps are asynchronous. For the get function, we have to wait for the server to send back the first part of its response, which will include HTTP headers, cookies, and so on and can be delivered separately from the response body. Especially if the body is very large, it can take some time for it all to arrive. Because we have to wait for the entirety of the response to arrive, the text method is also async.": {
+    "_translate": "首先，我们定义一个名为<code>page_title</code>的函数，并用<code>async</code>关键字标记它。然后我们使用<code>trpl::get</code>函数获取传入的任何URL，并添加<code>await</code>关键字以等待响应。为了获取<code>response</code>的文本，我们调用其<code>text</code>方法，并再次使用<code>await</code>关键字等待它。这两个步骤都是异步的。对于<code>get</code>函数，我们必须等待服务器发送回其响应的第一部分，这将包括HTTP头、cookie等，这些可以与响应体分开交付。特别是如果响应体非常大，它可能需要一些时间才能全部到达。因为我们必须等待响应的<em>全部</em>内容到达，所以<code>text</code>方法也是异步的。",
+    "_note": ""
+  },
+  "We have to explicitly await both of these futures, because futures in Rust are lazy: they don’t do anything until you ask them to with the await keyword. (In fact, Rust will show a compiler warning if you don’t use a future.) This might remind you of the discussion of iterators in the “Processing a Series of Items with Iterators” section in Chapter 13. Iterators do nothing unless you call their next method—whether directly or by using for loops or methods such as map that use next under the hood. Likewise, futures do nothing unless you explicitly ask them to. This laziness allows Rust to avoid running async code until it’s actually needed.": {
+    "_translate": "我们必须显式地等待这两个 future，因为 Rust 中的 future 是<em>惰性</em>的：除非你用 <code>await</code> 关键字要求它们执行，否则它们不会做任何事情。（事实上，如果你不使用一个 future，Rust 会显示一个编译器警告。）这可能让你想起第 13 章<a href=\"ch13-02-iterators.html\">“使用迭代器处理一系列项目”</a><!-- ignore -->部分中关于迭代器的讨论。除非你调用它们的 <code>next</code> 方法——无论是直接调用还是通过 <code>for</code> 循环或 <code>map</code> 等使用 <code>next</code> 的方法——迭代器不会做任何事情。同样，除非你显式地要求，future 也不会做任何事情。这种惰性使得 Rust 可以避免在实际需要之前运行异步代码。",
+    "_note": ""
+  },
+  "Note: This is different from the behavior we saw when using thread::spawn in the “Creating a New Thread with spawn” section in Chapter 16, where the closure we passed to another thread started running immediately. It’s also different from how many other languages approach async. But it’s important for Rust to be able to provide its performance guarantees, just as it is with iterators.": {
+    "_translate": "注意：这与我们在第 16 章<a href=\"ch16-01-threads.html#creating-a-new-thread-with-spawn\">“使用 spawn 创建新线程”</a>部分中使用<code>thread::spawn</code>时看到的行为不同，当时我们传递给另一个线程的闭包会立即开始运行。这也与其他许多语言处理异步的方式不同。但是，对于 Rust 而言，能够提供其性能保证非常重要，就像迭代器一样。",
+    "_note": ""
+  },
+  "Notice that Rust’s await keyword goes after the expression you’re awaiting, not before it. That is, it’s a postfix keyword. This may differ from what you’re used to if you’ve used async in other languages, but in Rust it makes chains of methods much nicer to work with. As a result, we could change the body of page_title to chain the trpl::get and text function calls together with await between them, as shown in Listing 17-2.": {
+    "_translate": "请注意，Rust 的 <code>await</code> 关键字位于你正在等待的表达式 <em>之后</em>，\n而不是之前。也就是说，它是一个 <em>后缀</em> 关键字。这可能与你在其他语言中使用 <code>async</code> 时的习惯不同，但在 Rust 中，这使得方法链的使用更加优雅。因此，我们可以将 <code>page_title</code> 的主体改为将 <code>trpl::get</code> 和 <code>text</code> 函数调用通过 <code>await</code> 连接在一起，如清单 17-2 所示。",
+    "_note": ""
+  },
+  "Thus, writing async fn is equivalent to writing a function that returns a future of the return type. To the compiler, a function definition such as the async fn page_title in Listing 17-1 is roughly equivalent to a non-async function defined like this:": {
+    "_translate": "因此，编写 <code>async fn</code> 相当于编写一个返回 <em>未来</em> 类型的函数。对于编译器而言，如清单 17-1 中的 <code>async fn page_title</code> 函数定义大致相当于这样定义的非异步函数：",
+    "_note": ""
+  },
+  "Executing an Async Function with a Runtime": {
+    "_translate": "<a class=\"header\" href=\"#executing-an-async-function-with-a-runtime\">使用运行时执行异步函数</a>",
+    "_note": ""
+  },
+  "The returned value implements the Future trait with an associated type of Output. Notice that the Output type is Option<String>, which is the same as the original return type from the async fn version of page_title.": {
+    "_translate": "返回的值实现了 <code>Future</code> 特性，其关联类型为 <code>Output</code>。请注意，<code>Output</code> 类型是 <code>Option&lt;String&gt;</code>，这与 <code>async fn</code> 版本的 <code>page_title</code> 的原始返回类型相同。",
+    "_note": ""
+  },
+  "To start, we’ll get the title for a single page, shown in Listing 17-3. Unfortunately, this code doesn’t compile yet.": {
+    "_translate": "首先，我们将获取单个页面的标题，如清单 17-3 所示。\n不幸的是，这段代码还不能编译。",
+    "_note": ""
+  },
+  "We follow the same pattern we used to get command line arguments in the “Accepting Command Line Arguments” section in Chapter 12. Then we pass the URL argument to page_title and await the result. Because the value produced by the future is an Option<String>, we use a match expression to print different messages to account for whether the page had a <title>.": {
+    "_translate": "我们遵循在第 12 章<a href=\"ch12-01-accepting-command-line-arguments.html\">“接受命令行参数”</a><!-- ignore -->部分中用于获取命令行参数的相同模式。然后我们将 URL 参数传递给 <code>page_title</code> 并等待结果。\n因为未来产生的值是一个 <code>Option&lt;String&gt;</code>，我们使用一个 <code>match</code> 表达式来打印不同的消息，以考虑页面是否有 <code>&lt;title&gt;</code>。",
+    "_note": ""
+  },
+  "The only place we can use the await keyword is in async functions or blocks, and Rust won’t let us mark the special main function as async.": {
+    "_translate": "我们唯一可以使用 <code>await</code> 关键字的地方是在异步函数或块中，而 Rust 不允许我们将特殊的 <code>main</code> 函数标记为 <code>async</code>。",
+    "_note": ""
+  },
+  "The reason main can’t be marked async is that async code needs a runtime: a Rust crate that manages the details of executing asynchronous code. A program’s main function can initialize a runtime, but it’s not a runtime itself. (We’ll see more about why this is the case in a bit.) Every Rust program that executes async code has at least one place where it sets up a runtime that executes the futures.": {
+    "_translate": "<code>main</code> 不能被标记为 <code>async</code> 的原因是异步代码需要一个 <em>运行时</em>：\n一个管理异步代码执行细节的 Rust 库。程序的 <code>main</code> 函数可以 <em>初始化</em> 一个运行时，但它本身并不是一个运行时。\n（我们稍后会详细解释为什么是这样。）每个执行异步代码的 Rust 程序至少有一个地方会设置一个执行这些未来的运行时。",
+    "_note": ""
+  },
+  "Here, and throughout the rest of this chapter, we’ll use the block_on function from the trpl crate, which takes a future as an argument and blocks the current thread until this future runs to completion. Behind the scenes, calling block_on sets up a runtime using the tokio crate that’s used to run the future passed in (the trpl crate’s block_on behavior is similar to other runtime crates’ block_on functions). Once the future completes, block_on returns whatever value the future produced.": {
+    "_translate": "在这里，以及在本章的其余部分，我们将使用 <code>trpl</code> crate 中的 <code>block_on</code> 函数，该函数接受一个 future 作为参数，并阻塞当前线程，直到该 future 运行完成。在幕后，调用 <code>block_on</code> 会使用 <code>tokio</code> crate 设置一个运行时环境，用于运行传入的 future（<code>trpl</code> crate 的 <code>block_on</code> 行为与其他运行时 crate 的 <code>block_on</code> 函数类似）。一旦 future 完成，<code>block_on</code> 将返回 future 产生的值。",
+    "_note": ""
+  },
+  "Phew—we finally have some working async code! But before we add the code to race two sites against each other, let’s briefly turn our attention back to how futures work.": {
+    "_translate": "呼—我们终于有一些可以工作的异步代码了！但在我们添加代码来让两个站点相互竞争之前，让我们简要回顾一下未来对象是如何工作的。",
+    "_note": ""
+  },
+  "We could pass the future returned by page_title directly to block_on and, once it completed, we could match on the resulting Option<String> as we tried to do in Listing 17-3. However, for most of the examples in the chapter (and most async code in the real world), we’ll be doing more than just one async function call, so instead we’ll pass an async block and explicitly await the result of the page_title call, as in Listing 17-4.": {
+    "_translate": "我们可以直接将 <code>page_title</code> 返回的 future 传递给 <code>block_on</code>，并在它完成后，像我们在清单 17-3 中尝试的那样，对生成的 <code>Option&lt;String&gt;</code> 进行匹配。然而，对于本章中的大多数示例（以及现实世界中的大多数异步代码），我们将不仅仅进行一次异步函数调用，因此我们将传递一个 <code>async</code> 块，并显式等待 <code>page_title</code> 调用的结果，如清单 17-4 所示。",
+    "_note": ""
+  },
+  "Each await point—that is, every place where the code uses the await keyword—represents a place where control is handed back to the runtime. To make that work, Rust needs to keep track of the state involved in the async block so that the runtime could kick off some other work and then come back when it’s ready to try advancing the first one again. This is an invisible state machine, as if you’d written an enum like this to save the current state at each await point:": {
+    "_translate": "每个<em>await点</em>——也就是说，代码中每个使用<code>await</code>关键字的地方——都表示一个将控制权交还给运行时的地方。为了使这一点生效，Rust需要跟踪异步块中涉及的状态，以便运行时可以启动一些其他工作，然后在准备好时再次尝试推进第一个任务。这就像一个不可见的状态机，就像你写了一个这样的枚举来保存每个await点的当前状态：",
+    "_note": ""
+  },
+  "Ultimately, something has to execute this state machine, and that something is a runtime. (This is why you may come across mentions of executors when looking into runtimes: an executor is the part of a runtime responsible for executing the async code.)": {
+    "_translate": "最终，必须有东西来执行这个状态机，而这个东西就是\n运行时。这就是为什么在研究运行时的时候，你可能会遇到<em>执行器</em>的提法：\n执行器是运行时中负责执行异步代码的部分。",
+    "_note": ""
+  },
+  "Note: Some runtimes provide macros so you can write an async main function. Those macros rewrite async fn main() { ... } to be a normal fn main, which does the same thing we did by hand in Listing 17-4: call a function that runs a future to completion the way trpl::block_on does.": {
+    "_translate": "注意：某些运行时提供了宏，因此您可以编写异步 <code>main</code> 函数。这些宏将 <code>async fn main() { ... }</code> 重写为普通的 <code>fn main</code>，这与我们在清单 17-4 中手动所做的相同：调用一个函数，该函数以 <code>trpl::block_on</code> 的方式运行一个未来。",
+    "_note": ""
+  },
+  "Now you can see why the compiler stopped us from making main itself an async function back in Listing 17-3. If main were an async function, something else would need to manage the state machine for whatever future main returned, but main is the starting point for the program! Instead, we called the trpl::block_on function in main to set up a runtime and run the future returned by the async block until it’s done.": {
+    "_translate": "现在你可以理解为什么编译器在第 17-3 节中阻止我们将 <code>main</code> 本身设为异步函数了。如果 <code>main</code> 是一个异步函数，那么就需要有其他东西来管理 <code>main</code> 返回的未来状态机，但 <code>main</code> 是程序的起点！相反，我们在 <code>main</code> 中调用了 <code>trpl::block_on</code> 函数来设置运行时并运行由 <code>async</code> 块返回的未来，直到它完成。",
+    "_note": ""
+  },
+  "Racing Two URLs Against Each Other Concurrently": {
+    "_translate": "<a class=\"header\" href=\"#racing-two-urls-against-each-other-concurrently\">并发竞争两个URL</a>",
+    "_note": ""
+  },
+  "In Listing 17-5, we call page_title with two different URLs passed in from the command line and race them by selecting whichever future finishes first.": {
+    "_translate": "在清单 17-5 中，我们使用从命令行传递的两个不同 URL 调用 <code>page_title</code>，并通过选择最先完成的 future 来进行竞速。",
+    "_note": ""
+  },
+  "We begin by calling page_title for each of the user-supplied URLs. We save the resulting futures as title_fut_1 and title_fut_2. Remember, these don’t do anything yet, because futures are lazy and we haven’t yet awaited them. Then we pass the futures to trpl::select, which returns a value to indicate which of the futures passed to it finishes first.": {
+    "_translate": "我们首先为每个用户提供的URL调用<code>page_title</code>。我们将生成的future保存为<code>title_fut_1</code>和<code>title_fut_2</code>。记住，这些还不会做任何事情，因为future是惰性的，我们还没有等待它们。然后我们将future传递给<code>trpl::select</code>，它返回一个值来指示传递给它的哪个future最先完成。",
+    "_note": ""
+  },
+  "Note: Under the hood, trpl::select is built on a more general select function defined in the futures crate. The futures crate’s select function can do a lot of things that the trpl::select function can’t, but it also has some additional complexity that we can skip over for now.": {
+    "_translate": "注意：在底层，<code>trpl::select</code> 是基于 <code>futures</code> 库中定义的更通用的 <code>select</code> 函数构建的。<code>futures</code> 库的 <code>select</code> 函数可以做很多 <code>trpl::select</code> 函数不能做的事情，但也有一些额外的复杂性，我们现在可以忽略。",
+    "_note": ""
+  },
+  "The select function returns Left with that future’s output if the first argument wins, and Right with the second future argument’s output if that one wins. This matches the order the arguments appear in when calling the function: the first argument is to the left of the second argument.": {
+    "_translate": "<code>select</code> 函数如果第一个参数获胜，则返回带有该未来输出的 <code>Left</code>；如果 <em>那个</em> 参数获胜，则返回带有第二个未来参数输出的 <code>Right</code>。这与调用函数时参数出现的顺序相匹配：第一个参数位于第二个参数的左侧。",
+    "_note": ""
+  },
+  "Either future can legitimately “win,” so it doesn’t make sense to return a Result. Instead, trpl::select returns a type we haven’t seen before, trpl::Either. The Either type is somewhat similar to a Result in that it has two cases. Unlike Result, though, there is no notion of success or failure baked into Either. Instead, it uses Left and Right to indicate “one or the other”:": {
+    "_translate": "任何一个 future 都可以合法地“获胜”，因此返回一个 <code>Result</code> 没有意义。相反，<code>trpl::select</code> 返回一个我们之前没见过的类型，<code>trpl::Either</code>。<code>Either</code> 类型在某种程度上类似于 <code>Result</code>，因为它也有两种情况。然而，与 <code>Result</code> 不同的是，<code>Either</code> 中没有成功或失败的概念。相反，它使用 <code>Left</code> 和 <code>Right</code> 来表示“两者之一”：",
+    "_note": ""
   }
 }

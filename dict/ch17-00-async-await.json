@@ -190,5 +190,37 @@
   "Now, let’s dive into how async programming in Rust actually works.": {
     "_translate": "现在，让我们深入探讨 Rust 中的异步编程实际上是如何工作的。",
     "_note": ""
+  },
+  "This chapter builds on Chapter 16’s use of threads for parallelism and concurrency by introducing an alternative approach to writing code: Rust’s futures, streams, and the async and await syntax that let us express how operations could be asynchronous, and the third-party crates that implement asynchronous runtimes: code that manages and coordinates the execution of asynchronous operations.": {
+    "_translate": "本章在第16章使用线程实现并行性和并发性的基础上，介绍了编写代码的另一种方法：Rust的futures、streams以及<code>async</code>和<code>await</code>语法，这些让我们能够表达操作可以是异步的，以及实现异步运行时的第三方crate：管理并协调异步操作执行的代码。",
+    "_note": ""
+  },
+  "Many operations we ask the computer to do can take a while to finish. It would be nice if we could do something else while we’re waiting for those long-running processes to complete. Modern computers offer two techniques for working on more than one operation at a time: parallelism and concurrency. Our programs’ logic, however, is written in a mostly linear fashion. We’d like to be able to specify the operations a program should perform and points at which a function could pause and some other part of the program could run instead, without needing to specify up front exactly the order and manner in which each bit of code should run. Asynchronous programming is an abstraction that lets us express our code in terms of potential pausing points and eventual results that takes care of the details of coordination for us.": {
+    "_translate": "我们要求计算机执行的许多操作可能需要一段时间才能完成。如果在等待这些长时间运行的进程完成的同时，我们还能做其他事情，那将是非常好的。现代计算机提供了两种同时处理多个操作的技术：并行性和并发性。然而，我们的程序逻辑主要是以线性方式编写的。我们希望能够指定程序应执行的操作以及函数可以暂停的点，以及程序的其他部分可以替代运行的点，而无需事先精确指定每段代码的运行顺序和方式。<em>异步编程</em>是一种抽象，它让我们以潜在的暂停点和最终结果来表达代码，而它会为我们处理协调的细节。",
+    "_note": ""
+  },
+  "The video export is an example of a CPU-bound or compute-bound operation. It’s limited by the computer’s potential data processing speed within the CPU or GPU, and how much of that speed it can dedicate to the operation. The video download is an example of an I/O-bound operation, because it’s limited by the speed of the computer’s input and output; it can only go as fast as the data can be sent across the network.": {
+    "_translate": "视频导出是一个<em>CPU-bound</em>或<em>compute-bound</em>操作的例子。\n它受到计算机CPU或GPU潜在数据处理速度的限制，\n以及它可以将多少速度用于该操作。视频\n下载是一个<em>I/O-bound</em>操作的例子，因为它受到计算机<em>输入和输出</em>速度的限制；\n它只能以数据在网络中传输的速度进行。",
+    "_note": ""
+  },
+  "We could avoid blocking our main thread by spawning a dedicated thread to download each file. However, the overhead of the system resources used by those threads would eventually become a problem. It would be preferable if the call didn’t block in the first place, and instead we could define a number of tasks that we’d like our program to complete and allow the runtime to choose the best order and manner in which to run them.": {
+    "_translate": "我们可以通过创建一个专门的线程来下载每个文件，从而避免阻塞主线程。然而，这些线程所使用的系统资源开销最终会成为一个问题。如果调用本身不阻塞，而是我们可以定义一些我们希望程序完成的任务，并允许运行时选择运行这些任务的最佳顺序和方式，那将更好。",
+    "_note": ""
+  },
+  "How multithreading and async provide complementary solutions that you can combine in many cases": {
+    "_translate": "如何多线程和异步提供互补的解决方案，您可以在许多情况下结合使用。",
+    "_note": ""
+  },
+  "How to use Rust’s async and await syntax and execute asynchronous functions with a runtime": {
+    "_translate": "如何使用 Rust 的 <code>async</code> 和 <code>await</code> 语法以及使用运行时执行异步函数",
+    "_note": ""
+  },
+  "Running async code in Rust usually happens concurrently. Depending on the hardware, the operating system, and the async runtime we are using (more on async runtimes shortly), that concurrency may also use parallelism under the hood.": {
+    "_translate": "在 Rust 中运行异步代码通常会并发执行。根据硬件、操作系统以及我们使用的异步运行时（稍后会详细介绍异步运行时），这种并发可能在底层也会使用并行性。",
+    "_note": ""
+  },
+  "When an individual works on several different tasks before any of them is complete, this is concurrency. One way to implement concurrency is similar to having two different projects checked out on your computer, and when you get bored or stuck on one project, you switch to the other. You’re just one person, so you can’t make progress on both tasks at the exact same time, but you can multitask, making progress on one at a time by switching between them (see Figure 17-1).": {
+    "_translate": "当一个人在完成任何一项任务之前就开始处理多个不同的任务时，这称为<em>并发</em>。实现并发的一种方式类似于在你的计算机上同时检出两个不同的项目，当你对一个项目感到厌倦或卡住时，就切换到另一个项目。你只是一个人，所以你不能同时在两个任务上取得进展，但你可以通过在它们之间切换，一次一个地取得进展（见图17-1）。",
+    "_note": ""
   }
 }

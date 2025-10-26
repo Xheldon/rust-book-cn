@@ -314,5 +314,33 @@
   "We saw a sequence of items back in Chapter 13, when we looked at the Iterator trait in The Iterator Trait and the next Method section, but there are two differences between iterators and the async channel receiver. The first difference is time: iterators are synchronous, while the channel receiver is asynchronous. The second is the API. When working directly with Iterator, we call its synchronous next method. With the trpl::Receiver stream in particular, we called an asynchronous recv method instead. Otherwise, these APIs feel very similar, and that similarity isn’t a coincidence. A stream is like an asynchronous form of iteration. Whereas the trpl::Receiver specifically waits to receive messages, though, the general-purpose stream API is much broader: it provides the next item the way Iterator does, but asynchronously.": {
     "_translate": "我们在第 13 章<a href=\"ch13-02-iterators.html#the-iterator-trait-and-the-next-method\">迭代器特质和 <code>next</code> 方法</a>部分讨论了 <code>Iterator</code> 特质时，看到了一系列的项目，但迭代器和异步通道接收器之间有两个区别。第一个区别是时间：迭代器是同步的，而通道接收器是异步的。第二个区别是 API。当我们直接使用 <code>Iterator</code> 时，我们调用其同步的 <code>next</code> 方法。而对于 <code>trpl::Receiver</code> 流，我们调用的是异步的 <code>recv</code> 方法。除此之外，这些 API 感觉非常相似，这种相似性并非偶然。流就像是迭代的一种异步形式。虽然 <code>trpl::Receiver</code> 特定地等待接收消息，但通用的流 API 范围更广：它以 <code>Iterator</code> 的方式提供下一个项目，但它是异步的。",
     "_note": ""
+  },
+  "Recall how we used the receiver for our async channel earlier in this chapter in the “Message Passing” section. The async recv method produces a sequence of items over time. This is an instance of a much more general pattern known as a stream. Many concepts are naturally represented as streams: items becoming available in a queue, chunks of data being pulled incrementally from the filesystem when the full data set is too large for the computer’s memory, or data arriving over the network over time. Because streams are futures, we can use them with any other kind of future and combine them in interesting ways. For example, we can batch up events to avoid triggering too many network calls, set timeouts on sequences of long-running operations, or throttle user interface events to avoid doing needless work.": {
+    "_translate": "回想我们在本章前面的<a href=\"ch17-02-concurrency-with-async.html#message-passing\">“消息传递”</a><!-- ignore -->部分中如何使用异步通道的接收者。异步<code>recv</code>方法随时间生成一系列项。这是一个更广泛模式的实例，称为<em>流</em>。许多概念自然地表示为流：队列中变得可用的项、当完整数据集太大而无法放入计算机内存时从文件系统中逐步提取的数据块，或随时间通过网络到达的数据。因为流是未来对象，我们可以将它们与任何其他类型的未来对象一起使用，并以有趣的方式组合它们。例如，我们可以批量处理事件以避免触发过多的网络调用，为长时间运行的操作序列设置超时，或限制用户界面事件以避免不必要的工作。",
+    "_note": ""
+  },
+  "The similarity between iterators and streams in Rust means we can actually create a stream from any iterator. As with an iterator, we can work with a stream by calling its next method and then awaiting the output, as in Listing 17-21, which won’t compile yet.": {
+    "_translate": "迭代器和流在 Rust 中的相似性意味着我们实际上可以从任何迭代器创建一个流。与迭代器一样，我们可以通过调用其 <code>next</code> 方法并等待输出来处理流，如清单 17-21 所示，这还不能编译。",
+    "_note": ""
+  },
+  "We saw a sequence of items back in Chapter 13, when we looked at the Iterator trait in “The Iterator Trait and the next Method” section, but there are two differences between iterators and the async channel receiver. The first difference is time: iterators are synchronous, while the channel receiver is asynchronous. The second difference is the API. When working directly with Iterator, we call its synchronous next method. With the trpl::Receiver stream in particular, we called an asynchronous recv method instead. Otherwise, these APIs feel very similar, and that similarity isn’t a coincidence. A stream is like an asynchronous form of iteration. Whereas the trpl::Receiver specifically waits to receive messages, though, the general-purpose stream API is much broader: it provides the next item the way Iterator does, but asynchronously.": {
+    "_translate": "我们在第 13 章<a href=\"ch13-02-iterators.html#the-iterator-trait-and-the-next-method\">“迭代器特质和 <code>next</code> 方法”</a>部分讨论了序列项，但迭代器和异步通道接收器之间有两个区别。第一个区别是时间：迭代器是同步的，而通道接收器是异步的。第二个区别是 API。在直接使用 <code>Iterator</code> 时，我们调用其同步的 <code>next</code> 方法。而对于 <code>trpl::Receiver</code> 流，我们调用的是异步的 <code>recv</code> 方法。除此之外，这些 API 感觉非常相似，这种相似性并非偶然。流就像是异步形式的迭代。虽然 <code>trpl::Receiver</code> 特定地等待接收消息，但通用的流 API 范围更广：它以异步方式提供下一个项，就像 <code>Iterator</code> 那样。",
+    "_note": ""
+  },
+  "Unfortunately, when we try to run the code, it doesn’t compile but instead reports that there’s no next method available:": {
+    "_translate": "不幸的是，当我们尝试运行代码时，它无法编译，而是报告说没有可用的<code>next</code>方法：",
+    "_note": ""
+  },
+  "The fix to the compiler error is to add a use statement for trpl::StreamExt, as in Listing 17-22.": {
+    "_translate": "修复编译器错误的方法是添加一个 <code>use</code> 语句，用于 <code>trpl::StreamExt</code>，如列表 17-22 所示。",
+    "_note": ""
+  },
+  "The Stream trait defines a low-level interface that effectively combines the Iterator and Future traits. StreamExt supplies a higher-level set of APIs on top of Stream, including the next method as well as other utility methods similar to those provided by the Iterator trait. Stream and StreamExt are not yet part of Rust’s standard library, but most ecosystem crates use similar definitions.": {
+    "_translate": "<code>Stream</code> 特性定义了一个低级别的接口，有效地结合了 <code>Iterator</code> 和 <code>Future</code> 特性。<code>StreamExt</code> 在 <code>Stream</code> 上提供了一组更高层次的 API，包括 <code>next</code> 方法以及其他类似于 <code>Iterator</code> 特性提供的实用方法。<code>Stream</code> 和 <code>StreamExt</code> 尚未成为 Rust 标准库的一部分，但大多数生态系统 crate 使用类似的定义。",
+    "_note": ""
+  },
+  "With all those pieces put together, this code works the way we want! What’s more, now that we have StreamExt in scope, we can use all of its utility methods, just as with iterators.": {
+    "_translate": "将所有这些部分组合在一起，这段代码就能按我们想要的方式工作！更重要的是，现在我们已经将<code>StreamExt</code>引入作用域，我们可以使用它的所有实用方法，就像使用迭代器一样。",
+    "_note": ""
   }
 }

@@ -586,7 +586,7 @@ error: aborting due to 1 previous error; 1 warning emitted
 <p data-x-en="You can learn more about Miri at its GitHub repository.">您可以在<a href="https://github.com/rust-lang/miri">其 GitHub 仓库</a>了解更多关于 Miri 的信息。</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="when-to-use-unsafe-code"></a></p>
-<h3 id="using-unsafe-code-correctly" data-x-en="Using Unsafe Code Correctly"><a class="header" href="#using-unsafe-code-correctly">正确使用不安全代码</a></h3>
+<h3 id="using-unsafe-code-correctly"><a class="header" href="#using-unsafe-code-correctly">正确使用不安全代码</a></h3>
 <p data-x-en="Using unsafe to use one of the five superpowers just discussed isn’t wrong or even frowned upon, but it is trickier to get unsafe code correct because the compiler can’t help uphold memory safety. When you have a reason to use unsafe code, you can do so, and having the explicit unsafe annotation makes it easier to track down the source of problems when they occur. Whenever you write unsafe code, you can use Miri to help you be more confident that the code you have written upholds Rust’s rules.">使用 <code>unsafe</code> 来使用上述五个超级能力之一并不是错误的，甚至也不被反对，但要使 <code>unsafe</code> 代码正确会更棘手，因为编译器无法帮助维护内存安全。当你有理由使用 <code>unsafe</code> 代码时，你可以这样做，而显式的 <code>unsafe</code> 注解使得在出现问题时更容易追踪问题的来源。每当你编写不安全的代码时，你可以使用 Miri 来帮助你更有信心地确保你编写的代码符合 Rust 的规则。</p>
 <p data-x-en="For a much deeper exploration of how to work effectively with unsafe Rust, read Rust’s official guide for unsafe, The Rustonomicon.">要深入了解如何有效地使用不安全的 Rust，请阅读 Rust 的官方指南 <code>unsafe</code>，<a href="https://doc.rust-lang.org/nomicon/">Rustonomicon</a>。</p>
 

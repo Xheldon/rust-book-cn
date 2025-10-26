@@ -252,7 +252,7 @@ blockquote {
                         <!-- Old headings. Do not remove or links may break. -->
 <p><a id="turning-our-single-threaded-server-into-a-multithreaded-server"></a>
 <a id="from-single-threaded-to-multithreaded-server"></a></p>
-<h2 id="from-a-single-threaded-to-a-multithreaded-server" data-x-en="From a Single-Threaded to a Multithreaded Server"><a class="header" href="#from-a-single-threaded-to-a-multithreaded-server">从单线程到多线程服务器</a></h2>
+<h2 id="from-a-single-threaded-to-a-multithreaded-server"><a class="header" href="#from-a-single-threaded-to-a-multithreaded-server">从单线程到多线程服务器</a></h2>
 <p data-x-en="Right now, the server will process each request in turn, meaning it won’t process a second connection until the first connection is finished processing. If the server received more and more requests, this serial execution would be less and less optimal. If the server receives a request that takes a long time to process, subsequent requests will have to wait until the long request is finished, even if the new requests can be processed quickly. We’ll need to fix this, but first we’ll look at the problem in action.">目前，服务器会依次处理每个请求，这意味着它不会在处理完第一个连接之前处理第二个连接。如果服务器接收到越来越多的请求，这种串行执行将变得越来越不理想。如果服务器接收到一个需要长时间处理的请求，后续的请求将不得不等待，直到长时间的请求处理完毕，即使新的请求可以快速处理。我们需要解决这个问题，但首先我们将看看问题的实际表现。</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="simulating-a-slow-request-in-the-current-server-implementation"></a></p>

@@ -669,7 +669,7 @@ fn main() {
 <p data-x-en="You might see suggestions in error messages to use the 'static lifetime. But before specifying 'static as the lifetime for a reference, think about whether or not the reference you have actually lives the entire lifetime of your program, and whether you want it to. Most of the time, an error message suggesting the 'static lifetime results from attempting to create a dangling reference or a mismatch of the available lifetimes. In such cases, the solution is to fix those problems, not to specify the 'static lifetime.">你可能会在错误消息中看到建议使用<code>'static</code>生命周期。但在将<code>'static</code>指定为引用的生命周期之前，请考虑你拥有的引用是否确实存在于程序的整个生命周期中，以及你是否希望如此。大多数时候，错误消息建议使用<code>'static</code>生命周期是因为尝试创建悬空引用或生命周期不匹配。在这种情况下，解决方案是解决这些问题，而不是指定<code>'static</code>生命周期。</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="generic-type-parameters-trait-bounds-and-lifetimes-together"></a></p>
-<h2 id="generic-type-parameters-trait-bounds-and-lifetimes" data-x-en="Generic Type Parameters, Trait Bounds, and Lifetimes"><a class="header" href="#generic-type-parameters-trait-bounds-and-lifetimes">泛型类型参数、特征边界和生命周期</a></h2>
+<h2 id="generic-type-parameters-trait-bounds-and-lifetimes"><a class="header" href="#generic-type-parameters-trait-bounds-and-lifetimes">泛型类型参数、特征边界和生命周期</a></h2>
 <p data-x-en="Let’s briefly look at the syntax of specifying generic type parameters, trait bounds, and lifetimes all in one function!">让我们简要地看一下在一个函数中指定泛型类型参数、特征边界和生命周期的语法！</p>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span><span class="boring">    let string1 = String::from("abcd");

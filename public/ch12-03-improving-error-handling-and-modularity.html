@@ -622,7 +622,7 @@ fn run(config: Config) {
 <p data-x-en="The run function now contains all the remaining logic from main, starting from reading the file. The run function takes the Config instance as an argument."><code>run</code> 函数现在包含了来自 <code>main</code> 的所有剩余逻辑，从读取文件开始。<code>run</code> 函数接受 <code>Config</code> 实例作为参数。</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="returning-errors-from-the-run-function"></a></p>
-<h4 id="returning-errors-from-run" data-x-en="Returning Errors from run"><a class="header" href="#returning-errors-from-run">从 <code>run</code> 返回错误</a></h4>
+<h4 id="returning-errors-from-run"><a class="header" href="#returning-errors-from-run">从 <code>run</code> 返回错误</a></h4>
 <p data-x-en="With the remaining program logic separated into the run function, we can improve the error handling, as we did with Config::build in Listing 12-9. Instead of allowing the program to panic by calling expect, the run function will return a Result<T, E> when something goes wrong. This will let us further consolidate the logic around handling errors into main in a user-friendly way. Listing 12-12 shows the changes we need to make to the signature and body of run.">随着剩余的程序逻辑被分离到 <code>run</code> 函数中，我们可以改进错误处理，就像我们在清单 12-9 中对 <code>Config::build</code> 所做的那样。而不是通过调用 <code>expect</code> 使程序 panic，<code>run</code> 函数将在出现问题时返回一个 <code>Result&lt;T, E&gt;</code>。这将使我们能够进一步将错误处理逻辑整合到 <code>main</code> 中，以一种用户友好的方式。清单 12-12 显示了我们需要对 <code>run</code> 的签名和主体进行的更改。</p>
 <figure class="listing" id="listing-12-12">
 <span class="file-name">Filename: src/main.rs</span>

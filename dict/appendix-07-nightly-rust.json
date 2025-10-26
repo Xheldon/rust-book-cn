@@ -146,5 +146,29 @@
   "Stable": {
     "_translate": "稳定的，直接输出翻译内容，不添加任何额外的文本。绝对不要添加原文中没有的符号或标签。记住，保留所有HTML标签和属性，只翻译内容！",
     "_note": ""
+  },
+  "Rust development operates on a train schedule. That is, all development is done in the main branch of the Rust repository. Releases follow a software release train model, which has been used by Cisco IOS and other software projects. There are three release channels for Rust:": {
+    "_translate": "Rust 开发遵循一个 <em>列车时间表</em>。也就是说，所有开发都在 Rust 仓库的主分支上进行。发布遵循一个软件发布列车模型，该模型已被 Cisco IOS 和其他软件项目使用。Rust 有三个 <em>发布渠道</em>：",
+    "_note": ""
+  },
+  "Every six weeks, it’s time to prepare a new release! The beta branch of the Rust repository branches off from the main branch used by nightly. Now, there are two releases:": {
+    "_translate": "每六周，就到了准备新版本的时候了！Rust 仓库的 <code>beta</code> 分支从用于 nightly 的主分支分出。现在，有两个版本：",
+    "_note": ""
+  },
+  "Here’s an example of how the development and release process works: let’s assume that the Rust team is working on the release of Rust 1.5. That release happened in December of 2015, but it will provide us with realistic version numbers. A new feature is added to Rust: a new commit lands on the main branch. Each night, a new nightly version of Rust is produced. Every day is a release day, and these releases are created by our release infrastructure automatically. So as time passes, our releases look like this, once a night:": {
+    "_translate": "这是一个开发和发布过程的例子：假设 Rust 团队正在开发 Rust 1.5 的发布。该发布发生在 2015 年 12 月，但它将为我们提供现实的版本号。Rust 添加了一个新功能：一个新的提交在主分支上落地。每个晚上，都会生成一个新的 Rust 夜ly版本。每天都是发布日，这些发布是由我们的发布基础设施自动创建的。因此，随着时间的推移，我们的发布情况如下，每晚一次：",
+    "_note": ""
+  },
+  "Let’s say a regression is found. Good thing we had some time to test the beta release before the regression snuck into a stable release! The fix is applied to the main branch, so that nightly is fixed, and then the fix is backported to the beta branch, and a new release of beta is produced:": {
+    "_translate": "假设发现了一个回归错误。幸好我们有时间在回归错误潜入稳定版之前测试了测试版！修复程序已应用于主分支，因此夜间构建已修复，然后修复程序被回退到<code>beta</code>分支，并生成了新的测试版发布：",
+    "_note": ""
+  },
+  "There’s one more catch with this release model: unstable features. Rust uses a technique called “feature flags” to determine what features are enabled in a given release. If a new feature is under active development, it lands on the main branch, and therefore, in nightly, but behind a feature flag. If you, as a user, wish to try out the work-in-progress feature, you can, but you must be using a nightly release of Rust and annotate your source code with the appropriate flag to opt in.": {
+    "_translate": "这个发布模型还有一个需要注意的地方：不稳定特性。Rust 使用一种称为“特性标志”的技术来确定在给定版本中启用哪些特性。如果一个新特性正在积极开发中，它会被合并到主分支，因此也会出现在 nightly 版本中，但会隐藏在 <em>特性标志</em> 后面。如果你作为用户，希望尝试这个正在进行中的特性，你可以这样做，但你必须使用 Rust 的 nightly 版本，并在源代码中使用相应的标志来选择加入。",
+    "_note": ""
+  },
+  "If the feature is accepted, an issue is opened on the Rust repository, and someone can implement it. The person who implements it very well may not be the person who proposed the feature in the first place! When the implementation is ready, it lands on the main branch behind a feature gate, as we discussed in the “Unstable Features” section.": {
+    "_translate": "如果该特性被接受，将在 Rust 仓库中开启一个 issue，然后有人可以实现它。实现它的人可能并不是最初提出该特性的人！当实现准备就绪时，它将在特性门后登陆主分支，正如我们在 <a href=\"#unstable-features\">“不稳定特性”</a> 部分讨论的那样。",
+    "_note": ""
   }
 }

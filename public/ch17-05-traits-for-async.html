@@ -249,10 +249,10 @@ blockquote {
 
                 <div id="content" class="content">
                     <main>
-                        <h2 id="a-closer-look-at-the-traits-for-async"><a class="header" href="#a-closer-look-at-the-traits-for-async">深入探讨异步特性</a></h2>
-<!-- Old headings. Do not remove or links may break. -->
+                        <!-- Old headings. Do not remove or links may break. -->
 <p><a id="digging-into-the-traits-for-async"></a></p>
-<p data-x-en="Throughout the chapter, we’ve used the Future, Pin, Unpin, Stream, and StreamExt traits in various ways. So far, though, we’ve avoided getting too far into the details of how they work or how they fit together, which is fine most of the time for your day-to-day Rust work. Sometimes, though, you’ll encounter situations where you’ll need to understand a few more of these details. In this section, we’ll dig in just enough to help in those scenarios, still leaving the really deep dive for other documentation.">在本章中，我们以各种方式使用了<code>Future</code>、<code>Pin</code>、<code>Unpin</code>、<code>Stream</code>和<code>StreamExt</code>特质。到目前为止，我们避免深入探讨它们的工作原理或它们如何协同工作，这在大多数日常的Rust工作中是完全可以的。然而，有时你会遇到需要了解这些细节的情况。在本节中，我们将深入探讨足够的内容以帮助解决这些情况，但仍将更深入的探讨留给其他文档。</p>
+<h2 id="a-closer-look-at-the-traits-for-async"><a class="header" href="#a-closer-look-at-the-traits-for-async">深入探讨异步特性</a></h2>
+<p data-x-en="Throughout the chapter, we’ve used the Future, Stream, and StreamExt traits in various ways. So far, though, we’ve avoided getting too far into the details of how they work or how they fit together, which is fine most of the time for your day-to-day Rust work. Sometimes, though, you’ll encounter situations where you’ll need to understand a few more of these traits’ details, along with the Pin type and the Unpin trait. In this section, we’ll dig in just enough to help in those scenarios, still leaving the really deep dive for other documentation.">在本章中，我们以各种方式使用了<code>Future</code>、<code>Stream</code>和<code>StreamExt</code>特质。到目前为止，我们避免深入探讨它们的工作原理或它们如何协同工作，这在大多数日常的Rust工作中是完全可以的。然而，有时你会遇到需要更多了解这些特质的细节，以及<code>Pin</code>类型和<code>Unpin</code>特质的情况。在本节中，我们将深入探讨足够的内容以帮助解决这些情况，但仍将<em>真正</em>深入的探讨留给其他文档。</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="future"></a></p>
 <h3 id="the-future-trait"><a class="header" href="#the-future-trait">《<code>Future</code> 特性》</a></h3>
@@ -269,23 +269,20 @@ pub trait Future {
 }
 <span class="boring">}</span></code></pre></pre>
 <p data-x-en="That trait definition includes a bunch of new types and also some syntax we haven’t seen before, so let’s walk through the definition piece by piece.">那个特征定义包括了一堆新的类型还有一些我们之前没见过的语法，所以让我们一步步地解析这个定义。</p>
-<p data-x-en="First, Future’s associated type Output says what the future resolves to. This is analogous to the Item associated type for the Iterator trait. Second, Future also has the poll method, which takes a special Pin reference for its self parameter and a mutable reference to a Context type, and returns a Poll<Self::Output>. We’ll talk more about Pin and Context in a moment. For now, let’s focus on what the method returns, the Poll type:">首先，<code>Future</code> 的关联类型 <code>Output</code> 表示未来将解析为何种值。
+<p data-x-en="First, Future’s associated type Output says what the future resolves to. This is analogous to the Item associated type for the Iterator trait. Second, Future has the poll method, which takes a special Pin reference for its self parameter and a mutable reference to a Context type, and returns a Poll<Self::Output>. We’ll talk more about Pin and Context in a moment. For now, let’s focus on what the method returns, the Poll type:">首先，<code>Future</code> 的关联类型 <code>Output</code> 表示未来将解析为何种值。
 这类似于 <code>Iterator</code> 特性中的 <code>Item</code> 关联类型。
-其次，<code>Future</code> 还具有 <code>poll</code> 方法，该方法接受一个特殊的 <code>Pin</code>
-引用作为其 <code>self</code> 参数和一个可变的 <code>Context</code> 类型引用，
-并返回一个 <code>Poll&lt;Self::Output&gt;</code>。我们稍后会详细讨论 <code>Pin</code> 和
-<code>Context</code>。现在，让我们先关注该方法的返回值，
-即 <code>Poll</code> 类型：</p>
+其次，<code>Future</code> 拥有 <code>poll</code> 方法，该方法接受一个特殊的 <code>Pin</code> 引用
+作为其 <code>self</code> 参数，并接受一个可变的 <code>Context</code> 类型引用，返回一个 <code>Poll&lt;Self::Output&gt;</code>。我们稍后会详细讨论 <code>Pin</code> 和 <code>Context</code>。现在，让我们先关注方法的返回值，即 <code>Poll</code> 类型：</p>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>enum Poll&lt;T&gt; {
+</span>pub enum Poll&lt;T&gt; {
     Ready(T),
     Pending,
 }
 <span class="boring">}</span></code></pre></pre>
-<p data-x-en="This Poll type is similar to an Option. It has one variant that has a value, Ready(T), and one which does not, Pending. Poll means something quite different from Option, though! The Pending variant indicates that the future still has work to do, so the caller will need to check again later. The Ready variant indicates that the future has finished its work and the T value is available.">这个 <code>Poll</code> 类型类似于 <code>Option</code>。它有一个包含值的变体 <code>Ready(T)</code>，以及一个不包含值的变体 <code>Pending</code>。不过，<code>Poll</code> 与 <code>Option</code> 的含义大不相同！<code>Pending</code> 变体表示未来还有工作要做，因此调用者需要稍后再次检查。<code>Ready</code> 变体表示未来已经完成了其工作，<code>T</code> 值可用。</p>
+<p data-x-en="This Poll type is similar to an Option. It has one variant that has a value, Ready(T), and one that does not, Pending. Poll means something quite different from Option, though! The Pending variant indicates that the future still has work to do, so the caller will need to check again later. The Ready variant indicates that the Future has finished its work and the T value is available.">这个 <code>Poll</code> 类型类似于 <code>Option</code>。它有一个包含值的变体 <code>Ready(T)</code>，和一个不包含值的变体 <code>Pending</code>。不过，<code>Poll</code> 与 <code>Option</code> 的含义相当不同！<code>Pending</code> 变体表示未来还有工作要做，因此调用者需要稍后再次检查。<code>Ready</code> 变体表示 <code>Future</code> 已完成其工作，并且 <code>T</code> 值可用。</p>
 <section class="note" aria-role="note">
-<p data-x-en="Note: With most futures, the caller should not call poll again after the future has returned Ready. Many futures will panic if polled again after becoming ready. Futures that are safe to poll again will say so explicitly in their documentation. This is similar to how Iterator::next behaves.">注意：对于大多数 future，调用者不应在 future 返回 <code>Ready</code> 后再次调用 <code>poll</code>。许多 future 在变为就绪状态后再次被轮询时会 panic。可以在文档中明确说明可以安全再次轮询的 future。这类似于 <code>Iterator::next</code> 的行为。</p>
+<p data-x-en="Note: It’s rare to need to call poll directly, but if you do need to, keep in mind that with most futures, the caller should not call poll again after the future has returned Ready. Many futures will panic if polled again after becoming ready. Futures that are safe to poll again will say so explicitly in their documentation. This is similar to how Iterator::next behaves.">注意：很少需要直接调用 <code>poll</code>，但如果您确实需要调用，请记住，对于大多数未来对象，调用者在将来对象返回 <code>Ready</code> 后不应再次调用 <code>poll</code>。许多未来对象在变为就绪后再次被轮询时会引发恐慌。可以在文档中明确说明可以再次轮询的未来对象。这类似于 <code>Iterator::next</code> 的行为。</p>
 </section>
 <p data-x-en="When you see code that uses await, Rust compiles it under the hood to code that calls poll. If you look back at Listing 17-4, where we printed out the page title for a single URL once it resolved, Rust compiles it into something kind of (although not exactly) like this:">当你看到使用 <code>await</code> 的代码时，Rust 会在底层将其编译为调用 <code>poll</code> 的代码。如果你回顾一下清单 17-4，我们在其中打印出单个 URL 解析后的页面标题，Rust 会将其编译成类似这样的代码（虽然不完全相同）：</p>
 <pre><code class="language-rust ignore">match page_title(url).poll() {
@@ -312,33 +309,90 @@ loop {
         }
     }
 }</code></pre>
-<p data-x-en="If Rust compiled it to exactly that code, though, every await would be blocking—exactly the opposite of what we were going for! Instead, Rust makes sure that the loop can hand off control to something that can pause work on this future to work on other futures and then check this one again later. As we’ve seen, that something is an async runtime, and this scheduling and coordination work is one of its main jobs.">如果 Rust 将其编译为完全相同的代码，那么每个 <code>await</code> 都会是阻塞的——这与我们的目标完全相反！相反，Rust 确保循环可以将控制权交给某个可以暂停此未来的处理以处理其他未来，然后稍后再检查此未来的东西。正如我们所见，这个东西是一个异步运行时，而这种调度和协调工作是它的主要职责之一。</p>
-<p data-x-en="Earlier in the chapter, we described waiting on rx.recv. The recv call returns a future, and awaiting the future polls it. We noted that a runtime will pause the future until it’s ready with either Some(message) or None when the channel closes. With our deeper understanding of the Future trait, and specifically Future::poll, we can see how that works. The runtime knows the future isn’t ready when it returns Poll::Pending. Conversely, the runtime knows the future is ready and advances it when poll returns Poll::Ready(Some(message)) or Poll::Ready(None).">在本章前面，我们描述了等待<code>rx.recv</code>。<code>recv</code>调用
-返回一个未来对象，等待该未来对象会轮询它。我们提到，当通道关闭时，运行时会
-暂停该未来对象，直到它准备好返回<code>Some(message)</code>或<code>None</code>。通过我们对<code>Future</code>特质的更深入理解，特别是<code>Future::poll</code>，我们可以看到它是如何工作的。当返回<code>Poll::Pending</code>时，运行时知道
-未来对象尚未准备好。相反，当<code>poll</code>返回
-<code>Poll::Ready(Some(message))</code>或<code>Poll::Ready(None)</code>时，运行时知道未来对象<em>已</em>准备好并推进它。</p>
+<p data-x-en="If Rust compiled it to exactly that code, though, every await would be blocking—exactly the opposite of what we were going for! Instead, Rust ensures that the loop can hand off control to something that can pause work on this future to work on other futures and then check this one again later. As we’ve seen, that something is an async runtime, and this scheduling and coordination work is one of its main jobs.">如果 Rust 将其编译为完全相同的代码，那么每个 <code>await</code> 都会是阻塞的——这与我们的目标完全相反！相反，Rust 确保循环可以将控制权交给某个可以暂停处理此未来的任务，转而处理其他未来的任务，然后稍后再检查此任务。正如我们所见，这个东西是一个异步运行时，而调度和协调工作正是它的主要职责之一。</p>
+<p data-x-en="In the “Sending Data Between Two Tasks Using Message Passing” section, we described waiting on rx.recv. The recv call returns a future, and awaiting the future polls it. We noted that a runtime will pause the future until it’s ready with either Some(message) or None when the channel closes. With our deeper understanding of the Future trait, and specifically Future::poll, we can see how that works. The runtime knows the future isn’t ready when it returns Poll::Pending. Conversely, the runtime knows the future is ready and advances it when poll returns Poll::Ready(Some(message)) or Poll::Ready(None).">在<a href="ch17-02-concurrency-with-async.html#sending-data-between-two-tasks-using-message-passing">“使用消息传递在两个任务之间发送数据”</a>部分，我们描述了等待<code>rx.recv</code>。<code>recv</code>调用返回一个未来对象，等待该未来对象会轮询它。我们提到，当通道关闭时，运行时会暂停未来对象，直到它准备好返回<code>Some(message)</code>或<code>None</code>。通过我们对<code>Future</code>特质的更深入理解，特别是<code>Future::poll</code>，我们可以看到它是如何工作的。当返回<code>Poll::Pending</code>时，运行时知道未来对象尚未准备好。相反，当<code>poll</code>返回<code>Poll::Ready(Some(message))</code>或<code>Poll::Ready(None)</code>时，运行时知道未来对象已经准备好并推进它。</p>
 <p data-x-en="The exact details of how a runtime does that are beyond the scope of this book, but the key is to see the basic mechanics of futures: a runtime polls each future it is responsible for, putting the future back to sleep when it is not yet ready.">具体的运行时如何做到这一点的细节超出了本书的范围，
 但关键是了解未来的的基本机制：<em>运行时会轮询</em>它负责的每个未来，
 当未来尚未准备好时，将其重新置于休眠状态。</p>
 <!-- Old headings. Do not remove or links may break. -->
-<p><a id="pinning-and-the-pin-and-unpin-traits"></a></p>
-<h3 id="the-pin-and-unpin-traits"><a class="header" href="#the-pin-and-unpin-traits">《<code>Pin</code> 和 <code>Unpin</code> 特性》</a></h3>
-<p data-x-en="When we introduced the idea of pinning in Listing 17-16, we ran into a very gnarly error message. Here is the relevant part of it again:">当我们介绍固定（pinning）的概念时，在清单 17-16 中遇到了一个非常棘手的错误信息。以下是相关部分：</p>
+<p><a id="pinning-and-the-pin-and-unpin-traits"></a>
+<a id="the-pin-and-unpin-traits"></a></p>
+<h3 id="the-pin-type-and-the-unpin-trait" data-x-en="The Pin Type and the Unpin Trait"><a class="header" href="#the-pin-type-and-the-unpin-trait">《<code>Pin</code> 类型和 <code>Unpin</code> 特性》</a></h3>
+<p data-x-en="Back in Listing 17-13, we used the trpl::join! macro to await three futures. However, it’s common to have a collection such as a vector containing some number futures that won’t be known until runtime. Let’s change Listing 17-13 to the code in Listing 17-23 that puts the three futures into a vector and calls the trpl::join_all function instead, which won’t compile yet.">在清单 17-13 中，我们使用了 <code>trpl::join!</code> 宏来等待三个 future。然而，通常我们有一个集合，比如一个向量，其中包含一些在运行时才确定数量的 future。让我们将清单 17-13 更改为清单 17-23 中的代码，将三个 future 放入一个向量中，并调用 <code>trpl::join_all</code> 函数，这还不能编译。</p>
+<figure class="listing" id="listing-17-23">
+<span class="file-name">Filename: src/main.rs</span>
+<pre><code class="language-rust ignore does_not_compile"><span class="boring">extern crate trpl; // required for mdbook test
+</span><span class="boring">
+</span><span class="boring">use std::time::Duration;
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    trpl::block_on(async {
+</span><span class="boring">        let (tx, mut rx) = trpl::channel();
+</span><span class="boring">
+</span><span class="boring">        let tx1 = tx.clone();
+</span><span class="boring">        let tx1_fut = async move {
+</span><span class="boring">            let vals = vec![
+</span><span class="boring">                String::from("hi"),
+</span><span class="boring">                String::from("from"),
+</span><span class="boring">                String::from("the"),
+</span><span class="boring">                String::from("future"),
+</span><span class="boring">            ];
+</span><span class="boring">
+</span><span class="boring">            for val in vals {
+</span><span class="boring">                tx1.send(val).unwrap();
+</span><span class="boring">                trpl::sleep(Duration::from_secs(1)).await;
+</span><span class="boring">            }
+</span><span class="boring">        };
+</span><span class="boring">
+</span><span class="boring">        let rx_fut = async {
+</span><span class="boring">            while let Some(value) = rx.recv().await {
+</span><span class="boring">                println!("received '{value}'");
+</span><span class="boring">            }
+</span><span class="boring">        };
+</span><span class="boring">
+</span>        let tx_fut = async move {
+            // --snip--
+<span class="boring">            let vals = vec![
+</span><span class="boring">                String::from("more"),
+</span><span class="boring">                String::from("messages"),
+</span><span class="boring">                String::from("for"),
+</span><span class="boring">                String::from("you"),
+</span><span class="boring">            ];
+</span><span class="boring">
+</span><span class="boring">            for val in vals {
+</span><span class="boring">                tx.send(val).unwrap();
+</span><span class="boring">                trpl::sleep(Duration::from_secs(1)).await;
+</span><span class="boring">            }
+</span>        };
+
+        let futures: Vec&lt;Box&lt;dyn Future&lt;Output = ()&gt;&gt;&gt; =
+            vec![Box::new(tx1_fut), Box::new(rx_fut), Box::new(tx_fut)];
+
+        trpl::join_all(futures).await;
+<span class="boring">    });
+</span><span class="boring">}</span></code></pre>
+<figcaption><a href="#listing-17-23">Listing 17-23</a>: Awaiting futures in a collection</figcaption>
+</figure>
+<p data-x-en="We put each future within a Box to make them into trait objects, just as we did in the “Returning Errors from run” section in Chapter 12. (We’ll cover trait objects in detail in Chapter 18.) Using trait objects lets us treat each of the anonymous futures produced by these types as the same type, because all of them implement the Future trait.">我们将每个 future 放入一个 <code>Box</code> 中，使它们成为 <em>trait 对象</em>，就像我们在第 12 章“从 <code>run</code> 返回错误”部分所做的那样。（我们将在第 18 章详细讨论 trait 对象。）使用 trait 对象让我们可以将这些类型产生的每个匿名 future 视为同一类型，因为它们都实现了 <code>Future</code> trait。</p>
+<p data-x-en="This might be surprising. After all, none of the async blocks returns anything, so each one produces a Future<Output = ()>. Remember that Future is a trait, though, and that the compiler creates a unique enum for each async block, even when they have identical output types. Just as you can’t put two different handwritten structs in a Vec, you can’t mix compiler-generated enums.">这可能会让你感到惊讶。毕竟，这些异步块都没有返回任何内容，
+所以每个都生成一个 <code>Future&lt;Output = ()&gt;</code>。请记住，<code>Future</code> 是一个
+特质，编译器为每个异步块创建一个唯一的枚举，即使它们的输出类型相同。就像你不能将两个
+不同的手写结构体放入一个 <code>Vec</code> 一样，你也不能混合编译器生成的枚举。</p>
+<p data-x-en="Then we pass the collection of futures to the trpl::join_all function and await the result. However, this doesn’t compile; here’s the relevant part of the error messages.">然后我们将未来的集合传递给 <code>trpl::join_all</code> 函数并等待结果。然而，这无法编译；以下是错误消息的相关部分。</p>
 <!-- manual-regeneration
-cd listings/ch17-async-await/listing-17-16
+cd listings/ch17-async-await/listing-17-23
 cargo build
 copy *only* the final `error` block from the errors
 -->
-<pre><code class="language-text">error[E0277]: `{async block@src/main.rs:10:23: 10:33}` cannot be unpinned
+<pre><code class="language-text">error[E0277]: `dyn Future&lt;Output = ()&gt;` cannot be unpinned
   --&gt; src/main.rs:48:33
    |
 48 |         trpl::join_all(futures).await;
-   |                                 ^^^^^ the trait `Unpin` is not implemented for `{async block@src/main.rs:10:23: 10:33}`
+   |                                 ^^^^^ the trait `Unpin` is not implemented for `dyn Future&lt;Output = ()&gt;`
    |
    = note: consider using the `pin!` macro
            consider using `Box::pin` if you need to access the pinned value outside of the current scope
-   = note: required for `Box&lt;{async block@src/main.rs:10:23: 10:33}&gt;` to implement `Future`
+   = note: required for `Box&lt;dyn Future&lt;Output = ()&gt;&gt;` to implement `Future`
 note: required by a bound in `futures_util::future::join_all::JoinAll`
   --&gt; file:///home/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/futures-util-0.3.30/src/future/join_all.rs:29:8
    |
@@ -348,10 +402,13 @@ note: required by a bound in `futures_util::future::join_all::JoinAll`
 29 |     F: Future,
    |        ^^^^^^ required by this bound in `JoinAll`
 </code></pre>
-<p data-x-en="This error message tells us not only that we need to pin the values but also why pinning is required. The trpl::join_all function returns a struct called JoinAll. That struct is generic over a type F, which is constrained to implement the Future trait. Directly awaiting a future with await pins the future implicitly. That’s why we don’t need to use pin! everywhere we want to await futures.">这个错误信息不仅告诉我们需要固定这些值，还解释了为什么需要固定。`<code>trpl::join_all</code>` 函数返回一个名为 `<code>JoinAll</code>` 的结构体。该结构体泛型于类型 `<code>F</code>`，该类型被约束为实现 `<code>Future</code>` 特性。直接使用 `<code>await</code>` 等待一个未来会隐式地固定该未来。这就是为什么我们不需要在每个想要等待未来的代码中使用 `<code>pin!</code>`。</p>
+<p data-x-en="The note in this error message tells us that we should use the pin! macro to pin the values, which means putting them inside the Pin type that guarantees the values won’t be moved in memory. The error message says pinning is required because dyn Future<Output = ()> needs to implement the Unpin trait and it currently does not.">此错误消息中的注释告诉我们应该使用 <code>pin!</code> 宏来 <em>固定</em> 值，这意味着将它们放在 <code>Pin</code> 类型中，该类型保证值不会在内存中移动。错误消息说需要固定是因为 <code>dyn Future&lt;Output = ()&gt;</code> 需要实现 <code>Unpin</code> 特性，而它目前尚未实现。</p>
+<p data-x-en="The trpl::join_all function returns a struct called JoinAll. That struct is generic over a type F, which is constrained to implement the Future trait. Directly awaiting a future with await pins the future implicitly. That’s why we don’t need to use pin! everywhere we want to await futures."><code>trpl::join_all</code> 函数返回一个名为 <code>JoinAll</code> 的结构体。该结构体
+泛型于一个类型 <code>F</code>，该类型被约束为实现 <code>Future</code> 特性。
+直接使用 <code>await</code> 等待一个未来会隐式地固定该未来。这就是为什么
+我们不需要在每个想要等待未来的地点使用 <code>pin!</code>。</p>
 <p data-x-en="However, we’re not directly awaiting a future here. Instead, we construct a new future, JoinAll, by passing a collection of futures to the join_all function. The signature for join_all requires that the types of the items in the collection all implement the Future trait, and Box<T> implements Future only if the T it wraps is a future that implements the Unpin trait.">然而，我们在这里并不是直接等待一个未来。相反，我们通过将一个未来集合传递给 <code>join_all</code> 函数来构建一个新的未来，<code>JoinAll</code>。<code>join_all</code> 的签名要求集合中的项目类型都实现 <code>Future</code> 特性，而 <code>Box&lt;T&gt;</code> 仅在其包装的 <code>T</code> 是一个实现了 <code>Unpin</code> 特性的未来时才实现 <code>Future</code>。</p>
-<p data-x-en="That’s a lot to absorb! To really understand it, let’s dive a little further into how the Future trait actually works, in particular around pinning.">这有很多需要吸收的内容！为了真正理解它，让我们进一步探讨 <code>Future</code> 特性实际上是如何工作的，特别是关于 <em>固定</em>。</p>
-<p data-x-en="Look again at the definition of the Future trait:">再次查看 <code>Future</code> 特性的定义：</p>
+<p data-x-en="That’s a lot to absorb! To really understand it, let’s dive a little further into how the Future trait actually works, in particular around pinning. Look again at the definition of the Future trait:">这有很多需要吸收的内容！为了真正理解它，让我们进一步探讨 <code>Future</code> 特性实际上是如何工作的，特别是关于固定。再次看看 <code>Future</code> 特性的定义：</p>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>use std::pin::Pin;
@@ -364,39 +421,39 @@ pub trait Future {
     fn poll(self: Pin&lt;&amp;mut Self&gt;, cx: &amp;mut Context&lt;'_&gt;) -&gt; Poll&lt;Self::Output&gt;;
 }
 <span class="boring">}</span></code></pre></pre>
-<p data-x-en="The cx parameter and its Context type are the key to how a runtime actually knows when to check any given future while still being lazy. Again, the details of how that works are beyond the scope of this chapter, and you generally only need to think about this when writing a custom Future implementation. We’ll focus instead on the type for self, as this is the first time we’ve seen a method where self has a type annotation. A type annotation for self works like type annotations for other function parameters, but with two key differences:"><code>cx</code> 参数及其 <code>Context</code> 类型是运行时实际知道何时检查给定的未来同时仍然保持惰性化的关键。再次，这些工作原理的细节超出了本章的范围，通常只有在编写自定义 <code>Future</code> 实现时才需要考虑这一点。相反，我们将重点放在 <code>self</code> 的类型上，因为这是第一次看到 <code>self</code> 有类型注解的方法。<code>self</code> 的类型注解与其他函数参数的类型注解类似，但有两个关键区别：</p>
+<p data-x-en="The cx parameter and its Context type are the key to how a runtime actually knows when to check any given future while still being lazy. Again, the details of how that works are beyond the scope of this chapter, and you generally only need to think about this when writing a custom Future implementation. We’ll focus instead on the type for self, as this is the first time we’ve seen a method where self has a type annotation. A type annotation for self works like type annotations for other function parameters but with two key differences:"><code>cx</code> 参数及其 <code>Context</code> 类型是运行时实际知道何时检查给定的未来同时仍然保持惰性化的关键。再次，这些细节超出了本章的范围，通常只有在编写自定义 <code>Future</code> 实现时才需要考虑。相反，我们将重点放在 <code>self</code> 的类型上，因为这是第一次看到 <code>self</code> 有类型注解。<code>self</code> 的类型注解与其他函数参数的类型注解类似，但有两个关键区别：</p>
 <ul>
 <li data-x-en="It tells Rust what type self must be for the method to be called.">它告诉 Rust <code>self</code> 必须是什么类型才能调用该方法。</li>
 <li data-x-en="It can’t be just any type. It’s restricted to the type on which the method is implemented, a reference or smart pointer to that type, or a Pin wrapping a reference to that type.">它不能是任意类型。它被限制为实现该方法的类型、该类型的引用或智能指针，或者是一个包裹该类型引用的<code>Pin</code>。</li>
 </ul>
 <p data-x-en="We’ll see more on this syntax in Chapter 18. For now, it’s enough to know that if we want to poll a future to check whether it is Pending or Ready(Output), we need a Pin-wrapped mutable reference to the type.">我们将在<a href="ch18-00-oop.html">第 18 章</a><!-- ignore -->中看到更多关于这种语法的内容。目前，
 知道如果我们想要轮询一个未来以检查它是<code>Pending</code>还是<code>Ready(Output)</code>，我们需要一个<code>Pin</code>包装的可变引用就足够了。</p>
-<p data-x-en="Pin is a wrapper for pointer-like types such as &amp;, &amp;mut, Box, and Rc. (Technically, Pin works with types that implement the Deref or DerefMut traits, but this is effectively equivalent to working only with pointers.) Pin is not a pointer itself and doesn’t have any behavior of its own like Rc and Arc do with reference counting; it’s purely a tool the compiler can use to enforce constraints on pointer usage."><code>Pin</code> 是一个包装器，用于像 <code>&amp;</code>、<code>&amp;mut</code>、<code>Box</code> 和 <code>Rc</code> 这样的指针类型。（技术上，<code>Pin</code> 适用于实现了 <code>Deref</code> 或 <code>DerefMut</code> 特性的类型，但这实际上等同于仅与指针一起工作。）<code>Pin</code> 本身不是一个指针，也没有像 <code>Rc</code> 和 <code>Arc</code> 那样具有引用计数的行为；它纯粹是编译器可以用来强制执行指针使用约束的工具。</p>
+<p data-x-en="Pin is a wrapper for pointer-like types such as &amp;, &amp;mut, Box, and Rc. (Technically, Pin works with types that implement the Deref or DerefMut traits, but this is effectively equivalent to working only with references and smart pointers.) Pin is not a pointer itself and doesn’t have any behavior of its own like Rc and Arc do with reference counting; it’s purely a tool the compiler can use to enforce constraints on pointer usage."><code>Pin</code> 是一个包装器，用于像 <code>&amp;</code>、<code>&amp;mut</code>、<code>Box</code> 和 <code>Rc</code> 这样的指针类型。（技术上，<code>Pin</code> 适用于实现了 <code>Deref</code> 或 <code>DerefMut</code> 特性的类型，但这实际上等同于仅与引用和智能指针一起工作。）<code>Pin</code> 本身不是一个指针，也没有像 <code>Rc</code> 和 <code>Arc</code> 那样的引用计数行为；它纯粹是编译器可以用来强制执行指针使用约束的工具。</p>
 <p data-x-en="Recalling that await is implemented in terms of calls to poll starts to explain the error message we saw earlier, but that was in terms of Unpin, not Pin. So how exactly does Pin relate to Unpin, and why does Future need self to be in a Pin type to call poll?">回忆 <code>await</code> 是通过调用 <code>poll</code> 来实现的，这开始解释了我们之前看到的错误信息，但那是在 <code>Unpin</code> 的背景下，而不是 <code>Pin</code>。那么 <code>Pin</code> 到底是如何与 <code>Unpin</code> 相关的，为什么 <code>Future</code> 需要将 <code>self</code> 放在 <code>Pin</code> 类型中才能调用 <code>poll</code>？</p>
-<p data-x-en="Remember from earlier in this chapter a series of await points in a future get compiled into a state machine, and the compiler makes sure that state machine follows all of Rust’s normal rules around safety, including borrowing and ownership. To make that work, Rust looks at what data is needed between one await point and either the next await point or the end of the async block. It then creates a corresponding variant in the compiled state machine. Each variant gets the access it needs to the data that will be used in that section of the source code, whether by taking ownership of that data or by getting a mutable or immutable reference to it.">记住本章前面提到的，在一个 future 中的一系列 await 点会被编译成一个状态机，编译器确保该状态机遵循 Rust 的所有正常安全规则，包括借用和所有权。为了使这一点生效，Rust 会查看从一个 await 点到下一个 await 点或 async 块结束之间需要哪些数据。然后在编译后的状态机中创建相应的变体。每个变体都会根据需要获取该部分源代码中将要使用的数据的访问权限，无论是通过获取该数据的所有权，还是通过获取其可变或不可变引用。</p>
+<p data-x-en="Remember from earlier in this chapter that a series of await points in a future get compiled into a state machine, and the compiler makes sure that state machine follows all of Rust’s normal rules around safety, including borrowing and ownership. To make that work, Rust looks at what data is needed between one await point and either the next await point or the end of the async block. It then creates a corresponding variant in the compiled state machine. Each variant gets the access it needs to the data that will be used in that section of the source code, whether by taking ownership of that data or by getting a mutable or immutable reference to it.">记住本章前面提到的，未来（future）中的一系列 await 点会被编译成一个状态机，编译器确保该状态机遵循 Rust 的所有正常安全规则，包括借用和所有权。为了使这一点生效，Rust 会查看从一个 await 点到下一个 await 点或异步块结束之间所需的数据。然后在编译后的状态机中创建一个相应的变体。每个变体都会根据需要获取该部分源代码中将要使用的数据的访问权限，无论是通过获取该数据的所有权，还是通过获取其可变或不可变引用。</p>
 <p data-x-en="So far, so good: if we get anything wrong about the ownership or references in a given async block, the borrow checker will tell us. When we want to move around the future that corresponds to that block—like moving it into a Vec to pass to join_all—things get trickier.">到目前为止，一切顺利：如果我们对给定异步块中的所有权或引用有任何错误，借用检查器会告诉我们。当我们想要移动与该块对应 的未来对象——比如将其移动到 <code>Vec</code> 中以传递给 <code>join_all</code>——事情就变得更复杂了。</p>
 <p data-x-en="When we move a future—whether by pushing it into a data structure to use as an iterator with join_all or by returning it from a function—that actually means moving the state machine Rust creates for us. And unlike most other types in Rust, the futures Rust creates for async blocks can end up with references to themselves in the fields of any given variant, as shown in the simplified illustration in Figure 17-4.">当我们移动一个未来——无论是将其推入数据结构以用作 <code>join_all</code> 的迭代器，还是从函数返回它——这实际上意味着移动 Rust 为我们创建的状态机。与 Rust 中的大多数其他类型不同，Rust 为异步块创建的未来可以在任何给定变体的字段中最终包含对自身的引用，如图 17-4 中的简化图所示。</p>
 <figure>
 <img alt="A single-column, three-row table representing a future, fut1, which has data values 0 and 1 in the first two rows and an arrow pointing from the third row back to the second row, representing an internal reference within the future." src="img/trpl17-04.svg" class="center">
-<figcaption>Figure 17-4: A self-referential data type.</figcaption>
+<figcaption>Figure 17-4: A self-referential data type</figcaption>
 </figure>
 <p data-x-en="By default, though, any object that has a reference to itself is unsafe to move, because references always point to the actual memory address of whatever they refer to (see Figure 17-5). If you move the data structure itself, those internal references will be left pointing to the old location. However, that memory location is now invalid. For one thing, its value will not be updated when you make changes to the data structure. For another—more important—thing, the computer is now free to reuse that memory for other purposes! You could end up reading completely unrelated data later.">默认情况下，任何具有指向自身引用的对象在移动时都是不安全的，因为引用总是指向它们所引用内容的实际内存地址（见图17-5）。如果你移动数据结构本身，这些内部引用将仍然指向旧位置。然而，该内存位置现在是无效的。一方面，当你对数据结构进行更改时，其值不会被更新。另一方面——更重要的是——计算机现在可以自由地将该内存用于其他目的！你可能会在稍后读取完全不相关的数据。</p>
 <figure>
 <img alt="Two tables, depicting two futures, fut1 and fut2, each of which has one column and three rows, representing the result of having moved a future out of fut1 into fut2. The first, fut1, is grayed out, with a question mark in each index, representing unknown memory. The second, fut2, has 0 and 1 in the first and second rows and an arrow pointing from its third row back to the second row of fut1, representing a pointer that is referencing the old location in memory of the future before it was moved." src="img/trpl17-05.svg" class="center">
 <figcaption>Figure 17-5: The unsafe result of moving a self-referential data type</figcaption>
 </figure>
-<p data-x-en="Theoretically, the Rust compiler could try to update every reference to an object whenever it gets moved, but that could add a lot of performance overhead, especially if a whole web of references needs updating. If we could instead make sure the data structure in question doesn’t move in memory, we wouldn’t have to update any references. This is exactly what Rust’s borrow checker requires: in safe code, it prevents you from moving any item with an active reference to it.">理论上，Rust 编译器可以尝试在对象被移动时更新每个引用，但这可能会增加大量的性能开销，特别是当需要更新一整网的引用时。如果我们能够确保相关数据结构 <em>不会在内存中移动</em>，我们就不必更新任何引用。这正是 Rust 的借用检查器所要求的：在安全代码中，它会阻止你移动任何有活动引用的项。</p>
+<p data-x-en="Theoretically, the Rust compiler could try to update every reference to an object whenever it gets moved, but that could add a lot of performance overhead, especially if a whole web of references needs updating. If we could instead make sure the data structure in question doesn’t move in memory, we wouldn’t have to update any references. This is exactly what Rust’s borrow checker is for: in safe code, it prevents you from moving any item with an active reference to it.">理论上，Rust 编译器可以尝试在对象移动时更新每个引用，但这可能会增加大量的性能开销，特别是如果需要更新一整网的引用时。如果我们能够确保相关数据结构 <em>不会在内存中移动</em>，那么我们就不需要更新任何引用。这正是 Rust 的借用检查器的作用：在安全代码中，它防止你移动任何有活动引用的项。</p>
 <p data-x-en="Pin builds on that to give us the exact guarantee we need. When we pin a value by wrapping a pointer to that value in Pin, it can no longer move. Thus, if you have Pin<Box<SomeType>>, you actually pin the SomeType value, not the Box pointer. Figure 17-6 illustrates this process."><code>Pin</code> 建立在这一点上，为我们提供了所需的精确保证。当我们通过将指向该值的指针包装在 <code>Pin</code> 中来 <em>固定</em> 一个值时，该值将不能再移动。因此，如果你有 <code>Pin&lt;Box&lt;SomeType&gt;&gt;</code>，你实际上固定的是 <code>SomeType</code> 值，<em>而不是</em> <code>Box</code> 指针。图 17-6 说明了这一过程。</p>
 <figure>
-<img alt="Three boxes laid out side by side. The first is labeled “Pin”, the second “b1”, and the third “pinned”. Within “pinned” is a table labeled “fut”, with a single column; it represents a future with cells for each part of the data structure. Its first cell has the value “0”, its second cell has an arrow coming out of it and pointing to the fourth and final cell, which has the value “1” in it, and the third cell has dashed lines and an ellipsis to indicate there may be other parts to the data structure. All together, the “fut” table represents a future which is self-referential. An arrow leaves the box labeled “Pin”, goes through the box labeled “b1” and has terminates inside the “pinned” box at the “fut” table." src="img/trpl17-06.svg" class="center">
-<figcaption>Figure 17-6: Pinning a `Box` that points to a self-referential future type.</figcaption>
+<img alt="Three boxes laid out side by side. The first is labeled “Pin”, the second “b1”, and the third “pinned”. Within “pinned” is a table labeled “fut”, with a single column; it represents a future with cells for each part of the data structure. Its first cell has the value “0”, its second cell has an arrow coming out of it and pointing to the fourth and final cell, which has the value “1” in it, and the third cell has dashed lines and an ellipsis to indicate there may be other parts to the data structure. All together, the “fut” table represents a future which is self-referential. An arrow leaves the box labeled “Pin”, goes through the box labeled “b1” and terminates inside the “pinned” box at the “fut” table." src="img/trpl17-06.svg" class="center">
+<figcaption>Figure 17-6: Pinning a `Box` that points to a self-referential future type</figcaption>
 </figure>
-<p data-x-en="In fact, the Box pointer can still move around freely. Remember: we care about making sure the data ultimately being referenced stays in place. If a pointer moves around, but the data it points to is in the same place, as in Figure 17-7, there’s no potential problem. As an independent exercise, look at the docs for the types as well as the std::pin module and try to work out how you’d do this with a Pin wrapping a Box.) The key is that the self-referential type itself cannot move, because it is still pinned.">事实上，<code>Box</code> 指针仍然可以自由移动。记住：我们关心的是确保最终被引用的数据保持在原位。如果指针移动了，<em>但其所指向的数据仍在同一位置</em>，如图 17-7 所示，就没有潜在的问题。作为一个独立的练习，查看类型以及 <code>std::pin</code> 模块的文档，尝试弄清楚如何使用 <code>Pin</code> 包装一个 <code>Box</code>。) 关键在于，自引用类型本身不能移动，因为它仍然是固定的。</p>
+<p data-x-en="In fact, the Box pointer can still move around freely. Remember: we care about making sure the data ultimately being referenced stays in place. If a pointer moves around, but the data it points to is in the same place, as in Figure 17-7, there’s no potential problem. (As an independent exercise, look at the docs for the types as well as the std::pin module and try to work out how you’d do this with a Pin wrapping a Box.) The key is that the self-referential type itself cannot move, because it is still pinned.">事实上，<code>Box</code> 指针仍然可以自由移动。记住：我们关心的是确保最终被引用的数据保持在原位。如果指针移动，<em>但其指向的数据</em> 保持在同一位置，如图 17-7 所示，就没有潜在的问题。（作为一个独立的练习，查看类型以及 <code>std::pin</code> 模块的文档，尝试弄清楚如何使用 <code>Pin</code> 包装一个 <code>Box</code>。）关键在于，自引用类型本身不能移动，因为它仍然是固定的。</p>
 <figure>
 <img alt="Four boxes laid out in three rough columns, identical to the previous diagram with a change to the second column. Now there are two boxes in the second column, labeled “b1” and “b2”, “b1” is grayed out, and the arrow from “Pin” goes through “b2” instead of “b1”, indicating that the pointer has moved from “b1” to “b2”, but the data in “pinned” has not moved." src="img/trpl17-07.svg" class="center">
-<figcaption>Figure 17-7: Moving a `Box` which points to a self-referential future type.</figcaption>
+<figcaption>Figure 17-7: Moving a `Box` which points to a self-referential future type</figcaption>
 </figure>
-<p data-x-en="However, most types are perfectly safe to move around, even if they happen to be behind a Pin wrapper. We only need to think about pinning when items have internal references. Primitive values such as numbers and Booleans are safe because they obviously don’t have any internal references. Neither do most types you normally work with in Rust. You can move around a Vec, for example, without worrying. Given only what we have seen so far, if you have a Pin<Vec<String>>, you’d have to do everything via the safe but restrictive APIs provided by Pin, even though a Vec<String> is always safe to move if there are no other references to it. We need a way to tell the compiler that it’s fine to move items around in cases like this—and that’s where Unpin comes into play.">然而，大多数类型即使在 <code>Pin</code> 包装器后面也是完全安全的。只有当项目具有内部引用时，我们才需要考虑固定。数字和布尔值等原始值是安全的，因为它们显然没有任何内部引用。大多数你在 Rust 中通常使用的类型也是如此。例如，你可以随意移动一个 <code>Vec</code>，而无需担心。根据我们迄今为止所见，如果你有一个 <code>Pin&lt;Vec&lt;String&gt;&gt;</code>，即使 <code>Vec&lt;String&gt;</code> 在没有其他引用的情况下总是可以安全移动，你也必须通过 <code>Pin</code> 提供的安全但受限的 API 来完成所有操作。我们需要一种方法来告诉编译器，在这种情况下移动项目是安全的——这就是 <code>Unpin</code> 发挥作用的地方。</p>
+<p data-x-en="However, most types are perfectly safe to move around, even if they happen to be behind a Pin pointer. We only need to think about pinning when items have internal references. Primitive values such as numbers and Booleans are safe because they obviously don’t have any internal references. Neither do most types you normally work with in Rust. You can move around a Vec, for example, without worrying. Given what we have seen so far, if you have a Pin<Vec<String>>, you’d have to do everything via the safe but restrictive APIs provided by Pin, even though a Vec<String> is always safe to move if there are no other references to it. We need a way to tell the compiler that it’s fine to move items around in cases like this—and that’s where Unpin comes into play.">然而，大多数类型即使在 <code>Pin</code> 指针后面也是完全安全的。只有当项目具有内部引用时，我们才需要考虑固定。像数字和布尔值这样的原始值是安全的，因为它们显然没有任何内部引用。大多数你在 Rust 中通常使用的类型也是如此。例如，你可以随意移动一个 <code>Vec</code>，而无需担心。根据我们迄今为止所见，如果你有一个 <code>Pin&lt;Vec&lt;String&gt;&gt;</code>，即使 <code>Vec&lt;String&gt;</code> 在没有其他引用的情况下总是可以安全移动的，你也必须通过 <code>Pin</code> 提供的安全但受限的 API 来做所有事情。我们需要一种方法来告诉编译器，在这种情况下移动项目是安全的——这就是 <code>Unpin</code> 发挥作用的地方。</p>
 <p data-x-en="Unpin is a marker trait, similar to the Send and Sync traits we saw in Chapter 16, and thus has no functionality of its own. Marker traits exist only to tell the compiler it’s safe to use the type implementing a given trait in a particular context. Unpin informs the compiler that a given type does not need to uphold any guarantees about whether the value in question can be safely moved."><code>Unpin</code> 是一个标记特征，类似于我们在第 16 章中看到的 <code>Send</code> 和 <code>Sync</code> 特征，因此没有自己的功能。标记特征仅存在于告诉编译器在特定上下文中使用实现给定特征的类型是安全的。<code>Unpin</code> 告诉编译器给定类型<em>不需要</em>维持任何关于该值是否可以安全移动的保证。</p>
 <!--
   The inline `<code>` in the next block is to allow the inline `<em>` inside it,
@@ -407,15 +464,75 @@ pub trait Future {
 <p data-x-en="In other words, there are two things to keep in mind about the relationship between Pin and Unpin. First, Unpin is the “normal” case, and !Unpin is the special case. Second, whether a type implements Unpin or !Unpin only matters when you’re using a pinned pointer to that type like Pin<&amp;mut SomeType>.">换句话说，关于 <code>Pin</code> 和 <code>Unpin</code> 之间的关系有两点需要注意。首先，<code>Unpin</code> 是“正常”情况，而 <code>!Unpin</code> 是特殊情况。其次，一个类型是否实现了 <code>Unpin</code> 或 <code>!Unpin</code> <em>仅在</em> 使用指向该类型的固定指针（如 <code>Pin&lt;&amp;mut <em>SomeType</em>&gt;</code>）时才重要。</p>
 <p data-x-en="To make that concrete, think about a String: it has a length and the Unicode characters that make it up. We can wrap a String in Pin, as seen in Figure 17-8. However, String automatically implements Unpin, as do most other types in Rust.">为了具体说明这一点，考虑一个 <code>String</code>：它有一个长度和组成它的 Unicode 字符。我们可以在 <code>Pin</code> 中包装一个 <code>String</code>，如图 17-8 所示。然而，<code>String</code> 自动实现了 <code>Unpin</code>，Rust 中的大多数其他类型也是如此。</p>
 <figure>
-<img alt="Concurrent work flow" src="img/trpl17-08.svg" class="center">
-<figcaption>Figure 17-8: Pinning a `String`; the dotted line indicates that the `String` implements the `Unpin` trait, and thus is not pinned.</figcaption>
+<img alt="A box labeled “Pin” on the left with an arrow going from it to a box labeled “String” on the right. The “String” box contains the data 5usize, representing the length of the string, and the letters “h”, “e”, “l”, “l”, and “o” representing the characters of the string “hello” stored in this String instance. A dotted rectangle surrounds the “String” box and its label, but not the “Pin” box." src="img/trpl17-08.svg" class="center">
+<figcaption>Figure 17-8: Pinning a `String`; the dotted line indicates that the `String` implements the `Unpin` trait and thus is not pinned</figcaption>
 </figure>
-<p data-x-en="As a result, we can do things that would be illegal if String implemented !Unpin instead, such as replacing one string with another at the exact same location in memory as in Figure 17-9. This doesn’t violate the Pin contract, because String has no internal references that make it unsafe to move around! That is precisely why it implements Unpin rather than !Unpin.">因此，我们可以做一些如果 <code>String</code> 实现了 <code>!Unpin</code> 就会非法的事情，比如在内存中的确切相同位置用另一个字符串替换一个字符串，如图 17-9 所示。这不会违反 <code>Pin</code> 合约，因为 <code>String</code> 没有内部引用使其移动不安全！这正是它实现 <code>Unpin</code> 而不是 <code>!Unpin</code> 的原因。</p>
+<p data-x-en="As a result, we can do things that would be illegal if String implemented !Unpin instead, such as replacing one string with another at the exact same location in memory as in Figure 17-9. This doesn’t violate the Pin contract, because String has no internal references that make it unsafe to move around. That is precisely why it implements Unpin rather than !Unpin.">因此，我们可以做一些如果 <code>String</code> 实现了 <code>!Unpin</code> 就会非法的事情，例如在内存中的确切相同位置用另一个字符串替换一个字符串，如图 17-9 所示。这不会违反 <code>Pin</code> 合约，因为 <code>String</code> 没有内部引用使其移动不安全。这正是它实现 <code>Unpin</code> 而不是 <code>!Unpin</code> 的原因。</p>
 <figure>
-<img alt="Concurrent work flow" src="img/trpl17-09.svg" class="center">
-<figcaption>Figure 17-9: Replacing the `String` with an entirely different `String` in memory.</figcaption>
+<img alt="The same “hello” string data from the previous example, now labeled “s1” and grayed out. The “Pin” box from the previous example now points to a different String instance, one that is labeled “s2”, is valid, has a length of 7usize, and contains the characters of the string “goodbye”. s2 is surrounded by a dotted rectangle because it, too, implements the Unpin trait." src="img/trpl17-09.svg" class="center">
+<figcaption>Figure 17-9: Replacing the `String` with an entirely different `String` in memory</figcaption>
 </figure>
-<p data-x-en="Now we know enough to understand the errors reported for that join_all call from back in Listing 17-17. We originally tried to move the futures produced by async blocks into a Vec<Box<dyn Future<Output = ()>>>, but as we’ve seen, those futures may have internal references, so they don’t implement Unpin. They need to be pinned, and then we can pass the Pin type into the Vec, confident that the underlying data in the futures will not be moved.">现在我们已经了解了足够的知识，可以理解在清单 17-17 中报告的 <code>join_all</code> 调用的错误。我们最初尝试将由 async 块生成的 future 移动到 <code>Vec&lt;Box&lt;dyn Future&lt;Output = ()&gt;&gt;&gt;</code> 中，但正如我们所见，这些 future 可能有内部引用，因此它们不实现 <code>Unpin</code>。它们需要被固定，然后我们可以将 <code>Pin</code> 类型传递给 <code>Vec</code>，确信 future 中的底层数据 <em>不会</em> 被移动。</p>
+<p data-x-en="Now we know enough to understand the errors reported for that join_all call from back in Listing 17-23. We originally tried to move the futures produced by async blocks into a Vec<Box<dyn Future<Output = ()>>>, but as we’ve seen, those futures may have internal references, so they don’t automatically implement Unpin. Once we pin them, we can pass the resulting Pin type into the Vec, confident that the underlying data in the futures will not be moved. Listing 17-24 shows how to fix the code by calling the pin! macro where each of the three futures are defined and adjusting the trait object type.">现在我们已经了解了足够的知识，可以理解在清单 17-23 中报告的 <code>join_all</code> 调用的错误。我们最初尝试将由异步块产生的 future 移动到 <code>Vec&lt;Box&lt;dyn Future&lt;Output = ()&gt;&gt;&gt;</code> 中，但正如我们所见，这些 future 可能有内部引用，因此它们不会自动实现 <code>Unpin</code>。一旦我们固定了它们，就可以将生成的 <code>Pin</code> 类型传递给 <code>Vec</code>，确信 future 中的底层数据 <em>不会</em> 被移动。清单 17-24 显示了如何通过在定义每个 future 时调用 <code>pin!</code> 宏并调整 trait 对象类型来修复代码。</p>
+<figure class="listing" id="listing-17-24">
+<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
+</span><span class="boring">
+</span>use std::pin::{Pin, pin};
+
+// --snip--
+
+<span class="boring">use std::time::Duration;
+</span><span class="boring">
+</span><span class="boring">fn main() {
+</span><span class="boring">    trpl::block_on(async {
+</span><span class="boring">        let (tx, mut rx) = trpl::channel();
+</span><span class="boring">
+</span><span class="boring">        let tx1 = tx.clone();
+</span>        let tx1_fut = pin!(async move {
+            // --snip--
+<span class="boring">            let vals = vec![
+</span><span class="boring">                String::from("hi"),
+</span><span class="boring">                String::from("from"),
+</span><span class="boring">                String::from("the"),
+</span><span class="boring">                String::from("future"),
+</span><span class="boring">            ];
+</span><span class="boring">
+</span><span class="boring">            for val in vals {
+</span><span class="boring">                tx1.send(val).unwrap();
+</span><span class="boring">                trpl::sleep(Duration::from_secs(1)).await;
+</span><span class="boring">            }
+</span>        });
+
+        let rx_fut = pin!(async {
+            // --snip--
+<span class="boring">            while let Some(value) = rx.recv().await {
+</span><span class="boring">                println!("received '{value}'");
+</span><span class="boring">            }
+</span>        });
+
+        let tx_fut = pin!(async move {
+            // --snip--
+<span class="boring">            let vals = vec![
+</span><span class="boring">                String::from("more"),
+</span><span class="boring">                String::from("messages"),
+</span><span class="boring">                String::from("for"),
+</span><span class="boring">                String::from("you"),
+</span><span class="boring">            ];
+</span><span class="boring">
+</span><span class="boring">            for val in vals {
+</span><span class="boring">                tx.send(val).unwrap();
+</span><span class="boring">                trpl::sleep(Duration::from_secs(1)).await;
+</span><span class="boring">            }
+</span>        });
+
+        let futures: Vec&lt;Pin&lt;&amp;mut dyn Future&lt;Output = ()&gt;&gt;&gt; =
+            vec![tx1_fut, rx_fut, tx_fut];
+<span class="boring">
+</span><span class="boring">        trpl::join_all(futures).await;
+</span><span class="boring">    });
+</span><span class="boring">}</span></code></pre></pre>
+<figcaption><a href="#listing-17-24">Listing 17-24</a>: Pinning the futures to enable moving them into the vector</figcaption>
+</figure>
+<p data-x-en="This example now compiles and runs, and we could add or remove futures from the vector at runtime and join them all.">这个示例现在可以编译和运行，我们可以在运行时向向量中添加或删除 future 并将它们全部 join。</p>
 <p data-x-en="Pin and Unpin are mostly important for building lower-level libraries, or when you’re building a runtime itself, rather than for day-to-day Rust code. When you see these traits in error messages, though, now you’ll have a better idea of how to fix your code!"><code>Pin</code> 和 <code>Unpin</code> 主要对于构建底层库或构建运行时本身非常重要，而不是用于日常的 Rust 代码。当你在错误消息中看到这些特征时，现在你将更好地了解如何修复你的代码！</p>
 <section class="note" aria-role="note">
 <p data-x-en="Note: This combination of Pin and Unpin makes it possible to safely implement a whole class of complex types in Rust that would otherwise prove challenging because they’re self-referential. Types that require Pin show up most commonly in async Rust today, but every once in a while, you might see them in other contexts, too.">注意：这种 <code>Pin</code> 和 <code>Unpin</code> 的组合使得在 Rust 中安全实现一类复杂的类型成为可能，这些类型由于自引用而通常会变得具有挑战性。需要 <code>Pin</code> 的类型在今天的异步 Rust 中最为常见，但偶尔你也会在其他上下文中看到它们。</p>
@@ -442,7 +559,8 @@ trait Stream {
 <p data-x-en="The Stream trait defines an associated type called Item for the type of the items produced by the stream. This is similar to Iterator, where there may be zero to many items, and unlike Future, where there is always a single Output, even if it’s the unit type ()."><code>Stream</code> 特性定义了一个关联类型 <code>Item</code>，用于表示流生成的项的类型。这类似于 <code>Iterator</code>，其中可能有零到多个项，而不像 <code>Future</code>，其中总是有一个单一的 <code>Output</code>，即使它是单元类型 <code>()</code>。</p>
 <p data-x-en="Stream also defines a method to get those items. We call it poll_next, to make it clear that it polls in the same way Future::poll does and produces a sequence of items in the same way Iterator::next does. Its return type combines Poll with Option. The outer type is Poll, because it has to be checked for readiness, just as a future does. The inner type is Option, because it needs to signal whether there are more messages, just as an iterator does."><code>Stream</code> 还定义了一个方法来获取这些项。我们称之为 <code>poll_next</code>，以明确它以与 <code>Future::poll</code> 相同的方式进行轮询，并以与 <code>Iterator::next</code> 相同的方式生成一系列项。其返回类型将 <code>Poll</code> 与 <code>Option</code> 结合在一起。外部类型是 <code>Poll</code>，因为它需要像未来一样检查就绪状态。内部类型是 <code>Option</code>，因为它需要像迭代器一样指示是否还有更多消息。</p>
 <p data-x-en="Something very similar to this definition will likely end up as part of Rust’s standard library. In the meantime, it’s part of the toolkit of most runtimes, so you can rely on it, and everything we cover next should generally apply!">与这个定义非常相似的内容很可能会成为 Rust 标准库的一部分。在此期间，它已经是大多数运行时工具包的一部分，因此你可以依赖它，接下来我们讨论的所有内容通常都适用！</p>
-<p data-x-en="In the example we saw in the section on streaming, though, we didn’t use poll_next or Stream, but instead used next and StreamExt. We could work directly in terms of the poll_next API by hand-writing our own Stream state machines, of course, just as we could work with futures directly via their poll method. Using await is much nicer, though, and the StreamExt trait supplies the next method so we can do just that:">在我们之前在流处理部分看到的例子中，我们并没有使用 <code>poll_next</code> <em>或</em> <code>Stream</code>，而是使用了 <code>next</code> 和 <code>StreamExt</code>。我们当然<em>可以</em> 通过手动编写自己的 <code>Stream</code> 状态机来直接使用 <code>poll_next</code> API，就像我们<em>可以</em> 通过它们的 <code>poll</code> 方法直接处理未来对象一样。然而，使用 <code>await</code> 要方便得多，而 <code>StreamExt</code> 特性提供了 <code>next</code> 方法，使我们能够做到这一点：</p>
+<p data-x-en="In the examples we saw in the “Streams: Futures in Sequence” section, though, we didn’t use poll_next or Stream, but instead used next and StreamExt. We could work directly in terms of the poll_next API by hand-writing our own Stream state machines, of course, just as we could work with futures directly via their poll method. Using await is much nicer, though, and the StreamExt trait supplies the next method so we can do just that:">在<a href="ch17-04-streams.html">“Streams: Futures in Sequence”</a><!--
+ignore -->部分的示例中，我们并没有使用<code>poll_next</code> <em>或</em> <code>Stream</code>，而是使用了<code>next</code>和<code>StreamExt</code>。当然，我们<em>可以</em>通过手动编写自己的<code>Stream</code>状态机来直接使用<code>poll_next</code> API，就像我们<em>可以</em>通过它们的<code>poll</code>方法直接处理未来一样。然而，使用<code>await</code>要方便得多，而<code>StreamExt</code>特质提供了<code>next</code>方法，使我们能够做到这一点：</p>
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span><span class="boring">use std::pin::Pin;

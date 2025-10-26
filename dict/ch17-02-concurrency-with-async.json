@@ -362,5 +362,113 @@
   "The program still never exits, though, because of the way the while let loop interacts with trpl::join:": {
     "_translate": "程序仍然永远不会退出，因为 <code>while let</code> 循环与 <code>trpl::join</code> 的交互方式：",
     "_note": ""
+  },
+  "In this section, we’ll apply async to some of the same concurrency challenges we tackled with threads in Chapter 16. Because we already talked about a lot of the key ideas there, in this section we’ll focus on what’s different between threads and futures.": {
+    "_translate": "在本节中，我们将把异步应用到我们在第16章用线程解决的一些相同的并发挑战上。因为我们已经在那讨论了很多关键概念，所以在本节中我们将重点关注线程和未来之间的不同之处。",
+    "_note": ""
+  },
+  "As our starting point, we set up our main function with trpl::block_on so that our top-level function can be async.": {
+    "_translate": "作为起点，我们使用 <code>trpl::block_on</code> 设置我们的 <code>main</code> 函数，以便我们的顶级函数可以是异步的。",
+    "_note": ""
+  },
+  "The first operation we tackled in the “Creating a New Thread with spawn” section in Chapter 16 was counting up on two separate threads. Let’s do the same using async. The trpl crate supplies a spawn_task function that looks very similar to the thread::spawn API, and a sleep function that is an async version of the thread::sleep API. We can use these together to implement the counting example, as shown in Listing 17-6.": {
+    "_translate": "我们在第 16 章的<a href=\"ch16-01-threads.html#creating-a-new-thread-with-spawn\">“使用 <code>spawn</code> 创建新线程”</a>部分中处理的第一个操作是在两个独立的线程上进行计数。让我们使用 async 来做同样的事情。<code>trpl</code> crate 提供了一个看起来非常类似于 <code>thread::spawn</code> API 的 <code>spawn_task</code> 函数，以及一个 <code>thread::sleep</code> API 的异步版本 <code>sleep</code> 函数。我们可以将这些一起使用来实现计数示例，如列表 17-6 所示。",
+    "_note": ""
+  },
+  "This updated version runs until both loops finish:": {
+    "_translate": "这个更新的版本运行直到<em>两个</em>循环都完成：",
+    "_note": ""
+  },
+  "Note: From this point forward in the chapter, every example will include this exact same wrapping code with trpl::block_on in main, so we’ll often skip it just as we do with main. Remember to include it in your code!": {
+    "_translate": "注意：从本章的这一点开始，每个示例都将包含这个完全相同的包装代码，在<code>main</code>中使用<code>trpl::block_on</code>，因此我们通常会跳过它，就像我们对<code>main</code>所做的那样。记得在你的代码中包含它！",
+    "_note": ""
+  },
+  "So far, it looks like async and threads give us similar outcomes, just with different syntax: using await instead of calling join on the join handle, and awaiting the sleep calls.": {
+    "_translate": "到目前为止，异步和线程似乎给我们带来了类似的结果，只是语法不同：使用<code>await</code>而不是在连接句柄上调用<code>join</code>，以及等待<code>sleep</code>调用。",
+    "_note": ""
+  },
+  "In the “Waiting for All Threads to Finish” section in Chapter 16, we showed how to use the join method on the JoinHandle type returned when you call std::thread::spawn. The trpl::join function is similar, but for futures. When you give it two futures, it produces a single new future whose output is a tuple containing the output of each future you passed in once they both complete. Thus, in Listing 17-8, we use trpl::join to wait for both fut1 and fut2 to finish. We do not await fut1 and fut2 but instead the new future produced by trpl::join. We ignore the output, because it’s just a tuple containing two unit values.": {
+    "_translate": "在第 16 章的 <a href=\"ch16-01-threads.html#waiting-for-all-threads-to-finish\">“等待所有线程完成”</a> 部分，我们展示了如何在调用 <code>std::thread::spawn</code> 时返回的 <code>JoinHandle</code> 类型上使用 <code>join</code> 方法。<code>trpl::join</code> 函数类似，但用于未来。当你给它两个未来时，它会产生一个单一的新未来，其输出是一个包含你传递的每个未来输出的元组，一旦它们 <em>都</em> 完成。因此，在清单 17-8 中，我们使用 <code>trpl::join</code> 等待 <code>fut1</code> 和 <code>fut2</code> 都完成。我们 <em>不</em> 等待 <code>fut1</code> 和 <code>fut2</code>，而是等待由 <code>trpl::join</code> 产生的新未来。我们忽略输出，因为这只是包含两个单元值的元组。",
+    "_note": ""
+  },
+  "Now, you’ll see the exact same order every time, which is very different from what we saw with threads and with trpl::spawn_task in Listing 17-7. That is because the trpl::join function is fair, meaning it checks each future equally often, alternating between them, and never lets one race ahead if the other is ready. With threads, the operating system decides which thread to check and how long to let it run. With async Rust, the runtime decides which task to check. (In practice, the details get complicated because an async runtime might use operating system threads under the hood as part of how it manages concurrency, so guaranteeing fairness can be more work for a runtime—but it’s still possible!) Runtimes don’t have to guarantee fairness for any given operation, and they often offer different APIs to let you choose whether or not you want fairness.": {
+    "_translate": "现在，您每次都会看到完全相同的顺序，这与我们在第 17-7 节中使用线程和 <code>trpl::spawn_task</code> 时看到的情况非常不同。这是因为 <code>trpl::join</code> 函数是 <em>公平的</em>，意味着它会同样频繁地检查每个 future，交替进行，而不会让一个 future 在另一个 ready 时领先。对于线程，操作系统决定检查哪个线程以及让它运行多长时间。对于异步 Rust，运行时决定检查哪个任务。（实际上，细节会变得复杂，因为异步运行时可能在底层使用操作系统线程来管理并发，因此保证公平性对运行时来说可能更复杂——但仍然是可能的！）运行时不必为任何给定操作保证公平性，它们通常提供不同的 API 让您选择是否需要公平性。",
+    "_note": ""
+  },
+  "Sending Data Between Two Tasks Using Message Passing": {
+    "_translate": "<a class=\"header\" href=\"#sending-data-between-two-tasks-using-message-passing\">使用消息传递在两个任务之间发送数据</a>",
+    "_note": ""
+  },
+  "Sharing data between futures will also be familiar: we’ll use message passing again, but this time with async versions of the types and functions. We’ll take a slightly different path than we did in the “Transfer Data Between Threads with Message Passing” section in Chapter 16 to illustrate some of the key differences between thread-based and futures-based concurrency. In Listing 17-9, we’ll begin with just a single async block—not spawning a separate task as we spawned a separate thread.": {
+    "_translate": "在 futures 之间共享数据也会很熟悉：我们将再次使用消息传递，但这次使用异步版本的类型和函数。我们将采取与第 16 章<a href=\"ch16-02-message-passing.html\">“使用消息传递在线程之间传输数据”</a>部分中略有不同的方法，以说明基于线程的并发和基于 futures 的并发之间的一些关键差异。在示例 17-9 中，我们将从一个单独的 async 块开始——<em>不</em>像我们之前创建单独的线程那样创建单独的任务。",
+    "_note": ""
+  },
+  "Note: Because all of this async code runs in an async block in a trpl::block_on call, everything within it can avoid blocking. However, the code outside it will block on the block_on function returning. That’s the whole point of the trpl::block_on function: it lets you choose where to block on some set of async code, and thus where to transition between sync and async code.": {
+    "_translate": "注意：因为所有这些异步代码都在一个异步块中运行，并且在 <code>trpl::block_on</code> 调用中，所以其中的所有内容都可以避免阻塞。然而，<em>外部</em> 代码将在 <code>block_on</code> 函数返回时阻塞。这就是 <code>trpl::block_on</code> 函数的全部意义：它让你可以 <em>选择</em> 在哪里阻塞某些异步代码集，从而决定在同步和异步代码之间转换的位置。",
+    "_note": ""
+  },
+  "The code now successfully sends and receives all of the messages. Unfortunately, there are still a couple of problems. For one thing, the messages do not arrive at half-second intervals. They arrive all at once, 2 seconds (2,000 milliseconds) after we start the program. For another, this program also never exits! Instead, it waits forever for new messages. You will need to shut it down using ctrl-C.": {
+    "_translate": "代码现在成功地发送和接收了所有的消息。\n不幸的是，仍然存在一些问题。一方面，消息并不是每半秒到达一次。它们是在我们启动程序2秒（2,000毫秒）后一次性到达的。另一方面，这个程序也永远不会退出！相反，它会永远等待新的消息。您需要使用<kbd>ctrl</kbd>-<kbd>C</kbd>来关闭它。",
+    "_note": ""
+  },
+  "In Listing 16-10, we used a for loop to process all the items received from a synchronous channel. Rust doesn’t yet have a way to use a for loop with an asynchronously produced series of items, however, so we need to use a loop we haven’t seen before: the while let conditional loop. This is the loop version of the if let construct we saw back in the “Concise Control Flow with if let and let else” section in Chapter 6. The loop will continue executing as long as the pattern it specifies continues to match the value.": {
+    "_translate": "在清单 16-10 中，我们使用了一个 <code>for</code> 循环来处理从同步通道接收到的所有项。然而，Rust 尚未提供一种使用 <code>for</code> 循环处理 <em>异步生成</em> 的一系列项的方法，因此我们需要使用一个我们之前未见过的循环：<code>while let</code> 条件循环。这是我们在第 6 章 <a href=\"ch06-03-if-let.html\">“使用 <code>if let</code> 和 <code>let else</code> 简洁控制流”</a><!-- ignore --> 部分中看到的 <code>if let</code> 构造的循环版本。只要循环指定的模式继续与值匹配，循环就会继续执行。",
+    "_note": ""
+  },
+  "Code Within One Async Block Executes Linearly": {
+    "_translate": "<a class=\"header\" href=\"#code-within-one-async-block-executes-linearly\">一个异步块中的代码线性执行</a>",
+    "_note": ""
+  },
+  "Moving Ownership Into an Async Block": {
+    "_translate": "<a class=\"header\" href=\"#moving-ownership-into-an-async-block\">将所有权移入异步块</a>",
+    "_note": ""
+  },
+  "To get the behavior we want, where the sleep delay happens between each message, we need to put the tx and rx operations in their own async blocks, as shown in Listing 17-11. Then the runtime can execute each of them separately using trpl::join, just as in Listing 17-8. Once again, we await the result of calling trpl::join, not the individual futures. If we awaited the individual futures in sequence, we would just end up back in a sequential flow—exactly what we’re trying not to do.": {
+    "_translate": "为了获得我们想要的行为，即在每条消息之间进行睡眠延迟，我们需要将 <code>tx</code> 和 <code>rx</code> 操作放在它们自己的异步块中，如清单 17-11 所示。然后运行时可以使用 <code>trpl::join</code> 分别执行它们，就像在清单 17-8 中一样。同样，我们等待调用 <code>trpl::join</code> 的结果，而不是单独的未来。如果我们按顺序等待单独的未来，我们最终会回到顺序流程——这正是我们试图避免的。",
+    "_note": ""
+  },
+  "The tx_fut future completes once it finishes sleeping after sending the last message in vals.": {
+    "_translate": "<code>tx_fut</code> 未来在发送 <code>vals</code> 中的最后一条消息后完成睡眠。",
+    "_note": ""
+  },
+  "The rx_fut future won’t complete until the while let loop ends.": {
+    "_translate": "<code>rx_fut</code> 未来不会完成，直到 <code>while let</code> 循环结束。",
+    "_note": ""
+  },
+  "We don’t call rx.close anywhere, and tx won’t be dropped until the outermost async block passed to trpl::block_on ends.": {
+    "_translate": "我们 nowhere 调用 <code>rx.close</code>，并且 <code>tx</code> 不会在传递给 <code>trpl::block_on</code> 的最外层异步块结束之前被丢弃。",
+    "_note": ""
+  },
+  "In Listing 17-12, we change the block used to send messages from async to async move.": {
+    "_translate": "在清单 17-12 中，我们将用于发送消息的块从 <code>async</code> 更改为 <code>async move</code>。",
+    "_note": ""
+  },
+  "When we run this version of the code, it shuts down gracefully after the last message is sent and received. Next, let’s see what would need to change to send data from more than one future.": {
+    "_translate": "当我们运行<em>这个</em>版本的代码时，它会在最后一条消息发送和接收后优雅地关闭。接下来，让我们看看如果要从多个未来发送数据需要做哪些更改。",
+    "_note": ""
+  },
+  "Right now, the async block where we send the messages only borrows tx because sending a message doesn’t require ownership, but if we could move tx into that async block, it would be dropped once that block ends. In the “Capturing References or Moving Ownership” section in Chapter 13, you learned how to use the move keyword with closures, and, as discussed in the “Using move Closures with Threads” section in Chapter 16, we often need to move data into closures when working with threads. The same basic dynamics apply to async blocks, so the move keyword works with async blocks just as it does with closures.": {
+    "_translate": "目前，我们发送消息的异步块只<em>借用</em>了<code>tx</code>，因为发送消息不需要所有权，但如果我们可以将<code>tx</code><em>移动</em>到那个异步块中，那么一旦该块结束，<code>tx</code>就会被丢弃。在第13章的<a href=\"ch13-01-closures.html#capturing-references-or-moving-ownership\">“捕获引用或移动所有权”</a><!-- ignore -->部分，你学习了如何在闭包中使用<code>move</code>关键字，而在第16章的<a href=\"ch16-01-threads.html#using-move-closures-with-threads\">“使用<code>move</code>闭包与线程”</a><!-- ignore -->部分中，我们讨论了在使用线程时通常需要将数据移动到闭包中。同样的基本动态也适用于异步块，因此<code>move</code>关键字在异步块中的工作方式与在闭包中相同。",
+    "_note": ""
+  },
+  "Joining a Number of Futures with the join! Macro": {
+    "_translate": "<a class=\"header\" href=\"#使用-join-宏连接多个未来\">使用 <code>join!</code> 宏连接多个未来</a>",
+    "_note": ""
+  },
+  "Both of the async blocks for sending messages need to be async move blocks so that both tx and tx1 get dropped when those blocks finish. Otherwise, we’ll end up back in the same infinite loop we started out in.": {
+    "_translate": "两个用于发送消息的异步块都需要是 <code>async move</code> 块，以便在这两个块结束时 <code>tx</code> 和 <code>tx1</code> 都能被丢弃。否则，我们将会回到最初的那个无限循环中。",
+    "_note": ""
+  },
+  "Now we see all the messages from both sending futures, and because the sending futures use slightly different delays after sending, the messages are also received at those different intervals:": {
+    "_translate": "现在我们可以看到来自两个发送未来的所有消息，因为发送未来在发送后使用了略有不同的延迟，所以消息也在这些不同的时间间隔内被接收：",
+    "_note": ""
+  },
+  "Finally, we switch from trpl::join to trpl::join! to handle the additional future: the join! macro awaits an arbitrary number of futures where we know the number of futures at compile time. We’ll discuss awaiting a collection of an unknown number of futures later in this chapter.": {
+    "_translate": "最后，我们将从 <code>trpl::join</code> 切换到 <code>trpl::join!</code> 以处理额外的未来：<code>join!</code> 宏可以等待任意数量的未来，而这些未来的数量在编译时是已知的。我们将在本章后面讨论等待未知数量的未来集合。",
+    "_note": ""
+  },
+  "We’ve explored how to use message passing to send data between futures, how code within an async block runs sequentially, how to move ownership into an async block, and how to join multiple futures. Next, let’s discuss how and why to tell the runtime it can switch to another task.": {
+    "_translate": "我们已经探讨了如何使用消息传递在 futures 之间发送数据，async 块内的代码如何按顺序运行，如何将所有权移动到 async 块中，以及如何合并多个 futures。接下来，让我们讨论如何以及为什么告诉运行时它可以切换到另一个任务。",
+    "_note": ""
   }
 }

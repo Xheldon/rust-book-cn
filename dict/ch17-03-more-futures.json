@@ -450,5 +450,73 @@
   "That is a lot to digest, so let’s pull it apart. The first part of the message tell us that the first async block (src/main.rs:8:23: 20:10) does not implement the Unpin trait and suggests using pin! or Box::pin to resolve it. Later in the chapter, we’ll dig into a few more details about Pin and Unpin. For the moment, though, we can just follow the compiler’s advice to get unstuck. In Listing 17-18, we start by importing Pin from std::pin. Next we update the type annotation for futures, with a Pin wrapping each Box. Finally, we use Box::pin to pin the futures themselves.": {
     "_translate": "这有<em>很多</em>需要消化的内容，所以我们来拆解一下。消息的第一部分\n告诉我们第一个异步块（<code>src/main.rs:8:23: 20:10</code>）没有\n实现<code>Unpin</code>特质，并建议使用<code>pin!</code>或<code>Box::pin</code>来解决\n它。在本章的后面，我们将深入探讨更多关于<code>Pin</code>和\n<code>Unpin</code>的细节。不过，目前我们只需按照编译器的建议来解决问题。在清单17-18中，我们首先从<code>std::pin</code>导入<code>Pin</code>。接下来我们\n更新<code>futures</code>的类型注解，每个<code>Box</code>都用<code>Pin</code>包裹。\n最后，我们使用<code>Box::pin</code>来固定这些未来对象。",
     "_note": ""
+  },
+  "Recall from the “Our First Async Program” section that at each await point, Rust gives a runtime a chance to pause the task and switch to another one if the future being awaited isn’t ready. The inverse is also true: Rust only pauses async blocks and hands control back to a runtime at an await point. Everything between await points is synchronous.": {
+    "_translate": "回想在<a href=\"ch17-01-futures-and-syntax.html#our-first-async-program\">“我们的第一个异步程序”</a>部分中，每个await点，Rust都会给运行时一个机会，如果正在等待的未来尚未准备好，可以暂停任务并切换到另一个任务。相反的情况也是如此：Rust <em>仅</em>在await点暂停异步块并将控制权交还给运行时。await点之间的所有内容都是同步的。",
+    "_note": ""
+  },
+  "Let’s simulate a long-running operation to illustrate the starvation problem, then explore how to solve it. Listing 17-14 introduces a slow function.": {
+    "_translate": "让我们模拟一个长时间运行的操作来说明饥饿问题，然后探讨如何解决它。清单 17-14 引入了一个 <code>slow</code> 函数。",
+    "_note": ""
+  },
+  "In Listing 17-15, we use slow to emulate doing this kind of CPU-bound work in a pair of futures.": {
+    "_translate": "在清单 17-15 中，我们使用 <code>slow</code> 来模拟在一对 future 中执行这种 CPU 密集型工作。",
+    "_note": ""
+  },
+  "Each future hands control back to the runtime only after carrying out a bunch of slow operations. If you run this code, you will see this output:": {
+    "_translate": "每个 future 只有在执行了一组慢操作<em>之后</em>才将控制权交还给运行时。如果你运行这段代码，你会看到如下输出：",
+    "_note": ""
+  },
+  "We can already see this kind of handoff happening in Listing 17-15: if we removed the trpl::sleep at the end of the a future, it would complete without the b future running at all. Let’s try using the trpl::sleep function as a starting point for letting operations switch off making progress, as shown in Listing 17-16.": {
+    "_translate": "我们已经在清单 17-15 中看到了这种交接：如果我们移除 <code>a</code> 未来末尾的 <code>trpl::sleep</code>，它将在 <code>b</code> 未来完全不运行的情况下完成。让我们尝试使用 <code>trpl::sleep</code> 函数作为让操作交替进行的起点，如清单 17-16 所示。",
+    "_note": ""
+  },
+  "We’ve added trpl::sleep calls with await points between each call to slow. Now the two futures’ work is interleaved:": {
+    "_translate": "我们已经在每次调用<code>slow</code>之间添加了<code>trpl::sleep</code>调用，并带有await点。\n现在两个未来的任务是交错进行的：",
+    "_note": ""
+  },
+  "As with Listing 17-5 where we used trpl::select to race futures fetching two URLs, select still finishes as soon as a is done. There’s no interleaving between the calls to slow in the two futures, though. The a future does all of its work until the trpl::sleep call is awaited, then the b future does all of its work until its own trpl::sleep call is awaited, and finally the a future completes. To allow both futures to make progress between their slow tasks, we need await points so we can hand control back to the runtime. That means we need something we can await!": {
+    "_translate": "与清单 17-5 中我们使用 <code>trpl::select</code> 来竞速获取两个 URL 的 futures 一样，<code>select</code> 仍然在 <code>a</code> 完成时结束。不过，两个 futures 中的 <code>slow</code> 调用之间没有交错。<code>a</code> future 会一直执行直到 <code>trpl::sleep</code> 调用被等待，然后 <code>b</code> future 会一直执行直到它自己的 <code>trpl::sleep</code> 调用被等待，最后 <code>a</code> future 完成。为了允许两个 futures 在它们的慢任务之间取得进展，我们需要等待点以便我们可以将控制权交还给运行时。这意味着我们需要一些可以等待的东西！",
+    "_note": ""
+  },
+  "We don’t really want to sleep here, though: we want to make progress as fast as we can. We just need to hand back control to the runtime. We can do that directly, using the trpl::yield_now function. In Listing 17-17, we replace all those trpl::sleep calls with trpl::yield_now.": {
+    "_translate": "我们在这里其实并不想<em>休眠</em>：我们希望尽可能快地取得进展。我们只需要将控制权交还给运行时。我们可以直接使用<code>trpl::yield_now</code>函数来实现。在清单17-17中，我们将所有那些<code>trpl::sleep</code>调用替换为<code>trpl::yield_now</code>。",
+    "_note": ""
+  },
+  "This means that async can be useful even for compute-bound tasks, depending on what else your program is doing, because it provides a useful tool for structuring the relationships between different parts of the program (but at a cost of the overhead of the async state machine). This is a form of cooperative multitasking, where each future has the power to determine when it hands over control via await points. Each future therefore also has the responsibility to avoid blocking for too long. In some Rust-based embedded operating systems, this is the only kind of multitasking!": {
+    "_translate": "这意味着，即使对于计算密集型任务，async 也可以非常有用，这取决于程序的其他部分在做什么，因为它提供了一种有用的工具来结构化程序不同部分之间的关系（但会带来异步状态机的开销）。这是一种<em>协作式多任务处理</em>，每个 future 都有权决定何时通过 await 点交出控制权。因此，每个 future 也有责任避免阻塞时间过长。在某些基于 Rust 的嵌入式操作系统中，这是<em>唯一</em>的多任务处理方式！",
+    "_note": ""
+  },
+  "Listing 17-18 shows how we would expect this timeout to work with a slow future.": {
+    "_translate": "列表 17-18 显示了我们期望这个 <code>timeout</code> 如何与一个慢的未来一起工作。",
+    "_note": ""
+  },
+  "Listing 17-19 shows this declaration.": {
+    "_translate": "列表 17-19 显示了此声明。",
+    "_note": ""
+  },
+  "In Listing 17-20, we implement timeout by matching on the result of awaiting trpl::select.": {
+    "_translate": "在清单 17-20 中，我们通过匹配 <code>trpl::select</code> 等待结果来实现 <code>timeout</code>。",
+    "_note": ""
+  },
+  "That satisfies our goals for the types. Now let’s think about the behavior we need: we want to race the future passed in against the duration. We can use trpl::sleep to make a timer future from the duration, and use trpl::select to run that timer with the future the caller passes in.": {
+    "_translate": "这满足了我们对类型的要求。现在让我们考虑需要的<em>行为</em>：我们希望将传入的未来与持续时间进行竞赛。我们可以使用<code>trpl::sleep</code>从持续时间创建一个计时器未来，并使用<code>trpl::select</code>来运行计时器与调用者传入的未来。",
+    "_note": ""
+  },
+  "Because futures compose with other futures, you can build really powerful tools using smaller async building blocks. For example, you can use this same approach to combine timeouts with retries, and in turn use those with operations such as network calls (such as those in Listing 17-5).": {
+    "_translate": "因为 Future 可以与其他 Future 组合，所以你可以使用较小的异步构建块来构建非常强大的工具。例如，你可以使用相同的方法将超时与重试组合，并进而将这些与网络调用（如清单 17-5 中的那些）一起使用。",
+    "_note": ""
+  },
+  "The implementation of trpl::select is not fair: it always polls arguments in the order in which they are passed (other select implementations will randomly choose which argument to poll first). Thus, we pass future_to_try to select first so it gets a chance to complete even if max_time is a very short duration. If future_to_try finishes first, select will return Left with the output from future_to_try. If timer finishes first, select will return Right with the timer’s output of ().": {
+    "_translate": "<code>trpl::select</code> 的实现是不公平的：它总是按照传递的顺序轮询参数（其他 <code>select</code> 实现会随机选择首先轮询哪个参数）。因此，我们将 <code>future_to_try</code> 传递给 <code>select</code> 作为第一个参数，以便即使 <code>max_time</code> 非常短，它也有机会完成。如果 <code>future_to_try</code> 首先完成，<code>select</code> 将返回带有 <code>future_to_try</code> 输出的 <code>Left</code>。如果 <code>timer</code> 首先完成，<code>select</code> 将返回带有计时器输出 <code>()</code> 的 <code>Right</code>。",
+    "_note": ""
+  },
+  "In practice, you’ll usually work directly with async and await, and secondarily with functions such as select and macros such as the join! macro to control how the outermost futures are executed.": {
+    "_translate": "在实际中，你通常会直接使用 <code>async</code> 和 <code>await</code>，并次要使用如 <code>select</code> 这样的函数和 <code>join!</code> 这样的宏来控制最外层的未来对象如何执行。",
+    "_note": ""
+  },
+  "We’ve now seen a number of ways to work with multiple futures at the same time. Up next, we’ll look at how we can work with multiple futures in a sequence over time with streams.": {
+    "_translate": "我们现在看到了同时处理多个未来的几种方法。\n接下来，我们将看看如何随着时间的推移，使用<em>流</em>来按顺序处理多个未来。",
+    "_note": ""
   }
 }

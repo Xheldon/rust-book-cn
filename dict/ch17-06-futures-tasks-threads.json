@@ -158,5 +158,45 @@
   "This isn’t the last you’ll see of concurrency in this book. The project in Chapter 21 will apply these concepts in a more realistic situation than the simpler examples discussed here and compare problem-solving with threading versus tasks more directly.": {
     "_translate": "这不会是你在这本书中最后一次看到并发。在<a href=\"ch21-00-final-project-a-web-server.html\">第 21 章</a>的项目中，将会在一个比这里讨论的更现实的情况下应用这些概念，并更直接地比较使用线程与任务解决问题的方法。",
     "_note": ""
+  },
+  "Many operating systems have supplied threading-based concurrency models for decades now, and many programming languages support them as a result. However, these models are not without their tradeoffs. On many operating systems, they use a fair bit of memory for each thread. Threads are also only an option when your operating system and hardware support them. Unlike mainstream desktop and mobile computers, some embedded systems don’t have an OS at all, so they also don’t have threads.": {
+    "_translate": "许多操作系统几十年来一直提供基于线程的并发模型，许多编程语言也因此支持它们。然而，这些模型并非没有权衡。在许多操作系统中，每个线程都会占用相当多的内存。线程也仅在操作系统和硬件支持时才是一种选择。与主流的台式机和移动计算机不同，一些嵌入式系统根本没有操作系统，因此也没有线程。",
+    "_note": ""
+  },
+  "As we saw in Chapter 16, threads provide one approach to concurrency. We’ve seen another approach in this chapter: using async with futures and streams. If you’re wondering when to choose one method over the other, the answer is: it depends! And in many cases, the choice isn’t threads or async but rather threads and async.": {
+    "_translate": "正如我们在<a href=\"http://localhost:3000/ch16-00-concurrency.html\">第16章</a>中看到的，线程提供了一种实现并发的方法。在本章中，我们看到了另一种方法：使用异步与未来和流。如果你在想何时选择一种方法而不是另一种，答案是：这取决于具体情况！在许多情况下，选择不是线程<em>或</em>异步，而是线程<em>和</em>异步。",
+    "_note": ""
+  },
+  "This doesn’t mean that async tasks are always better than threads (or vice versa). Concurrency with threads is in some ways a simpler programming model than concurrency with async. That can be a strength or a weakness. Threads are somewhat “fire and forget”; they have no native equivalent to a future, so they simply run to completion without being interrupted except by the operating system itself.": {
+    "_translate": "这并不意味着异步任务总是优于线程（反之亦然）。在某些方面，使用线程的并发比使用<code>async</code>的并发更简单。这可以是优势也可以是劣势。线程 somewhat “fire and forget”；它们没有未来（future）的原生等效物，因此除了被操作系统本身中断外，它们会一直运行到完成。",
+    "_note": ""
+  },
+  "There’s a reason the APIs for spawning threads and spawning tasks are so similar. Threads act as a boundary for sets of synchronous operations; concurrency is possible between threads. Tasks act as a boundary for sets of asynchronous operations; concurrency is possible both between and within tasks, because a task can switch between futures in its body. Finally, futures are Rust’s most granular unit of concurrency, and each future may represent a tree of other futures. The runtime—specifically, its executor—manages tasks, and tasks manage futures. In that regard, tasks are similar to lightweight, runtime-managed threads with added capabilities that come from being managed by a runtime instead of by the operating system.": {
+    "_translate": "线程和任务的API如此相似是有原因的。线程作为一组同步操作的边界；并发可以在<em>线程之间</em>实现。任务作为一组<em>异步</em>操作的边界；由于任务可以在其主体中切换不同的未来（futures），因此并发可以在<em>任务之间</em>和<em>任务内部</em>实现。最后，未来（futures）是Rust中最细粒度的并发单元，每个未来可能代表其他未来的树。运行时——具体来说，其执行器——管理任务，而任务管理未来。在这方面，任务类似于轻量级的、由运行时管理的线程，这些线程具有由运行时管理而非操作系统管理所带来的额外功能。",
+    "_note": ""
+  },
+  "If the work is very parallelizable (that is, CPU-bound), such as processing a bunch of data where each part can be processed separately, threads are a better choice.": {
+    "_translate": "如果工作是<em>非常并行的</em>（即，CPU 密集型），例如处理可以分别处理的大量数据，线程是更好的选择。",
+    "_note": ""
+  },
+  "And it turns out that threads and tasks often work very well together, because tasks can (at least in some runtimes) be moved around between threads. In fact, under the hood, the runtime we’ve been using—including the spawn_blocking and spawn_task functions—is multithreaded by default! Many runtimes use an approach called work stealing to transparently move tasks around between threads, based on how the threads are currently being utilized, to improve the system’s overall performance. That approach actually requires threads and tasks, and therefore futures.": {
+    "_translate": "事实证明，线程和任务通常配合得很好，因为任务可以在某些运行时中在不同线程之间移动。实际上，在底层，我们一直在使用的运行时（包括 <code>spawn_blocking</code> 和 <code>spawn_task</code> 函数）默认是多线程的！许多运行时使用一种称为 <em>工作窃取</em> 的方法，根据线程当前的使用情况透明地在不同线程之间移动任务，以提高系统的整体性能。这种方法实际上需要线程 <em>和</em> 任务，因此也需要未来值。",
+    "_note": ""
+  },
+  "If the work is very concurrent (that is, I/O-bound), such as handling messages from a bunch of different sources that may come in at different intervals or different rates, async is a better choice.": {
+    "_translate": "如果工作是<em>非常并发的</em>（即，I/O密集型），例如处理来自多个不同来源的消息，这些消息可能以不同的间隔或不同的速率到达，那么异步是一个更好的选择。",
+    "_note": ""
+  },
+  "And if you need both parallelism and concurrency, you don’t have to choose between threads and async. You can use them together freely, letting each play the part it’s best at. For example, Listing 17-25 shows a fairly common example of this kind of mix in real-world Rust code.": {
+    "_translate": "而且，如果您需要并行性和并发性，您不必在线程和异步之间做出选择。您可以自由地将它们一起使用，让每个都发挥其最擅长的作用。例如，列表 17-25 展示了这种混合在实际 Rust 代码中相当常见的一种情况。",
+    "_note": ""
+  },
+  "We begin by creating an async channel, then spawning a thread that takes ownership of the sender side of the channel using the move keyword. Within the thread, we send the numbers 1 through 10, sleeping for a second between each. Finally, we run a future created with an async block passed to trpl::block_on just as we have throughout the chapter. In that future, we await those messages, just as in the other message-passing examples we have seen.": {
+    "_translate": "我们首先创建一个异步通道，然后使用 <code>move</code> 关键字生成一个线程，该线程获取通道的发送端的所有权。在该线程中，我们发送数字 1 到 10，每次发送之间暂停一秒。最后，我们运行一个通过传递给 <code>trpl::block_on</code> 的异步块创建的未来，就像我们在本章中所做的那样。在该未来中，我们等待这些消息，就像在我们见过的其他消息传递示例中一样。",
+    "_note": ""
+  },
+  "This isn’t the last you’ll see of concurrency in this book. The project in Chapter 21 will apply these concepts in a more realistic situation than the simpler examples discussed here and compare problem-solving with threading versus tasks and futures more directly.": {
+    "_translate": "这不会是你在这本书中最后一次看到并发。在<a href=\"ch21-00-final-project-a-web-server.html\">第 21 章</a>的项目中，将会在比这里讨论的更现实的情况下应用这些概念，并更直接地比较使用线程与任务和未来的解决问题方法。",
+    "_note": ""
   }
 }
