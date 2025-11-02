@@ -317,7 +317,7 @@ loop {
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="pinning-and-the-pin-and-unpin-traits"></a>
 <a id="the-pin-and-unpin-traits"></a></p>
-<h3 id="the-pin-type-and-the-unpin-trait" data-x-en="The Pin Type and the Unpin Trait"><a class="header" href="#the-pin-type-and-the-unpin-trait">《<code>Pin</code> 类型和 <code>Unpin</code> 特性》</a></h3>
+<h3 id="the-pin-type-and-the-unpin-trait"><a class="header" href="#the-pin-type-and-the-unpin-trait">《<code>Pin</code> 类型和 <code>Unpin</code> 特性》</a></h3>
 <p data-x-en="Back in Listing 17-13, we used the trpl::join! macro to await three futures. However, it’s common to have a collection such as a vector containing some number futures that won’t be known until runtime. Let’s change Listing 17-13 to the code in Listing 17-23 that puts the three futures into a vector and calls the trpl::join_all function instead, which won’t compile yet.">在清单 17-13 中，我们使用了 <code>trpl::join!</code> 宏来等待三个 future。然而，通常我们有一个集合，比如一个向量，其中包含一些在运行时才确定数量的 future。让我们将清单 17-13 更改为清单 17-23 中的代码，将三个 future 放入一个向量中，并调用 <code>trpl::join_all</code> 函数，这还不能编译。</p>
 <figure class="listing" id="listing-17-23">
 <span class="file-name">Filename: src/main.rs</span>

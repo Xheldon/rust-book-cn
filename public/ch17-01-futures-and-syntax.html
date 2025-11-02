@@ -341,7 +341,7 @@ fn page_title(url: &amp;str) -&gt; impl Future&lt;Output = Option&lt;String&gt;&
 <p data-x-en="Now we can call page_title in main.">现在我们可以在 <code>main</code> 中调用 <code>page_title</code>。</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="determining-a-single-pages-title"></a></p>
-<h3 id="executing-an-async-function-with-a-runtime" data-x-en="Executing an Async Function with a Runtime"><a class="header" href="#executing-an-async-function-with-a-runtime">使用运行时执行异步函数</a></h3>
+<h3 id="executing-an-async-function-with-a-runtime"><a class="header" href="#executing-an-async-function-with-a-runtime">使用运行时执行异步函数</a></h3>
 <p data-x-en="To start, we’ll get the title for a single page, shown in Listing 17-3. Unfortunately, this code doesn’t compile yet.">首先，我们将获取单个页面的标题，如清单 17-3 所示。
 不幸的是，这段代码还不能编译。</p>
 <figure class="listing" id="listing-17-3">
@@ -451,7 +451,7 @@ The title for https://www.rust-lang.org was
 <p data-x-en="Now let’s put these pieces together and see how we can write concurrent code.">现在让我们把这些部分放在一起，看看我们如何编写并发代码。</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="racing-our-two-urls-against-each-other"></a></p>
-<h3 id="racing-two-urls-against-each-other-concurrently" data-x-en="Racing Two URLs Against Each Other Concurrently"><a class="header" href="#racing-two-urls-against-each-other-concurrently">并发竞争两个URL</a></h3>
+<h3 id="racing-two-urls-against-each-other-concurrently"><a class="header" href="#racing-two-urls-against-each-other-concurrently">并发竞争两个URL</a></h3>
 <p data-x-en="In Listing 17-5, we call page_title with two different URLs passed in from the command line and race them by selecting whichever future finishes first.">在清单 17-5 中，我们使用从命令行传递的两个不同 URL 调用 <code>page_title</code>，并通过选择最先完成的 future 来进行竞速。</p>
 <figure class="listing" id="listing-17-5">
 <span class="file-name">Filename: src/main.rs</span>

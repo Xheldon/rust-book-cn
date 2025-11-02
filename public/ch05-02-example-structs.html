@@ -369,16 +369,16 @@ fn main() {
 </code></pre>
 <p data-x-en="The println! macro can do many kinds of formatting, and by default, the curly brackets tell println! to use formatting known as Display: output intended for direct end user consumption. The primitive types we’ve seen so far implement Display by default because there’s only one way you’d want to show a 1 or any other primitive type to a user. But with structs, the way println! should format the output is less clear because there are more display possibilities: Do you want commas or not? Do you want to print the curly brackets? Should all the fields be shown? Due to this ambiguity, Rust doesn’t try to guess what we want, and structs don’t have a provided implementation of Display to use with println! and the {} placeholder."><code>println!</code> 宏可以执行多种格式化操作，默认情况下，大括号告诉 <code>println!</code> 使用称为 <code>Display</code> 的格式化：旨在直接供最终用户使用的输出。到目前为止我们看到的原始类型默认实现了 <code>Display</code>，因为只有一种方式可以向用户显示 <code>1</code> 或任何其他原始类型。但是，对于结构体，<code>println!</code> 应该如何格式化输出就不那么明确了，因为有更多的显示可能性：你想要逗号吗？你想要打印大括号吗？所有字段都应该显示吗？由于这种模糊性，Rust 不会试图猜测我们的需求，结构体没有提供与 <code>println!</code> 和 <code>{}</code> 占位符一起使用的 <code>Display</code> 实现。</p>
 <p data-x-en="If we continue reading the errors, we’ll find this helpful note:">如果我们继续阅读错误，我们会发现这个有用的注释：</p>
-<pre><code class="language-text">   = help: the trait `std::fmt::Display` is not implemented for `Rectangle`
-   = note: in format strings you may be able to use `{:?}` (or {:#?} for pretty-print) instead
+<pre><code class="language-text">   |                        |`Rectangle` cannot be formatted with the default formatter
+   |                        required by this formatting parameter
 </code></pre>
 <p data-x-en="Let’s try it! The println! macro call will now look like println!(&quot;rect1 is {rect1:?}&quot;);. Putting the specifier :? inside the curly brackets tells println! we want to use an output format called Debug. The Debug trait enables us to print our struct in a way that is useful for developers so that we can see its value while we’re debugging our code.">让我们试试！<code>println!</code> 宏调用现在将看起来像 <code>println!("rect1 is {rect1:?}");</code>。在大括号内放置说明符 <code>:?</code> 告诉 <code>println!</code> 我们想要使用一种称为 <code>Debug</code> 的输出格式。<code>Debug</code> 特性使我们能够以对开发者有用的方式打印我们的结构体，这样我们可以在调试代码时看到其值。</p>
 <p data-x-en="Compile the code with this change. Drat! We still get an error:">编译带有此更改的代码。哎呀！我们仍然得到一个错误：</p>
 <pre><code class="language-text">error[E0277]: `Rectangle` doesn't implement `Debug`
 </code></pre>
 <p data-x-en="But again, the compiler gives us a helpful note:">但编译器再次给了我们一个有用的提示：</p>
-<pre><code class="language-text">   = help: the trait `Debug` is not implemented for `Rectangle`
-   = note: add `#[derive(Debug)]` to `Rectangle` or manually `impl Debug for Rectangle`
+<pre><code class="language-text">   |                        required by this formatting parameter
+   |
 </code></pre>
 <p data-x-en="Rust does include functionality to print out debugging information, but we have to explicitly opt in to make that functionality available for our struct. To do that, we add the outer attribute #[derive(Debug)] just before the struct definition, as shown in Listing 5-12.">Rust <em>确实</em> 包含了打印调试信息的功能，但我们必须显式地选择启用该功能，以便为我们的结构体提供该功能。为此，我们在结构体定义之前添加外部属性 <code>#[derive(Debug)]</code>，如清单 5-12 所示。</p>
 <figure class="listing" id="listing-5-12">

@@ -186,7 +186,7 @@
                         <h1 id="the-rust-programming-language"><a class="header" href="#the-rust-programming-language">The Rust Programming Language</a></h1>
 <p><em>by Steve Klabnik, Carol Nichols, and Chris Krycho, with contributions from the
 Rust Community</em></p>
-<p>This version of the text assumes you’re using Rust 1.85.0 (released 2025-02-17)
+<p>This version of the text assumes you’re using Rust 1.90.0 (released 2025-09-18)
 or later with <code>edition = "2024"</code> in the <em>Cargo.toml</em> file of all projects to
 configure them to use Rust 2024 Edition idioms. See the <a href="ch01-01-installation.html">“Installation” section
 of Chapter 1</a><!-- ignore --> for instructions on installing or
@@ -1569,7 +1569,7 @@ error[E0308]: mismatched types
    = note: expected reference `&amp;String`
               found reference `&amp;{integer}`
 note: method defined here
-  --&gt; /rustc/4eb161250e340c8f48f66e2b929ef4a5bed7c181/library/core/src/cmp.rs:964:8
+  --&gt; /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/core/src/cmp.rs:979:8
 
 For more information about this error, try `rustc --explain E0308`.
 error: could not compile `guessing_game` (bin "guessing_game") due to 1 previous error
@@ -3599,7 +3599,7 @@ invalidated reference:</p>
 <pre><code class="language-console">$ cargo run
    Compiling ownership v0.1.0 (file:///projects/ownership)
 error[E0382]: borrow of moved value: `s1`
- --&gt; src/main.rs:5:15
+ --&gt; src/main.rs:5:16
   |
 2 |     let s1 = String::from("hello");
   |         -- move occurs because `s1` has type `String`, which does not implement the `Copy` trait
@@ -3607,7 +3607,7 @@ error[E0382]: borrow of moved value: `s1`
   |              -- value moved here
 4 |
 5 |     println!("{s1}, world!");
-  |               ^^^^ value borrowed here after move
+  |                ^^ value borrowed here after move
   |
   = note: this error originates in the macro `$crate::format_args_nl` which comes from the expansion of the macro `println` (in Nightly builds, run with -Z macro-backtrace for more info)
 help: consider cloning the value if the performance cost is acceptable
@@ -3982,7 +3982,7 @@ error[E0499]: cannot borrow `s` as mutable more than once at a time
   |              ^^^^^^ second mutable borrow occurs here
 6 |
 7 |     println!("{r1}, {r2}");
-  |               ---- first borrow later used here
+  |                -- first borrow later used here
 
 For more information about this error, try `rustc --explain E0499`.
 error: could not compile `ownership` (bin "ownership") due to 1 previous error
@@ -4041,7 +4041,7 @@ error[E0502]: cannot borrow `s` as mutable because it is also borrowed as immuta
   |              ^^^^^^ mutable borrow occurs here
 7 |
 8 |     println!("{r1}, {r2}, and {r3}");
-  |               ---- immutable borrow later used here
+  |                -- immutable borrow later used here
 
 For more information about this error, try `rustc --explain E0502`.
 error: could not compile `ownership` (bin "ownership") due to 1 previous error
@@ -4118,15 +4118,8 @@ help: instead, you are more likely to want to return an owned value
 5 + fn dangle() -&gt; String {
   |
 
-error[E0515]: cannot return reference to local variable `s`
- --&gt; src/main.rs:8:5
-  |
-8 |     &amp;s
-  |     ^^ returns a reference to data owned by the current function
-
-Some errors have detailed explanations: E0106, E0515.
-For more information about an error, try `rustc --explain E0106`.
-error: could not compile `ownership` (bin "ownership") due to 2 previous errors
+For more information about this error, try `rustc --explain E0106`.
+error: could not compile `ownership` (bin "ownership") due to 1 previous error
 </code></pre>
 <p>This error message refers to a feature we haven’t covered yet: lifetimes. We’ll
 discuss lifetimes in detail in Chapter 10. But, if you disregard the parts
@@ -4454,7 +4447,7 @@ error[E0502]: cannot borrow `s` as mutable because it is also borrowed as immuta
    |     ^^^^^^^^^ mutable borrow occurs here
 19 |
 20 |     println!("the first word is: {word}");
-   |                                  ------ immutable borrow later used here
+   |                                   ---- immutable borrow later used here
 
 For more information about this error, try `rustc --explain E0502`.
 error: could not compile `ownership` (bin "ownership") due to 1 previous error
@@ -5146,8 +5139,8 @@ curly brackets? Should all the fields be shown? Due to this ambiguity, Rust
 doesn’t try to guess what we want, and structs don’t have a provided
 implementation of <code>Display</code> to use with <code>println!</code> and the <code>{}</code> placeholder.</p>
 <p>If we continue reading the errors, we’ll find this helpful note:</p>
-<pre><code class="language-text">   = help: the trait `std::fmt::Display` is not implemented for `Rectangle`
-   = note: in format strings you may be able to use `{:?}` (or {:#?} for pretty-print) instead
+<pre><code class="language-text">   |                        |`Rectangle` cannot be formatted with the default formatter
+   |                        required by this formatting parameter
 </code></pre>
 <p>Let’s try it! The <code>println!</code> macro call will now look like <code>println!("rect1 is {rect1:?}");</code>. Putting the specifier <code>:?</code> inside the curly brackets tells
 <code>println!</code> we want to use an output format called <code>Debug</code>. The <code>Debug</code> trait
@@ -5157,8 +5150,8 @@ we can see its value while we’re debugging our code.</p>
 <pre><code class="language-text">error[E0277]: `Rectangle` doesn't implement `Debug`
 </code></pre>
 <p>But again, the compiler gives us a helpful note:</p>
-<pre><code class="language-text">   = help: the trait `Debug` is not implemented for `Rectangle`
-   = note: add `#[derive(Debug)]` to `Rectangle` or manually `impl Debug for Rectangle`
+<pre><code class="language-text">   |                        required by this formatting parameter
+   |
 </code></pre>
 <p>Rust <em>does</em> include functionality to print out debugging information, but we
 have to explicitly opt in to make that functionality available for our struct.
@@ -6275,8 +6268,8 @@ error[E0004]: non-exhaustive patterns: `None` not covered
   |               ^ pattern `None` not covered
   |
 note: `Option&lt;i32&gt;` defined here
- --&gt; /rustc/4eb161250e340c8f48f66e2b929ef4a5bed7c181/library/core/src/option.rs:572:1
- ::: /rustc/4eb161250e340c8f48f66e2b929ef4a5bed7c181/library/core/src/option.rs:576:5
+ --&gt; /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/core/src/option.rs:593:1
+ ::: /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/core/src/option.rs:597:5
   |
   = note: not covered
   = note: the matched value is of type `Option&lt;i32&gt;`
@@ -7043,7 +7036,7 @@ error[E0603]: module `hosting` is private
 note: the module `hosting` is defined here
   --&gt; src/lib.rs:2:5
    |
-2  |     mod hosting {
+ 2 |     mod hosting {
    |     ^^^^^^^^^^^
 
 For more information about this error, try `rustc --explain E0603`.
@@ -7106,7 +7099,7 @@ error[E0603]: function `add_to_waitlist` is private
 note: the function `add_to_waitlist` is defined here
   --&gt; src/lib.rs:3:9
    |
-3  |         fn add_to_waitlist() {}
+ 3 |         fn add_to_waitlist() {}
    |         ^^^^^^^^^^^^^^^^^^^^
 
 error[E0603]: function `add_to_waitlist` is private
@@ -7118,7 +7111,7 @@ error[E0603]: function `add_to_waitlist` is private
 note: the function `add_to_waitlist` is defined here
   --&gt; src/lib.rs:3:9
    |
-3  |         fn add_to_waitlist() {}
+ 3 |         fn add_to_waitlist() {}
    |         ^^^^^^^^^^^^^^^^^^^^
 
 For more information about this error, try `rustc --explain E0603`.
@@ -7372,12 +7365,13 @@ mod customer {
 <code>customer</code> module:</p>
 <pre><code class="language-console">$ cargo build
    Compiling restaurant v0.1.0 (file:///projects/restaurant)
-error[E0433]: failed to resolve: use of undeclared crate or module `hosting`
+error[E0433]: failed to resolve: use of unresolved module or unlinked crate `hosting`
   --&gt; src/lib.rs:11:9
    |
 11 |         hosting::add_to_waitlist();
-   |         ^^^^^^^ use of undeclared crate or module `hosting`
+   |         ^^^^^^^ use of unresolved module or unlinked crate `hosting`
    |
+   = help: if you wanted to use a crate named `hosting`, use `cargo add hosting` to add it to your `Cargo.toml`
 help: consider importing this module through its public re-export
    |
 10 +     use crate::hosting;
@@ -7978,7 +7972,7 @@ error[E0502]: cannot borrow `v` as mutable because it is also borrowed as immuta
   |     ^^^^^^^^^ mutable borrow occurs here
 7 |
 8 |     println!("The first element is: {first}");
-  |                                     ------- immutable borrow later used here
+  |                                      ----- immutable borrow later used here
 
 For more information about this error, try `rustc --explain E0502`.
 error: could not compile `collections` (bin "collections") due to 1 previous error
@@ -8316,11 +8310,12 @@ error[E0277]: the type `str` cannot be indexed by `{integer}`
 3 |     let h = s1[0];
   |                ^ string indices are ranges of `usize`
   |
+  = help: the trait `SliceIndex&lt;str&gt;` is not implemented for `{integer}`
   = note: you can use `.chars().nth()` or `.bytes().nth()`
           for more information, see chapter 8 in The Book: &lt;https://doc.rust-lang.org/book/ch08-02-strings.html#indexing-into-strings&gt;
-  = help: the trait `SliceIndex&lt;str&gt;` is not implemented for `{integer}`
-          but trait `SliceIndex&lt;[_]&gt;` is implemented for `usize`
-  = help: for that trait implementation, expected `[_]`, found `str`
+  = help: the following other types implement trait `SliceIndex&lt;T&gt;`:
+            `usize` implements `SliceIndex&lt;ByteStr&gt;`
+            `usize` implements `SliceIndex&lt;[T]&gt;`
   = note: required for `String` to implement `Index&lt;{integer}&gt;`
 
 For more information about this error, try `rustc --explain E0277`.
@@ -9368,7 +9363,6 @@ error[E0277]: the `?` operator can only be used in a function that returns `Resu
 4 |     let greeting_file = File::open("hello.txt")?;
   |                                                ^ cannot use the `?` operator in a function that returns `()`
   |
-  = help: the trait `FromResidual&lt;Result&lt;Infallible, std::io::Error&gt;&gt;` is not implemented for `()`
 help: consider adding return type
   |
 3 ~ fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
@@ -10926,7 +10920,7 @@ error[E0597]: `x` does not live long enough
   |     - `x` dropped here while still borrowed
 8 |
 9 |     println!("r: {r}");
-  |                  --- borrow later used here
+  |                   - borrow later used here
 
 For more information about this error, try `rustc --explain E0597`.
 error: could not compile `chapter10` (bin "chapter10") due to 1 previous error
@@ -11193,7 +11187,7 @@ error[E0597]: `string2` does not live long enough
 7 |     }
   |     - `string2` dropped here while still borrowed
 8 |     println!("The longest string is {result}");
-  |                                     -------- borrow later used here
+  |                                      ------ borrow later used here
 
 For more information about this error, try `rustc --explain E0597`.
 error: could not compile `chapter10` (bin "chapter10") due to 1 previous error
@@ -12429,7 +12423,7 @@ test tests::greater_than_100 - should panic ... FAILED
 failures:
 
 ---- tests::greater_than_100 stdout ----
-note: test did not panic as expected
+note: test did not panic as expected at src/lib.rs:21:8
 
 failures:
     tests::greater_than_100
@@ -12542,8 +12536,8 @@ thread 'tests::greater_than_100' panicked at src/lib.rs:12:13:
 Guess value must be greater than or equal to 1, got 200.
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 note: panic did not contain expected string
-      panic message: `"Guess value must be greater than or equal to 1, got 200."`,
- expected substring: `"less than or equal to 100"`
+      panic message: "Guess value must be greater than or equal to 1, got 200."
+ expected substring: "less than or equal to 100"
 
 failures:
     tests::greater_than_100
@@ -15418,9 +15412,8 @@ error[E0308]: mismatched types
  --&gt; src/main.rs:5:29
   |
 5 |     let n = example_closure(5);
-  |             --------------- ^- help: try using a conversion method: `.to_string()`
-  |             |               |
-  |             |               expected `String`, found integer
+  |             --------------- ^ expected `String`, found integer
+  |             |
   |             arguments to this function are incorrect
   |
 note: expected because the closure was earlier called with an argument of type `String`
@@ -15435,6 +15428,10 @@ note: closure parameter defined here
   |
 2 |     let example_closure = |x| x;
   |                            ^
+help: try using a conversion method
+  |
+5 |     let n = example_closure(5.to_string());
+  |                              ++++++++++++
 
 For more information about this error, try `rustc --explain E0308`.
 error: could not compile `closure-example` (bin "closure-example") due to 1 previous error
@@ -15716,12 +15713,14 @@ error[E0507]: cannot move out of `value`, a captured variable in an `FnMut` clos
   --&gt; src/main.rs:18:30
    |
 15 |     let value = String::from("closure called");
-   |         ----- captured outer variable
+   |         -----   ------------------------------ move occurs because `value` has type `String`, which does not implement the `Copy` trait
+   |         |
+   |         captured outer variable
 16 |
 17 |     list.sort_by_key(|r| {
    |                      --- captured by this `FnMut` closure
 18 |         sort_operations.push(value);
-   |                              ^^^^^ move occurs because `value` has type `String`, which does not implement the `Copy` trait
+   |                              ^^^^^ `value` is moved here
    |
 help: consider cloning the value if the performance cost is acceptable
    |
@@ -17969,7 +17968,7 @@ error[E0614]: type `MyBox&lt;{integer}&gt;` cannot be dereferenced
   --&gt; src/main.rs:14:19
    |
 14 |     assert_eq!(5, *y);
-   |                   ^^
+   |                   ^^ can't be dereferenced
 
 For more information about this error, try `rustc --explain E0614`.
 error: could not compile `deref-example` (bin "deref-example") due to 1 previous error
@@ -18308,8 +18307,9 @@ error[E0040]: explicit use of destructor method
    |
 help: consider using `drop` function
    |
-16 |     drop(c);
-   |     +++++ ~
+16 -     c.drop();
+16 +     drop(c);
+   |
 
 For more information about this error, try `rustc --explain E0040`.
 error: could not compile `drop-example` (bin "drop-example") due to 1 previous error
@@ -18441,12 +18441,21 @@ fn main() {
 error[E0382]: use of moved value: `a`
   --&gt; src/main.rs:11:30
    |
-9  |     let a = Cons(5, Box::new(Cons(10, Box::new(Nil))));
+ 9 |     let a = Cons(5, Box::new(Cons(10, Box::new(Nil))));
    |         - move occurs because `a` has type `List`, which does not implement the `Copy` trait
 10 |     let b = Cons(3, Box::new(a));
    |                              - value moved here
 11 |     let c = Cons(4, Box::new(a));
    |                              ^ value used here after move
+   |
+note: if `List` implemented `Clone`, you could clone the value
+  --&gt; src/main.rs:1:1
+   |
+ 1 | enum List {
+   | ^^^^^^^^^ consider implementing `Clone` for this type
+...
+10 |     let b = Cons(3, Box::new(a));
+   |                              - you could clone this value
 
 For more information about this error, try `rustc --explain E0382`.
 error: could not compile `cons-list` (bin "cons-list") due to 1 previous error
@@ -18857,8 +18866,8 @@ error[E0596]: cannot borrow `self.sent_messages` as mutable, as it is behind a `
    |
 help: consider changing this to be a mutable reference in the `impl` method and the `trait` definition
    |
-2  ~     fn send(&amp;mut self, msg: &amp;str);
-3  | }
+ 2 ~     fn send(&amp;mut self, msg: &amp;str);
+ 3 | }
 ...
 56 |     impl Messenger for MockMessenger {
 57 ~         fn send(&amp;mut self, message: &amp;str) {
@@ -19086,7 +19095,7 @@ failures:
 ---- tests::it_sends_an_over_75_percent_warning_message stdout ----
 
 thread 'tests::it_sends_an_over_75_percent_warning_message' panicked at src/lib.rs:60:53:
-already borrowed: BorrowMutError
+RefCell already borrowed
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 
 
@@ -20003,16 +20012,23 @@ thread. We would get this compiler error instead:</p>
 error[E0382]: use of moved value: `v`
   --&gt; src/main.rs:10:10
    |
-4  |     let v = vec![1, 2, 3];
+ 4 |     let v = vec![1, 2, 3];
    |         - move occurs because `v` has type `Vec&lt;i32&gt;`, which does not implement the `Copy` trait
-5  |
-6  |     let handle = thread::spawn(move || {
+ 5 |
+ 6 |     let handle = thread::spawn(move || {
    |                                ------- value moved into closure here
-7  |         println!("Here's a vector: {v:?}");
+ 7 |         println!("Here's a vector: {v:?}");
    |                                     - variable moved due to use in closure
 ...
 10 |     drop(v); // oh no!
    |          ^ value used here after move
+   |
+help: consider cloning the value before moving it into the closure
+   |
+ 6 ~     let value = v.clone();
+ 7 ~     let handle = thread::spawn(move || {
+ 8 ~         println!("Here's a vector: {value:?}");
+   |
 
 For more information about this error, try `rustc --explain E0382`.
 error: could not compile `threads` (bin "threads") due to 1 previous error
@@ -20194,14 +20210,14 @@ us an error if we try to compile the code in Listing 16-9:</p>
 <pre><code class="language-console">$ cargo run
    Compiling message-passing v0.1.0 (file:///projects/message-passing)
 error[E0382]: borrow of moved value: `val`
-  --&gt; src/main.rs:10:26
+  --&gt; src/main.rs:10:27
    |
-8  |         let val = String::from("hi");
+ 8 |         let val = String::from("hi");
    |             --- move occurs because `val` has type `String`, which does not implement the `Copy` trait
-9  |         tx.send(val).unwrap();
+ 9 |         tx.send(val).unwrap();
    |                 --- value moved here
 10 |         println!("val is {val}");
-   |                          ^^^^^ value borrowed here after move
+   |                           ^^^ value borrowed here after move
    |
    = note: this error originates in the macro `$crate::format_args_nl` which comes from the expansion of the macro `println` (in Nightly builds, run with -Z macro-backtrace for more info)
 
@@ -20482,12 +20498,12 @@ program.</p>
 error[E0382]: borrow of moved value: `counter`
   --&gt; src/main.rs:21:29
    |
-5  |     let counter = Mutex::new(0);
-   |         ------- move occurs because `counter` has type `Mutex&lt;i32&gt;`, which does not implement the `Copy` trait
+ 5 |     let counter = Mutex::new(0);
+   |         ------- move occurs because `counter` has type `std::sync::Mutex&lt;i32&gt;`, which does not implement the `Copy` trait
 ...
-8  |     for _ in 0..10 {
+ 8 |     for _ in 0..10 {
    |     -------------- inside of this loop
-9  |         let handle = thread::spawn(move || {
+ 9 |         let handle = thread::spawn(move || {
    |                                    ------- value moved into closure here, in previous iteration of loop
 ...
 21 |     println!("Result: {}", *counter.lock().unwrap());
@@ -20495,8 +20511,8 @@ error[E0382]: borrow of moved value: `counter`
    |
 help: consider moving the expression out of the loop so it is only moved once
    |
-8  ~     let mut value = counter.lock();
-9  ~     for _ in 0..10 {
+ 8 ~     let mut value = counter.lock();
+ 9 ~     for _ in 0..10 {
 10 |         let handle = thread::spawn(move || {
 11 ~             let mut num = value.unwrap();
    |
@@ -20545,7 +20561,7 @@ fn main() {
 a lot:</p>
 <pre><code class="language-console">$ cargo run
    Compiling shared-state v0.1.0 (file:///projects/shared-state)
-error[E0277]: `Rc&lt;Mutex&lt;i32&gt;&gt;` cannot be sent between threads safely
+error[E0277]: `Rc&lt;std::sync::Mutex&lt;i32&gt;&gt;` cannot be sent between threads safely
   --&gt; src/main.rs:11:36
    |
 11 |           let handle = thread::spawn(move || {
@@ -20558,16 +20574,16 @@ error[E0277]: `Rc&lt;Mutex&lt;i32&gt;&gt;` cannot be sent between threads safely
 13 | |
 14 | |             *num += 1;
 15 | |         });
-   | |_________^ `Rc&lt;Mutex&lt;i32&gt;&gt;` cannot be sent between threads safely
+   | |_________^ `Rc&lt;std::sync::Mutex&lt;i32&gt;&gt;` cannot be sent between threads safely
    |
-   = help: within `{closure@src/main.rs:11:36: 11:43}`, the trait `Send` is not implemented for `Rc&lt;Mutex&lt;i32&gt;&gt;`
+   = help: within `{closure@src/main.rs:11:36: 11:43}`, the trait `Send` is not implemented for `Rc&lt;std::sync::Mutex&lt;i32&gt;&gt;`
 note: required because it's used within this closure
   --&gt; src/main.rs:11:36
    |
 11 |         let handle = thread::spawn(move || {
    |                                    ^^^^^^^
 note: required by a bound in `spawn`
-  --&gt; /rustc/4eb161250e340c8f48f66e2b929ef4a5bed7c181/library/std/src/thread/mod.rs:728:1
+  --&gt; /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/thread/mod.rs:723:1
 
 For more information about this error, try `rustc --explain E0277`.
 error: could not compile `shared-state` (bin "shared-state") due to 1 previous error
@@ -26503,7 +26519,7 @@ implementation of <code>Animal::baby_name</code> we want. We’ll get this compi
 error[E0790]: cannot call associated function on trait without specifying the corresponding `impl` type
   --&gt; src/main.rs:20:43
    |
-2  |     fn baby_name() -&gt; String;
+ 2 |     fn baby_name() -&gt; String;
    |     ------------------------- `Animal::baby_name` defined here
 ...
 20 |     println!("A baby dog is called a {}", Animal::baby_name());
@@ -26654,30 +26670,26 @@ error[E0277]: `Point` doesn't implement `std::fmt::Display`
   --&gt; src/main.rs:20:23
    |
 20 | impl OutlinePrint for Point {}
-   |                       ^^^^^ `Point` cannot be formatted with the default formatter
+   |                       ^^^^^ the trait `std::fmt::Display` is not implemented for `Point`
    |
-   = help: the trait `std::fmt::Display` is not implemented for `Point`
-   = note: in format strings you may be able to use `{:?}` (or {:#?} for pretty-print) instead
 note: required by a bound in `OutlinePrint`
   --&gt; src/main.rs:3:21
    |
-3  | trait OutlinePrint: fmt::Display {
+ 3 | trait OutlinePrint: fmt::Display {
    |                     ^^^^^^^^^^^^ required by this bound in `OutlinePrint`
 
 error[E0277]: `Point` doesn't implement `std::fmt::Display`
   --&gt; src/main.rs:24:7
    |
 24 |     p.outline_print();
-   |       ^^^^^^^^^^^^^ `Point` cannot be formatted with the default formatter
+   |       ^^^^^^^^^^^^^ the trait `std::fmt::Display` is not implemented for `Point`
    |
-   = help: the trait `std::fmt::Display` is not implemented for `Point`
-   = note: in format strings you may be able to use `{:?}` (or {:#?} for pretty-print) instead
 note: required by a bound in `OutlinePrint::outline_print`
   --&gt; src/main.rs:3:21
    |
-3  | trait OutlinePrint: fmt::Display {
+ 3 | trait OutlinePrint: fmt::Display {
    |                     ^^^^^^^^^^^^ required by this bound in `OutlinePrint::outline_print`
-4  |     fn outline_print(&amp;self) {
+ 4 |     fn outline_print(&amp;self) {
    |        ------------- required by a bound in this associated function
 
 For more information about this error, try `rustc --explain E0277`.
@@ -27273,17 +27285,17 @@ compile this, Rust lets us know that it won’t work:</p>
 error[E0308]: mismatched types
   --&gt; src/main.rs:2:44
    |
-2  |     let handlers = vec![returns_closure(), returns_initialized_closure(123)];
+ 2 |     let handlers = vec![returns_closure(), returns_initialized_closure(123)];
    |                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ expected opaque type, found a different opaque type
 ...
-9  | fn returns_closure() -&gt; impl Fn(i32) -&gt; i32 {
+ 9 | fn returns_closure() -&gt; impl Fn(i32) -&gt; i32 {
    |                         ------------------- the expected opaque type
 ...
 13 | fn returns_initialized_closure(init: i32) -&gt; impl Fn(i32) -&gt; i32 {
    |                                              ------------------- the found opaque type
    |
-   = note: expected opaque type `impl Fn(i32) -&gt; i32` (opaque type at &lt;src/main.rs:9:25&gt;)
-              found opaque type `impl Fn(i32) -&gt; i32` (opaque type at &lt;src/main.rs:13:46&gt;)
+   = note: expected opaque type `impl Fn(i32) -&gt; i32`
+              found opaque type `impl Fn(i32) -&gt; i32`
    = note: distinct uses of `impl Trait` result in different opaque types
 
 For more information about this error, try `rustc --explain E0308`.
@@ -29796,7 +29808,7 @@ error[E0507]: cannot move out of `worker.thread` which is behind a mutable refer
    |             move occurs because `worker.thread` has type `JoinHandle&lt;()&gt;`, which does not implement the `Copy` trait
    |
 note: `JoinHandle::&lt;T&gt;::join` takes ownership of the receiver `self`, which moves `worker.thread`
-  --&gt; /rustc/4eb161250e340c8f48f66e2b929ef4a5bed7c181/library/std/src/thread/mod.rs:1876:17
+  --&gt; /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/thread/mod.rs:1921:17
 
 For more information about this error, try `rustc --explain E0507`.
 error: could not compile `hello` (lib) due to 1 previous error

@@ -42,5 +42,9 @@
   "This version of the text assumes you’re using Rust 1.85.0 (released 2025-02-17) or later with edition = \"2024\" in the Cargo.toml file of all projects to configure them to use Rust 2024 Edition idioms. See the “Installation” section of Chapter 1 for instructions on installing or updating Rust, and see Appendix E for information on editions.": {
     "_translate": "此版本的文本假设您使用的是 Rust 1.85.0（发布于 2025-02-17）或更高版本，并在所有项目的 <em>Cargo.toml</em> 文件中使用 <code>edition = \"2024\"</code> 配置它们以使用 Rust 2024 版本的惯用法。有关安装或更新 Rust 的说明，请参见 <a href=\"ch01-01-installation.html\">第 1 章的“安装”部分</a><!-- ignore -->，有关版本的信息，请参见 <a href=\"appendix-05-editions.html\">附录 E</a><!-- ignore -->。",
     "_note": ""
+  },
+  "This version of the text assumes you’re using Rust 1.90.0 (released 2025-09-18) or later with edition = \"2024\" in the Cargo.toml file of all projects to configure them to use Rust 2024 Edition idioms. See the “Installation” section of Chapter 1 for instructions on installing or updating Rust, and see Appendix E for information on editions.": {
+    "_translate": "此版本的文本假设您使用的是 Rust 1.90.0（发布于 2025-09-18）或更高版本，并在所有项目的 <em>Cargo.toml</em> 文件中使用 <code>edition = \"2024\"</code> 来配置它们以使用 Rust 2024 版本的惯用法。有关安装或更新 Rust 的说明，请参见第 1 章的<a href=\"ch01-01-installation.html\">“安装”部分</a><!-- ignore -->，有关版本的信息，请参见<a href=\"appendix-05-editions.html\">附录 E</a><!-- ignore -->。",
+    "_note": ""
   }
 }
