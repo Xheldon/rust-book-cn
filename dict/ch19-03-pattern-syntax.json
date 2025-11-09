@@ -586,5 +586,9 @@
   "Rust’s patterns are very useful in distinguishing between different kinds of data. When used in match expressions, Rust ensures that your patterns cover every possible value, or your program won’t compile. Patterns in let statements and function parameters make those constructs more useful, enabling the destructuring of values into smaller parts and assigning those parts to variables. We can create simple or complex patterns to suit our needs.": {
     "_translate": "Rust 的模式非常有用，可以区分不同类型的数据。当在 <code>match</code> 表达式中使用时，Rust 确保您的模式覆盖了所有可能的值，否则程序将无法编译。在 <code>let</code> 语句和函数参数中的模式使这些构造更加有用，能够将值解构为更小的部分，并将这些部分分配给变量。我们可以创建简单或复杂的模式以满足我们的需求。",
     "_note": ""
+  },
+  "Remember that a match expression stops checking arms once it has found the first matching pattern, so even though Point { x: 0, y: 0 } is on the x axis and the y axis, this code would only print On the x axis at 0.": {
+    "_translate": "记住，<code>match</code> 表达式在找到第一个匹配的模式后就会停止检查其他分支，因此即使 <code>Point { x: 0, y: 0 }</code> 位于 <code>x</code> 轴和 <code>y</code> 轴上，这段代码也只会打印 <code>On the x axis at 0</code>。",
+    "_note": ""
   }
 }

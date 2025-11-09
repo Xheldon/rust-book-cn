@@ -1366,7 +1366,7 @@ which will ignore the <em>Cargo.lock</em> file and figure out all the latest ver
 that fit your specifications in <em>Cargo.toml</em>. Cargo will then write those
 versions to the <em>Cargo.lock</em> file. Otherwise, by default, Cargo will only look
 for versions greater than 0.8.5 and less than 0.9.0. If the <code>rand</code> crate has
-released the two new versions 0.8.6 and 0.9.0, you would see the following if
+released the two new versions 0.8.6 and 0.999.0, you would see the following if
 you ran <code>cargo update</code>:</p>
 <!-- manual-regeneration
 cd listings/ch02-guessing-game-tutorial/listing-02-02/
@@ -1376,14 +1376,16 @@ as a guide to creating the hypothetical output shown here -->
 <pre><code class="language-console">$ cargo update
     Updating crates.io index
      Locking 1 package to latest Rust 1.85.0 compatible version
-    Updating rand v0.8.5 -&gt; v0.8.6 (available: v0.9.0)
+    Updating rand v0.8.5 -&gt; v0.8.6 (available: v0.999.0)
 </code></pre>
-<p>Cargo ignores the 0.9.0 release. At this point, you would also notice a change
-in your <em>Cargo.lock</em> file noting that the version of the <code>rand</code> crate you are
-now using is 0.8.6. To use <code>rand</code> version 0.9.0 or any version in the 0.9.<em>x</em>
-series, you’d have to update the <em>Cargo.toml</em> file to look like this instead:</p>
+<p>Cargo ignores the 0.999.0 release. At this point, you would also notice a
+change in your <em>Cargo.lock</em> file noting that the version of the <code>rand</code> crate
+you are now using is 0.8.6. To use <code>rand</code> version 0.999.0 or any version in the
+0.999.<em>x</em> series, you’d have to update the <em>Cargo.toml</em> file to look like this
+instead (don’t actually make this change because the following examples assume
+you’re using <code>rand</code> 0.8):</p>
 <pre><code class="language-toml">[dependencies]
-rand = "0.9.0"
+rand = "0.999.0"
 </code></pre>
 <p>The next time you run <code>cargo build</code>, Cargo will update the registry of crates
 available and reevaluate your <code>rand</code> requirements according to the new version
@@ -21929,7 +21931,7 @@ a pair of futures.</p>
 </span><span class="boring">    thread::sleep(Duration::from_millis(ms));
 </span><span class="boring">    println!("'{name}' ran for {ms}ms");
 </span><span class="boring">}</span></code></pre></pre>
-<figcaption><a href="ch17-03-more-futures.html#listing-17-15">Listing 17-15</a>: Calling <code>slow</code> to simulate running slow operations</figcaption>
+<figcaption><a href="ch17-03-more-futures.html#listing-17-15">Listing 17-15</a>: Calling the <code>slow</code> function to simulate slow operations</figcaption>
 </figure>
 <p>Each future hands control back to the runtime only <em>after</em> carrying out a bunch
 of slow operations. If you run this code, you will see this output:</p>
@@ -24723,9 +24725,9 @@ error: could not compile `patterns` (bin "patterns") due to 1 previous error
 pattern <code>Some(x)</code>, Rust rightfully produces a compiler error.</p>
 <p>If we have a refutable pattern where an irrefutable pattern is needed, we can
 fix it by changing the code that uses the pattern: Instead of using <code>let</code>, we
-can use <code>let else</code>. Then, if the pattern doesn’t match, the code will just skip
-the code in the curly brackets, giving it a way to continue validly. Listing
-19-9 shows how to fix the code in Listing 19-8.</p>
+can use <code>let else</code>. Then, if the pattern doesn’t match, the code in the curly
+brackets will handle the value. Listing 19-9 shows how to fix the code in
+Listing 19-8.</p>
 <figure class="listing" id="listing-19-9">
 <pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span><span class="boring">    let some_option_value: Option&lt;i32&gt; = None;
@@ -24980,7 +24982,7 @@ matches any other <code>Point</code> and creates variables for both the <code>x<
 <p>In this example, the value <code>p</code> matches the second arm by virtue of <code>x</code>
 containing a <code>0</code>, so this code will print <code>On the y axis at 7</code>.</p>
 <p>Remember that a <code>match</code> expression stops checking arms once it has found the
-first matching pattern, so even though <code>Point { x: 0, y: 0}</code> is on the <code>x</code> axis
+first matching pattern, so even though <code>Point { x: 0, y: 0 }</code> is on the <code>x</code> axis
 and the <code>y</code> axis, this code would only print <code>On the x axis at 0</code>.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="destructuring-enums"></a></p>

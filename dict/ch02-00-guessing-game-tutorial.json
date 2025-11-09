@@ -590,5 +590,13 @@
   "If parse is not able to turn the string into a number, it will return an Err value that contains more information about the error. The Err value does not match the Ok(num) pattern in the first match arm, but it does match the Err(_) pattern in the second arm. The underscore, _, is a catch-all value; in this example, we’re saying we want to match all Err values, no matter what information they have inside them. So, the program will execute the second arm’s code, continue, which tells the program to go to the next iteration of the loop and ask for another guess. So, effectively, the program ignores all errors that parse might encounter!": {
     "_translate": "如果 <code>parse</code> 无法将字符串转换为数字，它将返回一个包含更多错误信息的 <code>Err</code> 值。<code>Err</code> 值不匹配第一个 <code>match</code> 分支中的 <code>Ok(num)</code> 模式，但确实匹配第二个分支中的 <code>Err(_)</code> 模式。下划线 <code>_</code> 是一个通配符值；在这个例子中，我们表示我们希望匹配所有 <code>Err</code> 值，无论它们内部包含什么信息。因此，程序将执行第二个分支的代码 <code>continue</code>，这告诉程序跳到 <code>loop</code> 的下一次迭代并请求另一个猜测。因此，程序实际上忽略了 <code>parse</code> 可能遇到的所有错误！",
     "_note": ""
+  },
+  "Cargo ignores the 0.999.0 release. At this point, you would also notice a change in your Cargo.lock file noting that the version of the rand crate you are now using is 0.8.6. To use rand version 0.999.0 or any version in the 0.999.x series, you’d have to update the Cargo.toml file to look like this instead (don’t actually make this change because the following examples assume you’re using rand 0.8):": {
+    "_translate": "Cargo 忽略 0.999.0 版本。此时，您还会注意到 <em>Cargo.lock</em> 文件中的变化，指出您现在使用的 <code>rand</code> crate 版本是 0.8.6。要使用 <code>rand</code> 版本 0.999.0 或 0.999.<em>x</em> 系列中的任何版本，您需要更新 <em>Cargo.toml</em> 文件，使其看起来像这样（不要实际进行此更改，因为以下示例假设您使用的是 <code>rand</code> 0.8）：",
+    "_note": ""
+  },
+  "When you do want to update a crate, Cargo provides the command update, which will ignore the Cargo.lock file and figure out all the latest versions that fit your specifications in Cargo.toml. Cargo will then write those versions to the Cargo.lock file. Otherwise, by default, Cargo will only look for versions greater than 0.8.5 and less than 0.9.0. If the rand crate has released the two new versions 0.8.6 and 0.999.0, you would see the following if you ran cargo update:": {
+    "_translate": "当你<em>确实</em>想要更新一个 crate 时，Cargo 提供了 <code>update</code> 命令，\n该命令将忽略 <em>Cargo.lock</em> 文件并找出 <em>Cargo.toml</em> 中符合你指定的所有最新版本。Cargo 然后会将这些\n版本写入 <em>Cargo.lock</em> 文件。否则，默认情况下，Cargo 只会查找大于 0.8.5 且小于 0.9.0 的版本。如果 <code>rand</code> crate\n发布了两个新版本 0.8.6 和 0.999.0，如果你运行 <code>cargo update</code>，你会看到以下内容：",
+    "_note": ""
   }
 }
