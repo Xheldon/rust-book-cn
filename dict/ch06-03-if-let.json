@@ -162,5 +162,13 @@
   "Your Rust programs can now express concepts in your domain using structs and enums. Creating custom types to use in your API ensures type safety: The compiler will make certain your functions only get values of the type each function expects.": {
     "_translate": "您的 Rust 程序现在可以使用结构体和枚举来表达领域中的概念。创建自定义类型以在您的 API 中使用可以确保类型安全：编译器将确保您的函数只接收每个函数期望的类型的值。",
     "_note": ""
+  },
+  "Concise Control Flow with if let and let...else - The Rust Programming Language": {
+    "_translate": "使用 if let 和 let...else 实现简洁的控制流 - 《Rust 编程语言》",
+    "_note": ""
+  },
+  "Concise Control Flow with if let and let...else": {
+    "_translate": "<a class=\"header\" href=\"#concise-control-flow-with-if-let-and-letelse\">使用 <code>if let</code> 和 <code>let...else</code> 实现简洁的控制流</a>",
+    "_note": ""
   }
 }

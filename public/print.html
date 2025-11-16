@@ -6366,7 +6366,7 @@ code in this case.</p>
 19</a><!-- ignore -->. For now, we’re going to move on to the
 <code>if let</code> syntax, which can be useful in situations where the <code>match</code> expression
 is a bit wordy.</p>
-<div style="break-before: page; page-break-before: always;"></div><h2 id="concise-control-flow-with-if-let-and-let-else"><a class="header" href="#concise-control-flow-with-if-let-and-let-else">Concise Control Flow with <code>if let</code> and <code>let else</code></a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="concise-control-flow-with-if-let-and-letelse"><a class="header" href="#concise-control-flow-with-if-let-and-letelse">Concise Control Flow with <code>if let</code> and <code>let...else</code></a></h2>
 <p>The <code>if let</code> syntax lets you combine <code>if</code> and <code>let</code> into a less verbose way to
 handle values that match one pattern while ignoring the rest. Consider the
 program in Listing 6-6 that matches on an <code>Option&lt;u8&gt;</code> value in the
@@ -21624,7 +21624,7 @@ until we determine that there are no more messages.</p>
 synchronous channel. Rust doesn’t yet have a way to use a <code>for</code> loop with an
 <em>asynchronously produced</em> series of items, however, so we need to use a loop we
 haven’t seen before: the <code>while let</code> conditional loop. This is the loop version
-of the <code>if let</code> construct we saw back in the <a href="ch06-03-if-let.html">“Concise Control Flow with <code>if let</code> and <code>let else</code>”</a><!-- ignore --> section in Chapter 6. The loop
+of the <code>if let</code> construct we saw back in the <a href="ch06-03-if-let.html">“Concise Control Flow with <code>if let</code> and <code>let...else</code>”</a><!-- ignore --> section in Chapter 6. The loop
 will continue executing as long as the pattern it specifies continues to match
 the value.</p>
 <p>The <code>rx.recv</code> call produces a future, which we await. The runtime will pause
@@ -24725,7 +24725,7 @@ error: could not compile `patterns` (bin "patterns") due to 1 previous error
 pattern <code>Some(x)</code>, Rust rightfully produces a compiler error.</p>
 <p>If we have a refutable pattern where an irrefutable pattern is needed, we can
 fix it by changing the code that uses the pattern: Instead of using <code>let</code>, we
-can use <code>let else</code>. Then, if the pattern doesn’t match, the code in the curly
+can use <code>let...else</code>. Then, if the pattern doesn’t match, the code in the curly
 brackets will handle the value. Listing 19-9 shows how to fix the code in
 Listing 19-8.</p>
 <figure class="listing" id="listing-19-9">

@@ -94,5 +94,9 @@
   "If we have a refutable pattern where an irrefutable pattern is needed, we can fix it by changing the code that uses the pattern: Instead of using let, we can use let else. Then, if the pattern doesn’t match, the code in the curly brackets will handle the value. Listing 19-9 shows how to fix the code in Listing 19-8.": {
     "_translate": "如果我们有一个在需要不可反驳模式的地方使用的可反驳模式，我们可以通过更改使用该模式的代码来修复：我们可以使用 <code>let else</code> 而不是 <code>let</code>。然后，如果模式不匹配，大括号中的代码将处理该值。列表 19-9 显示了如何修复列表 19-8 中的代码。",
     "_note": ""
+  },
+  "If we have a refutable pattern where an irrefutable pattern is needed, we can fix it by changing the code that uses the pattern: Instead of using let, we can use let...else. Then, if the pattern doesn’t match, the code in the curly brackets will handle the value. Listing 19-9 shows how to fix the code in Listing 19-8.": {
+    "_translate": "如果我们有一个需要不可反驳模式的地方却使用了可反驳模式，我们可以通过更改使用该模式的代码来修复：我们可以使用 <code>let...else</code> 而不是 <code>let</code>。然后，如果模式不匹配，大括号中的代码将处理该值。清单 19-9 显示了如何修复清单 19-8 中的代码。",
+    "_note": ""
   }
 }

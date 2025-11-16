@@ -470,5 +470,9 @@
   "We’ve explored how to use message passing to send data between futures, how code within an async block runs sequentially, how to move ownership into an async block, and how to join multiple futures. Next, let’s discuss how and why to tell the runtime it can switch to another task.": {
     "_translate": "我们已经探讨了如何使用消息传递在 futures 之间发送数据，async 块内的代码如何按顺序运行，如何将所有权移动到 async 块中，以及如何合并多个 futures。接下来，让我们讨论如何以及为什么告诉运行时它可以切换到另一个任务。",
     "_note": ""
+  },
+  "In Listing 16-10, we used a for loop to process all the items received from a synchronous channel. Rust doesn’t yet have a way to use a for loop with an asynchronously produced series of items, however, so we need to use a loop we haven’t seen before: the while let conditional loop. This is the loop version of the if let construct we saw back in the “Concise Control Flow with if let and let...else” section in Chapter 6. The loop will continue executing as long as the pattern it specifies continues to match the value.": {
+    "_translate": "在清单 16-10 中，我们使用了一个 <code>for</code> 循环来处理从同步通道接收到的所有项。然而，Rust 尚未提供一种使用 <code>for</code> 循环处理 <em>异步生成</em> 的一系列项的方法，因此我们需要使用一个我们之前未见过的循环：<code>while let</code> 条件循环。这是我们在第 6 章 <a href=\"ch06-03-if-let.html\">“使用 <code>if let</code> 和 <code>let...else</code> 简化控制流”</a><!-- ignore --> 部分中看到的 <code>if let</code> 构造的循环版本。只要循环指定的模式继续与值匹配，循环就会继续执行。",
+    "_note": ""
   }
 }
