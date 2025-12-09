@@ -62,8 +62,8 @@ jobs:
         if: env.new_commits == 'true'
         run: |
           cd book_src
-          cargo install mdbook --locked --force
-          cargo install --locked --path packages/mdbook-trpl
+          cargo install mdbook --locked --force --version 0.4.52
+          cargo install --locked --path packages/mdbook-trpl --force
           mdbook build
 
       - name: 构建中文翻译
