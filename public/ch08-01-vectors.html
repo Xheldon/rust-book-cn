@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch08-01-vectors.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,81 +212,107 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
-                        <h2 id="storing-lists-of-values-with-vectors"><a class="header" href="#storing-lists-of-values-with-vectors">使用向量存储值列表</a></h2>
-<p data-x-en="The first collection type we’ll look at is Vec<T>, also known as a vector. Vectors allow you to store more than one value in a single data structure that puts all the values next to each other in memory. Vectors can only store values of the same type. They are useful when you have a list of items, such as the lines of text in a file or the prices of items in a shopping cart.">我们将首先研究的集合类型是<code>Vec&lt;T&gt;</code>，也称为<em>向量</em>。
-向量允许您在一个数据结构中存储多个值，这些值在内存中是相邻存储的。向量只能存储相同类型的值。当您有一系列项目时，例如文件中的文本行或购物车中商品的价格，向量非常有用。</p>
-<h3 id="creating-a-new-vector"><a class="header" href="#creating-a-new-vector">创建新向量</a></h3>
-<p data-x-en="To create a new, empty vector, we call the Vec::new function, as shown in Listing 8-1.">要创建一个新的空向量，我们调用 <code>Vec::new</code> 函数，如清单 8-1 所示。</p>
+                        <h2 id="storing-lists-of-values-with-vectors"><a class="header" href="#storing-lists-of-values-with-vectors">Storing Lists of Values with Vectors</a></h2>
+<p>The first collection type we’ll look at is <code>Vec&lt;T&gt;</code>, also known as a vector.
+Vectors allow you to store more than one value in a single data structure that
+puts all the values next to each other in memory. Vectors can only store values
+of the same type. They are useful when you have a list of items, such as the
+lines of text in a file or the prices of items in a shopping cart.</p>
+<h3 id="creating-a-new-vector"><a class="header" href="#creating-a-new-vector">Creating a New Vector</a></h3>
+<p>To create a new, empty vector, we call the <code>Vec::new</code> function, as shown in
+Listing 8-1.</p>
 <figure class="listing" id="listing-8-1">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let v: Vec&lt;i32&gt; = Vec::new();
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-8-1">Listing 8-1</a>: Creating a new, empty vector to hold values of type <code>i32</code></figcaption>
 </figure>
-<p data-x-en="Note that we added a type annotation here. Because we aren’t inserting any values into this vector, Rust doesn’t know what kind of elements we intend to store. This is an important point. Vectors are implemented using generics; we’ll cover how to use generics with your own types in Chapter 10. For now, know that the Vec<T> type provided by the standard library can hold any type. When we create a vector to hold a specific type, we can specify the type within angle brackets. In Listing 8-1, we’ve told Rust that the Vec<T> in v will hold elements of the i32 type.">请注意，我们在这里添加了一个类型注解。因为我们没有向这个向量中插入任何值，Rust 不知道我们打算存储什么类型的元素。这是一个重要的点。向量是使用泛型实现的；我们将在第 10 章中介绍如何在你自己的类型中使用泛型。目前，要知道标准库提供的 <code>Vec&lt;T&gt;</code> 类型可以持有任何类型。当我们创建一个用于存储特定类型的向量时，我们可以在尖括号内指定类型。在清单 8-1 中，我们告诉 Rust <code>Vec&lt;T&gt;</code> 中的 <code>v</code> 将持有 <code>i32</code> 类型的元素。</p>
-<p data-x-en="More often, you’ll create a Vec<T> with initial values, and Rust will infer the type of value you want to store, so you rarely need to do this type annotation. Rust conveniently provides the vec! macro, which will create a new vector that holds the values you give it. Listing 8-2 creates a new Vec<i32> that holds the values 1, 2, and 3. The integer type is i32 because that’s the default integer type, as we discussed in the “Data Types” section of Chapter 3.">更常见的是，您会使用初始值创建一个<code>Vec&lt;T&gt;</code>，而 Rust 会推断您想要存储的值的类型，因此您很少需要进行这种类型注解。Rust 方便地提供了 <code>vec!</code> 宏，它将创建一个持有您给定值的新向量。列表 8-2 创建了一个持有值 <code>1</code>、<code>2</code> 和 <code>3</code> 的新 <code>Vec&lt;i32&gt;</code>。整数类型是 <code>i32</code>，因为这是默认的整数类型，正如我们在第 3 章的 <a href="ch03-02-data-types.html#data-types">“数据类型”</a><!-- ignore --> 部分讨论的那样。</p>
+<p>Note that we added a type annotation here. Because we aren’t inserting any
+values into this vector, Rust doesn’t know what kind of elements we intend to
+store. This is an important point. Vectors are implemented using generics;
+we’ll cover how to use generics with your own types in Chapter 10. For now,
+know that the <code>Vec&lt;T&gt;</code> type provided by the standard library can hold any type.
+When we create a vector to hold a specific type, we can specify the type within
+angle brackets. In Listing 8-1, we’ve told Rust that the <code>Vec&lt;T&gt;</code> in <code>v</code> will
+hold elements of the <code>i32</code> type.</p>
+<p>More often, you’ll create a <code>Vec&lt;T&gt;</code> with initial values, and Rust will infer
+the type of value you want to store, so you rarely need to do this type
+annotation. Rust conveniently provides the <code>vec!</code> macro, which will create a
+new vector that holds the values you give it. Listing 8-2 creates a new
+<code>Vec&lt;i32&gt;</code> that holds the values <code>1</code>, <code>2</code>, and <code>3</code>. The integer type is <code>i32</code>
+because that’s the default integer type, as we discussed in the <a href="ch03-02-data-types.html#data-types">“Data
+Types”</a><!-- ignore --> section of Chapter 3.</p>
 <figure class="listing" id="listing-8-2">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let v = vec![1, 2, 3];
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-8-2">Listing 8-2</a>: Creating a new vector containing values</figcaption>
 </figure>
-<p data-x-en="Because we’ve given initial i32 values, Rust can infer that the type of v is Vec<i32>, and the type annotation isn’t necessary. Next, we’ll look at how to modify a vector.">因为已经给出了初始 <code>i32</code> 值，Rust 可以推断出 <code>v</code> 的类型为 <code>Vec&lt;i32&gt;</code>，因此类型注解不是必需的。接下来，我们将看看如何修改向量。</p>
-<h3 id="updating-a-vector"><a class="header" href="#updating-a-vector">更新向量</a></h3>
-<p data-x-en="To create a vector and then add elements to it, we can use the push method, as shown in Listing 8-3.">要创建一个向量并添加元素，我们可以使用 <code>push</code> 方法，如清单 8-3 所示。</p>
+<p>Because we’ve given initial <code>i32</code> values, Rust can infer that the type of <code>v</code>
+is <code>Vec&lt;i32&gt;</code>, and the type annotation isn’t necessary. Next, we’ll look at how
+to modify a vector.</p>
+<h3 id="updating-a-vector"><a class="header" href="#updating-a-vector">Updating a Vector</a></h3>
+<p>To create a vector and then add elements to it, we can use the <code>push</code> method,
+as shown in Listing 8-3.</p>
 <figure class="listing" id="listing-8-3">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let mut v = Vec::new();
 
     v.push(5);
     v.push(6);
     v.push(7);
     v.push(8);
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-8-3">Listing 8-3</a>: Using the <code>push</code> method to add values to a vector</figcaption>
 </figure>
-<p data-x-en="As with any variable, if we want to be able to change its value, we need to make it mutable using the mut keyword, as discussed in Chapter 3. The numbers we place inside are all of type i32, and Rust infers this from the data, so we don’t need the Vec<i32> annotation.">与任何变量一样，如果我们要能够更改其值，需要使用 <code>mut</code> 关键字使其可变，如第 3 章所述。我们放入的数字都是 <code>i32</code> 类型，Rust 会从数据中推断这一点，因此我们不需要 <code>Vec&lt;i32&gt;</code> 注解。</p>
-<h3 id="reading-elements-of-vectors"><a class="header" href="#reading-elements-of-vectors">读取向量的元素</a></h3>
-<p data-x-en="There are two ways to reference a value stored in a vector: via indexing or by using the get method. In the following examples, we’ve annotated the types of the values that are returned from these functions for extra clarity.">有两种方法可以引用存储在向量中的值：通过索引或使用 <code>get</code> 方法。在以下示例中，我们为这些函数返回的值的类型添加了注释，以增加清晰度。</p>
-<p data-x-en="Listing 8-4 shows both methods of accessing a value in a vector, with indexing syntax and the get method.">列表 8-4 显示了访问向量中值的两种方法，使用索引语法和 <code>get</code> 方法。</p>
+<p>As with any variable, if we want to be able to change its value, we need to
+make it mutable using the <code>mut</code> keyword, as discussed in Chapter 3. The numbers
+we place inside are all of type <code>i32</code>, and Rust infers this from the data, so
+we don’t need the <code>Vec&lt;i32&gt;</code> annotation.</p>
+<h3 id="reading-elements-of-vectors"><a class="header" href="#reading-elements-of-vectors">Reading Elements of Vectors</a></h3>
+<p>There are two ways to reference a value stored in a vector: via indexing or by
+using the <code>get</code> method. In the following examples, we’ve annotated the types of
+the values that are returned from these functions for extra clarity.</p>
+<p>Listing 8-4 shows both methods of accessing a value in a vector, with indexing
+syntax and the <code>get</code> method.</p>
 <figure class="listing" id="listing-8-4">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let v = vec![1, 2, 3, 4, 5];
 
     let third: &amp;i32 = &amp;v[2];
@@ -298,25 +323,50 @@ blockquote {
         Some(third) =&gt; println!("The third element is {third}"),
         None =&gt; println!("There is no third element."),
     }
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-8-4">Listing 8-4</a>: Using indexing syntax and using the <code>get</code> method to access an item in a vector</figcaption>
 </figure>
-<p data-x-en="Note a few details here. We use the index value of 2 to get the third element because vectors are indexed by number, starting at zero. Using &amp; and [] gives us a reference to the element at the index value. When we use the get method with the index passed as an argument, we get an Option<&amp;T> that we can use with match.">注意这里的一些细节。我们使用索引值 <code>2</code> 来获取第三个元素，因为向量的索引从零开始。使用 <code>&amp;</code> 和 <code>[]</code> 可以让我们获得索引值处的元素的引用。当我们使用带有索引作为参数的 <code>get</code> 方法时，我们会得到一个 <code>Option&lt;&amp;T&gt;</code>，我们可以用 <code>match</code> 来处理。</p>
-<p data-x-en="Rust provides these two ways to reference an element so that you can choose how the program behaves when you try to use an index value outside the range of existing elements. As an example, let’s see what happens when we have a vector of five elements and then we try to access an element at index 100 with each technique, as shown in Listing 8-5.">Rust 提供了这两种引用元素的方法，以便你在尝试使用超出现有元素范围的索引值时可以选择程序的行为。例如，让我们看看当我们有一个包含五个元素的向量，然后尝试使用每种技术访问索引 100 处的元素时会发生什么，如清单 8-5 所示。</p>
+<p>Note a few details here. We use the index value of <code>2</code> to get the third element
+because vectors are indexed by number, starting at zero. Using <code>&amp;</code> and <code>[]</code>
+gives us a reference to the element at the index value. When we use the <code>get</code>
+method with the index passed as an argument, we get an <code>Option&lt;&amp;T&gt;</code> that we can
+use with <code>match</code>.</p>
+<p>Rust provides these two ways to reference an element so that you can choose how
+the program behaves when you try to use an index value outside the range of
+existing elements. As an example, let’s see what happens when we have a vector
+of five elements and then we try to access an element at index 100 with each
+technique, as shown in Listing 8-5.</p>
 <figure class="listing" id="listing-8-5">
-<pre><pre class="playground"><code class="language-rust should_panic panics edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust should_panic panics edition2024"><span class="boring">fn main() {
 </span>    let v = vec![1, 2, 3, 4, 5];
 
     let does_not_exist = &amp;v[100];
     let does_not_exist = v.get(100);
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-8-5">Listing 8-5</a>: Attempting to access the element at index 100 in a vector containing five elements</figcaption>
 </figure>
-<p data-x-en="When we run this code, the first [] method will cause the program to panic because it references a nonexistent element. This method is best used when you want your program to crash if there’s an attempt to access an element past the end of the vector.">当我们运行这段代码时，第一个 <code>[]</code> 方法会导致程序崩溃
-因为它引用了一个不存在的元素。此方法最适合用于当尝试访问向量末尾之外的元素时
-希望程序崩溃的情况。</p>
-<p data-x-en="When the get method is passed an index that is outside the vector, it returns None without panicking. You would use this method if accessing an element beyond the range of the vector may happen occasionally under normal circumstances. Your code will then have logic to handle having either Some(&amp;element) or None, as discussed in Chapter 6. For example, the index could be coming from a person entering a number. If they accidentally enter a number that’s too large and the program gets a None value, you could tell the user how many items are in the current vector and give them another chance to enter a valid value. That would be more user-friendly than crashing the program due to a typo!">当将一个超出向量范围的索引传递给 <code>get</code> 方法时，它会返回 <code>None</code> 而不会引发恐慌。如果在正常情况下偶尔可能会访问超出向量范围的元素，你会使用此方法。然后，你的代码将包含处理 <code>Some(&amp;element)</code> 或 <code>None</code> 的逻辑，如第 6 章所述。例如，索引可能是由用户输入的数字。如果他们不小心输入了一个过大的数字，程序得到了一个 <code>None</code> 值，你可以告诉用户当前向量中有多少项，并给他们另一次机会输入一个有效的值。这比因为一个打字错误而使程序崩溃要更加用户友好！</p>
-<p data-x-en="When the program has a valid reference, the borrow checker enforces the ownership and borrowing rules (covered in Chapter 4) to ensure that this reference and any other references to the contents of the vector remain valid. Recall the rule that states you can’t have mutable and immutable references in the same scope. That rule applies in Listing 8-6, where we hold an immutable reference to the first element in a vector and try to add an element to the end. This program won’t work if we also try to refer to that element later in the function.">当程序有一个有效的引用时，借用检查器会强制执行所有权和借用规则（在第4章中介绍），以确保此引用以及对向量内容的任何其他引用都保持有效。回想一下那条规则，即你不能在同一个作用域中拥有可变和不可变引用。该规则适用于清单8-6，我们在其中持有一个向量第一个元素的不可变引用，并尝试在向量末尾添加一个元素。如果我们稍后在函数中还尝试引用该元素，这个程序将无法工作。</p>
+<p>When we run this code, the first <code>[]</code> method will cause the program to panic
+because it references a nonexistent element. This method is best used when you
+want your program to crash if there’s an attempt to access an element past the
+end of the vector.</p>
+<p>When the <code>get</code> method is passed an index that is outside the vector, it returns
+<code>None</code> without panicking. You would use this method if accessing an element
+beyond the range of the vector may happen occasionally under normal
+circumstances. Your code will then have logic to handle having either
+<code>Some(&amp;element)</code> or <code>None</code>, as discussed in Chapter 6. For example, the index
+could be coming from a person entering a number. If they accidentally enter a
+number that’s too large and the program gets a <code>None</code> value, you could tell the
+user how many items are in the current vector and give them another chance to
+enter a valid value. That would be more user-friendly than crashing the program
+due to a typo!</p>
+<p>When the program has a valid reference, the borrow checker enforces the
+ownership and borrowing rules (covered in Chapter 4) to ensure that this
+reference and any other references to the contents of the vector remain valid.
+Recall the rule that states you can’t have mutable and immutable references in
+the same scope. That rule applies in Listing 8-6, where we hold an immutable
+reference to the first element in a vector and try to add an element to the
+end. This program won’t work if we also try to refer to that element later in
+the function.</p>
 <figure class="listing" id="listing-8-6">
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">fn main() {
 </span>    let mut v = vec![1, 2, 3, 4, 5];
@@ -329,7 +379,7 @@ blockquote {
 <span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-8-6">Listing 8-6</a>: Attempting to add an element to a vector while holding a reference to an item</figcaption>
 </figure>
-<p data-x-en="Compiling this code will result in this error:">编译此代码将导致以下错误：</p>
+<p>Compiling this code will result in this error:</p>
 <pre><code class="language-console">$ cargo run
    Compiling collections v0.1.0 (file:///projects/collections)
 error[E0502]: cannot borrow `v` as mutable because it is also borrowed as immutable
@@ -347,38 +397,69 @@ error[E0502]: cannot borrow `v` as mutable because it is also borrowed as immuta
 For more information about this error, try `rustc --explain E0502`.
 error: could not compile `collections` (bin "collections") due to 1 previous error
 </code></pre>
-<p data-x-en="The code in Listing 8-6 might look like it should work: Why should a reference to the first element care about changes at the end of the vector? This error is due to the way vectors work: Because vectors put the values next to each other in memory, adding a new element onto the end of the vector might require allocating new memory and copying the old elements to the new space, if there isn’t enough room to put all the elements next to each other where the vector is currently stored. In that case, the reference to the first element would be pointing to deallocated memory. The borrowing rules prevent programs from ending up in that situation.">清单 8-6 中的代码看起来应该可以工作：为什么对第一个元素的引用会关心向量末尾的变化？这个错误是由于向量的工作方式：因为向量将值相邻地存储在内存中，所以在向量末尾添加一个新元素可能需要分配新的内存并将旧元素复制到新的空间，如果当前存储向量的位置没有足够的空间将所有元素相邻地放在一起。在这种情况下，对第一个元素的引用将指向已释放的内存。借用规则防止程序陷入这种情况。</p>
+<p>The code in Listing 8-6 might look like it should work: Why should a reference
+to the first element care about changes at the end of the vector? This error is
+due to the way vectors work: Because vectors put the values next to each other
+in memory, adding a new element onto the end of the vector might require
+allocating new memory and copying the old elements to the new space, if there
+isn’t enough room to put all the elements next to each other where the vector
+is currently stored. In that case, the reference to the first element would be
+pointing to deallocated memory. The borrowing rules prevent programs from
+ending up in that situation.</p>
 <section class="note" aria-role="note">
-<p data-x-en="Note: For more on the implementation details of the Vec<T> type, see “The Rustonomicon”.">注意：有关 <code>Vec&lt;T&gt;</code> 类型的实现细节，请参阅 <a href="https://doc.rust-lang.org/nomicon/vec/vec.html" target="_blank">“Rustonomicon”</a>。</p>
+<p>Note: For more on the implementation details of the <code>Vec&lt;T&gt;</code> type, see <a href="https://doc.rust-lang.org/nomicon/vec/vec.html" target="_blank">“The
+Rustonomicon”</a>.</p>
 </section>
-<h3 id="iterating-over-the-values-in-a-vector"><a class="header" href="#iterating-over-the-values-in-a-vector">遍历向量中的值</a></h3>
-<p data-x-en="To access each element in a vector in turn, we would iterate through all of the elements rather than use indices to access one at a time. Listing 8-7 shows how to use a for loop to get immutable references to each element in a vector of i32 values and print them.">要依次访问向量中的每个元素，我们将遍历所有元素，而不是使用索引来一次访问一个。示例 8-7 显示了如何使用 <code>for</code> 循环获取 <code>i32</code> 值向量中每个元素的不可变引用并打印它们。</p>
+<h3 id="iterating-over-the-values-in-a-vector"><a class="header" href="#iterating-over-the-values-in-a-vector">Iterating Over the Values in a Vector</a></h3>
+<p>To access each element in a vector in turn, we would iterate through all of the
+elements rather than use indices to access one at a time. Listing 8-7 shows how
+to use a <code>for</code> loop to get immutable references to each element in a vector of
+<code>i32</code> values and print them.</p>
 <figure class="listing" id="listing-8-7">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let v = vec![100, 32, 57];
     for i in &amp;v {
         println!("{i}");
     }
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-8-7">Listing 8-7</a>: Printing each element in a vector by iterating over the elements using a <code>for</code> loop</figcaption>
 </figure>
-<p data-x-en="We can also iterate over mutable references to each element in a mutable vector in order to make changes to all the elements. The for loop in Listing 8-8 will add 50 to each element.">我们还可以迭代可变向量中每个元素的可变引用，以对所有元素进行修改。列表 8-8 中的 <code>for</code> 循环将向每个元素添加 <code>50</code>。</p>
+<p>We can also iterate over mutable references to each element in a mutable vector
+in order to make changes to all the elements. The <code>for</code> loop in Listing 8-8
+will add <code>50</code> to each element.</p>
 <figure class="listing" id="listing-8-8">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let mut v = vec![100, 32, 57];
     for i in &amp;mut v {
         *i += 50;
     }
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-8-8">Listing 8-8</a>: Iterating over mutable references to elements in a vector</figcaption>
 </figure>
-<p data-x-en="To change the value that the mutable reference refers to, we have to use the * dereference operator to get to the value in i before we can use the += operator. We’ll talk more about the dereference operator in the “Following the Reference to the Value” section of Chapter 15.">要更改可变引用所指向的值，我们必须使用 <code>*</code> 解引用运算符来访问 <code>i</code> 中的值，然后才能使用 <code>+=</code> 运算符。我们将在第 15 章的 <a href="ch15-02-deref.html#following-the-pointer-to-the-value-with-the-dereference-operator">“通过解引用运算符跟踪指针到值”</a><!-- ignore --> 部分详细讨论解引用运算符。</p>
-<p data-x-en="Iterating over a vector, whether immutably or mutably, is safe because of the borrow checker’s rules. If we attempted to insert or remove items in the for loop bodies in Listing 8-7 and Listing 8-8, we would get a compiler error similar to the one we got with the code in Listing 8-6. The reference to the vector that the for loop holds prevents simultaneous modification of the whole vector.">遍历向量，无论是不可变还是可变，都是安全的，因为借阅检查器的规则。如果我们试图在列表 8-7 和列表 8-8 的 <code>for</code> 循环体中插入或删除项，我们会得到一个类似于我们在列表 8-6 中代码所得到的编译器错误。<code>for</code> 循环持有的向量引用阻止了对整个向量的同时修改。</p>
-<h3 id="using-an-enum-to-store-multiple-types"><a class="header" href="#using-an-enum-to-store-multiple-types">使用枚举存储多种类型</a></h3>
-<p data-x-en="Vectors can only store values that are of the same type. This can be inconvenient; there are definitely use cases for needing to store a list of items of different types. Fortunately, the variants of an enum are defined under the same enum type, so when we need one type to represent elements of different types, we can define and use an enum!">向量只能存储相同类型的值。这可能会不方便；确实存在需要存储不同类型的项目列表的使用场景。幸运的是，枚举的变体是在相同的枚举类型下定义的，因此当我们需要一种类型来表示不同类型的元素时，可以定义和使用枚举！</p>
-<p data-x-en="For example, say we want to get values from a row in a spreadsheet in which some of the columns in the row contain integers, some floating-point numbers, and some strings. We can define an enum whose variants will hold the different value types, and all the enum variants will be considered the same type: that of the enum. Then, we can create a vector to hold that enum and so, ultimately, hold different types. We’ve demonstrated this in Listing 8-9.">例如，假设我们想从电子表格中的一行获取值，其中该行的一些列包含整数，一些列包含浮点数，还有一些列包含字符串。我们可以定义一个枚举，其变体将持有不同的值类型，所有枚举变体都将被视为同一类型：即枚举的类型。然后，我们可以创建一个向量来保存该枚举，从而最终保存不同类型的值。我们在示例 8-9 中演示了这一点。</p>
+<p>To change the value that the mutable reference refers to, we have to use the
+<code>*</code> dereference operator to get to the value in <code>i</code> before we can use the <code>+=</code>
+operator. We’ll talk more about the dereference operator in the <a href="ch15-02-deref.html#following-the-pointer-to-the-value-with-the-dereference-operator">“Following the
+Reference to the Value”</a><!-- ignore --> section of Chapter 15.</p>
+<p>Iterating over a vector, whether immutably or mutably, is safe because of the
+borrow checker’s rules. If we attempted to insert or remove items in the <code>for</code>
+loop bodies in Listing 8-7 and Listing 8-8, we would get a compiler error
+similar to the one we got with the code in Listing 8-6. The reference to the
+vector that the <code>for</code> loop holds prevents simultaneous modification of the
+whole vector.</p>
+<h3 id="using-an-enum-to-store-multiple-types"><a class="header" href="#using-an-enum-to-store-multiple-types">Using an Enum to Store Multiple Types</a></h3>
+<p>Vectors can only store values that are of the same type. This can be
+inconvenient; there are definitely use cases for needing to store a list of
+items of different types. Fortunately, the variants of an enum are defined
+under the same enum type, so when we need one type to represent elements of
+different types, we can define and use an enum!</p>
+<p>For example, say we want to get values from a row in a spreadsheet in which
+some of the columns in the row contain integers, some floating-point numbers,
+and some strings. We can define an enum whose variants will hold the different
+value types, and all the enum variants will be considered the same type: that
+of the enum. Then, we can create a vector to hold that enum and so, ultimately,
+hold different types. We’ve demonstrated this in Listing 8-9.</p>
 <figure class="listing" id="listing-8-9">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    enum SpreadsheetCell {
         Int(i32),
         Float(f64),
@@ -390,38 +471,52 @@ error: could not compile `collections` (bin "collections") due to 1 previous err
         SpreadsheetCell::Text(String::from("blue")),
         SpreadsheetCell::Float(10.12),
     ];
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-8-9">Listing 8-9</a>: Defining an enum to store values of different types in one vector</figcaption>
 </figure>
-<p data-x-en="Rust needs to know what types will be in the vector at compile time so that it knows exactly how much memory on the heap will be needed to store each element. We must also be explicit about what types are allowed in this vector. If Rust allowed a vector to hold any type, there would be a chance that one or more of the types would cause errors with the operations performed on the elements of the vector. Using an enum plus a match expression means that Rust will ensure at compile time that every possible case is handled, as discussed in Chapter 6.">Rust 需要知道在编译时向量中将包含什么类型，以便它确切地知道在堆上存储每个元素需要多少内存。
-我们还必须明确向量中允许使用什么类型。如果 Rust 允许向量持有任何类型，那么其中一种或多种类型可能会导致对向量元素执行的操作出现错误。使用枚举加上 <code>match</code> 表达式意味着 Rust 将在编译时确保处理每种可能的情况，如第 6 章所述。</p>
-<p data-x-en="If you don’t know the exhaustive set of types a program will get at runtime to store in a vector, the enum technique won’t work. Instead, you can use a trait object, which we’ll cover in Chapter 18.">如果你不知道程序在运行时会得到哪些类型来存储在向量中，枚举技术就不起作用。相反，你可以使用特质对象，我们将在第 18 章中介绍。</p>
-<p data-x-en="Now that we’ve discussed some of the most common ways to use vectors, be sure to review the API documentation for all of the many useful methods defined on Vec<T> by the standard library. For example, in addition to push, a pop method removes and returns the last element.">现在我们已经讨论了一些使用向量的最常见方法，请务必查阅<a href="https://doc.rust-lang.org/std/vec/struct.Vec.html" target="_blank">API 文档</a><!-- ignore -->，了解标准库为 <code>Vec&lt;T&gt;</code> 定义的所有许多有用的方法。例如，除了 <code>push</code> 之外，<code>pop</code> 方法还会移除并返回最后一个元素。</p>
-<h3 id="dropping-a-vector-drops-its-elements"><a class="header" href="#dropping-a-vector-drops-its-elements">释放一个向量会释放其元素</a></h3>
-<p data-x-en="Like any other struct, a vector is freed when it goes out of scope, as annotated in Listing 8-10.">像任何其他 <code>struct</code> 一样，当向量超出作用域时，它会被释放，如清单 8-10 所注释。</p>
+<p>Rust needs to know what types will be in the vector at compile time so that it
+knows exactly how much memory on the heap will be needed to store each element.
+We must also be explicit about what types are allowed in this vector. If Rust
+allowed a vector to hold any type, there would be a chance that one or more of
+the types would cause errors with the operations performed on the elements of
+the vector. Using an enum plus a <code>match</code> expression means that Rust will ensure
+at compile time that every possible case is handled, as discussed in Chapter 6.</p>
+<p>If you don’t know the exhaustive set of types a program will get at runtime to
+store in a vector, the enum technique won’t work. Instead, you can use a trait
+object, which we’ll cover in Chapter 18.</p>
+<p>Now that we’ve discussed some of the most common ways to use vectors, be sure
+to review <a href="https://doc.rust-lang.org/std/vec/struct.Vec.html" target="_blank">the API documentation</a><!-- ignore --> for all of the many
+useful methods defined on <code>Vec&lt;T&gt;</code> by the standard library. For example, in
+addition to <code>push</code>, a <code>pop</code> method removes and returns the last element.</p>
+<h3 id="dropping-a-vector-drops-its-elements"><a class="header" href="#dropping-a-vector-drops-its-elements">Dropping a Vector Drops Its Elements</a></h3>
+<p>Like any other <code>struct</code>, a vector is freed when it goes out of scope, as
+annotated in Listing 8-10.</p>
 <figure class="listing" id="listing-8-10">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    {
         let v = vec![1, 2, 3, 4];
 
         // do stuff with v
     } // &lt;- v goes out of scope and is freed here
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-8-10">Listing 8-10</a>: Showing where the vector and its elements are dropped</figcaption>
 </figure>
-<p data-x-en="When the vector gets dropped, all of its contents are also dropped, meaning the integers it holds will be cleaned up. The borrow checker ensures that any references to contents of a vector are only used while the vector itself is valid.">当向量被丢弃时，其所有内容也会被丢弃，这意味着它持有的整数将被清理。借用检查器确保对向量内容的任何引用仅在向量本身有效时使用。</p>
-<p data-x-en="Let’s move on to the next collection type: String!">让我们继续下一个集合类型：<code>String</code>！</p>
+<p>When the vector gets dropped, all of its contents are also dropped, meaning the
+integers it holds will be cleaned up. The borrow checker ensures that any
+references to contents of a vector are only used while the vector itself is
+valid.</p>
+<p>Let’s move on to the next collection type: <code>String</code>!</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch08-00-common-collections.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch08-02-strings.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -431,16 +526,21 @@ error: could not compile `collections` (bin "collections") due to 1 previous err
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch08-00-common-collections.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch08-02-strings.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -449,16 +549,16 @@ error: could not compile `collections` (bin "collections") due to 1 previous err
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

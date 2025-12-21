@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch12-04-testing-the-librarys-functionality.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,58 +212,72 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
                         <!-- Old headings. Do not remove or links may break. -->
 <p><a id="developing-the-librarys-functionality-with-test-driven-development"></a></p>
-<h2 id="adding-functionality-with-test-driven-development"><a class="header" href="#adding-functionality-with-test-driven-development">使用测试驱动开发添加功能</a></h2>
-<p data-x-en="Now that we have the search logic in src/lib.rs separate from the main function, it’s much easier to write tests for the core functionality of our code. We can call functions directly with various arguments and check return values without having to call our binary from the command line.">现在我们已经将搜索逻辑放在 <em>src/lib.rs</em> 中，与 <code>main</code>
-函数分离，为我们的代码核心功能编写测试变得更加容易。我们可以直接调用带有不同参数的函数并检查返回值，而无需从命令行调用我们的二进制文件。</p>
-<p data-x-en="In this section, we’ll add the searching logic to the minigrep program using the test-driven development (TDD) process with the following steps:">在本节中，我们将使用测试驱动开发（TDD）过程为<code>minigrep</code>程序添加搜索逻辑，具体步骤如下：</p>
+<h2 id="adding-functionality-with-test-driven-development"><a class="header" href="#adding-functionality-with-test-driven-development">Adding Functionality with Test-Driven Development</a></h2>
+<p>Now that we have the search logic in <em>src/lib.rs</em> separate from the <code>main</code>
+function, it’s much easier to write tests for the core functionality of our
+code. We can call functions directly with various arguments and check return
+values without having to call our binary from the command line.</p>
+<p>In this section, we’ll add the searching logic to the <code>minigrep</code> program using
+the test-driven development (TDD) process with the following steps:</p>
 <ol>
-<li data-x-en="Write a test that fails and run it to make sure it fails for the reason you expect.">编写一个失败的测试并运行它，以确保它确实因为你预期的原因而失败。</li>
-<li data-x-en="Write or modify just enough code to make the new test pass.">编写或修改足够的代码以使新测试通过。</li>
-<li data-x-en="Refactor the code you just added or changed and make sure the tests continue to pass.">重构你刚刚添加或更改的代码，并确保测试继续通过。</li>
-<li data-x-en="Repeat from step 1!">从步骤1重复！</li>
+<li>Write a test that fails and run it to make sure it fails for the reason you
+expect.</li>
+<li>Write or modify just enough code to make the new test pass.</li>
+<li>Refactor the code you just added or changed and make sure the tests continue
+to pass.</li>
+<li>Repeat from step 1!</li>
 </ol>
-<p data-x-en="Though it’s just one of many ways to write software, TDD can help drive code design. Writing the test before you write the code that makes the test pass helps maintain high test coverage throughout the process.">虽然这只是编写软件的众多方法之一，但 TDD 可以帮助驱动代码设计。在编写使测试通过的代码之前先编写测试，有助于在整个过程中保持高测试覆盖率。</p>
-<p data-x-en="We’ll test-drive the implementation of the functionality that will actually do the searching for the query string in the file contents and produce a list of lines that match the query. We’ll add this functionality in a function called search.">我们将测试实现的功能，该功能将在文件内容中搜索查询字符串，并生成与查询匹配的行列表。我们将在一个名为<code>search</code>的函数中添加此功能。</p>
-<h3 id="writing-a-failing-test"><a class="header" href="#writing-a-failing-test">编写一个失败的测试</a></h3>
-<p data-x-en="In src/lib.rs, we’ll add a tests module with a test function, as we did in Chapter 11. The test function specifies the behavior we want the search function to have: It will take a query and the text to search, and it will return only the lines from the text that contain the query. Listing 12-15 shows this test.">在 <em>src/lib.rs</em> 中，我们将添加一个 <code>tests</code> 模块，其中包含一个测试函数，就像我们在 <a href="ch11-01-writing-tests.html#the-anatomy-of-a-test-function">第 11 章</a><!-- ignore --> 中所做的那样。测试函数指定了我们希望 <code>search</code> 函数具有的行为：它将接受一个查询和要搜索的文本，并仅返回包含查询的文本行。列表 12-15 显示了这个测试。</p>
+<p>Though it’s just one of many ways to write software, TDD can help drive code
+design. Writing the test before you write the code that makes the test pass
+helps maintain high test coverage throughout the process.</p>
+<p>We’ll test-drive the implementation of the functionality that will actually do
+the searching for the query string in the file contents and produce a list of
+lines that match the query. We’ll add this functionality in a function called
+<code>search</code>.</p>
+<h3 id="writing-a-failing-test"><a class="header" href="#writing-a-failing-test">Writing a Failing Test</a></h3>
+<p>In <em>src/lib.rs</em>, we’ll add a <code>tests</code> module with a test function, as we did in
+<a href="ch11-01-writing-tests.html#the-anatomy-of-a-test-function">Chapter 11</a><!-- ignore -->. The test function specifies the
+behavior we want the <code>search</code> function to have: It will take a query and the
+text to search, and it will return only the lines from the text that contain
+the query. Listing 12-15 shows this test.</p>
 <figure class="listing" id="listing-12-15">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
@@ -290,8 +303,17 @@ Pick three.";
 }</code></pre>
 <figcaption><a href="#listing-12-15">Listing 12-15</a>: Creating a failing test for the <code>search</code> function for the functionality we wish we had</figcaption>
 </figure>
-<p data-x-en="This test searches for the string &quot;duct&quot;. The text we’re searching is three lines, only one of which contains &quot;duct&quot; (note that the backslash after the opening double quote tells Rust not to put a newline character at the beginning of the contents of this string literal). We assert that the value returned from the search function contains only the line we expect.">这个测试查找字符串<code>"duct"</code>。我们要搜索的文本有三行，只有一行包含<code>"duct"</code>（注意，开头双引号后的反斜杠告诉Rust不要在该字符串字面量的开头添加换行符）。我们断言<code>search</code>函数返回的值只包含我们预期的那一行。</p>
-<p data-x-en="If we run this test, it will currently fail because the unimplemented! macro panics with the message “not implemented”. In accordance with TDD principles, we’ll take a small step of adding just enough code to get the test to not panic when calling the function by defining the search function to always return an empty vector, as shown in Listing 12-16. Then, the test should compile and fail because an empty vector doesn’t match a vector containing the line &quot;safe, fast, productive.&quot;.">如果我们运行这个测试，它目前会失败，因为<code>unimplemented!</code>宏会以“not implemented”消息引发恐慌。根据TDD原则，我们将采取一个小步骤，添加足够的代码，使调用该函数时测试不会引发恐慌，即定义<code>search</code>函数始终返回一个空向量，如清单12-16所示。然后，测试应该能够编译并通过，但会因为一个空向量不匹配包含行<code>"safe, fast, productive."</code>的向量而失败。</p>
+<p>This test searches for the string <code>"duct"</code>. The text we’re searching is three
+lines, only one of which contains <code>"duct"</code> (note that the backslash after the
+opening double quote tells Rust not to put a newline character at the beginning
+of the contents of this string literal). We assert that the value returned from
+the <code>search</code> function contains only the line we expect.</p>
+<p>If we run this test, it will currently fail because the <code>unimplemented!</code> macro
+panics with the message “not implemented”. In accordance with TDD principles,
+we’ll take a small step of adding just enough code to get the test to not panic
+when calling the function by defining the <code>search</code> function to always return an
+empty vector, as shown in Listing 12-16. Then, the test should compile and fail
+because an empty vector doesn’t match a vector containing the line <code>"safe, fast, productive."</code>.</p>
 <figure class="listing" id="listing-12-16">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
@@ -315,10 +337,21 @@ Pick three.";
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-12-16">Listing 12-16</a>: Defining just enough of the <code>search</code> function so that calling it won’t panic</figcaption>
 </figure>
-<p data-x-en="Now let’s discuss why we need to define an explicit lifetime 'a in the signature of search and use that lifetime with the contents argument and the return value. Recall in Chapter 10 that the lifetime parameters specify which argument lifetime is connected to the lifetime of the return value. In this case, we indicate that the returned vector should contain string slices that reference slices of the argument contents (rather than the argument query).">现在让我们讨论为什么需要在 <code>search</code> 的签名中定义一个显式的生命周期 <code>'a</code>，并使用该生命周期与 <code>contents</code> 参数和返回值。回想 <a href="ch10-03-lifetime-syntax.html">第 10 章</a><!-- ignore --> 中所述，生命周期参数指定了哪个参数的生命周期与返回值的生命周期相关联。在这种情况下，我们表示返回的向量应包含引用参数 <code>contents</code>（而不是参数 <code>query</code>）的字符串切片。</p>
-<p data-x-en="In other words, we tell Rust that the data returned by the search function will live as long as the data passed into the search function in the contents argument. This is important! The data referenced by a slice needs to be valid for the reference to be valid; if the compiler assumes we’re making string slices of query rather than contents, it will do its safety checking incorrectly.">换句话说，我们告诉 Rust <code>search</code> 函数返回的数据
-将与传递给 <code>search</code> 函数的 <code>contents</code> 参数中的数据一样长寿。这很重要！切片引用的数据需要有效，引用才能有效；如果编译器假设我们正在对 <code>query</code> 而不是 <code>contents</code> 进行字符串切片，它将错误地进行安全检查。</p>
-<p data-x-en="If we forget the lifetime annotations and try to compile this function, we’ll get this error:">如果我们忘记生命周期注解并尝试编译此函数，我们将得到以下错误：</p>
+<p>Now let’s discuss why we need to define an explicit lifetime <code>'a</code> in the
+signature of <code>search</code> and use that lifetime with the <code>contents</code> argument and
+the return value. Recall in <a href="ch10-03-lifetime-syntax.html">Chapter 10</a><!-- ignore --> that
+the lifetime parameters specify which argument lifetime is connected to the
+lifetime of the return value. In this case, we indicate that the returned
+vector should contain string slices that reference slices of the argument
+<code>contents</code> (rather than the argument <code>query</code>).</p>
+<p>In other words, we tell Rust that the data returned by the <code>search</code> function
+will live as long as the data passed into the <code>search</code> function in the
+<code>contents</code> argument. This is important! The data referenced <em>by</em> a slice needs
+to be valid for the reference to be valid; if the compiler assumes we’re making
+string slices of <code>query</code> rather than <code>contents</code>, it will do its safety checking
+incorrectly.</p>
+<p>If we forget the lifetime annotations and try to compile this function, we’ll
+get this error:</p>
 <pre><code class="language-console">$ cargo build
    Compiling minigrep v0.1.0 (file:///projects/minigrep)
 error[E0106]: missing lifetime specifier
@@ -336,20 +369,33 @@ help: consider introducing a named lifetime parameter
 For more information about this error, try `rustc --explain E0106`.
 error: could not compile `minigrep` (lib) due to 1 previous error
 </code></pre>
-<p data-x-en="Rust can’t know which of the two parameters we need for the output, so we need to tell it explicitly. Note that the help text suggests specifying the same lifetime parameter for all the parameters and the output type, which is incorrect! Because contents is the parameter that contains all of our text and we want to return the parts of that text that match, we know contents is the only parameter that should be connected to the return value using the lifetime syntax.">Rust 无法知道我们输出需要的是哪两个参数中的哪一个，所以我们需要明确地告诉它。请注意，帮助文本建议为所有参数和输出类型指定相同的生命周期参数，这是不正确的！因为 <code>contents</code> 是包含我们所有文本的参数，而我们希望返回与之匹配的文本部分，所以我们知道 <code>contents</code> 是唯一应该使用生命周期语法与返回值关联的参数。</p>
-<p data-x-en="Other programming languages don’t require you to connect arguments to return values in the signature, but this practice will get easier over time. You might want to compare this example with the examples in the “Validating References with Lifetimes” section in Chapter 10.">其他编程语言不要求你在签名中将参数与返回值连接起来，但随着时间的推移，这种做法会变得更容易。你可能想要将此示例与第 10 章<a href="ch10-03-lifetime-syntax.html#validating-references-with-lifetimes">“使用生命周期验证引用”</a><!-- ignore -->部分中的示例进行比较。</p>
-<h3 id="writing-code-to-pass-the-test"><a class="header" href="#writing-code-to-pass-the-test">编写通过测试的代码</a></h3>
-<p data-x-en="Currently, our test is failing because we always return an empty vector. To fix that and implement search, our program needs to follow these steps:">目前，我们的测试失败是因为我们总是返回一个空的向量。要修复这个问题并实现<code>search</code>，我们的程序需要遵循以下步骤：</p>
+<p>Rust can’t know which of the two parameters we need for the output, so we need
+to tell it explicitly. Note that the help text suggests specifying the same
+lifetime parameter for all the parameters and the output type, which is
+incorrect! Because <code>contents</code> is the parameter that contains all of our text
+and we want to return the parts of that text that match, we know <code>contents</code> is
+the only parameter that should be connected to the return value using the
+lifetime syntax.</p>
+<p>Other programming languages don’t require you to connect arguments to return
+values in the signature, but this practice will get easier over time. You might
+want to compare this example with the examples in the <a href="ch10-03-lifetime-syntax.html#validating-references-with-lifetimes">“Validating References
+with Lifetimes”</a><!-- ignore --> section
+in Chapter 10.</p>
+<h3 id="writing-code-to-pass-the-test"><a class="header" href="#writing-code-to-pass-the-test">Writing Code to Pass the Test</a></h3>
+<p>Currently, our test is failing because we always return an empty vector. To fix
+that and implement <code>search</code>, our program needs to follow these steps:</p>
 <ol>
-<li data-x-en="Iterate through each line of the contents.">遍历内容的每一行。</li>
-<li data-x-en="Check whether the line contains our query string.">检查该行是否包含我们的查询字符串。</li>
-<li data-x-en="If it does, add it to the list of values we’re returning.">如果可以，将其添加到我们要返回的值列表中。</li>
-<li data-x-en="If it doesn’t, do nothing.">如果不行，什么也不做。</li>
-<li data-x-en="Return the list of results that match.">返回匹配的结果列表。</li>
+<li>Iterate through each line of the contents.</li>
+<li>Check whether the line contains our query string.</li>
+<li>If it does, add it to the list of values we’re returning.</li>
+<li>If it doesn’t, do nothing.</li>
+<li>Return the list of results that match.</li>
 </ol>
-<p data-x-en="Let’s work through each step, starting with iterating through lines.">让我们逐步进行，从遍历行开始。</p>
-<h4 id="iterating-through-lines-with-the-lines-method"><a class="header" href="#iterating-through-lines-with-the-lines-method">使用 <code>lines</code> 方法遍历行</a></h4>
-<p data-x-en="Rust has a helpful method to handle line-by-line iteration of strings, conveniently named lines, that works as shown in Listing 12-17. Note that this won’t compile yet.">Rust 有一个有助于处理字符串逐行迭代的有用方法，方便地命名为 <code>lines</code>，如清单 12-17 所示。请注意，这还不能编译。</p>
+<p>Let’s work through each step, starting with iterating through lines.</p>
+<h4 id="iterating-through-lines-with-the-lines-method"><a class="header" href="#iterating-through-lines-with-the-lines-method">Iterating Through Lines with the <code>lines</code> Method</a></h4>
+<p>Rust has a helpful method to handle line-by-line iteration of strings,
+conveniently named <code>lines</code>, that works as shown in Listing 12-17. Note that
+this won’t compile yet.</p>
 <figure class="listing" id="listing-12-17">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust ignore does_not_compile">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
@@ -375,10 +421,15 @@ error: could not compile `minigrep` (lib) due to 1 previous error
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-12-17">Listing 12-17</a>: Iterating through each line in <code>contents</code></figcaption>
 </figure>
-<p data-x-en="The lines method returns an iterator. We’ll talk about iterators in depth in Chapter 13. But recall that you saw this way of using an iterator in Listing 3-5, where we used a for loop with an iterator to run some code on each item in a collection."><code>lines</code> 方法返回一个迭代器。我们将在<a href="ch13-02-iterators.html">第 13 章</a><!-- ignore -->深入讨论迭代器。但回想一下，你在<a href="ch03-05-control-flow.html#looping-through-a-collection-with-for">示例 3-5</a><!-- ignore -->中看到了这种使用迭代器的方式，我们使用了一个<code>for</code>循环和迭代器来对集合中的每个项目运行一些代码。</p>
-<h4 id="searching-each-line-for-the-query"><a class="header" href="#searching-each-line-for-the-query">搜索每一行以查找查询内容</a></h4>
-<p data-x-en="Next, we’ll check whether the current line contains our query string. Fortunately, strings have a helpful method named contains that does this for us! Add a call to the contains method in the search function, as shown in Listing 12-18. Note that this still won’t compile yet.">接下来，我们将检查当前行是否包含我们的查询字符串。
-幸运的是，字符串有一个名为<code>contains</code>的有用方法，可以为我们完成这项工作！在<code>search</code>函数中添加对<code>contains</code>方法的调用，如清单12-18所示。请注意，这仍然无法编译。</p>
+<p>The <code>lines</code> method returns an iterator. We’ll talk about iterators in depth in
+<a href="ch13-02-iterators.html">Chapter 13</a><!-- ignore -->. But recall that you saw this way
+of using an iterator in <a href="ch03-05-control-flow.html#looping-through-a-collection-with-for">Listing 3-5</a><!-- ignore -->, where we used a
+<code>for</code> loop with an iterator to run some code on each item in a collection.</p>
+<h4 id="searching-each-line-for-the-query"><a class="header" href="#searching-each-line-for-the-query">Searching Each Line for the Query</a></h4>
+<p>Next, we’ll check whether the current line contains our query string.
+Fortunately, strings have a helpful method named <code>contains</code> that does this for
+us! Add a call to the <code>contains</code> method in the <code>search</code> function, as shown in
+Listing 12-18. Note that this still won’t compile yet.</p>
 <figure class="listing" id="listing-12-18">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust ignore does_not_compile">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
@@ -406,9 +457,14 @@ error: could not compile `minigrep` (lib) due to 1 previous error
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-12-18">Listing 12-18</a>: Adding functionality to see whether the line contains the string in <code>query</code></figcaption>
 </figure>
-<p data-x-en="At the moment, we’re building up functionality. To get the code to compile, we need to return a value from the body as we indicated we would in the function signature.">目前，我们正在构建功能。为了让代码编译通过，我们需要从函数体中返回一个值，正如我们在函数签名中所指示的那样。</p>
-<h4 id="storing-matching-lines"><a class="header" href="#storing-matching-lines">存储匹配的行</a></h4>
-<p data-x-en="To finish this function, we need a way to store the matching lines that we want to return. For that, we can make a mutable vector before the for loop and call the push method to store a line in the vector. After the for loop, we return the vector, as shown in Listing 12-19.">为了完成这个函数，我们需要一种方法来存储我们想要返回的匹配行。为此，我们可以在 <code>for</code> 循环之前创建一个可变向量，并调用 <code>push</code> 方法将 <code>line</code> 存储在向量中。在 <code>for</code> 循环之后，我们返回该向量，如列表 12-19 所示。</p>
+<p>At the moment, we’re building up functionality. To get the code to compile, we
+need to return a value from the body as we indicated we would in the function
+signature.</p>
+<h4 id="storing-matching-lines"><a class="header" href="#storing-matching-lines">Storing Matching Lines</a></h4>
+<p>To finish this function, we need a way to store the matching lines that we want
+to return. For that, we can make a mutable vector before the <code>for</code> loop and
+call the <code>push</code> method to store a <code>line</code> in the vector. After the <code>for</code> loop,
+we return the vector, as shown in Listing 12-19.</p>
 <figure class="listing" id="listing-12-19">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust ignore">pub fn search&lt;'a&gt;(query: &amp;str, contents: &amp;'a str) -&gt; Vec&lt;&amp;'a str&gt; {
@@ -440,8 +496,8 @@ error: could not compile `minigrep` (lib) due to 1 previous error
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-12-19">Listing 12-19</a>: Storing the lines that match so that we can return them</figcaption>
 </figure>
-<p data-x-en="Now the search function should return only the lines that contain query, and our test should pass. Let’s run the test:">现在 <code>search</code> 函数应该只返回包含 <code>query</code> 的行，
-并且我们的测试应该通过。让我们运行测试：</p>
+<p>Now the <code>search</code> function should return only the lines that contain <code>query</code>,
+and our test should pass. Let’s run the test:</p>
 <pre><code class="language-console">$ cargo test
    Compiling minigrep v0.1.0 (file:///projects/minigrep)
     Finished `test` profile [unoptimized + debuginfo] target(s) in 1.22s
@@ -465,16 +521,22 @@ running 0 tests
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
 </code></pre>
-<p data-x-en="Our test passed, so we know it works!">我们的测试通过了，所以我们知道它有效！</p>
-<p data-x-en="At this point, we could consider opportunities for refactoring the implementation of the search function while keeping the tests passing to maintain the same functionality. The code in the search function isn’t too bad, but it doesn’t take advantage of some useful features of iterators. We’ll return to this example in Chapter 13, where we’ll explore iterators in detail, and look at how to improve it.">在这一点上，我们可以考虑在保持测试通过以维护相同功能的同时，重构搜索函数的实现的机会。搜索函数中的代码还不错，但没有充分利用迭代器的一些有用特性。我们将在<a href="ch13-02-iterators.html">第13章</a><!-- ignore -->中详细探讨迭代器，并看看如何改进它。</p>
-<p data-x-en="Now the entire program should work! Let’s try it out, first with a word that should return exactly one line from the Emily Dickinson poem: frog.">现在整个程序应该可以工作了！让我们先试一下，用一个应该从艾米莉·狄金森的诗中返回恰好一行的词：<em>青蛙</em>。</p>
+<p>Our test passed, so we know it works!</p>
+<p>At this point, we could consider opportunities for refactoring the
+implementation of the search function while keeping the tests passing to
+maintain the same functionality. The code in the search function isn’t too bad,
+but it doesn’t take advantage of some useful features of iterators. We’ll
+return to this example in <a href="ch13-02-iterators.html">Chapter 13</a><!-- ignore -->, where
+we’ll explore iterators in detail, and look at how to improve it.</p>
+<p>Now the entire program should work! Let’s try it out, first with a word that
+should return exactly one line from the Emily Dickinson poem: <em>frog</em>.</p>
 <pre><code class="language-console">$ cargo run -- frog poem.txt
    Compiling minigrep v0.1.0 (file:///projects/minigrep)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.38s
      Running `target/debug/minigrep frog poem.txt`
 How public, like a frog
 </code></pre>
-<p data-x-en="Cool! Now let’s try a word that will match multiple lines, like body:">酷！现在让我们尝试一个可以匹配多行的单词，比如 <em>body</em>：</p>
+<p>Cool! Now let’s try a word that will match multiple lines, like <em>body</em>:</p>
 <pre><code class="language-console">$ cargo run -- body poem.txt
    Compiling minigrep v0.1.0 (file:///projects/minigrep)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.0s
@@ -483,25 +545,30 @@ I'm nobody! Who are you?
 Are you nobody, too?
 How dreary to be somebody!
 </code></pre>
-<p data-x-en="And finally, let’s make sure that we don’t get any lines when we search for a word that isn’t anywhere in the poem, such as monomorphization:">最后，让我们确保在搜索诗中不存在的单词时，比如<em>monomorphization</em>，不会得到任何行：</p>
+<p>And finally, let’s make sure that we don’t get any lines when we search for a
+word that isn’t anywhere in the poem, such as <em>monomorphization</em>:</p>
 <pre><code class="language-console">$ cargo run -- monomorphization poem.txt
    Compiling minigrep v0.1.0 (file:///projects/minigrep)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.0s
      Running `target/debug/minigrep monomorphization poem.txt`
 </code></pre>
-<p data-x-en="Excellent! We’ve built our own mini version of a classic tool and learned a lot about how to structure applications. We’ve also learned a bit about file input and output, lifetimes, testing, and command line parsing.">优秀！我们构建了自己的迷你版经典工具，并学到了很多关于如何构建应用程序的知识。我们还学到了一些关于文件输入和输出、生命周期、测试和命令行解析的知识。</p>
-<p data-x-en="To round out this project, we’ll briefly demonstrate how to work with environment variables and how to print to standard error, both of which are useful when you’re writing command line programs.">为了完善这个项目，我们将简要演示如何使用环境变量以及如何打印到标准错误，这两者在编写命令行程序时都非常有用。</p>
+<p>Excellent! We’ve built our own mini version of a classic tool and learned a lot
+about how to structure applications. We’ve also learned a bit about file input
+and output, lifetimes, testing, and command line parsing.</p>
+<p>To round out this project, we’ll briefly demonstrate how to work with
+environment variables and how to print to standard error, both of which are
+useful when you’re writing command line programs.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch12-03-improving-error-handling-and-modularity.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch12-05-working-with-environment-variables.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -511,16 +578,21 @@ How dreary to be somebody!
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch12-03-improving-error-handling-and-modularity.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch12-05-working-with-environment-variables.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -529,16 +601,16 @@ How dreary to be somebody!
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

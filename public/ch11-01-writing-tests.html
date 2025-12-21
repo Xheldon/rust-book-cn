@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch11-01-writing-tests.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,63 +212,79 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
-                        <h2 id="how-to-write-tests"><a class="header" href="#how-to-write-tests">如何编写测试</a></h2>
-<p data-x-en="Tests are Rust functions that verify that the non-test code is functioning in the expected manner. The bodies of test functions typically perform these three actions:">测试是 Rust 函数，用于验证非测试代码是否按预期方式运行。测试函数的主体通常执行以下三个操作：</p>
+                        <h2 id="how-to-write-tests"><a class="header" href="#how-to-write-tests">How to Write Tests</a></h2>
+<p><em>Tests</em> are Rust functions that verify that the non-test code is functioning in
+the expected manner. The bodies of test functions typically perform these three
+actions:</p>
 <ul>
-<li data-x-en="Set up any needed data or state.">设置所需的数据或状态。</li>
-<li data-x-en="Run the code you want to test.">运行您要测试的代码。</li>
-<li data-x-en="Assert that the results are what you expect.">断言结果是你所期望的。</li>
+<li>Set up any needed data or state.</li>
+<li>Run the code you want to test.</li>
+<li>Assert that the results are what you expect.</li>
 </ul>
-<p data-x-en="Let’s look at the features Rust provides specifically for writing tests that take these actions, which include the test attribute, a few macros, and the should_panic attribute.">让我们看看 Rust 为编写这些操作的测试提供的特性，包括 <code>test</code> 属性、几个宏和 <code>should_panic</code> 属性。</p>
+<p>Let’s look at the features Rust provides specifically for writing tests that
+take these actions, which include the <code>test</code> attribute, a few macros, and the
+<code>should_panic</code> attribute.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="the-anatomy-of-a-test-function"></a></p>
-<h3 id="structuring-test-functions"><a class="header" href="#structuring-test-functions">构建测试函数</a></h3>
-<p data-x-en="At its simplest, a test in Rust is a function that’s annotated with the test attribute. Attributes are metadata about pieces of Rust code; one example is the derive attribute we used with structs in Chapter 5. To change a function into a test function, add #[test] on the line before fn. When you run your tests with the cargo test command, Rust builds a test runner binary that runs the annotated functions and reports on whether each test function passes or fails.">最简单的情况下，Rust 中的测试是一个带有 <code>test</code> 属性的函数。属性是关于 Rust 代码片段的元数据；一个例子是我们在第 5 章中与结构体一起使用的 <code>derive</code> 属性。要将一个函数转换为测试函数，只需在 <code>fn</code> 前一行添加 <code>#[test]</code>。当你使用 <code>cargo test</code> 命令运行测试时，Rust 会构建一个测试运行器二进制文件，该文件运行带有注解的函数并报告每个测试函数是否通过或失败。</p>
-<p data-x-en="Whenever we make a new library project with Cargo, a test module with a test function in it is automatically generated for us. This module gives you a template for writing your tests so that you don’t have to look up the exact structure and syntax every time you start a new project. You can add as many additional test functions and as many test modules as you want!">每当我们在 Cargo 中创建一个新的库项目时，都会自动生成一个包含测试函数的测试模块。这个模块为你提供了一个编写测试的模板，这样每次开始新项目时，你就不必查找确切的结构和语法了。你可以根据需要添加任意多的测试函数和测试模块！</p>
-<p data-x-en="We’ll explore some aspects of how tests work by experimenting with the template test before we actually test any code. Then, we’ll write some real-world tests that call some code that we’ve written and assert that its behavior is correct.">我们将通过实验模板测试来探讨测试的一些方面，这在我们实际测试任何代码之前进行。然后，我们将编写一些实际的测试，调用我们编写的一些代码，并断言其行为是正确的。</p>
-<p data-x-en="Let’s create a new library project called adder that will add two numbers:">让我们创建一个名为 <code>adder</code> 的新库项目，它将添加两个数字：</p>
+<h3 id="structuring-test-functions"><a class="header" href="#structuring-test-functions">Structuring Test Functions</a></h3>
+<p>At its simplest, a test in Rust is a function that’s annotated with the <code>test</code>
+attribute. Attributes are metadata about pieces of Rust code; one example is
+the <code>derive</code> attribute we used with structs in Chapter 5. To change a function
+into a test function, add <code>#[test]</code> on the line before <code>fn</code>. When you run your
+tests with the <code>cargo test</code> command, Rust builds a test runner binary that runs
+the annotated functions and reports on whether each test function passes or
+fails.</p>
+<p>Whenever we make a new library project with Cargo, a test module with a test
+function in it is automatically generated for us. This module gives you a
+template for writing your tests so that you don’t have to look up the exact
+structure and syntax every time you start a new project. You can add as many
+additional test functions and as many test modules as you want!</p>
+<p>We’ll explore some aspects of how tests work by experimenting with the template
+test before we actually test any code. Then, we’ll write some real-world tests
+that call some code that we’ve written and assert that its behavior is correct.</p>
+<p>Let’s create a new library project called <code>adder</code> that will add two numbers:</p>
 <pre><code class="language-console">$ cargo new adder --lib
      Created library `adder` project
 $ cd adder
 </code></pre>
-<p data-x-en="The contents of the src/lib.rs file in your adder library should look like Listing 11-1."><em>src/lib.rs</em> 文件中的内容在你的 <code>adder</code> 库中应该像
-列表 11-1。</p>
+<p>The contents of the <em>src/lib.rs</em> file in your <code>adder</code> library should look like
+Listing 11-1.</p>
 <figure class="listing" id="listing-11-1">
 <span class="file-name">Filename: src/lib.rs</span>
 <!-- manual-regeneration
@@ -298,11 +313,19 @@ mod tests {
 }</code></pre>
 <figcaption><a href="#listing-11-1">Listing 11-1</a>: The code generated automatically by <code>cargo new</code></figcaption>
 </figure>
-<p data-x-en="The file starts with an example add function so that we have something to test.">文件以一个示例 <code>add</code> 函数开始，这样我们就有东西可以测试。</p>
-<p data-x-en="For now, let’s focus solely on the it_works function. Note the #[test] annotation: This attribute indicates this is a test function, so the test runner knows to treat this function as a test. We might also have non-test functions in the tests module to help set up common scenarios or perform common operations, so we always need to indicate which functions are tests.">现在，让我们只关注 <code>it_works</code> 函数。注意 <code>#[test]</code>
-注解：这个属性表示这是一个测试函数，因此测试运行器知道将这个函数视为测试。我们可能在 <code>tests</code> 模块中还有非测试函数，用于帮助设置常见场景或执行常见操作，所以我们总是需要标明哪些函数是测试函数。</p>
-<p data-x-en="The example function body uses the assert_eq! macro to assert that result, which contains the result of calling add with 2 and 2, equals 4. This assertion serves as an example of the format for a typical test. Let’s run it to see that this test passes.">示例函数体使用 <code>assert_eq!</code> 宏来断言 <code>result</code>，其中包含调用 <code>add</code> 传入 2 和 2 的结果，等于 4。这个断言作为典型测试格式的一个示例。让我们运行它来看看这个测试是否通过。</p>
-<p data-x-en="The cargo test command runs all tests in our project, as shown in Listing 11-2."><code>cargo test</code> 命令会运行我们项目中的所有测试，如列表 11-2 所示。</p>
+<p>The file starts with an example <code>add</code> function so that we have something to
+test.</p>
+<p>For now, let’s focus solely on the <code>it_works</code> function. Note the <code>#[test]</code>
+annotation: This attribute indicates this is a test function, so the test
+runner knows to treat this function as a test. We might also have non-test
+functions in the <code>tests</code> module to help set up common scenarios or perform
+common operations, so we always need to indicate which functions are tests.</p>
+<p>The example function body uses the <code>assert_eq!</code> macro to assert that <code>result</code>,
+which contains the result of calling <code>add</code> with 2 and 2, equals 4. This
+assertion serves as an example of the format for a typical test. Let’s run it
+to see that this test passes.</p>
+<p>The <code>cargo test</code> command runs all tests in our project, as shown in Listing
+11-2.</p>
 <figure class="listing" id="listing-11-2">
 <pre><code class="language-console">$ cargo test
    Compiling adder v0.1.0 (file:///projects/adder)
@@ -323,12 +346,30 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 </code></pre>
 <figcaption><a href="#listing-11-2">Listing 11-2</a>: The output from running the automatically generated test</figcaption>
 </figure>
-<p data-x-en="Cargo compiled and ran the test. We see the line running 1 test. The next line shows the name of the generated test function, called tests::it_works, and that the result of running that test is ok. The overall summary test result: ok. means that all the tests passed, and the portion that reads 1 passed; 0 failed totals the number of tests that passed or failed.">Cargo 编译并运行了测试。我们看到一行 <code>running 1 test</code>。下一行显示了生成的测试函数的名称，称为 <code>tests::it_works</code>，以及运行该测试的结果是 <code>ok</code>。总体摘要 <code>test result: ok.</code> 表示所有测试都通过了，而 <code>1 passed; 0 failed</code> 部分统计了通过或失败的测试数量。</p>
-<p data-x-en="It’s possible to mark a test as ignored so that it doesn’t run in a particular instance; we’ll cover that in the “Ignoring Tests Unless Specifically Requested” section later in this chapter. Because we haven’t done that here, the summary shows 0 ignored. We can also pass an argument to the cargo test command to run only tests whose name matches a string; this is called filtering, and we’ll cover it in the “Running a Subset of Tests by Name” section. Here, we haven’t filtered the tests being run, so the end of the summary shows 0 filtered out.">可以将测试标记为忽略，以便在特定情况下不运行；我们将在本章后面的<a href="ch11-02-running-tests.html#ignoring-tests-unless-specifically-requested">“除非特别要求否则忽略测试”</a><!-- ignore -->部分中介绍。因为我们在这里没有这样做，所以摘要显示<code>0 ignored</code>。我们还可以向<code>cargo test</code>命令传递一个参数，以仅运行名称与字符串匹配的测试；这称为<em>过滤</em>，我们将在<a href="ch11-02-running-tests.html#running-a-subset-of-tests-by-name">“按名称运行测试子集”</a><!-- ignore -->部分中介绍。在这里，我们没有过滤正在运行的测试，所以摘要的末尾显示<code>0 filtered out</code>。</p>
-<p data-x-en="The 0 measured statistic is for benchmark tests that measure performance. Benchmark tests are, as of this writing, only available in nightly Rust. See the documentation about benchmark tests to learn more."><code>0 measured</code> 统计数据是用于测量性能的基准测试。<br>截至本文撰写时，基准测试仅在 nightly Rust 中可用。请参阅 <a href="https://doc.rust-lang.org/unstable-book/library-features/test.html" target="_blank">关于基准测试的文档</a> 以了解更多信息。</p>
-<p data-x-en="The next part of the test output starting at Doc-tests adder is for the results of any documentation tests. We don’t have any documentation tests yet, but Rust can compile any code examples that appear in our API documentation. This feature helps keep your docs and your code in sync! We’ll discuss how to write documentation tests in the “Documentation Comments as Tests” section of Chapter 14. For now, we’ll ignore the Doc-tests output.">从 <code>Doc-tests adder</code> 开始的测试输出部分是关于任何文档测试的结果。我们还没有任何文档测试，但 Rust 可以编译出现在我们 API 文档中的任何代码示例。此功能有助于保持您的文档和代码同步！我们将在第 14 章的 <a href="ch14-02-publishing-to-crates-io.html#documentation-comments-as-tests">“文档注释作为测试”</a><!-- ignore --> 部分讨论如何编写文档测试。目前，我们将忽略 <code>Doc-tests</code> 输出。</p>
-<p data-x-en="Let’s start to customize the test to our own needs. First, change the name of the it_works function to a different name, such as exploration, like so:">让我们开始根据自己的需求自定义测试。首先，将 <code>it_works</code> 函数的名称更改为其他名称，例如 <code>exploration</code>，如下所示：</p>
-<p data-x-en="Filename: src/lib.rs"><span class="filename">文件名: src/lib.rs</span></p>
+<p>Cargo compiled and ran the test. We see the line <code>running 1 test</code>. The next
+line shows the name of the generated test function, called <code>tests::it_works</code>,
+and that the result of running that test is <code>ok</code>. The overall summary <code>test result: ok.</code> means that all the tests passed, and the portion that reads <code>1 passed; 0 failed</code> totals the number of tests that passed or failed.</p>
+<p>It’s possible to mark a test as ignored so that it doesn’t run in a particular
+instance; we’ll cover that in the <a href="ch11-02-running-tests.html#ignoring-tests-unless-specifically-requested">“Ignoring Tests Unless Specifically
+Requested”</a><!-- ignore --> section later in this chapter. Because we
+haven’t done that here, the summary shows <code>0 ignored</code>. We can also pass an
+argument to the <code>cargo test</code> command to run only tests whose name matches a
+string; this is called <em>filtering</em>, and we’ll cover it in the <a href="ch11-02-running-tests.html#running-a-subset-of-tests-by-name">“Running a
+Subset of Tests by Name”</a><!-- ignore --> section. Here, we haven’t
+filtered the tests being run, so the end of the summary shows <code>0 filtered out</code>.</p>
+<p>The <code>0 measured</code> statistic is for benchmark tests that measure performance.
+Benchmark tests are, as of this writing, only available in nightly Rust. See
+<a href="https://doc.rust-lang.org/unstable-book/library-features/test.html" target="_blank">the documentation about benchmark tests</a> to learn more.</p>
+<p>The next part of the test output starting at <code>Doc-tests adder</code> is for the
+results of any documentation tests. We don’t have any documentation tests yet,
+but Rust can compile any code examples that appear in our API documentation.
+This feature helps keep your docs and your code in sync! We’ll discuss how to
+write documentation tests in the <a href="ch14-02-publishing-to-crates-io.html#documentation-comments-as-tests">“Documentation Comments as
+Tests”</a><!-- ignore --> section of Chapter 14. For now, we’ll
+ignore the <code>Doc-tests</code> output.</p>
+<p>Let’s start to customize the test to our own needs. First, change the name of
+the <code>it_works</code> function to a different name, such as <code>exploration</code>, like so:</p>
+<p><span class="filename">Filename: src/lib.rs</span></p>
 <pre><code class="language-rust noplayground">pub fn add(left: u64, right: u64) -&gt; u64 {
     left + right
 }
@@ -343,7 +384,8 @@ mod tests {
         assert_eq!(result, 4);
     }
 }</code></pre>
-<p data-x-en="Then, run cargo test again. The output now shows exploration instead of it_works:">然后，再次运行 <code>cargo test</code>。现在的输出显示 <code>exploration</code> 而不是 <code>it_works</code>：</p>
+<p>Then, run <code>cargo test</code> again. The output now shows <code>exploration</code> instead of
+<code>it_works</code>:</p>
 <pre><code class="language-console">$ cargo test
    Compiling adder v0.1.0 (file:///projects/adder)
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.59s
@@ -361,7 +403,12 @@ running 0 tests
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
 </code></pre>
-<p data-x-en="Now we’ll add another test, but this time we’ll make a test that fails! Tests fail when something in the test function panics. Each test is run in a new thread, and when the main thread sees that a test thread has died, the test is marked as failed. In Chapter 9, we talked about how the simplest way to panic is to call the panic! macro. Enter the new test as a function named another, so your src/lib.rs file looks like Listing 11-3.">现在我们将添加另一个测试，但这次我们将创建一个失败的测试！当测试函数中的某些内容引发恐慌时，测试就会失败。每个测试都在一个新线程中运行，当主线程看到测试线程已死亡时，该测试就会被标记为失败。在第 9 章中，我们讨论了引发恐慌的最简单方法是调用 <code>panic!</code> 宏。将新测试作为名为 <code>another</code> 的函数输入，因此您的 <em>src/lib.rs</em> 文件看起来像列表 11-3。</p>
+<p>Now we’ll add another test, but this time we’ll make a test that fails! Tests
+fail when something in the test function panics. Each test is run in a new
+thread, and when the main thread sees that a test thread has died, the test is
+marked as failed. In Chapter 9, we talked about how the simplest way to panic
+is to call the <code>panic!</code> macro. Enter the new test as a function named
+<code>another</code>, so your <em>src/lib.rs</em> file looks like Listing 11-3.</p>
 <figure class="listing" id="listing-11-3">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust panics noplayground">pub fn add(left: u64, right: u64) -&gt; u64 {
@@ -385,7 +432,8 @@ mod tests {
 }</code></pre>
 <figcaption><a href="#listing-11-3">Listing 11-3</a>: Adding a second test that will fail because we call the <code>panic!</code> macro</figcaption>
 </figure>
-<p data-x-en="Run the tests again using cargo test. The output should look like Listing 11-4, which shows that our exploration test passed and another failed.">再次使用 <code>cargo test</code> 运行测试。输出应该如清单 11-4 所示，显示我们的 <code>exploration</code> 测试通过了，而 <code>another</code> 失败了。</p>
+<p>Run the tests again using <code>cargo test</code>. The output should look like Listing
+11-4, which shows that our <code>exploration</code> test passed and <code>another</code> failed.</p>
 <figure class="listing" id="listing-11-4">
 <pre><code class="language-console">$ cargo test
    Compiling adder v0.1.0 (file:///projects/adder)
@@ -418,14 +466,31 @@ error: test failed, to rerun pass `--lib`
 rg panicked listings/ch11-writing-automated-tests/listing-11-03/output.txt
 check the line number of the panic matches the line number in the following paragraph
  -->
-<p data-x-en="Instead of ok, the line test tests::another shows FAILED. Two new sections appear between the individual results and the summary: The first displays the detailed reason for each test failure. In this case, we get the details that tests::another failed because it panicked with the message Make this test fail on line 17 in the src/lib.rs file. The next section lists just the names of all the failing tests, which is useful when there are lots of tests and lots of detailed failing test output. We can use the name of a failing test to run just that test to debug it more easily; we’ll talk more about ways to run tests in the “Controlling How Tests Are Run” section.">而不是 <code>ok</code>，行 <code>test tests::another</code> 显示 <code>FAILED</code>。在各个结果和摘要之间出现了两个新的部分：第一部分显示每个测试失败的详细原因。在这种情况下，我们得到的详细信息是 <code>tests::another</code> 失败是因为在 <em>src/lib.rs</em> 文件的第 17 行触发了带有消息 <code>Make this test fail</code> 的 panic。下一部分列出了所有失败测试的名称，当有很多测试和很多详细的失败测试输出时，这非常有用。我们可以使用失败测试的名称来仅运行该测试以更轻松地调试；我们将在 <a href="ch11-02-running-tests.html#controlling-how-tests-are-run">“控制测试的运行方式”</a> 部分中更详细地讨论运行测试的方法。</p>
-<p data-x-en="The summary line displays at the end: Overall, our test result is FAILED. We had one test pass and one test fail.">总结行显示在最后：总体而言，我们的测试结果是<code>FAILED</code>。我们有一个测试通过，一个测试失败。</p>
-<p data-x-en="Now that you’ve seen what the test results look like in different scenarios, let’s look at some macros other than panic! that are useful in tests.">现在你已经看到了在不同场景下的测试结果，让我们来看看一些除了<code>panic!</code>之外在测试中有用的宏。</p>
+<p>Instead of <code>ok</code>, the line <code>test tests::another</code> shows <code>FAILED</code>. Two new
+sections appear between the individual results and the summary: The first
+displays the detailed reason for each test failure. In this case, we get the
+details that <code>tests::another</code> failed because it panicked with the message <code>Make this test fail</code> on line 17 in the <em>src/lib.rs</em> file. The next section lists
+just the names of all the failing tests, which is useful when there are lots of
+tests and lots of detailed failing test output. We can use the name of a
+failing test to run just that test to debug it more easily; we’ll talk more
+about ways to run tests in the <a href="ch11-02-running-tests.html#controlling-how-tests-are-run">“Controlling How Tests Are
+Run”</a><!-- ignore --> section.</p>
+<p>The summary line displays at the end: Overall, our test result is <code>FAILED</code>. We
+had one test pass and one test fail.</p>
+<p>Now that you’ve seen what the test results look like in different scenarios,
+let’s look at some macros other than <code>panic!</code> that are useful in tests.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="checking-results-with-the-assert-macro"></a></p>
-<h3 id="checking-results-with-assert"><a class="header" href="#checking-results-with-assert">使用 <code>assert!</code> 检查结果</a></h3>
-<p data-x-en="The assert! macro, provided by the standard library, is useful when you want to ensure that some condition in a test evaluates to true. We give the assert! macro an argument that evaluates to a Boolean. If the value is true, nothing happens and the test passes. If the value is false, the assert! macro calls panic! to cause the test to fail. Using the assert! macro helps us check that our code is functioning in the way we intend."><code>assert!</code> 宏由标准库提供，当你希望确保测试中的某个条件评估为 <code>true</code> 时非常有用。我们给 <code>assert!</code> 宏一个评估为布尔值的参数。如果值为 <code>true</code>，则不会发生任何事情，测试通过。如果值为 <code>false</code>，<code>assert!</code> 宏会调用 <code>panic!</code> 使测试失败。使用 <code>assert!</code> 宏有助于我们检查代码是否按我们预期的方式运行。</p>
-<p data-x-en="In Chapter 5, Listing 5-15, we used a Rectangle struct and a can_hold method, which are repeated here in Listing 11-5. Let’s put this code in the src/lib.rs file, then write some tests for it using the assert! macro.">在第 5 章，列表 5-15 中，我们使用了一个 <code>Rectangle</code> 结构体和一个 <code>can_hold</code> 方法，这些内容在列表 11-5 中再次列出。让我们将这段代码放在 <em>src/lib.rs</em> 文件中，然后使用 <code>assert!</code> 宏编写一些测试。</p>
+<h3 id="checking-results-with-assert"><a class="header" href="#checking-results-with-assert">Checking Results with <code>assert!</code></a></h3>
+<p>The <code>assert!</code> macro, provided by the standard library, is useful when you want
+to ensure that some condition in a test evaluates to <code>true</code>. We give the
+<code>assert!</code> macro an argument that evaluates to a Boolean. If the value is
+<code>true</code>, nothing happens and the test passes. If the value is <code>false</code>, the
+<code>assert!</code> macro calls <code>panic!</code> to cause the test to fail. Using the <code>assert!</code>
+macro helps us check that our code is functioning in the way we intend.</p>
+<p>In Chapter 5, Listing 5-15, we used a <code>Rectangle</code> struct and a <code>can_hold</code>
+method, which are repeated here in Listing 11-5. Let’s put this code in the
+<em>src/lib.rs</em> file, then write some tests for it using the <code>assert!</code> macro.</p>
 <figure class="listing" id="listing-11-5">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">#[derive(Debug)]
@@ -441,7 +506,11 @@ impl Rectangle {
 }</code></pre>
 <figcaption><a href="#listing-11-5">Listing 11-5</a>: The <code>Rectangle</code> struct and its <code>can_hold</code> method from Chapter 5</figcaption>
 </figure>
-<p data-x-en="The can_hold method returns a Boolean, which means it’s a perfect use case for the assert! macro. In Listing 11-6, we write a test that exercises the can_hold method by creating a Rectangle instance that has a width of 8 and a height of 7 and asserting that it can hold another Rectangle instance that has a width of 5 and a height of 1."><code>can_hold</code> 方法返回一个布尔值，这意味着它是 <code>assert!</code> 宏的完美用例。在清单 11-6 中，我们编写了一个测试，通过创建一个宽度为 8 和高度为 7 的 <code>Rectangle</code> 实例，并断言它可以容纳另一个宽度为 5 和高度为 1 的 <code>Rectangle</code> 实例来测试 <code>can_hold</code> 方法。</p>
+<p>The <code>can_hold</code> method returns a Boolean, which means it’s a perfect use case
+for the <code>assert!</code> macro. In Listing 11-6, we write a test that exercises the
+<code>can_hold</code> method by creating a <code>Rectangle</code> instance that has a width of 8 and
+a height of 7 and asserting that it can hold another <code>Rectangle</code> instance that
+has a width of 5 and a height of 1.</p>
 <figure class="listing" id="listing-11-6">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">#[derive(Debug)]
@@ -476,9 +545,18 @@ mod tests {
 }</code></pre>
 <figcaption><a href="#listing-11-6">Listing 11-6</a>: A test for <code>can_hold</code> that checks whether a larger rectangle can indeed hold a smaller rectangle</figcaption>
 </figure>
-<p data-x-en="Note the use super::*; line inside the tests module. The tests module is a regular module that follows the usual visibility rules we covered in Chapter 7 in the “Paths for Referring to an Item in the Module Tree” section. Because the tests module is an inner module, we need to bring the code under test in the outer module into the scope of the inner module. We use a glob here, so anything we define in the outer module is available to this tests module.">注意 <code>use super::*;</code> 这一行在 <code>tests</code> 模块内。 <code>tests</code> 模块是一个遵循我们在第 7 章 <a href="ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html">“模块树中引用项的路径”</a><!-- ignore -->
-部分讨论的通常可见性规则的普通模块。因为 <code>tests</code> 模块是一个内部模块，我们需要将外部模块中的待测试代码引入到内部模块的作用域中。这里我们使用了一个通配符，所以我们在外部模块中定义的任何内容都对这个 <code>tests</code> 模块可用。</p>
-<p data-x-en="We’ve named our test larger_can_hold_smaller, and we’ve created the two Rectangle instances that we need. Then, we called the assert! macro and passed it the result of calling larger.can_hold(&amp;smaller). This expression is supposed to return true, so our test should pass. Let’s find out!">我们把测试命名为<code>larger_can_hold_smaller</code>，并且创建了我们需要的两个<code>Rectangle</code>实例。然后，我们调用了<code>assert!</code>宏，并传入了调用<code>larger.can_hold(&amp;smaller)</code>的结果。这个表达式应该返回<code>true</code>，所以我们的测试应该通过。让我们来验证一下！</p>
+<p>Note the <code>use super::*;</code> line inside the <code>tests</code> module. The <code>tests</code> module is
+a regular module that follows the usual visibility rules we covered in Chapter
+7 in the <a href="ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html">“Paths for Referring to an Item in the Module
+Tree”</a><!-- ignore -->
+section. Because the <code>tests</code> module is an inner module, we need to bring the
+code under test in the outer module into the scope of the inner module. We use
+a glob here, so anything we define in the outer module is available to this
+<code>tests</code> module.</p>
+<p>We’ve named our test <code>larger_can_hold_smaller</code>, and we’ve created the two
+<code>Rectangle</code> instances that we need. Then, we called the <code>assert!</code> macro and
+passed it the result of calling <code>larger.can_hold(&amp;smaller)</code>. This expression is
+supposed to return <code>true</code>, so our test should pass. Let’s find out!</p>
 <pre><code class="language-console">$ cargo test
    Compiling rectangle v0.1.0 (file:///projects/rectangle)
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.66s
@@ -496,8 +574,9 @@ running 0 tests
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
 </code></pre>
-<p data-x-en="It does pass! Let’s add another test, this time asserting that a smaller rectangle cannot hold a larger rectangle:">它通过了！让我们再加一个测试，这次断言一个较小的矩形不能包含一个较大的矩形：</p>
-<p data-x-en="Filename: src/lib.rs"><span class="filename">文件名: src/lib.rs</span></p>
+<p>It does pass! Let’s add another test, this time asserting that a smaller
+rectangle cannot hold a larger rectangle:</p>
+<p><span class="filename">Filename: src/lib.rs</span></p>
 <pre><code class="language-rust noplayground"><span class="boring">#[derive(Debug)]
 </span><span class="boring">struct Rectangle {
 </span><span class="boring">    width: u32,
@@ -543,7 +622,9 @@ mod tests {
         assert!(!smaller.can_hold(&amp;larger));
     }
 }</code></pre>
-<p data-x-en="Because the correct result of the can_hold function in this case is false, we need to negate that result before we pass it to the assert! macro. As a result, our test will pass if can_hold returns false:">因为在这种情况下 <code>can_hold</code> 函数的正确结果是 <code>false</code>，所以我们需要在将其传递给 <code>assert!</code> 宏之前否定该结果。因此，如果 <code>can_hold</code> 返回 <code>false</code>，我们的测试将通过：</p>
+<p>Because the correct result of the <code>can_hold</code> function in this case is <code>false</code>,
+we need to negate that result before we pass it to the <code>assert!</code> macro. As a
+result, our test will pass if <code>can_hold</code> returns <code>false</code>:</p>
 <pre><code class="language-console">$ cargo test
    Compiling rectangle v0.1.0 (file:///projects/rectangle)
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.66s
@@ -562,7 +643,10 @@ running 0 tests
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
 </code></pre>
-<p data-x-en="Two tests that pass! Now let’s see what happens to our test results when we introduce a bug in our code. We’ll change the implementation of the can_hold method by replacing the greater-than sign (>) with a less-than sign (<) when it compares the widths:">两个测试通过了！现在让我们看看当我们在代码中引入一个错误时，测试结果会发生什么变化。我们将通过将比较宽度时的大于号 (<code>&gt;</code>) 替换为小于号 (<code>&lt;</code>) 来更改 <code>can_hold</code> 方法的实现：</p>
+<p>Two tests that pass! Now let’s see what happens to our test results when we
+introduce a bug in our code. We’ll change the implementation of the <code>can_hold</code>
+method by replacing the greater-than sign (<code>&gt;</code>) with a less-than sign (<code>&lt;</code>)
+when it compares the widths:</p>
 <pre><code class="language-rust not_desired_behavior noplayground"><span class="boring">#[derive(Debug)]
 </span><span class="boring">struct Rectangle {
 </span><span class="boring">    width: u32,
@@ -608,7 +692,7 @@ impl Rectangle {
 </span><span class="boring">        assert!(!smaller.can_hold(&amp;larger));
 </span><span class="boring">    }
 </span><span class="boring">}</span></code></pre>
-<p data-x-en="Running the tests now produces the following:">现在运行测试会产生以下结果：</p>
+<p>Running the tests now produces the following:</p>
 <pre><code class="language-console">$ cargo test
    Compiling rectangle v0.1.0 (file:///projects/rectangle)
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.66s
@@ -634,12 +718,24 @@ test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; 
 
 error: test failed, to rerun pass `--lib`
 </code></pre>
-<p data-x-en="Our tests caught the bug! Because larger.width is 8 and smaller.width is 5, the comparison of the widths in can_hold now returns false: 8 is not less than 5.">我们的测试捕获了这个bug！因为 <code>larger.width</code> 是 <code>8</code> 而 <code>smaller.width</code> 是 <code>5</code>，所以在 <code>can_hold</code> 中宽度的比较现在返回 <code>false</code>：8 不小于 5。</p>
+<p>Our tests caught the bug! Because <code>larger.width</code> is <code>8</code> and <code>smaller.width</code> is
+<code>5</code>, the comparison of the widths in <code>can_hold</code> now returns <code>false</code>: 8 is not
+less than 5.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="testing-equality-with-the-assert_eq-and-assert_ne-macros"></a></p>
-<h3 id="testing-equality-with-assert_eq-and-assert_ne"><a class="header" href="#testing-equality-with-assert_eq-and-assert_ne">使用 <code>assert_eq!</code> 和 <code>assert_ne!</code> 测试相等性</a></h3>
-<p data-x-en="A common way to verify functionality is to test for equality between the result of the code under test and the value you expect the code to return. You could do this by using the assert! macro and passing it an expression using the == operator. However, this is such a common test that the standard library provides a pair of macros—assert_eq! and assert_ne!—to perform this test more conveniently. These macros compare two arguments for equality or inequality, respectively. They’ll also print the two values if the assertion fails, which makes it easier to see why the test failed; conversely, the assert! macro only indicates that it got a false value for the == expression, without printing the values that led to the false value.">验证功能的一种常见方法是测试代码测试结果与你期望代码返回的值之间的相等性。你可以通过使用 <code>assert!</code> 宏并传递一个使用 <code>==</code> 运算符的表达式来实现这一点。然而，这是一个非常常见的测试，因此标准库提供了一对宏——<code>assert_eq!</code> 和 <code>assert_ne!</code>——以更方便地执行此测试。这些宏分别比较两个参数的相等性或不相等性。如果断言失败，它们还会打印这两个值，这使得更容易看到 <em>为什么</em> 测试失败；相反，<code>assert!</code> 宏仅指示 <code>==</code> 表达式得到了一个 <code>false</code> 值，而不会打印导致 <code>false</code> 值的值。</p>
-<p data-x-en="In Listing 11-7, we write a function named add_two that adds 2 to its parameter, and then we test this function using the assert_eq! macro.">在清单 11-7 中，我们编写了一个名为 <code>add_two</code> 的函数，该函数将其参数加 <code>2</code>，然后我们使用 <code>assert_eq!</code> 宏测试此函数。</p>
+<h3 id="testing-equality-with-assert_eq-and-assert_ne"><a class="header" href="#testing-equality-with-assert_eq-and-assert_ne">Testing Equality with <code>assert_eq!</code> and <code>assert_ne!</code></a></h3>
+<p>A common way to verify functionality is to test for equality between the result
+of the code under test and the value you expect the code to return. You could
+do this by using the <code>assert!</code> macro and passing it an expression using the
+<code>==</code> operator. However, this is such a common test that the standard library
+provides a pair of macros—<code>assert_eq!</code> and <code>assert_ne!</code>—to perform this test
+more conveniently. These macros compare two arguments for equality or
+inequality, respectively. They’ll also print the two values if the assertion
+fails, which makes it easier to see <em>why</em> the test failed; conversely, the
+<code>assert!</code> macro only indicates that it got a <code>false</code> value for the <code>==</code>
+expression, without printing the values that led to the <code>false</code> value.</p>
+<p>In Listing 11-7, we write a function named <code>add_two</code> that adds <code>2</code> to its
+parameter, and then we test this function using the <code>assert_eq!</code> macro.</p>
 <figure class="listing" id="listing-11-7">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">pub fn add_two(a: u64) -&gt; u64 {
@@ -658,7 +754,7 @@ mod tests {
 }</code></pre>
 <figcaption><a href="#listing-11-7">Listing 11-7</a>: Testing the function <code>add_two</code> using the <code>assert_eq!</code> macro</figcaption>
 </figure>
-<p data-x-en="Let’s check that it passes!">让我们检查它是否通过！</p>
+<p>Let’s check that it passes!</p>
 <pre><code class="language-console">$ cargo test
    Compiling adder v0.1.0 (file:///projects/adder)
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.58s
@@ -676,8 +772,11 @@ running 0 tests
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
 </code></pre>
-<p data-x-en="We create a variable named result that holds the result of calling add_two(2). Then, we pass result and 4 as the arguments to the assert_eq! macro. The output line for this test is test tests::it_adds_two ... ok, and the ok text indicates that our test passed!">我们创建一个名为 <code>result</code> 的变量，该变量保存调用 <code>add_two(2)</code> 的结果。然后，我们将 <code>result</code> 和 <code>4</code> 作为参数传递给 <code>assert_eq!</code> 宏。此测试的输出行为 <code>test tests::it_adds_two ... ok</code>，<code>ok</code> 文本表示我们的测试通过了！</p>
-<p data-x-en="Let’s introduce a bug into our code to see what assert_eq! looks like when it fails. Change the implementation of the add_two function to instead add 3:">让我们在代码中引入一个错误，看看<code>assert_eq!</code>在失败时是什么样子。将<code>add_two</code>函数的实现更改为加<code>3</code>：</p>
+<p>We create a variable named <code>result</code> that holds the result of calling
+<code>add_two(2)</code>. Then, we pass <code>result</code> and <code>4</code> as the arguments to the
+<code>assert_eq!</code> macro. The output line for this test is <code>test tests::it_adds_two ... ok</code>, and the <code>ok</code> text indicates that our test passed!</p>
+<p>Let’s introduce a bug into our code to see what <code>assert_eq!</code> looks like when it
+fails. Change the implementation of the <code>add_two</code> function to instead add <code>3</code>:</p>
 <pre><code class="language-rust not_desired_behavior noplayground">pub fn add_two(a: u64) -&gt; u64 {
     a + 3
 }
@@ -692,7 +791,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
 </span><span class="boring">        assert_eq!(result, 4);
 </span><span class="boring">    }
 </span><span class="boring">}</span></code></pre>
-<p data-x-en="Run the tests again:">再次运行测试：</p>
+<p>Run the tests again:</p>
 <pre><code class="language-console">$ cargo test
    Compiling adder v0.1.0 (file:///projects/adder)
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.61s
@@ -719,15 +818,51 @@ test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; 
 
 error: test failed, to rerun pass `--lib`
 </code></pre>
-<p data-x-en="Our test caught the bug! The tests::it_adds_two test failed, and the message tells us that the assertion that failed was left == right and what the left and right values are. This message helps us start debugging: The left argument, where we had the result of calling add_two(2), was 5, but the right argument was 4. You can imagine that this would be especially helpful when we have a lot of tests going on.">我们的测试捕获了这个bug！<code>tests::it_adds_two</code> 测试失败了，消息告诉我们失败的断言是 <code>left == right</code> 以及 <code>left</code> 和 <code>right</code> 的值是什么。这条消息帮助我们开始调试：<code>left</code> 参数，我们在其中调用了 <code>add_two(2)</code> 的结果，是 <code>5</code>，但 <code>right</code> 参数是 <code>4</code>。你可以想象，当我们有很多测试时，这会特别有帮助。</p>
-<p data-x-en="Note that in some languages and test frameworks, the parameters to equality assertion functions are called expected and actual, and the order in which we specify the arguments matters. However, in Rust, they’re called left and right, and the order in which we specify the value we expect and the value the code produces doesn’t matter. We could write the assertion in this test as assert_eq!(4, result), which would result in the same failure message that displays assertion `left == right` failed.">请注意，在某些语言和测试框架中，相等性断言函数的参数被称为 <code>expected</code> 和 <code>actual</code>，并且我们指定参数的顺序很重要。然而，在 Rust 中，它们被称为 <code>left</code> 和 <code>right</code>，并且我们指定期望值和代码生成值的顺序并不重要。我们可以将此测试中的断言写为 <code>assert_eq!(4, result)</code>，这将导致相同的失败消息，显示 <code> assertion `left == right` failed</code>。</p>
-<p data-x-en="The assert_ne! macro will pass if the two values we give it are not equal and will fail if they are equal. This macro is most useful for cases when we’re not sure what a value will be, but we know what the value definitely shouldn’t be. For example, if we’re testing a function that is guaranteed to change its input in some way, but the way in which the input is changed depends on the day of the week that we run our tests, the best thing to assert might be that the output of the function is not equal to the input."><code>assert_ne!</code> 宏会在我们给它的两个值不相等时通过，并且在它们相等时失败。这个宏在我们不确定一个值 <em>将</em> 是什么，但知道这个值绝对 <em>不应该</em> 是什么的情况下最有用。例如，如果我们正在测试一个保证会以某种方式改变其输入的函数，但输入被改变的方式取决于我们运行测试的星期几，那么最好的断言可能是函数的输出不等于输入。</p>
-<p data-x-en="Under the surface, the assert_eq! and assert_ne! macros use the operators == and !=, respectively. When the assertions fail, these macros print their arguments using debug formatting, which means the values being compared must implement the PartialEq and Debug traits. All primitive types and most of the standard library types implement these traits. For structs and enums that you define yourself, you’ll need to implement PartialEq to assert equality of those types. You’ll also need to implement Debug to print the values when the assertion fails. Because both traits are derivable traits, as mentioned in Listing 5-12 in Chapter 5, this is usually as straightforward as adding the #[derive(PartialEq, Debug)] annotation to your struct or enum definition. See Appendix C, “Derivable Traits,” for more details about these and other derivable traits.">在表面之下，<code>assert_eq!</code> 和 <code>assert_ne!</code> 宏分别使用 <code>==</code> 和 <code>!=</code> 运算符。当断言失败时，这些宏使用调试格式打印其参数，这意味着被比较的值必须实现 <code>PartialEq</code> 和 <code>Debug</code> 特性。所有原始类型和大多数标准库类型都实现了这些特性。对于你自己定义的结构体和枚举，你需要实现 <code>PartialEq</code> 以断言这些类型的相等性。你还需要实现 <code>Debug</code> 以在断言失败时打印值。因为这两个特性都是可派生特性，如第 5 章列表 5-12 中所述，这通常只需在你的结构体或枚举定义中添加 <code>#[derive(PartialEq, Debug)]</code> 注解即可。有关这些和其他可派生特性的更多详细信息，请参阅附录 C，<a href="appendix-03-derivable-traits.html">“可派生特性”，</a><!-- ignore -->。</p>
-<h3 id="adding-custom-failure-messages"><a class="header" href="#adding-custom-failure-messages">添加自定义失败消息</a></h3>
-<p data-x-en="You can also add a custom message to be printed with the failure message as optional arguments to the assert!, assert_eq!, and assert_ne! macros. Any arguments specified after the required arguments are passed along to the format! macro (discussed in “Concatenating with + or format!” in Chapter 8), so you can pass a format string that contains {} placeholders and values to go in those placeholders. Custom messages are useful for documenting what an assertion means; when a test fails, you’ll have a better idea of what the problem is with the code.">你还可以向 <code>assert!</code>、<code>assert_eq!</code> 和 <code>assert_ne!</code> 宏添加自定义消息，作为可选参数。在必需参数之后指定的任何参数都会传递给 <code>format!</code> 宏（在第 8 章的<a href="ch08-02-strings.html#concatenating-with--or-format">“使用 <code>+</code> 或 <code>format!</code> 连接”</a><!--
-ignore --> 中讨论），因此你可以传递一个包含 <code>{}</code> 占位符的格式字符串和要填入这些占位符的值。自定义消息对于记录断言的含义非常有用；当测试失败时，你将更好地了解代码的问题所在。</p>
-<p data-x-en="For example, let’s say we have a function that greets people by name and we want to test that the name we pass into the function appears in the output:">例如，假设我们有一个通过名字问候人的函数，我们想要测试我们传递给函数的名字是否出现在输出中：</p>
-<p data-x-en="Filename: src/lib.rs"><span class="filename">文件名: src/lib.rs</span></p>
+<p>Our test caught the bug! The <code>tests::it_adds_two</code> test failed, and the message
+tells us that the assertion that failed was <code>left == right</code> and what the <code>left</code>
+and <code>right</code> values are. This message helps us start debugging: The <code>left</code>
+argument, where we had the result of calling <code>add_two(2)</code>, was <code>5</code>, but the
+<code>right</code> argument was <code>4</code>. You can imagine that this would be especially helpful
+when we have a lot of tests going on.</p>
+<p>Note that in some languages and test frameworks, the parameters to equality
+assertion functions are called <code>expected</code> and <code>actual</code>, and the order in which
+we specify the arguments matters. However, in Rust, they’re called <code>left</code> and
+<code>right</code>, and the order in which we specify the value we expect and the value
+the code produces doesn’t matter. We could write the assertion in this test as
+<code>assert_eq!(4, result)</code>, which would result in the same failure message that
+displays <code>assertion `left == right` failed</code>.</p>
+<p>The <code>assert_ne!</code> macro will pass if the two values we give it are not equal and
+will fail if they are equal. This macro is most useful for cases when we’re not
+sure what a value <em>will</em> be, but we know what the value definitely <em>shouldn’t</em>
+be. For example, if we’re testing a function that is guaranteed to change its
+input in some way, but the way in which the input is changed depends on the day
+of the week that we run our tests, the best thing to assert might be that the
+output of the function is not equal to the input.</p>
+<p>Under the surface, the <code>assert_eq!</code> and <code>assert_ne!</code> macros use the operators
+<code>==</code> and <code>!=</code>, respectively. When the assertions fail, these macros print their
+arguments using debug formatting, which means the values being compared must
+implement the <code>PartialEq</code> and <code>Debug</code> traits. All primitive types and most of
+the standard library types implement these traits. For structs and enums that
+you define yourself, you’ll need to implement <code>PartialEq</code> to assert equality of
+those types. You’ll also need to implement <code>Debug</code> to print the values when the
+assertion fails. Because both traits are derivable traits, as mentioned in
+Listing 5-12 in Chapter 5, this is usually as straightforward as adding the
+<code>#[derive(PartialEq, Debug)]</code> annotation to your struct or enum definition. See
+Appendix C, <a href="appendix-03-derivable-traits.html">“Derivable Traits,”</a><!-- ignore --> for more
+details about these and other derivable traits.</p>
+<h3 id="adding-custom-failure-messages"><a class="header" href="#adding-custom-failure-messages">Adding Custom Failure Messages</a></h3>
+<p>You can also add a custom message to be printed with the failure message as
+optional arguments to the <code>assert!</code>, <code>assert_eq!</code>, and <code>assert_ne!</code> macros. Any
+arguments specified after the required arguments are passed along to the
+<code>format!</code> macro (discussed in <a href="ch08-02-strings.html#concatenating-with--or-format">“Concatenating with <code>+</code> or
+<code>format!</code>”</a><!--
+ignore --> in Chapter 8), so you can pass a format string that contains <code>{}</code>
+placeholders and values to go in those placeholders. Custom messages are useful
+for documenting what an assertion means; when a test fails, you’ll have a better
+idea of what the problem is with the code.</p>
+<p>For example, let’s say we have a function that greets people by name and we
+want to test that the name we pass into the function appears in the output:</p>
+<p><span class="filename">Filename: src/lib.rs</span></p>
 <pre><code class="language-rust noplayground">pub fn greeting(name: &amp;str) -&gt; String {
     format!("Hello {name}!")
 }
@@ -742,8 +877,14 @@ mod tests {
         assert!(result.contains("Carol"));
     }
 }</code></pre>
-<p data-x-en="The requirements for this program haven’t been agreed upon yet, and we’re pretty sure the Hello text at the beginning of the greeting will change. We decided we don’t want to have to update the test when the requirements change, so instead of checking for exact equality to the value returned from the greeting function, we’ll just assert that the output contains the text of the input parameter.">这个程序的要求尚未确定，我们相当确定问候语开头的<code>Hello</code>文本将会更改。我们决定当需求变更时，不想更新测试，因此我们不会检查<code>greeting</code>函数返回值的完全相等性，而是断言输出包含输入参数的文本。</p>
-<p data-x-en="Now let’s introduce a bug into this code by changing greeting to exclude name to see what the default test failure looks like:">现在让我们通过更改 <code>greeting</code> 以排除 <code>name</code> 来引入一个错误，看看默认的测试失败是什么样的：</p>
+<p>The requirements for this program haven’t been agreed upon yet, and we’re
+pretty sure the <code>Hello</code> text at the beginning of the greeting will change. We
+decided we don’t want to have to update the test when the requirements change,
+so instead of checking for exact equality to the value returned from the
+<code>greeting</code> function, we’ll just assert that the output contains the text of the
+input parameter.</p>
+<p>Now let’s introduce a bug into this code by changing <code>greeting</code> to exclude
+<code>name</code> to see what the default test failure looks like:</p>
 <pre><code class="language-rust not_desired_behavior noplayground">pub fn greeting(name: &amp;str) -&gt; String {
     String::from("Hello!")
 }
@@ -758,7 +899,7 @@ mod tests {
 </span><span class="boring">        assert!(result.contains("Carol"));
 </span><span class="boring">    }
 </span><span class="boring">}</span></code></pre>
-<p data-x-en="Running this test produces the following:">运行此测试会产生以下结果：</p>
+<p>Running this test produces the following:</p>
 <pre><code class="language-console">$ cargo test
    Compiling greeter v0.1.0 (file:///projects/greeter)
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.91s
@@ -783,7 +924,11 @@ test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; 
 
 error: test failed, to rerun pass `--lib`
 </code></pre>
-<p data-x-en="This result just indicates that the assertion failed and which line the assertion is on. A more useful failure message would print the value from the greeting function. Let’s add a custom failure message composed of a format string with a placeholder filled in with the actual value we got from the greeting function:">这个结果只是表明断言失败以及断言所在的行。一个更有用的失败消息会打印出 <code>greeting</code> 函数的值。让我们添加一个自定义的失败消息，该消息由一个带有占位符的格式字符串组成，占位符用从 <code>greeting</code> 函数获取的实际值填充：</p>
+<p>This result just indicates that the assertion failed and which line the
+assertion is on. A more useful failure message would print the value from the
+<code>greeting</code> function. Let’s add a custom failure message composed of a format
+string with a placeholder filled in with the actual value we got from the
+<code>greeting</code> function:</p>
 <pre><code class="language-rust ignore"><span class="boring">pub fn greeting(name: &amp;str) -&gt; String {
 </span><span class="boring">    String::from("Hello!")
 </span><span class="boring">}
@@ -801,7 +946,7 @@ error: test failed, to rerun pass `--lib`
         );
     }
 <span class="boring">}</span></code></pre>
-<p data-x-en="Now when we run the test, we’ll get a more informative error message:">现在当我们运行测试时，我们将获得一个更具信息性的错误消息：</p>
+<p>Now when we run the test, we’ll get a more informative error message:</p>
 <pre><code class="language-console">$ cargo test
    Compiling greeter v0.1.0 (file:///projects/greeter)
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.93s
@@ -826,11 +971,20 @@ test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; 
 
 error: test failed, to rerun pass `--lib`
 </code></pre>
-<p data-x-en="We can see the value we actually got in the test output, which would help us debug what happened instead of what we were expecting to happen.">我们可以从测试输出中看到实际得到的值，这将帮助我们调试实际发生的情况，而不是我们期望发生的情况。</p>
-<h3 id="checking-for-panics-with-should_panic"><a class="header" href="#checking-for-panics-with-should_panic">使用 <code>should_panic</code> 检查恐慌</a></h3>
-<p data-x-en="In addition to checking return values, it’s important to check that our code handles error conditions as we expect. For example, consider the Guess type that we created in Chapter 9, Listing 9-13. Other code that uses Guess depends on the guarantee that Guess instances will contain only values between 1 and 100. We can write a test that ensures that attempting to create a Guess instance with a value outside that range panics.">除了检查返回值之外，确保我们的代码按预期处理错误条件也很重要。例如，考虑我们在第 9 章，列表 9-13 中创建的 <code>Guess</code> 类型。使用 <code>Guess</code> 的其他代码依赖于 <code>Guess</code> 实例将仅包含 1 到 100 之间的值的保证。我们可以编写一个测试，以确保尝试使用该范围之外的值创建 <code>Guess</code> 实例时会引发恐慌。</p>
-<p data-x-en="We do this by adding the attribute should_panic to our test function. The test passes if the code inside the function panics; the test fails if the code inside the function doesn’t panic.">我们通过在测试函数中添加属性 <code>should_panic</code> 来实现这一点。如果函数内的代码引发恐慌，则测试通过；如果函数内的代码没有引发恐慌，则测试失败。</p>
-<p data-x-en="Listing 11-8 shows a test that checks that the error conditions of Guess::new happen when we expect them to.">列表 11-8 显示了一个测试，该测试检查 <code>Guess::new</code> 的错误条件是否在我们预期时发生。</p>
+<p>We can see the value we actually got in the test output, which would help us
+debug what happened instead of what we were expecting to happen.</p>
+<h3 id="checking-for-panics-with-should_panic"><a class="header" href="#checking-for-panics-with-should_panic">Checking for Panics with <code>should_panic</code></a></h3>
+<p>In addition to checking return values, it’s important to check that our code
+handles error conditions as we expect. For example, consider the <code>Guess</code> type
+that we created in Chapter 9, Listing 9-13. Other code that uses <code>Guess</code>
+depends on the guarantee that <code>Guess</code> instances will contain only values
+between 1 and 100. We can write a test that ensures that attempting to create a
+<code>Guess</code> instance with a value outside that range panics.</p>
+<p>We do this by adding the attribute <code>should_panic</code> to our test function. The
+test passes if the code inside the function panics; the test fails if the code
+inside the function doesn’t panic.</p>
+<p>Listing 11-8 shows a test that checks that the error conditions of <code>Guess::new</code>
+happen when we expect them to.</p>
 <figure class="listing" id="listing-11-8">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">pub struct Guess {
@@ -859,7 +1013,9 @@ mod tests {
 }</code></pre>
 <figcaption><a href="#listing-11-8">Listing 11-8</a>: Testing that a condition will cause a <code>panic!</code></figcaption>
 </figure>
-<p data-x-en="We place the #[should_panic] attribute after the #[test] attribute and before the test function it applies to. Let’s look at the result when this test passes:">我们将 <code>#[should_panic]</code> 属性放在 <code>#[test]</code> 属性之后和它所应用的测试函数之前。让我们看看当这个测试通过时的结果：</p>
+<p>We place the <code>#[should_panic]</code> attribute after the <code>#[test]</code> attribute and
+before the test function it applies to. Let’s look at the result when this test
+passes:</p>
 <pre><code class="language-console">$ cargo test
    Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.58s
@@ -877,7 +1033,8 @@ running 0 tests
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
 </code></pre>
-<p data-x-en="Looks good! Now let’s introduce a bug in our code by removing the condition that the new function will panic if the value is greater than 100:">看起来不错！现在让我们通过移除 <code>new</code> 函数在值大于 100 时会 panic 的条件来引入一个 bug：</p>
+<p>Looks good! Now let’s introduce a bug in our code by removing the condition
+that the <code>new</code> function will panic if the value is greater than 100:</p>
 <pre><code class="language-rust not_desired_behavior noplayground"><span class="boring">pub struct Guess {
 </span><span class="boring">    value: i32,
 </span><span class="boring">}
@@ -903,7 +1060,7 @@ impl Guess {
 </span><span class="boring">        Guess::new(200);
 </span><span class="boring">    }
 </span><span class="boring">}</span></code></pre>
-<p data-x-en="When we run the test in Listing 11-8, it will fail:">当我们运行列表 11-8 中的测试时，它将失败：</p>
+<p>When we run the test in Listing 11-8, it will fail:</p>
 <pre><code class="language-console">$ cargo test
    Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.62s
@@ -924,8 +1081,17 @@ test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; 
 
 error: test failed, to rerun pass `--lib`
 </code></pre>
-<p data-x-en="We don’t get a very helpful message in this case, but when we look at the test function, we see that it’s annotated with #[should_panic]. The failure we got means that the code in the test function did not cause a panic.">在这种情况下，我们没有得到非常有帮助的信息，但当我们查看测试函数时，我们看到它被标注为<code>#[should_panic]</code>。我们得到的失败意味着测试函数中的代码没有引发恐慌。</p>
-<p data-x-en="Tests that use should_panic can be imprecise. A should_panic test would pass even if the test panics for a different reason from the one we were expecting. To make should_panic tests more precise, we can add an optional expected parameter to the should_panic attribute. The test harness will make sure that the failure message contains the provided text. For example, consider the modified code for Guess in Listing 11-9 where the new function panics with different messages depending on whether the value is too small or too large.">使用 <code>should_panic</code> 的测试可能不精确。如果测试因与我们预期不同的原因而恐慌，<code>should_panic</code> 测试也会通过。为了使 <code>should_panic</code> 测试更精确，我们可以在 <code>should_panic</code> 属性中添加一个可选的 <code>expected</code> 参数。测试框架将确保失败消息包含提供的文本。例如，考虑列表 11-9 中 <code>Guess</code> 的修改代码，其中 <code>new</code> 函数会根据值是太小还是太大而产生不同的恐慌消息。</p>
+<p>We don’t get a very helpful message in this case, but when we look at the test
+function, we see that it’s annotated with <code>#[should_panic]</code>. The failure we got
+means that the code in the test function did not cause a panic.</p>
+<p>Tests that use <code>should_panic</code> can be imprecise. A <code>should_panic</code> test would
+pass even if the test panics for a different reason from the one we were
+expecting. To make <code>should_panic</code> tests more precise, we can add an optional
+<code>expected</code> parameter to the <code>should_panic</code> attribute. The test harness will
+make sure that the failure message contains the provided text. For example,
+consider the modified code for <code>Guess</code> in Listing 11-9 where the <code>new</code> function
+panics with different messages depending on whether the value is too small or
+too large.</p>
 <figure class="listing" id="listing-11-9">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">pub struct Guess {
@@ -962,8 +1128,16 @@ mod tests {
 }</code></pre>
 <figcaption><a href="#listing-11-9">Listing 11-9</a>: Testing for a <code>panic!</code> with a panic message containing a specified substring</figcaption>
 </figure>
-<p data-x-en="This test will pass because the value we put in the should_panic attribute’s expected parameter is a substring of the message that the Guess::new function panics with. We could have specified the entire panic message that we expect, which in this case would be Guess value must be less than or equal to 100, got 200. What you choose to specify depends on how much of the panic message is unique or dynamic and how precise you want your test to be. In this case, a substring of the panic message is enough to ensure that the code in the test function executes the else if value > 100 case.">这个测试会通过，因为我们放在 <code>should_panic</code> 属性的 <code>expected</code> 参数中的值是 <code>Guess::new</code> 函数抛出的恐慌消息的子字符串。我们可以指定我们期望的整个恐慌消息，在这种情况下是 <code>Guess value must be less than or equal to 100, got 200</code>。你选择指定的内容取决于恐慌消息中有多少是唯一的或动态的，以及你希望你的测试有多精确。在这种情况下，恐慌消息的子字符串足以确保测试函数中的代码执行 <code>else if value &gt; 100</code> 分支。</p>
-<p data-x-en="To see what happens when a should_panic test with an expected message fails, let’s again introduce a bug into our code by swapping the bodies of the if value < 1 and the else if value > 100 blocks:">要查看带有 <code>expected</code> 消息的 <code>should_panic</code> 测试失败时会发生什么，让我们再次通过交换 <code>if value &lt; 1</code> 和 <code>else if value &gt; 100</code> 块的主体来引入一个错误：</p>
+<p>This test will pass because the value we put in the <code>should_panic</code> attribute’s
+<code>expected</code> parameter is a substring of the message that the <code>Guess::new</code>
+function panics with. We could have specified the entire panic message that we
+expect, which in this case would be <code>Guess value must be less than or equal to 100, got 200</code>. What you choose to specify depends on how much of the panic
+message is unique or dynamic and how precise you want your test to be. In this
+case, a substring of the panic message is enough to ensure that the code in the
+test function executes the <code>else if value &gt; 100</code> case.</p>
+<p>To see what happens when a <code>should_panic</code> test with an <code>expected</code> message
+fails, let’s again introduce a bug into our code by swapping the bodies of the
+<code>if value &lt; 1</code> and the <code>else if value &gt; 100</code> blocks:</p>
 <pre><code class="language-rust ignore not_desired_behavior"><span class="boring">pub struct Guess {
 </span><span class="boring">    value: i32,
 </span><span class="boring">}
@@ -994,7 +1168,7 @@ mod tests {
 </span><span class="boring">        Guess::new(200);
 </span><span class="boring">    }
 </span><span class="boring">}</span></code></pre>
-<p data-x-en="This time when we run the should_panic test, it will fail:">这次当我们运行 <code>should_panic</code> 测试时，它将失败：</p>
+<p>This time when we run the <code>should_panic</code> test, it will fail:</p>
 <pre><code class="language-console">$ cargo test
    Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.66s
@@ -1021,9 +1195,12 @@ test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; 
 
 error: test failed, to rerun pass `--lib`
 </code></pre>
-<p data-x-en="The failure message indicates that this test did indeed panic as we expected, but the panic message did not include the expected string less than or equal to 100. The panic message that we did get in this case was Guess value must be greater than or equal to 1, got 200. Now we can start figuring out where our bug is!">失败消息表明这个测试确实如我们所料发生了崩溃，但崩溃消息中并没有包含预期的字符串<code>less than or equal to 100</code>。在这种情况下，我们实际得到的崩溃消息是<code>Guess value must be greater than or equal to 1, got 200.</code> 现在我们可以开始找出我们的错误在哪里了！</p>
-<h3 id="using-resultt-e-in-tests"><a class="header" href="#using-resultt-e-in-tests">在测试中使用 <code>Result&lt;T, E&gt;</code></a></h3>
-<p data-x-en="All of our tests so far panic when they fail. We can also write tests that use Result<T, E>! Here’s the test from Listing 11-1, rewritten to use Result<T, E> and return an Err instead of panicking:">到目前为止，我们所有的测试在失败时都会引发恐慌。我们也可以编写使用<code>Result&lt;T, E&gt;</code>的测试！这是来自列表 11-1 的测试，重写为使用<code>Result&lt;T, E&gt;</code>并返回一个<code>Err</code>而不是引发恐慌：</p>
+<p>The failure message indicates that this test did indeed panic as we expected,
+but the panic message did not include the expected string <code>less than or equal to 100</code>. The panic message that we did get in this case was <code>Guess value must be greater than or equal to 1, got 200</code>. Now we can start figuring out where
+our bug is!</p>
+<h3 id="using-resultt-e-in-tests"><a class="header" href="#using-resultt-e-in-tests">Using <code>Result&lt;T, E&gt;</code> in Tests</a></h3>
+<p>All of our tests so far panic when they fail. We can also write tests that use
+<code>Result&lt;T, E&gt;</code>! Here’s the test from Listing 11-1, rewritten to use <code>Result&lt;T, E&gt;</code> and return an <code>Err</code> instead of panicking:</p>
 <pre><code class="language-rust noplayground"><span class="boring">pub fn add(left: u64, right: u64) -&gt; u64 {
 </span><span class="boring">    left + right
 </span><span class="boring">}
@@ -1043,21 +1220,30 @@ mod tests {
         }
     }
 }</code></pre>
-<p data-x-en="The it_works function now has the Result<(), String> return type. In the body of the function, rather than calling the assert_eq! macro, we return Ok(()) when the test passes and an Err with a String inside when the test fails."><code>it_works</code> 函数现在具有 <code>Result&lt;(), String&gt;</code> 返回类型。在函数体中，我们不再调用 <code>assert_eq!</code> 宏，而是当测试通过时返回 <code>Ok(())</code>，当测试失败时返回带有 <code>String</code> 的 <code>Err</code>。</p>
-<p data-x-en="Writing tests so that they return a Result<T, E> enables you to use the question mark operator in the body of tests, which can be a convenient way to write tests that should fail if any operation within them returns an Err variant.">编写测试以使它们返回一个 <code>Result&lt;T, E&gt;</code> 可以让你在测试的主体中使用问号运算符，这是一种方便的方法来编写测试，如果其中的任何操作返回 <code>Err</code> 变体，测试应该失败。</p>
-<p data-x-en="You can’t use the #[should_panic] annotation on tests that use Result<T, E>. To assert that an operation returns an Err variant, don’t use the question mark operator on the Result<T, E> value. Instead, use assert!(value.is_err()).">你不能在使用 <code>Result&lt;T, E&gt;</code> 的测试上使用 <code>#[should_panic]</code> 注解。为了断言一个操作返回一个 <code>Err</code> 变体，<em>不要</em> 在 <code>Result&lt;T, E&gt;</code> 值上使用问号操作符。相反，使用 <code>assert!(value.is_err())</code>。</p>
-<p data-x-en="Now that you know several ways to write tests, let’s look at what is happening when we run our tests and explore the different options we can use with cargo test.">现在你已经了解了多种编写测试的方法，让我们来看看当我们运行测试时发生了什么，并探索我们可以与<code>cargo test</code>一起使用的不同选项。</p>
+<p>The <code>it_works</code> function now has the <code>Result&lt;(), String&gt;</code> return type. In the
+body of the function, rather than calling the <code>assert_eq!</code> macro, we return
+<code>Ok(())</code> when the test passes and an <code>Err</code> with a <code>String</code> inside when the test
+fails.</p>
+<p>Writing tests so that they return a <code>Result&lt;T, E&gt;</code> enables you to use the
+question mark operator in the body of tests, which can be a convenient way to
+write tests that should fail if any operation within them returns an <code>Err</code>
+variant.</p>
+<p>You can’t use the <code>#[should_panic]</code> annotation on tests that use <code>Result&lt;T, E&gt;</code>. To assert that an operation returns an <code>Err</code> variant, <em>don’t</em> use the
+question mark operator on the <code>Result&lt;T, E&gt;</code> value. Instead, use
+<code>assert!(value.is_err())</code>.</p>
+<p>Now that you know several ways to write tests, let’s look at what is happening
+when we run our tests and explore the different options we can use with <code>cargo test</code>.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch11-00-testing.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch11-02-running-tests.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -1067,16 +1253,21 @@ mod tests {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch11-00-testing.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch11-02-running-tests.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -1085,16 +1276,16 @@ mod tests {
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

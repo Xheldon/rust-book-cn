@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch10-02-traits.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,53 +212,69 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
                         <!-- Old headings. Do not remove or links may break. -->
 <p><a id="traits-defining-shared-behavior"></a></p>
-<h2 id="defining-shared-behavior-with-traits"><a class="header" href="#defining-shared-behavior-with-traits">使用特质定义共享行为</a></h2>
-<p data-x-en="A trait defines the functionality a particular type has and can share with other types. We can use traits to define shared behavior in an abstract way. We can use trait bounds to specify that a generic type can be any type that has certain behavior.">一个 <em>trait</em> 定义了特定类型具有的功能以及可以与其他类型共享的功能。我们可以使用 trait 以抽象的方式定义共享行为。我们可以使用 <em>trait bounds</em> 来指定泛型类型可以是具有某些行为的任何类型。</p>
+<h2 id="defining-shared-behavior-with-traits"><a class="header" href="#defining-shared-behavior-with-traits">Defining Shared Behavior with Traits</a></h2>
+<p>A <em>trait</em> defines the functionality a particular type has and can share with
+other types. We can use traits to define shared behavior in an abstract way. We
+can use <em>trait bounds</em> to specify that a generic type can be any type that has
+certain behavior.</p>
 <section class="note" aria-role="note">
-<p data-x-en="Note: Traits are similar to a feature often called interfaces in other languages, although with some differences.">注意：Trait 与其它语言中经常称为 <em>接口</em> 的功能类似，尽管有一些不同。</p>
+<p>Note: Traits are similar to a feature often called <em>interfaces</em> in other
+languages, although with some differences.</p>
 </section>
-<h3 id="defining-a-trait"><a class="header" href="#defining-a-trait">定义一个特质</a></h3>
-<p data-x-en="A type’s behavior consists of the methods we can call on that type. Different types share the same behavior if we can call the same methods on all of those types. Trait definitions are a way to group method signatures together to define a set of behaviors necessary to accomplish some purpose.">一个类型的行为主由我们可以调用该类型的方法组成。如果我们可以对所有这些类型调用相同的方法，那么不同的类型就共享相同的行为。特征定义是一种将方法签名组合在一起的方式，以定义实现某个目的所需的一组行为。</p>
-<p data-x-en="For example, let’s say we have multiple structs that hold various kinds and amounts of text: a NewsArticle struct that holds a news story filed in a particular location and a SocialPost that can have, at most, 280 characters along with metadata that indicates whether it was a new post, a repost, or a reply to another post.">例如，假设我们有多个结构体，它们持有各种类型和数量的文本：一个 <code>NewsArticle</code> 结构体，用于存储在特定地点发布的新闻故事，以及一个 <code>SocialPost</code> 结构体，最多可以包含 280 个字符，以及元数据，指示它是新帖子、转发还是回复其他帖子。</p>
-<p data-x-en="We want to make a media aggregator library crate named aggregator that can display summaries of data that might be stored in a NewsArticle or SocialPost instance. To do this, we need a summary from each type, and we’ll request that summary by calling a summarize method on an instance. Listing 10-12 shows the definition of a public Summary trait that expresses this behavior.">我们想要制作一个名为 <code>aggregator</code> 的媒体聚合库 crate，可以显示可能存储在 <code>NewsArticle</code> 或 <code>SocialPost</code> 实例中的数据摘要。为此，我们需要每种类型的摘要，并将通过调用实例上的 <code>summarize</code> 方法来请求该摘要。列表 10-12 显示了一个公共 <code>Summary</code> 特性的定义，该特性表达了这种行为。</p>
+<h3 id="defining-a-trait"><a class="header" href="#defining-a-trait">Defining a Trait</a></h3>
+<p>A type’s behavior consists of the methods we can call on that type. Different
+types share the same behavior if we can call the same methods on all of those
+types. Trait definitions are a way to group method signatures together to
+define a set of behaviors necessary to accomplish some purpose.</p>
+<p>For example, let’s say we have multiple structs that hold various kinds and
+amounts of text: a <code>NewsArticle</code> struct that holds a news story filed in a
+particular location and a <code>SocialPost</code> that can have, at most, 280 characters
+along with metadata that indicates whether it was a new post, a repost, or a
+reply to another post.</p>
+<p>We want to make a media aggregator library crate named <code>aggregator</code> that can
+display summaries of data that might be stored in a <code>NewsArticle</code> or
+<code>SocialPost</code> instance. To do this, we need a summary from each type, and we’ll
+request that summary by calling a <code>summarize</code> method on an instance. Listing
+10-12 shows the definition of a public <code>Summary</code> trait that expresses this
+behavior.</p>
 <figure class="listing" id="listing-10-12">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">pub trait Summary {
@@ -267,11 +282,27 @@ blockquote {
 }</code></pre>
 <figcaption><a href="#listing-10-12">Listing 10-12</a>: A <code>Summary</code> trait that consists of the behavior provided by a <code>summarize</code> method</figcaption>
 </figure>
-<p data-x-en="Here, we declare a trait using the trait keyword and then the trait’s name, which is Summary in this case. We also declare the trait as pub so that crates depending on this crate can make use of this trait too, as we’ll see in a few examples. Inside the curly brackets, we declare the method signatures that describe the behaviors of the types that implement this trait, which in this case is fn summarize(&amp;self) -> String.">这里，我们使用 <code>trait</code> 关键字和 trait 的名称来声明一个 trait，这个例子中是 <code>Summary</code>。我们还声明 trait 为 <code>pub</code>，以便依赖此 crate 的其他 crate 也可以使用此 trait，我们将在几个示例中看到。在大括号内，我们声明了描述实现此 trait 的类型的行为的方法签名，这里为 <code>fn summarize(&amp;self) -&gt; String</code>。</p>
-<p data-x-en="After the method signature, instead of providing an implementation within curly brackets, we use a semicolon. Each type implementing this trait must provide its own custom behavior for the body of the method. The compiler will enforce that any type that has the Summary trait will have the method summarize defined with this signature exactly.">在方法签名之后，我们使用分号而不是在大括号内提供实现。每个实现此特征的类型都必须为其方法体提供自己的自定义行为。编译器将强制任何具有 <code>Summary</code> 特征的类型都必须定义具有此签名的方法 <code>summarize</code>。</p>
-<p data-x-en="A trait can have multiple methods in its body: The method signatures are listed one per line, and each line ends in a semicolon.">一个特质可以在其主体中拥有多个方法：方法签名按行列出，每行以分号结尾。</p>
-<h3 id="implementing-a-trait-on-a-type"><a class="header" href="#implementing-a-trait-on-a-type">在类型上实现特征</a></h3>
-<p data-x-en="Now that we’ve defined the desired signatures of the Summary trait’s methods, we can implement it on the types in our media aggregator. Listing 10-13 shows an implementation of the Summary trait on the NewsArticle struct that uses the headline, the author, and the location to create the return value of summarize. For the SocialPost struct, we define summarize as the username followed by the entire text of the post, assuming that the post content is already limited to 280 characters.">现在我们已经定义了 <code>Summary</code> 特性方法的期望签名，我们可以在媒体聚合器中的类型上实现它。列表 10-13 显示了在 <code>NewsArticle</code> 结构体上实现 <code>Summary</code> 特性的示例，该实现使用标题、作者和位置来创建 <code>summarize</code> 的返回值。对于 <code>SocialPost</code> 结构体，我们将 <code>summarize</code> 定义为用户名后跟帖子的全部文本，假设帖子内容已经限制为 280 个字符。</p>
+<p>Here, we declare a trait using the <code>trait</code> keyword and then the trait’s name,
+which is <code>Summary</code> in this case. We also declare the trait as <code>pub</code> so that
+crates depending on this crate can make use of this trait too, as we’ll see in
+a few examples. Inside the curly brackets, we declare the method signatures
+that describe the behaviors of the types that implement this trait, which in
+this case is <code>fn summarize(&amp;self) -&gt; String</code>.</p>
+<p>After the method signature, instead of providing an implementation within curly
+brackets, we use a semicolon. Each type implementing this trait must provide
+its own custom behavior for the body of the method. The compiler will enforce
+that any type that has the <code>Summary</code> trait will have the method <code>summarize</code>
+defined with this signature exactly.</p>
+<p>A trait can have multiple methods in its body: The method signatures are listed
+one per line, and each line ends in a semicolon.</p>
+<h3 id="implementing-a-trait-on-a-type"><a class="header" href="#implementing-a-trait-on-a-type">Implementing a Trait on a Type</a></h3>
+<p>Now that we’ve defined the desired signatures of the <code>Summary</code> trait’s methods,
+we can implement it on the types in our media aggregator. Listing 10-13 shows
+an implementation of the <code>Summary</code> trait on the <code>NewsArticle</code> struct that uses
+the headline, the author, and the location to create the return value of
+<code>summarize</code>. For the <code>SocialPost</code> struct, we define <code>summarize</code> as the username
+followed by the entire text of the post, assuming that the post content is
+already limited to 280 characters.</p>
 <figure class="listing" id="listing-10-13">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">pub trait Summary {
@@ -305,8 +336,19 @@ impl Summary for SocialPost {
 }</code></pre>
 <figcaption><a href="#listing-10-13">Listing 10-13</a>: Implementing the <code>Summary</code> trait on the <code>NewsArticle</code> and <code>SocialPost</code> types</figcaption>
 </figure>
-<p data-x-en="Implementing a trait on a type is similar to implementing regular methods. The difference is that after impl, we put the trait name we want to implement, then use the for keyword, and then specify the name of the type we want to implement the trait for. Within the impl block, we put the method signatures that the trait definition has defined. Instead of adding a semicolon after each signature, we use curly brackets and fill in the method body with the specific behavior that we want the methods of the trait to have for the particular type.">在类型上实现特质类似于实现常规方法。不同之处在于在 <code>impl</code> 之后，我们放置我们想要实现的特质名称，然后使用 <code>for</code> 关键字，接着指定我们想要为其实现特质的类型的名称。在 <code>impl</code> 块内，我们放置特质定义已定义的方法签名。而不是在每个签名后添加分号，我们使用大括号并用我们希望特质的方法为特定类型具有的特定行为填充方法体。</p>
-<p data-x-en="Now that the library has implemented the Summary trait on NewsArticle and SocialPost, users of the crate can call the trait methods on instances of NewsArticle and SocialPost in the same way we call regular methods. The only difference is that the user must bring the trait into scope as well as the types. Here’s an example of how a binary crate could use our aggregator library crate:">现在库已经在 <code>NewsArticle</code> 和 <code>SocialPost</code> 上实现了 <code>Summary</code> 特性，crate 的用户可以像调用普通方法一样在 <code>NewsArticle</code> 和 <code>SocialPost</code> 的实例上调用这些特性方法。唯一的区别是用户必须将特性以及类型引入作用域。以下是一个二进制 crate 如何使用我们的 <code>aggregator</code> 库 crate 的示例：</p>
+<p>Implementing a trait on a type is similar to implementing regular methods. The
+difference is that after <code>impl</code>, we put the trait name we want to implement,
+then use the <code>for</code> keyword, and then specify the name of the type we want to
+implement the trait for. Within the <code>impl</code> block, we put the method signatures
+that the trait definition has defined. Instead of adding a semicolon after each
+signature, we use curly brackets and fill in the method body with the specific
+behavior that we want the methods of the trait to have for the particular type.</p>
+<p>Now that the library has implemented the <code>Summary</code> trait on <code>NewsArticle</code> and
+<code>SocialPost</code>, users of the crate can call the trait methods on instances of
+<code>NewsArticle</code> and <code>SocialPost</code> in the same way we call regular methods. The only
+difference is that the user must bring the trait into scope as well as the
+types. Here’s an example of how a binary crate could use our <code>aggregator</code>
+library crate:</p>
 <pre><code class="language-rust ignore">use aggregator::{SocialPost, Summary};
 
 fn main() {
@@ -321,16 +363,35 @@ fn main() {
 
     println!("1 new post: {}", post.summarize());
 }</code></pre>
-<p data-x-en="This code prints 1 new post: horse_ebooks: of course, as you probably already know, people.">这段代码打印 <code>1 new post: horse_ebooks: of course, as you probably already know, people</code>.</p>
-<p data-x-en="Other crates that depend on the aggregator crate can also bring the Summary trait into scope to implement Summary on their own types. One restriction to note is that we can implement a trait on a type only if either the trait or the type, or both, are local to our crate. For example, we can implement standard library traits like Display on a custom type like SocialPost as part of our aggregator crate functionality because the type SocialPost is local to our aggregator crate. We can also implement Summary on Vec<T> in our aggregator crate because the trait Summary is local to our aggregator crate.">其他依赖于 <code>aggregator</code> crate 的 crate 也可以将 <code>Summary</code>
-特质引入作用域，以便在它们自己的类型上实现 <code>Summary</code>。需要注意的一个限制是，我们只能在特质或类型（或两者）之一是我们 crate 本地的情况下，在该类型上实现特质。例如，我们可以在我们的 <code>aggregator</code> crate 功能中为自定义类型 <code>SocialPost</code> 实现标准库特质如 <code>Display</code>，因为类型 <code>SocialPost</code> 是我们 <code>aggregator</code> crate 本地的。我们还可以在我们的 <code>aggregator</code> crate 中为 <code>Vec&lt;T&gt;</code> 实现 <code>Summary</code>，因为特质 <code>Summary</code> 是我们 <code>aggregator</code>
-crate 本地的。</p>
-<p data-x-en="But we can’t implement external traits on external types. For example, we can’t implement the Display trait on Vec<T> within our aggregator crate, because Display and Vec<T> are both defined in the standard library and aren’t local to our aggregator crate. This restriction is part of a property called coherence, and more specifically the orphan rule, so named because the parent type is not present. This rule ensures that other people’s code can’t break your code and vice versa. Without the rule, two crates could implement the same trait for the same type, and Rust wouldn’t know which implementation to use.">但是我们不能为外部类型实现外部特征。例如，我们不能在我们的<code>aggregator</code> crate 中为 <code>Vec&lt;T&gt;</code> 实现 <code>Display</code> 特征，因为 <code>Display</code> 和 <code>Vec&lt;T&gt;</code> 都是在标准库中定义的，并且不是我们 <code>aggregator</code> crate 的本地类型。这个限制是称为<em>一致性</em>的属性的一部分，更具体地说是<em>孤儿规则</em>，之所以这样命名是因为父类型不在场。这条规则确保其他人的代码不会破坏你的代码，反之亦然。如果没有这条规则，两个 crate 可以为同一类型实现相同的特征，而 Rust 不知道使用哪个实现。</p>
+<p>This code prints <code>1 new post: horse_ebooks: of course, as you probably already know, people</code>.</p>
+<p>Other crates that depend on the <code>aggregator</code> crate can also bring the <code>Summary</code>
+trait into scope to implement <code>Summary</code> on their own types. One restriction to
+note is that we can implement a trait on a type only if either the trait or the
+type, or both, are local to our crate. For example, we can implement standard
+library traits like <code>Display</code> on a custom type like <code>SocialPost</code> as part of our
+<code>aggregator</code> crate functionality because the type <code>SocialPost</code> is local to our
+<code>aggregator</code> crate. We can also implement <code>Summary</code> on <code>Vec&lt;T&gt;</code> in our
+<code>aggregator</code> crate because the trait <code>Summary</code> is local to our <code>aggregator</code>
+crate.</p>
+<p>But we can’t implement external traits on external types. For example, we can’t
+implement the <code>Display</code> trait on <code>Vec&lt;T&gt;</code> within our <code>aggregator</code> crate,
+because <code>Display</code> and <code>Vec&lt;T&gt;</code> are both defined in the standard library and
+aren’t local to our <code>aggregator</code> crate. This restriction is part of a property
+called <em>coherence</em>, and more specifically the <em>orphan rule</em>, so named because
+the parent type is not present. This rule ensures that other people’s code
+can’t break your code and vice versa. Without the rule, two crates could
+implement the same trait for the same type, and Rust wouldn’t know which
+implementation to use.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="default-implementations"></a></p>
-<h3 id="using-default-implementations"><a class="header" href="#using-default-implementations">使用默认实现</a></h3>
-<p data-x-en="Sometimes it’s useful to have default behavior for some or all of the methods in a trait instead of requiring implementations for all methods on every type. Then, as we implement the trait on a particular type, we can keep or override each method’s default behavior.">有时为特质中的某些或所有方法提供默认行为是有用的，而不是要求每个类型都实现所有方法。然后，当我们在这个特定类型上实现特质时，我们可以保留或覆盖每个方法的默认行为。</p>
-<p data-x-en="In Listing 10-14, we specify a default string for the summarize method of the Summary trait instead of only defining the method signature, as we did in Listing 10-12.">在清单 10-14 中，我们为 <code>Summary</code> 特性中的 <code>summarize</code> 方法指定了一个默认字符串，而不是像我们在清单 10-12 中那样仅定义方法签名。</p>
+<h3 id="using-default-implementations"><a class="header" href="#using-default-implementations">Using Default Implementations</a></h3>
+<p>Sometimes it’s useful to have default behavior for some or all of the methods
+in a trait instead of requiring implementations for all methods on every type.
+Then, as we implement the trait on a particular type, we can keep or override
+each method’s default behavior.</p>
+<p>In Listing 10-14, we specify a default string for the <code>summarize</code> method of the
+<code>Summary</code> trait instead of only defining the method signature, as we did in
+Listing 10-12.</p>
 <figure class="listing" id="listing-10-14">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">pub trait Summary {
@@ -362,8 +423,12 @@ crate 本地的。</p>
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-10-14">Listing 10-14</a>: Defining a <code>Summary</code> trait with a default implementation of the <code>summarize</code> method</figcaption>
 </figure>
-<p data-x-en="To use a default implementation to summarize instances of NewsArticle, we specify an empty impl block with impl Summary for NewsArticle {}.">要使用默认实现来总结 <code>NewsArticle</code> 的实例，我们指定一个空的 <code>impl</code> 块，即 <code>impl Summary for NewsArticle {}</code>。</p>
-<p data-x-en="Even though we’re no longer defining the summarize method on NewsArticle directly, we’ve provided a default implementation and specified that NewsArticle implements the Summary trait. As a result, we can still call the summarize method on an instance of NewsArticle, like this:">即使我们不再直接在 <code>NewsArticle</code> 上定义 <code>summarize</code> 方法，我们也提供了一个默认实现并指定了 <code>NewsArticle</code> 实现了 <code>Summary</code> 特性。因此，我们仍然可以像这样在 <code>NewsArticle</code> 的实例上调用 <code>summarize</code> 方法：</p>
+<p>To use a default implementation to summarize instances of <code>NewsArticle</code>, we
+specify an empty <code>impl</code> block with <code>impl Summary for NewsArticle {}</code>.</p>
+<p>Even though we’re no longer defining the <code>summarize</code> method on <code>NewsArticle</code>
+directly, we’ve provided a default implementation and specified that
+<code>NewsArticle</code> implements the <code>Summary</code> trait. As a result, we can still call
+the <code>summarize</code> method on an instance of <code>NewsArticle</code>, like this:</p>
 <pre><code class="language-rust ignore"><span class="boring">use aggregator::{self, NewsArticle, Summary};
 </span><span class="boring">
 </span><span class="boring">fn main() {
@@ -379,9 +444,19 @@ crate 本地的。</p>
 
     println!("New article available! {}", article.summarize());
 <span class="boring">}</span></code></pre>
-<p data-x-en="This code prints New article available! (Read more...).">这段代码打印 <code>新文章可用！(阅读更多...)</code>。</p>
-<p data-x-en="Creating a default implementation doesn’t require us to change anything about the implementation of Summary on SocialPost in Listing 10-13. The reason is that the syntax for overriding a default implementation is the same as the syntax for implementing a trait method that doesn’t have a default implementation.">创建默认实现并不需要我们更改在清单 10-13 中为 <code>SocialPost</code> 实现 <code>Summary</code> 的任何内容。原因是覆盖默认实现的语法与实现没有默认实现的特征方法的语法相同。</p>
-<p data-x-en="Default implementations can call other methods in the same trait, even if those other methods don’t have a default implementation. In this way, a trait can provide a lot of useful functionality and only require implementors to specify a small part of it. For example, we could define the Summary trait to have a summarize_author method whose implementation is required, and then define a summarize method that has a default implementation that calls the summarize_author method:">默认实现可以调用同一特质中的其他方法，即使这些其他方法没有默认实现。通过这种方式，一个特质可以提供大量有用的功能，而只需要实现者指定其中的一小部分。例如，我们可以定义 <code>Summary</code> 特质具有一个 <code>summarize_author</code> 方法，其实现是必需的，然后定义一个 <code>summarize</code> 方法，该方法具有默认实现并调用 <code>summarize_author</code> 方法：</p>
+<p>This code prints <code>New article available! (Read more...)</code>.</p>
+<p>Creating a default implementation doesn’t require us to change anything about
+the implementation of <code>Summary</code> on <code>SocialPost</code> in Listing 10-13. The reason is
+that the syntax for overriding a default implementation is the same as the
+syntax for implementing a trait method that doesn’t have a default
+implementation.</p>
+<p>Default implementations can call other methods in the same trait, even if those
+other methods don’t have a default implementation. In this way, a trait can
+provide a lot of useful functionality and only require implementors to specify
+a small part of it. For example, we could define the <code>Summary</code> trait to have a
+<code>summarize_author</code> method whose implementation is required, and then define a
+<code>summarize</code> method that has a default implementation that calls the
+<code>summarize_author</code> method:</p>
 <pre><code class="language-rust noplayground">pub trait Summary {
     fn summarize_author(&amp;self) -&gt; String;
 
@@ -402,7 +477,8 @@ crate 本地的。</p>
 </span><span class="boring">        format!("@{}", self.username)
 </span><span class="boring">    }
 </span><span class="boring">}</span></code></pre>
-<p data-x-en="To use this version of Summary, we only need to define summarize_author when we implement the trait on a type:">要使用这个版本的<code>Summary</code>，我们只需要在为类型实现特质时定义<code>summarize_author</code>：</p>
+<p>To use this version of <code>Summary</code>, we only need to define <code>summarize_author</code>
+when we implement the trait on a type:</p>
 <pre><code class="language-rust ignore"><span class="boring">pub trait Summary {
 </span><span class="boring">    fn summarize_author(&amp;self) -&gt; String;
 </span><span class="boring">
@@ -423,7 +499,12 @@ crate 本地的。</p>
         format!("@{}", self.username)
     }
 }</code></pre>
-<p data-x-en="After we define summarize_author, we can call summarize on instances of the SocialPost struct, and the default implementation of summarize will call the definition of summarize_author that we’ve provided. Because we’ve implemented summarize_author, the Summary trait has given us the behavior of the summarize method without requiring us to write any more code. Here’s what that looks like:">在我们定义了<code>summarize_author</code>之后，我们可以在<code>SocialPost</code>结构体的实例上调用<code>summarize</code>，默认实现的<code>summarize</code>将调用我们提供的<code>summarize_author</code>的定义。因为我们实现了<code>summarize_author</code>，<code>Summary</code>特质在不要求我们编写更多代码的情况下，为我们提供了<code>summarize</code>方法的行为。这看起来是这样的：</p>
+<p>After we define <code>summarize_author</code>, we can call <code>summarize</code> on instances of the
+<code>SocialPost</code> struct, and the default implementation of <code>summarize</code> will call the
+definition of <code>summarize_author</code> that we’ve provided. Because we’ve implemented
+<code>summarize_author</code>, the <code>Summary</code> trait has given us the behavior of the
+<code>summarize</code> method without requiring us to write any more code. Here’s what
+that looks like:</p>
 <pre><code class="language-rust ignore"><span class="boring">use aggregator::{self, SocialPost, Summary};
 </span><span class="boring">
 </span><span class="boring">fn main() {
@@ -438,12 +519,18 @@ crate 本地的。</p>
 
     println!("1 new post: {}", post.summarize());
 <span class="boring">}</span></code></pre>
-<p data-x-en="This code prints 1 new post: (Read more from @horse_ebooks...).">这段代码打印 <code>1 new post: (Read more from @horse_ebooks...)</code>。</p>
-<p data-x-en="Note that it isn’t possible to call the default implementation from an overriding implementation of that same method.">请注意，无法从同一方法的重写实现中调用默认实现。</p>
+<p>This code prints <code>1 new post: (Read more from @horse_ebooks...)</code>.</p>
+<p>Note that it isn’t possible to call the default implementation from an
+overriding implementation of that same method.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="traits-as-parameters"></a></p>
-<h3 id="using-traits-as-parameters"><a class="header" href="#using-traits-as-parameters">将特质用作参数</a></h3>
-<p data-x-en="Now that you know how to define and implement traits, we can explore how to use traits to define functions that accept many different types. We’ll use the Summary trait we implemented on the NewsArticle and SocialPost types in Listing 10-13 to define a notify function that calls the summarize method on its item parameter, which is of some type that implements the Summary trait. To do this, we use the impl Trait syntax, like this:">现在你已经知道如何定义和实现特质，我们可以探讨如何使用特质来定义接受多种不同类型的函数。我们将使用在清单 10-13 中为 <code>NewsArticle</code> 和 <code>SocialPost</code> 类型实现的 <code>Summary</code> 特质来定义一个 <code>notify</code> 函数，该函数在其 <code>item</code> 参数上调用 <code>summarize</code> 方法，该参数是实现了 <code>Summary</code> 特质的某种类型。为此，我们使用 <code>impl Trait</code> 语法，如下所示：</p>
+<h3 id="using-traits-as-parameters"><a class="header" href="#using-traits-as-parameters">Using Traits as Parameters</a></h3>
+<p>Now that you know how to define and implement traits, we can explore how to use
+traits to define functions that accept many different types. We’ll use the
+<code>Summary</code> trait we implemented on the <code>NewsArticle</code> and <code>SocialPost</code> types in
+Listing 10-13 to define a <code>notify</code> function that calls the <code>summarize</code> method
+on its <code>item</code> parameter, which is of some type that implements the <code>Summary</code>
+trait. To do this, we use the <code>impl Trait</code> syntax, like this:</p>
 <pre><code class="language-rust ignore"><span class="boring">pub trait Summary {
 </span><span class="boring">    fn summarize(&amp;self) -&gt; String;
 </span><span class="boring">}
@@ -477,32 +564,58 @@ crate 本地的。</p>
 </span>pub fn notify(item: &amp;impl Summary) {
     println!("Breaking news! {}", item.summarize());
 }</code></pre>
-<p data-x-en="Instead of a concrete type for the item parameter, we specify the impl keyword and the trait name. This parameter accepts any type that implements the specified trait. In the body of notify, we can call any methods on item that come from the Summary trait, such as summarize. We can call notify and pass in any instance of NewsArticle or SocialPost. Code that calls the function with any other type, such as a String or an i32, won’t compile, because those types don’t implement Summary.">我们为 <code>item</code> 参数指定了 <code>impl</code> 关键字和特质名称，而不是具体的类型。这个参数接受任何实现了指定特质的类型。在 <code>notify</code> 的函数体中，我们可以调用来自 <code>Summary</code> 特质的任何方法，例如 <code>summarize</code>。我们可以调用 <code>notify</code> 并传入任何 <code>NewsArticle</code> 或 <code>SocialPost</code> 的实例。如果使用其他类型（如 <code>String</code> 或 <code>i32</code>）调用该函数，则不会编译，因为这些类型没有实现 <code>Summary</code>。</p>
+<p>Instead of a concrete type for the <code>item</code> parameter, we specify the <code>impl</code>
+keyword and the trait name. This parameter accepts any type that implements the
+specified trait. In the body of <code>notify</code>, we can call any methods on <code>item</code>
+that come from the <code>Summary</code> trait, such as <code>summarize</code>. We can call <code>notify</code>
+and pass in any instance of <code>NewsArticle</code> or <code>SocialPost</code>. Code that calls the
+function with any other type, such as a <code>String</code> or an <code>i32</code>, won’t compile,
+because those types don’t implement <code>Summary</code>.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="fixing-the-largest-function-with-trait-bounds"></a></p>
-<h4 id="trait-bound-syntax"><a class="header" href="#trait-bound-syntax">Trait Bound 语法</a></h4>
-<p data-x-en="The impl Trait syntax works for straightforward cases but is actually syntax sugar for a longer form known as a trait bound; it looks like this:"><code>impl Trait</code> 语法适用于简单的情况，但实际上它是更长形式的语法糖，这种形式被称为 <em>trait bound</em>；它的样子是这样的：</p>
+<h4 id="trait-bound-syntax"><a class="header" href="#trait-bound-syntax">Trait Bound Syntax</a></h4>
+<p>The <code>impl Trait</code> syntax works for straightforward cases but is actually syntax
+sugar for a longer form known as a <em>trait bound</em>; it looks like this:</p>
 <pre><code class="language-rust ignore">pub fn notify&lt;T: Summary&gt;(item: &amp;T) {
     println!("Breaking news! {}", item.summarize());
 }</code></pre>
-<p data-x-en="This longer form is equivalent to the example in the previous section but is more verbose. We place trait bounds with the declaration of the generic type parameter after a colon and inside angle brackets.">这种较长的形式与上一节中的示例等效，但更为冗长。我们在泛型类型参数的声明后使用冒号和尖括号来放置特质边界。</p>
-<p data-x-en="The impl Trait syntax is convenient and makes for more concise code in simple cases, while the fuller trait bound syntax can express more complexity in other cases. For example, we can have two parameters that implement Summary. Doing so with the impl Trait syntax looks like this:"><code>impl Trait</code> 语法在简单情况下非常方便，可以使代码更加简洁，而完整的 trait bound 语法在其他情况下可以表达更多的复杂性。例如，我们可以有两个实现 <code>Summary</code> 的参数。使用 <code>impl Trait</code> 语法如下所示：</p>
+<p>This longer form is equivalent to the example in the previous section but is
+more verbose. We place trait bounds with the declaration of the generic type
+parameter after a colon and inside angle brackets.</p>
+<p>The <code>impl Trait</code> syntax is convenient and makes for more concise code in simple
+cases, while the fuller trait bound syntax can express more complexity in other
+cases. For example, we can have two parameters that implement <code>Summary</code>. Doing
+so with the <code>impl Trait</code> syntax looks like this:</p>
 <pre><code class="language-rust ignore">pub fn notify(item1: &amp;impl Summary, item2: &amp;impl Summary) {</code></pre>
-<p data-x-en="Using impl Trait is appropriate if we want this function to allow item1 and item2 to have different types (as long as both types implement Summary). If we want to force both parameters to have the same type, however, we must use a trait bound, like this:">使用 <code>impl Trait</code> 是合适的，如果我们希望这个函数允许 <code>item1</code> 和 <code>item2</code> 具有不同的类型（只要这两种类型都实现了 <code>Summary</code>）。然而，如果我们希望强制两个参数具有相同的类型，我们必须使用一个特质边界，如下所示：</p>
+<p>Using <code>impl Trait</code> is appropriate if we want this function to allow <code>item1</code> and
+<code>item2</code> to have different types (as long as both types implement <code>Summary</code>). If
+we want to force both parameters to have the same type, however, we must use a
+trait bound, like this:</p>
 <pre><code class="language-rust ignore">pub fn notify&lt;T: Summary&gt;(item1: &amp;T, item2: &amp;T) {</code></pre>
-<p data-x-en="The generic type T specified as the type of the item1 and item2 parameters constrains the function such that the concrete type of the value passed as an argument for item1 and item2 must be the same.">指定为 <code>item1</code> 和 <code>item2</code> 参数类型的泛型类型 <code>T</code> 约束了该函数，使得传递给 <code>item1</code> 和 <code>item2</code> 的参数值的具体类型必须相同。</p>
+<p>The generic type <code>T</code> specified as the type of the <code>item1</code> and <code>item2</code>
+parameters constrains the function such that the concrete type of the value
+passed as an argument for <code>item1</code> and <code>item2</code> must be the same.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="specifying-multiple-trait-bounds-with-the--syntax"></a></p>
-<h4 id="multiple-trait-bounds-with-the--syntax"><a class="header" href="#multiple-trait-bounds-with-the--syntax">使用 <code>+</code> 语法的多个特征约束</a></h4>
-<p data-x-en="We can also specify more than one trait bound. Say we wanted notify to use display formatting as well as summarize on item: We specify in the notify definition that item must implement both Display and Summary. We can do so using the + syntax:">我们也可以指定多个特征约束。假设我们希望 <code>notify</code> 使用显示格式化以及在 <code>item</code> 上调用 <code>summarize</code>：我们在 <code>notify</code> 的定义中指定 <code>item</code> 必须同时实现 <code>Display</code> 和 <code>Summary</code>。我们可以使用 <code>+</code> 语法来实现：</p>
+<h4 id="multiple-trait-bounds-with-the--syntax"><a class="header" href="#multiple-trait-bounds-with-the--syntax">Multiple Trait Bounds with the <code>+</code> Syntax</a></h4>
+<p>We can also specify more than one trait bound. Say we wanted <code>notify</code> to use
+display formatting as well as <code>summarize</code> on <code>item</code>: We specify in the <code>notify</code>
+definition that <code>item</code> must implement both <code>Display</code> and <code>Summary</code>. We can do
+so using the <code>+</code> syntax:</p>
 <pre><code class="language-rust ignore">pub fn notify(item: &amp;(impl Summary + Display)) {</code></pre>
-<p data-x-en="The + syntax is also valid with trait bounds on generic types:"><code>+</code> 语法在泛型类型的特征边界上也是有效的：</p>
+<p>The <code>+</code> syntax is also valid with trait bounds on generic types:</p>
 <pre><code class="language-rust ignore">pub fn notify&lt;T: Summary + Display&gt;(item: &amp;T) {</code></pre>
-<p data-x-en="With the two trait bounds specified, the body of notify can call summarize and use {} to format item.">指定了两个 trait bound 后，<code>notify</code> 的主体可以调用 <code>summarize</code> 并使用 <code>{}</code> 来格式化 <code>item</code>。</p>
-<h4 id="clearer-trait-bounds-with-where-clauses"><a class="header" href="#clearer-trait-bounds-with-where-clauses">使用 <code>where</code> 子句使特质边界更清晰</a></h4>
-<p data-x-en="Using too many trait bounds has its downsides. Each generic has its own trait bounds, so functions with multiple generic type parameters can contain lots of trait bound information between the function’s name and its parameter list, making the function signature hard to read. For this reason, Rust has alternate syntax for specifying trait bounds inside a where clause after the function signature. So, instead of writing this:">使用过多的 trait 约束有其缺点。每个泛型都有自己的 trait 约束，因此具有多个泛型类型参数的函数在函数名称和参数列表之间可能包含大量 trait 约束信息，使得函数签名难以阅读。因此，Rust 提供了在函数签名后的 <code>where</code> 子句中指定 trait 约束的替代语法。所以，与其写成这样：</p>
+<p>With the two trait bounds specified, the body of <code>notify</code> can call <code>summarize</code>
+and use <code>{}</code> to format <code>item</code>.</p>
+<h4 id="clearer-trait-bounds-with-where-clauses"><a class="header" href="#clearer-trait-bounds-with-where-clauses">Clearer Trait Bounds with <code>where</code> Clauses</a></h4>
+<p>Using too many trait bounds has its downsides. Each generic has its own trait
+bounds, so functions with multiple generic type parameters can contain lots of
+trait bound information between the function’s name and its parameter list,
+making the function signature hard to read. For this reason, Rust has alternate
+syntax for specifying trait bounds inside a <code>where</code> clause after the function
+signature. So, instead of writing this:</p>
 <pre><code class="language-rust ignore">fn some_function&lt;T: Display + Clone, U: Clone + Debug&gt;(t: &amp;T, u: &amp;U) -&gt; i32 {</code></pre>
-<p data-x-en="we can use a where clause, like this:">我们可以使用一个 <code>where</code> 子句，如下所示：</p>
+<p>we can use a <code>where</code> clause, like this:</p>
 <pre><code class="language-rust ignore">fn some_function&lt;T, U&gt;(t: &amp;T, u: &amp;U) -&gt; i32
 where
     T: Display + Clone,
@@ -510,9 +623,12 @@ where
 {
 <span class="boring">    unimplemented!()
 </span><span class="boring">}</span></code></pre>
-<p data-x-en="This function’s signature is less cluttered: The function name, parameter list, and return type are close together, similar to a function without lots of trait bounds.">这个函数的签名更加简洁：函数名、参数列表和返回类型紧密相邻，类似于没有大量特征约束的函数。</p>
-<h3 id="returning-types-that-implement-traits"><a class="header" href="#returning-types-that-implement-traits">返回实现特质的类型</a></h3>
-<p data-x-en="We can also use the impl Trait syntax in the return position to return a value of some type that implements a trait, as shown here:">我们还可以在返回位置使用 <code>impl Trait</code> 语法来返回实现了某个特质的某种类型的值，如下所示：</p>
+<p>This function’s signature is less cluttered: The function name, parameter list,
+and return type are close together, similar to a function without lots of trait
+bounds.</p>
+<h3 id="returning-types-that-implement-traits"><a class="header" href="#returning-types-that-implement-traits">Returning Types That Implement Traits</a></h3>
+<p>We can also use the <code>impl Trait</code> syntax in the return position to return a
+value of some type that implements a trait, as shown here:</p>
 <pre><code class="language-rust ignore"><span class="boring">pub trait Summary {
 </span><span class="boring">    fn summarize(&amp;self) -&gt; String;
 </span><span class="boring">}
@@ -553,9 +669,20 @@ where
         repost: false,
     }
 }</code></pre>
-<p data-x-en="By using impl Summary for the return type, we specify that the returns_summarizable function returns some type that implements the Summary trait without naming the concrete type. In this case, returns_summarizable returns a SocialPost, but the code calling this function doesn’t need to know that.">通过使用 <code>impl Summary</code> 作为返回类型，我们指定 <code>returns_summarizable</code> 函数返回某种实现了 <code>Summary</code> 特性的类型，而不需要指明具体的类型。在这种情况下，<code>returns_summarizable</code> 返回一个 <code>SocialPost</code>，但调用此函数的代码不需要知道这一点。</p>
-<p data-x-en="The ability to specify a return type only by the trait it implements is especially useful in the context of closures and iterators, which we cover in Chapter 13. Closures and iterators create types that only the compiler knows or types that are very long to specify. The impl Trait syntax lets you concisely specify that a function returns some type that implements the Iterator trait without needing to write out a very long type.">指定返回类型仅通过其实现的特征的能力在闭包和迭代器的上下文中特别有用，我们在第 13 章中会讲到。闭包和迭代器创建的类型只有编译器知道，或者这些类型非常长，难以指定。<code>impl Trait</code> 语法让你可以简洁地指定函数返回某种实现 <code>Iterator</code> 特征的类型，而无需写出一个非常长的类型。</p>
-<p data-x-en="However, you can only use impl Trait if you’re returning a single type. For example, this code that returns either a NewsArticle or a SocialPost with the return type specified as impl Summary wouldn’t work:">但是，只有在返回单一类型时，你才能使用 <code>impl Trait</code>。例如，这段代码试图返回一个 <code>NewsArticle</code> 或 <code>SocialPost</code>，并将其返回类型指定为 <code>impl Summary</code>，这是行不通的：</p>
+<p>By using <code>impl Summary</code> for the return type, we specify that the
+<code>returns_summarizable</code> function returns some type that implements the <code>Summary</code>
+trait without naming the concrete type. In this case, <code>returns_summarizable</code>
+returns a <code>SocialPost</code>, but the code calling this function doesn’t need to know
+that.</p>
+<p>The ability to specify a return type only by the trait it implements is
+especially useful in the context of closures and iterators, which we cover in
+Chapter 13. Closures and iterators create types that only the compiler knows or
+types that are very long to specify. The <code>impl Trait</code> syntax lets you concisely
+specify that a function returns some type that implements the <code>Iterator</code> trait
+without needing to write out a very long type.</p>
+<p>However, you can only use <code>impl Trait</code> if you’re returning a single type. For
+example, this code that returns either a <code>NewsArticle</code> or a <code>SocialPost</code> with
+the return type specified as <code>impl Summary</code> wouldn’t work:</p>
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">pub trait Summary {
 </span><span class="boring">    fn summarize(&amp;self) -&gt; String;
 </span><span class="boring">}
@@ -610,11 +737,21 @@ where
         }
     }
 }</code></pre>
-<p data-x-en="Returning either a NewsArticle or a SocialPost isn’t allowed due to restrictions around how the impl Trait syntax is implemented in the compiler. We’ll cover how to write a function with this behavior in the “Using Trait Objects to Abstract over Shared Behavior” section of Chapter 18.">返回一个 <code>NewsArticle</code> 或 <code>SocialPost</code> 是不允许的，因为编译器在实现 <code>impl Trait</code> 语法时存在限制。
-我们将在第 18 章的 <a href="ch18-02-trait-objects.html#using-trait-objects-to-abstract-over-shared-behavior">“使用特质对象抽象共享行为”</a><!-- ignore -->
-部分中介绍如何编写具有这种行为的函数。</p>
-<h3 id="using-trait-bounds-to-conditionally-implement-methods"><a class="header" href="#using-trait-bounds-to-conditionally-implement-methods">使用特质边界有条件地实现方法</a></h3>
-<p data-x-en="By using a trait bound with an impl block that uses generic type parameters, we can implement methods conditionally for types that implement the specified traits. For example, the type Pair<T> in Listing 10-15 always implements the new function to return a new instance of Pair<T> (recall from the “Method Syntax” section of Chapter 5 that Self is a type alias for the type of the impl block, which in this case is Pair<T>). But in the next impl block, Pair<T> only implements the cmp_display method if its inner type T implements the PartialOrd trait that enables comparison and the Display trait that enables printing.">通过在使用泛型类型参数的 <code>impl</code> 块中使用特质约束，我们可以为实现指定特质的类型有条件地实现方法。例如，类型 <code>Pair&lt;T&gt;</code> 在清单 10-15 中始终实现 <code>new</code> 函数以返回 <code>Pair&lt;T&gt;</code> 的新实例（回想第 5 章的 <a href="ch05-03-method-syntax.html#method-syntax">“方法语法”</a><!-- ignore --> 部分，<code>Self</code> 是 <code>impl</code> 块类型的类型别名，在这种情况下是 <code>Pair&lt;T&gt;</code>）。但在下一个 <code>impl</code> 块中，<code>Pair&lt;T&gt;</code> 仅在其内部类型 <code>T</code> 实现了启用比较的 <code>PartialOrd</code> 特质 <em>和</em> 启用打印的 <code>Display</code> 特质时，才实现 <code>cmp_display</code> 方法。</p>
+<p>Returning either a <code>NewsArticle</code> or a <code>SocialPost</code> isn’t allowed due to
+restrictions around how the <code>impl Trait</code> syntax is implemented in the compiler.
+We’ll cover how to write a function with this behavior in the <a href="ch18-02-trait-objects.html#using-trait-objects-to-abstract-over-shared-behavior">“Using Trait
+Objects to Abstract over Shared Behavior”</a><!-- ignore -->
+section of Chapter 18.</p>
+<h3 id="using-trait-bounds-to-conditionally-implement-methods"><a class="header" href="#using-trait-bounds-to-conditionally-implement-methods">Using Trait Bounds to Conditionally Implement Methods</a></h3>
+<p>By using a trait bound with an <code>impl</code> block that uses generic type parameters,
+we can implement methods conditionally for types that implement the specified
+traits. For example, the type <code>Pair&lt;T&gt;</code> in Listing 10-15 always implements the
+<code>new</code> function to return a new instance of <code>Pair&lt;T&gt;</code> (recall from the <a href="ch05-03-method-syntax.html#method-syntax">“Method
+Syntax”</a><!-- ignore --> section of Chapter 5 that <code>Self</code> is a type
+alias for the type of the <code>impl</code> block, which in this case is <code>Pair&lt;T&gt;</code>). But
+in the next <code>impl</code> block, <code>Pair&lt;T&gt;</code> only implements the <code>cmp_display</code> method if
+its inner type <code>T</code> implements the <code>PartialOrd</code> trait that enables comparison
+<em>and</em> the <code>Display</code> trait that enables printing.</p>
 <figure class="listing" id="listing-10-15">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">use std::fmt::Display;
@@ -641,28 +778,47 @@ impl&lt;T: Display + PartialOrd&gt; Pair&lt;T&gt; {
 }</code></pre>
 <figcaption><a href="#listing-10-15">Listing 10-15</a>: Conditionally implementing methods on a generic type depending on trait bounds</figcaption>
 </figure>
-<p data-x-en="We can also conditionally implement a trait for any type that implements another trait. Implementations of a trait on any type that satisfies the trait bounds are called blanket implementations and are used extensively in the Rust standard library. For example, the standard library implements the ToString trait on any type that implements the Display trait. The impl block in the standard library looks similar to this code:">我们还可以为实现另一个特质的任何类型有条件地实现一个特质。在满足特质边界条件的任何类型上实现特质被称为<em>blanket implementations</em>，在Rust标准库中被广泛使用。例如，标准库在任何实现了<code>Display</code>特质的类型上实现了<code>ToString</code>特质。标准库中的<code>impl</code>块看起来类似于以下代码：</p>
+<p>We can also conditionally implement a trait for any type that implements
+another trait. Implementations of a trait on any type that satisfies the trait
+bounds are called <em>blanket implementations</em> and are used extensively in the
+Rust standard library. For example, the standard library implements the
+<code>ToString</code> trait on any type that implements the <code>Display</code> trait. The <code>impl</code>
+block in the standard library looks similar to this code:</p>
 <pre><code class="language-rust ignore">impl&lt;T: Display&gt; ToString for T {
     // --snip--
 }</code></pre>
-<p data-x-en="Because the standard library has this blanket implementation, we can call the to_string method defined by the ToString trait on any type that implements the Display trait. For example, we can turn integers into their corresponding String values like this because integers implement Display:">因为标准库有这个全局实现，我们可以对任何实现了 <code>Display</code> 特性的类型调用由 <code>ToString</code> 特性定义的 <code>to_string</code> 方法。例如，我们可以将整数转换为其对应的 <code>String</code> 值，因为整数实现了 <code>Display</code>：</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+<p>Because the standard library has this blanket implementation, we can call the
+<code>to_string</code> method defined by the <code>ToString</code> trait on any type that implements
+the <code>Display</code> trait. For example, we can turn integers into their corresponding
+<code>String</code> values like this because integers implement <code>Display</code>:</p>
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>let s = 3.to_string();
-<span class="boring">}</span></code></pre></pre>
-<p data-x-en="Blanket implementations appear in the documentation for the trait in the “Implementors” section.">毯式实现出现在特征文档的“实现者”部分。</p>
-<p data-x-en="Traits and trait bounds let us write code that uses generic type parameters to reduce duplication but also specify to the compiler that we want the generic type to have particular behavior. The compiler can then use the trait bound information to check that all the concrete types used with our code provide the correct behavior. In dynamically typed languages, we would get an error at runtime if we called a method on a type that didn’t define the method. But Rust moves these errors to compile time so that we’re forced to fix the problems before our code is even able to run. Additionally, we don’t have to write code that checks for behavior at runtime, because we’ve already checked at compile time. Doing so improves performance without having to give up the flexibility of generics.">特质和特质边界让我们可以使用泛型类型参数编写代码，以减少重复，但同时指定我们希望泛型类型具有特定的行为。编译器可以使用特质边界信息来检查所有使用我们代码的具体类型是否提供了正确的行为。在动态类型语言中，如果我们调用了一个未定义该方法的类型的方法，我们会在运行时得到错误。但 Rust 将这些错误移到了编译时，这样我们被迫在代码能够运行之前就修复问题。此外，我们不必编写在运行时检查行为的代码，因为我们在编译时已经检查过了。这样做在不放弃泛型灵活性的情况下提高了性能。</p>
+<span class="boring">}</span></code></pre>
+<p>Blanket implementations appear in the documentation for the trait in the
+“Implementors” section.</p>
+<p>Traits and trait bounds let us write code that uses generic type parameters to
+reduce duplication but also specify to the compiler that we want the generic
+type to have particular behavior. The compiler can then use the trait bound
+information to check that all the concrete types used with our code provide the
+correct behavior. In dynamically typed languages, we would get an error at
+runtime if we called a method on a type that didn’t define the method. But Rust
+moves these errors to compile time so that we’re forced to fix the problems
+before our code is even able to run. Additionally, we don’t have to write code
+that checks for behavior at runtime, because we’ve already checked at compile
+time. Doing so improves performance without having to give up the flexibility
+of generics.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch10-01-syntax.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch10-03-lifetime-syntax.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -672,16 +828,21 @@ impl&lt;T: Display + PartialOrd&gt; Pair&lt;T&gt; {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch10-01-syntax.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch10-03-lifetime-syntax.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -690,16 +851,16 @@ impl&lt;T: Display + PartialOrd&gt; Pair&lt;T&gt; {
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

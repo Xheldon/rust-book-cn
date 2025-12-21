@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch10-01-syntax.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,50 +212,58 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
-                        <h2 id="generic-data-types"><a class="header" href="#generic-data-types">泛型数据类型</a></h2>
-<p data-x-en="We use generics to create definitions for items like function signatures or structs, which we can then use with many different concrete data types. Let’s first look at how to define functions, structs, enums, and methods using generics. Then, we’ll discuss how generics affect code performance.">我们使用泛型来为函数签名或结构体等项目创建定义，然后我们可以用这些定义来处理许多不同的具体数据类型。首先，让我们看看如何使用泛型来定义函数、结构体、枚举和方法。然后，我们将讨论泛型如何影响代码性能。</p>
-<h3 id="in-function-definitions"><a class="header" href="#in-function-definitions">在函数定义中</a></h3>
-<p data-x-en="When defining a function that uses generics, we place the generics in the signature of the function where we would usually specify the data types of the parameters and return value. Doing so makes our code more flexible and provides more functionality to callers of our function while preventing code duplication.">当定义一个使用泛型的函数时，我们在函数签名中放置泛型，通常在这里指定参数和返回值的数据类型。这样做使我们的代码更加灵活，并为调用我们函数的用户提供更多功能，同时防止代码重复。</p>
-<p data-x-en="Continuing with our largest function, Listing 10-4 shows two functions that both find the largest value in a slice. We’ll then combine these into a single function that uses generics.">继续我们的<code>largest</code>函数，列表10-4展示了两个函数，它们都用于在切片中找到最大的值。然后，我们将这些合并为一个使用泛型的函数。</p>
+                        <h2 id="generic-data-types"><a class="header" href="#generic-data-types">Generic Data Types</a></h2>
+<p>We use generics to create definitions for items like function signatures or
+structs, which we can then use with many different concrete data types. Let’s
+first look at how to define functions, structs, enums, and methods using
+generics. Then, we’ll discuss how generics affect code performance.</p>
+<h3 id="in-function-definitions"><a class="header" href="#in-function-definitions">In Function Definitions</a></h3>
+<p>When defining a function that uses generics, we place the generics in the
+signature of the function where we would usually specify the data types of the
+parameters and return value. Doing so makes our code more flexible and provides
+more functionality to callers of our function while preventing code duplication.</p>
+<p>Continuing with our <code>largest</code> function, Listing 10-4 shows two functions that
+both find the largest value in a slice. We’ll then combine these into a single
+function that uses generics.</p>
 <figure class="listing" id="listing-10-4">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">fn largest_i32(list: &amp;[i32]) -&gt; &amp;i32 {
+<pre class="playground"><code class="language-rust edition2024">fn largest_i32(list: &amp;[i32]) -&gt; &amp;i32 {
     let mut largest = &amp;list[0];
 
     for item in list {
@@ -292,15 +299,34 @@ fn main() {
     let result = largest_char(&amp;char_list);
     println!("The largest char is {result}");
 <span class="boring">    assert_eq!(*result, 'y');
-</span>}</code></pre></pre>
+</span>}</code></pre>
 <figcaption><a href="#listing-10-4">Listing 10-4</a>: Two functions that differ only in their names and in the types in their signatures</figcaption>
 </figure>
-<p data-x-en="The largest_i32 function is the one we extracted in Listing 10-3 that finds the largest i32 in a slice. The largest_char function finds the largest char in a slice. The function bodies have the same code, so let’s eliminate the duplication by introducing a generic type parameter in a single function."><code>largest_i32</code> 函数是在列表 10-3 中提取的，用于在切片中找到最大的 <code>i32</code>。<code>largest_char</code> 函数则用于在切片中找到最大的 <code>char</code>。这两个函数的函数体代码相同，因此我们可以通过在单个函数中引入泛型类型参数来消除重复。</p>
-<p data-x-en="To parameterize the types in a new single function, we need to name the type parameter, just as we do for the value parameters to a function. You can use any identifier as a type parameter name. But we’ll use T because, by convention, type parameter names in Rust are short, often just one letter, and Rust’s type-naming convention is UpperCamelCase. Short for type, T is the default choice of most Rust programmers.">为了在新函数中参数化类型，我们需要命名类型参数，就像我们为函数的值参数命名一样。你可以使用任何标识符作为类型参数名。但我们将使用<code>T</code>，因为按照惯例，Rust 中的类型参数名较短，通常只是一个字母，而 Rust 的类型命名约定是 UpperCamelCase。作为 <em>type</em> 的缩写，<code>T</code> 是大多数 Rust 程序员的默认选择。</p>
-<p data-x-en="When we use a parameter in the body of the function, we have to declare the parameter name in the signature so that the compiler knows what that name means. Similarly, when we use a type parameter name in a function signature, we have to declare the type parameter name before we use it. To define the generic largest function, we place type name declarations inside angle brackets, <>, between the name of the function and the parameter list, like this:">当我们在一个函数的主体中使用参数时，我们必须在签名中声明参数名称，以便编译器知道该名称的含义。同样，当我们在函数签名中使用类型参数名称时，我们必须在使用之前声明类型参数名称。为了定义泛型<code>largest</code>函数，我们在函数名称和参数列表之间使用尖括号<code>&lt;&gt;</code>内放置类型名称声明，如下所示：</p>
+<p>The <code>largest_i32</code> function is the one we extracted in Listing 10-3 that finds
+the largest <code>i32</code> in a slice. The <code>largest_char</code> function finds the largest
+<code>char</code> in a slice. The function bodies have the same code, so let’s eliminate
+the duplication by introducing a generic type parameter in a single function.</p>
+<p>To parameterize the types in a new single function, we need to name the type
+parameter, just as we do for the value parameters to a function. You can use
+any identifier as a type parameter name. But we’ll use <code>T</code> because, by
+convention, type parameter names in Rust are short, often just one letter, and
+Rust’s type-naming convention is UpperCamelCase. Short for <em>type</em>, <code>T</code> is the
+default choice of most Rust programmers.</p>
+<p>When we use a parameter in the body of the function, we have to declare the
+parameter name in the signature so that the compiler knows what that name
+means. Similarly, when we use a type parameter name in a function signature, we
+have to declare the type parameter name before we use it. To define the generic
+<code>largest</code> function, we place type name declarations inside angle brackets,
+<code>&lt;&gt;</code>, between the name of the function and the parameter list, like this:</p>
 <pre><code class="language-rust ignore">fn largest&lt;T&gt;(list: &amp;[T]) -&gt; &amp;T {</code></pre>
-<p data-x-en="We read this definition as “The function largest is generic over some type T.” This function has one parameter named list, which is a slice of values of type T. The largest function will return a reference to a value of the same type T.">我们读这个定义为“函数 <code>largest</code> 对某种类型 <code>T</code> 是泛型的。”这个函数有一个名为 <code>list</code> 的参数，它是一个 <code>T</code> 类型值的切片。 <code>largest</code> 函数将返回一个指向相同类型 <code>T</code> 值的引用。</p>
-<p data-x-en="Listing 10-5 shows the combined largest function definition using the generic data type in its signature. The listing also shows how we can call the function with either a slice of i32 values or char values. Note that this code won’t compile yet.">列表 10-5 显示了使用泛型数据类型在其签名中的 <code>largest</code> 函数定义。该列表还显示了我们如何可以使用 <code>i32</code> 值或 <code>char</code> 值的切片来调用该函数。请注意，此代码尚无法编译。</p>
+<p>We read this definition as “The function <code>largest</code> is generic over some type
+<code>T</code>.” This function has one parameter named <code>list</code>, which is a slice of values
+of type <code>T</code>. The <code>largest</code> function will return a reference to a value of the
+same type <code>T</code>.</p>
+<p>Listing 10-5 shows the combined <code>largest</code> function definition using the generic
+data type in its signature. The listing also shows how we can call the function
+with either a slice of <code>i32</code> values or <code>char</code> values. Note that this code won’t
+compile yet.</p>
 <figure class="listing" id="listing-10-5">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore does_not_compile">fn largest&lt;T&gt;(list: &amp;[T]) -&gt; &amp;T {
@@ -328,7 +354,7 @@ fn main() {
 }</code></pre>
 <figcaption><a href="#listing-10-5">Listing 10-5</a>: The <code>largest</code> function using generic type parameters; this doesn’t compile yet</figcaption>
 </figure>
-<p data-x-en="If we compile this code right now, we’ll get this error:">如果我们现在编译这段代码，我们会得到这个错误：</p>
+<p>If we compile this code right now, we’ll get this error:</p>
 <pre><code class="language-console">$ cargo run
    Compiling chapter10 v0.1.0 (file:///projects/chapter10)
 error[E0369]: binary operation `&gt;` cannot be applied to type `&amp;T`
@@ -347,12 +373,23 @@ help: consider restricting type parameter `T` with trait `PartialOrd`
 For more information about this error, try `rustc --explain E0369`.
 error: could not compile `chapter10` (bin "chapter10") due to 1 previous error
 </code></pre>
-<p data-x-en="The help text mentions std::cmp::PartialOrd, which is a trait, and we’re going to talk about traits in the next section. For now, know that this error states that the body of largest won’t work for all possible types that T could be. Because we want to compare values of type T in the body, we can only use types whose values can be ordered. To enable comparisons, the standard library has the std::cmp::PartialOrd trait that you can implement on types (see Appendix C for more on this trait). To fix Listing 10-5, we can follow the help text’s suggestion and restrict the types valid for T to only those that implement PartialOrd. The listing will then compile, because the standard library implements PartialOrd on both i32 and char.">帮助文本提到了 <code>std::cmp::PartialOrd</code>，这是一个 <em>trait</em>，我们将在下一节中讨论 trait。目前，你需要知道这个错误表明 <code>largest</code> 的主体不能适用于所有可能的 <code>T</code> 类型。因为我们在主体中想要比较 <code>T</code> 类型的值，所以我们只能使用可以排序的类型的值。为了启用比较，标准库提供了 <code>std::cmp::PartialOrd</code> trait，你可以在类型上实现这个 trait（有关此 trait 的更多信息，请参见附录 C）。要修复列表 10-5，我们可以遵循帮助文本的建议，将 <code>T</code> 有效的类型限制为仅实现 <code>PartialOrd</code> 的类型。然后列表将编译，因为标准库在 <code>i32</code> 和 <code>char</code> 上都实现了 <code>PartialOrd</code>。</p>
-<h3 id="in-struct-definitions"><a class="header" href="#in-struct-definitions">在结构体定义中</a></h3>
-<p data-x-en="We can also define structs to use a generic type parameter in one or more fields using the <> syntax. Listing 10-6 defines a Point<T> struct to hold x and y coordinate values of any type.">我们还可以使用 <code>&lt;&gt;</code> 语法在结构体的一个或多个字段中定义泛型类型参数。列表 10-6 定义了一个 <code>Point&lt;T&gt;</code> 结构体来保存任何类型的 <code>x</code> 和 <code>y</code> 坐标值。</p>
+<p>The help text mentions <code>std::cmp::PartialOrd</code>, which is a trait, and we’re
+going to talk about traits in the next section. For now, know that this error
+states that the body of <code>largest</code> won’t work for all possible types that <code>T</code>
+could be. Because we want to compare values of type <code>T</code> in the body, we can
+only use types whose values can be ordered. To enable comparisons, the standard
+library has the <code>std::cmp::PartialOrd</code> trait that you can implement on types
+(see Appendix C for more on this trait). To fix Listing 10-5, we can follow the
+help text’s suggestion and restrict the types valid for <code>T</code> to only those that
+implement <code>PartialOrd</code>. The listing will then compile, because the standard
+library implements <code>PartialOrd</code> on both <code>i32</code> and <code>char</code>.</p>
+<h3 id="in-struct-definitions"><a class="header" href="#in-struct-definitions">In Struct Definitions</a></h3>
+<p>We can also define structs to use a generic type parameter in one or more
+fields using the <code>&lt;&gt;</code> syntax. Listing 10-6 defines a <code>Point&lt;T&gt;</code> struct to hold
+<code>x</code> and <code>y</code> coordinate values of any type.</p>
 <figure class="listing" id="listing-10-6">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">struct Point&lt;T&gt; {
+<pre class="playground"><code class="language-rust edition2024">struct Point&lt;T&gt; {
     x: T,
     y: T,
 }
@@ -360,11 +397,18 @@ error: could not compile `chapter10` (bin "chapter10") due to 1 previous error
 fn main() {
     let integer = Point { x: 5, y: 10 };
     let float = Point { x: 1.0, y: 4.0 };
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-10-6">Listing 10-6</a>: A <code>Point&lt;T&gt;</code> struct that holds <code>x</code> and <code>y</code> values of type <code>T</code></figcaption>
 </figure>
-<p data-x-en="The syntax for using generics in struct definitions is similar to that used in function definitions. First, we declare the name of the type parameter inside angle brackets just after the name of the struct. Then, we use the generic type in the struct definition where we would otherwise specify concrete data types.">在结构体定义中使用泛型的语法与在函数定义中使用的语法相似。首先，我们在结构体名称后面的尖括号内声明类型参数的名称。然后，在结构体定义中，我们在本应指定具体数据类型的地方使用泛型类型。</p>
-<p data-x-en="Note that because we’ve used only one generic type to define Point<T>, this definition says that the Point<T> struct is generic over some type T, and the fields x and y are both that same type, whatever that type may be. If we create an instance of a Point<T> that has values of different types, as in Listing 10-7, our code won’t compile.">请注意，因为我们只使用了一种泛型类型来定义 <code>Point&lt;T&gt;</code>，这个定义说明 <code>Point&lt;T&gt;</code> 结构体是泛型的，对于某种类型 <code>T</code>，字段 <code>x</code> 和 <code>y</code> <em>都是</em> 同一种类型，无论该类型是什么。如果我们创建一个具有不同类型的值的 <code>Point&lt;T&gt;</code> 实例，如清单 10-7 所示，我们的代码将无法编译。</p>
+<p>The syntax for using generics in struct definitions is similar to that used in
+function definitions. First, we declare the name of the type parameter inside
+angle brackets just after the name of the struct. Then, we use the generic type
+in the struct definition where we would otherwise specify concrete data types.</p>
+<p>Note that because we’ve used only one generic type to define <code>Point&lt;T&gt;</code>, this
+definition says that the <code>Point&lt;T&gt;</code> struct is generic over some type <code>T</code>, and
+the fields <code>x</code> and <code>y</code> are <em>both</em> that same type, whatever that type may be. If
+we create an instance of a <code>Point&lt;T&gt;</code> that has values of different types, as in
+Listing 10-7, our code won’t compile.</p>
 <figure class="listing" id="listing-10-7">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore does_not_compile">struct Point&lt;T&gt; {
@@ -377,7 +421,10 @@ fn main() {
 }</code></pre>
 <figcaption><a href="#listing-10-7">Listing 10-7</a>: The fields <code>x</code> and <code>y</code> must be the same type because both have the same generic data type <code>T</code>.</figcaption>
 </figure>
-<p data-x-en="In this example, when we assign the integer value 5 to x, we let the compiler know that the generic type T will be an integer for this instance of Point<T>. Then, when we specify 4.0 for y, which we’ve defined to have the same type as x, we’ll get a type mismatch error like this:">在这个例子中，当我们把整数值<code>5</code>赋给<code>x</code>时，我们让编译器知道泛型类型<code>T</code>在这个<code>Point&lt;T&gt;</code>实例中将是整数。然后，当我们为<code>y</code>指定<code>4.0</code>时，我们已经定义<code>y</code>具有与<code>x</code>相同的类型，这时我们会得到一个类型不匹配的错误，如下所示：</p>
+<p>In this example, when we assign the integer value <code>5</code> to <code>x</code>, we let the
+compiler know that the generic type <code>T</code> will be an integer for this instance of
+<code>Point&lt;T&gt;</code>. Then, when we specify <code>4.0</code> for <code>y</code>, which we’ve defined to have
+the same type as <code>x</code>, we’ll get a type mismatch error like this:</p>
 <pre><code class="language-console">$ cargo run
    Compiling chapter10 v0.1.0 (file:///projects/chapter10)
 error[E0308]: mismatched types
@@ -389,10 +436,13 @@ error[E0308]: mismatched types
 For more information about this error, try `rustc --explain E0308`.
 error: could not compile `chapter10` (bin "chapter10") due to 1 previous error
 </code></pre>
-<p data-x-en="To define a Point struct where x and y are both generics but could have different types, we can use multiple generic type parameters. For example, in Listing 10-8, we change the definition of Point to be generic over types T and U where x is of type T and y is of type U.">要定义一个 <code>Point</code> 结构体，其中 <code>x</code> 和 <code>y</code> 都是泛型但可以有不同的类型，我们可以使用多个泛型类型参数。例如，在列表 10-8 中，我们将 <code>Point</code> 的定义更改为对类型 <code>T</code> 和 <code>U</code> 泛型，其中 <code>x</code> 的类型为 <code>T</code>，<code>y</code> 的类型为 <code>U</code>。</p>
+<p>To define a <code>Point</code> struct where <code>x</code> and <code>y</code> are both generics but could have
+different types, we can use multiple generic type parameters. For example, in
+Listing 10-8, we change the definition of <code>Point</code> to be generic over types <code>T</code>
+and <code>U</code> where <code>x</code> is of type <code>T</code> and <code>y</code> is of type <code>U</code>.</p>
 <figure class="listing" id="listing-10-8">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">struct Point&lt;T, U&gt; {
+<pre class="playground"><code class="language-rust edition2024">struct Point&lt;T, U&gt; {
     x: T,
     y: U,
 }
@@ -401,35 +451,58 @@ fn main() {
     let both_integer = Point { x: 5, y: 10 };
     let both_float = Point { x: 1.0, y: 4.0 };
     let integer_and_float = Point { x: 5, y: 4.0 };
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-10-8">Listing 10-8</a>: A <code>Point&lt;T, U&gt;</code> generic over two types so that <code>x</code> and <code>y</code> can be values of different types</figcaption>
 </figure>
-<p data-x-en="Now all the instances of Point shown are allowed! You can use as many generic type parameters in a definition as you want, but using more than a few makes your code hard to read. If you’re finding you need lots of generic types in your code, it could indicate that your code needs restructuring into smaller pieces.">现在所有显示的 <code>Point</code> 实例都是允许的！你可以在定义中使用任意数量的泛型类型参数，但使用过多会使代码难以阅读。如果你发现代码中需要大量泛型类型，这可能表明你的代码需要重构为更小的部分。</p>
-<h3 id="in-enum-definitions"><a class="header" href="#in-enum-definitions">在枚举定义中</a></h3>
-<p data-x-en="As we did with structs, we can define enums to hold generic data types in their variants. Let’s take another look at the Option<T> enum that the standard library provides, which we used in Chapter 6:">正如我们对结构体所做的那样，我们可以定义枚举来在其变体中持有泛型数据类型。让我们再来看看标准库提供的 <code>Option&lt;T&gt;</code> 枚举，我们在第 6 章中使用过：</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+<p>Now all the instances of <code>Point</code> shown are allowed! You can use as many generic
+type parameters in a definition as you want, but using more than a few makes
+your code hard to read. If you’re finding you need lots of generic types in
+your code, it could indicate that your code needs restructuring into smaller
+pieces.</p>
+<h3 id="in-enum-definitions"><a class="header" href="#in-enum-definitions">In Enum Definitions</a></h3>
+<p>As we did with structs, we can define enums to hold generic data types in their
+variants. Let’s take another look at the <code>Option&lt;T&gt;</code> enum that the standard
+library provides, which we used in Chapter 6:</p>
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>enum Option&lt;T&gt; {
     Some(T),
     None,
 }
-<span class="boring">}</span></code></pre></pre>
-<p data-x-en="This definition should now make more sense to you. As you can see, the Option<T> enum is generic over type T and has two variants: Some, which holds one value of type T, and a None variant that doesn’t hold any value. By using the Option<T> enum, we can express the abstract concept of an optional value, and because Option<T> is generic, we can use this abstraction no matter what the type of the optional value is.">这个定义现在应该对你更有意义了。如你所见，<code>Option&lt;T&gt;</code> 枚举类型是泛型类型 <code>T</code> 的，并且有两个变体：<code>Some</code>，它持有一个类型为 <code>T</code> 的值，以及一个不持有任何值的 <code>None</code> 变体。通过使用 <code>Option&lt;T&gt;</code> 枚举，我们可以表达一个可选值的抽象概念，并且因为 <code>Option&lt;T&gt;</code> 是泛型的，无论可选值的类型是什么，我们都可以使用这种抽象。</p>
-<p data-x-en="Enums can use multiple generic types as well. The definition of the Result enum that we used in Chapter 9 is one example:">枚举可以使用多个泛型类型。我们在第 9 章中使用的 <code>Result</code> 枚举定义就是一个例子：</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+<span class="boring">}</span></code></pre>
+<p>This definition should now make more sense to you. As you can see, the
+<code>Option&lt;T&gt;</code> enum is generic over type <code>T</code> and has two variants: <code>Some</code>, which
+holds one value of type <code>T</code>, and a <code>None</code> variant that doesn’t hold any value.
+By using the <code>Option&lt;T&gt;</code> enum, we can express the abstract concept of an
+optional value, and because <code>Option&lt;T&gt;</code> is generic, we can use this abstraction
+no matter what the type of the optional value is.</p>
+<p>Enums can use multiple generic types as well. The definition of the <code>Result</code>
+enum that we used in Chapter 9 is one example:</p>
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>enum Result&lt;T, E&gt; {
     Ok(T),
     Err(E),
 }
-<span class="boring">}</span></code></pre></pre>
-<p data-x-en="The Result enum is generic over two types, T and E, and has two variants: Ok, which holds a value of type T, and Err, which holds a value of type E. This definition makes it convenient to use the Result enum anywhere we have an operation that might succeed (return a value of some type T) or fail (return an error of some type E). In fact, this is what we used to open a file in Listing 9-3, where T was filled in with the type std::fs::File when the file was opened successfully and E was filled in with the type std::io::Error when there were problems opening the file."><code>Result</code> 枚举泛型化了两个类型，<code>T</code> 和 <code>E</code>，并且有两个变体：<code>Ok</code>，它持有一个类型为 <code>T</code> 的值，和 <code>Err</code>，它持有一个类型为 <code>E</code> 的值。这个定义使得在我们有某个操作可能成功（返回某个类型 <code>T</code> 的值）或失败（返回某个类型 <code>E</code> 的错误）时，使用 <code>Result</code> 枚举变得非常方便。实际上，我们在清单 9-3 中就是用它来打开文件的，其中当文件成功打开时，<code>T</code> 被填充为类型 <code>std::fs::File</code>，而当打开文件出现问题时，<code>E</code> 被填充为类型 <code>std::io::Error</code>。</p>
-<p data-x-en="When you recognize situations in your code with multiple struct or enum definitions that differ only in the types of the values they hold, you can avoid duplication by using generic types instead.">当你在代码中识别出多个结构体或枚举定义，它们仅在所持有的值的类型上有所不同时，你可以通过使用泛型类型来避免重复。</p>
-<h3 id="in-method-definitions"><a class="header" href="#in-method-definitions">在方法定义中</a></h3>
-<p data-x-en="We can implement methods on structs and enums (as we did in Chapter 5) and use generic types in their definitions too. Listing 10-9 shows the Point<T> struct we defined in Listing 10-6 with a method named x implemented on it.">我们可以为结构体和枚举实现方法（如我们在第 5 章所做的），并在它们的定义中使用泛型类型。列表 10-9 显示了我们在列表 10-6 中定义的 <code>Point&lt;T&gt;</code> 结构体，并在其上实现了一个名为 <code>x</code> 的方法。</p>
+<span class="boring">}</span></code></pre>
+<p>The <code>Result</code> enum is generic over two types, <code>T</code> and <code>E</code>, and has two variants:
+<code>Ok</code>, which holds a value of type <code>T</code>, and <code>Err</code>, which holds a value of type
+<code>E</code>. This definition makes it convenient to use the <code>Result</code> enum anywhere we
+have an operation that might succeed (return a value of some type <code>T</code>) or fail
+(return an error of some type <code>E</code>). In fact, this is what we used to open a
+file in Listing 9-3, where <code>T</code> was filled in with the type <code>std::fs::File</code> when
+the file was opened successfully and <code>E</code> was filled in with the type
+<code>std::io::Error</code> when there were problems opening the file.</p>
+<p>When you recognize situations in your code with multiple struct or enum
+definitions that differ only in the types of the values they hold, you can
+avoid duplication by using generic types instead.</p>
+<h3 id="in-method-definitions"><a class="header" href="#in-method-definitions">In Method Definitions</a></h3>
+<p>We can implement methods on structs and enums (as we did in Chapter 5) and use
+generic types in their definitions too. Listing 10-9 shows the <code>Point&lt;T&gt;</code>
+struct we defined in Listing 10-6 with a method named <code>x</code> implemented on it.</p>
 <figure class="listing" id="listing-10-9">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">struct Point&lt;T&gt; {
+<pre class="playground"><code class="language-rust edition2024">struct Point&lt;T&gt; {
     x: T,
     y: T,
 }
@@ -444,15 +517,27 @@ fn main() {
     let p = Point { x: 5, y: 10 };
 
     println!("p.x = {}", p.x());
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-10-9">Listing 10-9</a>: Implementing a method named <code>x</code> on the <code>Point&lt;T&gt;</code> struct that will return a reference to the <code>x</code> field of type <code>T</code></figcaption>
 </figure>
-<p data-x-en="Here, we’ve defined a method named x on Point<T> that returns a reference to the data in the field x.">这里，我们定义了一个名为 <code>x</code> 的方法在 <code>Point&lt;T&gt;</code> 上，该方法返回 <code>x</code> 字段中数据的引用。</p>
-<p data-x-en="Note that we have to declare T just after impl so that we can use T to specify that we’re implementing methods on the type Point<T>. By declaring T as a generic type after impl, Rust can identify that the type in the angle brackets in Point is a generic type rather than a concrete type. We could have chosen a different name for this generic parameter than the generic parameter declared in the struct definition, but using the same name is conventional. If you write a method within an impl that declares a generic type, that method will be defined on any instance of the type, no matter what concrete type ends up substituting for the generic type.">请注意，我们必须在 <code>impl</code> 之后声明 <code>T</code>，这样我们才能使用 <code>T</code> 来指定我们正在为类型 <code>Point&lt;T&gt;</code> 实现方法。通过在 <code>impl</code> 之后声明 <code>T</code> 为泛型类型，Rust 可以识别 <code>Point</code> 中尖括号内的类型是泛型类型而不是具体类型。我们可以选择与结构体定义中声明的泛型参数不同的名称，但使用相同的名称是惯例。如果你在一个声明了泛型类型的 <code>impl</code> 中编写方法，那么该方法将定义在该类型的任何实例上，无论最终用什么具体类型替代泛型类型。</p>
-<p data-x-en="We can also specify constraints on generic types when defining methods on the type. We could, for example, implement methods only on Point<f32> instances rather than on Point<T> instances with any generic type. In Listing 10-10, we use the concrete type f32, meaning we don’t declare any types after impl.">我们还可以在定义类型的方法时指定泛型类型的约束。例如，我们可以只为 <code>Point&lt;f32&gt;</code> 实例实现方法，而不是为具有任何泛型类型的 <code>Point&lt;T&gt;</code> 实例实现方法。在清单 10-10 中，我们使用具体的类型 <code>f32</code>，这意味着我们在 <code>impl</code> 之后不声明任何类型。</p>
+<p>Here, we’ve defined a method named <code>x</code> on <code>Point&lt;T&gt;</code> that returns a reference
+to the data in the field <code>x</code>.</p>
+<p>Note that we have to declare <code>T</code> just after <code>impl</code> so that we can use <code>T</code> to
+specify that we’re implementing methods on the type <code>Point&lt;T&gt;</code>. By declaring
+<code>T</code> as a generic type after <code>impl</code>, Rust can identify that the type in the
+angle brackets in <code>Point</code> is a generic type rather than a concrete type. We
+could have chosen a different name for this generic parameter than the generic
+parameter declared in the struct definition, but using the same name is
+conventional. If you write a method within an <code>impl</code> that declares a generic
+type, that method will be defined on any instance of the type, no matter what
+concrete type ends up substituting for the generic type.</p>
+<p>We can also specify constraints on generic types when defining methods on the
+type. We could, for example, implement methods only on <code>Point&lt;f32&gt;</code> instances
+rather than on <code>Point&lt;T&gt;</code> instances with any generic type. In Listing 10-10, we
+use the concrete type <code>f32</code>, meaning we don’t declare any types after <code>impl</code>.</p>
 <figure class="listing" id="listing-10-10">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">struct Point&lt;T&gt; {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">struct Point&lt;T&gt; {
 </span><span class="boring">    x: T,
 </span><span class="boring">    y: T,
 </span><span class="boring">}
@@ -473,14 +558,23 @@ fn main() {
 </span><span class="boring">    let p = Point { x: 5, y: 10 };
 </span><span class="boring">
 </span><span class="boring">    println!("p.x = {}", p.x());
-</span><span class="boring">}</span></code></pre></pre>
+</span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-10-10">Listing 10-10</a>: An <code>impl</code> block that only applies to a struct with a particular concrete type for the generic type parameter <code>T</code></figcaption>
 </figure>
-<p data-x-en="This code means the type Point<f32> will have a distance_from_origin method; other instances of Point<T> where T is not of type f32 will not have this method defined. The method measures how far our point is from the point at coordinates (0.0, 0.0) and uses mathematical operations that are available only for floating-point types.">这段代码意味着类型<code>Point&lt;f32&gt;</code>将有一个<code>distance_from_origin</code>方法；其他<code>T</code>不是<code>f32</code>类型的<code>Point&lt;T&gt;</code>实例将不会定义此方法。该方法测量我们的点距离坐标(0.0, 0.0)的点有多远，并使用仅对浮点类型可用的数学运算。</p>
-<p data-x-en="Generic type parameters in a struct definition aren’t always the same as those you use in that same struct’s method signatures. Listing 10-11 uses the generic types X1 and Y1 for the Point struct and X2 and Y2 for the mixup method signature to make the example clearer. The method creates a new Point instance with the x value from the self Point (of type X1) and the y value from the passed-in Point (of type Y2).">在结构体定义中的泛型类型参数并不总是与该结构体方法签名中使用的相同。清单 10-11 使用泛型类型 <code>X1</code> 和 <code>Y1</code> 用于 <code>Point</code> 结构体，<code>X2</code> 和 <code>Y2</code> 用于 <code>mixup</code> 方法签名，以使示例更清晰。该方法创建一个新的 <code>Point</code> 实例，使用来自 <code>self</code> <code>Point</code>（类型为 <code>X1</code>）的 <code>x</code> 值和来自传入的 <code>Point</code>（类型为 <code>Y2</code>）的 <code>y</code> 值。</p>
+<p>This code means the type <code>Point&lt;f32&gt;</code> will have a <code>distance_from_origin</code>
+method; other instances of <code>Point&lt;T&gt;</code> where <code>T</code> is not of type <code>f32</code> will not
+have this method defined. The method measures how far our point is from the
+point at coordinates (0.0, 0.0) and uses mathematical operations that are
+available only for floating-point types.</p>
+<p>Generic type parameters in a struct definition aren’t always the same as those
+you use in that same struct’s method signatures. Listing 10-11 uses the generic
+types <code>X1</code> and <code>Y1</code> for the <code>Point</code> struct and <code>X2</code> and <code>Y2</code> for the <code>mixup</code>
+method signature to make the example clearer. The method creates a new <code>Point</code>
+instance with the <code>x</code> value from the <code>self</code> <code>Point</code> (of type <code>X1</code>) and the <code>y</code>
+value from the passed-in <code>Point</code> (of type <code>Y2</code>).</p>
 <figure class="listing" id="listing-10-11">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">struct Point&lt;X1, Y1&gt; {
+<pre class="playground"><code class="language-rust edition2024">struct Point&lt;X1, Y1&gt; {
     x: X1,
     y: Y1,
 }
@@ -501,31 +595,51 @@ fn main() {
     let p3 = p1.mixup(p2);
 
     println!("p3.x = {}, p3.y = {}", p3.x, p3.y);
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-10-11">Listing 10-11</a>: A method that uses generic types that are different from its struct’s definition</figcaption>
 </figure>
-<p data-x-en="In main, we’ve defined a Point that has an i32 for x (with value 5) and an f64 for y (with value 10.4). The p2 variable is a Point struct that has a string slice for x (with value &quot;Hello&quot;) and a char for y (with value c). Calling mixup on p1 with the argument p2 gives us p3, which will have an i32 for x because x came from p1. The p3 variable will have a char for y because y came from p2. The println! macro call will print p3.x = 5, p3.y = c.">在 <code>main</code> 中，我们定义了一个 <code>Point</code>，它有一个 <code>i32</code> 类型的 <code>x</code>（值为 <code>5</code>）
-和一个 <code>f64</code> 类型的 <code>y</code>（值为 <code>10.4</code>）。变量 <code>p2</code> 是一个 <code>Point</code> 结构体，
-它有一个字符串切片类型的 <code>x</code>（值为 <code>"Hello"</code>）和一个 <code>char</code> 类型的 <code>y</code>
-（值为 <code>c</code>）。在 <code>p1</code> 上调用 <code>mixup</code> 并传入参数 <code>p2</code> 会给我们 <code>p3</code>，
-它将有一个 <code>i32</code> 类型的 <code>x</code>，因为 <code>x</code> 来自 <code>p1</code>。变量 <code>p3</code>
-将有一个 <code>char</code> 类型的 <code>y</code>，因为 <code>y</code> 来自 <code>p2</code>。<code>println!</code> 宏
-调用将打印 <code>p3.x = 5, p3.y = c</code>。</p>
-<p data-x-en="The purpose of this example is to demonstrate a situation in which some generic parameters are declared with impl and some are declared with the method definition. Here, the generic parameters X1 and Y1 are declared after impl because they go with the struct definition. The generic parameters X2 and Y2 are declared after fn mixup because they’re only relevant to the method.">此示例的目的是展示一种情况，其中一些泛型参数使用 <code>impl</code> 声明，而另一些则在方法定义中声明。在这里，泛型参数 <code>X1</code> 和 <code>Y1</code> 在 <code>impl</code> 之后声明，因为它们与结构体定义相关。泛型参数 <code>X2</code> 和 <code>Y2</code> 在 <code>fn mixup</code> 之后声明，因为它们仅与方法相关。</p>
-<h3 id="performance-of-code-using-generics"><a class="header" href="#performance-of-code-using-generics">使用泛型的代码性能</a></h3>
-<p data-x-en="You might be wondering whether there is a runtime cost when using generic type parameters. The good news is that using generic types won’t make your program run any slower than it would with concrete types.">你可能会想知道使用泛型类型参数是否会有运行时成本。好消息是，使用泛型类型不会让你的程序运行得比使用具体类型时更慢。</p>
-<p data-x-en="Rust accomplishes this by performing monomorphization of the code using generics at compile time. Monomorphization is the process of turning generic code into specific code by filling in the concrete types that are used when compiled. In this process, the compiler does the opposite of the steps we used to create the generic function in Listing 10-5: The compiler looks at all the places where generic code is called and generates code for the concrete types the generic code is called with.">Rust 通过在编译时使用泛型对代码进行单态化来实现这一点。 <em>单态化</em> 是将泛型代码转换为具体代码的过程，通过填充编译时使用的具体类型来完成。在这个过程中，编译器执行了与我们在列表 10-5 中创建泛型函数时所用步骤相反的操作：编译器查看所有调用泛型代码的地方，并为调用泛型代码的具体类型生成代码。</p>
-<p data-x-en="Let’s look at how this works by using the standard library’s generic Option<T> enum:">让我们通过使用标准库的泛型<code>Option&lt;T&gt;</code>枚举来看看这是如何工作的：</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+<p>In <code>main</code>, we’ve defined a <code>Point</code> that has an <code>i32</code> for <code>x</code> (with value <code>5</code>)
+and an <code>f64</code> for <code>y</code> (with value <code>10.4</code>). The <code>p2</code> variable is a <code>Point</code> struct
+that has a string slice for <code>x</code> (with value <code>"Hello"</code>) and a <code>char</code> for <code>y</code>
+(with value <code>c</code>). Calling <code>mixup</code> on <code>p1</code> with the argument <code>p2</code> gives us <code>p3</code>,
+which will have an <code>i32</code> for <code>x</code> because <code>x</code> came from <code>p1</code>. The <code>p3</code> variable
+will have a <code>char</code> for <code>y</code> because <code>y</code> came from <code>p2</code>. The <code>println!</code> macro
+call will print <code>p3.x = 5, p3.y = c</code>.</p>
+<p>The purpose of this example is to demonstrate a situation in which some generic
+parameters are declared with <code>impl</code> and some are declared with the method
+definition. Here, the generic parameters <code>X1</code> and <code>Y1</code> are declared after
+<code>impl</code> because they go with the struct definition. The generic parameters <code>X2</code>
+and <code>Y2</code> are declared after <code>fn mixup</code> because they’re only relevant to the
+method.</p>
+<h3 id="performance-of-code-using-generics"><a class="header" href="#performance-of-code-using-generics">Performance of Code Using Generics</a></h3>
+<p>You might be wondering whether there is a runtime cost when using generic type
+parameters. The good news is that using generic types won’t make your program
+run any slower than it would with concrete types.</p>
+<p>Rust accomplishes this by performing monomorphization of the code using
+generics at compile time. <em>Monomorphization</em> is the process of turning generic
+code into specific code by filling in the concrete types that are used when
+compiled. In this process, the compiler does the opposite of the steps we used
+to create the generic function in Listing 10-5: The compiler looks at all the
+places where generic code is called and generates code for the concrete types
+the generic code is called with.</p>
+<p>Let’s look at how this works by using the standard library’s generic
+<code>Option&lt;T&gt;</code> enum:</p>
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>let integer = Some(5);
 let float = Some(5.0);
-<span class="boring">}</span></code></pre></pre>
-<p data-x-en="When Rust compiles this code, it performs monomorphization. During that process, the compiler reads the values that have been used in Option<T> instances and identifies two kinds of Option<T>: One is i32 and the other is f64. As such, it expands the generic definition of Option<T> into two definitions specialized to i32 and f64, thereby replacing the generic definition with the specific ones.">当 Rust 编译这段代码时，它会执行单态化。在这个过程中，编译器读取在 <code>Option&lt;T&gt;</code> 实例中使用过的值，并识别出两种 <code>Option&lt;T&gt;</code>：一种是 <code>i32</code>，另一种是 <code>f64</code>。因此，它将 <code>Option&lt;T&gt;</code> 的泛型定义扩展为两个专门针对 <code>i32</code> 和 <code>f64</code> 的定义，从而用具体的定义替换了泛型定义。</p>
-<p data-x-en="The monomorphized version of the code looks similar to the following (the compiler uses different names than what we’re using here for illustration):">单态化版本的代码看起来类似于以下内容（编译器使用的名称与我们这里用于说明的名称不同）：</p>
+<span class="boring">}</span></code></pre>
+<p>When Rust compiles this code, it performs monomorphization. During that
+process, the compiler reads the values that have been used in <code>Option&lt;T&gt;</code>
+instances and identifies two kinds of <code>Option&lt;T&gt;</code>: One is <code>i32</code> and the other
+is <code>f64</code>. As such, it expands the generic definition of <code>Option&lt;T&gt;</code> into two
+definitions specialized to <code>i32</code> and <code>f64</code>, thereby replacing the generic
+definition with the specific ones.</p>
+<p>The monomorphized version of the code looks similar to the following (the
+compiler uses different names than what we’re using here for illustration):</p>
 <figure class="listing">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">enum Option_i32 {
+<pre class="playground"><code class="language-rust edition2024">enum Option_i32 {
     Some(i32),
     None,
 }
@@ -538,20 +652,25 @@ enum Option_f64 {
 fn main() {
     let integer = Option_i32::Some(5);
     let float = Option_f64::Some(5.0);
-}</code></pre></pre>
+}</code></pre>
 </figure>
-<p data-x-en="The generic Option<T> is replaced with the specific definitions created by the compiler. Because Rust compiles generic code into code that specifies the type in each instance, we pay no runtime cost for using generics. When the code runs, it performs just as it would if we had duplicated each definition by hand. The process of monomorphization makes Rust’s generics extremely efficient at runtime.">通用的 <code>Option&lt;T&gt;</code> 被编译器创建的具体定义所替换。因为 Rust 会将泛型代码编译成每个实例都指定类型的代码，所以我们使用泛型时不会产生运行时开销。当代码运行时，它的表现就像我们手动复制了每个定义一样。单态化的过程使得 Rust 的泛型在运行时极其高效。</p>
+<p>The generic <code>Option&lt;T&gt;</code> is replaced with the specific definitions created by
+the compiler. Because Rust compiles generic code into code that specifies the
+type in each instance, we pay no runtime cost for using generics. When the code
+runs, it performs just as it would if we had duplicated each definition by
+hand. The process of monomorphization makes Rust’s generics extremely efficient
+at runtime.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch10-00-generics.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch10-02-traits.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -561,16 +680,21 @@ fn main() {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch10-00-generics.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch10-02-traits.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -579,16 +703,16 @@ fn main() {
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

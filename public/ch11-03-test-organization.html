@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch11-03-test-organization.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,51 +212,71 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
-                        <h2 id="test-organization"><a class="header" href="#test-organization">测试组织</a></h2>
-<p data-x-en="As mentioned at the start of the chapter, testing is a complex discipline, and different people use different terminology and organization. The Rust community thinks about tests in terms of two main categories: unit tests and integration tests. Unit tests are small and more focused, testing one module in isolation at a time, and can test private interfaces. Integration tests are entirely external to your library and use your code in the same way any other external code would, using only the public interface and potentially exercising multiple modules per test.">正如本章开头所述，测试是一门复杂的学科，不同的人使用不同的术语和组织方式。Rust 社区从两个主要类别来考虑测试：单元测试和集成测试。<em>单元测试</em>较小且更集中，一次只测试一个模块，并且可以测试私有接口。<em>集成测试</em>完全位于你的库之外，以任何其他外部代码使用你代码的相同方式使用你的代码，仅使用公共接口，并且每个测试可能涉及多个模块。</p>
-<p data-x-en="Writing both kinds of tests is important to ensure that the pieces of your library are doing what you expect them to, separately and together.">编写这两种测试对于确保您的库的各个部分按预期工作，无论是单独还是共同工作，都非常重要。</p>
-<h3 id="unit-tests"><a class="header" href="#unit-tests">单元测试</a></h3>
-<p data-x-en="The purpose of unit tests is to test each unit of code in isolation from the rest of the code to quickly pinpoint where code is and isn’t working as expected. You’ll put unit tests in the src directory in each file with the code that they’re testing. The convention is to create a module named tests in each file to contain the test functions and to annotate the module with cfg(test).">单元测试的目的是在与其他代码隔离的情况下测试每个代码单元，以便快速定位代码是否按预期工作。您将在 <em>src</em> 目录中的每个文件中放置单元测试，与它们测试的代码放在同一个文件中。惯例是在每个文件中创建一个名为 <code>tests</code> 的模块来包含测试函数，并使用 <code>cfg(test)</code> 注解该模块。</p>
-<h4 id="the-tests-module-and-cfgtest"><a class="header" href="#the-tests-module-and-cfgtest">测试模块和 <code>#[cfg(test)]</code></a></h4>
-<p data-x-en="The #[cfg(test)] annotation on the tests module tells Rust to compile and run the test code only when you run cargo test, not when you run cargo build. This saves compile time when you only want to build the library and saves space in the resultant compiled artifact because the tests are not included. You’ll see that because integration tests go in a different directory, they don’t need the #[cfg(test)] annotation. However, because unit tests go in the same files as the code, you’ll use #[cfg(test)] to specify that they shouldn’t be included in the compiled result."><code>#[cfg(test)]</code> 注解在 <code>tests</code> 模块上告诉 Rust 只有在你运行 <code>cargo test</code> 时才编译和运行测试代码，而不是在你运行 <code>cargo build</code> 时。这在你只想构建库时节省了编译时间，并且在生成的编译产物中节省了空间，因为测试代码没有被包含。你会看到，由于集成测试位于不同的目录中，它们不需要 <code>#[cfg(test)]</code> 注解。然而，因为单元测试与代码位于同一文件中，你需要使用 <code>#[cfg(test)]</code> 来指定它们不应包含在编译结果中。</p>
-<p data-x-en="Recall that when we generated the new adder project in the first section of this chapter, Cargo generated this code for us:">回想一下，当我们在本章第一部分生成新的<code>adder</code>项目时，Cargo 为我们生成了以下代码：</p>
-<p data-x-en="Filename: src/lib.rs"><span class="filename">文件名: src/lib.rs</span></p>
+                        <h2 id="test-organization"><a class="header" href="#test-organization">Test Organization</a></h2>
+<p>As mentioned at the start of the chapter, testing is a complex discipline, and
+different people use different terminology and organization. The Rust community
+thinks about tests in terms of two main categories: unit tests and integration
+tests. <em>Unit tests</em> are small and more focused, testing one module in isolation
+at a time, and can test private interfaces. <em>Integration tests</em> are entirely
+external to your library and use your code in the same way any other external
+code would, using only the public interface and potentially exercising multiple
+modules per test.</p>
+<p>Writing both kinds of tests is important to ensure that the pieces of your
+library are doing what you expect them to, separately and together.</p>
+<h3 id="unit-tests"><a class="header" href="#unit-tests">Unit Tests</a></h3>
+<p>The purpose of unit tests is to test each unit of code in isolation from the
+rest of the code to quickly pinpoint where code is and isn’t working as
+expected. You’ll put unit tests in the <em>src</em> directory in each file with the
+code that they’re testing. The convention is to create a module named <code>tests</code>
+in each file to contain the test functions and to annotate the module with
+<code>cfg(test)</code>.</p>
+<h4 id="the-tests-module-and-cfgtest"><a class="header" href="#the-tests-module-and-cfgtest">The <code>tests</code> Module and <code>#[cfg(test)]</code></a></h4>
+<p>The <code>#[cfg(test)]</code> annotation on the <code>tests</code> module tells Rust to compile and
+run the test code only when you run <code>cargo test</code>, not when you run <code>cargo build</code>. This saves compile time when you only want to build the library and
+saves space in the resultant compiled artifact because the tests are not
+included. You’ll see that because integration tests go in a different
+directory, they don’t need the <code>#[cfg(test)]</code> annotation. However, because unit
+tests go in the same files as the code, you’ll use <code>#[cfg(test)]</code> to specify
+that they shouldn’t be included in the compiled result.</p>
+<p>Recall that when we generated the new <code>adder</code> project in the first section of
+this chapter, Cargo generated this code for us:</p>
+<p><span class="filename">Filename: src/lib.rs</span></p>
 <pre><code class="language-rust noplayground">pub fn add(left: u64, right: u64) -&gt; u64 {
     left + right
 }
@@ -272,11 +291,21 @@ mod tests {
         assert_eq!(result, 4);
     }
 }</code></pre>
-<p data-x-en="On the automatically generated tests module, the attribute cfg stands for configuration and tells Rust that the following item should only be included given a certain configuration option. In this case, the configuration option is test, which is provided by Rust for compiling and running tests. By using the cfg attribute, Cargo compiles our test code only if we actively run the tests with cargo test. This includes any helper functions that might be within this module, in addition to the functions annotated with #[test].">在自动生成的 <code>tests</code> 模块中，属性 <code>cfg</code> 代表 <em>配置</em>，并告诉 Rust 只有在给定特定配置选项时才应包含以下项。在这种情况下，配置选项是 <code>test</code>，这是 Rust 为编译和运行测试提供的。通过使用 <code>cfg</code> 属性，Cargo 仅在我们使用 <code>cargo test</code> 主动运行测试时编译我们的测试代码。这包括可能在这个模块内的任何辅助函数，以及用 <code>#[test]</code> 注解的函数。</p>
+<p>On the automatically generated <code>tests</code> module, the attribute <code>cfg</code> stands for
+<em>configuration</em> and tells Rust that the following item should only be included
+given a certain configuration option. In this case, the configuration option is
+<code>test</code>, which is provided by Rust for compiling and running tests. By using the
+<code>cfg</code> attribute, Cargo compiles our test code only if we actively run the tests
+with <code>cargo test</code>. This includes any helper functions that might be within this
+module, in addition to the functions annotated with <code>#[test]</code>.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="testing-private-functions"></a></p>
-<h4 id="private-function-tests"><a class="header" href="#private-function-tests">私有函数测试</a></h4>
-<p data-x-en="There’s debate within the testing community about whether or not private functions should be tested directly, and other languages make it difficult or impossible to test private functions. Regardless of which testing ideology you adhere to, Rust’s privacy rules do allow you to test private functions. Consider the code in Listing 11-12 with the private function internal_adder.">测试社区内部对于是否应该直接测试私有函数存在争议，其他语言使得测试私有函数变得困难或不可能。无论你遵循哪种测试理念，Rust 的隐私规则确实允许你测试私有函数。考虑列表 11-12 中的代码，其中包含私有函数 <code>internal_adder</code>。</p>
+<h4 id="private-function-tests"><a class="header" href="#private-function-tests">Private Function Tests</a></h4>
+<p>There’s debate within the testing community about whether or not private
+functions should be tested directly, and other languages make it difficult or
+impossible to test private functions. Regardless of which testing ideology you
+adhere to, Rust’s privacy rules do allow you to test private functions.
+Consider the code in Listing 11-12 with the private function <code>internal_adder</code>.</p>
 <figure class="listing" id="listing-11-12">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">pub fn add_two(a: u64) -&gt; u64 {
@@ -299,12 +328,30 @@ mod tests {
 }</code></pre>
 <figcaption><a href="#listing-11-12">Listing 11-12</a>: Testing a private function</figcaption>
 </figure>
-<p data-x-en="Note that the internal_adder function is not marked as pub. Tests are just Rust code, and the tests module is just another module. As we discussed in “Paths for Referring to an Item in the Module Tree”, items in child modules can use the items in their ancestor modules. In this test, we bring all of the items belonging to the tests module’s parent into scope with use super::*, and then the test can call internal_adder. If you don’t think private functions should be tested, there’s nothing in Rust that will compel you to do so.">请注意，<code>internal_adder</code> 函数没有标记为 <code>pub</code>。测试只是 Rust 代码，<code>tests</code> 模块也只是另一个模块。正如我们在 <a href="ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html">“模块树中引用项的路径”</a><!-- ignore --> 中讨论的那样，子模块中的项可以使用其祖先模块中的项。在这个测试中，我们使用 <code>use super::*</code> 将属于 <code>tests</code> 模块父模块的所有项引入作用域，然后测试就可以调用 <code>internal_adder</code>。如果你认为不应该测试私有函数，Rust 中没有任何东西会强迫你这样做。</p>
-<h3 id="integration-tests"><a class="header" href="#integration-tests">集成测试</a></h3>
-<p data-x-en="In Rust, integration tests are entirely external to your library. They use your library in the same way any other code would, which means they can only call functions that are part of your library’s public API. Their purpose is to test whether many parts of your library work together correctly. Units of code that work correctly on their own could have problems when integrated, so test coverage of the integrated code is important as well. To create integration tests, you first need a tests directory.">在 Rust 中，集成测试完全独立于您的库。它们以与任何其他代码相同的方式使用您的库，这意味着它们只能调用您库的公共 API 中的函数。它们的目的是测试您的库的许多部分是否能正确协同工作。单独工作正常的代码单元在集成时可能会出现问题，因此集成代码的测试覆盖率也很重要。要创建集成测试，您首先需要一个 <em>tests</em> 目录。</p>
-<h4 id="the-tests-directory"><a class="header" href="#the-tests-directory">测试目录</a></h4>
-<p data-x-en="We create a tests directory at the top level of our project directory, next to src. Cargo knows to look for integration test files in this directory. We can then make as many test files as we want, and Cargo will compile each of the files as an individual crate.">我们在项目的顶级目录中创建一个 <em>tests</em> 目录，与 <em>src</em> 并列。Cargo 知道在这个目录中查找集成测试文件。然后，我们可以创建任意数量的测试文件，Cargo 会将每个文件编译为一个单独的 crate。</p>
-<p data-x-en="Let’s create an integration test. With the code in Listing 11-12 still in the src/lib.rs file, make a tests directory, and create a new file named tests/integration_test.rs. Your directory structure should look like this:">让我们创建一个集成测试。在 <em>src/lib.rs</em> 文件中保留 Listing 11-12 的代码，创建一个 <em>tests</em> 目录，并在其中创建一个名为 <em>tests/integration_test.rs</em> 的新文件。你的目录结构应该如下所示：</p>
+<p>Note that the <code>internal_adder</code> function is not marked as <code>pub</code>. Tests are just
+Rust code, and the <code>tests</code> module is just another module. As we discussed in
+<a href="ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html">“Paths for Referring to an Item in the Module Tree”</a><!-- ignore -->,
+items in child modules can use the items in their ancestor modules. In this
+test, we bring all of the items belonging to the <code>tests</code> module’s parent into
+scope with <code>use super::*</code>, and then the test can call <code>internal_adder</code>. If you
+don’t think private functions should be tested, there’s nothing in Rust that
+will compel you to do so.</p>
+<h3 id="integration-tests"><a class="header" href="#integration-tests">Integration Tests</a></h3>
+<p>In Rust, integration tests are entirely external to your library. They use your
+library in the same way any other code would, which means they can only call
+functions that are part of your library’s public API. Their purpose is to test
+whether many parts of your library work together correctly. Units of code that
+work correctly on their own could have problems when integrated, so test
+coverage of the integrated code is important as well. To create integration
+tests, you first need a <em>tests</em> directory.</p>
+<h4 id="the-tests-directory"><a class="header" href="#the-tests-directory">The <em>tests</em> Directory</a></h4>
+<p>We create a <em>tests</em> directory at the top level of our project directory, next
+to <em>src</em>. Cargo knows to look for integration test files in this directory. We
+can then make as many test files as we want, and Cargo will compile each of the
+files as an individual crate.</p>
+<p>Let’s create an integration test. With the code in Listing 11-12 still in the
+<em>src/lib.rs</em> file, make a <em>tests</em> directory, and create a new file named
+<em>tests/integration_test.rs</em>. Your directory structure should look like this:</p>
 <pre><code class="language-text">adder
 ├── Cargo.lock
 ├── Cargo.toml
@@ -313,7 +360,7 @@ mod tests {
 └── tests
     └── integration_test.rs
 </code></pre>
-<p data-x-en="Enter the code in Listing 11-13 into the tests/integration_test.rs file.">将清单 11-13 中的代码输入到 <em>tests/integration_test.rs</em> 文件中。</p>
+<p>Enter the code in Listing 11-13 into the <em>tests/integration_test.rs</em> file.</p>
 <figure class="listing" id="listing-11-13">
 <span class="file-name">Filename: tests/integration_test.rs</span>
 <pre><code class="language-rust ignore">use adder::add_two;
@@ -325,8 +372,11 @@ fn it_adds_two() {
 }</code></pre>
 <figcaption><a href="#listing-11-13">Listing 11-13</a>: An integration test of a function in the <code>adder</code> crate</figcaption>
 </figure>
-<p data-x-en="Each file in the tests directory is a separate crate, so we need to bring our library into each test crate’s scope. For that reason, we add use adder::add_two; at the top of the code, which we didn’t need in the unit tests."><em>tests</em> 目录中的每个文件都是一个单独的 crate，因此我们需要将我们的库引入每个测试 crate 的作用域。因此，我们在代码的顶部添加 <code>use adder::add_two;</code>，这在单元测试中是不需要的。</p>
-<p data-x-en="We don’t need to annotate any code in tests/integration_test.rs with #[cfg(test)]. Cargo treats the tests directory specially and compiles files in this directory only when we run cargo test. Run cargo test now:">我们不需要在 <em>tests/integration_test.rs</em> 中的任何代码上标注 <code>#[cfg(test)]</code>。Cargo 会特别处理 <em>tests</em> 目录，并且只在我们运行 <code>cargo test</code> 时编译该目录中的文件。现在运行 <code>cargo test</code>：</p>
+<p>Each file in the <em>tests</em> directory is a separate crate, so we need to bring our
+library into each test crate’s scope. For that reason, we add <code>use adder::add_two;</code> at the top of the code, which we didn’t need in the unit tests.</p>
+<p>We don’t need to annotate any code in <em>tests/integration_test.rs</em> with
+<code>#[cfg(test)]</code>. Cargo treats the <em>tests</em> directory specially and compiles files
+in this directory only when we run <code>cargo test</code>. Run <code>cargo test</code> now:</p>
 <pre><code class="language-console">$ cargo test
    Compiling adder v0.1.0 (file:///projects/adder)
     Finished `test` profile [unoptimized + debuginfo] target(s) in 1.31s
@@ -351,12 +401,23 @@ running 0 tests
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
 </code></pre>
-<p data-x-en="The three sections of output include the unit tests, the integration test, and the doc tests. Note that if any test in a section fails, the following sections will not be run. For example, if a unit test fails, there won’t be any output for integration and doc tests, because those tests will only be run if all unit tests are passing.">输出的三个部分包括单元测试、集成测试和文档测试。请注意，如果某个部分中的任何测试失败，后续的部分将不会运行。例如，如果单元测试失败，则不会有任何集成测试和文档测试的输出，因为这些测试只有在所有单元测试通过的情况下才会运行。</p>
-<p data-x-en="The first section for the unit tests is the same as we’ve been seeing: one line for each unit test (one named internal that we added in Listing 11-12) and then a summary line for the unit tests.">单元测试的第一部分与我们之前看到的相同：每个单元测试一行（一个名为<code>internal</code>的测试，我们在清单11-12中添加了这个测试），然后是一行单元测试的总结。</p>
-<p data-x-en="The integration tests section starts with the line Running tests/integration_test.rs. Next, there is a line for each test function in that integration test and a summary line for the results of the integration test just before the Doc-tests adder section starts.">集成测试部分从行<code>Running tests/integration_test.rs</code>开始。接下来，每个测试函数都有一个行，
-在<code>Doc-tests adder</code>部分开始之前，还有一个总结行显示集成测试的结果。</p>
-<p data-x-en="Each integration test file has its own section, so if we add more files in the tests directory, there will be more integration test sections.">每个集成测试文件都有其自己的部分，因此如果我们添加更多文件到<em>tests</em>目录中，将会有更多的集成测试部分。</p>
-<p data-x-en="We can still run a particular integration test function by specifying the test function’s name as an argument to cargo test. To run all the tests in a particular integration test file, use the --test argument of cargo test followed by the name of the file:">我们仍然可以通过将测试函数的名称作为参数传递给<code>cargo test</code>来运行特定的集成测试函数。要运行特定集成测试文件中的所有测试，请使用<code>cargo test</code>的<code>--test</code>参数，后跟文件的名称：</p>
+<p>The three sections of output include the unit tests, the integration test, and
+the doc tests. Note that if any test in a section fails, the following sections
+will not be run. For example, if a unit test fails, there won’t be any output
+for integration and doc tests, because those tests will only be run if all unit
+tests are passing.</p>
+<p>The first section for the unit tests is the same as we’ve been seeing: one line
+for each unit test (one named <code>internal</code> that we added in Listing 11-12) and
+then a summary line for the unit tests.</p>
+<p>The integration tests section starts with the line <code>Running tests/integration_test.rs</code>. Next, there is a line for each test function in
+that integration test and a summary line for the results of the integration
+test just before the <code>Doc-tests adder</code> section starts.</p>
+<p>Each integration test file has its own section, so if we add more files in the
+<em>tests</em> directory, there will be more integration test sections.</p>
+<p>We can still run a particular integration test function by specifying the test
+function’s name as an argument to <code>cargo test</code>. To run all the tests in a
+particular integration test file, use the <code>--test</code> argument of <code>cargo test</code>
+followed by the name of the file:</p>
 <pre><code class="language-console">$ cargo test --test integration_test
    Compiling adder v0.1.0 (file:///projects/adder)
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.64s
@@ -368,15 +429,30 @@ test it_adds_two ... ok
 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
 </code></pre>
-<p data-x-en="This command runs only the tests in the tests/integration_test.rs file.">这个命令只运行 <em>tests/integration_test.rs</em> 文件中的测试。</p>
-<h4 id="submodules-in-integration-tests"><a class="header" href="#submodules-in-integration-tests">集成测试中的子模块</a></h4>
-<p data-x-en="As you add more integration tests, you might want to make more files in the tests directory to help organize them; for example, you can group the test functions by the functionality they’re testing. As mentioned earlier, each file in the tests directory is compiled as its own separate crate, which is useful for creating separate scopes to more closely imitate the way end users will be using your crate. However, this means files in the tests directory don’t share the same behavior as files in src do, as you learned in Chapter 7 regarding how to separate code into modules and files.">随着您添加更多的集成测试，您可能希望在 <em>tests</em> 目录中创建更多文件以帮助组织它们；例如，您可以按它们测试的功能将测试函数分组。如前所述，<em>tests</em> 目录中的每个文件都被编译为其自己的独立 crate，这对于创建独立的作用域以更接近地模拟最终用户使用您的 crate 的方式非常有用。然而，这意味着 <em>tests</em> 目录中的文件与 <em>src</em> 中的文件不共享相同的行为，正如您在第 7 章中学到的关于如何将代码分离到模块和文件中的内容。</p>
-<p data-x-en="The different behavior of tests directory files is most noticeable when you have a set of helper functions to use in multiple integration test files, and you try to follow the steps in the “Separating Modules into Different Files” section of Chapter 7 to extract them into a common module. For example, if we create tests/common.rs and place a function named setup in it, we can add some code to setup that we want to call from multiple test functions in multiple test files:"><em>tests</em> 目录文件的不同行为在你有一组要在多个集成测试文件中使用的辅助函数时最为明显，当你尝试遵循第 7 章的 <a href="ch07-05-separating-modules-into-different-files.html">“将模块分离到不同的文件中”</a> 部分中的步骤将它们提取到一个公共模块时。例如，如果我们创建 <em>tests/common.rs</em> 并在其中放置一个名为 <code>setup</code> 的函数，我们可以在 <code>setup</code> 中添加一些代码，这些代码我们希望从多个测试文件中的多个测试函数中调用：</p>
-<p data-x-en="Filename: tests/common.rs"><span class="filename">文件名: tests/common.rs</span></p>
+<p>This command runs only the tests in the <em>tests/integration_test.rs</em> file.</p>
+<h4 id="submodules-in-integration-tests"><a class="header" href="#submodules-in-integration-tests">Submodules in Integration Tests</a></h4>
+<p>As you add more integration tests, you might want to make more files in the
+<em>tests</em> directory to help organize them; for example, you can group the test
+functions by the functionality they’re testing. As mentioned earlier, each file
+in the <em>tests</em> directory is compiled as its own separate crate, which is useful
+for creating separate scopes to more closely imitate the way end users will be
+using your crate. However, this means files in the <em>tests</em> directory don’t
+share the same behavior as files in <em>src</em> do, as you learned in Chapter 7
+regarding how to separate code into modules and files.</p>
+<p>The different behavior of <em>tests</em> directory files is most noticeable when you
+have a set of helper functions to use in multiple integration test files, and
+you try to follow the steps in the <a href="ch07-05-separating-modules-into-different-files.html">“Separating Modules into Different
+Files”</a><!-- ignore --> section of Chapter 7 to
+extract them into a common module. For example, if we create <em>tests/common.rs</em>
+and place a function named <code>setup</code> in it, we can add some code to <code>setup</code> that
+we want to call from multiple test functions in multiple test files:</p>
+<p><span class="filename">Filename: tests/common.rs</span></p>
 <pre><code class="language-rust noplayground">pub fn setup() {
     // setup code specific to your library's tests would go here
 }</code></pre>
-<p data-x-en="When we run the tests again, we’ll see a new section in the test output for the common.rs file, even though this file doesn’t contain any test functions nor did we call the setup function from anywhere:">当我们再次运行测试时，我们会在测试输出中看到一个针对 <em>common.rs</em> 文件的新部分，即使这个文件不包含任何测试函数，也没有从任何地方调用 <code>setup</code> 函数：</p>
+<p>When we run the tests again, we’ll see a new section in the test output for the
+<em>common.rs</em> file, even though this file doesn’t contain any test functions nor
+did we call the <code>setup</code> function from anywhere:</p>
 <pre><code class="language-console">$ cargo test
    Compiling adder v0.1.0 (file:///projects/adder)
     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.89s
@@ -407,7 +483,11 @@ running 0 tests
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
 </code></pre>
-<p data-x-en="Having common appear in the test results with running 0 tests displayed for it is not what we wanted. We just wanted to share some code with the other integration test files. To avoid having common appear in the test output, instead of creating tests/common.rs, we’ll create tests/common/mod.rs. The project directory now looks like this:">在测试结果中看到 <code>common</code> 并显示 <code>running 0 tests</code> 并不是我们想要的。我们只是想与其他集成测试文件共享一些代码。为了避免 <code>common</code> 出现在测试输出中，我们将创建 <em>tests/common/mod.rs</em> 而不是 <em>tests/common.rs</em>。项目目录现在如下所示：</p>
+<p>Having <code>common</code> appear in the test results with <code>running 0 tests</code> displayed for
+it is not what we wanted. We just wanted to share some code with the other
+integration test files. To avoid having <code>common</code> appear in the test output,
+instead of creating <em>tests/common.rs</em>, we’ll create <em>tests/common/mod.rs</em>. The
+project directory now looks like this:</p>
 <pre><code class="language-text">├── Cargo.lock
 ├── Cargo.toml
 ├── src
@@ -417,9 +497,17 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; fini
     │&nbsp;&nbsp; └── mod.rs
     └── integration_test.rs
 </code></pre>
-<p data-x-en="This is the older naming convention that Rust also understands that we mentioned in “Alternate File Paths” in Chapter 7. Naming the file this way tells Rust not to treat the common module as an integration test file. When we move the setup function code into tests/common/mod.rs and delete the tests/common.rs file, the section in the test output will no longer appear. Files in subdirectories of the tests directory don’t get compiled as separate crates or have sections in the test output.">这是我们在第 7 章<a href="ch07-05-separating-modules-into-different-files.html#alternate-file-paths">“备用文件路径”</a><!-- ignore -->中提到的旧命名约定，Rust 也理解这种命名方式。这样命名文件可以告诉 Rust 不要将 <code>common</code> 模块视为集成测试文件。当我们把 <code>setup</code> 函数的代码移到 <em>tests/common/mod.rs</em> 并删除 <em>tests/common.rs</em> 文件时，测试输出中的部分将不再出现。<em>tests</em> 目录的子目录中的文件不会被编译为单独的 crate，也不会在测试输出中显示部分。</p>
-<p data-x-en="After we’ve created tests/common/mod.rs, we can use it from any of the integration test files as a module. Here’s an example of calling the setup function from the it_adds_two test in tests/integration_test.rs:">在我们创建了<em>tests/common/mod.rs</em>之后，我们可以在任何集成测试文件中将其用作模块。以下是从<em>tests/integration_test.rs</em>中的<code>it_adds_two</code>测试调用<code>setup</code>函数的示例：</p>
-<p data-x-en="Filename: tests/integration_test.rs"><span class="filename">文件名: tests/integration_test.rs</span></p>
+<p>This is the older naming convention that Rust also understands that we mentioned
+in <a href="ch07-05-separating-modules-into-different-files.html#alternate-file-paths">“Alternate File Paths”</a><!-- ignore --> in Chapter 7. Naming the
+file this way tells Rust not to treat the <code>common</code> module as an integration test
+file. When we move the <code>setup</code> function code into <em>tests/common/mod.rs</em> and
+delete the <em>tests/common.rs</em> file, the section in the test output will no longer
+appear. Files in subdirectories of the <em>tests</em> directory don’t get compiled as
+separate crates or have sections in the test output.</p>
+<p>After we’ve created <em>tests/common/mod.rs</em>, we can use it from any of the
+integration test files as a module. Here’s an example of calling the <code>setup</code>
+function from the <code>it_adds_two</code> test in <em>tests/integration_test.rs</em>:</p>
+<p><span class="filename">Filename: tests/integration_test.rs</span></p>
 <pre><code class="language-rust ignore">use adder::add_two;
 
 mod common;
@@ -431,24 +519,43 @@ fn it_adds_two() {
     let result = add_two(2);
     assert_eq!(result, 4);
 }</code></pre>
-<p data-x-en="Note that the mod common; declaration is the same as the module declaration we demonstrated in Listing 7-21. Then, in the test function, we can call the common::setup() function.">请注意，<code>mod common;</code> 声明与我们在清单 7-21 中演示的模块声明相同。然后，在测试函数中，我们可以调用 <code>common::setup()</code> 函数。</p>
-<h4 id="integration-tests-for-binary-crates"><a class="header" href="#integration-tests-for-binary-crates">二进制包的集成测试</a></h4>
-<p data-x-en="If our project is a binary crate that only contains a src/main.rs file and doesn’t have a src/lib.rs file, we can’t create integration tests in the tests directory and bring functions defined in the src/main.rs file into scope with a use statement. Only library crates expose functions that other crates can use; binary crates are meant to be run on their own.">如果我们的项目是一个只包含 <em>src/main.rs</em> 文件的二进制 crate，并且没有 <em>src/lib.rs</em> 文件，我们无法在 <em>tests</em> 目录中创建集成测试，并将 <em>src/main.rs</em> 文件中定义的函数通过 <code>use</code> 语句引入作用域。只有库 crate 才能暴露其他 crate 可以使用的函数；二进制 crate 是为了独立运行而设计的。</p>
-<p data-x-en="This is one of the reasons Rust projects that provide a binary have a straightforward src/main.rs file that calls logic that lives in the src/lib.rs file. Using that structure, integration tests can test the library crate with use to make the important functionality available. If the important functionality works, the small amount of code in the src/main.rs file will work as well, and that small amount of code doesn’t need to be tested.">这是提供二进制文件的 Rust 项目有一个直接的 <em>src/main.rs</em> 文件调用位于 <em>src/lib.rs</em> 文件中的逻辑的原因之一。使用这种结构，集成测试 <em>可以</em> 通过 <code>use</code> 使重要的功能可用，从而测试库 crate。如果重要的功能可以工作，<em>src/main.rs</em> 文件中的少量代码也会正常工作，这部分少量的代码不需要被测试。</p>
-<h2 id="summary"><a class="header" href="#summary">摘要</a></h2>
-<p data-x-en="Rust’s testing features provide a way to specify how code should function to ensure that it continues to work as you expect, even as you make changes. Unit tests exercise different parts of a library separately and can test private implementation details. Integration tests check that many parts of the library work together correctly, and they use the library’s public API to test the code in the same way external code will use it. Even though Rust’s type system and ownership rules help prevent some kinds of bugs, tests are still important to reduce logic bugs having to do with how your code is expected to behave.">Rust 的测试功能提供了一种指定代码应如何工作的方法，以确保即使在您进行更改时，代码仍能按预期工作。单元测试分别测试库的不同部分，并可以测试私有实现细节。集成测试检查库的许多部分是否能正确协同工作，并使用库的公共 API 以与外部代码使用相同的方式测试代码。尽管 Rust 的类型系统和所有权规则有助于防止某些类型的错误，但测试对于减少与代码预期行为相关的逻辑错误仍然很重要。</p>
-<p data-x-en="Let’s combine the knowledge you learned in this chapter and in previous chapters to work on a project!">让我们结合你在本章和前几章中学到的知识来做一个项目！</p>
+<p>Note that the <code>mod common;</code> declaration is the same as the module declaration
+we demonstrated in Listing 7-21. Then, in the test function, we can call the
+<code>common::setup()</code> function.</p>
+<h4 id="integration-tests-for-binary-crates"><a class="header" href="#integration-tests-for-binary-crates">Integration Tests for Binary Crates</a></h4>
+<p>If our project is a binary crate that only contains a <em>src/main.rs</em> file and
+doesn’t have a <em>src/lib.rs</em> file, we can’t create integration tests in the
+<em>tests</em> directory and bring functions defined in the <em>src/main.rs</em> file into
+scope with a <code>use</code> statement. Only library crates expose functions that other
+crates can use; binary crates are meant to be run on their own.</p>
+<p>This is one of the reasons Rust projects that provide a binary have a
+straightforward <em>src/main.rs</em> file that calls logic that lives in the
+<em>src/lib.rs</em> file. Using that structure, integration tests <em>can</em> test the
+library crate with <code>use</code> to make the important functionality available. If the
+important functionality works, the small amount of code in the <em>src/main.rs</em>
+file will work as well, and that small amount of code doesn’t need to be tested.</p>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<p>Rust’s testing features provide a way to specify how code should function to
+ensure that it continues to work as you expect, even as you make changes. Unit
+tests exercise different parts of a library separately and can test private
+implementation details. Integration tests check that many parts of the library
+work together correctly, and they use the library’s public API to test the code
+in the same way external code will use it. Even though Rust’s type system and
+ownership rules help prevent some kinds of bugs, tests are still important to
+reduce logic bugs having to do with how your code is expected to behave.</p>
+<p>Let’s combine the knowledge you learned in this chapter and in previous
+chapters to work on a project!</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch11-02-running-tests.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch12-00-an-io-project.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -458,16 +565,21 @@ fn it_adds_two() {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch11-02-running-tests.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch12-00-an-io-project.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -476,16 +588,16 @@ fn it_adds_two() {
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

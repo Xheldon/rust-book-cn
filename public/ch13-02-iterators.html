@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch13-02-iterators.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,59 +212,73 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
-                        <h2 id="processing-a-series-of-items-with-iterators"><a class="header" href="#processing-a-series-of-items-with-iterators">使用迭代器处理一系列项目</a></h2>
-<p data-x-en="The iterator pattern allows you to perform some task on a sequence of items in turn. An iterator is responsible for the logic of iterating over each item and determining when the sequence has finished. When you use iterators, you don’t have to reimplement that logic yourself.">迭代器模式允许你依次对一系列项目执行某些任务。迭代器负责遍历每个项目的逻辑以及确定序列何时结束。当你使用迭代器时，你不必自己重新实现该逻辑。</p>
-<p data-x-en="In Rust, iterators are lazy, meaning they have no effect until you call methods that consume the iterator to use it up. For example, the code in Listing 13-10 creates an iterator over the items in the vector v1 by calling the iter method defined on Vec<T>. This code by itself doesn’t do anything useful.">在 Rust 中，迭代器是<em>惰性</em>的，这意味着直到你调用消耗迭代器的方法来使用它之前，它们没有任何效果。例如，清单 13-10 中的代码通过调用定义在 <code>Vec&lt;T&gt;</code> 上的 <code>iter</code> 方法创建了一个遍历向量 <code>v1</code> 中项的迭代器。这段代码本身并没有什么实际用途。</p>
+                        <h2 id="processing-a-series-of-items-with-iterators"><a class="header" href="#processing-a-series-of-items-with-iterators">Processing a Series of Items with Iterators</a></h2>
+<p>The iterator pattern allows you to perform some task on a sequence of items in
+turn. An iterator is responsible for the logic of iterating over each item and
+determining when the sequence has finished. When you use iterators, you don’t
+have to reimplement that logic yourself.</p>
+<p>In Rust, iterators are <em>lazy</em>, meaning they have no effect until you call
+methods that consume the iterator to use it up. For example, the code in
+Listing 13-10 creates an iterator over the items in the vector <code>v1</code> by calling
+the <code>iter</code> method defined on <code>Vec&lt;T&gt;</code>. This code by itself doesn’t do anything
+useful.</p>
 <figure class="listing" id="listing-13-10">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let v1 = vec![1, 2, 3];
 
     let v1_iter = v1.iter();
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-13-10">Listing 13-10</a>: Creating an iterator</figcaption>
 </figure>
-<p data-x-en="The iterator is stored in the v1_iter variable. Once we’ve created an iterator, we can use it in a variety of ways. In Listing 3-5, we iterated over an array using a for loop to execute some code on each of its items. Under the hood, this implicitly created and then consumed an iterator, but we glossed over how exactly that works until now.">迭代器存储在 <code>v1_iter</code> 变量中。一旦我们创建了一个迭代器，我们就可以以多种方式使用它。在清单 3-5 中，我们使用 <code>for</code> 循环遍历了一个数组，以对每个元素执行一些代码。在幕后，这隐式地创建并消耗了一个迭代器，但直到现在我们才详细说明这到底是如何工作的。</p>
-<p data-x-en="In the example in Listing 13-11, we separate the creation of the iterator from the use of the iterator in the for loop. When the for loop is called using the iterator in v1_iter, each element in the iterator is used in one iteration of the loop, which prints out each value.">在示例 13-11 中，我们将迭代器的创建与在 <code>for</code> 循环中使用迭代器分离开来。当使用 <code>v1_iter</code> 中的迭代器调用 <code>for</code> 循环时，迭代器中的每个元素都会在循环的一次迭代中被使用，从而打印出每个值。</p>
+<p>The iterator is stored in the <code>v1_iter</code> variable. Once we’ve created an
+iterator, we can use it in a variety of ways. In Listing 3-5, we iterated over
+an array using a <code>for</code> loop to execute some code on each of its items. Under
+the hood, this implicitly created and then consumed an iterator, but we glossed
+over how exactly that works until now.</p>
+<p>In the example in Listing 13-11, we separate the creation of the iterator from
+the use of the iterator in the <code>for</code> loop. When the <code>for</code> loop is called using
+the iterator in <code>v1_iter</code>, each element in the iterator is used in one
+iteration of the loop, which prints out each value.</p>
 <figure class="listing" id="listing-13-11">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let v1 = vec![1, 2, 3];
 
     let v1_iter = v1.iter();
@@ -273,14 +286,22 @@ blockquote {
     for val in v1_iter {
         println!("Got: {val}");
     }
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-13-11">Listing 13-11</a>: Using an iterator in a <code>for</code> loop</figcaption>
 </figure>
-<p data-x-en="In languages that don’t have iterators provided by their standard libraries, you would likely write this same functionality by starting a variable at index 0, using that variable to index into the vector to get a value, and incrementing the variable value in a loop until it reached the total number of items in the vector.">在没有迭代器的标准库提供的语言中，你可能会通过从索引 0 开始一个变量，使用该变量来索引向量以获取值，并在循环中递增变量值直到达到向量中的总项目数来编写相同的功能。</p>
-<p data-x-en="Iterators handle all of that logic for you, cutting down on repetitive code you could potentially mess up. Iterators give you more flexibility to use the same logic with many different kinds of sequences, not just data structures you can index into, like vectors. Let’s examine how iterators do that.">迭代器为您处理所有这些逻辑，减少了可能会出错的重复代码。迭代器为您提供更多的灵活性，使您能够使用相同的逻辑处理许多不同类型的序列，而不仅仅是您可以索引的数据结构，如向量。让我们看看迭代器是如何做到这一点的。</p>
-<h3 id="the-iterator-trait-and-the-next-method"><a class="header" href="#the-iterator-trait-and-the-next-method">《<code>Iterator</code> 特性与 <code>next</code> 方法》</a></h3>
-<p data-x-en="All iterators implement a trait named Iterator that is defined in the standard library. The definition of the trait looks like this:">所有迭代器都实现了标准库中定义的一个名为 <code>Iterator</code> 的特征。该特征的定义如下：</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+<p>In languages that don’t have iterators provided by their standard libraries,
+you would likely write this same functionality by starting a variable at index
+0, using that variable to index into the vector to get a value, and
+incrementing the variable value in a loop until it reached the total number of
+items in the vector.</p>
+<p>Iterators handle all of that logic for you, cutting down on repetitive code you
+could potentially mess up. Iterators give you more flexibility to use the same
+logic with many different kinds of sequences, not just data structures you can
+index into, like vectors. Let’s examine how iterators do that.</p>
+<h3 id="the-iterator-trait-and-the-next-method"><a class="header" href="#the-iterator-trait-and-the-next-method">The <code>Iterator</code> Trait and the <code>next</code> Method</a></h3>
+<p>All iterators implement a trait named <code>Iterator</code> that is defined in the
+standard library. The definition of the trait looks like this:</p>
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>pub trait Iterator {
     type Item;
@@ -289,10 +310,20 @@ blockquote {
 
     // methods with default implementations elided
 }
-<span class="boring">}</span></code></pre></pre>
-<p data-x-en="Notice that this definition uses some new syntax: type Item and Self::Item, which are defining an associated type with this trait. We’ll talk about associated types in depth in Chapter 20. For now, all you need to know is that this code says implementing the Iterator trait requires that you also define an Item type, and this Item type is used in the return type of the next method. In other words, the Item type will be the type returned from the iterator.">请注意，此定义使用了一些新语法：<code>type Item</code> 和 <code>Self::Item</code>，它们是在此特质中定义一个 <em>关联类型</em>。我们将在第 20 章详细讨论关联类型。现在，你只需要知道这段代码表示实现 <code>Iterator</code> 特质需要同时定义一个 <code>Item</code> 类型，而这个 <code>Item</code> 类型用于 <code>next</code> 方法的返回类型。换句话说，<code>Item</code> 类型将是迭代器返回的类型。</p>
-<p data-x-en="The Iterator trait only requires implementors to define one method: the next method, which returns one item of the iterator at a time, wrapped in Some, and, when iteration is over, returns None."><code>Iterator</code> 特性只需要实现者定义一个方法：即 <code>next</code> 方法，该方法每次返回迭代器的一个项，包装在 <code>Some</code> 中，当迭代结束时，返回 <code>None</code>。</p>
-<p data-x-en="We can call the next method on iterators directly; Listing 13-12 demonstrates what values are returned from repeated calls to next on the iterator created from the vector.">我们可以直接在迭代器上调用 <code>next</code> 方法；列表 13-12 展示了从向量创建的迭代器中重复调用 <code>next</code> 返回的值。</p>
+<span class="boring">}</span></code></pre>
+<p>Notice that this definition uses some new syntax: <code>type Item</code> and <code>Self::Item</code>,
+which are defining an associated type with this trait. We’ll talk about
+associated types in depth in Chapter 20. For now, all you need to know is that
+this code says implementing the <code>Iterator</code> trait requires that you also define
+an <code>Item</code> type, and this <code>Item</code> type is used in the return type of the <code>next</code>
+method. In other words, the <code>Item</code> type will be the type returned from the
+iterator.</p>
+<p>The <code>Iterator</code> trait only requires implementors to define one method: the
+<code>next</code> method, which returns one item of the iterator at a time, wrapped in
+<code>Some</code>, and, when iteration is over, returns <code>None</code>.</p>
+<p>We can call the <code>next</code> method on iterators directly; Listing 13-12 demonstrates
+what values are returned from repeated calls to <code>next</code> on the iterator created
+from the vector.</p>
 <figure class="listing" id="listing-13-12">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">#[cfg(test)]
@@ -311,11 +342,31 @@ blockquote {
 <span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-13-12">Listing 13-12</a>: Calling the <code>next</code> method on an iterator</figcaption>
 </figure>
-<p data-x-en="Note that we needed to make v1_iter mutable: Calling the next method on an iterator changes internal state that the iterator uses to keep track of where it is in the sequence. In other words, this code consumes, or uses up, the iterator. Each call to next eats up an item from the iterator. We didn’t need to make v1_iter mutable when we used a for loop, because the loop took ownership of v1_iter and made it mutable behind the scenes.">请注意，我们需要将 <code>v1_iter</code> 设为可变的：在迭代器上调用 <code>next</code> 方法会改变迭代器用于跟踪其在序列中位置的内部状态。换句话说，这段代码 <em>消耗</em> 或使用了迭代器。每次调用 <code>next</code> 都会从迭代器中消耗一个项目。当我们使用 <code>for</code> 循环时，不需要将 <code>v1_iter</code> 设为可变的，因为循环会获取 <code>v1_iter</code> 的所有权，并在幕后将其设为可变的。</p>
-<p data-x-en="Also note that the values we get from the calls to next are immutable references to the values in the vector. The iter method produces an iterator over immutable references. If we want to create an iterator that takes ownership of v1 and returns owned values, we can call into_iter instead of iter. Similarly, if we want to iterate over mutable references, we can call iter_mut instead of iter.">还请注意，从 <code>next</code> 调用中获得的值是对向量中值的不可变引用。 <code>iter</code> 方法生成一个遍历不可变引用的迭代器。如果我们想创建一个获取 <code>v1</code> 所有权并返回拥有值的迭代器，我们可以调用 <code>into_iter</code> 而不是 <code>iter</code>。同样，如果我们想遍历可变引用，我们可以调用 <code>iter_mut</code> 而不是 <code>iter</code>。</p>
-<h3 id="methods-that-consume-the-iterator"><a class="header" href="#methods-that-consume-the-iterator">消耗迭代器的方法</a></h3>
-<p data-x-en="The Iterator trait has a number of different methods with default implementations provided by the standard library; you can find out about these methods by looking in the standard library API documentation for the Iterator trait. Some of these methods call the next method in their definition, which is why you’re required to implement the next method when implementing the Iterator trait."><code>Iterator</code> 特性有许多由标准库提供的默认实现的方法；你可以通过查看标准库 API 文档中的 <code>Iterator</code> 特性来了解这些方法。其中一些方法在其定义中调用了 <code>next</code> 方法，这就是为什么在实现 <code>Iterator</code> 特性时需要实现 <code>next</code> 方法的原因。</p>
-<p data-x-en="Methods that call next are called consuming adapters because calling them uses up the iterator. One example is the sum method, which takes ownership of the iterator and iterates through the items by repeatedly calling next, thus consuming the iterator. As it iterates through, it adds each item to a running total and returns the total when iteration is complete. Listing 13-13 has a test illustrating a use of the sum method.">调用 <code>next</code> 的方法被称为 <em>消耗适配器</em>，因为调用它们会用尽迭代器。一个例子是 <code>sum</code> 方法，它获取迭代器的所有权，并通过反复调用 <code>next</code> 遍历项目，从而消耗迭代器。在遍历过程中，它将每个项目添加到累计总数中，并在遍历完成后返回总数。列表 13-13 有一个测试说明了 <code>sum</code> 方法的使用。</p>
+<p>Note that we needed to make <code>v1_iter</code> mutable: Calling the <code>next</code> method on an
+iterator changes internal state that the iterator uses to keep track of where
+it is in the sequence. In other words, this code <em>consumes</em>, or uses up, the
+iterator. Each call to <code>next</code> eats up an item from the iterator. We didn’t need
+to make <code>v1_iter</code> mutable when we used a <code>for</code> loop, because the loop took
+ownership of <code>v1_iter</code> and made it mutable behind the scenes.</p>
+<p>Also note that the values we get from the calls to <code>next</code> are immutable
+references to the values in the vector. The <code>iter</code> method produces an iterator
+over immutable references. If we want to create an iterator that takes
+ownership of <code>v1</code> and returns owned values, we can call <code>into_iter</code> instead of
+<code>iter</code>. Similarly, if we want to iterate over mutable references, we can call
+<code>iter_mut</code> instead of <code>iter</code>.</p>
+<h3 id="methods-that-consume-the-iterator"><a class="header" href="#methods-that-consume-the-iterator">Methods That Consume the Iterator</a></h3>
+<p>The <code>Iterator</code> trait has a number of different methods with default
+implementations provided by the standard library; you can find out about these
+methods by looking in the standard library API documentation for the <code>Iterator</code>
+trait. Some of these methods call the <code>next</code> method in their definition, which
+is why you’re required to implement the <code>next</code> method when implementing the
+<code>Iterator</code> trait.</p>
+<p>Methods that call <code>next</code> are called <em>consuming adapters</em> because calling them
+uses up the iterator. One example is the <code>sum</code> method, which takes ownership of
+the iterator and iterates through the items by repeatedly calling <code>next</code>, thus
+consuming the iterator. As it iterates through, it adds each item to a running
+total and returns the total when iteration is complete. Listing 13-13 has a
+test illustrating a use of the <code>sum</code> method.</p>
 <figure class="listing" id="listing-13-13">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">#[cfg(test)]
@@ -333,22 +384,27 @@ blockquote {
 <span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-13-13">Listing 13-13</a>: Calling the <code>sum</code> method to get the total of all items in the iterator</figcaption>
 </figure>
-<p data-x-en="We aren’t allowed to use v1_iter after the call to sum, because sum takes ownership of the iterator we call it on.">我们不能在调用 <code>sum</code> 之后再使用 <code>v1_iter</code>，因为 <code>sum</code> 会获取我们调用它的迭代器的所有权。</p>
-<h3 id="methods-that-produce-other-iterators"><a class="header" href="#methods-that-produce-other-iterators">生成其他迭代器的方法</a></h3>
-<p data-x-en="Iterator adapters are methods defined on the Iterator trait that don’t consume the iterator. Instead, they produce different iterators by changing some aspect of the original iterator."><em>迭代器适配器</em> 是定义在 <code>Iterator</code> 特性上的方法，它们不会消耗迭代器。相反，它们通过改变原始迭代器的某些方面来生成不同的迭代器。</p>
-<p data-x-en="Listing 13-14 shows an example of calling the iterator adapter method map, which takes a closure to call on each item as the items are iterated through. The map method returns a new iterator that produces the modified items. The closure here creates a new iterator in which each item from the vector will be incremented by 1.">列表 13-14 显示了调用迭代器适配器方法 <code>map</code> 的示例，
-该方法接受一个闭包，该闭包将在迭代过程中对每个项目进行调用。
-<code>map</code> 方法返回一个新的迭代器，该迭代器生成修改后的项目。这里的闭包创建了一个新的迭代器，其中向量中的每个项目都将增加 1。</p>
+<p>We aren’t allowed to use <code>v1_iter</code> after the call to <code>sum</code>, because <code>sum</code> takes
+ownership of the iterator we call it on.</p>
+<h3 id="methods-that-produce-other-iterators"><a class="header" href="#methods-that-produce-other-iterators">Methods That Produce Other Iterators</a></h3>
+<p><em>Iterator adapters</em> are methods defined on the <code>Iterator</code> trait that don’t
+consume the iterator. Instead, they produce different iterators by changing
+some aspect of the original iterator.</p>
+<p>Listing 13-14 shows an example of calling the iterator adapter method <code>map</code>,
+which takes a closure to call on each item as the items are iterated through.
+The <code>map</code> method returns a new iterator that produces the modified items. The
+closure here creates a new iterator in which each item from the vector will be
+incremented by 1.</p>
 <figure class="listing" id="listing-13-14">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust not_desired_behavior edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust not_desired_behavior edition2024"><span class="boring">fn main() {
 </span>    let v1: Vec&lt;i32&gt; = vec![1, 2, 3];
 
     v1.iter().map(|x| x + 1);
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-13-14">Listing 13-14</a>: Calling the iterator adapter <code>map</code> to create a new iterator</figcaption>
 </figure>
-<p data-x-en="However, this code produces a warning:">然而，这段代码会产生一个警告：</p>
+<p>However, this code produces a warning:</p>
 <pre><code class="language-console">$ cargo run
    Compiling iterators v0.1.0 (file:///projects/iterators)
 warning: unused `Map` that must be used
@@ -368,28 +424,46 @@ warning: `iterators` (bin "iterators") generated 1 warning
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.47s
      Running `target/debug/iterators`
 </code></pre>
-<p data-x-en="The code in Listing 13-14 doesn’t do anything; the closure we’ve specified never gets called. The warning reminds us why: Iterator adapters are lazy, and we need to consume the iterator here.">列表 13-14 中的代码什么也没做；我们指定的闭包从未被调用。警告提醒我们原因：迭代器适配器是惰性的，我们需要在这里消耗迭代器。</p>
-<p data-x-en="To fix this warning and consume the iterator, we’ll use the collect method, which we used with env::args in Listing 12-1. This method consumes the iterator and collects the resultant values into a collection data type.">要修复此警告并使用迭代器，我们将使用 <code>collect</code> 方法，我们在清单 12-1 中使用 <code>env::args</code> 时用过此方法。此方法会消耗迭代器并将结果值收集到集合数据类型中。</p>
-<p data-x-en="In Listing 13-15, we collect the results of iterating over the iterator that’s returned from the call to map into a vector. This vector will end up containing each item from the original vector, incremented by 1.">在清单 13-15 中，我们将调用 <code>map</code> 返回的迭代器进行迭代的结果收集到一个向量中。这个向量最终将包含原始向量中的每个元素，每个元素加 1。</p>
+<p>The code in Listing 13-14 doesn’t do anything; the closure we’ve specified
+never gets called. The warning reminds us why: Iterator adapters are lazy, and
+we need to consume the iterator here.</p>
+<p>To fix this warning and consume the iterator, we’ll use the <code>collect</code> method,
+which we used with <code>env::args</code> in Listing 12-1. This method consumes the
+iterator and collects the resultant values into a collection data type.</p>
+<p>In Listing 13-15, we collect the results of iterating over the iterator that’s
+returned from the call to <code>map</code> into a vector. This vector will end up
+containing each item from the original vector, incremented by 1.</p>
 <figure class="listing" id="listing-13-15">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let v1: Vec&lt;i32&gt; = vec![1, 2, 3];
 
     let v2: Vec&lt;_&gt; = v1.iter().map(|x| x + 1).collect();
 
     assert_eq!(v2, vec![2, 3, 4]);
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-13-15">Listing 13-15</a>: Calling the <code>map</code> method to create a new iterator, and then calling the <code>collect</code> method to consume the new iterator and create a vector</figcaption>
 </figure>
-<p data-x-en="Because map takes a closure, we can specify any operation we want to perform on each item. This is a great example of how closures let you customize some behavior while reusing the iteration behavior that the Iterator trait provides.">因为 <code>map</code> 接受一个闭包，我们可以指定要对每个项目执行的任何操作。这是闭包如何让你在重用 <code>Iterator</code> 特性提供的迭代行为的同时，自定义某些行为的一个很好的例子。</p>
-<p data-x-en="You can chain multiple calls to iterator adapters to perform complex actions in a readable way. But because all iterators are lazy, you have to call one of the consuming adapter methods to get results from calls to iterator adapters.">您可以将多个迭代器适配器的调用链在一起，以可读的方式执行复杂的操作。但由于所有迭代器都是惰性的，您必须调用其中一个消耗适配器方法才能从迭代器适配器的调用中获取结果。</p>
+<p>Because <code>map</code> takes a closure, we can specify any operation we want to perform
+on each item. This is a great example of how closures let you customize some
+behavior while reusing the iteration behavior that the <code>Iterator</code> trait
+provides.</p>
+<p>You can chain multiple calls to iterator adapters to perform complex actions in
+a readable way. But because all iterators are lazy, you have to call one of the
+consuming adapter methods to get results from calls to iterator adapters.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="using-closures-that-capture-their-environment"></a></p>
-<h3 id="closures-that-capture-their-environment"><a class="header" href="#closures-that-capture-their-environment">捕获其环境的闭包</a></h3>
-<p data-x-en="Many iterator adapters take closures as arguments, and commonly the closures we’ll specify as arguments to iterator adapters will be closures that capture their environment.">许多迭代器适配器接受闭包作为参数，通常我们指定为迭代器适配器的参数的闭包将是捕获其环境的闭包。</p>
-<p data-x-en="For this example, we’ll use the filter method that takes a closure. The closure gets an item from the iterator and returns a bool. If the closure returns true, the value will be included in the iteration produced by filter. If the closure returns false, the value won’t be included.">对于这个例子，我们将使用 <code>filter</code> 方法，该方法接受一个闭包。闭包从迭代器中获取一个项并返回一个 <code>bool</code>。如果闭包返回 <code>true</code>，该值将被包含在 <code>filter</code> 生成的迭代中。如果闭包返回 <code>false</code>，该值将不会被包含。</p>
-<p data-x-en="In Listing 13-16, we use filter with a closure that captures the shoe_size variable from its environment to iterate over a collection of Shoe struct instances. It will return only shoes that are the specified size.">在清单 13-16 中，我们使用 <code>filter</code> 与一个捕获其环境中的 <code>shoe_size</code> 变量的闭包来遍历 <code>Shoe</code> 结构体实例的集合。它将仅返回指定尺寸的鞋子。</p>
+<h3 id="closures-that-capture-their-environment"><a class="header" href="#closures-that-capture-their-environment">Closures That Capture Their Environment</a></h3>
+<p>Many iterator adapters take closures as arguments, and commonly the closures
+we’ll specify as arguments to iterator adapters will be closures that capture
+their environment.</p>
+<p>For this example, we’ll use the <code>filter</code> method that takes a closure. The
+closure gets an item from the iterator and returns a <code>bool</code>. If the closure
+returns <code>true</code>, the value will be included in the iteration produced by
+<code>filter</code>. If the closure returns <code>false</code>, the value won’t be included.</p>
+<p>In Listing 13-16, we use <code>filter</code> with a closure that captures the <code>shoe_size</code>
+variable from its environment to iterate over a collection of <code>Shoe</code> struct
+instances. It will return only shoes that are the specified size.</p>
 <figure class="listing" id="listing-13-16">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">#[derive(PartialEq, Debug)]
@@ -442,21 +516,30 @@ mod tests {
 }</code></pre>
 <figcaption><a href="#listing-13-16">Listing 13-16</a>: Using the <code>filter</code> method with a closure that captures <code>shoe_size</code></figcaption>
 </figure>
-<p data-x-en="The shoes_in_size function takes ownership of a vector of shoes and a shoe size as parameters. It returns a vector containing only shoes of the specified size."><code>shoes_in_size</code> 函数接受一个鞋子向量和一个鞋子尺寸作为参数。它返回一个仅包含指定尺寸鞋子的向量。</p>
-<p data-x-en="In the body of shoes_in_size, we call into_iter to create an iterator that takes ownership of the vector. Then, we call filter to adapt that iterator into a new iterator that only contains elements for which the closure returns true.">在 <code>shoes_in_size</code> 的函数体中，我们调用 <code>into_iter</code> 来创建一个获取 vector 所有权的迭代器。然后，我们调用 <code>filter</code> 来将该迭代器转换为一个新的迭代器，该迭代器只包含闭包返回 <code>true</code> 的元素。</p>
-<p data-x-en="The closure captures the shoe_size parameter from the environment and compares the value with each shoe’s size, keeping only shoes of the size specified. Finally, calling collect gathers the values returned by the adapted iterator into a vector that’s returned by the function.">闭包从环境中捕获 <code>shoe_size</code> 参数，并将该值与每双鞋的尺寸进行比较，只保留指定尺寸的鞋。最后，调用 <code>collect</code> 将适配器迭代器返回的值收集到一个向量中，该向量由函数返回。</p>
-<p data-x-en="The test shows that when we call shoes_in_size, we get back only shoes that have the same size as the value we specified.">测试显示，当我们调用<code>shoes_in_size</code>时，我们只会得到与我们指定的值大小相同的鞋子。</p>
+<p>The <code>shoes_in_size</code> function takes ownership of a vector of shoes and a shoe
+size as parameters. It returns a vector containing only shoes of the specified
+size.</p>
+<p>In the body of <code>shoes_in_size</code>, we call <code>into_iter</code> to create an iterator that
+takes ownership of the vector. Then, we call <code>filter</code> to adapt that iterator
+into a new iterator that only contains elements for which the closure returns
+<code>true</code>.</p>
+<p>The closure captures the <code>shoe_size</code> parameter from the environment and
+compares the value with each shoe’s size, keeping only shoes of the size
+specified. Finally, calling <code>collect</code> gathers the values returned by the
+adapted iterator into a vector that’s returned by the function.</p>
+<p>The test shows that when we call <code>shoes_in_size</code>, we get back only shoes that
+have the same size as the value we specified.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch13-01-closures.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch13-03-improving-our-io-project.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -466,16 +549,21 @@ mod tests {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch13-01-closures.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch13-03-improving-our-io-project.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -484,16 +572,16 @@ mod tests {
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

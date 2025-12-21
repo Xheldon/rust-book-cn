@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch08-03-hash-maps.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,71 +212,87 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
-                        <h2 id="storing-keys-with-associated-values-in-hash-maps"><a class="header" href="#storing-keys-with-associated-values-in-hash-maps">在哈希映射中存储带有相关值的键</a></h2>
-<p data-x-en="The last of our common collections is the hash map. The type HashMap<K, V> stores a mapping of keys of type K to values of type V using a hashing function, which determines how it places these keys and values into memory. Many programming languages support this kind of data structure, but they often use a different name, such as hash, map, object, hash table, dictionary, or associative array, just to name a few.">我们最后一种常见的集合是<em>哈希映射</em>。类型<code>HashMap&lt;K, V&gt;</code>
-存储了从类型为<code>K</code>的键到类型为<code>V</code>的值的映射，使用一个<em>哈希函数</em>，该函数决定了这些键和值如何被放置到内存中。
-许多编程语言支持这种数据结构，但它们通常使用不同的名称，例如<em>哈希</em>、<em>映射</em>、<em>对象</em>、<em>哈希表</em>、
-<em>字典</em>或<em>关联数组</em>，仅举几例。</p>
-<p data-x-en="Hash maps are useful when you want to look up data not by using an index, as you can with vectors, but by using a key that can be of any type. For example, in a game, you could keep track of each team’s score in a hash map in which each key is a team’s name and the values are each team’s score. Given a team name, you can retrieve its score.">哈希映射在你想要通过键而不是像使用向量那样通过索引来查找数据时非常有用，键可以是任何类型。例如，在游戏中，你可以使用哈希映射来跟踪每个团队的得分，其中每个键是团队的名称，值是每个团队的得分。给定一个团队名称，你可以检索其得分。</p>
-<p data-x-en="We’ll go over the basic API of hash maps in this section, but many more goodies are hiding in the functions defined on HashMap<K, V> by the standard library. As always, check the standard library documentation for more information.">我们将在这部分介绍哈希映射的基本 API，但标准库中定义的 <code>HashMap&lt;K, V&gt;</code> 还隐藏着许多其他功能。如往常一样，更多详细信息请查阅标准库文档。</p>
-<h3 id="creating-a-new-hash-map"><a class="header" href="#creating-a-new-hash-map">创建新的哈希映射</a></h3>
-<p data-x-en="One way to create an empty hash map is to use new and to add elements with insert. In Listing 8-20, we’re keeping track of the scores of two teams whose names are Blue and Yellow. The Blue team starts with 10 points, and the Yellow team starts with 50.">创建一个空的哈希映射的一种方法是使用<code>new</code>并使用<code>insert</code>添加元素。在清单8-20中，我们正在跟踪两个团队的得分，这两个团队的名字分别是<em>蓝色</em>和<em>黄色</em>。蓝色团队从10分开始，黄色团队从50分开始。</p>
+                        <h2 id="storing-keys-with-associated-values-in-hash-maps"><a class="header" href="#storing-keys-with-associated-values-in-hash-maps">Storing Keys with Associated Values in Hash Maps</a></h2>
+<p>The last of our common collections is the hash map. The type <code>HashMap&lt;K, V&gt;</code>
+stores a mapping of keys of type <code>K</code> to values of type <code>V</code> using a <em>hashing
+function</em>, which determines how it places these keys and values into memory.
+Many programming languages support this kind of data structure, but they often
+use a different name, such as <em>hash</em>, <em>map</em>, <em>object</em>, <em>hash table</em>,
+<em>dictionary</em>, or <em>associative array</em>, just to name a few.</p>
+<p>Hash maps are useful when you want to look up data not by using an index, as
+you can with vectors, but by using a key that can be of any type. For example,
+in a game, you could keep track of each team’s score in a hash map in which
+each key is a team’s name and the values are each team’s score. Given a team
+name, you can retrieve its score.</p>
+<p>We’ll go over the basic API of hash maps in this section, but many more goodies
+are hiding in the functions defined on <code>HashMap&lt;K, V&gt;</code> by the standard library.
+As always, check the standard library documentation for more information.</p>
+<h3 id="creating-a-new-hash-map"><a class="header" href="#creating-a-new-hash-map">Creating a New Hash Map</a></h3>
+<p>One way to create an empty hash map is to use <code>new</code> and to add elements with
+<code>insert</code>. In Listing 8-20, we’re keeping track of the scores of two teams whose
+names are <em>Blue</em> and <em>Yellow</em>. The Blue team starts with 10 points, and the
+Yellow team starts with 50.</p>
 <figure class="listing" id="listing-8-20">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    use std::collections::HashMap;
 
     let mut scores = HashMap::new();
 
     scores.insert(String::from("Blue"), 10);
     scores.insert(String::from("Yellow"), 50);
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-8-20">Listing 8-20</a>: Creating a new hash map and inserting some keys and values</figcaption>
 </figure>
-<p data-x-en="Note that we need to first use the HashMap from the collections portion of the standard library. Of our three common collections, this one is the least often used, so it’s not included in the features brought into scope automatically in the prelude. Hash maps also have less support from the standard library; there’s no built-in macro to construct them, for example.">请注意，我们需要首先 <code>use</code> 来自标准库集合部分的 <code>HashMap</code>。在我们常用的三种集合中，这个集合使用频率最低，因此没有包含在预定义模块中自动引入的功能范围内。哈希映射在标准库中的支持也较少；例如，没有内置的宏来构造它们。</p>
-<p data-x-en="Just like vectors, hash maps store their data on the heap. This HashMap has keys of type String and values of type i32. Like vectors, hash maps are homogeneous: All of the keys must have the same type, and all of the values must have the same type.">就像向量一样，哈希映射将其数据存储在堆上。这个 <code>HashMap</code> 有
-键类型为 <code>String</code> 和值类型为 <code>i32</code>。像向量一样，哈希映射是
-同质的：所有键必须具有相同的类型，所有值
-必须具有相同的类型。</p>
-<h3 id="accessing-values-in-a-hash-map"><a class="header" href="#accessing-values-in-a-hash-map">访问哈希映射中的值</a></h3>
-<p data-x-en="We can get a value out of the hash map by providing its key to the get method, as shown in Listing 8-21.">我们可以通过向 <code>get</code> 方法提供其键来从哈希映射中获取值，如清单 8-21 所示。</p>
+<p>Note that we need to first <code>use</code> the <code>HashMap</code> from the collections portion of
+the standard library. Of our three common collections, this one is the least
+often used, so it’s not included in the features brought into scope
+automatically in the prelude. Hash maps also have less support from the
+standard library; there’s no built-in macro to construct them, for example.</p>
+<p>Just like vectors, hash maps store their data on the heap. This <code>HashMap</code> has
+keys of type <code>String</code> and values of type <code>i32</code>. Like vectors, hash maps are
+homogeneous: All of the keys must have the same type, and all of the values
+must have the same type.</p>
+<h3 id="accessing-values-in-a-hash-map"><a class="header" href="#accessing-values-in-a-hash-map">Accessing Values in a Hash Map</a></h3>
+<p>We can get a value out of the hash map by providing its key to the <code>get</code>
+method, as shown in Listing 8-21.</p>
 <figure class="listing" id="listing-8-21">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    use std::collections::HashMap;
 
     let mut scores = HashMap::new();
@@ -287,12 +302,18 @@ blockquote {
 
     let team_name = String::from("Blue");
     let score = scores.get(&amp;team_name).copied().unwrap_or(0);
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-8-21">Listing 8-21</a>: Accessing the score for the Blue team stored in the hash map</figcaption>
 </figure>
-<p data-x-en="Here, score will have the value that’s associated with the Blue team, and the result will be 10. The get method returns an Option<&amp;V>; if there’s no value for that key in the hash map, get will return None. This program handles the Option by calling copied to get an Option<i32> rather than an Option<&amp;i32>, then unwrap_or to set score to zero if scores doesn’t have an entry for the key.">这里，<code>score</code> 将拥有与 Blue 队相关联的值，结果将是 <code>10</code>。<code>get</code> 方法返回一个 <code>Option&lt;&amp;V&gt;</code>；如果哈希映射中没有该键的值，<code>get</code> 将返回 <code>None</code>。此程序通过调用 <code>copied</code> 将 <code>Option&lt;&amp;i32&gt;</code> 转换为 <code>Option&lt;i32&gt;</code>，然后使用 <code>unwrap_or</code> 如果 <code>scores</code> 没有该键的条目，则将 <code>score</code> 设置为零。</p>
-<p data-x-en="We can iterate over each key-value pair in a hash map in a similar manner as we do with vectors, using a for loop:">我们可以使用 <code>for</code> 循环以类似于处理向量的方式遍历哈希映射中的每个键值对：</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<p>Here, <code>score</code> will have the value that’s associated with the Blue team, and the
+result will be <code>10</code>. The <code>get</code> method returns an <code>Option&lt;&amp;V&gt;</code>; if there’s no
+value for that key in the hash map, <code>get</code> will return <code>None</code>. This program
+handles the <code>Option</code> by calling <code>copied</code> to get an <code>Option&lt;i32&gt;</code> rather than an
+<code>Option&lt;&amp;i32&gt;</code>, then <code>unwrap_or</code> to set <code>score</code> to zero if <code>scores</code> doesn’t
+have an entry for the key.</p>
+<p>We can iterate over each key-value pair in a hash map in a similar manner as we
+do with vectors, using a <code>for</code> loop:</p>
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    use std::collections::HashMap;
 
     let mut scores = HashMap::new();
@@ -303,17 +324,19 @@ blockquote {
     for (key, value) in &amp;scores {
         println!("{key}: {value}");
     }
-<span class="boring">}</span></code></pre></pre>
-<p data-x-en="This code will print each pair in an arbitrary order:">这段代码将以任意顺序打印每对：<code>println!("{:?}", pair);</code></p>
+<span class="boring">}</span></code></pre>
+<p>This code will print each pair in an arbitrary order:</p>
 <pre><code class="language-text">Yellow: 50
 Blue: 10
 </code></pre>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="hash-maps-and-ownership"></a></p>
-<h3 id="managing-ownership-in-hash-maps"><a class="header" href="#managing-ownership-in-hash-maps">在哈希映射中管理所有权</a></h3>
-<p data-x-en="For types that implement the Copy trait, like i32, the values are copied into the hash map. For owned values like String, the values will be moved and the hash map will be the owner of those values, as demonstrated in Listing 8-22.">对于实现了 <code>Copy</code> 特性的类型，如 <code>i32</code>，值会被复制到哈希映射中。对于像 <code>String</code> 这样的拥有值，值将被移动，并且哈希映射将成为这些值的所有者，如清单 8-22 所示。</p>
+<h3 id="managing-ownership-in-hash-maps"><a class="header" href="#managing-ownership-in-hash-maps">Managing Ownership in Hash Maps</a></h3>
+<p>For types that implement the <code>Copy</code> trait, like <code>i32</code>, the values are copied
+into the hash map. For owned values like <code>String</code>, the values will be moved and
+the hash map will be the owner of those values, as demonstrated in Listing 8-22.</p>
 <figure class="listing" id="listing-8-22">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    use std::collections::HashMap;
 
     let field_name = String::from("Favorite color");
@@ -323,18 +346,35 @@ Blue: 10
     map.insert(field_name, field_value);
     // field_name and field_value are invalid at this point, try using them and
     // see what compiler error you get!
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-8-22">Listing 8-22</a>: Showing that keys and values are owned by the hash map once they’re inserted</figcaption>
 </figure>
-<p data-x-en="We aren’t able to use the variables field_name and field_value after they’ve been moved into the hash map with the call to insert.">我们无法在将 <code>field_name</code> 和 <code>field_value</code> 移动到哈希映射中后使用它们，调用 <code>insert</code> 之后。</p>
-<p data-x-en="If we insert references to values into the hash map, the values won’t be moved into the hash map. The values that the references point to must be valid for at least as long as the hash map is valid. We’ll talk more about these issues in “Validating References with Lifetimes” in Chapter 10.">如果我们插入对值的引用到哈希映射中，这些值不会被移动到哈希映射中。引用所指向的值必须至少与哈希映射的生命周期一样长。我们将在<a href="ch10-03-lifetime-syntax.html#validating-references-with-lifetimes">“使用生命周期验证引用”</a><!-- ignore -->第十章中更详细地讨论这些问题。</p>
-<h3 id="updating-a-hash-map"><a class="header" href="#updating-a-hash-map">更新哈希映射</a></h3>
-<p data-x-en="Although the number of key and value pairs is growable, each unique key can only have one value associated with it at a time (but not vice versa: For example, both the Blue team and the Yellow team could have the value 10 stored in the scores hash map).">虽然键值对的数量是可增长的，但每个唯一的键一次只能有一个值与之关联（但反之则不然：例如，Blue 队和 Yellow 队都可以在 <code>scores</code> 哈希映射中存储值 <code>10</code>）。</p>
-<p data-x-en="When you want to change the data in a hash map, you have to decide how to handle the case when a key already has a value assigned. You could replace the old value with the new value, completely disregarding the old value. You could keep the old value and ignore the new value, only adding the new value if the key doesn’t already have a value. Or you could combine the old value and the new value. Let’s look at how to do each of these!">当你想要更改哈希映射中的数据时，你必须决定如何处理键已经分配了值的情况。你可以用新值替换旧值，完全忽略旧值。你可以保留旧值并忽略新值，只有在键<em>没有</em>已经有一个值时才添加新值。或者你可以将旧值和新值结合起来。让我们看看如何做到每一种！</p>
-<h4 id="overwriting-a-value"><a class="header" href="#overwriting-a-value">覆盖一个值</a></h4>
-<p data-x-en="If we insert a key and a value into a hash map and then insert that same key with a different value, the value associated with that key will be replaced. Even though the code in Listing 8-23 calls insert twice, the hash map will only contain one key-value pair because we’re inserting the value for the Blue team’s key both times.">如果我们向哈希映射中插入一个键和一个值，然后用不同的值再次插入同一个键，与该键关联的值将被替换。即使列表 8-23 中的代码调用了两次 <code>insert</code>，哈希映射也只会包含一个键值对，因为我们两次都是为 Blue 队的键插入值。</p>
+<p>We aren’t able to use the variables <code>field_name</code> and <code>field_value</code> after
+they’ve been moved into the hash map with the call to <code>insert</code>.</p>
+<p>If we insert references to values into the hash map, the values won’t be moved
+into the hash map. The values that the references point to must be valid for at
+least as long as the hash map is valid. We’ll talk more about these issues in
+<a href="ch10-03-lifetime-syntax.html#validating-references-with-lifetimes">“Validating References with
+Lifetimes”</a><!-- ignore --> in Chapter 10.</p>
+<h3 id="updating-a-hash-map"><a class="header" href="#updating-a-hash-map">Updating a Hash Map</a></h3>
+<p>Although the number of key and value pairs is growable, each unique key can
+only have one value associated with it at a time (but not vice versa: For
+example, both the Blue team and the Yellow team could have the value <code>10</code>
+stored in the <code>scores</code> hash map).</p>
+<p>When you want to change the data in a hash map, you have to decide how to
+handle the case when a key already has a value assigned. You could replace the
+old value with the new value, completely disregarding the old value. You could
+keep the old value and ignore the new value, only adding the new value if the
+key <em>doesn’t</em> already have a value. Or you could combine the old value and the
+new value. Let’s look at how to do each of these!</p>
+<h4 id="overwriting-a-value"><a class="header" href="#overwriting-a-value">Overwriting a Value</a></h4>
+<p>If we insert a key and a value into a hash map and then insert that same key
+with a different value, the value associated with that key will be replaced.
+Even though the code in Listing 8-23 calls <code>insert</code> twice, the hash map will
+only contain one key-value pair because we’re inserting the value for the Blue
+team’s key both times.</p>
 <figure class="listing" id="listing-8-23">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    use std::collections::HashMap;
 
     let mut scores = HashMap::new();
@@ -343,17 +383,26 @@ Blue: 10
     scores.insert(String::from("Blue"), 25);
 
     println!("{scores:?}");
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-8-23">Listing 8-23</a>: Replacing a value stored with a particular key</figcaption>
 </figure>
-<p data-x-en="This code will print {&quot;Blue&quot;: 25}. The original value of 10 has been overwritten.">这段代码将打印 <code>{"Blue": 25}</code>。原始值 <code>10</code> 已被覆盖。</p>
+<p>This code will print <code>{"Blue": 25}</code>. The original value of <code>10</code> has been
+overwritten.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="only-inserting-a-value-if-the-key-has-no-value"></a></p>
-<h4 id="adding-a-key-and-value-only-if-a-key-isnt-present"><a class="header" href="#adding-a-key-and-value-only-if-a-key-isnt-present">仅在键不存在时添加键和值</a></h4>
-<p data-x-en="It’s common to check whether a particular key already exists in the hash map with a value and then to take the following actions: If the key does exist in the hash map, the existing value should remain the way it is; if the key doesn’t exist, insert it and a value for it.">通常需要检查哈希映射中是否已存在某个特定的键及其值，然后采取以下操作：如果键确实存在于哈希映射中，则保持现有值不变；如果键不存在，则插入该键及其值。</p>
-<p data-x-en="Hash maps have a special API for this called entry that takes the key you want to check as a parameter. The return value of the entry method is an enum called Entry that represents a value that might or might not exist. Let’s say we want to check whether the key for the Yellow team has a value associated with it. If it doesn’t, we want to insert the value 50, and the same for the Blue team. Using the entry API, the code looks like Listing 8-24.">哈希映射为此提供了一个特殊的 API，称为 <code>entry</code>，它接受你想要检查的键作为参数。<code>entry</code> 方法的返回值是一个名为 <code>Entry</code> 的枚举，表示可能存在或可能不存在的值。假设我们想要检查 Yellow 队的键是否有关联的值。如果没有，我们希望插入值 <code>50</code>，对于 Blue 队也是如此。使用 <code>entry</code> API，代码如清单 8-24 所示。</p>
+<h4 id="adding-a-key-and-value-only-if-a-key-isnt-present"><a class="header" href="#adding-a-key-and-value-only-if-a-key-isnt-present">Adding a Key and Value Only If a Key Isn’t Present</a></h4>
+<p>It’s common to check whether a particular key already exists in the hash map
+with a value and then to take the following actions: If the key does exist in
+the hash map, the existing value should remain the way it is; if the key
+doesn’t exist, insert it and a value for it.</p>
+<p>Hash maps have a special API for this called <code>entry</code> that takes the key you
+want to check as a parameter. The return value of the <code>entry</code> method is an enum
+called <code>Entry</code> that represents a value that might or might not exist. Let’s say
+we want to check whether the key for the Yellow team has a value associated
+with it. If it doesn’t, we want to insert the value <code>50</code>, and the same for the
+Blue team. Using the <code>entry</code> API, the code looks like Listing 8-24.</p>
 <figure class="listing" id="listing-8-24">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    use std::collections::HashMap;
 
     let mut scores = HashMap::new();
@@ -363,15 +412,28 @@ Blue: 10
     scores.entry(String::from("Blue")).or_insert(50);
 
     println!("{scores:?}");
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-8-24">Listing 8-24</a>: Using the <code>entry</code> method to only insert if the key does not already have a value</figcaption>
 </figure>
-<p data-x-en="The or_insert method on Entry is defined to return a mutable reference to the value for the corresponding Entry key if that key exists, and if not, it inserts the parameter as the new value for this key and returns a mutable reference to the new value. This technique is much cleaner than writing the logic ourselves and, in addition, plays more nicely with the borrow checker."><code>or_insert</code> 方法在 <code>Entry</code> 上定义为，如果该键存在，则返回对应 <code>Entry</code> 键的值的可变引用；如果不存在，则将参数作为此键的新值插入，并返回新值的可变引用。这种技术比我们自己编写逻辑要干净得多，并且与借用检查器更友好。</p>
-<p data-x-en="Running the code in Listing 8-24 will print {&quot;Yellow&quot;: 50, &quot;Blue&quot;: 10}. The first call to entry will insert the key for the Yellow team with the value 50 because the Yellow team doesn’t have a value already. The second call to entry will not change the hash map, because the Blue team already has the value 10.">运行清单 8-24 中的代码将打印 <code>{"Yellow": 50, "Blue": 10}</code>。第一次调用 <code>entry</code> 会插入 Yellow 队的键，值为 <code>50</code>，因为 Yellow 队还没有值。第二次调用 <code>entry</code> 不会更改哈希映射，因为 Blue 队已经有值 <code>10</code>。</p>
-<h4 id="updating-a-value-based-on-the-old-value"><a class="header" href="#updating-a-value-based-on-the-old-value">根据旧值更新值</a></h4>
-<p data-x-en="Another common use case for hash maps is to look up a key’s value and then update it based on the old value. For instance, Listing 8-25 shows code that counts how many times each word appears in some text. We use a hash map with the words as keys and increment the value to keep track of how many times we’ve seen that word. If it’s the first time we’ve seen a word, we’ll first insert the value 0.">另一个常见的哈希映射用例是查找键的值，然后根据旧值进行更新。例如，列表 8-25 显示了计算每个单词在某些文本中出现次数的代码。我们使用一个哈希映射，将单词作为键，并递增值以跟踪我们看到该单词的次数。如果这是我们第一次看到一个单词，我们将首先插入值 <code>0</code>。</p>
+<p>The <code>or_insert</code> method on <code>Entry</code> is defined to return a mutable reference to
+the value for the corresponding <code>Entry</code> key if that key exists, and if not, it
+inserts the parameter as the new value for this key and returns a mutable
+reference to the new value. This technique is much cleaner than writing the
+logic ourselves and, in addition, plays more nicely with the borrow checker.</p>
+<p>Running the code in Listing 8-24 will print <code>{"Yellow": 50, "Blue": 10}</code>. The
+first call to <code>entry</code> will insert the key for the Yellow team with the value
+<code>50</code> because the Yellow team doesn’t have a value already. The second call to
+<code>entry</code> will not change the hash map, because the Blue team already has the
+value <code>10</code>.</p>
+<h4 id="updating-a-value-based-on-the-old-value"><a class="header" href="#updating-a-value-based-on-the-old-value">Updating a Value Based on the Old Value</a></h4>
+<p>Another common use case for hash maps is to look up a key’s value and then
+update it based on the old value. For instance, Listing 8-25 shows code that
+counts how many times each word appears in some text. We use a hash map with
+the words as keys and increment the value to keep track of how many times we’ve
+seen that word. If it’s the first time we’ve seen a word, we’ll first insert
+the value <code>0</code>.</p>
 <figure class="listing" id="listing-8-25">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    use std::collections::HashMap;
 
     let text = "hello world wonderful world";
@@ -384,37 +446,72 @@ Blue: 10
     }
 
     println!("{map:?}");
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-8-25">Listing 8-25</a>: Counting occurrences of words using a hash map that stores words and counts</figcaption>
 </figure>
-<p data-x-en="This code will print {&quot;world&quot;: 2, &quot;hello&quot;: 1, &quot;wonderful&quot;: 1}. You might see the same key-value pairs printed in a different order: Recall from “Accessing Values in a Hash Map” that iterating over a hash map happens in an arbitrary order.">这段代码将打印 <code>{"world": 2, "hello": 1, "wonderful": 1}</code>。你可能会看到
-相同的键值对以不同的顺序打印：回想 <a href="#accessing-values-in-a-hash-map">“访问哈希映射中的值”</a><!-- ignore --> 中所述，遍历哈希映射
-的顺序是任意的。</p>
-<p data-x-en="The split_whitespace method returns an iterator over subslices, separated by whitespace, of the value in text. The or_insert method returns a mutable reference (&amp;mut V) to the value for the specified key. Here, we store that mutable reference in the count variable, so in order to assign to that value, we must first dereference count using the asterisk (*). The mutable reference goes out of scope at the end of the for loop, so all of these changes are safe and allowed by the borrowing rules."><code>split_whitespace</code> 方法返回一个迭代器，该迭代器遍历 <code>text</code> 中由空白分隔的子切片。<code>or_insert</code> 方法返回一个指向指定键值的可变引用 (<code>&amp;mut V</code>)。在这里，我们将这个可变引用存储在 <code>count</code> 变量中，因此为了给该值赋值，我们必须首先使用星号 (<code>*</code>) 对 <code>count</code> 进行解引用。可变引用在 <code>for</code> 循环结束时超出作用域，因此所有这些更改都是安全的，并且符合借用规则。</p>
-<h3 id="hashing-functions"><a class="header" href="#hashing-functions">哈希函数</a></h3>
-<p data-x-en="By default, HashMap uses a hashing function called SipHash that can provide resistance to denial-of-service (DoS) attacks involving hash tables1. This is not the fastest hashing algorithm available, but the trade-off for better security that comes with the drop in performance is worth it. If you profile your code and find that the default hash function is too slow for your purposes, you can switch to another function by specifying a different hasher. A hasher is a type that implements the BuildHasher trait. We’ll talk about traits and how to implement them in Chapter 10. You don’t necessarily have to implement your own hasher from scratch; crates.io has libraries shared by other Rust users that provide hashers implementing many common hashing algorithms.">默认情况下，<code>HashMap</code> 使用一种称为 <em>SipHash</em> 的哈希函数，可以提供针对涉及哈希表的拒绝服务 (DoS) 攻击的防护<sup class="footnote-reference"><a href="#siphash">1</a></sup><!-- ignore -->。这不是最快的哈希算法，但性能下降带来的更好安全性是值得的。如果你对代码进行了剖析并发现默认的哈希函数对于你的用途来说太慢，你可以通过指定不同的哈希器来切换到其他函数。一个 <em>哈希器</em> 是实现了 <code>BuildHasher</code> 特性的类型。我们将在 <a href="ch10-02-traits.html">第 10 章</a><!-- ignore --> 中讨论特性以及如何实现它们。你不必一定从头开始实现自己的哈希器；<a href="https://crates.io/">crates.io</a><!-- ignore --> 有其他 Rust 用户共享的库，提供了实现许多常见哈希算法的哈希器。</p>
-<h2 id="summary"><a class="header" href="#summary">摘要</a></h2>
-<p data-x-en="Vectors, strings, and hash maps will provide a large amount of functionality necessary in programs when you need to store, access, and modify data. Here are some exercises you should now be equipped to solve:">向量、字符串和哈希映射将在你需要存储、访问和修改数据的程序中提供大量必要的功能。这里有一些你现在应该能够解决的练习：</p>
+<p>This code will print <code>{"world": 2, "hello": 1, "wonderful": 1}</code>. You might see
+the same key-value pairs printed in a different order: Recall from <a href="#accessing-values-in-a-hash-map">“Accessing
+Values in a Hash Map”</a><!-- ignore --> that iterating over a hash map
+happens in an arbitrary order.</p>
+<p>The <code>split_whitespace</code> method returns an iterator over subslices, separated by
+whitespace, of the value in <code>text</code>. The <code>or_insert</code> method returns a mutable
+reference (<code>&amp;mut V</code>) to the value for the specified key. Here, we store that
+mutable reference in the <code>count</code> variable, so in order to assign to that value,
+we must first dereference <code>count</code> using the asterisk (<code>*</code>). The mutable
+reference goes out of scope at the end of the <code>for</code> loop, so all of these
+changes are safe and allowed by the borrowing rules.</p>
+<h3 id="hashing-functions"><a class="header" href="#hashing-functions">Hashing Functions</a></h3>
+<p>By default, <code>HashMap</code> uses a hashing function called <em>SipHash</em> that can provide
+resistance to denial-of-service (DoS) attacks involving hash
+tables<sup class="footnote-reference" id="fr-siphash-1"><a href="#footnote-siphash">1</a></sup><!-- ignore -->. This is not the fastest hashing algorithm
+available, but the trade-off for better security that comes with the drop in
+performance is worth it. If you profile your code and find that the default
+hash function is too slow for your purposes, you can switch to another function
+by specifying a different hasher. A <em>hasher</em> is a type that implements the
+<code>BuildHasher</code> trait. We’ll talk about traits and how to implement them in
+<a href="ch10-02-traits.html">Chapter 10</a><!-- ignore -->. You don’t necessarily have to implement
+your own hasher from scratch; <a href="https://crates.io/">crates.io</a><!-- ignore -->
+has libraries shared by other Rust users that provide hashers implementing many
+common hashing algorithms.</p>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<p>Vectors, strings, and hash maps will provide a large amount of functionality
+necessary in programs when you need to store, access, and modify data. Here are
+some exercises you should now be equipped to solve:</p>
 <ol>
-<li data-x-en="Given a list of integers, use a vector and return the median (when sorted, the value in the middle position) and mode (the value that occurs most often; a hash map will be helpful here) of the list.">给定一个整数列表，使用向量并返回列表的中位数（排序后中间位置的值）和众数（出现次数最多的值；这里使用哈希映射会有帮助）。</li>
-<li data-x-en="Convert strings to Pig Latin. The first consonant of each word is moved to the end of the word and ay is added, so first becomes irst-fay. Words that start with a vowel have hay added to the end instead (apple becomes apple-hay). Keep in mind the details about UTF-8 encoding!">将字符串转换为 Pig Latin。每个单词的第一个辅音移到单词的末尾，并加上 <em>ay</em>，因此 <em>first</em> 变成 <em>irst-fay</em>。以元音开头的单词在末尾加上 <em>hay</em> (<em>apple</em> 变成 <em>apple-hay</em>)。请记住有关 UTF-8 编码的细节！</li>
-<li data-x-en="Using a hash map and vectors, create a text interface to allow a user to add employee names to a department in a company; for example, “Add Sally to Engineering” or “Add Amir to Sales.” Then, let the user retrieve a list of all people in a department or all people in the company by department, sorted alphabetically.">使用哈希映射和向量，创建一个文本界面，允许用户将员工姓名添加到公司的部门中；例如，“将 Sally 添加到工程部”或“将 Amir 添加到销售部。”然后，让用户检索部门中所有人员的列表或按部门排序的公司中所有人员的列表，按字母顺序排列。</li>
+<li>Given a list of integers, use a vector and return the median (when sorted,
+the value in the middle position) and mode (the value that occurs most
+often; a hash map will be helpful here) of the list.</li>
+<li>Convert strings to Pig Latin. The first consonant of each word is moved to
+the end of the word and <em>ay</em> is added, so <em>first</em> becomes <em>irst-fay</em>. Words
+that start with a vowel have <em>hay</em> added to the end instead (<em>apple</em> becomes
+<em>apple-hay</em>). Keep in mind the details about UTF-8 encoding!</li>
+<li>Using a hash map and vectors, create a text interface to allow a user to add
+employee names to a department in a company; for example, “Add Sally to
+Engineering” or “Add Amir to Sales.” Then, let the user retrieve a list of
+all people in a department or all people in the company by department, sorted
+alphabetically.</li>
 </ol>
-<p data-x-en="The standard library API documentation describes methods that vectors, strings, and hash maps have that will be helpful for these exercises!">标准库 API 文档描述了向量、字符串和哈希映射具有的方法，这些方法对这些练习将有所帮助！</p>
-<p data-x-en="We’re getting into more complex programs in which operations can fail, so it’s a perfect time to discuss error handling. We’ll do that next!">我们正在进入更复杂的程序，在这些程序中操作可能会失败，因此现在是讨论错误处理的绝佳时机。我们接下来就来做这件事！</p>
+<p>The standard library API documentation describes methods that vectors, strings,
+and hash maps have that will be helpful for these exercises!</p>
+<p>We’re getting into more complex programs in which operations can fail, so it’s
+a perfect time to discuss error handling. We’ll do that next!</p>
 <hr>
-<ol class="footnote-definition"><li id="footnote-siphash" data-x-en="https://en.wikipedia.org/wiki/SipHash ↩"><p><a href="https://en.wikipedia.org/wiki/SipHash">https://zh.wikipedia.org/wiki/SipHash</a> <a href="#fr-siphash-1">↩</a></p></li>
+<ol class="footnote-definition">
+<li id="footnote-siphash">
+<p><a href="https://en.wikipedia.org/wiki/SipHash">https://en.wikipedia.org/wiki/SipHash</a> <a href="#fr-siphash-1">↩</a></p>
+</li>
 </ol>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch08-02-strings.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch09-00-error-handling.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -424,16 +521,21 @@ Blue: 10
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch08-02-strings.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch09-00-error-handling.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -442,16 +544,16 @@ Blue: 10
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

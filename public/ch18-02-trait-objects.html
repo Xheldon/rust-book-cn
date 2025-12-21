@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch18-02-trait-objects.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,53 +212,100 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
                         <!-- Old headings. Do not remove or links may break. -->
 <p><a id="using-trait-objects-that-allow-for-values-of-different-types"></a></p>
-<h2 id="using-trait-objects-to-abstract-over-shared-behavior"><a class="header" href="#using-trait-objects-to-abstract-over-shared-behavior">使用特质对象抽象共享行为</a></h2>
-<p data-x-en="In Chapter 8, we mentioned that one limitation of vectors is that they can store elements of only one type. We created a workaround in Listing 8-9 where we defined a SpreadsheetCell enum that had variants to hold integers, floats, and text. This meant we could store different types of data in each cell and still have a vector that represented a row of cells. This is a perfectly good solution when our interchangeable items are a fixed set of types that we know when our code is compiled.">在第 8 章中，我们提到向量的一个限制是它们只能存储一种类型的元素。我们在列表 8-9 中创建了一个变通方法，定义了一个 <code>SpreadsheetCell</code> 枚举，该枚举具有存储整数、浮点数和文本的变体。这意味着我们可以在每个单元格中存储不同类型的數據，同时仍然有一个表示单元格行的向量。当我们的可互换项是在代码编译时已知的固定类型集时，这是一个非常好的解决方案。</p>
-<p data-x-en="However, sometimes we want our library user to be able to extend the set of types that are valid in a particular situation. To show how we might achieve this, we’ll create an example graphical user interface (GUI) tool that iterates through a list of items, calling a draw method on each one to draw it to the screen—a common technique for GUI tools. We’ll create a library crate called gui that contains the structure of a GUI library. This crate might include some types for people to use, such as Button or TextField. In addition, gui users will want to create their own types that can be drawn: For instance, one programmer might add an Image, and another might add a SelectBox.">然而，有时我们希望我们的库用户能够扩展在特定情况下有效的类型集。为了展示我们如何实现这一点，我们将创建一个示例图形用户界面（GUI）工具，该工具遍历一个项目列表，调用每个项目的<code>draw</code>方法将其绘制到屏幕上——这是GUI工具中常用的技术。我们将创建一个名为<code>gui</code>的库crate，其中包含GUI库的结构。这个crate可能包括一些供人们使用的类型，例如<code>Button</code>或<code>TextField</code>。此外，<code>gui</code>用户将希望创建他们自己的可以绘制的类型：例如，一个程序员可能会添加一个<code>Image</code>，而另一个程序员可能会添加一个<code>SelectBox</code>。</p>
-<p data-x-en="At the time of writing the library, we can’t know and define all the types other programmers might want to create. But we do know that gui needs to keep track of many values of different types, and it needs to call a draw method on each of these differently typed values. It doesn’t need to know exactly what will happen when we call the draw method, just that the value will have that method available for us to call.">在编写库时，我们无法知道和定义其他程序员可能想要创建的所有类型。但我们知道 <code>gui</code> 需要跟踪许多不同类型的值，并且需要在这些不同类型的值上调用一个 <code>draw</code> 方法。它不需要知道当我们调用 <code>draw</code> 方法时会发生什么，只需要知道这些值会有该方法可供我们调用。</p>
-<p data-x-en="To do this in a language with inheritance, we might define a class named Component that has a method named draw on it. The other classes, such as Button, Image, and SelectBox, would inherit from Component and thus inherit the draw method. They could each override the draw method to define their custom behavior, but the framework could treat all of the types as if they were Component instances and call draw on them. But because Rust doesn’t have inheritance, we need another way to structure the gui library to allow users to create new types compatible with the library.">为了在具有继承的语言中实现这一点，我们可能会定义一个名为 <code>Component</code> 的类，该类有一个名为 <code>draw</code> 的方法。其他类，如 <code>Button</code>、<code>Image</code> 和 <code>SelectBox</code>，将从 <code>Component</code> 继承，因此也会继承 <code>draw</code> 方法。它们各自可以重写 <code>draw</code> 方法以定义其自定义行为，但框架可以将所有类型视为 <code>Component</code> 实例并调用 <code>draw</code> 方法。但由于 Rust 没有继承，我们需要另一种方式来构建 <code>gui</code> 库，以允许用户创建与库兼容的新类型。</p>
-<h3 id="defining-a-trait-for-common-behavior"><a class="header" href="#defining-a-trait-for-common-behavior">定义一个用于常见行为的特征</a></h3>
-<p data-x-en="To implement the behavior that we want gui to have, we’ll define a trait named Draw that will have one method named draw. Then, we can define a vector that takes a trait object. A trait object points to both an instance of a type implementing our specified trait and a table used to look up trait methods on that type at runtime. We create a trait object by specifying some sort of pointer, such as a reference or a Box<T> smart pointer, then the dyn keyword, and then specifying the relevant trait. (We’ll talk about the reason trait objects must use a pointer in “Dynamically Sized Types and the Sized Trait” in Chapter 20.) We can use trait objects in place of a generic or concrete type. Wherever we use a trait object, Rust’s type system will ensure at compile time that any value used in that context will implement the trait object’s trait. Consequently, we don’t need to know all the possible types at compile time.">为了实现我们希望 <code>gui</code> 具有的行为，我们将定义一个名为 <code>Draw</code> 的 trait，该 trait 将有一个名为 <code>draw</code> 的方法。然后，我们可以定义一个接受 trait 对象的向量。一个 <em>trait 对象</em> 指向一个实现了我们指定 trait 的类型的实例和一个用于在运行时查找该类型 trait 方法的表。我们通过指定某种指针（如引用或 <code>Box&lt;T&gt;</code> 智能指针），然后是 <code>dyn</code> 关键字，最后指定相关的 trait 来创建 trait 对象。（我们将在第 20 章的 <a href="ch20-03-advanced-types.html#dynamically-sized-types-and-the-sized-trait">“动态大小类型和 <code>Sized</code> trait”</a><!-- ignore --> 中讨论为什么 trait 对象必须使用指针。）我们可以在泛型或具体类型的地方使用 trait 对象。无论何时使用 trait 对象，Rust 的类型系统都会在编译时确保在该上下文中使用的任何值都实现了 trait 对象的 trait。因此，我们不需要在编译时知道所有可能的类型。</p>
-<p data-x-en="We’ve mentioned that, in Rust, we refrain from calling structs and enums “objects” to distinguish them from other languages’ objects. In a struct or enum, the data in the struct fields and the behavior in impl blocks are separated, whereas in other languages, the data and behavior combined into one concept is often labeled an object. Trait objects differ from objects in other languages in that we can’t add data to a trait object. Trait objects aren’t as generally useful as objects in other languages: Their specific purpose is to allow abstraction across common behavior.">我们提到，在 Rust 中，我们避免将结构体和枚举称为“对象”，以区别于其他语言的“对象”。在结构体或枚举中，结构体字段中的数据和 <code>impl</code> 块中的行为是分开的，而在其他语言中，数据和行为结合成一个概念通常被称为对象。特质对象与 其他语言中的对象不同，因为我们不能向特质对象添加数据。特质对象不如其他语言中的对象那么通用：它们的特定目的是允许跨常见行为的抽象。</p>
-<p data-x-en="Listing 18-3 shows how to define a trait named Draw with one method named draw.">列表 18-3 展示了如何定义一个名为 <code>Draw</code> 的 trait，其中包含一个名为 <code>draw</code> 的方法。</p>
+<h2 id="using-trait-objects-to-abstract-over-shared-behavior"><a class="header" href="#using-trait-objects-to-abstract-over-shared-behavior">Using Trait Objects to Abstract over Shared Behavior</a></h2>
+<p>In Chapter 8, we mentioned that one limitation of vectors is that they can
+store elements of only one type. We created a workaround in Listing 8-9 where
+we defined a <code>SpreadsheetCell</code> enum that had variants to hold integers, floats,
+and text. This meant we could store different types of data in each cell and
+still have a vector that represented a row of cells. This is a perfectly good
+solution when our interchangeable items are a fixed set of types that we know
+when our code is compiled.</p>
+<p>However, sometimes we want our library user to be able to extend the set of
+types that are valid in a particular situation. To show how we might achieve
+this, we’ll create an example graphical user interface (GUI) tool that iterates
+through a list of items, calling a <code>draw</code> method on each one to draw it to the
+screen—a common technique for GUI tools. We’ll create a library crate called
+<code>gui</code> that contains the structure of a GUI library. This crate might include
+some types for people to use, such as <code>Button</code> or <code>TextField</code>. In addition,
+<code>gui</code> users will want to create their own types that can be drawn: For
+instance, one programmer might add an <code>Image</code>, and another might add a
+<code>SelectBox</code>.</p>
+<p>At the time of writing the library, we can’t know and define all the types
+other programmers might want to create. But we do know that <code>gui</code> needs to keep
+track of many values of different types, and it needs to call a <code>draw</code> method
+on each of these differently typed values. It doesn’t need to know exactly what
+will happen when we call the <code>draw</code> method, just that the value will have that
+method available for us to call.</p>
+<p>To do this in a language with inheritance, we might define a class named
+<code>Component</code> that has a method named <code>draw</code> on it. The other classes, such as
+<code>Button</code>, <code>Image</code>, and <code>SelectBox</code>, would inherit from <code>Component</code> and thus
+inherit the <code>draw</code> method. They could each override the <code>draw</code> method to define
+their custom behavior, but the framework could treat all of the types as if
+they were <code>Component</code> instances and call <code>draw</code> on them. But because Rust
+doesn’t have inheritance, we need another way to structure the <code>gui</code> library to
+allow users to create new types compatible with the library.</p>
+<h3 id="defining-a-trait-for-common-behavior"><a class="header" href="#defining-a-trait-for-common-behavior">Defining a Trait for Common Behavior</a></h3>
+<p>To implement the behavior that we want <code>gui</code> to have, we’ll define a trait
+named <code>Draw</code> that will have one method named <code>draw</code>. Then, we can define a
+vector that takes a trait object. A <em>trait object</em> points to both an instance
+of a type implementing our specified trait and a table used to look up trait
+methods on that type at runtime. We create a trait object by specifying some
+sort of pointer, such as a reference or a <code>Box&lt;T&gt;</code> smart pointer, then the
+<code>dyn</code> keyword, and then specifying the relevant trait. (We’ll talk about the
+reason trait objects must use a pointer in <a href="ch20-03-advanced-types.html#dynamically-sized-types-and-the-sized-trait">“Dynamically Sized Types and the
+<code>Sized</code> Trait”</a><!-- ignore --> in Chapter 20.) We can use
+trait objects in place of a generic or concrete type. Wherever we use a trait
+object, Rust’s type system will ensure at compile time that any value used in
+that context will implement the trait object’s trait. Consequently, we don’t
+need to know all the possible types at compile time.</p>
+<p>We’ve mentioned that, in Rust, we refrain from calling structs and enums
+“objects” to distinguish them from other languages’ objects. In a struct or
+enum, the data in the struct fields and the behavior in <code>impl</code> blocks are
+separated, whereas in other languages, the data and behavior combined into one
+concept is often labeled an object. Trait objects differ from objects in other
+languages in that we can’t add data to a trait object. Trait objects aren’t as
+generally useful as objects in other languages: Their specific purpose is to
+allow abstraction across common behavior.</p>
+<p>Listing 18-3 shows how to define a trait named <code>Draw</code> with one method named
+<code>draw</code>.</p>
 <figure class="listing" id="listing-18-3">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">pub trait Draw {
@@ -267,7 +313,11 @@ blockquote {
 }</code></pre>
 <figcaption><a href="#listing-18-3">Listing 18-3</a>: Definition of the <code>Draw</code> trait</figcaption>
 </figure>
-<p data-x-en="This syntax should look familiar from our discussions on how to define traits in Chapter 10. Next comes some new syntax: Listing 18-4 defines a struct named Screen that holds a vector named components. This vector is of type Box<dyn Draw>, which is a trait object; it’s a stand-in for any type inside a Box that implements the Draw trait.">这种语法应该让你想起我们在第 10 章讨论的如何定义特质的内容。接下来是一些新的语法：<code>Screen</code> 结构体定义在列表 18-4 中，它持有一个名为 <code>components</code> 的向量。这个向量的类型是 <code>Box&lt;dyn Draw&gt;</code>，这是一个特质对象；它是 <code>Box</code> 内部实现 <code>Draw</code> 特质的任何类型的占位符。</p>
+<p>This syntax should look familiar from our discussions on how to define traits
+in Chapter 10. Next comes some new syntax: Listing 18-4 defines a struct named
+<code>Screen</code> that holds a vector named <code>components</code>. This vector is of type
+<code>Box&lt;dyn Draw&gt;</code>, which is a trait object; it’s a stand-in for any type inside a
+<code>Box</code> that implements the <code>Draw</code> trait.</p>
 <figure class="listing" id="listing-18-4">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">pub trait Draw {
@@ -279,7 +329,8 @@ blockquote {
 }</code></pre>
 <figcaption><a href="#listing-18-4">Listing 18-4</a>: Definition of the <code>Screen</code> struct with a <code>components</code> field holding a vector of trait objects that implement the <code>Draw</code> trait</figcaption>
 </figure>
-<p data-x-en="On the Screen struct, we’ll define a method named run that will call the draw method on each of its components, as shown in Listing 18-5.">在 <code>Screen</code> 结构体上，我们将定义一个名为 <code>run</code> 的方法，该方法将调用每个 <code>components</code> 的 <code>draw</code> 方法，如清单 18-5 所示。</p>
+<p>On the <code>Screen</code> struct, we’ll define a method named <code>run</code> that will call the
+<code>draw</code> method on each of its <code>components</code>, as shown in Listing 18-5.</p>
 <figure class="listing" id="listing-18-5">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">pub trait Draw {
@@ -299,7 +350,12 @@ blockquote {
 }</code></pre>
 <figcaption><a href="#listing-18-5">Listing 18-5</a>: A <code>run</code> method on <code>Screen</code> that calls the <code>draw</code> method on each component</figcaption>
 </figure>
-<p data-x-en="This works differently from defining a struct that uses a generic type parameter with trait bounds. A generic type parameter can be substituted with only one concrete type at a time, whereas trait objects allow for multiple concrete types to fill in for the trait object at runtime. For example, we could have defined the Screen struct using a generic type and a trait bound, as in Listing 18-6.">这与定义使用带有特征约束的泛型类型的结构体不同。泛型类型参数一次只能被一种具体类型替代，而特征对象允许在运行时用多种具体类型填充特征对象。例如，我们可以使用泛型类型和特征约束来定义<code>Screen</code>结构体，如清单18-6所示。</p>
+<p>This works differently from defining a struct that uses a generic type
+parameter with trait bounds. A generic type parameter can be substituted with
+only one concrete type at a time, whereas trait objects allow for multiple
+concrete types to fill in for the trait object at runtime. For example, we
+could have defined the <code>Screen</code> struct using a generic type and a trait bound,
+as in Listing 18-6.</p>
 <figure class="listing" id="listing-18-6">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">pub trait Draw {
@@ -322,10 +378,20 @@ where
 }</code></pre>
 <figcaption><a href="#listing-18-6">Listing 18-6</a>: An alternate implementation of the <code>Screen</code> struct and its <code>run</code> method using generics and trait bounds</figcaption>
 </figure>
-<p data-x-en="This restricts us to a Screen instance that has a list of components all of type Button or all of type TextField. If you’ll only ever have homogeneous collections, using generics and trait bounds is preferable because the definitions will be monomorphized at compile time to use the concrete types.">这将我们限制在一个 <code>Screen</code> 实例中，该实例包含一个所有类型为 <code>Button</code> 或所有类型为 <code>TextField</code> 的组件列表。如果你只会拥有同质集合，使用泛型和特质边界是更可取的，因为定义将在编译时被单态化以使用具体的类型。</p>
-<p data-x-en="On the other hand, with the method using trait objects, one Screen instance can hold a Vec<T> that contains a Box<Button> as well as a Box<TextField>. Let’s look at how this works, and then we’ll talk about the runtime performance implications.">另一方面，使用特质对象的方法，一个 <code>Screen</code> 实例 可以持有一个包含 <code>Box</code><button><code></code> 以及 <code>Box<textfield></textfield></code> 的 <code>Vec<t></t></code>。让我们看看这是如何工作的，然后我们将讨论运行时性能影响。</button></p>
-<h3 id="implementing-the-trait"><a class="header" href="#implementing-the-trait">实现 Trait</a></h3>
-<p data-x-en="Now we’ll add some types that implement the Draw trait. We’ll provide the Button type. Again, actually implementing a GUI library is beyond the scope of this book, so the draw method won’t have any useful implementation in its body. To imagine what the implementation might look like, a Button struct might have fields for width, height, and label, as shown in Listing 18-7.">现在我们将添加一些实现<code>Draw</code>特性的类型。我们将提供<code>Button</code>类型。同样，实际实现一个GUI库超出了本书的范围，因此<code>draw</code>方法在其主体中不会有任何有用的实现。想象一下实现可能的样子，一个<code>Button</code>结构体可能有<code>width</code>、<code>height</code>和<code>label</code>字段，如清单18-7所示。</p>
+<p>This restricts us to a <code>Screen</code> instance that has a list of components all of
+type <code>Button</code> or all of type <code>TextField</code>. If you’ll only ever have homogeneous
+collections, using generics and trait bounds is preferable because the
+definitions will be monomorphized at compile time to use the concrete types.</p>
+<p>On the other hand, with the method using trait objects, one <code>Screen</code> instance
+can hold a <code>Vec&lt;T&gt;</code> that contains a <code>Box&lt;Button&gt;</code> as well as a
+<code>Box&lt;TextField&gt;</code>. Let’s look at how this works, and then we’ll talk about the
+runtime performance implications.</p>
+<h3 id="implementing-the-trait"><a class="header" href="#implementing-the-trait">Implementing the Trait</a></h3>
+<p>Now we’ll add some types that implement the <code>Draw</code> trait. We’ll provide the
+<code>Button</code> type. Again, actually implementing a GUI library is beyond the scope
+of this book, so the <code>draw</code> method won’t have any useful implementation in its
+body. To imagine what the implementation might look like, a <code>Button</code> struct
+might have fields for <code>width</code>, <code>height</code>, and <code>label</code>, as shown in Listing 18-7.</p>
 <figure class="listing" id="listing-18-7">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">pub trait Draw {
@@ -357,8 +423,18 @@ impl Draw for Button {
 }</code></pre>
 <figcaption><a href="#listing-18-7">Listing 18-7</a>: A <code>Button</code> struct that implements the <code>Draw</code> trait</figcaption>
 </figure>
-<p data-x-en="The width, height, and label fields on Button will differ from the fields on other components; for example, a TextField type might have those same fields plus a placeholder field. Each of the types we want to draw on the screen will implement the Draw trait but will use different code in the draw method to define how to draw that particular type, as Button has here (without the actual GUI code, as mentioned). The Button type, for instance, might have an additional impl block containing methods related to what happens when a user clicks the button. These kinds of methods won’t apply to types like TextField."><code>width</code>、<code>height</code> 和 <code>label</code> 字段在 <code>Button</code> 上会与其他组件的字段不同；例如，<code>TextField</code> 类型可能有相同的字段，外加一个 <code>placeholder</code> 字段。我们希望在屏幕上绘制的每种类型都会实现 <code>Draw</code> 特性，但在 <code>draw</code> 方法中会使用不同的代码来定义如何绘制该特定类型，就像 <code>Button</code> 在这里所做的那样（不包括实际的 GUI 代码，如前所述）。例如，<code>Button</code> 类型可能有一个额外的 <code>impl</code> 块，包含与用户点击按钮时发生的情况相关的方法。这类方法不适用于 <code>TextField</code> 等类型。</p>
-<p data-x-en="If someone using our library decides to implement a SelectBox struct that has width, height, and options fields, they would implement the Draw trait on the SelectBox type as well, as shown in Listing 18-8.">如果有人使用我们的库决定实现一个 <code>SelectBox</code> 结构体，该结构体具有 <code>width</code>、<code>height</code> 和 <code>options</code> 字段，他们也会在 <code>SelectBox</code> 类型上实现 <code>Draw</code> 特性，如清单 18-8 所示。</p>
+<p>The <code>width</code>, <code>height</code>, and <code>label</code> fields on <code>Button</code> will differ from the
+fields on other components; for example, a <code>TextField</code> type might have those
+same fields plus a <code>placeholder</code> field. Each of the types we want to draw on
+the screen will implement the <code>Draw</code> trait but will use different code in the
+<code>draw</code> method to define how to draw that particular type, as <code>Button</code> has here
+(without the actual GUI code, as mentioned). The <code>Button</code> type, for instance,
+might have an additional <code>impl</code> block containing methods related to what
+happens when a user clicks the button. These kinds of methods won’t apply to
+types like <code>TextField</code>.</p>
+<p>If someone using our library decides to implement a <code>SelectBox</code> struct that has
+<code>width</code>, <code>height</code>, and <code>options</code> fields, they would implement the <code>Draw</code> trait
+on the <code>SelectBox</code> type as well, as shown in Listing 18-8.</p>
 <figure class="listing" id="listing-18-8">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore">use gui::Draw;
@@ -378,7 +454,11 @@ impl Draw for SelectBox {
 </span><span class="boring">fn main() {}</span></code></pre>
 <figcaption><a href="#listing-18-8">Listing 18-8</a>: Another crate using <code>gui</code> and implementing the <code>Draw</code> trait on a <code>SelectBox</code> struct</figcaption>
 </figure>
-<p data-x-en="Our library’s user can now write their main function to create a Screen instance. To the Screen instance, they can add a SelectBox and a Button by putting each in a Box<T> to become a trait object. They can then call the run method on the Screen instance, which will call draw on each of the components. Listing 18-9 shows this implementation.">我们的库用户现在可以编写他们的 <code>main</code> 函数来创建一个 <code>Screen</code> 实例。向 <code>Screen</code> 实例中，他们可以通过将每个组件放入 <code>Box&lt;T&gt;</code> 中来添加一个 <code>SelectBox</code> 和一个 <code>Button</code>，从而成为特征对象。然后，他们可以在 <code>Screen</code> 实例上调用 <code>run</code> 方法，该方法将调用每个组件的 <code>draw</code> 方法。清单 18-9 显示了此实现。</p>
+<p>Our library’s user can now write their <code>main</code> function to create a <code>Screen</code>
+instance. To the <code>Screen</code> instance, they can add a <code>SelectBox</code> and a <code>Button</code>
+by putting each in a <code>Box&lt;T&gt;</code> to become a trait object. They can then call the
+<code>run</code> method on the <code>Screen</code> instance, which will call <code>draw</code> on each of the
+components. Listing 18-9 shows this implementation.</p>
 <figure class="listing" id="listing-18-9">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore"><span class="boring">use gui::Draw;
@@ -421,10 +501,27 @@ fn main() {
 }</code></pre>
 <figcaption><a href="#listing-18-9">Listing 18-9</a>: Using trait objects to store values of different types that implement the same trait</figcaption>
 </figure>
-<p data-x-en="When we wrote the library, we didn’t know that someone might add the SelectBox type, but our Screen implementation was able to operate on the new type and draw it because SelectBox implements the Draw trait, which means it implements the draw method.">当我们编写库时，我们并不知道有人可能会添加<code>SelectBox</code>类型，但我们的<code>Screen</code>实现能够操作新类型并绘制它，因为<code>SelectBox</code>实现了<code>Draw</code> trait，这意味着它实现了<code>draw</code>方法。</p>
-<p data-x-en="This concept—of being concerned only with the messages a value responds to rather than the value’s concrete type—is similar to the concept of duck typing in dynamically typed languages: If it walks like a duck and quacks like a duck, then it must be a duck! In the implementation of run on Screen in Listing 18-5, run doesn’t need to know what the concrete type of each component is. It doesn’t check whether a component is an instance of a Button or a SelectBox, it just calls the draw method on the component. By specifying Box<dyn Draw> as the type of the values in the components vector, we’ve defined Screen to need values that we can call the draw method on.">这个概念——只关心值响应的消息而不是值的具体类型——类似于动态类型语言中的<em>鸭子类型</em>概念：如果它像鸭子一样走路，像鸭子一样叫，那么它一定是鸭子！在清单18-5中<code>Screen</code>上的<code>run</code>实现中，<code>run</code>不需要知道每个组件的具体类型。它不会检查组件是否是<code>Button</code>或<code>SelectBox</code>的实例，它只是调用组件上的<code>draw</code>方法。通过将<code>components</code>向量中的值类型指定为<code>Box&lt;dyn Draw&gt;</code>，我们定义了<code>Screen</code>需要可以调用<code>draw</code>方法的值。</p>
-<p data-x-en="The advantage of using trait objects and Rust’s type system to write code similar to code using duck typing is that we never have to check whether a value implements a particular method at runtime or worry about getting errors if a value doesn’t implement a method but we call it anyway. Rust won’t compile our code if the values don’t implement the traits that the trait objects need.">使用 trait 对象和 Rust 的类型系统编写类似于使用鸭子类型编写的代码的优势在于，我们永远不必在运行时检查某个值是否实现了特定方法，也不必担心如果某个值没有实现某个方法但仍然调用它时会出错。如果值没有实现 trait 对象所需的 trait，Rust 不会编译我们的代码。</p>
-<p data-x-en="For example, Listing 18-10 shows what happens if we try to create a Screen with a String as a component.">例如，清单 18-10 显示了如果我们尝试使用 <code>String</code> 作为组件创建 <code>Screen</code> 会发生什么。</p>
+<p>When we wrote the library, we didn’t know that someone might add the
+<code>SelectBox</code> type, but our <code>Screen</code> implementation was able to operate on the
+new type and draw it because <code>SelectBox</code> implements the <code>Draw</code> trait, which
+means it implements the <code>draw</code> method.</p>
+<p>This concept—of being concerned only with the messages a value responds to
+rather than the value’s concrete type—is similar to the concept of <em>duck
+typing</em> in dynamically typed languages: If it walks like a duck and quacks like
+a duck, then it must be a duck! In the implementation of <code>run</code> on <code>Screen</code> in
+Listing 18-5, <code>run</code> doesn’t need to know what the concrete type of each
+component is. It doesn’t check whether a component is an instance of a <code>Button</code>
+or a <code>SelectBox</code>, it just calls the <code>draw</code> method on the component. By
+specifying <code>Box&lt;dyn Draw&gt;</code> as the type of the values in the <code>components</code>
+vector, we’ve defined <code>Screen</code> to need values that we can call the <code>draw</code>
+method on.</p>
+<p>The advantage of using trait objects and Rust’s type system to write code
+similar to code using duck typing is that we never have to check whether a
+value implements a particular method at runtime or worry about getting errors
+if a value doesn’t implement a method but we call it anyway. Rust won’t compile
+our code if the values don’t implement the traits that the trait objects need.</p>
+<p>For example, Listing 18-10 shows what happens if we try to create a <code>Screen</code>
+with a <code>String</code> as a component.</p>
 <figure class="listing" id="listing-18-10">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore does_not_compile">use gui::Screen;
@@ -438,7 +535,7 @@ fn main() {
 }</code></pre>
 <figcaption><a href="#listing-18-10">Listing 18-10</a>: Attempting to use a type that doesn’t implement the trait object’s trait</figcaption>
 </figure>
-<p data-x-en="We’ll get this error because String doesn’t implement the Draw trait:">我们将因为 <code>String</code> 没有实现 <code>Draw</code> 特性而收到此错误：</p>
+<p>We’ll get this error because <code>String</code> doesn’t implement the <code>Draw</code> trait:</p>
 <pre><code class="language-console">$ cargo run
    Compiling gui v0.1.0 (file:///projects/gui)
 error[E0277]: the trait bound `String: Draw` is not satisfied
@@ -453,23 +550,45 @@ error[E0277]: the trait bound `String: Draw` is not satisfied
 For more information about this error, try `rustc --explain E0277`.
 error: could not compile `gui` (bin "gui") due to 1 previous error
 </code></pre>
-<p data-x-en="This error lets us know that either we’re passing something to Screen that we didn’t mean to pass and so should pass a different type, or we should implement Draw on String so that Screen is able to call draw on it.">这个错误告诉我们，要么我们传递给<code>Screen</code>的内容不是我们本意要传递的，因此应该传递一个不同的类型，要么我们应该在<code>String</code>上实现<code>Draw</code>，以便<code>Screen</code>能够调用其<code>draw</code>方法。</p>
+<p>This error lets us know that either we’re passing something to <code>Screen</code> that we
+didn’t mean to pass and so should pass a different type, or we should implement
+<code>Draw</code> on <code>String</code> so that <code>Screen</code> is able to call <code>draw</code> on it.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="trait-objects-perform-dynamic-dispatch"></a></p>
-<h3 id="performing-dynamic-dispatch"><a class="header" href="#performing-dynamic-dispatch">执行动态分发</a></h3>
-<p data-x-en="Recall in “Performance of Code Using Generics” in Chapter 10 our discussion on the monomorphization process performed on generics by the compiler: The compiler generates nongeneric implementations of functions and methods for each concrete type that we use in place of a generic type parameter. The code that results from monomorphization is doing static dispatch, which is when the compiler knows what method you’re calling at compile time. This is opposed to dynamic dispatch, which is when the compiler can’t tell at compile time which method you’re calling. In dynamic dispatch cases, the compiler emits code that at runtime will know which method to call.">回忆在<a href="ch10-01-syntax.html#performance-of-code-using-generics">“使用泛型的代码性能”</a><!-- ignore --> 第10章中我们关于编译器对泛型执行的单态化过程的讨论：编译器为每个我们用作泛型类型参数的具体类型生成非泛型的函数和方法实现。单态化产生的代码执行的是<em>静态分发</em>，即编译器在编译时就知道你调用的是哪个方法。这与<em>动态分发</em>相反，即编译器在编译时无法确定你调用的是哪个方法。在动态分发的情况下，编译器会生成在运行时确定调用哪个方法的代码。</p>
-<p data-x-en="When we use trait objects, Rust must use dynamic dispatch. The compiler doesn’t know all the types that might be used with the code that’s using trait objects, so it doesn’t know which method implemented on which type to call. Instead, at runtime, Rust uses the pointers inside the trait object to know which method to call. This lookup incurs a runtime cost that doesn’t occur with static dispatch. Dynamic dispatch also prevents the compiler from choosing to inline a method’s code, which in turn prevents some optimizations, and Rust has some rules about where you can and cannot use dynamic dispatch, called dyn compatibility. Those rules are beyond the scope of this discussion, but you can read more about them in the reference. However, we did get extra flexibility in the code that we wrote in Listing 18-5 and were able to support in Listing 18-9, so it’s a trade-off to consider.">当我们使用特质对象时，Rust 必须使用动态分发。编译器不知道可能与使用特质对象的代码一起使用的所有类型，因此它不知道要调用哪个类型上实现的方法。相反，在运行时，Rust 使用特质对象内部的指针来确定要调用的方法。这种查找会产生运行时成本，而静态分发则不会产生这种成本。动态分发还阻止编译器选择内联方法的代码，这反过来又阻止了一些优化，Rust 有一些关于可以在哪里以及不能在哪里使用动态分发的规则，称为<em>dyn 兼容性</em>。这些规则超出了本次讨论的范围，但您可以在<a href="https://doc.rust-lang.org/reference/items/traits.html#dyn-compatibility">参考手册</a><!-- ignore -->中阅读更多关于它们的信息。然而，我们在清单 18-5 中编写的代码确实获得了额外的灵活性，并且能够在清单 18-9 中支持，所以这是一个需要考虑的权衡。</p>
+<h3 id="performing-dynamic-dispatch"><a class="header" href="#performing-dynamic-dispatch">Performing Dynamic Dispatch</a></h3>
+<p>Recall in <a href="ch10-01-syntax.html#performance-of-code-using-generics">“Performance of Code Using
+Generics”</a><!-- ignore --> in Chapter 10 our
+discussion on the monomorphization process performed on generics by the
+compiler: The compiler generates nongeneric implementations of functions and
+methods for each concrete type that we use in place of a generic type
+parameter. The code that results from monomorphization is doing <em>static
+dispatch</em>, which is when the compiler knows what method you’re calling at
+compile time. This is opposed to <em>dynamic dispatch</em>, which is when the compiler
+can’t tell at compile time which method you’re calling. In dynamic dispatch
+cases, the compiler emits code that at runtime will know which method to call.</p>
+<p>When we use trait objects, Rust must use dynamic dispatch. The compiler doesn’t
+know all the types that might be used with the code that’s using trait objects,
+so it doesn’t know which method implemented on which type to call. Instead, at
+runtime, Rust uses the pointers inside the trait object to know which method to
+call. This lookup incurs a runtime cost that doesn’t occur with static dispatch.
+Dynamic dispatch also prevents the compiler from choosing to inline a method’s
+code, which in turn prevents some optimizations, and Rust has some rules about
+where you can and cannot use dynamic dispatch, called <em>dyn compatibility</em>. Those
+rules are beyond the scope of this discussion, but you can read more about them
+<a href="https://doc.rust-lang.org/reference/items/traits.html#dyn-compatibility">in the reference</a><!-- ignore -->. However, we did get extra
+flexibility in the code that we wrote in Listing 18-5 and were able to support
+in Listing 18-9, so it’s a trade-off to consider.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch18-01-what-is-oo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch18-03-oo-design-patterns.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -479,16 +598,21 @@ error: could not compile `gui` (bin "gui") due to 1 previous error
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch18-01-what-is-oo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch18-03-oo-design-patterns.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -497,16 +621,16 @@ error: could not compile `gui` (bin "gui") due to 1 previous error
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

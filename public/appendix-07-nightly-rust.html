@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/appendix-07-nightly-rust.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,123 +212,206 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
-                        <h2 id="appendix-g---how-rust-is-made-and-nightly-rust"><a class="header" href="#appendix-g---how-rust-is-made-and-nightly-rust">附录 G - Rust 的制作过程和“Nightly Rust”</a></h2>
-<p data-x-en="This appendix is about how Rust is made and how that affects you as a Rust developer.">这个附录是关于 Rust 是如何被创建的，以及这如何影响你作为 Rust 开发者。</p>
-<h3 id="stability-without-stagnation"><a class="header" href="#stability-without-stagnation">稳定而不停滞</a></h3>
-<p data-x-en="As a language, Rust cares a lot about the stability of your code. We want Rust to be a rock-solid foundation you can build on, and if things were constantly changing, that would be impossible. At the same time, if we can’t experiment with new features, we may not find out important flaws until after their release, when we can no longer change things.">作为一种语言，Rust 非常重视代码的稳定性。我们希望 Rust 能成为你可以构建的坚如磐石的基础，如果事情不断变化，这是不可能的。同时，如果我们不能尝试新功能，我们可能无法在发布后发现重要的缺陷，那时我们再也无法改变任何事情。</p>
-<p data-x-en="Our solution to this problem is what we call “stability without stagnation”, and our guiding principle is this: you should never have to fear upgrading to a new version of stable Rust. Each upgrade should be painless, but should also bring you new features, fewer bugs, and faster compile times.">我们的解决方案是所谓的“稳定而不停滞”，<br>我们的指导原则是：<br>您永远不必担心升级到新的稳定版Rust。<br>每次升级都应该是无痛的，但也应该为您带来新功能、更少的错误和更快的编译时间。</p>
-<h3 id="choo-choo-release-channels-and-riding-the-trains"><a class="header" href="#choo-choo-release-channels-and-riding-the-trains">嘟，嘟！发布渠道和乘坐火车</a></h3>
-<p data-x-en="Rust development operates on a train schedule. That is, all development is done in the main branch of the Rust repository. Releases follow a software release train model, which has been used by Cisco IOS and other software projects. There are three release channels for Rust:">Rust 开发遵循一个 <em>列车时间表</em>。也就是说，所有开发都在 Rust 仓库的主分支上进行。发布遵循一个软件发布列车模型，该模型已被 Cisco IOS 和其他软件项目使用。Rust 有三个 <em>发布渠道</em>：</p>
+                        <h2 id="appendix-g---how-rust-is-made-and-nightly-rust"><a class="header" href="#appendix-g---how-rust-is-made-and-nightly-rust">Appendix G - How Rust is Made and “Nightly Rust”</a></h2>
+<p>This appendix is about how Rust is made and how that affects you as a Rust
+developer.</p>
+<h3 id="stability-without-stagnation"><a class="header" href="#stability-without-stagnation">Stability Without Stagnation</a></h3>
+<p>As a language, Rust cares a <em>lot</em> about the stability of your code. We want
+Rust to be a rock-solid foundation you can build on, and if things were
+constantly changing, that would be impossible. At the same time, if we can’t
+experiment with new features, we may not find out important flaws until after
+their release, when we can no longer change things.</p>
+<p>Our solution to this problem is what we call “stability without stagnation”,
+and our guiding principle is this: you should never have to fear upgrading to a
+new version of stable Rust. Each upgrade should be painless, but should also
+bring you new features, fewer bugs, and faster compile times.</p>
+<h3 id="choo-choo-release-channels-and-riding-the-trains"><a class="header" href="#choo-choo-release-channels-and-riding-the-trains">Choo, Choo! Release Channels and Riding the Trains</a></h3>
+<p>Rust development operates on a <em>train schedule</em>. That is, all development is
+done in the main branch of the Rust repository. Releases follow a software
+release train model, which has been used by Cisco IOS and other software
+projects. There are three <em>release channels</em> for Rust:</p>
 <ul>
-<li data-x-en="Nightly">好的，我明白了。请提供您需要翻译的源文本。</li>
-<li data-x-en="Beta">Beta，直接输出翻译内容，不要添加任何额外的文本。绝对不要添加原始翻译内容中没有的符号或标签。记住，保留所有HTML标签和属性，只翻译内容！</li>
-<li data-x-en="Stable">稳定的，直接输出翻译内容，不添加任何额外的文本。绝对不要添加原文中没有的符号或标签。记住，保留所有HTML标签和属性，只翻译内容！</li>
+<li>Nightly</li>
+<li>Beta</li>
+<li>Stable</li>
 </ul>
-<p data-x-en="Most Rust developers primarily use the stable channel, but those who want to try out experimental new features may use nightly or beta.">大多数 Rust 开发者主要使用稳定通道，但那些想要尝试实验性新功能的人可能会使用 nightly 或 beta。</p>
-<p data-x-en="Here’s an example of how the development and release process works: let’s assume that the Rust team is working on the release of Rust 1.5. That release happened in December of 2015, but it will provide us with realistic version numbers. A new feature is added to Rust: a new commit lands on the main branch. Each night, a new nightly version of Rust is produced. Every day is a release day, and these releases are created by our release infrastructure automatically. So as time passes, our releases look like this, once a night:">这是一个开发和发布过程的例子：假设 Rust 团队正在开发 Rust 1.5 的发布。该发布发生在 2015 年 12 月，但它将为我们提供现实的版本号。Rust 添加了一个新功能：一个新的提交在主分支上落地。每个晚上，都会生成一个新的 Rust 夜ly版本。每天都是发布日，这些发布是由我们的发布基础设施自动创建的。因此，随着时间的推移，我们的发布情况如下，每晚一次：</p>
+<p>Most Rust developers primarily use the stable channel, but those who want to
+try out experimental new features may use nightly or beta.</p>
+<p>Here’s an example of how the development and release process works: let’s
+assume that the Rust team is working on the release of Rust 1.5. That release
+happened in December of 2015, but it will provide us with realistic version
+numbers. A new feature is added to Rust: a new commit lands on the main
+branch. Each night, a new nightly version of Rust is produced. Every day is a
+release day, and these releases are created by our release infrastructure
+automatically. So as time passes, our releases look like this, once a night:</p>
 <pre><code class="language-text">nightly: * - - * - - *
 </code></pre>
-<p data-x-en="Every six weeks, it’s time to prepare a new release! The beta branch of the Rust repository branches off from the main branch used by nightly. Now, there are two releases:">每六周，就到了准备新版本的时候了！Rust 仓库的 <code>beta</code> 分支从用于 nightly 的主分支分出。现在，有两个版本：</p>
+<p>Every six weeks, it’s time to prepare a new release! The <code>beta</code> branch of the
+Rust repository branches off from the main branch used by nightly. Now,
+there are two releases:</p>
 <pre><code class="language-text">nightly: * - - * - - *
                      |
 beta:                *
 </code></pre>
-<p data-x-en="Most Rust users do not use beta releases actively, but test against beta in their CI system to help Rust discover possible regressions. In the meantime, there’s still a nightly release every night:">大多数 Rust 用户不会积极使用 beta 版本，但会在他们的 CI 系统中测试 beta 版本，以帮助 Rust 发现可能的回归。与此同时，每天晚上仍然会有一次 nightly 版本的发布：</p>
+<p>Most Rust users do not use beta releases actively, but test against beta in
+their CI system to help Rust discover possible regressions. In the meantime,
+there’s still a nightly release every night:</p>
 <pre><code class="language-text">nightly: * - - * - - * - - * - - *
                      |
 beta:                *
 </code></pre>
-<p data-x-en="Let’s say a regression is found. Good thing we had some time to test the beta release before the regression snuck into a stable release! The fix is applied to the main branch, so that nightly is fixed, and then the fix is backported to the beta branch, and a new release of beta is produced:">假设发现了一个回归错误。幸好我们有时间在回归错误潜入稳定版之前测试了测试版！修复程序已应用于主分支，因此夜间构建已修复，然后修复程序被回退到<code>beta</code>分支，并生成了新的测试版发布：</p>
+<p>Let’s say a regression is found. Good thing we had some time to test the beta
+release before the regression snuck into a stable release! The fix is applied
+to the main branch, so that nightly is fixed, and then the fix is backported to
+the <code>beta</code> branch, and a new release of beta is produced:</p>
 <pre><code class="language-text">nightly: * - - * - - * - - * - - * - - *
                      |
 beta:                * - - - - - - - - *
 </code></pre>
-<p data-x-en="Six weeks after the first beta was created, it’s time for a stable release! The stable branch is produced from the beta branch:">在首个测试版创建六周后，是时候发布稳定版了！<code>stable</code> 分支是从 <code>beta</code> 分支生成的：</p>
+<p>Six weeks after the first beta was created, it’s time for a stable release! The
+<code>stable</code> branch is produced from the <code>beta</code> branch:</p>
 <pre><code class="language-text">nightly: * - - * - - * - - * - - * - - * - * - *
                      |
 beta:                * - - - - - - - - *
                                        |
 stable:                                *
 </code></pre>
-<p data-x-en="Hooray! Rust 1.5 is done! However, we’ve forgotten one thing: because the six weeks have gone by, we also need a new beta of the next version of Rust, 1.6. So after stable branches off of beta, the next version of beta branches off of nightly again:">好极了！Rust 1.5 完成了！但是，我们忘记了一件事：因为六周已经过去了，我们也需要 <em>下一个</em> 版本的 Rust，1.6 的新测试版。所以在 <code>stable</code> 从 <code>beta</code> 分支出来后，<code>beta</code> 的下一个版本再次从 <code>nightly</code> 分支出来：</p>
+<p>Hooray! Rust 1.5 is done! However, we’ve forgotten one thing: because the six
+weeks have gone by, we also need a new beta of the <em>next</em> version of Rust, 1.6.
+So after <code>stable</code> branches off of <code>beta</code>, the next version of <code>beta</code> branches
+off of <code>nightly</code> again:</p>
 <pre><code class="language-text">nightly: * - - * - - * - - * - - * - - * - * - *
                      |                         |
 beta:                * - - - - - - - - *       *
                                        |
 stable:                                *
 </code></pre>
-<p data-x-en="This is called the “train model” because every six weeks, a release “leaves the station”, but still has to take a journey through the beta channel before it arrives as a stable release.">这被称为“列车模型”，因为每隔六周，一个版本就会“离开车站”，但仍然需要通过beta渠道的旅程，才能作为稳定版发布。</p>
-<p data-x-en="Rust releases every six weeks, like clockwork. If you know the date of one Rust release, you can know the date of the next one: it’s six weeks later. A nice aspect of having releases scheduled every six weeks is that the next train is coming soon. If a feature happens to miss a particular release, there’s no need to worry: another one is happening in a short time! This helps reduce pressure to sneak possibly unpolished features in close to the release deadline.">Rust 每六周发布一次，像时钟一样准时。如果你知道一个 Rust 发布的日期，你就可以知道下一个发布的日期：它在六周后。每六周发布一次的一个好处是，下一班列车很快就会到来。如果一个特性恰好错过了某个特定的发布，无需担心：很快就会有另一个发布！这有助于减少在接近发布截止日期时匆忙加入可能未完成的特性的压力。</p>
-<p data-x-en="Thanks to this process, you can always check out the next build of Rust and verify for yourself that it’s easy to upgrade to: if a beta release doesn’t work as expected, you can report it to the team and get it fixed before the next stable release happens! Breakage in a beta release is relatively rare, but rustc is still a piece of software, and bugs do exist.">通过这个过程，您可以随时检查 Rust 的下一个构建版本并亲自验证升级是否简单：如果 beta 版本没有按预期工作，您可以在下一个稳定版本发布之前向团队报告并得到修复！beta 版本中的问题相对较少，但 <code>rustc</code> 仍然是一个软件，确实存在 bug。</p>
-<h3 id="maintenance-time"><a class="header" href="#maintenance-time">维护时间</a></h3>
-<p data-x-en="The Rust project supports the most recent stable version. When a new stable version is released, the old version reaches its end of life (EOL). This means each version is supported for six weeks.">Rust 项目支持最新的稳定版本。当发布新的稳定版本时，旧版本将达到其生命周期结束（EOL）。这意味着每个版本将获得六周的支持。</p>
-<h3 id="unstable-features"><a class="header" href="#unstable-features">不稳定特性</a></h3>
-<p data-x-en="There’s one more catch with this release model: unstable features. Rust uses a technique called “feature flags” to determine what features are enabled in a given release. If a new feature is under active development, it lands on the main branch, and therefore, in nightly, but behind a feature flag. If you, as a user, wish to try out the work-in-progress feature, you can, but you must be using a nightly release of Rust and annotate your source code with the appropriate flag to opt in.">这个发布模型还有一个需要注意的地方：不稳定特性。Rust 使用一种称为“特性标志”的技术来确定在给定版本中启用哪些特性。如果一个新特性正在积极开发中，它会被合并到主分支，因此也会出现在 nightly 版本中，但会隐藏在 <em>特性标志</em> 后面。如果你作为用户，希望尝试这个正在进行中的特性，你可以这样做，但你必须使用 Rust 的 nightly 版本，并在源代码中使用相应的标志来选择加入。</p>
-<p data-x-en="If you’re using a beta or stable release of Rust, you can’t use any feature flags. This is the key that allows us to get practical use with new features before we declare them stable forever. Those who wish to opt into the bleeding edge can do so, and those who want a rock-solid experience can stick with stable and know that their code won’t break. Stability without stagnation.">如果您使用的是 Rust 的 beta 或稳定版本，您不能使用任何功能标志。这是使我们能够在宣布新功能永久稳定之前就获得实际使用的关键。那些希望尝试最新功能的人可以选择加入，而那些希望获得坚如磐石体验的人可以坚持使用稳定版本，并知道他们的代码不会出问题。稳定而不停滞。</p>
-<p data-x-en="This book only contains information about stable features, as in-progress features are still changing, and surely they’ll be different between when this book was written and when they get enabled in stable builds. You can find documentation for nightly-only features online.">这本书只包含关于稳定功能的信息，因为正在进行中的功能仍在变化，当这本书编写时和它们在稳定版本中启用时肯定会有所不同。您可以在网上找到仅限于夜间构建的功能的文档。</p>
-<h3 id="rustup-and-the-role-of-rust-nightly"><a class="header" href="#rustup-and-the-role-of-rust-nightly">Rustup 和 Rust Nightly 的角色</a></h3>
-<p data-x-en="Rustup makes it easy to change between different release channels of Rust, on a global or per-project basis. By default, you’ll have stable Rust installed. To install nightly, for example:">Rustup 使得在不同的 Rust 发布渠道之间切换变得容易，无论是全局还是按项目基础。默认情况下，您将安装稳定版的 Rust。例如，要安装夜间版：<code>rustup install nightly</code></p>
+<p>This is called the “train model” because every six weeks, a release “leaves the
+station”, but still has to take a journey through the beta channel before it
+arrives as a stable release.</p>
+<p>Rust releases every six weeks, like clockwork. If you know the date of one Rust
+release, you can know the date of the next one: it’s six weeks later. A nice
+aspect of having releases scheduled every six weeks is that the next train is
+coming soon. If a feature happens to miss a particular release, there’s no need
+to worry: another one is happening in a short time! This helps reduce pressure
+to sneak possibly unpolished features in close to the release deadline.</p>
+<p>Thanks to this process, you can always check out the next build of Rust and
+verify for yourself that it’s easy to upgrade to: if a beta release doesn’t
+work as expected, you can report it to the team and get it fixed before the
+next stable release happens! Breakage in a beta release is relatively rare, but
+<code>rustc</code> is still a piece of software, and bugs do exist.</p>
+<h3 id="maintenance-time"><a class="header" href="#maintenance-time">Maintenance time</a></h3>
+<p>The Rust project supports the most recent stable version. When a new stable
+version is released, the old version reaches its end of life (EOL). This means
+each version is supported for six weeks.</p>
+<h3 id="unstable-features"><a class="header" href="#unstable-features">Unstable Features</a></h3>
+<p>There’s one more catch with this release model: unstable features. Rust uses a
+technique called “feature flags” to determine what features are enabled in a
+given release. If a new feature is under active development, it lands on the
+main branch, and therefore, in nightly, but behind a <em>feature flag</em>. If you, as
+a user, wish to try out the work-in-progress feature, you can, but you must be
+using a nightly release of Rust and annotate your source code with the
+appropriate flag to opt in.</p>
+<p>If you’re using a beta or stable release of Rust, you can’t use any feature
+flags. This is the key that allows us to get practical use with new features
+before we declare them stable forever. Those who wish to opt into the bleeding
+edge can do so, and those who want a rock-solid experience can stick with
+stable and know that their code won’t break. Stability without stagnation.</p>
+<p>This book only contains information about stable features, as in-progress
+features are still changing, and surely they’ll be different between when this
+book was written and when they get enabled in stable builds. You can find
+documentation for nightly-only features online.</p>
+<h3 id="rustup-and-the-role-of-rust-nightly"><a class="header" href="#rustup-and-the-role-of-rust-nightly">Rustup and the Role of Rust Nightly</a></h3>
+<p>Rustup makes it easy to change between different release channels of Rust, on a
+global or per-project basis. By default, you’ll have stable Rust installed. To
+install nightly, for example:</p>
 <pre><code class="language-console">$ rustup toolchain install nightly
 </code></pre>
-<p data-x-en="You can see all of the toolchains (releases of Rust and associated components) you have installed with rustup as well. Here’s an example on one of your authors’ Windows computer:">你可以使用 <code>rustup</code> 查看你已安装的所有 <em>工具链</em>（Rust 和相关组件的发行版）。以下是一个作者在 Windows 计算机上的示例：</p>
+<p>You can see all of the <em>toolchains</em> (releases of Rust and associated
+components) you have installed with <code>rustup</code> as well. Here’s an example on one
+of your authors’ Windows computer:</p>
 <pre><code class="language-powershell">&gt; rustup toolchain list
 stable-x86_64-pc-windows-msvc (default)
 beta-x86_64-pc-windows-msvc
 nightly-x86_64-pc-windows-msvc
 </code></pre>
-<p data-x-en="As you can see, the stable toolchain is the default. Most Rust users use stable most of the time. You might want to use stable most of the time, but use nightly on a specific project, because you care about a cutting-edge feature. To do so, you can use rustup override in that project’s directory to set the nightly toolchain as the one rustup should use when you’re in that directory:">如您所见，默认工具链是稳定的。大多数 Rust 用户大多数时间使用稳定版本。您可能大多数时间也想使用稳定版本，但在某个特定项目中使用夜间版，因为您关心一个前沿特性。为此，您可以在该项目的目录中使用 <code>rustup override</code> 将夜间工具链设置为 <code>rustup</code> 在您处于该目录时应使用的工具链：</p>
+<p>As you can see, the stable toolchain is the default. Most Rust users use stable
+most of the time. You might want to use stable most of the time, but use
+nightly on a specific project, because you care about a cutting-edge feature.
+To do so, you can use <code>rustup override</code> in that project’s directory to set the
+nightly toolchain as the one <code>rustup</code> should use when you’re in that directory:</p>
 <pre><code class="language-console">$ cd ~/projects/needs-nightly
 $ rustup override set nightly
 </code></pre>
-<p data-x-en="Now, every time you call rustc or cargo inside of ~/projects/needs-nightly, rustup will make sure that you are using nightly Rust, rather than your default of stable Rust. This comes in handy when you have a lot of Rust projects!">现在，每次你在 <em>~/projects/needs-nightly</em> 目录下调用 <code>rustc</code> 或 <code>cargo</code> 时，<code>rustup</code> 都会确保你使用的是 nightly Rust，而不是默认的 stable Rust。当你有很多 Rust 项目时，这非常有用！</p>
-<h3 id="the-rfc-process-and-teams"><a class="header" href="#the-rfc-process-and-teams">RFC流程和团队</a></h3>
-<p data-x-en="So how do you learn about these new features? Rust’s development model follows a Request For Comments (RFC) process. If you’d like an improvement in Rust, you can write up a proposal, called an RFC.">那么你如何了解这些新功能呢？Rust 的开发模式遵循 <em>请求评论 (RFC) 过程</em>。如果你希望在 Rust 中进行改进，可以撰写一个提案，称为 RFC。</p>
-<p data-x-en="Anyone can write RFCs to improve Rust, and the proposals are reviewed and discussed by the Rust team, which is comprised of many topic subteams. There’s a full list of the teams on Rust’s website, which includes teams for each area of the project: language design, compiler implementation, infrastructure, documentation, and more. The appropriate team reads the proposal and the comments, writes some comments of their own, and eventually, there’s consensus to accept or reject the feature.">任何人都可以编写 RFC 来改进 Rust，提案由 Rust 团队审查和讨论，该团队由许多主题子团队组成。<a href="https://www.rust-lang.org/governance">Rust 的网站</a> 上有团队的完整列表，包括项目每个领域的团队：语言设计、编译器实现、基础设施、文档等。合适的团队会阅读提案和评论，写下他们自己的评论，最终，就接受或拒绝该功能达成共识。</p>
-<p data-x-en="If the feature is accepted, an issue is opened on the Rust repository, and someone can implement it. The person who implements it very well may not be the person who proposed the feature in the first place! When the implementation is ready, it lands on the main branch behind a feature gate, as we discussed in the “Unstable Features” section.">如果该特性被接受，将在 Rust 仓库中开启一个 issue，然后有人可以实现它。实现它的人可能并不是最初提出该特性的人！当实现准备就绪时，它将在特性门后登陆主分支，正如我们在 <a href="#unstable-features">“不稳定特性”</a> 部分讨论的那样。</p>
-<p data-x-en="After some time, once Rust developers who use nightly releases have been able to try out the new feature, team members will discuss the feature, how it’s worked out on nightly, and decide if it should make it into stable Rust or not. If the decision is to move forward, the feature gate is removed, and the feature is now considered stable! It rides the trains into a new stable release of Rust.">一段时间后，一旦使用夜间版本的 Rust 开发者能够尝试新功能，团队成员将讨论该功能，以及它在夜间版本中的表现，并决定是否将其纳入稳定的 Rust 中。如果决定继续推进，功能门将被移除，该功能现在被视为稳定！它将随着火车进入 Rust 的新稳定版本。</p>
+<p>Now, every time you call <code>rustc</code> or <code>cargo</code> inside of
+<em>~/projects/needs-nightly</em>, <code>rustup</code> will make sure that you are using nightly
+Rust, rather than your default of stable Rust. This comes in handy when you
+have a lot of Rust projects!</p>
+<h3 id="the-rfc-process-and-teams"><a class="header" href="#the-rfc-process-and-teams">The RFC Process and Teams</a></h3>
+<p>So how do you learn about these new features? Rust’s development model follows
+a <em>Request For Comments (RFC) process</em>. If you’d like an improvement in Rust,
+you can write up a proposal, called an RFC.</p>
+<p>Anyone can write RFCs to improve Rust, and the proposals are reviewed and
+discussed by the Rust team, which is comprised of many topic subteams. There’s
+a full list of the teams <a href="https://www.rust-lang.org/governance">on Rust’s website</a>, which includes teams for
+each area of the project: language design, compiler implementation,
+infrastructure, documentation, and more. The appropriate team reads the
+proposal and the comments, writes some comments of their own, and eventually,
+there’s consensus to accept or reject the feature.</p>
+<p>If the feature is accepted, an issue is opened on the Rust repository, and
+someone can implement it. The person who implements it very well may not be the
+person who proposed the feature in the first place! When the implementation is
+ready, it lands on the main branch behind a feature gate, as we discussed in
+the <a href="#unstable-features">“Unstable Features”</a><!-- ignore --> section.</p>
+<p>After some time, once Rust developers who use nightly releases have been able
+to try out the new feature, team members will discuss the feature, how it’s
+worked out on nightly, and decide if it should make it into stable Rust or not.
+If the decision is to move forward, the feature gate is removed, and the
+feature is now considered stable! It rides the trains into a new stable release
+of Rust.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="appendix-06-translation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
 
@@ -340,13 +422,18 @@ $ rustup override set nightly
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="appendix-06-translation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -355,16 +442,16 @@ $ rustup override set nightly
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

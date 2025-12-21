@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch20-04-advanced-functions-and-closures.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,50 +212,64 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
-                        <h2 id="advanced-functions-and-closures"><a class="header" href="#advanced-functions-and-closures">高级函数和闭包</a></h2>
-<p data-x-en="This section explores some advanced features related to functions and closures, including function pointers and returning closures.">本节探讨了一些与函数和闭包相关的高级特性，包括函数指针和返回闭包。</p>
-<h3 id="function-pointers"><a class="header" href="#function-pointers">函数指针</a></h3>
-<p data-x-en="We’ve talked about how to pass closures to functions; you can also pass regular functions to functions! This technique is useful when you want to pass a function you’ve already defined rather than defining a new closure. Functions coerce to the type fn (with a lowercase f), not to be confused with the Fn closure trait. The fn type is called a function pointer. Passing functions with function pointers will allow you to use functions as arguments to other functions.">我们已经讨论了如何将闭包传递给函数；你也可以将普通函数传递给函数！当你想传递一个已经定义的函数而不是定义一个新的闭包时，这种技术非常有用。函数会强制转换为类型<code>fn</code>（小写的f），不要与<code>Fn</code>闭包特征混淆。<code>fn</code>类型被称为<em>函数指针</em>。通过函数指针传递函数将允许你将函数作为其他函数的参数使用。</p>
-<p data-x-en="The syntax for specifying that a parameter is a function pointer is similar to that of closures, as shown in Listing 20-28, where we’ve defined a function add_one that adds 1 to its parameter. The function do_twice takes two parameters: a function pointer to any function that takes an i32 parameter and returns an i32, and one i32 value. The do_twice function calls the function f twice, passing it the arg value, then adds the two function call results together. The main function calls do_twice with the arguments add_one and 5.">指定参数为函数指针的语法与闭包的语法相似，如清单 20-28 所示，我们定义了一个将 1 加到其参数上的函数 <code>add_one</code>。函数 <code>do_twice</code> 接受两个参数：一个指向任何接受 <code>i32</code> 参数并返回 <code>i32</code> 的函数的函数指针，以及一个 <code>i32</code> 值。<code>do_twice</code> 函数调用函数 <code>f</code> 两次，传递给它 <code>arg</code> 值，然后将两次函数调用的结果相加。<code>main</code> 函数使用参数 <code>add_one</code> 和 <code>5</code> 调用 <code>do_twice</code>。</p>
+                        <h2 id="advanced-functions-and-closures"><a class="header" href="#advanced-functions-and-closures">Advanced Functions and Closures</a></h2>
+<p>This section explores some advanced features related to functions and closures,
+including function pointers and returning closures.</p>
+<h3 id="function-pointers"><a class="header" href="#function-pointers">Function Pointers</a></h3>
+<p>We’ve talked about how to pass closures to functions; you can also pass regular
+functions to functions! This technique is useful when you want to pass a
+function you’ve already defined rather than defining a new closure. Functions
+coerce to the type <code>fn</code> (with a lowercase <em>f</em>), not to be confused with the
+<code>Fn</code> closure trait. The <code>fn</code> type is called a <em>function pointer</em>. Passing
+functions with function pointers will allow you to use functions as arguments
+to other functions.</p>
+<p>The syntax for specifying that a parameter is a function pointer is similar to
+that of closures, as shown in Listing 20-28, where we’ve defined a function
+<code>add_one</code> that adds 1 to its parameter. The function <code>do_twice</code> takes two
+parameters: a function pointer to any function that takes an <code>i32</code> parameter
+and returns an <code>i32</code>, and one <code>i32</code> value. The <code>do_twice</code> function calls the
+function <code>f</code> twice, passing it the <code>arg</code> value, then adds the two function call
+results together. The <code>main</code> function calls <code>do_twice</code> with the arguments
+<code>add_one</code> and <code>5</code>.</p>
 <figure class="listing" id="listing-20-28">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">fn add_one(x: i32) -&gt; i32 {
+<pre class="playground"><code class="language-rust edition2024">fn add_one(x: i32) -&gt; i32 {
     x + 1
 }
 
@@ -268,61 +281,98 @@ fn main() {
     let answer = do_twice(add_one, 5);
 
     println!("The answer is: {answer}");
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-20-28">Listing 20-28</a>: Using the <code>fn</code> type to accept a function pointer as an argument</figcaption>
 </figure>
-<p data-x-en="This code prints The answer is: 12. We specify that the parameter f in do_twice is an fn that takes one parameter of type i32 and returns an i32. We can then call f in the body of do_twice. In main, we can pass the function name add_one as the first argument to do_twice.">这段代码打印 <code>The answer is: 12</code>。我们指定 <code>do_twice</code> 中的参数 <code>f</code> 是一个接受一个 <code>i32</code> 类型参数并返回一个 <code>i32</code> 的 <code>fn</code>。然后我们可以在 <code>do_twice</code> 的函数体中调用 <code>f</code>。在 <code>main</code> 中，我们可以将函数名 <code>add_one</code> 作为 <code>do_twice</code> 的第一个参数传递。</p>
-<p data-x-en="Unlike closures, fn is a type rather than a trait, so we specify fn as the parameter type directly rather than declaring a generic type parameter with one of the Fn traits as a trait bound.">与闭包不同，<code>fn</code> 是一个类型而不是特质，因此我们直接将 <code>fn</code> 指定为参数类型，而不是声明一个带有 <code>Fn</code> 特质之一作为特质约束的泛型类型参数。</p>
-<p data-x-en="Function pointers implement all three of the closure traits (Fn, FnMut, and FnOnce), meaning you can always pass a function pointer as an argument for a function that expects a closure. It’s best to write functions using a generic type and one of the closure traits so that your functions can accept either functions or closures.">函数指针实现了所有三个闭包特征（<code>Fn</code>、<code>FnMut</code> 和 <code>FnOnce</code>），这意味着你总是可以将函数指针作为参数传递给期望闭包的函数。最好使用泛型类型和其中一个闭包特征来编写函数，这样你的函数可以接受函数或闭包。</p>
-<p data-x-en="That said, one example of where you would want to only accept fn and not closures is when interfacing with external code that doesn’t have closures: C functions can accept functions as arguments, but C doesn’t have closures.">也就是说，一个你只想接受<code>fn</code>而不接受闭包的例子是在与没有闭包的外部代码接口时：C 函数可以接受函数作为参数，但 C 没有闭包。</p>
-<p data-x-en="As an example of where you could use either a closure defined inline or a named function, let’s look at a use of the map method provided by the Iterator trait in the standard library. To use the map method to turn a vector of numbers into a vector of strings, we could use a closure, as in Listing 20-29.">作为可以使用内联定义的闭包或命名函数的示例，让我们看看标准库中 <code>Iterator</code> 特性提供的 <code>map</code> 方法的用法。为了使用 <code>map</code> 方法将数字向量转换为字符串向量，我们可以使用闭包，如列表 20-29 所示。</p>
+<p>This code prints <code>The answer is: 12</code>. We specify that the parameter <code>f</code> in
+<code>do_twice</code> is an <code>fn</code> that takes one parameter of type <code>i32</code> and returns an
+<code>i32</code>. We can then call <code>f</code> in the body of <code>do_twice</code>. In <code>main</code>, we can pass
+the function name <code>add_one</code> as the first argument to <code>do_twice</code>.</p>
+<p>Unlike closures, <code>fn</code> is a type rather than a trait, so we specify <code>fn</code> as the
+parameter type directly rather than declaring a generic type parameter with one
+of the <code>Fn</code> traits as a trait bound.</p>
+<p>Function pointers implement all three of the closure traits (<code>Fn</code>, <code>FnMut</code>, and
+<code>FnOnce</code>), meaning you can always pass a function pointer as an argument for a
+function that expects a closure. It’s best to write functions using a generic
+type and one of the closure traits so that your functions can accept either
+functions or closures.</p>
+<p>That said, one example of where you would want to only accept <code>fn</code> and not
+closures is when interfacing with external code that doesn’t have closures: C
+functions can accept functions as arguments, but C doesn’t have closures.</p>
+<p>As an example of where you could use either a closure defined inline or a named
+function, let’s look at a use of the <code>map</code> method provided by the <code>Iterator</code>
+trait in the standard library. To use the <code>map</code> method to turn a vector of
+numbers into a vector of strings, we could use a closure, as in Listing 20-29.</p>
 <figure class="listing" id="listing-20-29">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let list_of_numbers = vec![1, 2, 3];
     let list_of_strings: Vec&lt;String&gt; =
         list_of_numbers.iter().map(|i| i.to_string()).collect();
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-20-29">Listing 20-29</a>: Using a closure with the <code>map</code> method to convert numbers to strings</figcaption>
 </figure>
-<p data-x-en="Or we could name a function as the argument to map instead of the closure. Listing 20-30 shows what this would look like.">或者我们可以将一个函数命名为 map 的参数，而不是闭包。
-列表 20-30 显示了这将是什么样子。</p>
+<p>Or we could name a function as the argument to <code>map</code> instead of the closure.
+Listing 20-30 shows what this would look like.</p>
 <figure class="listing" id="listing-20-30">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let list_of_numbers = vec![1, 2, 3];
     let list_of_strings: Vec&lt;String&gt; =
         list_of_numbers.iter().map(ToString::to_string).collect();
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-20-30">Listing 20-30</a>: Using the <code>String::to_string</code> function with the <code>map</code> method to convert numbers to strings</figcaption>
 </figure>
-<p data-x-en="Note that we must use the fully qualified syntax that we talked about in the “Advanced Traits” section because there are multiple functions available named to_string.">请注意，我们必须使用我们在<a href="ch20-02-advanced-traits.html#advanced-traits">“高级特质”</a>部分讨论的完全限定语法，因为有多个名为<code>to_string</code>的函数可用。</p>
-<p data-x-en="Here, we’re using the to_string function defined in the ToString trait, which the standard library has implemented for any type that implements Display.">这里，我们使用了 <code>ToString</code> 特性中定义的 <code>to_string</code> 函数，标准库为任何实现了 <code>Display</code> 的类型实现了这个特性。</p>
-<p data-x-en="Recall from the “Enum Values” section in Chapter 6 that the name of each enum variant that we define also becomes an initializer function. We can use these initializer functions as function pointers that implement the closure traits, which means we can specify the initializer functions as arguments for methods that take closures, as seen in Listing 20-31.">回想第 6 章<a href="ch06-01-defining-an-enum.html#enum-values">“枚举值”</a>部分，我们定义的每个枚举变体的名称也变成了一个初始化函数。我们可以将这些初始化函数用作实现闭包特征的函数指针，这意味着我们可以将初始化函数指定为接受闭包的方法的参数，如示例 20-31 所示。</p>
+<p>Note that we must use the fully qualified syntax that we talked about in the
+<a href="ch20-02-advanced-traits.html#advanced-traits">“Advanced Traits”</a><!-- ignore --> section because there are
+multiple functions available named <code>to_string</code>.</p>
+<p>Here, we’re using the <code>to_string</code> function defined in the <code>ToString</code> trait,
+which the standard library has implemented for any type that implements
+<code>Display</code>.</p>
+<p>Recall from the <a href="ch06-01-defining-an-enum.html#enum-values">“Enum Values”</a><!-- ignore --> section in Chapter
+6 that the name of each enum variant that we define also becomes an initializer
+function. We can use these initializer functions as function pointers that
+implement the closure traits, which means we can specify the initializer
+functions as arguments for methods that take closures, as seen in Listing 20-31.</p>
 <figure class="listing" id="listing-20-31">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    enum Status {
         Value(u32),
         Stop,
     }
 
     let list_of_statuses: Vec&lt;Status&gt; = (0u32..20).map(Status::Value).collect();
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-20-31">Listing 20-31</a>: Using an enum initializer with the <code>map</code> method to create a <code>Status</code> instance from numbers</figcaption>
 </figure>
-<p data-x-en="Here, we create Status::Value instances using each u32 value in the range that map is called on by using the initializer function of Status::Value. Some people prefer this style and some people prefer to use closures. They compile to the same code, so use whichever style is clearer to you.">在这里，我们使用 <code>map</code> 被调用的范围中的每个 <code>u32</code> 值通过 <code>Status::Value</code> 的初始化函数来创建 <code>Status::Value</code> 实例。
-有些人喜欢这种风格，有些人则喜欢使用闭包。它们编译成相同的代码，所以使用对你来说更清晰的风格。</p>
-<h3 id="returning-closures"><a class="header" href="#returning-closures">返回闭包</a></h3>
-<p data-x-en="Closures are represented by traits, which means you can’t return closures directly. In most cases where you might want to return a trait, you can instead use the concrete type that implements the trait as the return value of the function. However, you can’t usually do that with closures because they don’t have a concrete type that is returnable; you’re not allowed to use the function pointer fn as a return type if the closure captures any values from its scope, for example.">闭包由特征（traits）表示，这意味着你不能直接返回闭包。在大多数你可能想要返回特征的情况下，你可以改用实现该特征的具体类型作为函数的返回值。然而，通常你不能对闭包这样做，因为它们没有可返回的具体类型；例如，如果闭包捕获了其作用域中的任何值，你不能使用函数指针 <code>fn</code> 作为返回类型。</p>
-<p data-x-en="Instead, you will normally use the impl Trait syntax we learned about in Chapter 10. You can return any function type, using Fn, FnOnce, and FnMut. For example, the code in Listing 20-32 will compile just fine.">相反，你通常会使用我们在第 10 章中学到的 <code>impl Trait</code> 语法。你可以返回任何函数类型，使用 <code>Fn</code>、<code>FnOnce</code> 和 <code>FnMut</code>。例如，列表 20-32 中的代码将顺利编译。</p>
+<p>Here, we create <code>Status::Value</code> instances using each <code>u32</code> value in the range
+that <code>map</code> is called on by using the initializer function of <code>Status::Value</code>.
+Some people prefer this style and some people prefer to use closures. They
+compile to the same code, so use whichever style is clearer to you.</p>
+<h3 id="returning-closures"><a class="header" href="#returning-closures">Returning Closures</a></h3>
+<p>Closures are represented by traits, which means you can’t return closures
+directly. In most cases where you might want to return a trait, you can instead
+use the concrete type that implements the trait as the return value of the
+function. However, you can’t usually do that with closures because they don’t
+have a concrete type that is returnable; you’re not allowed to use the function
+pointer <code>fn</code> as a return type if the closure captures any values from its
+scope, for example.</p>
+<p>Instead, you will normally use the <code>impl Trait</code> syntax we learned about in
+Chapter 10. You can return any function type, using <code>Fn</code>, <code>FnOnce</code>, and <code>FnMut</code>.
+For example, the code in Listing 20-32 will compile just fine.</p>
 <figure class="listing" id="listing-20-32">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>fn returns_closure() -&gt; impl Fn(i32) -&gt; i32 {
     |x| x + 1
 }
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-20-32">Listing 20-32</a>: Returning a closure from a function using the <code>impl Trait</code> syntax</figcaption>
 </figure>
-<p data-x-en="However, as we noted in the “Inferring and Annotating Closure Types” section in Chapter 13, each closure is also its own distinct type. If you need to work with multiple functions that have the same signature but different implementations, you will need to use a trait object for them. Consider what happens if you write code like that shown in Listing 20-33.">然而，正如我们在第 13 章的 <a href="ch13-01-closures.html#closure-type-inference-and-annotation">“推断和注解闭包类型”</a> 部分中提到的，每个闭包也是其自身独特的类型。如果你需要处理具有相同签名但实现不同的多个函数，你将需要使用特质对象。考虑一下如果你编写如清单 20-33 所示的代码会发生什么。</p>
+<p>However, as we noted in the <a href="ch13-01-closures.html#closure-type-inference-and-annotation">“Inferring and Annotating Closure
+Types”</a><!-- ignore --> section in Chapter 13, each closure is
+also its own distinct type. If you need to work with multiple functions that
+have the same signature but different implementations, you will need to use a
+trait object for them. Consider what happens if you write code like that shown
+in Listing 20-33.</p>
 <figure class="listing" id="listing-20-33">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore does_not_compile">fn main() {
@@ -342,7 +392,10 @@ fn returns_initialized_closure(init: i32) -&gt; impl Fn(i32) -&gt; i32 {
 }</code></pre>
 <figcaption><a href="#listing-20-33">Listing 20-33</a>: Creating a <code>Vec&lt;T&gt;</code> of closures defined by functions that return <code>impl Fn</code> types</figcaption>
 </figure>
-<p data-x-en="Here we have two functions, returns_closure and returns_initialized_closure, which both return impl Fn(i32) -> i32. Notice that the closures that they return are different, even though they implement the same type. If we try to compile this, Rust lets us know that it won’t work:">这里我们有两个函数，<code>returns_closure</code> 和 <code>returns_initialized_closure</code>，它们都返回 <code>impl Fn(i32) -&gt; i32</code>。请注意，它们返回的闭包是不同的，即使它们实现了相同的类型。如果我们尝试编译这个代码，Rust 会告诉我们这行不通：</p>
+<p>Here we have two functions, <code>returns_closure</code> and <code>returns_initialized_closure</code>,
+which both return <code>impl Fn(i32) -&gt; i32</code>. Notice that the closures that they
+return are different, even though they implement the same type. If we try to
+compile this, Rust lets us know that it won’t work:</p>
 <pre><code class="language-text">$ cargo build
    Compiling functions-example v0.1.0 (file:///projects/functions-example)
 error[E0308]: mismatched types
@@ -364,9 +417,18 @@ error[E0308]: mismatched types
 For more information about this error, try `rustc --explain E0308`.
 error: could not compile `functions-example` (bin "functions-example") due to 1 previous error
 </code></pre>
-<p data-x-en="The error message tells us that whenever we return an impl Trait, Rust creates a unique opaque type, a type where we cannot see into the details of what Rust constructs for us, nor can we guess the type Rust will generate to write ourselves. So, even though these functions return closures that implement the same trait, Fn(i32) -> i32, the opaque types Rust generates for each are distinct. (This is similar to how Rust produces different concrete types for distinct async blocks even when they have the same output type, as we saw in “The Pin Type and the Unpin Trait” in Chapter 17.) We have seen a solution to this problem a few times now: We can use a trait object, as in Listing 20-34.">错误信息告诉我们，每当我们返回一个<code>impl Trait</code>时，Rust 会创建一个独特的<em>不透明类型</em>，这是一种我们无法看到 Rust 为我们构建的详细信息，也无法猜测 Rust 将生成的类型来自己编写的类型。因此，即使这些函数返回实现相同特质的闭包，<code>Fn(i32) -&gt; i32</code>，Rust 为每个生成的不透明类型也是不同的。（这类似于 Rust 为不同的异步块生成不同的具体类型，即使它们具有相同的输出类型，正如我们在<a href="ch17-03-more-futures.html">“<code>Pin</code> 类型和 <code>Unpin</code> 特质”</a><!-- ignore --> 第 17 章中所见。）我们已经多次看到这个问题的解决方案：我们可以使用特质对象，如列表 20-34 所示。</p>
+<p>The error message tells us that whenever we return an <code>impl Trait</code>, Rust
+creates a unique <em>opaque type</em>, a type where we cannot see into the details of
+what Rust constructs for us, nor can we guess the type Rust will generate to
+write ourselves. So, even though these functions return closures that implement
+the same trait, <code>Fn(i32) -&gt; i32</code>, the opaque types Rust generates for each are
+distinct. (This is similar to how Rust produces different concrete types for
+distinct async blocks even when they have the same output type, as we saw in
+<a href="ch17-03-more-futures.html">“The <code>Pin</code> Type and the <code>Unpin</code> Trait”</a><!-- ignore --> in
+Chapter 17.) We have seen a solution to this problem a few times now: We can
+use a trait object, as in Listing 20-34.</p>
 <figure class="listing" id="listing-20-34">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span><span class="boring">    let handlers = vec![returns_closure(), returns_initialized_closure(123)];
 </span><span class="boring">    for handler in handlers {
 </span><span class="boring">        let output = handler(5);
@@ -380,22 +442,24 @@ error: could not compile `functions-example` (bin "functions-example") due to 1 
 
 fn returns_initialized_closure(init: i32) -&gt; Box&lt;dyn Fn(i32) -&gt; i32&gt; {
     Box::new(move |x| x + init)
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-20-34">Listing 20-34</a>: Creating a <code>Vec&lt;T&gt;</code> of closures defined by functions that return <code>Box&lt;dyn Fn&gt;</code> so that they have the same type</figcaption>
 </figure>
-<p data-x-en="This code will compile just fine. For more about trait objects, refer to the section “Using Trait Objects To Abstract over Shared Behavior” in Chapter 18.">这段代码可以顺利编译。有关 trait 对象的更多信息，请参阅第 18 章的 <a href="ch18-02-trait-objects.html">“使用 trait 对象抽象共享行为”</a> 部分。</p>
-<p data-x-en="Next, let’s look at macros!">接下来，让我们看看宏！</p>
+<p>This code will compile just fine. For more about trait objects, refer to the
+section <a href="ch18-02-trait-objects.html">“Using Trait Objects To Abstract over Shared
+Behavior”</a><!-- ignore --> in Chapter 18.</p>
+<p>Next, let’s look at macros!</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch20-03-advanced-types.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch20-05-macros.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -405,16 +469,21 @@ fn returns_initialized_closure(init: i32) -&gt; Box&lt;dyn Fn(i32) -&gt; i32&gt;
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch20-03-advanced-types.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch20-05-macros.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -423,16 +492,16 @@ fn returns_initialized_closure(init: i32) -&gt; Box&lt;dyn Fn(i32) -&gt; i32&gt;
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

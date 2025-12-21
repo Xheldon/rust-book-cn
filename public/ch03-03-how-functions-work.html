@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch03-03-how-functions-work.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,48 +212,52 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
-                        <h2 id="functions"><a class="header" href="#functions">函数</a></h2>
-<p data-x-en="Functions are prevalent in Rust code. You’ve already seen one of the most important functions in the language: the main function, which is the entry point of many programs. You’ve also seen the fn keyword, which allows you to declare new functions.">函数在 Rust 代码中非常普遍。您已经看到了语言中最重要的函数之一：<code>main</code> 函数，它是许多程序的入口点。您还看到了 <code>fn</code> 关键字，它允许您声明新函数。</p>
-<p data-x-en="Rust code uses snake case as the conventional style for function and variable names, in which all letters are lowercase and underscores separate words. Here’s a program that contains an example function definition:">Rust 代码使用 <em>蛇形命名法</em> 作为函数和变量名的约定风格，其中所有字母都是小写，单词之间用下划线分隔。
-这里有一个包含示例函数定义的程序：</p>
-<p data-x-en="Filename: src/main.rs"><span class="filename">文件名: src/main.rs</span></p>
-<pre><pre class="playground"><code class="language-rust edition2024">fn main() {
+                        <h2 id="functions"><a class="header" href="#functions">Functions</a></h2>
+<p>Functions are prevalent in Rust code. You’ve already seen one of the most
+important functions in the language: the <code>main</code> function, which is the entry
+point of many programs. You’ve also seen the <code>fn</code> keyword, which allows you to
+declare new functions.</p>
+<p>Rust code uses <em>snake case</em> as the conventional style for function and variable
+names, in which all letters are lowercase and underscores separate words.
+Here’s a program that contains an example function definition:</p>
+<p><span class="filename">Filename: src/main.rs</span></p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
     println!("Hello, world!");
 
     another_function();
@@ -262,10 +265,19 @@ blockquote {
 
 fn another_function() {
     println!("Another function.");
-}</code></pre></pre>
-<p data-x-en="We define a function in Rust by entering fn followed by a function name and a set of parentheses. The curly brackets tell the compiler where the function body begins and ends.">我们在 Rust 中通过输入 <code>fn</code> 后跟函数名和一组括号来定义函数。大括号告诉编译器函数体的开始和结束位置。</p>
-<p data-x-en="We can call any function we’ve defined by entering its name followed by a set of parentheses. Because another_function is defined in the program, it can be called from inside the main function. Note that we defined another_function after the main function in the source code; we could have defined it before as well. Rust doesn’t care where you define your functions, only that they’re defined somewhere in a scope that can be seen by the caller.">我们可以通过输入函数名后跟一组括号来调用任何已定义的函数。因为 <code>another_function</code> 在程序中定义了，所以可以从 <code>main</code> 函数内部调用它。请注意，我们在源代码中 <em>在</em> <code>main</code> 函数 <em>之后</em> 定义了 <code>another_function</code>；我们也可以在 <code>main</code> 函数之前定义它。Rust 不关心你在哪里定义函数，只关心它们在调用者可以看见的作用域中被定义。</p>
-<p data-x-en="Let’s start a new binary project named functions to explore functions further. Place the another_function example in src/main.rs and run it. You should see the following output:">让我们开始一个名为 <em>functions</em> 的新二进制项目，以进一步探索函数。将 <code>another_function</code> 示例放在 <em>src/main.rs</em> 中并运行它。你应该看到以下输出：</p>
+}</code></pre>
+<p>We define a function in Rust by entering <code>fn</code> followed by a function name and a
+set of parentheses. The curly brackets tell the compiler where the function
+body begins and ends.</p>
+<p>We can call any function we’ve defined by entering its name followed by a set
+of parentheses. Because <code>another_function</code> is defined in the program, it can be
+called from inside the <code>main</code> function. Note that we defined <code>another_function</code>
+<em>after</em> the <code>main</code> function in the source code; we could have defined it before
+as well. Rust doesn’t care where you define your functions, only that they’re
+defined somewhere in a scope that can be seen by the caller.</p>
+<p>Let’s start a new binary project named <em>functions</em> to explore functions
+further. Place the <code>another_function</code> example in <em>src/main.rs</em> and run it. You
+should see the following output:</p>
 <pre><code class="language-console">$ cargo run
    Compiling functions v0.1.0 (file:///projects/functions)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.28s
@@ -273,67 +285,100 @@ fn another_function() {
 Hello, world!
 Another function.
 </code></pre>
-<p data-x-en="The lines execute in the order in which they appear in the main function. First the “Hello, world!” message prints, and then another_function is called and its message is printed.">这些行按照它们在<code>main</code>函数中出现的顺序执行。首先打印“Hello, world!”消息，然后调用<code>another_function</code>并打印其消息。</p>
-<h3 id="parameters"><a class="header" href="#parameters">参数</a></h3>
-<p data-x-en="We can define functions to have parameters, which are special variables that are part of a function’s signature. When a function has parameters, you can provide it with concrete values for those parameters. Technically, the concrete values are called arguments, but in casual conversation, people tend to use the words parameter and argument interchangeably for either the variables in a function’s definition or the concrete values passed in when you call a function.">我们可以定义具有 <em>参数</em> 的函数，这些参数是函数签名中的一部分特殊变量。当函数具有参数时，您可以为这些参数提供具体的值。从技术上讲，这些具体的值被称为 <em>参数</em>，但在非正式的对话中，人们倾向于将 <em>参数</em> 和 <em>参数</em> 这两个词互换使用，无论是函数定义中的变量还是调用函数时传递的具体值。</p>
-<p data-x-en="In this version of another_function we add a parameter:">在这一版本的<code>another_function</code>中，我们添加了一个参数：</p>
-<p data-x-en="Filename: src/main.rs"><span class="filename">文件名: src/main.rs</span></p>
-<pre><pre class="playground"><code class="language-rust edition2024">fn main() {
+<p>The lines execute in the order in which they appear in the <code>main</code> function.
+First the “Hello, world!” message prints, and then <code>another_function</code> is called
+and its message is printed.</p>
+<h3 id="parameters"><a class="header" href="#parameters">Parameters</a></h3>
+<p>We can define functions to have <em>parameters</em>, which are special variables that
+are part of a function’s signature. When a function has parameters, you can
+provide it with concrete values for those parameters. Technically, the concrete
+values are called <em>arguments</em>, but in casual conversation, people tend to use
+the words <em>parameter</em> and <em>argument</em> interchangeably for either the variables
+in a function’s definition or the concrete values passed in when you call a
+function.</p>
+<p>In this version of <code>another_function</code> we add a parameter:</p>
+<p><span class="filename">Filename: src/main.rs</span></p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
     another_function(5);
 }
 
 fn another_function(x: i32) {
     println!("The value of x is: {x}");
-}</code></pre></pre>
-<p data-x-en="Try running this program; you should get the following output:">尝试运行此程序；您应该得到以下输出：</p>
+}</code></pre>
+<p>Try running this program; you should get the following output:</p>
 <pre><code class="language-console">$ cargo run
    Compiling functions v0.1.0 (file:///projects/functions)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.21s
      Running `target/debug/functions`
 The value of x is: 5
 </code></pre>
-<p data-x-en="The declaration of another_function has one parameter named x. The type of x is specified as i32. When we pass 5 in to another_function, the println! macro puts 5 where the pair of curly brackets containing x was in the format string."><code>another_function</code> 的声明有一个名为 <code>x</code> 的参数。 <code>x</code> 的类型被指定为 <code>i32</code>。当我们传递 <code>5</code> 给 <code>another_function</code> 时， <code>println!</code> 宏会将 <code>5</code> 放在格式字符串中包含 <code>x</code> 的大括号对的位置。</p>
-<p data-x-en="In function signatures, you must declare the type of each parameter. This is a deliberate decision in Rust’s design: Requiring type annotations in function definitions means the compiler almost never needs you to use them elsewhere in the code to figure out what type you mean. The compiler is also able to give more-helpful error messages if it knows what types the function expects.">在函数签名中，你<em>必须</em>声明每个参数的类型。这是 Rust 设计中的一个故意决定：要求在函数定义中使用类型注解意味着编译器几乎不需要你在代码的其他地方使用它们来确定你指的是什么类型。如果编译器知道函数期望的类型，它也能够给出更有帮助的错误信息。</p>
-<p data-x-en="When defining multiple parameters, separate the parameter declarations with commas, like this:">当定义多个参数时，用逗号分隔参数声明，如下所示：</p>
-<p data-x-en="Filename: src/main.rs"><span class="filename">文件名: src/main.rs</span></p>
-<pre><pre class="playground"><code class="language-rust edition2024">fn main() {
+<p>The declaration of <code>another_function</code> has one parameter named <code>x</code>. The type of
+<code>x</code> is specified as <code>i32</code>. When we pass <code>5</code> in to <code>another_function</code>, the
+<code>println!</code> macro puts <code>5</code> where the pair of curly brackets containing <code>x</code> was
+in the format string.</p>
+<p>In function signatures, you <em>must</em> declare the type of each parameter. This is
+a deliberate decision in Rust’s design: Requiring type annotations in function
+definitions means the compiler almost never needs you to use them elsewhere in
+the code to figure out what type you mean. The compiler is also able to give
+more-helpful error messages if it knows what types the function expects.</p>
+<p>When defining multiple parameters, separate the parameter declarations with
+commas, like this:</p>
+<p><span class="filename">Filename: src/main.rs</span></p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
     print_labeled_measurement(5, 'h');
 }
 
 fn print_labeled_measurement(value: i32, unit_label: char) {
     println!("The measurement is: {value}{unit_label}");
-}</code></pre></pre>
-<p data-x-en="This example creates a function named print_labeled_measurement with two parameters. The first parameter is named value and is an i32. The second is named unit_label and is type char. The function then prints text containing both the value and the unit_label.">这个示例创建了一个名为 <code>print_labeled_measurement</code> 的函数，该函数有两个参数。第一个参数名为 <code>value</code>，是一个 <code>i32</code>。第二个参数名为 <code>unit_label</code>，类型为 <code>char</code>。然后该函数打印包含 <code>value</code> 和 <code>unit_label</code> 的文本。</p>
-<p data-x-en="Let’s try running this code. Replace the program currently in your functions project’s src/main.rs file with the preceding example and run it using cargo run:">让我们尝试运行这段代码。将 <em>functions</em> 项目中的 <em>src/main.rs</em> 文件中的当前程序替换为前面的示例，并使用 <code>cargo run</code> 运行它：</p>
+}</code></pre>
+<p>This example creates a function named <code>print_labeled_measurement</code> with two
+parameters. The first parameter is named <code>value</code> and is an <code>i32</code>. The second is
+named <code>unit_label</code> and is type <code>char</code>. The function then prints text containing
+both the <code>value</code> and the <code>unit_label</code>.</p>
+<p>Let’s try running this code. Replace the program currently in your <em>functions</em>
+project’s <em>src/main.rs</em> file with the preceding example and run it using <code>cargo run</code>:</p>
 <pre><code class="language-console">$ cargo run
    Compiling functions v0.1.0 (file:///projects/functions)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.31s
      Running `target/debug/functions`
 The measurement is: 5h
 </code></pre>
-<p data-x-en="Because we called the function with 5 as the value for value and 'h' as the value for unit_label, the program output contains those values.">因为我们将函数调用时使用 <code>5</code> 作为 <code>value</code> 的值，使用 <code>'h'</code> 作为 <code>unit_label</code> 的值，所以程序输出包含这些值。</p>
-<h3 id="statements-and-expressions"><a class="header" href="#statements-and-expressions">语句和表达式</a></h3>
-<p data-x-en="Function bodies are made up of a series of statements optionally ending in an expression. So far, the functions we’ve covered haven’t included an ending expression, but you have seen an expression as part of a statement. Because Rust is an expression-based language, this is an important distinction to understand. Other languages don’t have the same distinctions, so let’s look at what statements and expressions are and how their differences affect the bodies of functions.">函数体由一系列语句组成，可选地以一个表达式结束。到目前为止，我们讨论的函数还没有包含结束表达式，但你已经看到了作为语句一部分的表达式。因为 Rust 是一种基于表达式的语言，理解这一点非常重要。其他语言没有相同的区别，所以让我们看看语句和表达式是什么，以及它们的区别如何影响函数体。</p>
+<p>Because we called the function with <code>5</code> as the value for <code>value</code> and <code>'h'</code> as
+the value for <code>unit_label</code>, the program output contains those values.</p>
+<h3 id="statements-and-expressions"><a class="header" href="#statements-and-expressions">Statements and Expressions</a></h3>
+<p>Function bodies are made up of a series of statements optionally ending in an
+expression. So far, the functions we’ve covered haven’t included an ending
+expression, but you have seen an expression as part of a statement. Because
+Rust is an expression-based language, this is an important distinction to
+understand. Other languages don’t have the same distinctions, so let’s look at
+what statements and expressions are and how their differences affect the bodies
+of functions.</p>
 <ul>
-<li data-x-en="Statements are instructions that perform some action and do not return a value."><strong>语句</strong>是执行某些操作的指令，不会返回值。</li>
-<li data-x-en="Expressions evaluate to a resultant value.">表达式评估为一个结果值。</li>
+<li><em>Statements</em> are instructions that perform some action and do not return
+a value.</li>
+<li><em>Expressions</em> evaluate to a resultant value.</li>
 </ul>
-<p data-x-en="Let’s look at some examples.">让我们看一些例子。</p>
-<p data-x-en="We’ve actually already used statements and expressions. Creating a variable and assigning a value to it with the let keyword is a statement. In Listing 3-1, let y = 6; is a statement.">我们实际上已经使用过语句和表达式。使用 <code>let</code> 关键字创建变量并赋值是一个语句。在示例 3-1 中，<code>let y = 6;</code> 是一个语句。</p>
+<p>Let’s look at some examples.</p>
+<p>We’ve actually already used statements and expressions. Creating a variable and
+assigning a value to it with the <code>let</code> keyword is a statement. In Listing 3-1,
+<code>let y = 6;</code> is a statement.</p>
 <figure class="listing" id="listing-3-1">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">fn main() {
+<pre class="playground"><code class="language-rust edition2024">fn main() {
     let y = 6;
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-3-1">Listing 3-1</a>: A <code>main</code> function declaration containing one statement</figcaption>
 </figure>
-<p data-x-en="Function definitions are also statements; the entire preceding example is a statement in itself. (As we’ll see shortly, calling a function is not a statement, though.)">函数定义也是语句；前面整个例子本身就是一个语句。（我们很快会看到，调用函数并不是一个语句。）</p>
-<p data-x-en="Statements do not return values. Therefore, you can’t assign a let statement to another variable, as the following code tries to do; you’ll get an error:">语句不返回值。因此，你不能将一个 <code>let</code> 语句 赋值给另一个变量，如下代码试图做的那样；你会得到一个错误：</p>
-<p data-x-en="Filename: src/main.rs"><span class="filename">文件名: src/main.rs</span></p>
+<p>Function definitions are also statements; the entire preceding example is a
+statement in itself. (As we’ll see shortly, calling a function is not a
+statement, though.)</p>
+<p>Statements do not return values. Therefore, you can’t assign a <code>let</code> statement
+to another variable, as the following code tries to do; you’ll get an error:</p>
+<p><span class="filename">Filename: src/main.rs</span></p>
 <pre><code class="language-rust ignore does_not_compile">fn main() {
     let x = (let y = 6);
 }</code></pre>
-<p data-x-en="When you run this program, the error you’ll get looks like this:">当你运行这个程序时，你将得到的错误看起来像这样：</p>
+<p>When you run this program, the error you’ll get looks like this:</p>
 <pre><code class="language-console">$ cargo run
    Compiling functions v0.1.0 (file:///projects/functions)
 error: expected expression, found `let` statement
@@ -360,27 +405,48 @@ help: remove these parentheses
 warning: `functions` (bin "functions") generated 1 warning
 error: could not compile `functions` (bin "functions") due to 1 previous error; 1 warning emitted
 </code></pre>
-<p data-x-en="The let y = 6 statement does not return a value, so there isn’t anything for x to bind to. This is different from what happens in other languages, such as C and Ruby, where the assignment returns the value of the assignment. In those languages, you can write x = y = 6 and have both x and y have the value 6; that is not the case in Rust."><code>let y = 6</code> 语句不返回值，所以没有东西可以让 <code>x</code> 绑定。这与其他语言（如 C 和 Ruby）中的情况不同，在那些语言中，赋值会返回赋值的值。在那些语言中，你可以写 <code>x = y = 6</code> 并且 <code>x</code> 和 <code>y</code> 都会有值 <code>6</code>；但在 Rust 中则不是这样。</p>
-<p data-x-en="Expressions evaluate to a value and make up most of the rest of the code that you’ll write in Rust. Consider a math operation, such as 5 + 6, which is an expression that evaluates to the value 11. Expressions can be part of statements: In Listing 3-1, the 6 in the statement let y = 6; is an expression that evaluates to the value 6. Calling a function is an expression. Calling a macro is an expression. A new scope block created with curly brackets is an expression, for example:">表达式会计算出一个值，并且构成了你将在 Rust 中编写的大部分其余代码。考虑一个数学运算，如 <code>5 + 6</code>，这是一个计算结果为 <code>11</code> 的表达式。表达式可以是语句的一部分：在清单 3-1 中，语句 <code>let y = 6;</code> 中的 <code>6</code> 是一个计算结果为 <code>6</code> 的表达式。调用函数是一个表达式。调用宏是一个表达式。用大括号创建的新作用域块是一个表达式，例如：</p>
-<p data-x-en="Filename: src/main.rs"><span class="filename">文件名: src/main.rs</span></p>
-<pre><pre class="playground"><code class="language-rust edition2024">fn main() {
+<p>The <code>let y = 6</code> statement does not return a value, so there isn’t anything for
+<code>x</code> to bind to. This is different from what happens in other languages, such as
+C and Ruby, where the assignment returns the value of the assignment. In those
+languages, you can write <code>x = y = 6</code> and have both <code>x</code> and <code>y</code> have the value
+<code>6</code>; that is not the case in Rust.</p>
+<p>Expressions evaluate to a value and make up most of the rest of the code that
+you’ll write in Rust. Consider a math operation, such as <code>5 + 6</code>, which is an
+expression that evaluates to the value <code>11</code>. Expressions can be part of
+statements: In Listing 3-1, the <code>6</code> in the statement <code>let y = 6;</code> is an
+expression that evaluates to the value <code>6</code>. Calling a function is an
+expression. Calling a macro is an expression. A new scope block created with
+curly brackets is an expression, for example:</p>
+<p><span class="filename">Filename: src/main.rs</span></p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
     let y = {
         let x = 3;
         x + 1
     };
 
     println!("The value of y is: {y}");
-}</code></pre></pre>
-<p data-x-en="This expression:">这个表达式:</p>
+}</code></pre>
+<p>This expression:</p>
 <pre><code class="language-rust ignore">{
     let x = 3;
     x + 1
 }</code></pre>
-<p data-x-en="is a block that, in this case, evaluates to 4. That value gets bound to y as part of the let statement. Note the x + 1 line without a semicolon at the end, which is unlike most of the lines you’ve seen so far. Expressions do not include ending semicolons. If you add a semicolon to the end of an expression, you turn it into a statement, and it will then not return a value. Keep this in mind as you explore function return values and expressions next.">是一个块，在这种情况下，求值为<code>4</code>。该值通过<code>let</code>语句绑定到<code>y</code>。注意没有分号结尾的<code>x + 1</code>行，这与你迄今为止看到的大多数行不同。表达式不包括结尾的分号。如果你在表达式的末尾添加分号，就会将其变成语句，然后它将不会返回值。在接下来探索函数返回值和表达式时，请记住这一点。</p>
-<h3 id="functions-with-return-values"><a class="header" href="#functions-with-return-values">具有返回值的函数</a></h3>
-<p data-x-en="Functions can return values to the code that calls them. We don’t name return values, but we must declare their type after an arrow (->). In Rust, the return value of the function is synonymous with the value of the final expression in the block of the body of a function. You can return early from a function by using the return keyword and specifying a value, but most functions return the last expression implicitly. Here’s an example of a function that returns a value:">函数可以向调用它们的代码返回值。我们不命名返回值，但必须在箭头 (<code>-&gt;</code>) 后声明它们的类型。在 Rust 中，函数的返回值等同于函数体块中最后一个表达式的值。你可以通过使用 <code>return</code> 关键字并指定一个值来提前从函数返回，但大多数函数隐式地返回最后一个表达式。以下是一个返回值的函数示例：</p>
-<p data-x-en="Filename: src/main.rs"><span class="filename">文件名: src/main.rs</span></p>
-<pre><pre class="playground"><code class="language-rust edition2024">fn five() -&gt; i32 {
+<p>is a block that, in this case, evaluates to <code>4</code>. That value gets bound to <code>y</code>
+as part of the <code>let</code> statement. Note the <code>x + 1</code> line without a semicolon at
+the end, which is unlike most of the lines you’ve seen so far. Expressions do
+not include ending semicolons. If you add a semicolon to the end of an
+expression, you turn it into a statement, and it will then not return a value.
+Keep this in mind as you explore function return values and expressions next.</p>
+<h3 id="functions-with-return-values"><a class="header" href="#functions-with-return-values">Functions with Return Values</a></h3>
+<p>Functions can return values to the code that calls them. We don’t name return
+values, but we must declare their type after an arrow (<code>-&gt;</code>). In Rust, the
+return value of the function is synonymous with the value of the final
+expression in the block of the body of a function. You can return early from a
+function by using the <code>return</code> keyword and specifying a value, but most
+functions return the last expression implicitly. Here’s an example of a
+function that returns a value:</p>
+<p><span class="filename">Filename: src/main.rs</span></p>
+<pre class="playground"><code class="language-rust edition2024">fn five() -&gt; i32 {
     5
 }
 
@@ -388,23 +454,32 @@ fn main() {
     let x = five();
 
     println!("The value of x is: {x}");
-}</code></pre></pre>
-<p data-x-en="There are no function calls, macros, or even let statements in the five function—just the number 5 by itself. That’s a perfectly valid function in Rust. Note that the function’s return type is specified too, as -> i32. Try running this code; the output should look like this:">在 <code>five</code> 函数中没有函数调用、宏，甚至没有 <code>let</code> 语句——只有数字 <code>5</code> 本身。这在 Rust 中是一个完全有效的函数。请注意，函数的返回类型也被指定了，为 <code>-&gt; i32</code>。尝试运行这段代码；输出应该如下所示：</p>
+}</code></pre>
+<p>There are no function calls, macros, or even <code>let</code> statements in the <code>five</code>
+function—just the number <code>5</code> by itself. That’s a perfectly valid function in
+Rust. Note that the function’s return type is specified too, as <code>-&gt; i32</code>. Try
+running this code; the output should look like this:</p>
 <pre><code class="language-console">$ cargo run
    Compiling functions v0.1.0 (file:///projects/functions)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.30s
      Running `target/debug/functions`
 The value of x is: 5
 </code></pre>
-<p data-x-en="The 5 in five is the function’s return value, which is why the return type is i32. Let’s examine this in more detail. There are two important bits: First, the line let x = five(); shows that we’re using the return value of a function to initialize a variable. Because the function five returns a 5, that line is the same as the following:"><code>5</code> 在 <code>five</code> 中是函数的返回值，这就是为什么返回类型是 <code>i32</code>。让我们更详细地 examine this。有两个重要的部分：首先，<code>let x = five();</code> 这一行显示我们正在使用函数的返回值来初始化一个变量。因为函数 <code>five</code> 返回一个 <code>5</code>，所以这一行与以下内容相同：</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+<p>The <code>5</code> in <code>five</code> is the function’s return value, which is why the return type
+is <code>i32</code>. Let’s examine this in more detail. There are two important bits:
+First, the line <code>let x = five();</code> shows that we’re using the return value of a
+function to initialize a variable. Because the function <code>five</code> returns a <code>5</code>,
+that line is the same as the following:</p>
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>let x = 5;
-<span class="boring">}</span></code></pre></pre>
-<p data-x-en="Second, the five function has no parameters and defines the type of the return value, but the body of the function is a lonely 5 with no semicolon because it’s an expression whose value we want to return.">其次，<code>five</code> 函数没有参数，并定义了返回值的类型，但函数的主体是一个孤独的 <code>5</code> 没有分号，因为它是一个我们想要返回的表达式。</p>
-<p data-x-en="Let’s look at another example:">让我们看看另一个例子:</p>
-<p data-x-en="Filename: src/main.rs"><span class="filename">文件名: src/main.rs</span></p>
-<pre><pre class="playground"><code class="language-rust edition2024">fn main() {
+<span class="boring">}</span></code></pre>
+<p>Second, the <code>five</code> function has no parameters and defines the type of the
+return value, but the body of the function is a lonely <code>5</code> with no semicolon
+because it’s an expression whose value we want to return.</p>
+<p>Let’s look at another example:</p>
+<p><span class="filename">Filename: src/main.rs</span></p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
     let x = plus_one(5);
 
     println!("The value of x is: {x}");
@@ -412,9 +487,11 @@ The value of x is: 5
 
 fn plus_one(x: i32) -&gt; i32 {
     x + 1
-}</code></pre></pre>
-<p data-x-en="Running this code will print The value of x is: 6. But what happens if we place a semicolon at the end of the line containing x + 1, changing it from an expression to a statement?">运行此代码将打印 <code>The value of x is: 6</code>。但如果我们在包含 <code>x + 1</code> 的行末添加一个分号，将其从表达式更改为语句，会发生什么？</p>
-<p data-x-en="Filename: src/main.rs"><span class="filename">文件名: src/main.rs</span></p>
+}</code></pre>
+<p>Running this code will print <code>The value of x is: 6</code>. But what happens if we
+place a semicolon at the end of the line containing <code>x + 1</code>, changing it from
+an expression to a statement?</p>
+<p><span class="filename">Filename: src/main.rs</span></p>
 <pre><code class="language-rust ignore does_not_compile">fn main() {
     let x = plus_one(5);
 
@@ -424,7 +501,7 @@ fn plus_one(x: i32) -&gt; i32 {
 fn plus_one(x: i32) -&gt; i32 {
     x + 1;
 }</code></pre>
-<p data-x-en="Compiling this code will produce an error, as follows:">编译此代码将产生以下错误：</p>
+<p>Compiling this code will produce an error, as follows:</p>
 <pre><code class="language-console">$ cargo run
    Compiling functions v0.1.0 (file:///projects/functions)
 error[E0308]: mismatched types
@@ -440,18 +517,24 @@ error[E0308]: mismatched types
 For more information about this error, try `rustc --explain E0308`.
 error: could not compile `functions` (bin "functions") due to 1 previous error
 </code></pre>
-<p data-x-en="The main error message, mismatched types, reveals the core issue with this code. The definition of the function plus_one says that it will return an i32, but statements don’t evaluate to a value, which is expressed by (), the unit type. Therefore, nothing is returned, which contradicts the function definition and results in an error. In this output, Rust provides a message to possibly help rectify this issue: It suggests removing the semicolon, which would fix the error.">主要错误信息，<code>mismatched types</code>，揭示了这段代码的核心问题。函数 <code>plus_one</code> 的定义表明它将返回一个 <code>i32</code>，但语句不会评估为值，而是表示为 <code>()</code>，即单元类型。因此，没有任何值被返回，这与函数定义相矛盾，导致了错误。在这个输出中，Rust 提供了一条消息，可能有助于解决这个问题：它建议删除分号，这将修复错误。</p>
+<p>The main error message, <code>mismatched types</code>, reveals the core issue with this
+code. The definition of the function <code>plus_one</code> says that it will return an
+<code>i32</code>, but statements don’t evaluate to a value, which is expressed by <code>()</code>,
+the unit type. Therefore, nothing is returned, which contradicts the function
+definition and results in an error. In this output, Rust provides a message to
+possibly help rectify this issue: It suggests removing the semicolon, which
+would fix the error.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch03-02-data-types.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch03-04-comments.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -461,16 +544,21 @@ error: could not compile `functions` (bin "functions") due to 1 previous error
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch03-02-data-types.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch03-04-comments.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -479,16 +567,16 @@ error: could not compile `functions` (bin "functions") due to 1 previous error
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

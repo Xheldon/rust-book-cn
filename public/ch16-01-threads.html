@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch16-01-threads.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,57 +212,81 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
-                        <h2 id="using-threads-to-run-code-simultaneously"><a class="header" href="#using-threads-to-run-code-simultaneously">使用线程同时运行代码</a></h2>
-<p data-x-en="In most current operating systems, an executed program’s code is run in a process, and the operating system will manage multiple processes at once. Within a program, you can also have independent parts that run simultaneously. The features that run these independent parts are called threads. For example, a web server could have multiple threads so that it can respond to more than one request at the same time.">在大多数当前的操作系统中，执行的程序的代码是在一个<em>进程</em>中运行的，操作系统将同时管理多个进程。在一个程序中，你也可以有同时运行的独立部分。运行这些独立部分的功能称为<em>线程</em>。例如，一个Web服务器可以有多个线程，以便它可以同时响应多个请求。</p>
-<p data-x-en="Splitting the computation in your program into multiple threads to run multiple tasks at the same time can improve performance, but it also adds complexity. Because threads can run simultaneously, there’s no inherent guarantee about the order in which parts of your code on different threads will run. This can lead to problems, such as:">将程序中的计算拆分为多个线程以同时运行多个任务可以提高性能，但也会增加复杂性。因为线程可以同时运行，所以不同线程上的代码部分的执行顺序没有固有的保证。这可能导致问题，例如：</p>
+                        <h2 id="using-threads-to-run-code-simultaneously"><a class="header" href="#using-threads-to-run-code-simultaneously">Using Threads to Run Code Simultaneously</a></h2>
+<p>In most current operating systems, an executed program’s code is run in a
+<em>process</em>, and the operating system will manage multiple processes at once.
+Within a program, you can also have independent parts that run simultaneously.
+The features that run these independent parts are called <em>threads</em>. For
+example, a web server could have multiple threads so that it can respond to
+more than one request at the same time.</p>
+<p>Splitting the computation in your program into multiple threads to run multiple
+tasks at the same time can improve performance, but it also adds complexity.
+Because threads can run simultaneously, there’s no inherent guarantee about the
+order in which parts of your code on different threads will run. This can lead
+to problems, such as:</p>
 <ul>
-<li data-x-en="Race conditions, in which threads are accessing data or resources in an inconsistent order">竞争条件，其中线程以不一致的顺序访问数据或资源。</li>
-<li data-x-en="Deadlocks, in which two threads are waiting for each other, preventing both threads from continuing">死锁，其中两个线程在等待对方，阻止了两个线程的继续执行。</li>
-<li data-x-en="Bugs that only happen in certain situations and are hard to reproduce and fix reliably">只在某些情况下发生的错误，很难重现和可靠地修复</li>
+<li>Race conditions, in which threads are accessing data or resources in an
+inconsistent order</li>
+<li>Deadlocks, in which two threads are waiting for each other, preventing both
+threads from continuing</li>
+<li>Bugs that only happen in certain situations and are hard to reproduce and fix
+reliably</li>
 </ul>
-<p data-x-en="Rust attempts to mitigate the negative effects of using threads, but programming in a multithreaded context still takes careful thought and requires a code structure that is different from that in programs running in a single thread.">Rust 尝试减轻使用线程的负面影响，但在多线程环境中编程仍然需要仔细思考，并且需要与单线程程序不同的代码结构。</p>
-<p data-x-en="Programming languages implement threads in a few different ways, and many operating systems provide an API the programming language can call for creating new threads. The Rust standard library uses a 1:1 model of thread implementation, whereby a program uses one operating system thread per one language thread. There are crates that implement other models of threading that make different trade-offs to the 1:1 model. (Rust’s async system, which we will see in the next chapter, provides another approach to concurrency as well.)">编程语言以几种不同的方式实现线程，许多操作系统提供了编程语言可以调用的API来创建新线程。Rust标准库使用了一种<em>1:1</em>的线程实现模型，即程序每个语言线程使用一个操作系统线程。有其他实现不同线程模型的crate，这些模型在与1:1模型的权衡上有所不同。（我们将在下一章中看到的Rust的异步系统也提供了另一种并发方法。）</p>
-<h3 id="creating-a-new-thread-with-spawn"><a class="header" href="#creating-a-new-thread-with-spawn">使用<code>spawn</code>创建新线程</a></h3>
-<p data-x-en="To create a new thread, we call the thread::spawn function and pass it a closure (we talked about closures in Chapter 13) containing the code we want to run in the new thread. The example in Listing 16-1 prints some text from a main thread and other text from a new thread.">要创建一个新线程，我们调用 <code>thread::spawn</code> 函数并传递一个包含我们希望在新线程中运行的代码的闭包（我们在第 13 章讨论过闭包）。列表 16-1 中的示例从主线程打印一些文本，从新线程打印其他文本。</p>
+<p>Rust attempts to mitigate the negative effects of using threads, but
+programming in a multithreaded context still takes careful thought and requires
+a code structure that is different from that in programs running in a single
+thread.</p>
+<p>Programming languages implement threads in a few different ways, and many
+operating systems provide an API the programming language can call for creating
+new threads. The Rust standard library uses a <em>1:1</em> model of thread
+implementation, whereby a program uses one operating system thread per one
+language thread. There are crates that implement other models of threading that
+make different trade-offs to the 1:1 model. (Rust’s async system, which we will
+see in the next chapter, provides another approach to concurrency as well.)</p>
+<h3 id="creating-a-new-thread-with-spawn"><a class="header" href="#creating-a-new-thread-with-spawn">Creating a New Thread with <code>spawn</code></a></h3>
+<p>To create a new thread, we call the <code>thread::spawn</code> function and pass it a
+closure (we talked about closures in Chapter 13) containing the code we want to
+run in the new thread. The example in Listing 16-1 prints some text from a main
+thread and other text from a new thread.</p>
 <figure class="listing" id="listing-16-1">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">use std::thread;
+<pre class="playground"><code class="language-rust edition2024">use std::thread;
 use std::time::Duration;
 
 fn main() {
@@ -278,10 +301,13 @@ fn main() {
         println!("hi number {i} from the main thread!");
         thread::sleep(Duration::from_millis(1));
     }
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-16-1">Listing 16-1</a>: Creating a new thread to print one thing while the main thread prints something else</figcaption>
 </figure>
-<p data-x-en="Note that when the main thread of a Rust program completes, all spawned threads are shut down, whether or not they have finished running. The output from this program might be a little different every time, but it will look similar to the following:">请注意，当 Rust 程序的主线程完成时，所有派生的线程都会被关闭，无论它们是否已经完成运行。此程序的输出每次可能会有所不同，但看起来会类似于以下内容：</p>
+<p>Note that when the main thread of a Rust program completes, all spawned threads
+are shut down, whether or not they have finished running. The output from this
+program might be a little different every time, but it will look similar to the
+following:</p>
 <!-- Not extracting output because changes to this output aren't significant;
 the changes are likely to be due to the threads running differently rather than
 changes in the compiler -->
@@ -295,16 +321,33 @@ hi number 4 from the main thread!
 hi number 4 from the spawned thread!
 hi number 5 from the spawned thread!
 </code></pre>
-<p data-x-en="The calls to thread::sleep force a thread to stop its execution for a short duration, allowing a different thread to run. The threads will probably take turns, but that isn’t guaranteed: It depends on how your operating system schedules the threads. In this run, the main thread printed first, even though the print statement from the spawned thread appears first in the code. And even though we told the spawned thread to print until i is 9, it only got to 5 before the main thread shut down.">对 <code>thread::sleep</code> 的调用会强制线程停止执行一段时间，允许其他线程运行。线程可能会轮流执行，但这并不保证：这取决于操作系统如何调度线程。在这次运行中，主线程首先打印，尽管从派生线程的打印语句在代码中先出现。即使我们告诉派生线程打印直到 <code>i</code> 为 <code>9</code>，它也只打印到 <code>5</code> 就被主线程关闭了。</p>
-<p data-x-en="If you run this code and only see output from the main thread, or don’t see any overlap, try increasing the numbers in the ranges to create more opportunities for the operating system to switch between the threads.">如果您运行此代码并且只看到主线程的输出，或者没有看到任何重叠，请尝试增加范围中的数字，以创造更多机会让操作系统在各个线程之间切换。</p>
+<p>The calls to <code>thread::sleep</code> force a thread to stop its execution for a short
+duration, allowing a different thread to run. The threads will probably take
+turns, but that isn’t guaranteed: It depends on how your operating system
+schedules the threads. In this run, the main thread printed first, even though
+the print statement from the spawned thread appears first in the code. And even
+though we told the spawned thread to print until <code>i</code> is <code>9</code>, it only got to <code>5</code>
+before the main thread shut down.</p>
+<p>If you run this code and only see output from the main thread, or don’t see any
+overlap, try increasing the numbers in the ranges to create more opportunities
+for the operating system to switch between the threads.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="waiting-for-all-threads-to-finish-using-join-handles"></a></p>
-<h3 id="waiting-for-all-threads-to-finish"><a class="header" href="#waiting-for-all-threads-to-finish">等待所有线程完成</a></h3>
-<p data-x-en="The code in Listing 16-1 not only stops the spawned thread prematurely most of the time due to the main thread ending, but because there is no guarantee on the order in which threads run, we also can’t guarantee that the spawned thread will get to run at all!">列表 16-1 中的代码不仅由于主线程结束而导致大多数情况下提前终止派生的线程，而且由于没有保证线程运行的顺序，我们也不能保证派生的线程能够运行！</p>
-<p data-x-en="We can fix the problem of the spawned thread not running or of it ending prematurely by saving the return value of thread::spawn in a variable. The return type of thread::spawn is JoinHandle<T>. A JoinHandle<T> is an owned value that, when we call the join method on it, will wait for its thread to finish. Listing 16-2 shows how to use the JoinHandle<T> of the thread we created in Listing 16-1 and how to call join to make sure the spawned thread finishes before main exits.">我们可以通过将 <code>thread::spawn</code> 的返回值保存在一个变量中来解决派生线程不运行或提前结束的问题。<code>thread::spawn</code> 的返回类型是 <code>JoinHandle&lt;T&gt;</code>。一个 <code>JoinHandle&lt;T&gt;</code> 是一个拥有值，当我们调用其上的 <code>join</code> 方法时，它会等待其线程完成。清单 16-2 展示了如何使用我们在清单 16-1 中创建的线程的 <code>JoinHandle&lt;T&gt;</code> 以及如何调用 <code>join</code> 以确保派生线程在 <code>main</code> 退出之前完成。</p>
+<h3 id="waiting-for-all-threads-to-finish"><a class="header" href="#waiting-for-all-threads-to-finish">Waiting for All Threads to Finish</a></h3>
+<p>The code in Listing 16-1 not only stops the spawned thread prematurely most of
+the time due to the main thread ending, but because there is no guarantee on
+the order in which threads run, we also can’t guarantee that the spawned thread
+will get to run at all!</p>
+<p>We can fix the problem of the spawned thread not running or of it ending
+prematurely by saving the return value of <code>thread::spawn</code> in a variable. The
+return type of <code>thread::spawn</code> is <code>JoinHandle&lt;T&gt;</code>. A <code>JoinHandle&lt;T&gt;</code> is an
+owned value that, when we call the <code>join</code> method on it, will wait for its
+thread to finish. Listing 16-2 shows how to use the <code>JoinHandle&lt;T&gt;</code> of the
+thread we created in Listing 16-1 and how to call <code>join</code> to make sure the
+spawned thread finishes before <code>main</code> exits.</p>
 <figure class="listing" id="listing-16-2">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">use std::thread;
+<pre class="playground"><code class="language-rust edition2024">use std::thread;
 use std::time::Duration;
 
 fn main() {
@@ -321,10 +364,14 @@ fn main() {
     }
 
     handle.join().unwrap();
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-16-2">Listing 16-2</a>: Saving a <code>JoinHandle&lt;T&gt;</code> from <code>thread::spawn</code> to guarantee the thread is run to completion</figcaption>
 </figure>
-<p data-x-en="Calling join on the handle blocks the thread currently running until the thread represented by the handle terminates. Blocking a thread means that thread is prevented from performing work or exiting. Because we’ve put the call to join after the main thread’s for loop, running Listing 16-2 should produce output similar to this:">在句柄上调用<code>join</code>会阻塞当前正在运行的线程，直到该句柄表示的线程终止。<em>阻塞</em>线程意味着该线程被阻止执行工作或退出。因为我们是在主线程的<code>for</code>循环之后调用<code>join</code>的，所以运行示例16-2应该会产生类似的输出：</p>
+<p>Calling <code>join</code> on the handle blocks the thread currently running until the
+thread represented by the handle terminates. <em>Blocking</em> a thread means that
+thread is prevented from performing work or exiting. Because we’ve put the call
+to <code>join</code> after the main thread’s <code>for</code> loop, running Listing 16-2 should
+produce output similar to this:</p>
 <!-- Not extracting output because changes to this output aren't significant;
 the changes are likely to be due to the threads running differently rather than
 changes in the compiler -->
@@ -342,11 +389,13 @@ hi number 7 from the spawned thread!
 hi number 8 from the spawned thread!
 hi number 9 from the spawned thread!
 </code></pre>
-<p data-x-en="The two threads continue alternating, but the main thread waits because of the call to handle.join() and does not end until the spawned thread is finished.">两个线程继续交替执行，但主线程由于调用 <code>handle.join()</code> 而等待，直到派生的线程结束。</p>
-<p data-x-en="But let’s see what happens when we instead move handle.join() before the for loop in main, like this:">但让我们看看当我们把 <code>handle.join()</code> 移动到 <code>main</code> 中的 <code>for</code> 循环之前时会发生什么，如下所示：</p>
+<p>The two threads continue alternating, but the main thread waits because of the
+call to <code>handle.join()</code> and does not end until the spawned thread is finished.</p>
+<p>But let’s see what happens when we instead move <code>handle.join()</code> before the
+<code>for</code> loop in <code>main</code>, like this:</p>
 <figure class="listing">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">use std::thread;
+<pre class="playground"><code class="language-rust edition2024">use std::thread;
 use std::time::Duration;
 
 fn main() {
@@ -363,9 +412,10 @@ fn main() {
         println!("hi number {i} from the main thread!");
         thread::sleep(Duration::from_millis(1));
     }
-}</code></pre></pre>
+}</code></pre>
 </figure>
-<p data-x-en="The main thread will wait for the spawned thread to finish and then run its for loop, so the output won’t be interleaved anymore, as shown here:">主线程将等待派生的线程完成，然后运行其<code>for</code>循环，因此输出将不再交错，如下所示：</p>
+<p>The main thread will wait for the spawned thread to finish and then run its
+<code>for</code> loop, so the output won’t be interleaved anymore, as shown here:</p>
 <!-- Not extracting output because changes to this output aren't significant;
 the changes are likely to be due to the threads running differently rather than
 changes in the compiler -->
@@ -383,11 +433,21 @@ hi number 2 from the main thread!
 hi number 3 from the main thread!
 hi number 4 from the main thread!
 </code></pre>
-<p data-x-en="Small details, such as where join is called, can affect whether or not your threads run at the same time.">小细节，例如 <code>join</code> 被调用的位置，可以影响您的线程是否同时运行。</p>
-<h3 id="using-move-closures-with-threads"><a class="header" href="#using-move-closures-with-threads">使用 <code>move</code> 闭包与线程</a></h3>
-<p data-x-en="We’ll often use the move keyword with closures passed to thread::spawn because the closure will then take ownership of the values it uses from the environment, thus transferring ownership of those values from one thread to another. In “Capturing References or Moving Ownership” in Chapter 13, we discussed move in the context of closures. Now we’ll concentrate more on the interaction between move and thread::spawn.">我们经常会在传递给 <code>thread::spawn</code> 的闭包中使用 <code>move</code> 关键字，因为这样闭包将拥有它从环境中使用的值，从而将这些值的所有权从一个线程转移到另一个线程。在 <a href="ch13-01-closures.html#capturing-references-or-moving-ownership">“捕获引用或转移所有权”</a><!-- ignore
---> 第 13 章中，我们讨论了 <code>move</code> 在闭包中的使用。现在我们将更多地关注 <code>move</code> 和 <code>thread::spawn</code> 之间的交互。</p>
-<p data-x-en="Notice in Listing 16-1 that the closure we pass to thread::spawn takes no arguments: We’re not using any data from the main thread in the spawned thread’s code. To use data from the main thread in the spawned thread, the spawned thread’s closure must capture the values it needs. Listing 16-3 shows an attempt to create a vector in the main thread and use it in the spawned thread. However, this won’t work yet, as you’ll see in a moment.">注意在清单 16-1 中，我们传递给 <code>thread::spawn</code> 的闭包不带任何参数：我们在派生线程的代码中没有使用主线程中的任何数据。要在线程派生的代码中使用主线程的数据，派生线程的闭包必须捕获它需要的值。清单 16-3 展示了尝试在主线程中创建一个向量并在派生线程中使用它的例子。然而，这还不能工作，你马上就会看到。</p>
+<p>Small details, such as where <code>join</code> is called, can affect whether or not your
+threads run at the same time.</p>
+<h3 id="using-move-closures-with-threads"><a class="header" href="#using-move-closures-with-threads">Using <code>move</code> Closures with Threads</a></h3>
+<p>We’ll often use the <code>move</code> keyword with closures passed to <code>thread::spawn</code>
+because the closure will then take ownership of the values it uses from the
+environment, thus transferring ownership of those values from one thread to
+another. In <a href="ch13-01-closures.html#capturing-references-or-moving-ownership">“Capturing References or Moving Ownership”</a><!-- ignore
+--> in Chapter 13, we discussed <code>move</code> in the context of closures. Now we’ll
+concentrate more on the interaction between <code>move</code> and <code>thread::spawn</code>.</p>
+<p>Notice in Listing 16-1 that the closure we pass to <code>thread::spawn</code> takes no
+arguments: We’re not using any data from the main thread in the spawned
+thread’s code. To use data from the main thread in the spawned thread, the
+spawned thread’s closure must capture the values it needs. Listing 16-3 shows
+an attempt to create a vector in the main thread and use it in the spawned
+thread. However, this won’t work yet, as you’ll see in a moment.</p>
 <figure class="listing" id="listing-16-3">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore does_not_compile">use std::thread;
@@ -403,7 +463,10 @@ fn main() {
 }</code></pre>
 <figcaption><a href="#listing-16-3">Listing 16-3</a>: Attempting to use a vector created by the main thread in another thread</figcaption>
 </figure>
-<p data-x-en="The closure uses v, so it will capture v and make it part of the closure’s environment. Because thread::spawn runs this closure in a new thread, we should be able to access v inside that new thread. But when we compile this example, we get the following error:">闭包使用了 <code>v</code>，所以它会捕获 <code>v</code> 并使其成为闭包环境的一部分。因为 <code>thread::spawn</code> 在新线程中运行此闭包，我们应该能够在新线程中访问 <code>v</code>。但当我们编译此示例时，我们得到了以下错误：</p>
+<p>The closure uses <code>v</code>, so it will capture <code>v</code> and make it part of the closure’s
+environment. Because <code>thread::spawn</code> runs this closure in a new thread, we
+should be able to access <code>v</code> inside that new thread. But when we compile this
+example, we get the following error:</p>
 <pre><code class="language-console">$ cargo run
    Compiling threads v0.1.0 (file:///projects/threads)
 error[E0373]: closure may outlive the current function, but it borrows `v`, which is owned by the current function
@@ -430,8 +493,12 @@ help: to force the closure to take ownership of `v` (and any other referenced va
 For more information about this error, try `rustc --explain E0373`.
 error: could not compile `threads` (bin "threads") due to 1 previous error
 </code></pre>
-<p data-x-en="Rust infers how to capture v, and because println! only needs a reference to v, the closure tries to borrow v. However, there’s a problem: Rust can’t tell how long the spawned thread will run, so it doesn’t know whether the reference to v will always be valid.">Rust <em>推断</em> 如何捕获 <code>v</code>，并且因为 <code>println!</code> 只需要一个对 <code>v</code> 的引用，闭包尝试借用 <code>v</code>。然而，有一个问题：Rust 无法知道新线程将运行多长时间，因此它不知道对 <code>v</code> 的引用是否始终有效。</p>
-<p data-x-en="Listing 16-4 provides a scenario that’s more likely to have a reference to v that won’t be valid.">列表16-4提供了一个更可能有对<code>v</code>的引用无效的情况。</p>
+<p>Rust <em>infers</em> how to capture <code>v</code>, and because <code>println!</code> only needs a reference
+to <code>v</code>, the closure tries to borrow <code>v</code>. However, there’s a problem: Rust can’t
+tell how long the spawned thread will run, so it doesn’t know whether the
+reference to <code>v</code> will always be valid.</p>
+<p>Listing 16-4 provides a scenario that’s more likely to have a reference to <code>v</code>
+that won’t be valid.</p>
 <figure class="listing" id="listing-16-4">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore does_not_compile">use std::thread;
@@ -449,8 +516,14 @@ fn main() {
 }</code></pre>
 <figcaption><a href="#listing-16-4">Listing 16-4</a>: A thread with a closure that attempts to capture a reference to <code>v</code> from a main thread that drops <code>v</code></figcaption>
 </figure>
-<p data-x-en="If Rust allowed us to run this code, there’s a possibility that the spawned thread would be immediately put in the background without running at all. The spawned thread has a reference to v inside, but the main thread immediately drops v, using the drop function we discussed in Chapter 15. Then, when the spawned thread starts to execute, v is no longer valid, so a reference to it is also invalid. Oh no!">如果 Rust 允许我们运行此代码，那么有可能新创建的线程会被立即置于后台而根本不运行。新创建的线程内部有一个对 <code>v</code> 的引用，但主线程会立即使用我们在第 15 章讨论的 <code>drop</code> 函数来释放 <code>v</code>。然后，当新创建的线程开始执行时，<code>v</code> 已经不再有效，因此对它的引用也无效。哦不！</p>
-<p data-x-en="To fix the compiler error in Listing 16-3, we can use the error message’s advice:">要修复列表 16-3 中的编译器错误，我们可以使用错误消息的建议：</p>
+<p>If Rust allowed us to run this code, there’s a possibility that the spawned
+thread would be immediately put in the background without running at all. The
+spawned thread has a reference to <code>v</code> inside, but the main thread immediately
+drops <code>v</code>, using the <code>drop</code> function we discussed in Chapter 15. Then, when the
+spawned thread starts to execute, <code>v</code> is no longer valid, so a reference to it
+is also invalid. Oh no!</p>
+<p>To fix the compiler error in Listing 16-3, we can use the error message’s
+advice:</p>
 <!-- manual-regeneration
 after automatic regeneration, look at listings/ch16-fearless-concurrency/listing-16-03/output.txt and copy the relevant part
 -->
@@ -459,10 +532,13 @@ after automatic regeneration, look at listings/ch16-fearless-concurrency/listing
 6 |     let handle = thread::spawn(move || {
   |                                ++++
 </code></pre>
-<p data-x-en="By adding the move keyword before the closure, we force the closure to take ownership of the values it’s using rather than allowing Rust to infer that it should borrow the values. The modification to Listing 16-3 shown in Listing 16-5 will compile and run as we intend.">通过在闭包前添加 <code>move</code> 关键字，我们强制闭包获取它所使用值的所有权，而不是让 Rust 推断它应该借用这些值。如清单 16-5 所示对清单 16-3 的修改将按我们的预期编译和运行。</p>
+<p>By adding the <code>move</code> keyword before the closure, we force the closure to take
+ownership of the values it’s using rather than allowing Rust to infer that it
+should borrow the values. The modification to Listing 16-3 shown in Listing
+16-5 will compile and run as we intend.</p>
 <figure class="listing" id="listing-16-5">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">use std::thread;
+<pre class="playground"><code class="language-rust edition2024">use std::thread;
 
 fn main() {
     let v = vec![1, 2, 3];
@@ -472,10 +548,15 @@ fn main() {
     });
 
     handle.join().unwrap();
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-16-5">Listing 16-5</a>: Using the <code>move</code> keyword to force a closure to take ownership of the values it uses</figcaption>
 </figure>
-<p data-x-en="We might be tempted to try the same thing to fix the code in Listing 16-4 where the main thread called drop by using a move closure. However, this fix will not work because what Listing 16-4 is trying to do is disallowed for a different reason. If we added move to the closure, we would move v into the closure’s environment, and we could no longer call drop on it in the main thread. We would get this compiler error instead:">我们可能会尝试使用 <code>move</code> 闭包来修复列表 16-4 中的代码，其中主线程调用了 <code>drop</code>。然而，这个修复方法不会奏效，因为列表 16-4 尝试做的事情由于不同的原因而不被允许。如果我们向闭包中添加 <code>move</code>，我们会将 <code>v</code> 移动到闭包的环境中，因此我们不能再在主线程中调用 <code>drop</code>。相反，我们会得到这个编译器错误：</p>
+<p>We might be tempted to try the same thing to fix the code in Listing 16-4 where
+the main thread called <code>drop</code> by using a <code>move</code> closure. However, this fix will
+not work because what Listing 16-4 is trying to do is disallowed for a
+different reason. If we added <code>move</code> to the closure, we would move <code>v</code> into the
+closure’s environment, and we could no longer call <code>drop</code> on it in the main
+thread. We would get this compiler error instead:</p>
 <pre><code class="language-console">$ cargo run
    Compiling threads v0.1.0 (file:///projects/threads)
 error[E0382]: use of moved value: `v`
@@ -502,19 +583,28 @@ help: consider cloning the value before moving it into the closure
 For more information about this error, try `rustc --explain E0382`.
 error: could not compile `threads` (bin "threads") due to 1 previous error
 </code></pre>
-<p data-x-en="Rust’s ownership rules have saved us again! We got an error from the code in Listing 16-3 because Rust was being conservative and only borrowing v for the thread, which meant the main thread could theoretically invalidate the spawned thread’s reference. By telling Rust to move ownership of v to the spawned thread, we’re guaranteeing to Rust that the main thread won’t use v anymore. If we change Listing 16-4 in the same way, we’re then violating the ownership rules when we try to use v in the main thread. The move keyword overrides Rust’s conservative default of borrowing; it doesn’t let us violate the ownership rules.">Rust的所有权规则再次拯救了我们！我们在清单16-3的代码中遇到了错误，因为Rust采取了保守的做法，只是将<code>v</code>借给线程，这意味着主线程理论上可以使得派生线程的引用失效。通过告诉Rust将<code>v</code>的所有权移动到派生线程，我们向Rust保证主线程不会再使用<code>v</code>。如果我们以同样的方式更改清单16-4，那么在主线程中尝试使用<code>v</code>时，我们就会违反所有权规则。<code>move</code>关键字覆盖了Rust保守的借用默认行为；它不允许我们违反所有权规则。</p>
-<p data-x-en="Now that we’ve covered what threads are and the methods supplied by the thread API, let’s look at some situations in which we can use threads.">现在我们已经介绍了线程是什么以及线程 API 提供的方法，让我们来看一些可以使用线程的情况。</p>
+<p>Rust’s ownership rules have saved us again! We got an error from the code in
+Listing 16-3 because Rust was being conservative and only borrowing <code>v</code> for the
+thread, which meant the main thread could theoretically invalidate the spawned
+thread’s reference. By telling Rust to move ownership of <code>v</code> to the spawned
+thread, we’re guaranteeing to Rust that the main thread won’t use <code>v</code> anymore.
+If we change Listing 16-4 in the same way, we’re then violating the ownership
+rules when we try to use <code>v</code> in the main thread. The <code>move</code> keyword overrides
+Rust’s conservative default of borrowing; it doesn’t let us violate the
+ownership rules.</p>
+<p>Now that we’ve covered what threads are and the methods supplied by the thread
+API, let’s look at some situations in which we can use threads.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch16-00-concurrency.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch16-02-message-passing.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -524,16 +614,21 @@ error: could not compile `threads` (bin "threads") due to 1 previous error
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch16-00-concurrency.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch16-02-message-passing.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -542,16 +637,16 @@ error: could not compile `threads` (bin "threads") due to 1 previous error
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

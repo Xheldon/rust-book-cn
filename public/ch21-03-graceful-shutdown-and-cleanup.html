@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch21-03-graceful-shutdown-and-cleanup.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,49 +212,64 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
-                        <h2 id="graceful-shutdown-and-cleanup"><a class="header" href="#graceful-shutdown-and-cleanup">优雅的关闭和清理</a></h2>
-<p data-x-en="The code in Listing 21-20 is responding to requests asynchronously through the use of a thread pool, as we intended. We get some warnings about the workers, id, and thread fields that we’re not using in a direct way that reminds us we’re not cleaning up anything. When we use the less elegant ctrl-C method to halt the main thread, all other threads are stopped immediately as well, even if they’re in the middle of serving a request.">列表 21-20 中的代码通过使用线程池异步响应请求，正如我们所期望的那样。我们得到了一些关于 <code>workers</code>、<code>id</code> 和 <code>thread</code> 字段的警告，这些字段我们没有直接使用，这提醒我们没有清理任何东西。当我们使用不太优雅的 <kbd>ctrl</kbd>-<kbd>C</kbd> 方法来停止主线程时，所有其他线程也会立即停止，即使它们正在处理请求。</p>
-<p data-x-en="Next, then, we’ll implement the Drop trait to call join on each of the threads in the pool so that they can finish the requests they’re working on before closing. Then, we’ll implement a way to tell the threads they should stop accepting new requests and shut down. To see this code in action, we’ll modify our server to accept only two requests before gracefully shutting down its thread pool.">接下来，我们将实现<code>Drop</code> trait，以便在池中的每个线程上调用<code>join</code>，使它们能够在关闭之前完成正在处理的请求。然后，我们将实现一种方法来通知线程它们应该停止接受新请求并关闭。为了看到这段代码的实际效果，我们将修改我们的服务器，使其仅接受两个请求后优雅地关闭其线程池。</p>
-<p data-x-en="One thing to notice as we go: None of this affects the parts of the code that handle executing the closures, so everything here would be the same if we were using a thread pool for an async runtime.">需要注意的一点是：所有这些都不会影响处理执行闭包的代码部分，因此，如果我们使用的是异步运行时的线程池，这里的一切都会是相同的。</p>
-<h3 id="implementing-the-drop-trait-on-threadpool"><a class="header" href="#implementing-the-drop-trait-on-threadpool">在<code>ThreadPool</code>上实现<code>Drop</code>特性</a></h3>
-<p data-x-en="Let’s start with implementing Drop on our thread pool. When the pool is dropped, our threads should all join to make sure they finish their work. Listing 21-22 shows a first attempt at a Drop implementation; this code won’t quite work yet.">让我们从在我们的线程池上实现<code>Drop</code>开始。当池被丢弃时，我们的线程应该全部加入以确保它们完成工作。
-清单 21-22 显示了<code>Drop</code>实现的第一次尝试；这段代码还不能完全工作。</p>
+                        <h2 id="graceful-shutdown-and-cleanup"><a class="header" href="#graceful-shutdown-and-cleanup">Graceful Shutdown and Cleanup</a></h2>
+<p>The code in Listing 21-20 is responding to requests asynchronously through the
+use of a thread pool, as we intended. We get some warnings about the <code>workers</code>,
+<code>id</code>, and <code>thread</code> fields that we’re not using in a direct way that reminds us
+we’re not cleaning up anything. When we use the less elegant
+<kbd>ctrl</kbd>-<kbd>C</kbd> method to halt the main thread, all other threads
+are stopped immediately as well, even if they’re in the middle of serving a
+request.</p>
+<p>Next, then, we’ll implement the <code>Drop</code> trait to call <code>join</code> on each of the
+threads in the pool so that they can finish the requests they’re working on
+before closing. Then, we’ll implement a way to tell the threads they should
+stop accepting new requests and shut down. To see this code in action, we’ll
+modify our server to accept only two requests before gracefully shutting down
+its thread pool.</p>
+<p>One thing to notice as we go: None of this affects the parts of the code that
+handle executing the closures, so everything here would be the same if we were
+using a thread pool for an async runtime.</p>
+<h3 id="implementing-the-drop-trait-on-threadpool"><a class="header" href="#implementing-the-drop-trait-on-threadpool">Implementing the <code>Drop</code> Trait on <code>ThreadPool</code></a></h3>
+<p>Let’s start with implementing <code>Drop</code> on our thread pool. When the pool is
+dropped, our threads should all join to make sure they finish their work.
+Listing 21-22 shows a first attempt at a <code>Drop</code> implementation; this code won’t
+quite work yet.</p>
 <figure class="listing" id="listing-21-22">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">use std::{
@@ -336,8 +350,13 @@ blockquote {
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-21-22">Listing 21-22</a>: Joining each thread when the thread pool goes out of scope</figcaption>
 </figure>
-<p data-x-en="First, we loop through each of the thread pool workers. We use &amp;mut for this because self is a mutable reference, and we also need to be able to mutate worker. For each worker, we print a message saying that this particular Worker instance is shutting down, and then we call join on that Worker instance’s thread. If the call to join fails, we use unwrap to make Rust panic and go into an ungraceful shutdown.">首先，我们遍历线程池中的每个 <code>workers</code>。我们使用 <code>&amp;mut</code>，因为 <code>self</code> 是一个可变引用，同时我们也需要能够修改 <code>worker</code>。对于每个工作线程，我们打印一条消息，说明这个特定的 <code>Worker</code> 实例正在关闭，然后我们调用该 <code>Worker</code> 实例线程的 <code>join</code> 方法。如果 <code>join</code> 调用失败，我们使用 <code>unwrap</code> 使 Rust 发生恐慌并进入非优雅的关闭状态。</p>
-<p data-x-en="Here is the error we get when we compile this code:">当我们编译这段代码时，会出现以下错误：</p>
+<p>First, we loop through each of the thread pool <code>workers</code>. We use <code>&amp;mut</code> for this
+because <code>self</code> is a mutable reference, and we also need to be able to mutate
+<code>worker</code>. For each <code>worker</code>, we print a message saying that this particular
+<code>Worker</code> instance is shutting down, and then we call <code>join</code> on that <code>Worker</code>
+instance’s thread. If the call to <code>join</code> fails, we use <code>unwrap</code> to make Rust
+panic and go into an ungraceful shutdown.</p>
+<p>Here is the error we get when we compile this code:</p>
 <pre><code class="language-console">$ cargo check
     Checking hello v0.1.0 (file:///projects/hello)
 error[E0507]: cannot move out of `worker.thread` which is behind a mutable reference
@@ -354,13 +373,31 @@ note: `JoinHandle::&lt;T&gt;::join` takes ownership of the receiver `self`, whic
 For more information about this error, try `rustc --explain E0507`.
 error: could not compile `hello` (lib) due to 1 previous error
 </code></pre>
-<p data-x-en="The error tells us we can’t call join because we only have a mutable borrow of each worker and join takes ownership of its argument. To solve this issue, we need to move the thread out of the Worker instance that owns thread so that join can consume the thread. One way to do this is to take the same approach we took in Listing 18-15. If Worker held an Option<thread::JoinHandle<()>>, we could call the take method on the Option to move the value out of the Some variant and leave a None variant in its place. In other words, a Worker that is running would have a Some variant in thread, and when we wanted to clean up a Worker, we’d replace Some with None so that the Worker wouldn’t have a thread to run.">错误告诉我们，我们不能调用<code>join</code>，因为我们只有每个<code>worker</code>的可变借用，而<code>join</code>需要获取其参数的所有权。为了解决这个问题，我们需要将线程从拥有<code>thread</code>的<code>Worker</code>实例中移出，以便<code>join</code>可以消耗该线程。一种方法是采用我们在清单18-15中使用的方法。如果<code>Worker</code>持有一个<code>Option<thread::joinhandle<()>&gt; </thread::joinhandle<()></code>，我们可以在<code>Option</code>上调用<code>take</code>方法，将值从<code>Some</code>变体中移出，并在其位置留下一个<code>None</code>变体。换句话说，正在运行的<code>Worker</code>在<code>thread</code>中会有一个<code>Some</code>变体，而当我们想要清理一个<code>Worker</code>时，我们会将<code>Some</code>替换为<code>None</code>，这样<code>Worker</code>就不会有线程来运行。</p>
-<p data-x-en="However, the only time this would come up would be when dropping the Worker. In exchange, we’d have to deal with an Option<thread::JoinHandle<()>> anywhere we accessed worker.thread. Idiomatic Rust uses Option quite a bit, but when you find yourself wrapping something you know will always be present in an Option as a workaround like this, it’s a good idea to look for alternative approaches to make your code cleaner and less error-prone.">然而，这只有在丢弃<code>Worker</code>时才会出现。作为交换，我们在访问<code>worker.thread</code>的任何地方都必须处理一个<code>Option&lt;thread::JoinHandle&lt;()&gt;&gt;</code>。惯用的Rust代码大量使用<code>Option</code>，但当你发现自己将某个已知始终存在的东西包装在<code>Option</code>中作为变通方法时，最好寻找替代方法以使代码更干净、更少出错。</p>
-<p data-x-en="In this case, a better alternative exists: the Vec::drain method. It accepts a range parameter to specify which items to remove from the vector and returns an iterator of those items. Passing the .. range syntax will remove every value from the vector.">在这种情况下，存在一个更好的选择：<code>Vec::drain</code> 方法。它接受一个范围参数来指定要从向量中移除的项，并返回这些项的迭代器。传递 <code>..</code> 范围语法将移除 <em>所有</em> 值。</p>
-<p data-x-en="So, we need to update the ThreadPool drop implementation like this:">所以，我们需要像这样更新 <code>ThreadPool</code> 的 <code>drop</code> 实现：</p>
+<p>The error tells us we can’t call <code>join</code> because we only have a mutable borrow
+of each <code>worker</code> and <code>join</code> takes ownership of its argument. To solve this
+issue, we need to move the thread out of the <code>Worker</code> instance that owns
+<code>thread</code> so that <code>join</code> can consume the thread. One way to do this is to take
+the same approach we took in Listing 18-15. If <code>Worker</code> held an
+<code>Option&lt;thread::JoinHandle&lt;()&gt;&gt;</code>, we could call the <code>take</code> method on the
+<code>Option</code> to move the value out of the <code>Some</code> variant and leave a <code>None</code> variant
+in its place. In other words, a <code>Worker</code> that is running would have a <code>Some</code>
+variant in <code>thread</code>, and when we wanted to clean up a <code>Worker</code>, we’d replace
+<code>Some</code> with <code>None</code> so that the <code>Worker</code> wouldn’t have a thread to run.</p>
+<p>However, the <em>only</em> time this would come up would be when dropping the
+<code>Worker</code>. In exchange, we’d have to deal with an
+<code>Option&lt;thread::JoinHandle&lt;()&gt;&gt;</code> anywhere we accessed <code>worker.thread</code>.
+Idiomatic Rust uses <code>Option</code> quite a bit, but when you find yourself wrapping
+something you know will always be present in an <code>Option</code> as a workaround like
+this, it’s a good idea to look for alternative approaches to make your code
+cleaner and less error-prone.</p>
+<p>In this case, a better alternative exists: the <code>Vec::drain</code> method. It accepts
+a range parameter to specify which items to remove from the vector and returns
+an iterator of those items. Passing the <code>..</code> range syntax will remove <em>every</em>
+value from the vector.</p>
+<p>So, we need to update the <code>ThreadPool</code> <code>drop</code> implementation like this:</p>
 <figure class="listing">
 <span class="file-name">Filename: src/lib.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span><span class="boring">use std::{
 </span><span class="boring">    sync::{Arc, Mutex, mpsc},
@@ -438,17 +475,28 @@ error: could not compile `hello` (lib) due to 1 previous error
 </span><span class="boring">        Worker { id, thread }
 </span><span class="boring">    }
 </span><span class="boring">}
-</span><span class="boring">}</span></code></pre></pre>
+</span><span class="boring">}</span></code></pre>
 </figure>
-<p data-x-en="This resolves the compiler error and does not require any other changes to our code. Note that, because drop can be called when panicking, the unwrap could also panic and cause a double panic, which immediately crashes the program and ends any cleanup in progress. This is fine for an example program, but it isn’t recommended for production code.">这解决了编译器错误，并且不需要对我们的代码进行任何其他更改。请注意，因为 drop 可能在 panic 时被调用，unwrap 也可能导致 panic 并引起双重 panic，这会立即崩溃程序并结束任何正在进行的清理。对于示例程序来说这是可以的，但不建议在生产代码中使用。</p>
-<h3 id="signaling-to-the-threads-to-stop-listening-for-jobs"><a class="header" href="#signaling-to-the-threads-to-stop-listening-for-jobs">向线程发出停止监听任务的信号</a></h3>
-<p data-x-en="With all the changes we’ve made, our code compiles without any warnings. However, the bad news is that this code doesn’t function the way we want it to yet. The key is the logic in the closures run by the threads of the Worker instances: At the moment, we call join, but that won’t shut down the threads, because they loop forever looking for jobs. If we try to drop our ThreadPool with our current implementation of drop, the main thread will block forever, waiting for the first thread to finish.">随着我们所做的所有更改，我们的代码编译时没有任何警告。
-然而，坏消息是这段代码还没有按我们希望的方式工作。
-关键在于由 <code>Worker</code> 实例的线程运行的闭包中的逻辑：目前，我们调用 <code>join</code>，但这不会关闭线程，
-因为它们会无限循环地寻找任务。如果我们尝试使用当前的 <code>drop</code> 实现来删除我们的 <code>ThreadPool</code>，
-主线程将永远阻塞，等待第一个线程完成。</p>
-<p data-x-en="To fix this problem, we’ll need a change in the ThreadPool drop implementation and then a change in the Worker loop.">为了解决这个问题，我们需要更改 <code>ThreadPool</code> 的 <code>drop</code> 实现，然后更改 <code>Worker</code> 循环。</p>
-<p data-x-en="First, we’ll change the ThreadPool drop implementation to explicitly drop the sender before waiting for the threads to finish. Listing 21-23 shows the changes to ThreadPool to explicitly drop sender. Unlike with the thread, here we do need to use an Option to be able to move sender out of ThreadPool with Option::take.">首先，我们将更改 <code>ThreadPool</code> 的 <code>drop</code> 实现，以在等待线程完成之前显式地释放 <code>sender</code>。列表 21-23 显示了对 <code>ThreadPool</code> 的更改，以显式地释放 <code>sender</code>。与线程不同，这里我们 <em>确实</em> 需要使用 <code>Option</code>，以便能够使用 <code>Option::take</code> 将 <code>sender</code> 从 <code>ThreadPool</code> 中移出。</p>
+<p>This resolves the compiler error and does not require any other changes to our
+code. Note that, because drop can be called when panicking, the unwrap
+could also panic and cause a double panic, which immediately crashes the
+program and ends any cleanup in progress. This is fine for an example program,
+but it isn’t recommended for production code.</p>
+<h3 id="signaling-to-the-threads-to-stop-listening-for-jobs"><a class="header" href="#signaling-to-the-threads-to-stop-listening-for-jobs">Signaling to the Threads to Stop Listening for Jobs</a></h3>
+<p>With all the changes we’ve made, our code compiles without any warnings.
+However, the bad news is that this code doesn’t function the way we want it to
+yet. The key is the logic in the closures run by the threads of the <code>Worker</code>
+instances: At the moment, we call <code>join</code>, but that won’t shut down the threads,
+because they <code>loop</code> forever looking for jobs. If we try to drop our
+<code>ThreadPool</code> with our current implementation of <code>drop</code>, the main thread will
+block forever, waiting for the first thread to finish.</p>
+<p>To fix this problem, we’ll need a change in the <code>ThreadPool</code> <code>drop</code>
+implementation and then a change in the <code>Worker</code> loop.</p>
+<p>First, we’ll change the <code>ThreadPool</code> <code>drop</code> implementation to explicitly drop
+the <code>sender</code> before waiting for the threads to finish. Listing 21-23 shows the
+changes to <code>ThreadPool</code> to explicitly drop <code>sender</code>. Unlike with the thread,
+here we <em>do</em> need to use an <code>Option</code> to be able to move <code>sender</code> out of
+<code>ThreadPool</code> with <code>Option::take</code>.</p>
 <figure class="listing" id="listing-21-23">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground not_desired_behavior"><span class="boring">use std::{
@@ -537,7 +585,11 @@ impl Drop for ThreadPool {
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-21-23">Listing 21-23</a>: Explicitly dropping <code>sender</code> before joining the <code>Worker</code> threads</figcaption>
 </figure>
-<p data-x-en="Dropping sender closes the channel, which indicates no more messages will be sent. When that happens, all the calls to recv that the Worker instances do in the infinite loop will return an error. In Listing 21-24, we change the Worker loop to gracefully exit the loop in that case, which means the threads will finish when the ThreadPool drop implementation calls join on them.">释放 <code>sender</code> 会关闭通道，这表示不会再发送更多消息。当这种情况发生时，<code>Worker</code> 实例在无限循环中对 <code>recv</code> 的所有调用将返回错误。在清单 21-24 中，我们更改了 <code>Worker</code> 循环，以便在这种情况下优雅地退出循环，这意味着当 <code>ThreadPool</code> 的 <code>drop</code> 实现调用 <code>join</code> 时，线程将结束。</p>
+<p>Dropping <code>sender</code> closes the channel, which indicates no more messages will be
+sent. When that happens, all the calls to <code>recv</code> that the <code>Worker</code> instances do
+in the infinite loop will return an error. In Listing 21-24, we change the
+<code>Worker</code> loop to gracefully exit the loop in that case, which means the threads
+will finish when the <code>ThreadPool</code> <code>drop</code> implementation calls <code>join</code> on them.</p>
 <figure class="listing" id="listing-21-24">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">use std::{
@@ -631,7 +683,8 @@ impl Drop for ThreadPool {
 }</code></pre>
 <figcaption><a href="#listing-21-24">Listing 21-24</a>: Explicitly breaking out of the loop when <code>recv</code> returns an error</figcaption>
 </figure>
-<p data-x-en="To see this code in action, let’s modify main to accept only two requests before gracefully shutting down the server, as shown in Listing 21-25.">要查看此代码的运行情况，让我们修改 <code>main</code> 以仅接受两个请求，然后优雅地关闭服务器，如示例 21-25 所示。</p>
+<p>To see this code in action, let’s modify <code>main</code> to accept only two requests
+before gracefully shutting down the server, as shown in Listing 21-25.</p>
 <figure class="listing" id="listing-21-25">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore"><span class="boring">use hello::ThreadPool;
@@ -681,9 +734,14 @@ impl Drop for ThreadPool {
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-21-25">Listing 21-25</a>: Shutting down the server after serving two requests by exiting the loop</figcaption>
 </figure>
-<p data-x-en="You wouldn’t want a real-world web server to shut down after serving only two requests. This code just demonstrates that the graceful shutdown and cleanup is in working order.">你不会希望一个现实世界的Web服务器在仅服务了两个请求后就关闭。这段代码只是证明了优雅的关闭和清理机制是有效的。</p>
-<p data-x-en="The take method is defined in the Iterator trait and limits the iteration to the first two items at most. The ThreadPool will go out of scope at the end of main, and the drop implementation will run."><code>take</code> 方法在 <code>Iterator</code> 特性中定义，将迭代限制为最多前两个项目。<code>ThreadPool</code> 将在 <code>main</code> 结束时超出作用域，<code>drop</code> 实现将运行。</p>
-<p data-x-en="Start the server with cargo run and make three requests. The third request should error, and in your terminal, you should see output similar to this:">使用 <code>cargo run</code> 启动服务器并发出三个请求。第三个请求应该出错，并且在您的终端中，您应该看到类似的输出：</p>
+<p>You wouldn’t want a real-world web server to shut down after serving only two
+requests. This code just demonstrates that the graceful shutdown and cleanup is
+in working order.</p>
+<p>The <code>take</code> method is defined in the <code>Iterator</code> trait and limits the iteration
+to the first two items at most. The <code>ThreadPool</code> will go out of scope at the
+end of <code>main</code>, and the <code>drop</code> implementation will run.</p>
+<p>Start the server with <code>cargo run</code> and make three requests. The third request
+should error, and in your terminal, you should see output similar to this:</p>
 <!-- manual-regeneration
 cd listings/ch21-web-server/listing-21-25
 cargo run
@@ -710,10 +768,25 @@ Shutting down worker 1
 Shutting down worker 2
 Shutting down worker 3
 </code></pre>
-<p data-x-en="You might see a different ordering of Worker IDs and messages printed. We can see how this code works from the messages: Worker instances 0 and 3 got the first two requests. The server stopped accepting connections after the second connection, and the Drop implementation on ThreadPool starts executing before Worker 3 even starts its job. Dropping the sender disconnects all the Worker instances and tells them to shut down. The Worker instances each print a message when they disconnect, and then the thread pool calls join to wait for each Worker thread to finish.">你可能会看到不同的 <code>Worker</code> ID 和消息打印顺序。我们可以通过这些消息了解代码的工作原理：<code>Worker</code> 实例 0 和 3 获得了前两个请求。服务器在第二个连接后停止接受连接，而 <code>ThreadPool</code> 上的 <code>Drop</code> 实现甚至在 <code>Worker</code> 3 开始其任务之前就开始执行。释放 <code>sender</code> 会断开所有 <code>Worker</code> 实例的连接并告诉它们关闭。每个 <code>Worker</code> 实例在断开连接时都会打印一条消息，然后线程池调用 <code>join</code> 以等待每个 <code>Worker</code> 线程完成。</p>
-<p data-x-en="Notice one interesting aspect of this particular execution: The ThreadPool dropped the sender, and before any Worker received an error, we tried to join Worker 0. Worker 0 had not yet gotten an error from recv, so the main thread blocked, waiting for Worker 0 to finish. In the meantime, Worker 3 received a job and then all threads received an error. When Worker 0 finished, the main thread waited for the rest of the Worker instances to finish. At that point, they had all exited their loops and stopped.">注意这个特定执行的一个有趣方面：<code>ThreadPool</code> 丢弃了 <code>sender</code>，并且在任何 <code>Worker</code> 收到错误之前，我们尝试加入 <code>Worker 0</code>。<code>Worker 0</code> 尚未从 <code>recv</code> 收到错误，因此主线程阻塞，等待 <code>Worker 0</code> 完成。在此期间，<code>Worker 3</code> 收到了一个任务，然后所有线程都收到了错误。当 <code>Worker 0</code> 完成时，主线程等待其余的 <code>Worker</code> 实例完成。那时，它们都已经退出了循环并停止。</p>
-<p data-x-en="Congrats! We’ve now completed our project; we have a basic web server that uses a thread pool to respond asynchronously. We’re able to perform a graceful shutdown of the server, which cleans up all the threads in the pool.">恭喜！我们现在完成了项目；我们有一个使用线程池异步响应的基本Web服务器。我们能够执行服务器的优雅关闭，清理池中的所有线程。</p>
-<p data-x-en="Here’s the full code for reference:">以下是完整的代码供参考：</p>
+<p>You might see a different ordering of <code>Worker</code> IDs and messages printed. We can
+see how this code works from the messages: <code>Worker</code> instances 0 and 3 got the
+first two requests. The server stopped accepting connections after the second
+connection, and the <code>Drop</code> implementation on <code>ThreadPool</code> starts executing
+before <code>Worker 3</code> even starts its job. Dropping the <code>sender</code> disconnects all the
+<code>Worker</code> instances and tells them to shut down. The <code>Worker</code> instances each
+print a message when they disconnect, and then the thread pool calls <code>join</code> to
+wait for each <code>Worker</code> thread to finish.</p>
+<p>Notice one interesting aspect of this particular execution: The <code>ThreadPool</code>
+dropped the <code>sender</code>, and before any <code>Worker</code> received an error, we tried to
+join <code>Worker 0</code>. <code>Worker 0</code> had not yet gotten an error from <code>recv</code>, so the main
+thread blocked, waiting for <code>Worker 0</code> to finish. In the meantime, <code>Worker 3</code>
+received a job and then all threads received an error. When <code>Worker 0</code> finished,
+the main thread waited for the rest of the <code>Worker</code> instances to finish. At that
+point, they had all exited their loops and stopped.</p>
+<p>Congrats! We’ve now completed our project; we have a basic web server that uses
+a thread pool to respond asynchronously. We’re able to perform a graceful
+shutdown of the server, which cleans up all the threads in the pool.</p>
+<p>Here’s the full code for reference:</p>
 <figure class="listing">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore">use hello::ThreadPool;
@@ -859,27 +932,34 @@ impl Worker {
     }
 }</code></pre>
 </figure>
-<p data-x-en="We could do more here! If you want to continue enhancing this project, here are some ideas:">我们还可以做得更多！如果您想继续增强这个项目，这里有一些想法：</p>
+<p>We could do more here! If you want to continue enhancing this project, here are
+some ideas:</p>
 <ul>
-<li data-x-en="Add more documentation to ThreadPool and its public methods.">为 <code>ThreadPool</code> 及其公共方法添加更多文档。</li>
-<li data-x-en="Add tests of the library’s functionality.">添加测试以检验库的功能。</li>
-<li data-x-en="Change calls to unwrap to more robust error handling.">将 <code>unwrap</code> 的调用更改为更健壮的错误处理。</li>
-<li data-x-en="Use ThreadPool to perform some task other than serving web requests.">使用 <code>ThreadPool</code> 执行除处理网页请求之外的某些任务。</li>
-<li data-x-en="Find a thread pool crate on crates.io and implement a similar web server using the crate instead. Then, compare its API and robustness to the thread pool we implemented.">在<a href="https://crates.io/">crates.io</a>上找到一个线程池库，并使用该库实现一个类似的Web服务器。然后，将其API和健壮性与我们实现的线程池进行比较。</li>
+<li>Add more documentation to <code>ThreadPool</code> and its public methods.</li>
+<li>Add tests of the library’s functionality.</li>
+<li>Change calls to <code>unwrap</code> to more robust error handling.</li>
+<li>Use <code>ThreadPool</code> to perform some task other than serving web requests.</li>
+<li>Find a thread pool crate on <a href="https://crates.io/">crates.io</a> and implement a
+similar web server using the crate instead. Then, compare its API and
+robustness to the thread pool we implemented.</li>
 </ul>
-<h2 id="summary"><a class="header" href="#summary">摘要</a></h2>
-<p data-x-en="Well done! You’ve made it to the end of the book! We want to thank you for joining us on this tour of Rust. You’re now ready to implement your own Rust projects and help with other people’s projects. Keep in mind that there is a welcoming community of other Rustaceans who would love to help you with any challenges you encounter on your Rust journey.">干得好！你已经读到了这本书的最后！我们要感谢你加入我们这次的Rust之旅。你现在可以开始实现自己的Rust项目，并帮助其他人的项目。请记住，有一个欢迎你的Rustaceans社区，他们很乐意在你的Rust之旅中遇到的任何挑战时帮助你。</p>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<p>Well done! You’ve made it to the end of the book! We want to thank you for
+joining us on this tour of Rust. You’re now ready to implement your own Rust
+projects and help with other people’s projects. Keep in mind that there is a
+welcoming community of other Rustaceans who would love to help you with any
+challenges you encounter on your Rust journey.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch21-02-multithreaded.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="appendix-00.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -889,16 +969,21 @@ impl Worker {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch21-02-multithreaded.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="appendix-00.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -907,16 +992,16 @@ impl Worker {
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

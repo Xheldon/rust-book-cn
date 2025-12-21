@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch03-01-variables-and-mutability.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,54 +212,64 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
-                        <h2 id="variables-and-mutability"><a class="header" href="#variables-and-mutability">变量和可变性</a></h2>
-<p data-x-en="As mentioned in the “Storing Values with Variables” section, by default, variables are immutable. This is one of many nudges Rust gives you to write your code in a way that takes advantage of the safety and easy concurrency that Rust offers. However, you still have the option to make your variables mutable. Let’s explore how and why Rust encourages you to favor immutability and why sometimes you might want to opt out.">如<a href="ch02-00-guessing-game-tutorial.html#storing-values-with-variables">“使用变量存储值”</a><!-- ignore -->部分所述，默认情况下，变量是不可变的。这是 Rust 为了让你以利用 Rust 提供的安全性和易于并发的方式编写代码而给予的许多提示之一。然而，你仍然可以选择将变量设为可变的。让我们探讨 Rust 为什么鼓励你倾向于不可变性，以及为什么有时你可能想要选择退出。</p>
-<p data-x-en="When a variable is immutable, once a value is bound to a name, you can’t change that value. To illustrate this, generate a new project called variables in your projects directory by using cargo new variables.">当变量是不可变的，一旦一个值被绑定到一个名称，你就不能改变这个值。为了说明这一点，请在你的<em>projects</em>目录中使用<code>cargo new variables</code>生成一个名为<em>variables</em>的新项目。</p>
-<p data-x-en="Then, in your new variables directory, open src/main.rs and replace its code with the following code, which won’t compile just yet:">然后，在您的新 <em>variables</em> 目录中，打开 <em>src/main.rs</em> 并将其代码替换为以下代码，这些代码暂时还无法编译：</p>
-<p data-x-en="Filename: src/main.rs"><span class="filename">文件名: src/main.rs</span></p>
+                        <h2 id="variables-and-mutability"><a class="header" href="#variables-and-mutability">Variables and Mutability</a></h2>
+<p>As mentioned in the <a href="ch02-00-guessing-game-tutorial.html#storing-values-with-variables">“Storing Values with
+Variables”</a><!-- ignore --> section, by default,
+variables are immutable. This is one of many nudges Rust gives you to write
+your code in a way that takes advantage of the safety and easy concurrency that
+Rust offers. However, you still have the option to make your variables mutable.
+Let’s explore how and why Rust encourages you to favor immutability and why
+sometimes you might want to opt out.</p>
+<p>When a variable is immutable, once a value is bound to a name, you can’t change
+that value. To illustrate this, generate a new project called <em>variables</em> in
+your <em>projects</em> directory by using <code>cargo new variables</code>.</p>
+<p>Then, in your new <em>variables</em> directory, open <em>src/main.rs</em> and replace its
+code with the following code, which won’t compile just yet:</p>
+<p><span class="filename">Filename: src/main.rs</span></p>
 <pre><code class="language-rust ignore does_not_compile">fn main() {
     let x = 5;
     println!("The value of x is: {x}");
     x = 6;
     println!("The value of x is: {x}");
 }</code></pre>
-<p data-x-en="Save and run the program using cargo run. You should receive an error message regarding an immutability error, as shown in this output:">使用 <code>cargo run</code> 保存并运行程序。您应该会收到一个关于不可变性的错误消息，如下所示：</p>
+<p>Save and run the program using <code>cargo run</code>. You should receive an error message
+regarding an immutability error, as shown in this output:</p>
 <pre><code class="language-console">$ cargo run
    Compiling variables v0.1.0 (file:///projects/variables)
 error[E0384]: cannot assign twice to immutable variable `x`
@@ -280,21 +289,36 @@ help: consider making this binding mutable
 For more information about this error, try `rustc --explain E0384`.
 error: could not compile `variables` (bin "variables") due to 1 previous error
 </code></pre>
-<p data-x-en="This example shows how the compiler helps you find errors in your programs. Compiler errors can be frustrating, but really they only mean your program isn’t safely doing what you want it to do yet; they do not mean that you’re not a good programmer! Experienced Rustaceans still get compiler errors.">这个例子展示了编译器如何帮助你找到程序中的错误。
-编译器错误可能会令人沮丧，但事实上它们只意味着你的程序还没有安全地完成你想要它做的事情；它们并<em>不</em>意味着你不是一个好程序员！有经验的 Rustaceans 仍然会遇到编译器错误。</p>
-<p data-x-en="You received the error message cannot assign twice to immutable variable `x` because you tried to assign a second value to the immutable x variable.">您收到错误消息 <code>cannot assign twice to immutable variable `x`</code> 是因为您尝试给不可变的 <code>x</code> 变量赋第二个值。</p>
-<p data-x-en="It’s important that we get compile-time errors when we attempt to change a value that’s designated as immutable, because this very situation can lead to bugs. If one part of our code operates on the assumption that a value will never change and another part of our code changes that value, it’s possible that the first part of the code won’t do what it was designed to do. The cause of this kind of bug can be difficult to track down after the fact, especially when the second piece of code changes the value only sometimes. The Rust compiler guarantees that when you state that a value won’t change, it really won’t change, so you don’t have to keep track of it yourself. Your code is thus easier to reason through.">当我们试图更改被指定为不可变的值时，获得编译时错误是很重要的，因为这种情况可能会导致错误。如果我们的代码的一部分基于某个值永远不会改变的假设运行，而代码的另一部分改变了该值，那么代码的第一部分可能无法按设计执行。这种错误的原因在事后可能很难追踪，特别是当代码的第二部分只在<em>某些时候</em>改变该值时。Rust编译器保证，当你声明一个值不会改变时，它确实不会改变，因此你不必自己跟踪它。因此，你的代码更容易理解。</p>
-<p data-x-en="But mutability can be very useful and can make code more convenient to write. Although variables are immutable by default, you can make them mutable by adding mut in front of the variable name as you did in Chapter 2. Adding mut also conveys intent to future readers of the code by indicating that other parts of the code will be changing this variable’s value.">但是可变性非常有用，可以使代码更方便编写。
-虽然变量默认是不可变的，但您可以通过在变量名前添加<code>mut</code>来使其可变，就像您在<a href="ch02-00-guessing-game-tutorial.html#storing-values-with-variables">第2章</a><!-- ignore -->中所做的那样。添加<code>mut</code>还可以向未来的代码阅读者传达意图，表明代码的其他部分将更改此变量的值。</p>
-<p data-x-en="For example, let’s change src/main.rs to the following:">例如，让我们将 <em>src/main.rs</em> 更改为以下内容：</p>
-<p data-x-en="Filename: src/main.rs"><span class="filename">文件名: src/main.rs</span></p>
-<pre><pre class="playground"><code class="language-rust edition2024">fn main() {
+<p>This example shows how the compiler helps you find errors in your programs.
+Compiler errors can be frustrating, but really they only mean your program
+isn’t safely doing what you want it to do yet; they do <em>not</em> mean that you’re
+not a good programmer! Experienced Rustaceans still get compiler errors.</p>
+<p>You received the error message <code>cannot assign twice to immutable variable `x`</code> because you tried to assign a second value to the immutable <code>x</code> variable.</p>
+<p>It’s important that we get compile-time errors when we attempt to change a
+value that’s designated as immutable, because this very situation can lead to
+bugs. If one part of our code operates on the assumption that a value will
+never change and another part of our code changes that value, it’s possible
+that the first part of the code won’t do what it was designed to do. The cause
+of this kind of bug can be difficult to track down after the fact, especially
+when the second piece of code changes the value only <em>sometimes</em>. The Rust
+compiler guarantees that when you state that a value won’t change, it really
+won’t change, so you don’t have to keep track of it yourself. Your code is thus
+easier to reason through.</p>
+<p>But mutability can be very useful and can make code more convenient to write.
+Although variables are immutable by default, you can make them mutable by
+adding <code>mut</code> in front of the variable name as you did in <a href="ch02-00-guessing-game-tutorial.html#storing-values-with-variables">Chapter
+2</a><!-- ignore -->. Adding <code>mut</code> also conveys
+intent to future readers of the code by indicating that other parts of the code
+will be changing this variable’s value.</p>
+<p>For example, let’s change <em>src/main.rs</em> to the following:</p>
+<p><span class="filename">Filename: src/main.rs</span></p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
     let mut x = 5;
     println!("The value of x is: {x}");
     x = 6;
     println!("The value of x is: {x}");
-}</code></pre></pre>
-<p data-x-en="When we run the program now, we get this:">当我们现在运行程序时，我们得到的是这个：</p>
+}</code></pre>
+<p>When we run the program now, we get this:</p>
 <pre><code class="language-console">$ cargo run
    Compiling variables v0.1.0 (file:///projects/variables)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.30s
@@ -302,26 +326,61 @@ error: could not compile `variables` (bin "variables") due to 1 previous error
 The value of x is: 5
 The value of x is: 6
 </code></pre>
-<p data-x-en="We’re allowed to change the value bound to x from 5 to 6 when mut is used. Ultimately, deciding whether to use mutability or not is up to you and depends on what you think is clearest in that particular situation.">当我们使用 <code>mut</code> 时，允许我们将绑定到 <code>x</code> 的值从 <code>5</code> 更改为 <code>6</code>。最终，是否使用可变性取决于您，并且取决于您认为在特定情况下最清晰的方式。</p>
+<p>We’re allowed to change the value bound to <code>x</code> from <code>5</code> to <code>6</code> when <code>mut</code> is
+used. Ultimately, deciding whether to use mutability or not is up to you and
+depends on what you think is clearest in that particular situation.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="constants"></a></p>
-<h3 id="declaring-constants"><a class="header" href="#declaring-constants">声明常量</a></h3>
-<p data-x-en="Like immutable variables, constants are values that are bound to a name and are not allowed to change, but there are a few differences between constants and variables.">像不可变变量一样，<em>常量</em>是绑定到名称的值，并且不允许更改，但常量和变量之间存在一些差异。</p>
-<p data-x-en="First, you aren’t allowed to use mut with constants. Constants aren’t just immutable by default—they’re always immutable. You declare constants using the const keyword instead of the let keyword, and the type of the value must be annotated. We’ll cover types and type annotations in the next section, “Data Types”, so don’t worry about the details right now. Just know that you must always annotate the type.">首先，你不允许在常量中使用<code>mut</code>。常量不仅默认是不可变的——它们始终是不可变的。你使用<code>const</code>关键字而不是<code>let</code>关键字来声明常量，而且值的类型<em>必须</em>被注解。我们将在下一节<a href="ch03-02-data-types.html#data-types">“数据类型”</a><!-- ignore -->中讨论类型和类型注解，所以现在不用担心细节。只需知道你必须始终注解类型。</p>
-<p data-x-en="Constants can be declared in any scope, including the global scope, which makes them useful for values that many parts of code need to know about.">常量可以在任何作用域中声明，包括全局作用域，这使得它们对于许多代码部分需要了解的值非常有用。</p>
-<p data-x-en="The last difference is that constants may be set only to a constant expression, not the result of a value that could only be computed at runtime.">最后一个不同点是常量只能设置为常量表达式，不能设置为只能在运行时计算的值的结果。</p>
-<p data-x-en="Here’s an example of a constant declaration:">这是一个常量声明的例子：</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+<h3 id="declaring-constants"><a class="header" href="#declaring-constants">Declaring Constants</a></h3>
+<p>Like immutable variables, <em>constants</em> are values that are bound to a name and
+are not allowed to change, but there are a few differences between constants
+and variables.</p>
+<p>First, you aren’t allowed to use <code>mut</code> with constants. Constants aren’t just
+immutable by default—they’re always immutable. You declare constants using the
+<code>const</code> keyword instead of the <code>let</code> keyword, and the type of the value <em>must</em>
+be annotated. We’ll cover types and type annotations in the next section,
+<a href="ch03-02-data-types.html#data-types">“Data Types”</a><!-- ignore -->, so don’t worry about the details
+right now. Just know that you must always annotate the type.</p>
+<p>Constants can be declared in any scope, including the global scope, which makes
+them useful for values that many parts of code need to know about.</p>
+<p>The last difference is that constants may be set only to a constant expression,
+not the result of a value that could only be computed at runtime.</p>
+<p>Here’s an example of a constant declaration:</p>
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3;
-<span class="boring">}</span></code></pre></pre>
-<p data-x-en="The constant’s name is THREE_HOURS_IN_SECONDS, and its value is set to the result of multiplying 60 (the number of seconds in a minute) by 60 (the number of minutes in an hour) by 3 (the number of hours we want to count in this program). Rust’s naming convention for constants is to use all uppercase with underscores between words. The compiler is able to evaluate a limited set of operations at compile time, which lets us choose to write out this value in a way that’s easier to understand and verify, rather than setting this constant to the value 10,800. See the Rust Reference’s section on constant evaluation for more information on what operations can be used when declaring constants.">常量的名称是<code>THREE_HOURS_IN_SECONDS</code>，其值设置为60（一分钟的秒数）乘以60（一小时的分钟数）再乘以3（我们在这个程序中想要计算的小时数）。Rust中常量的命名约定是全部使用大写，并在单词之间使用下划线。编译器能够在编译时评估有限的操作，这使我们能够选择以一种更容易理解和验证的方式写出这个值，而不是将这个常量设置为10,800。有关声明常量时可以使用哪些操作的更多信息，请参阅<a href="https://doc.rust-lang.org/reference/const_eval.html" target="_blank">Rust参考手册中关于常量评估的部分</a>。</p>
-<p data-x-en="Constants are valid for the entire time a program runs, within the scope in which they were declared. This property makes constants useful for values in your application domain that multiple parts of the program might need to know about, such as the maximum number of points any player of a game is allowed to earn, or the speed of light.">常量在其声明的作用域内对程序运行的整个时间都有效。这一特性使得常量对于应用程序领域中多个程序部分可能需要了解的值非常有用，例如游戏中任何玩家允许获得的最高分数，或光速。</p>
-<p data-x-en="Naming hardcoded values used throughout your program as constants is useful in conveying the meaning of that value to future maintainers of the code. It also helps to have only one place in your code that you would need to change if the hardcoded value needed to be updated in the future.">将程序中到处使用的硬编码值命名为常量，有助于向未来的代码维护者传达该值的含义。同时，如果将来需要更新硬编码值，这样做也可以确保你只需要在一个地方进行更改。</p>
-<h3 id="shadowing"><a class="header" href="#shadowing">遮蔽</a></h3>
-<p data-x-en="As you saw in the guessing game tutorial in Chapter 2, you can declare a new variable with the same name as a previous variable. Rustaceans say that the first variable is shadowed by the second, which means that the second variable is what the compiler will see when you use the name of the variable. In effect, the second variable overshadows the first, taking any uses of the variable name to itself until either it itself is shadowed or the scope ends. We can shadow a variable by using the same variable’s name and repeating the use of the let keyword as follows:">正如你在<a href="ch02-00-guessing-game-tutorial.html#comparing-the-guess-to-the-secret-number">第2章</a><!-- ignore -->的猜数字游戏教程中所见，你可以声明一个与先前变量同名的新变量。Rustaceans 说，第一个变量被第二个变量<em>遮蔽</em>了，这意味着当你使用变量名时，编译器将看到的是第二个变量。实际上，第二个变量遮蔽了第一个变量，将变量名的任何使用指向自己，直到它自己被遮蔽或作用域结束。我们可以通过使用相同的变量名并重复使用<code>let</code>关键字来遮蔽一个变量，如下所示：</p>
-<p data-x-en="Filename: src/main.rs"><span class="filename">文件名: src/main.rs</span></p>
-<pre><pre class="playground"><code class="language-rust edition2024">fn main() {
+<span class="boring">}</span></code></pre>
+<p>The constant’s name is <code>THREE_HOURS_IN_SECONDS</code>, and its value is set to the
+result of multiplying 60 (the number of seconds in a minute) by 60 (the number
+of minutes in an hour) by 3 (the number of hours we want to count in this
+program). Rust’s naming convention for constants is to use all uppercase with
+underscores between words. The compiler is able to evaluate a limited set of
+operations at compile time, which lets us choose to write out this value in a
+way that’s easier to understand and verify, rather than setting this constant
+to the value 10,800. See the <a href="https://doc.rust-lang.org/reference/const_eval.html" target="_blank">Rust Reference’s section on constant
+evaluation</a> for more information on what operations can be used
+when declaring constants.</p>
+<p>Constants are valid for the entire time a program runs, within the scope in
+which they were declared. This property makes constants useful for values in
+your application domain that multiple parts of the program might need to know
+about, such as the maximum number of points any player of a game is allowed to
+earn, or the speed of light.</p>
+<p>Naming hardcoded values used throughout your program as constants is useful in
+conveying the meaning of that value to future maintainers of the code. It also
+helps to have only one place in your code that you would need to change if the
+hardcoded value needed to be updated in the future.</p>
+<h3 id="shadowing"><a class="header" href="#shadowing">Shadowing</a></h3>
+<p>As you saw in the guessing game tutorial in <a href="ch02-00-guessing-game-tutorial.html#comparing-the-guess-to-the-secret-number">Chapter
+2</a><!-- ignore -->, you can declare a
+new variable with the same name as a previous variable. Rustaceans say that the
+first variable is <em>shadowed</em> by the second, which means that the second
+variable is what the compiler will see when you use the name of the variable.
+In effect, the second variable overshadows the first, taking any uses of the
+variable name to itself until either it itself is shadowed or the scope ends.
+We can shadow a variable by using the same variable’s name and repeating the
+use of the <code>let</code> keyword as follows:</p>
+<p><span class="filename">Filename: src/main.rs</span></p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
     let x = 5;
 
     let x = x + 1;
@@ -332,8 +391,14 @@ The value of x is: 6
     }
 
     println!("The value of x is: {x}");
-}</code></pre></pre>
-<p data-x-en="This program first binds x to a value of 5. Then, it creates a new variable x by repeating let x =, taking the original value and adding 1 so that the value of x is 6. Then, within an inner scope created with the curly brackets, the third let statement also shadows x and creates a new variable, multiplying the previous value by 2 to give x a value of 12. When that scope is over, the inner shadowing ends and x returns to being 6. When we run this program, it will output the following:">这个程序首先将 <code>x</code> 绑定到值 <code>5</code>。然后，它通过重复 <code>let x =</code> 创建一个新的变量 <code>x</code>，将原始值加 <code>1</code>，使 <code>x</code> 的值变为 <code>6</code>。然后，在用大括号创建的内部作用域中，第三个 <code>let</code> 语句也遮蔽了 <code>x</code> 并创建了一个新的变量，将前一个值乘以 <code>2</code>，使 <code>x</code> 的值变为 <code>12</code>。当该作用域结束时，内部遮蔽结束，<code>x</code> 变回 <code>6</code>。当我们运行这个程序时，它将输出以下内容：</p>
+}</code></pre>
+<p>This program first binds <code>x</code> to a value of <code>5</code>. Then, it creates a new variable
+<code>x</code> by repeating <code>let x =</code>, taking the original value and adding <code>1</code> so that
+the value of <code>x</code> is <code>6</code>. Then, within an inner scope created with the curly
+brackets, the third <code>let</code> statement also shadows <code>x</code> and creates a new
+variable, multiplying the previous value by <code>2</code> to give <code>x</code> a value of <code>12</code>.
+When that scope is over, the inner shadowing ends and <code>x</code> returns to being <code>6</code>.
+When we run this program, it will output the following:</p>
 <pre><code class="language-console">$ cargo run
    Compiling variables v0.1.0 (file:///projects/variables)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.31s
@@ -341,18 +406,30 @@ The value of x is: 6
 The value of x in the inner scope is: 12
 The value of x is: 6
 </code></pre>
-<p data-x-en="Shadowing is different from marking a variable as mut because we’ll get a compile-time error if we accidentally try to reassign to this variable without using the let keyword. By using let, we can perform a few transformations on a value but have the variable be immutable after those transformations have completed.">遮蔽（Shadowing）与将变量标记为<code>mut</code>不同，因为如果我们不小心尝试在没有使用<code>let</code>关键字的情况下重新赋值给这个变量，我们会得到一个编译时错误。通过使用<code>let</code>，我们可以在值上执行一些转换，但在这些转换完成后，变量将变为不可变。</p>
-<p data-x-en="The other difference between mut and shadowing is that because we’re effectively creating a new variable when we use the let keyword again, we can change the type of the value but reuse the same name. For example, say our program asks a user to show how many spaces they want between some text by inputting space characters, and then we want to store that input as a number:"><code>mut</code> 和遮蔽之间的另一个区别是，由于我们在再次使用 <code>let</code> 关键字时实际上是创建了一个新变量，因此我们可以更改值的类型但重用相同的名称。例如，假设我们的程序要求用户通过输入空格字符来显示他们希望在某些文本之间有多少个空格，然后我们希望将该输入存储为数字：</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<p>Shadowing is different from marking a variable as <code>mut</code> because we’ll get a
+compile-time error if we accidentally try to reassign to this variable without
+using the <code>let</code> keyword. By using <code>let</code>, we can perform a few transformations
+on a value but have the variable be immutable after those transformations have
+completed.</p>
+<p>The other difference between <code>mut</code> and shadowing is that because we’re
+effectively creating a new variable when we use the <code>let</code> keyword again, we can
+change the type of the value but reuse the same name. For example, say our
+program asks a user to show how many spaces they want between some text by
+inputting space characters, and then we want to store that input as a number:</p>
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let spaces = "   ";
     let spaces = spaces.len();
-<span class="boring">}</span></code></pre></pre>
-<p data-x-en="The first spaces variable is a string type, and the second spaces variable is a number type. Shadowing thus spares us from having to come up with different names, such as spaces_str and spaces_num; instead, we can reuse the simpler spaces name. However, if we try to use mut for this, as shown here, we’ll get a compile-time error:">第一个 <code>spaces</code> 变量是字符串类型，第二个 <code>spaces</code> 变量是数字类型。因此，遮蔽让我们不必想出不同的名称，例如 <code>spaces_str</code> 和 <code>spaces_num</code>；相反，我们可以重用更简单的 <code>spaces</code> 名称。但是，如果我们尝试为此使用 <code>mut</code>，如这里所示，我们将得到一个编译时错误：</p>
+<span class="boring">}</span></code></pre>
+<p>The first <code>spaces</code> variable is a string type, and the second <code>spaces</code> variable
+is a number type. Shadowing thus spares us from having to come up with
+different names, such as <code>spaces_str</code> and <code>spaces_num</code>; instead, we can reuse
+the simpler <code>spaces</code> name. However, if we try to use <code>mut</code> for this, as shown
+here, we’ll get a compile-time error:</p>
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">fn main() {
 </span>    let mut spaces = "   ";
     spaces = spaces.len();
 <span class="boring">}</span></code></pre>
-<p data-x-en="The error says we’re not allowed to mutate a variable’s type:">错误说我们不允许改变变量的类型：</p>
+<p>The error says we’re not allowed to mutate a variable’s type:</p>
 <pre><code class="language-console">$ cargo run
    Compiling variables v0.1.0 (file:///projects/variables)
 error[E0308]: mismatched types
@@ -366,18 +443,19 @@ error[E0308]: mismatched types
 For more information about this error, try `rustc --explain E0308`.
 error: could not compile `variables` (bin "variables") due to 1 previous error
 </code></pre>
-<p data-x-en="Now that we’ve explored how variables work, let’s look at more data types they can have.">现在我们已经探讨了变量的工作原理，让我们来看看它们可以拥有的更多数据类型。</p>
+<p>Now that we’ve explored how variables work, let’s look at more data types they
+can have.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch03-00-common-programming-concepts.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch03-02-data-types.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -387,16 +465,21 @@ error: could not compile `variables` (bin "variables") due to 1 previous error
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch03-00-common-programming-concepts.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch03-02-data-types.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -405,16 +488,16 @@ error: could not compile `variables` (bin "variables") due to 1 previous error
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

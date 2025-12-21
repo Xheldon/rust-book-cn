@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch04-03-slices.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,54 +212,68 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
-                        <h2 id="the-slice-type"><a class="header" href="#the-slice-type">切片类型</a></h2>
-<p data-x-en="Slices let you reference a contiguous sequence of elements in a collection. A slice is a kind of reference, so it does not have ownership."><em>切片</em> 让你引用一个 <a href="ch08-00-common-collections.html">集合</a><!-- ignore --> 中连续的元素序列。切片是一种引用，因此它没有所有权。</p>
-<p data-x-en="Here’s a small programming problem: Write a function that takes a string of words separated by spaces and returns the first word it finds in that string. If the function doesn’t find a space in the string, the whole string must be one word, so the entire string should be returned.">这是一个小的编程问题：编写一个函数，该函数接收一个由空格分隔的单词字符串，并返回在该字符串中找到的第一个单词。如果函数在字符串中找不到空格，则整个字符串必须是一个单词，因此应返回整个字符串。</p>
+                        <h2 id="the-slice-type"><a class="header" href="#the-slice-type">The Slice Type</a></h2>
+<p><em>Slices</em> let you reference a contiguous sequence of elements in a
+<a href="ch08-00-common-collections.html">collection</a><!-- ignore -->. A slice is a kind
+of reference, so it does not have ownership.</p>
+<p>Here’s a small programming problem: Write a function that takes a string of
+words separated by spaces and returns the first word it finds in that string.
+If the function doesn’t find a space in the string, the whole string must be
+one word, so the entire string should be returned.</p>
 <section class="note" aria-role="note">
-<p data-x-en="Note: For the purposes of introducing slices, we are assuming ASCII only in this section; a more thorough discussion of UTF-8 handling is in the “Storing UTF-8 Encoded Text with Strings” section of Chapter 8.">注意：为了介绍切片，我们在本节中假设只使用 ASCII；关于 UTF-8 处理的更详细讨论，请参阅第 8 章的<a href="ch08-02-strings.html#storing-utf-8-encoded-text-with-strings">“使用字符串存储 UTF-8 编码的文本”</a>部分。</p>
+<p>Note: For the purposes of introducing slices, we are assuming ASCII only in
+this section; a more thorough discussion of UTF-8 handling is in the
+<a href="ch08-02-strings.html#storing-utf-8-encoded-text-with-strings">“Storing UTF-8 Encoded Text with Strings”</a><!-- ignore --> section
+of Chapter 8.</p>
 </section>
-<p data-x-en="Let’s work through how we’d write the signature of this function without using slices, to understand the problem that slices will solve:">让我们逐步了解如何在不使用切片的情况下编写此函数的签名，以理解切片将解决的问题:</p>
+<p>Let’s work through how we’d write the signature of this function without using
+slices, to understand the problem that slices will solve:</p>
 <pre><code class="language-rust ignore">fn first_word(s: &amp;String) -&gt; ?</code></pre>
-<p data-x-en="The first_word function has a parameter of type &amp;String. We don’t need ownership, so this is fine. (In idiomatic Rust, functions do not take ownership of their arguments unless they need to, and the reasons for that will become clear as we keep going.) But what should we return? We don’t really have a way to talk about part of a string. However, we could return the index of the end of the word, indicated by a space. Let’s try that, as shown in Listing 4-7."><code>first_word</code> 函数有一个类型为 <code>&amp;String</code> 的参数。我们不需要所有权，所以这样是可以的。（在惯用的 Rust 中，除非需要，函数不会获取其参数的所有权，随着我们继续学习，这一点会变得清晰。）但是我们应该返回什么呢？我们实际上没有一种方法来讨论字符串的<em>部分</em>。然而，我们可以返回单词结束的位置（由空格指示）的索引。让我们尝试一下，如清单 4-7 所示。</p>
+<p>The <code>first_word</code> function has a parameter of type <code>&amp;String</code>. We don’t need
+ownership, so this is fine. (In idiomatic Rust, functions do not take ownership
+of their arguments unless they need to, and the reasons for that will become
+clear as we keep going.) But what should we return? We don’t really have a way
+to talk about <em>part</em> of a string. However, we could return the index of the end
+of the word, indicated by a space. Let’s try that, as shown in Listing 4-7.</p>
 <figure class="listing" id="listing-4-7">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">fn first_word(s: &amp;String) -&gt; usize {
+<pre class="playground"><code class="language-rust edition2024">fn first_word(s: &amp;String) -&gt; usize {
     let bytes = s.as_bytes();
 
     for (i, &amp;item) in bytes.iter().enumerate() {
@@ -272,10 +285,12 @@ blockquote {
     s.len()
 }
 <span class="boring">
-</span><span class="boring">fn main() {}</span></code></pre></pre>
+</span><span class="boring">fn main() {}</span></code></pre>
 <figcaption><a href="#listing-4-7">Listing 4-7</a>: The <code>first_word</code> function that returns a byte index value into the <code>String</code> parameter</figcaption>
 </figure>
-<p data-x-en="Because we need to go through the String element by element and check whether a value is a space, we’ll convert our String to an array of bytes using the as_bytes method.">因为我们需要逐个元素地遍历 <code>String</code> 并检查一个值是否为空格，我们将使用 <code>as_bytes</code> 方法将 <code>String</code> 转换为字节数组。</p>
+<p>Because we need to go through the <code>String</code> element by element and check whether
+a value is a space, we’ll convert our <code>String</code> to an array of bytes using the
+<code>as_bytes</code> method.</p>
 <pre><code class="language-rust ignore"><span class="boring">fn first_word(s: &amp;String) -&gt; usize {
 </span>    let bytes = s.as_bytes();
 <span class="boring">
@@ -289,7 +304,7 @@ blockquote {
 </span><span class="boring">}
 </span><span class="boring">
 </span><span class="boring">fn main() {}</span></code></pre>
-<p data-x-en="Next, we create an iterator over the array of bytes using the iter method:">接下来，我们使用 <code>iter</code> 方法创建一个遍历字节数组的迭代器：</p>
+<p>Next, we create an iterator over the array of bytes using the <code>iter</code> method:</p>
 <pre><code class="language-rust ignore"><span class="boring">fn first_word(s: &amp;String) -&gt; usize {
 </span><span class="boring">    let bytes = s.as_bytes();
 </span><span class="boring">
@@ -303,13 +318,21 @@ blockquote {
 </span><span class="boring">}
 </span><span class="boring">
 </span><span class="boring">fn main() {}</span></code></pre>
-<p data-x-en="We’ll discuss iterators in more detail in Chapter 13. For now, know that iter is a method that returns each element in a collection and that enumerate wraps the result of iter and returns each element as part of a tuple instead. The first element of the tuple returned from enumerate is the index, and the second element is a reference to the element. This is a bit more convenient than calculating the index ourselves.">我们将在<a href="ch13-02-iterators.html">第 13 章</a><!-- ignore -->中更详细地讨论迭代器。
-目前，要知道<code>iter</code>是一个返回集合中每个元素的方法，
-而<code>enumerate</code>则包装<code>iter</code>的结果，并将每个元素作为元组的一部分返回。从
-<code>enumerate</code>返回的元组的第一个元素是索引，第二个元素是对元素的引用。
-这比我们自己计算索引要方便一些。</p>
-<p data-x-en="Because the enumerate method returns a tuple, we can use patterns to destructure that tuple. We’ll be discussing patterns more in Chapter 6. In the for loop, we specify a pattern that has i for the index in the tuple and &amp;item for the single byte in the tuple. Because we get a reference to the element from .iter().enumerate(), we use &amp; in the pattern.">因为 <code>enumerate</code> 方法返回一个元组，我们可以使用模式来解构这个元组。我们将在 <a href="ch06-02-match.html#patterns-that-bind-to-values">第 6 章</a><!-- ignore --> 中更详细地讨论模式。在 <code>for</code> 循环中，我们指定一个模式，该模式在元组中使用 <code>i</code> 作为索引，使用 <code>&amp;item</code> 作为元组中的单个字节。由于从 <code>.iter().enumerate()</code> 获取的是元素的引用，我们在模式中使用 <code>&amp;</code>。</p>
-<p data-x-en="Inside the for loop, we search for the byte that represents the space by using the byte literal syntax. If we find a space, we return the position. Otherwise, we return the length of the string by using s.len().">在 <code>for</code> 循环中，我们使用字节字面量语法搜索表示空格的字节。如果找到空格，我们返回其位置。否则，我们通过使用 <code>s.len()</code> 返回字符串的长度。</p>
+<p>We’ll discuss iterators in more detail in <a href="ch13-02-iterators.html">Chapter 13</a><!-- ignore -->.
+For now, know that <code>iter</code> is a method that returns each element in a collection
+and that <code>enumerate</code> wraps the result of <code>iter</code> and returns each element as
+part of a tuple instead. The first element of the tuple returned from
+<code>enumerate</code> is the index, and the second element is a reference to the element.
+This is a bit more convenient than calculating the index ourselves.</p>
+<p>Because the <code>enumerate</code> method returns a tuple, we can use patterns to
+destructure that tuple. We’ll be discussing patterns more in <a href="ch06-02-match.html#patterns-that-bind-to-values">Chapter
+6</a><!-- ignore -->. In the <code>for</code> loop, we specify a pattern that has <code>i</code>
+for the index in the tuple and <code>&amp;item</code> for the single byte in the tuple.
+Because we get a reference to the element from <code>.iter().enumerate()</code>, we use
+<code>&amp;</code> in the pattern.</p>
+<p>Inside the <code>for</code> loop, we search for the byte that represents the space by
+using the byte literal syntax. If we find a space, we return the position.
+Otherwise, we return the length of the string by using <code>s.len()</code>.</p>
 <pre><code class="language-rust ignore"><span class="boring">fn first_word(s: &amp;String) -&gt; usize {
 </span><span class="boring">    let bytes = s.as_bytes();
 </span><span class="boring">
@@ -323,10 +346,15 @@ blockquote {
 <span class="boring">}
 </span><span class="boring">
 </span><span class="boring">fn main() {}</span></code></pre>
-<p data-x-en="We now have a way to find out the index of the end of the first word in the string, but there’s a problem. We’re returning a usize on its own, but it’s only a meaningful number in the context of the &amp;String. In other words, because it’s a separate value from the String, there’s no guarantee that it will still be valid in the future. Consider the program in Listing 4-8 that uses the first_word function from Listing 4-7.">我们现在有一种方法可以找到字符串中第一个单词结尾的索引，但有一个问题。我们单独返回一个<code>usize</code>，但只有在<code>&amp;String</code>的上下文中这个数字才有意义。换句话说，因为它是一个与<code>String</code>分离的值，所以无法保证它将来仍然有效。考虑列表4-8中的程序，该程序使用了列表4-7中的<code>first_word</code>函数。</p>
+<p>We now have a way to find out the index of the end of the first word in the
+string, but there’s a problem. We’re returning a <code>usize</code> on its own, but it’s
+only a meaningful number in the context of the <code>&amp;String</code>. In other words,
+because it’s a separate value from the <code>String</code>, there’s no guarantee that it
+will still be valid in the future. Consider the program in Listing 4-8 that
+uses the <code>first_word</code> function from Listing 4-7.</p>
 <figure class="listing" id="listing-4-8">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn first_word(s: &amp;String) -&gt; usize {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn first_word(s: &amp;String) -&gt; usize {
 </span><span class="boring">    let bytes = s.as_bytes();
 </span><span class="boring">
 </span><span class="boring">    for (i, &amp;item) in bytes.iter().enumerate() {
@@ -347,39 +375,61 @@ blockquote {
 
     // word still has the value 5 here, but s no longer has any content that we
     // could meaningfully use with the value 5, so word is now totally invalid!
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-4-8">Listing 4-8</a>: Storing the result from calling the <code>first_word</code> function and then changing the <code>String</code> contents</figcaption>
 </figure>
-<p data-x-en="This program compiles without any errors and would also do so if we used word after calling s.clear(). Because word isn’t connected to the state of s at all, word still contains the value 5. We could use that value 5 with the variable s to try to extract the first word out, but this would be a bug because the contents of s have changed since we saved 5 in word.">这个程序编译时没有任何错误，即使我们在调用 <code>s.clear()</code> 之后使用 <code>word</code> 也会如此。因为 <code>word</code> 完全不依赖于 <code>s</code> 的状态，<code>word</code> 仍然包含值 <code>5</code>。我们可以使用该值 <code>5</code> 与变量 <code>s</code> 试图提取出第一个单词，但这将是一个错误，因为自我们保存 <code>5</code> 到 <code>word</code> 以来，<code>s</code> 的内容已经发生了变化。</p>
-<p data-x-en="Having to worry about the index in word getting out of sync with the data in s is tedious and error-prone! Managing these indices is even more brittle if we write a second_word function. Its signature would have to look like this:">在 <code>word</code> 中的索引与 <code>s</code> 中的数据不同步是一个繁琐且容易出错的问题！如果我们要编写一个 <code>second_word</code> 函数，管理这些索引会更加脆弱。它的签名将不得不像这样：</p>
+<p>This program compiles without any errors and would also do so if we used <code>word</code>
+after calling <code>s.clear()</code>. Because <code>word</code> isn’t connected to the state of <code>s</code>
+at all, <code>word</code> still contains the value <code>5</code>. We could use that value <code>5</code> with
+the variable <code>s</code> to try to extract the first word out, but this would be a bug
+because the contents of <code>s</code> have changed since we saved <code>5</code> in <code>word</code>.</p>
+<p>Having to worry about the index in <code>word</code> getting out of sync with the data in
+<code>s</code> is tedious and error-prone! Managing these indices is even more brittle if
+we write a <code>second_word</code> function. Its signature would have to look like this:</p>
 <pre><code class="language-rust ignore">fn second_word(s: &amp;String) -&gt; (usize, usize) {</code></pre>
-<p data-x-en="Now we’re tracking a starting and an ending index, and we have even more values that were calculated from data in a particular state but aren’t tied to that state at all. We have three unrelated variables floating around that need to be kept in sync.">现在我们正在跟踪一个起始 <em>和</em> 结束索引，我们甚至有更多的值是从特定状态的数据计算出来的，但完全不依赖于该状态。我们有三个互不相关的变量需要保持同步。</p>
-<p data-x-en="Luckily, Rust has a solution to this problem: string slices.">幸运的是，Rust 有一个解决这个问题的方案：字符串切片。</p>
-<h3 id="string-slices"><a class="header" href="#string-slices">字符串切片</a></h3>
-<p data-x-en="A string slice is a reference to a contiguous sequence of the elements of a String, and it looks like this:">一个 <em>字符串切片</em> 是对 <code>String</code> 元素的连续序列的引用，它看起来像这样：</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<p>Now we’re tracking a starting <em>and</em> an ending index, and we have even more
+values that were calculated from data in a particular state but aren’t tied to
+that state at all. We have three unrelated variables floating around that need
+to be kept in sync.</p>
+<p>Luckily, Rust has a solution to this problem: string slices.</p>
+<h3 id="string-slices"><a class="header" href="#string-slices">String Slices</a></h3>
+<p>A <em>string slice</em> is a reference to a contiguous sequence of the elements of a
+<code>String</code>, and it looks like this:</p>
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let s = String::from("hello world");
 
     let hello = &amp;s[0..5];
     let world = &amp;s[6..11];
-<span class="boring">}</span></code></pre></pre>
-<p data-x-en="Rather than a reference to the entire String, hello is a reference to a portion of the String, specified in the extra [0..5] bit. We create slices using a range within square brackets by specifying [starting_index..ending_index], where starting_index is the first position in the slice and ending_index is one more than the last position in the slice. Internally, the slice data structure stores the starting position and the length of the slice, which corresponds to ending_index minus starting_index. So, in the case of let world = &amp;s[6..11];, world would be a slice that contains a pointer to the byte at index 6 of s with a length value of 5.">而不是对整个 <code>String</code> 的引用，<code>hello</code> 是对 <code>String</code> 的一部分的引用，这部分由额外的 <code>[0..5]</code> 指定。我们通过在方括号内指定 <code>[starting_index..ending_index]</code> 来创建切片，其中 <em><code>starting_index</code></em> 是切片的第一个位置，<em><code>ending_index</code></em> 是切片最后一个位置的下一个位置。内部，切片数据结构存储了切片的起始位置和长度，这个长度对应于 <em><code>ending_index</code></em> 减去 <em><code>starting_index</code></em>。因此，在 <code>let world = &amp;s[6..11];</code> 的情况下，<code>world</code> 将是一个包含指向 <code>s</code> 中索引 6 的字节的指针和长度值为 <code>5</code> 的切片。</p>
-<p data-x-en="Figure 4-7 shows this in a diagram.">图4-7以图表形式展示了这一点。</p>
+<span class="boring">}</span></code></pre>
+<p>Rather than a reference to the entire <code>String</code>, <code>hello</code> is a reference to a
+portion of the <code>String</code>, specified in the extra <code>[0..5]</code> bit. We create slices
+using a range within square brackets by specifying
+<code>[starting_index..ending_index]</code>, where <em><code>starting_index</code></em> is the first
+position in the slice and <em><code>ending_index</code></em> is one more than the last position
+in the slice. Internally, the slice data structure stores the starting position
+and the length of the slice, which corresponds to <em><code>ending_index</code></em> minus
+<em><code>starting_index</code></em>. So, in the case of <code>let world = &amp;s[6..11];</code>, <code>world</code> would
+be a slice that contains a pointer to the byte at index 6 of <code>s</code> with a length
+value of <code>5</code>.</p>
+<p>Figure 4-7 shows this in a diagram.</p>
 <p><img alt="Three tables: a table representing the stack data of s, which points
 to the byte at index 0 in a table of the string data &quot;hello world&quot; on
 the heap. The third table represents the stack data of the slice world, which
 has a length value of 5 and points to byte 6 of the heap data table." src="img/trpl04-07.svg" class="center" style="width: 50%;"></p>
-<p data-x-en="Figure 4-7: A string slice referring to part of a String"><span class="caption">图4-7：指向 <code>String</code> 部分的字符串切片</span></p>
-<p data-x-en="With Rust’s .. range syntax, if you want to start at index 0, you can drop the value before the two periods. In other words, these are equal:">使用 Rust 的 <code>..</code> 范围语法，如果你想从索引 0 开始，可以省略两个点之前的值。换句话说，这些是相等的：</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+<p><span class="caption">Figure 4-7: A string slice referring to part of a
+<code>String</code></span></p>
+<p>With Rust’s <code>..</code> range syntax, if you want to start at index 0, you can drop
+the value before the two periods. In other words, these are equal:</p>
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>let s = String::from("hello");
 
 let slice = &amp;s[0..2];
 let slice = &amp;s[..2];
-<span class="boring">}</span></code></pre></pre>
-<p data-x-en="By the same token, if your slice includes the last byte of the String, you can drop the trailing number. That means these are equal:">同样地，如果您的切片包含 <code>String</code> 的最后一个字节，您可以省略尾部的数字。这意味着以下两者是相等的：</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+<span class="boring">}</span></code></pre>
+<p>By the same token, if your slice includes the last byte of the <code>String</code>, you
+can drop the trailing number. That means these are equal:</p>
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>let s = String::from("hello");
 
@@ -387,9 +437,10 @@ let len = s.len();
 
 let slice = &amp;s[3..len];
 let slice = &amp;s[3..];
-<span class="boring">}</span></code></pre></pre>
-<p data-x-en="You can also drop both values to take a slice of the entire string. So, these are equal:">你也可以丢弃这两个值来获取整个字符串的切片。所以，这些是相等的：</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+<span class="boring">}</span></code></pre>
+<p>You can also drop both values to take a slice of the entire string. So, these
+are equal:</p>
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>let s = String::from("hello");
 
@@ -397,14 +448,17 @@ let len = s.len();
 
 let slice = &amp;s[0..len];
 let slice = &amp;s[..];
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <section class="note" aria-role="note">
-<p data-x-en="Note: String slice range indices must occur at valid UTF-8 character boundaries. If you attempt to create a string slice in the middle of a multibyte character, your program will exit with an error.">注意：字符串切片范围索引必须位于有效的 UTF-8 字符边界。如果你尝试在多字节字符的中间创建字符串切片，你的程序将因错误而退出。</p>
+<p>Note: String slice range indices must occur at valid UTF-8 character
+boundaries. If you attempt to create a string slice in the middle of a
+multibyte character, your program will exit with an error.</p>
 </section>
-<p data-x-en="With all this information in mind, let’s rewrite first_word to return a slice. The type that signifies “string slice” is written as &amp;str:">考虑到所有这些信息，让我们重写 <code>first_word</code> 以返回一个切片。表示“字符串切片”的类型写为 <code>&amp;str</code>：</p>
+<p>With all this information in mind, let’s rewrite <code>first_word</code> to return a
+slice. The type that signifies “string slice” is written as <code>&amp;str</code>:</p>
 <figure class="listing">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">fn first_word(s: &amp;String) -&gt; &amp;str {
+<pre class="playground"><code class="language-rust edition2024">fn first_word(s: &amp;String) -&gt; &amp;str {
     let bytes = s.as_bytes();
 
     for (i, &amp;item) in bytes.iter().enumerate() {
@@ -416,13 +470,26 @@ let slice = &amp;s[..];
     &amp;s[..]
 }
 <span class="boring">
-</span><span class="boring">fn main() {}</span></code></pre></pre>
+</span><span class="boring">fn main() {}</span></code></pre>
 </figure>
-<p data-x-en="We get the index for the end of the word the same way we did in Listing 4-7, by looking for the first occurrence of a space. When we find a space, we return a string slice using the start of the string and the index of the space as the starting and ending indices.">我们以与列表 4-7 中相同的方式获取单词末尾的索引，通过查找第一个空格的位置。当我们找到一个空格时，我们使用字符串的起始位置和空格的索引作为起始和结束索引来返回一个字符串切片。</p>
-<p data-x-en="Now when we call first_word, we get back a single value that is tied to the underlying data. The value is made up of a reference to the starting point of the slice and the number of elements in the slice.">现在当我们调用<code>first_word</code>时，我们得到一个与底层数据关联的单一值。该值由对切片起点的引用和切片中的元素数量组成。</p>
-<p data-x-en="Returning a slice would also work for a second_word function:">返回一个切片对于 <code>second_word</code> 函数也同样适用：</p>
+<p>We get the index for the end of the word the same way we did in Listing 4-7, by
+looking for the first occurrence of a space. When we find a space, we return a
+string slice using the start of the string and the index of the space as the
+starting and ending indices.</p>
+<p>Now when we call <code>first_word</code>, we get back a single value that is tied to the
+underlying data. The value is made up of a reference to the starting point of
+the slice and the number of elements in the slice.</p>
+<p>Returning a slice would also work for a <code>second_word</code> function:</p>
 <pre><code class="language-rust ignore">fn second_word(s: &amp;String) -&gt; &amp;str {</code></pre>
-<p data-x-en="We now have a straightforward API that’s much harder to mess up because the compiler will ensure that the references into the String remain valid. Remember the bug in the program in Listing 4-8, when we got the index to the end of the first word but then cleared the string so our index was invalid? That code was logically incorrect but didn’t show any immediate errors. The problems would show up later if we kept trying to use the first word index with an emptied string. Slices make this bug impossible and let us know much sooner that we have a problem with our code. Using the slice version of first_word will throw a compile-time error:">我们现在有一个更难出错的简单 API，因为编译器会确保对 <code>String</code> 的引用保持有效。还记得第 4-8 列表中的程序错误吗？当我们获取了第一个单词的索引，但随后清空了字符串，导致索引无效。那段代码逻辑上是错误的，但没有立即显示任何错误。如果我们继续尝试使用清空后的字符串的第一个单词索引，问题会在稍后出现。切片使这个错误变得不可能，并让我们更早地知道代码有问题。使用 <code>first_word</code> 的切片版本会在编译时抛出错误：</p>
+<p>We now have a straightforward API that’s much harder to mess up because the
+compiler will ensure that the references into the <code>String</code> remain valid.
+Remember the bug in the program in Listing 4-8, when we got the index to the
+end of the first word but then cleared the string so our index was invalid?
+That code was logically incorrect but didn’t show any immediate errors. The
+problems would show up later if we kept trying to use the first word index with
+an emptied string. Slices make this bug impossible and let us know much sooner
+that we have a problem with our code. Using the slice version of <code>first_word</code>
+will throw a compile-time error:</p>
 <figure class="listing">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">fn first_word(s: &amp;String) -&gt; &amp;str {
@@ -447,7 +514,7 @@ let slice = &amp;s[..];
     println!("the first word is: {word}");
 }</code></pre>
 </figure>
-<p data-x-en="Here’s the compiler error:">这里的编译器错误：</p>
+<p>Here’s the compiler error:</p>
 <pre><code class="language-console">$ cargo run
    Compiling ownership v0.1.0 (file:///projects/ownership)
 error[E0502]: cannot borrow `s` as mutable because it is also borrowed as immutable
@@ -465,20 +532,33 @@ error[E0502]: cannot borrow `s` as mutable because it is also borrowed as immuta
 For more information about this error, try `rustc --explain E0502`.
 error: could not compile `ownership` (bin "ownership") due to 1 previous error
 </code></pre>
-<p data-x-en="Recall from the borrowing rules that if we have an immutable reference to something, we cannot also take a mutable reference. Because clear needs to truncate the String, it needs to get a mutable reference. The println! after the call to clear uses the reference in word, so the immutable reference must still be active at that point. Rust disallows the mutable reference in clear and the immutable reference in word from existing at the same time, and compilation fails. Not only has Rust made our API easier to use, but it has also eliminated an entire class of errors at compile time!">回想借用规则，如果我们对某个东西有一个不可变引用，我们就不能同时获取一个可变引用。因为 <code>clear</code> 需要截断 <code>String</code>，所以它需要获取一个可变引用。<code>println!</code> 在调用 <code>clear</code> 之后使用了 <code>word</code> 中的引用，因此此时不可变引用仍然必须是活跃的。Rust 禁止 <code>clear</code> 中的可变引用和 <code>word</code> 中的不可变引用同时存在，因此编译失败。Rust 不仅使我们的 API 更易于使用，而且还消除了整个一类编译时错误！</p>
+<p>Recall from the borrowing rules that if we have an immutable reference to
+something, we cannot also take a mutable reference. Because <code>clear</code> needs to
+truncate the <code>String</code>, it needs to get a mutable reference. The <code>println!</code>
+after the call to <code>clear</code> uses the reference in <code>word</code>, so the immutable
+reference must still be active at that point. Rust disallows the mutable
+reference in <code>clear</code> and the immutable reference in <code>word</code> from existing at the
+same time, and compilation fails. Not only has Rust made our API easier to use,
+but it has also eliminated an entire class of errors at compile time!</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="string-literals-are-slices"></a></p>
-<h4 id="string-literals-as-slices"><a class="header" href="#string-literals-as-slices">字符串字面量作为切片</a></h4>
-<p data-x-en="Recall that we talked about string literals being stored inside the binary. Now that we know about slices, we can properly understand string literals:">回想我们提到字符串字面量是存储在二进制文件中的。现在我们了解了切片，可以正确理解字符串字面量：</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+<h4 id="string-literals-as-slices"><a class="header" href="#string-literals-as-slices">String Literals as Slices</a></h4>
+<p>Recall that we talked about string literals being stored inside the binary. Now
+that we know about slices, we can properly understand string literals:</p>
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>let s = "Hello, world!";
-<span class="boring">}</span></code></pre></pre>
-<p data-x-en="The type of s here is &amp;str: It’s a slice pointing to that specific point of the binary. This is also why string literals are immutable; &amp;str is an immutable reference.">这里的 <code>s</code> 类型是 <code>&amp;str</code>：它是指向二进制文件中特定位置的切片。这也是为什么字符串字面量是不可变的；<code>&amp;str</code> 是一个不可变引用。</p>
-<h4 id="string-slices-as-parameters"><a class="header" href="#string-slices-as-parameters">字符串切片作为参数</a></h4>
-<p data-x-en="Knowing that you can take slices of literals and String values leads us to one more improvement on first_word, and that’s its signature:">知道可以对字面量和<code>String</code>值进行切片，这引导我们对<code>first_word</code>进行一个改进，那就是它的签名：</p>
+<span class="boring">}</span></code></pre>
+<p>The type of <code>s</code> here is <code>&amp;str</code>: It’s a slice pointing to that specific point of
+the binary. This is also why string literals are immutable; <code>&amp;str</code> is an
+immutable reference.</p>
+<h4 id="string-slices-as-parameters"><a class="header" href="#string-slices-as-parameters">String Slices as Parameters</a></h4>
+<p>Knowing that you can take slices of literals and <code>String</code> values leads us to
+one more improvement on <code>first_word</code>, and that’s its signature:</p>
 <pre><code class="language-rust ignore">fn first_word(s: &amp;String) -&gt; &amp;str {</code></pre>
-<p data-x-en="A more experienced Rustacean would write the signature shown in Listing 4-9 instead because it allows us to use the same function on both &amp;String values and &amp;str values.">一个更有经验的 Rustacean 会编写如清单 4-9 所示的签名，因为它允许我们对 <code>&amp;String</code> 值和 <code>&amp;str</code> 值使用相同的函数。</p>
+<p>A more experienced Rustacean would write the signature shown in Listing 4-9
+instead because it allows us to use the same function on both <code>&amp;String</code> values
+and <code>&amp;str</code> values.</p>
 <figure class="listing" id="listing-4-9">
 <pre><code class="language-rust ignore">fn first_word(s: &amp;str) -&gt; &amp;str {
 <span class="boring">    let bytes = s.as_bytes();
@@ -515,12 +595,16 @@ error: could not compile `ownership` (bin "ownership") due to 1 previous error
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-4-9">Listing 4-9</a>: Improving the <code>first_word</code> function by using a string slice for the type of the <code>s</code> parameter</figcaption>
 </figure>
-<p data-x-en="If we have a string slice, we can pass that directly. If we have a String, we can pass a slice of the String or a reference to the String. This flexibility takes advantage of deref coercions, a feature we will cover in the “Using Deref Coercions in Functions and Methods” section of Chapter 15.">如果我们有一个字符串切片，我们可以直接传递它。如果我们有一个 <code>String</code>，我们可以传递 <code>String</code> 的切片或 <code>String</code> 的引用。这种灵活性利用了 deref 强制转换，这是我们在第 15 章的 <a href="ch15-02-deref.html#using-deref-coercions-in-functions-and-methods">“在函数和方法中使用 deref 强制转换”</a><!--
-ignore --> 部分将要讨论的一个特性。</p>
-<p data-x-en="Defining a function to take a string slice instead of a reference to a String makes our API more general and useful without losing any functionality:">将函数定义为接受字符串切片而不是 <code>String</code> 的引用，可以使我们的 API 更加通用和有用，而不会失去任何功能：</p>
+<p>If we have a string slice, we can pass that directly. If we have a <code>String</code>, we
+can pass a slice of the <code>String</code> or a reference to the <code>String</code>. This
+flexibility takes advantage of deref coercions, a feature we will cover in
+the <a href="ch15-02-deref.html#using-deref-coercions-in-functions-and-methods">“Using Deref Coercions in Functions and Methods”</a><!--
+ignore --> section of Chapter 15.</p>
+<p>Defining a function to take a string slice instead of a reference to a <code>String</code>
+makes our API more general and useful without losing any functionality:</p>
 <figure class="listing">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn first_word(s: &amp;str) -&gt; &amp;str {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn first_word(s: &amp;str) -&gt; &amp;str {
 </span><span class="boring">    let bytes = s.as_bytes();
 </span><span class="boring">
 </span><span class="boring">    for (i, &amp;item) in bytes.iter().enumerate() {
@@ -552,38 +636,49 @@ ignore --> 部分将要讨论的一个特性。</p>
     // Because string literals *are* string slices already,
     // this works too, without the slice syntax!
     let word = first_word(my_string_literal);
-}</code></pre></pre>
+}</code></pre>
 </figure>
-<h3 id="other-slices"><a class="header" href="#other-slices">其他切片</a></h3>
-<p data-x-en="String slices, as you might imagine, are specific to strings. But there’s a more general slice type too. Consider this array:">字符串切片，正如你可能想象的那样，是特定于字符串的。但也有一个更通用的切片类型。考虑这个数组：</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+<h3 id="other-slices"><a class="header" href="#other-slices">Other Slices</a></h3>
+<p>String slices, as you might imagine, are specific to strings. But there’s a
+more general slice type too. Consider this array:</p>
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>let a = [1, 2, 3, 4, 5];
-<span class="boring">}</span></code></pre></pre>
-<p data-x-en="Just as we might want to refer to part of a string, we might want to refer to part of an array. We’d do so like this:">正如我们可能想要引用字符串的一部分，我们也可能想要引用数组的一部分。我们会这样做：<code></code></p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+<span class="boring">}</span></code></pre>
+<p>Just as we might want to refer to part of a string, we might want to refer to
+part of an array. We’d do so like this:</p>
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>let a = [1, 2, 3, 4, 5];
 
 let slice = &amp;a[1..3];
 
 assert_eq!(slice, &amp;[2, 3]);
-<span class="boring">}</span></code></pre></pre>
-<p data-x-en="This slice has the type &amp;[i32]. It works the same way as string slices do, by storing a reference to the first element and a length. You’ll use this kind of slice for all sorts of other collections. We’ll discuss these collections in detail when we talk about vectors in Chapter 8.">这个切片的类型为<code>&amp;[i32]</code>。它的工作方式与字符串切片相同，通过存储对第一个元素的引用和长度来实现。你将使用这种切片处理各种其他集合。我们将在第 8 章讨论向量时详细讨论这些集合。</p>
-<h2 id="summary"><a class="header" href="#summary">摘要</a></h2>
-<p data-x-en="The concepts of ownership, borrowing, and slices ensure memory safety in Rust programs at compile time. The Rust language gives you control over your memory usage in the same way as other systems programming languages. But having the owner of data automatically clean up that data when the owner goes out of scope means you don’t have to write and debug extra code to get this control.">所有权、借用和切片的概念确保了 Rust 程序在编译时的内存安全。Rust 语言让你像其他系统编程语言一样控制内存使用。但是，数据的所有者在超出作用域时自动清理数据，这意味着你不必编写和调试额外的代码来获得这种控制。</p>
-<p data-x-en="Ownership affects how lots of other parts of Rust work, so we’ll talk about these concepts further throughout the rest of the book. Let’s move on to Chapter 5 and look at grouping pieces of data together in a struct.">所有权影响 Rust 的许多其他部分的工作方式，因此我们将在本书的其余部分进一步讨论这些概念。让我们继续第 5 章，看看如何在 <code>struct</code> 中将数据片段组合在一起。</p>
+<span class="boring">}</span></code></pre>
+<p>This slice has the type <code>&amp;[i32]</code>. It works the same way as string slices do, by
+storing a reference to the first element and a length. You’ll use this kind of
+slice for all sorts of other collections. We’ll discuss these collections in
+detail when we talk about vectors in Chapter 8.</p>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<p>The concepts of ownership, borrowing, and slices ensure memory safety in Rust
+programs at compile time. The Rust language gives you control over your memory
+usage in the same way as other systems programming languages. But having the
+owner of data automatically clean up that data when the owner goes out of scope
+means you don’t have to write and debug extra code to get this control.</p>
+<p>Ownership affects how lots of other parts of Rust work, so we’ll talk about
+these concepts further throughout the rest of the book. Let’s move on to
+Chapter 5 and look at grouping pieces of data together in a <code>struct</code>.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch04-02-references-and-borrowing.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch05-00-structs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -593,16 +688,21 @@ assert_eq!(slice, &amp;[2, 3]);
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch04-02-references-and-borrowing.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch05-00-structs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -611,16 +711,16 @@ assert_eq!(slice, &amp;[2, 3]);
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch21-02-multithreaded.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,54 +212,63 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
                         <!-- Old headings. Do not remove or links may break. -->
 <p><a id="turning-our-single-threaded-server-into-a-multithreaded-server"></a>
 <a id="from-single-threaded-to-multithreaded-server"></a></p>
-<h2 id="from-a-single-threaded-to-a-multithreaded-server"><a class="header" href="#from-a-single-threaded-to-a-multithreaded-server">从单线程到多线程服务器</a></h2>
-<p data-x-en="Right now, the server will process each request in turn, meaning it won’t process a second connection until the first connection is finished processing. If the server received more and more requests, this serial execution would be less and less optimal. If the server receives a request that takes a long time to process, subsequent requests will have to wait until the long request is finished, even if the new requests can be processed quickly. We’ll need to fix this, but first we’ll look at the problem in action.">目前，服务器会依次处理每个请求，这意味着它不会在处理完第一个连接之前处理第二个连接。如果服务器接收到越来越多的请求，这种串行执行将变得越来越不理想。如果服务器接收到一个需要长时间处理的请求，后续的请求将不得不等待，直到长时间的请求处理完毕，即使新的请求可以快速处理。我们需要解决这个问题，但首先我们将看看问题的实际表现。</p>
+<h2 id="from-a-single-threaded-to-a-multithreaded-server"><a class="header" href="#from-a-single-threaded-to-a-multithreaded-server">From a Single-Threaded to a Multithreaded Server</a></h2>
+<p>Right now, the server will process each request in turn, meaning it won’t
+process a second connection until the first connection is finished processing.
+If the server received more and more requests, this serial execution would be
+less and less optimal. If the server receives a request that takes a long time
+to process, subsequent requests will have to wait until the long request is
+finished, even if the new requests can be processed quickly. We’ll need to fix
+this, but first we’ll look at the problem in action.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="simulating-a-slow-request-in-the-current-server-implementation"></a></p>
-<h3 id="simulating-a-slow-request"><a class="header" href="#simulating-a-slow-request">模拟慢请求</a></h3>
-<p data-x-en="We’ll look at how a slowly processing request can affect other requests made to our current server implementation. Listing 21-10 implements handling a request to /sleep with a simulated slow response that will cause the server to sleep for five seconds before responding.">我们将研究一个处理缓慢的请求如何影响向我们当前服务器实现发出的其他请求。清单 21-10 实现了处理对 <em>/sleep</em> 的请求，该请求具有模拟的缓慢响应，将导致服务器在响应前休眠五秒。</p>
+<h3 id="simulating-a-slow-request"><a class="header" href="#simulating-a-slow-request">Simulating a Slow Request</a></h3>
+<p>We’ll look at how a slowly processing request can affect other requests made to
+our current server implementation. Listing 21-10 implements handling a request
+to <em>/sleep</em> with a simulated slow response that will cause the server to sleep
+for five seconds before responding.</p>
 <figure class="listing" id="listing-21-10">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust no_run edition2024">use std::{
+<pre class="playground"><code class="language-rust no_run edition2024">use std::{
     fs,
     io::{BufReader, prelude::*},
     net::{TcpListener, TcpStream},
@@ -303,32 +311,80 @@ fn handle_connection(mut stream: TcpStream) {
 </span><span class="boring">        format!("{status_line}\r\nContent-Length: {length}\r\n\r\n{contents}");
 </span><span class="boring">
 </span><span class="boring">    stream.write_all(response.as_bytes()).unwrap();
-</span>}</code></pre></pre>
+</span>}</code></pre>
 <figcaption><a href="#listing-21-10">Listing 21-10</a>: Simulating a slow request by sleeping for five seconds</figcaption>
 </figure>
-<p data-x-en="We switched from if to match now that we have three cases. We need to explicitly match on a slice of request_line to pattern-match against the string literal values; match doesn’t do automatic referencing and dereferencing, like the equality method does.">我们现在从 <code>if</code> 切换到 <code>match</code>，因为我们有三种情况。我们需要显式地匹配 <code>request_line</code> 的切片，以便对字符串字面值进行模式匹配；<code>match</code> 不会像等式方法那样自动引用和取消引用。</p>
-<p data-x-en="The first arm is the same as the if block from Listing 21-9. The second arm matches a request to /sleep. When that request is received, the server will sleep for five seconds before rendering the successful HTML page. The third arm is the same as the else block from Listing 21-9.">第一个分支与列表 21-9 中的 <code>if</code> 块相同。第二个分支
-匹配对 <em>/sleep</em> 的请求。当收到该请求时，服务器将在呈现成功的 HTML 页面之前
-休眠五秒。第三个分支
-与列表 21-9 中的 <code>else</code> 块相同。</p>
-<p data-x-en="You can see how primitive our server is: Real libraries would handle the recognition of multiple requests in a much less verbose way!">你可以看到我们的服务器是多么原始：真正的库会以一种简洁得多的方式处理多个请求的识别！</p>
-<p data-x-en="Start the server using cargo run. Then, open two browser windows: one for http://127.0.0.1:7878 and the other for http://127.0.0.1:7878/sleep. If you enter the / URI a few times, as before, you’ll see it respond quickly. But if you enter /sleep and then load /, you’ll see that / waits until sleep has slept for its full five seconds before loading.">使用 <code>cargo run</code> 启动服务器。然后，打开两个浏览器窗口：一个用于 <em>http://127.0.0.1:7878</em>，另一个用于 <em>http://127.0.0.1:7878/sleep</em>。如果你多次输入 <em>/</em> URI，就像之前一样，你会看到它响应很快。但如果你输入 <em>/sleep</em> 然后加载 <em>/</em>，你会看到 <em>/</em> 会等待 <code>sleep</code> 完成其完整的五秒后才加载。</p>
-<p data-x-en="There are multiple techniques we could use to avoid requests backing up behind a slow request, including using async as we did Chapter 17; the one we’ll implement is a thread pool.">我们可以使用多种技术来避免请求在慢请求后面堆积，包括在第 17 章中使用的方法异步；我们将要实现的是线程池。</p>
-<h3 id="improving-throughput-with-a-thread-pool"><a class="header" href="#improving-throughput-with-a-thread-pool">使用线程池提高吞吐量</a></h3>
-<p data-x-en="A thread pool is a group of spawned threads that are ready and waiting to handle a task. When the program receives a new task, it assigns one of the threads in the pool to the task, and that thread will process the task. The remaining threads in the pool are available to handle any other tasks that come in while the first thread is processing. When the first thread is done processing its task, it’s returned to the pool of idle threads, ready to handle a new task. A thread pool allows you to process connections concurrently, increasing the throughput of your server.">一个 <em>线程池</em> 是一组已创建的线程，它们准备好并等待处理任务。当程序接收到新任务时，它会将线程池中的一个线程分配给该任务，该线程将处理任务。线程池中剩余的线程可用于处理在第一个线程处理任务期间到来的任何其他任务。当第一个线程完成其任务处理后，它会被返回到空闲线程池中，准备好处理新任务。线程池允许你并发处理连接，提高服务器的吞吐量。</p>
-<p data-x-en="We’ll limit the number of threads in the pool to a small number to protect us from DoS attacks; if we had our program create a new thread for each request as it came in, someone making 10 million requests to our server could wreak havoc by using up all our server’s resources and grinding the processing of requests to a halt.">我们将线程池中的线程数量限制为一个小数目，以保护我们免受拒绝服务攻击；如果我们让程序在每个请求到来时都创建一个新线程，那么有人向我们的服务器发送1000万个请求就可能会耗尽我们服务器的所有资源，导致请求处理停滞。</p>
-<p data-x-en="Rather than spawning unlimited threads, then, we’ll have a fixed number of threads waiting in the pool. Requests that come in are sent to the pool for processing. The pool will maintain a queue of incoming requests. Each of the threads in the pool will pop off a request from this queue, handle the request, and then ask the queue for another request. With this design, we can process up to N requests concurrently, where N is the number of threads. If each thread is responding to a long-running request, subsequent requests can still back up in the queue, but we’ve increased the number of long-running requests we can handle before reaching that point.">而不是生成无限的线程，我们将有一个固定数量的线程在池中等待。进入的请求将被发送到池中进行处理。池将维护一个传入请求的队列。池中的每个线程将从这个队列中弹出一个请求，处理该请求，然后向队列请求另一个请求。通过这种设计，我们可以同时处理多达 <code>N</code> 个请求，其中 <code>N</code> 是线程的数量。如果每个线程都在响应一个长时间运行的请求，后续的请求仍然可以在队列中积压，但我们已经增加了在达到这一点之前可以处理的长时间运行请求的数量。</p>
-<p data-x-en="This technique is just one of many ways to improve the throughput of a web server. Other options you might explore are the fork/join model, the single-threaded async I/O model, and the multithreaded async I/O model. If you’re interested in this topic, you can read more about other solutions and try to implement them; with a low-level language like Rust, all of these options are possible.">这种技术只是提高Web服务器吞吐量的众多方法之一。其他你可以探索的选项包括分叉/加入模型、单线程异步I/O模型和多线程异步I/O模型。如果你对这个话题感兴趣，可以阅读更多关于其他解决方案的信息并尝试实现它们；使用像Rust这样的低级语言，所有这些选项都是可能的。</p>
-<p data-x-en="Before we begin implementing a thread pool, let’s talk about what using the pool should look like. When you’re trying to design code, writing the client interface first can help guide your design. Write the API of the code so that it’s structured in the way you want to call it; then, implement the functionality within that structure rather than implementing the functionality and then designing the public API.">在我们开始实现线程池之前，让我们先谈谈使用线程池应该是什么样子。当你试图设计代码时，先编写客户端接口可以帮助指导你的设计。编写代码的 API，使其结构符合你希望调用的方式；然后，在该结构内实现功能，而不是先实现功能再设计公共 API。</p>
-<p data-x-en="Similar to how we used test-driven development in the project in Chapter 12, we’ll use compiler-driven development here. We’ll write the code that calls the functions we want, and then we’ll look at errors from the compiler to determine what we should change next to get the code to work. Before we do that, however, we’ll explore the technique we’re not going to use as a starting point.">类似于我们在第12章的项目中使用测试驱动开发的方式，我们将在这里使用编译器驱动开发。我们将编写调用我们想要的函数的代码，然后查看编译器的错误以确定我们应该做哪些更改使代码正常工作。不过，在此之前，我们将探讨我们不会使用的技术作为起点。</p>
+<p>We switched from <code>if</code> to <code>match</code> now that we have three cases. We need to
+explicitly match on a slice of <code>request_line</code> to pattern-match against the
+string literal values; <code>match</code> doesn’t do automatic referencing and
+dereferencing, like the equality method does.</p>
+<p>The first arm is the same as the <code>if</code> block from Listing 21-9. The second arm
+matches a request to <em>/sleep</em>. When that request is received, the server will
+sleep for five seconds before rendering the successful HTML page. The third arm
+is the same as the <code>else</code> block from Listing 21-9.</p>
+<p>You can see how primitive our server is: Real libraries would handle the
+recognition of multiple requests in a much less verbose way!</p>
+<p>Start the server using <code>cargo run</code>. Then, open two browser windows: one for
+<em>http://127.0.0.1:7878</em> and the other for <em>http://127.0.0.1:7878/sleep</em>. If you
+enter the <em>/</em> URI a few times, as before, you’ll see it respond quickly. But if
+you enter <em>/sleep</em> and then load <em>/</em>, you’ll see that <em>/</em> waits until <code>sleep</code>
+has slept for its full five seconds before loading.</p>
+<p>There are multiple techniques we could use to avoid requests backing up behind
+a slow request, including using async as we did Chapter 17; the one we’ll
+implement is a thread pool.</p>
+<h3 id="improving-throughput-with-a-thread-pool"><a class="header" href="#improving-throughput-with-a-thread-pool">Improving Throughput with a Thread Pool</a></h3>
+<p>A <em>thread pool</em> is a group of spawned threads that are ready and waiting to
+handle a task. When the program receives a new task, it assigns one of the
+threads in the pool to the task, and that thread will process the task. The
+remaining threads in the pool are available to handle any other tasks that come
+in while the first thread is processing. When the first thread is done
+processing its task, it’s returned to the pool of idle threads, ready to handle
+a new task. A thread pool allows you to process connections concurrently,
+increasing the throughput of your server.</p>
+<p>We’ll limit the number of threads in the pool to a small number to protect us
+from DoS attacks; if we had our program create a new thread for each request as
+it came in, someone making 10 million requests to our server could wreak havoc
+by using up all our server’s resources and grinding the processing of requests
+to a halt.</p>
+<p>Rather than spawning unlimited threads, then, we’ll have a fixed number of
+threads waiting in the pool. Requests that come in are sent to the pool for
+processing. The pool will maintain a queue of incoming requests. Each of the
+threads in the pool will pop off a request from this queue, handle the request,
+and then ask the queue for another request. With this design, we can process up
+to <em><code>N</code></em> requests concurrently, where <em><code>N</code></em> is the number of threads. If each
+thread is responding to a long-running request, subsequent requests can still
+back up in the queue, but we’ve increased the number of long-running requests
+we can handle before reaching that point.</p>
+<p>This technique is just one of many ways to improve the throughput of a web
+server. Other options you might explore are the fork/join model, the
+single-threaded async I/O model, and the multithreaded async I/O model. If
+you’re interested in this topic, you can read more about other solutions and
+try to implement them; with a low-level language like Rust, all of these
+options are possible.</p>
+<p>Before we begin implementing a thread pool, let’s talk about what using the
+pool should look like. When you’re trying to design code, writing the client
+interface first can help guide your design. Write the API of the code so that
+it’s structured in the way you want to call it; then, implement the
+functionality within that structure rather than implementing the functionality
+and then designing the public API.</p>
+<p>Similar to how we used test-driven development in the project in Chapter 12,
+we’ll use compiler-driven development here. We’ll write the code that calls the
+functions we want, and then we’ll look at errors from the compiler to determine
+what we should change next to get the code to work. Before we do that, however,
+we’ll explore the technique we’re not going to use as a starting point.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="code-structure-if-we-could-spawn-a-thread-for-each-request"></a></p>
-<h4 id="spawning-a-thread-for-each-request"><a class="header" href="#spawning-a-thread-for-each-request">为每个请求创建一个线程</a></h4>
-<p data-x-en="First, let’s explore how our code might look if it did create a new thread for every connection. As mentioned earlier, this isn’t our final plan due to the problems with potentially spawning an unlimited number of threads, but it is a starting point to get a working multithreaded server first. Then, we’ll add the thread pool as an improvement, and contrasting the two solutions will be easier.">首先，让我们看看如果为每个连接创建一个新线程，我们的代码可能会是什么样子。如前所述，这不是我们的最终计划，因为可能会产生无限数量的线程，但这是一个起点，首先实现一个多线程服务器。然后，我们将添加线程池作为改进，对比这两种解决方案将更容易。</p>
-<p data-x-en="Listing 21-11 shows the changes to make to main to spawn a new thread to handle each stream within the for loop.">列表 21-11 显示了对 <code>main</code> 进行的更改，以在 <code>for</code> 循环中为每个流派生一个新线程来处理。</p>
+<h4 id="spawning-a-thread-for-each-request"><a class="header" href="#spawning-a-thread-for-each-request">Spawning a Thread for Each Request</a></h4>
+<p>First, let’s explore how our code might look if it did create a new thread for
+every connection. As mentioned earlier, this isn’t our final plan due to the
+problems with potentially spawning an unlimited number of threads, but it is a
+starting point to get a working multithreaded server first. Then, we’ll add the
+thread pool as an improvement, and contrasting the two solutions will be easier.</p>
+<p>Listing 21-11 shows the changes to make to <code>main</code> to spawn a new thread to
+handle each stream within the <code>for</code> loop.</p>
 <figure class="listing" id="listing-21-11">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust no_run edition2024"><span class="boring">use std::{
+<pre class="playground"><code class="language-rust no_run edition2024"><span class="boring">use std::{
 </span><span class="boring">    fs,
 </span><span class="boring">    io::{BufReader, prelude::*},
 </span><span class="boring">    net::{TcpListener, TcpStream},
@@ -368,15 +424,25 @@ fn handle_connection(mut stream: TcpStream) {
 </span><span class="boring">        format!("{status_line}\r\nContent-Length: {length}\r\n\r\n{contents}");
 </span><span class="boring">
 </span><span class="boring">    stream.write_all(response.as_bytes()).unwrap();
-</span><span class="boring">}</span></code></pre></pre>
+</span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-21-11">Listing 21-11</a>: Spawning a new thread for each stream</figcaption>
 </figure>
-<p data-x-en="As you learned in Chapter 16, thread::spawn will create a new thread and then run the code in the closure in the new thread. If you run this code and load /sleep in your browser, then / in two more browser tabs, you’ll indeed see that the requests to / don’t have to wait for /sleep to finish. However, as we mentioned, this will eventually overwhelm the system because you’d be making new threads without any limit.">正如你在第 16 章中学到的，<code>thread::spawn</code> 将创建一个新线程，然后在新线程中运行闭包中的代码。如果你运行此代码并在浏览器中加载 <em>/sleep</em>，然后在另外两个浏览器标签中加载 <em>/</em>，你确实会看到对 <em>/</em> 的请求不必等待 <em>/sleep</em> 完成。然而，正如我们提到的，这最终会压垮系统，因为你将无限制地创建新线程。</p>
-<p data-x-en="You may also recall from Chapter 17 that this is exactly the kind of situation where async and await really shine! Keep that in mind as we build the thread pool and think about how things would look different or the same with async.">您可能还记得第 17 章中提到的，这正是 async 和 await 大放异彩的情况！在我们构建线程池时，请记住这一点，并思考如果使用 async 事情会有什么不同或相同。</p>
+<p>As you learned in Chapter 16, <code>thread::spawn</code> will create a new thread and then
+run the code in the closure in the new thread. If you run this code and load
+<em>/sleep</em> in your browser, then <em>/</em> in two more browser tabs, you’ll indeed see
+that the requests to <em>/</em> don’t have to wait for <em>/sleep</em> to finish. However, as
+we mentioned, this will eventually overwhelm the system because you’d be making
+new threads without any limit.</p>
+<p>You may also recall from Chapter 17 that this is exactly the kind of situation
+where async and await really shine! Keep that in mind as we build the thread
+pool and think about how things would look different or the same with async.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="creating-a-similar-interface-for-a-finite-number-of-threads"></a></p>
-<h4 id="creating-a-finite-number-of-threads"><a class="header" href="#creating-a-finite-number-of-threads">创建有限数量的线程</a></h4>
-<p data-x-en="We want our thread pool to work in a similar, familiar way so that switching from threads to a thread pool doesn’t require large changes to the code that uses our API. Listing 21-12 shows the hypothetical interface for a ThreadPool struct we want to use instead of thread::spawn.">我们希望我们的线程池以一种类似且熟悉的方式工作，以便从线程切换到线程池时，不需要对使用我们API的代码进行大的更改。列表21-12展示了我们希望使用的<code>ThreadPool</code>结构体的假设接口，用以替代<code>thread::spawn</code>。</p>
+<h4 id="creating-a-finite-number-of-threads"><a class="header" href="#creating-a-finite-number-of-threads">Creating a Finite Number of Threads</a></h4>
+<p>We want our thread pool to work in a similar, familiar way so that switching
+from threads to a thread pool doesn’t require large changes to the code that
+uses our API. Listing 21-12 shows the hypothetical interface for a <code>ThreadPool</code>
+struct we want to use instead of <code>thread::spawn</code>.</p>
 <figure class="listing" id="listing-21-12">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">use std::{
@@ -423,11 +489,18 @@ fn handle_connection(mut stream: TcpStream) {
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-21-12">Listing 21-12</a>: Our ideal <code>ThreadPool</code> interface</figcaption>
 </figure>
-<p data-x-en="We use ThreadPool::new to create a new thread pool with a configurable number of threads, in this case four. Then, in the for loop, pool.execute has a similar interface as thread::spawn in that it takes a closure that the pool should run for each stream. We need to implement pool.execute so that it takes the closure and gives it to a thread in the pool to run. This code won’t yet compile, but we’ll try so that the compiler can guide us in how to fix it.">我们使用<code>ThreadPool::new</code>来创建一个具有可配置线程数的新线程池，在这种情况下是四个。然后，在<code>for</code>循环中，<code>pool.execute</code>的接口与<code>thread::spawn</code>类似，因为它接受一个闭包，池中的每个流都应该运行这个闭包。我们需要实现<code>pool.execute</code>，以便它接受闭包并将其交给池中的一个线程来运行。这段代码还不能编译，但我们会尝试一下，让编译器指导我们如何修复它。</p>
+<p>We use <code>ThreadPool::new</code> to create a new thread pool with a configurable number
+of threads, in this case four. Then, in the <code>for</code> loop, <code>pool.execute</code> has a
+similar interface as <code>thread::spawn</code> in that it takes a closure that the pool
+should run for each stream. We need to implement <code>pool.execute</code> so that it
+takes the closure and gives it to a thread in the pool to run. This code won’t
+yet compile, but we’ll try so that the compiler can guide us in how to fix it.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="building-the-threadpool-struct-using-compiler-driven-development"></a></p>
-<h4 id="building-threadpool-using-compiler-driven-development"><a class="header" href="#building-threadpool-using-compiler-driven-development">使用编译器驱动开发构建 <code>ThreadPool</code></a></h4>
-<p data-x-en="Make the changes in Listing 21-12 to src/main.rs, and then let’s use the compiler errors from cargo check to drive our development. Here is the first error we get:">在清单 21-12 中对 <em>src/main.rs</em> 做出更改，然后让我们使用 <code>cargo check</code> 的编译错误来驱动我们的开发。这是我们得到的第一个错误：</p>
+<h4 id="building-threadpool-using-compiler-driven-development"><a class="header" href="#building-threadpool-using-compiler-driven-development">Building <code>ThreadPool</code> Using Compiler-Driven Development</a></h4>
+<p>Make the changes in Listing 21-12 to <em>src/main.rs</em>, and then let’s use the
+compiler errors from <code>cargo check</code> to drive our development. Here is the first
+error we get:</p>
 <pre><code class="language-console">$ cargo check
     Checking hello v0.1.0 (file:///projects/hello)
 error[E0433]: failed to resolve: use of undeclared type `ThreadPool`
@@ -439,13 +512,21 @@ error[E0433]: failed to resolve: use of undeclared type `ThreadPool`
 For more information about this error, try `rustc --explain E0433`.
 error: could not compile `hello` (bin "hello") due to 1 previous error
 </code></pre>
-<p data-x-en="Great! This error tells us we need a ThreadPool type or module, so we’ll build one now. Our ThreadPool implementation will be independent of the kind of work our web server is doing. So, let’s switch the hello crate from a binary crate to a library crate to hold our ThreadPool implementation. After we change to a library crate, we could also use the separate thread pool library for any work we want to do using a thread pool, not just for serving web requests.">很好！这个错误告诉我们需要一个<code>ThreadPool</code>类型或模块，所以我们现在就来构建一个。我们的<code>ThreadPool</code>实现将独立于我们的Web服务器正在执行的工作类型。因此，让我们将<code>hello</code> crate从一个二进制crate转换为一个库crate来保存我们的<code>ThreadPool</code>实现。在转换为库crate之后，我们还可以使用单独的线程池库来执行我们想要使用线程池的任何工作，而不仅仅是处理Web请求。</p>
-<p data-x-en="Create a src/lib.rs file that contains the following, which is the simplest definition of a ThreadPool struct that we can have for now:">创建一个 <em>src/lib.rs</em> 文件，其中包含以下内容，这是我们目前可以拥有的最简单的 <code>ThreadPool</code> 结构体定义：</p>
+<p>Great! This error tells us we need a <code>ThreadPool</code> type or module, so we’ll
+build one now. Our <code>ThreadPool</code> implementation will be independent of the kind
+of work our web server is doing. So, let’s switch the <code>hello</code> crate from a
+binary crate to a library crate to hold our <code>ThreadPool</code> implementation. After
+we change to a library crate, we could also use the separate thread pool
+library for any work we want to do using a thread pool, not just for serving
+web requests.</p>
+<p>Create a <em>src/lib.rs</em> file that contains the following, which is the simplest
+definition of a <code>ThreadPool</code> struct that we can have for now:</p>
 <figure class="listing">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">pub struct ThreadPool;</code></pre>
 </figure>
-<p data-x-en="Then, edit the main.rs file to bring ThreadPool into scope from the library crate by adding the following code to the top of src/main.rs:">然后，在 <em>main.rs</em> 文件中添加以下代码，将 <code>ThreadPool</code> 从库 crate 引入作用域：</p>
+<p>Then, edit the <em>main.rs</em> file to bring <code>ThreadPool</code> into scope from the library
+crate by adding the following code to the top of <em>src/main.rs</em>:</p>
 <figure class="listing">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore">use hello::ThreadPool;
@@ -492,7 +573,8 @@ error: could not compile `hello` (bin "hello") due to 1 previous error
 </span><span class="boring">    stream.write_all(response.as_bytes()).unwrap();
 </span><span class="boring">}</span></code></pre>
 </figure>
-<p data-x-en="This code still won’t work, but let’s check it again to get the next error that we need to address:">这段代码仍然无法工作，但让我们再次检查它以获取需要解决的下一个错误：</p>
+<p>This code still won’t work, but let’s check it again to get the next error that
+we need to address:</p>
 <pre><code class="language-console">$ cargo check
     Checking hello v0.1.0 (file:///projects/hello)
 error[E0599]: no function or associated item named `new` found for struct `ThreadPool` in the current scope
@@ -504,7 +586,11 @@ error[E0599]: no function or associated item named `new` found for struct `Threa
 For more information about this error, try `rustc --explain E0599`.
 error: could not compile `hello` (bin "hello") due to 1 previous error
 </code></pre>
-<p data-x-en="This error indicates that next we need to create an associated function named new for ThreadPool. We also know that new needs to have one parameter that can accept 4 as an argument and should return a ThreadPool instance. Let’s implement the simplest new function that will have those characteristics:">这个错误表明接下来我们需要为 <code>ThreadPool</code> 创建一个名为 <code>new</code> 的关联函数。我们还知道 <code>new</code> 需要有一个参数，可以接受 <code>4</code> 作为参数，并且应该返回一个 <code>ThreadPool</code> 实例。让我们实现一个最简单的 <code>new</code> 函数，它将具有这些特征：</p>
+<p>This error indicates that next we need to create an associated function named
+<code>new</code> for <code>ThreadPool</code>. We also know that <code>new</code> needs to have one parameter
+that can accept <code>4</code> as an argument and should return a <code>ThreadPool</code> instance.
+Let’s implement the simplest <code>new</code> function that will have those
+characteristics:</p>
 <figure class="listing">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">pub struct ThreadPool;
@@ -515,8 +601,12 @@ impl ThreadPool {
     }
 }</code></pre>
 </figure>
-<p data-x-en="We chose usize as the type of the size parameter because we know that a negative number of threads doesn’t make any sense. We also know we’ll use this 4 as the number of elements in a collection of threads, which is what the usize type is for, as discussed in the “Integer Types” section in Chapter 3.">我们选择<code>usize</code>作为<code>size</code>参数的类型，因为我们知道负数的线程数量是没有意义的。我们还知道我们将使用这个<code>4</code>作为线程集合中元素的数量，这正是<code>usize</code>类型的作用，如在第3章的<a href="ch03-02-data-types.html#integer-types">“整数类型”</a>部分所讨论的。</p>
-<p data-x-en="Let’s check the code again:">让我们再次检查代码：</p>
+<p>We chose <code>usize</code> as the type of the <code>size</code> parameter because we know that a
+negative number of threads doesn’t make any sense. We also know we’ll use this
+<code>4</code> as the number of elements in a collection of threads, which is what the
+<code>usize</code> type is for, as discussed in the <a href="ch03-02-data-types.html#integer-types">“Integer Types”</a><!--
+ignore --> section in Chapter 3.</p>
+<p>Let’s check the code again:</p>
 <pre><code class="language-console">$ cargo check
     Checking hello v0.1.0 (file:///projects/hello)
 error[E0599]: no method named `execute` found for struct `ThreadPool` in the current scope
@@ -528,16 +618,37 @@ error[E0599]: no method named `execute` found for struct `ThreadPool` in the cur
 For more information about this error, try `rustc --explain E0599`.
 error: could not compile `hello` (bin "hello") due to 1 previous error
 </code></pre>
-<p data-x-en="Now the error occurs because we don’t have an execute method on ThreadPool. Recall from the “Creating a Finite Number of Threads” section that we decided our thread pool should have an interface similar to thread::spawn. In addition, we’ll implement the execute function so that it takes the closure it’s given and gives it to an idle thread in the pool to run.">现在错误发生是因为我们在 <code>ThreadPool</code> 上没有一个 <code>execute</code> 方法。
-回想 <a href="#creating-a-finite-number-of-threads">“创建有限数量的线程”</a> 部分，我们决定我们的线程池应该有一个类似于 <code>thread::spawn</code> 的接口。此外，我们将实现 <code>execute</code> 函数，以便它可以接收给定的闭包并将其交给池中的空闲线程来运行。</p>
-<p data-x-en="We’ll define the execute method on ThreadPool to take a closure as a parameter. Recall from the “Moving Captured Values Out of Closures” in Chapter 13 that we can take closures as parameters with three different traits: Fn, FnMut, and FnOnce. We need to decide which kind of closure to use here. We know we’ll end up doing something similar to the standard library thread::spawn implementation, so we can look at what bounds the signature of thread::spawn has on its parameter. The documentation shows us the following:">我们将为 <code>ThreadPool</code> 定义 <code>execute</code> 方法，以接受一个闭包作为参数。回想第 13 章的 <a href="ch13-01-closures.html#moving-captured-values-out-of-closures">“将捕获的值移出闭包”</a><!-- ignore -->，我们可以使用三种不同的特征来接受闭包作为参数：<code>Fn</code>、<code>FnMut</code> 和 <code>FnOnce</code>。我们需要决定在这里使用哪种闭包。我们知道最终会做类似于标准库 <code>thread::spawn</code> 实现的事情，因此可以查看 <code>thread::spawn</code> 对其参数的签名有哪些约束。文档显示如下：</p>
+<p>Now the error occurs because we don’t have an <code>execute</code> method on <code>ThreadPool</code>.
+Recall from the <a href="#creating-a-finite-number-of-threads">“Creating a Finite Number of
+Threads”</a><!-- ignore --> section that we
+decided our thread pool should have an interface similar to <code>thread::spawn</code>. In
+addition, we’ll implement the <code>execute</code> function so that it takes the closure
+it’s given and gives it to an idle thread in the pool to run.</p>
+<p>We’ll define the <code>execute</code> method on <code>ThreadPool</code> to take a closure as a
+parameter. Recall from the <a href="ch13-01-closures.html#moving-captured-values-out-of-closures">“Moving Captured Values Out of
+Closures”</a><!-- ignore --> in Chapter 13 that we can
+take closures as parameters with three different traits: <code>Fn</code>, <code>FnMut</code>, and
+<code>FnOnce</code>. We need to decide which kind of closure to use here. We know we’ll
+end up doing something similar to the standard library <code>thread::spawn</code>
+implementation, so we can look at what bounds the signature of <code>thread::spawn</code>
+has on its parameter. The documentation shows us the following:</p>
 <pre><code class="language-rust ignore">pub fn spawn&lt;F, T&gt;(f: F) -&gt; JoinHandle&lt;T&gt;
     where
         F: FnOnce() -&gt; T,
         F: Send + 'static,
         T: Send + 'static,</code></pre>
-<p data-x-en="The F type parameter is the one we’re concerned with here; the T type parameter is related to the return value, and we’re not concerned with that. We can see that spawn uses FnOnce as the trait bound on F. This is probably what we want as well, because we’ll eventually pass the argument we get in execute to spawn. We can be further confident that FnOnce is the trait we want to use because the thread for running a request will only execute that request’s closure one time, which matches the Once in FnOnce."><code>F</code> 类型参数是我们这里关注的；<code>T</code> 类型参数与返回值相关，我们不关心这个。我们可以看到 <code>spawn</code> 使用 <code>FnOnce</code> 作为 <code>F</code> 的特征约束。这可能也是我们想要的，因为最终我们会将 <code>execute</code> 中接收到的参数传递给 <code>spawn</code>。我们可以更加确信 <code>FnOnce</code> 是我们想要使用的特征，因为运行请求的线程只会执行该请求的闭包一次，这与 <code>FnOnce</code> 中的 <code>Once</code> 相符。</p>
-<p data-x-en="The F type parameter also has the trait bound Send and the lifetime bound 'static, which are useful in our situation: We need Send to transfer the closure from one thread to another and 'static because we don’t know how long the thread will take to execute. Let’s create an execute method on ThreadPool that will take a generic parameter of type F with these bounds:"><code>F</code> 类型参数也有 <code>Send</code> 特性约束和 <code>'static</code> 生命周期约束，这些在我们的情况下非常有用：我们需要 <code>Send</code> 来将闭包从一个线程传递到另一个线程，而 <code>'static</code> 是因为我们不知道线程执行会持续多长时间。让我们在 <code>ThreadPool</code> 上创建一个 <code>execute</code> 方法，该方法将接受一个具有这些约束的泛型参数 <code>F</code>：</p>
+<p>The <code>F</code> type parameter is the one we’re concerned with here; the <code>T</code> type
+parameter is related to the return value, and we’re not concerned with that. We
+can see that <code>spawn</code> uses <code>FnOnce</code> as the trait bound on <code>F</code>. This is probably
+what we want as well, because we’ll eventually pass the argument we get in
+<code>execute</code> to <code>spawn</code>. We can be further confident that <code>FnOnce</code> is the trait we
+want to use because the thread for running a request will only execute that
+request’s closure one time, which matches the <code>Once</code> in <code>FnOnce</code>.</p>
+<p>The <code>F</code> type parameter also has the trait bound <code>Send</code> and the lifetime bound
+<code>'static</code>, which are useful in our situation: We need <code>Send</code> to transfer the
+closure from one thread to another and <code>'static</code> because we don’t know how long
+the thread will take to execute. Let’s create an <code>execute</code> method on
+<code>ThreadPool</code> that will take a generic parameter of type <code>F</code> with these bounds:</p>
 <figure class="listing">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">pub struct ThreadPool;
@@ -555,19 +666,39 @@ error: could not compile `hello` (bin "hello") due to 1 previous error
     }
 }</code></pre>
 </figure>
-<p data-x-en="We still use the () after FnOnce because this FnOnce represents a closure that takes no parameters and returns the unit type (). Just like function definitions, the return type can be omitted from the signature, but even if we have no parameters, we still need the parentheses.">我们仍然在 <code>FnOnce</code> 后使用 <code>()</code>，因为这个 <code>FnOnce</code> 表示一个不接受任何参数并返回单元类型 <code>()</code> 的闭包。就像函数定义一样，返回类型可以从签名中省略，但即使我们没有参数，仍然需要括号。</p>
-<p data-x-en="Again, this is the simplest implementation of the execute method: It does nothing, but we’re only trying to make our code compile. Let’s check it again:">再次，这是 <code>execute</code> 方法的最简单实现：它什么也不做，但我们只是试图让我们的代码编译。让我们再次检查它：</p>
+<p>We still use the <code>()</code> after <code>FnOnce</code> because this <code>FnOnce</code> represents a closure
+that takes no parameters and returns the unit type <code>()</code>. Just like function
+definitions, the return type can be omitted from the signature, but even if we
+have no parameters, we still need the parentheses.</p>
+<p>Again, this is the simplest implementation of the <code>execute</code> method: It does
+nothing, but we’re only trying to make our code compile. Let’s check it again:</p>
 <pre><code class="language-console">$ cargo check
     Checking hello v0.1.0 (file:///projects/hello)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.24s
 </code></pre>
-<p data-x-en="It compiles! But note that if you try cargo run and make a request in the browser, you’ll see the errors in the browser that we saw at the beginning of the chapter. Our library isn’t actually calling the closure passed to execute yet!">它编译了！但请注意，如果您尝试<code>cargo run</code>并在浏览器中发出请求，您会看到我们在本章开头看到的错误。我们的库实际上还没有调用传递给<code>execute</code>的闭包！</p>
+<p>It compiles! But note that if you try <code>cargo run</code> and make a request in the
+browser, you’ll see the errors in the browser that we saw at the beginning of
+the chapter. Our library isn’t actually calling the closure passed to <code>execute</code>
+yet!</p>
 <section class="note" aria-role="note">
-<p data-x-en="Note: A saying you might hear about languages with strict compilers, such as Haskell and Rust, is “If the code compiles, it works.” But this saying is not universally true. Our project compiles, but it does absolutely nothing! If we were building a real, complete project, this would be a good time to start writing unit tests to check that the code compiles and has the behavior we want.">注意：你可能会听到关于像Haskell和Rust这样具有严格编译器的语言的一句话：“如果代码编译通过，它就能工作。” 但这句话并不普遍正确。我们的项目编译通过了，但它什么也不做！如果我们正在构建一个真实、完整的项目，现在是开始编写单元测试以检查代码是否编译通过<em>并且</em>具有我们想要的行为的好时机。</p>
+<p>Note: A saying you might hear about languages with strict compilers, such as
+Haskell and Rust, is “If the code compiles, it works.” But this saying is not
+universally true. Our project compiles, but it does absolutely nothing! If we
+were building a real, complete project, this would be a good time to start
+writing unit tests to check that the code compiles <em>and</em> has the behavior we
+want.</p>
 </section>
-<p data-x-en="Consider: What would be different here if we were going to execute a future instead of a closure?">考虑：如果我们执行的是一个 future 而不是一个闭包，这里会有哪些不同？</p>
-<h4 id="validating-the-number-of-threads-in-new"><a class="header" href="#validating-the-number-of-threads-in-new">验证 <code>new</code> 中的线程数量</a></h4>
-<p data-x-en="We aren’t doing anything with the parameters to new and execute. Let’s implement the bodies of these functions with the behavior we want. To start, let’s think about new. Earlier we chose an unsigned type for the size parameter because a pool with a negative number of threads makes no sense. However, a pool with zero threads also makes no sense, yet zero is a perfectly valid usize. We’ll add code to check that size is greater than zero before we return a ThreadPool instance, and we’ll have the program panic if it receives a zero by using the assert! macro, as shown in Listing 21-13.">我们还没有对 <code>new</code> 和 <code>execute</code> 的参数做任何处理。让我们实现这些函数的主体，加入我们想要的行为。首先，让我们考虑 <code>new</code>。早些时候，我们为 <code>size</code> 参数选择了一个无符号类型，因为线程池中包含负数个线程是没有意义的。然而，包含零个线程的线程池也没有意义，但零是一个完全有效的 <code>usize</code>。我们将在返回 <code>ThreadPool</code> 实例之前添加代码检查 <code>size</code> 是否大于零，并且如果程序接收到零，我们将使用 <code>assert!</code> 宏使程序崩溃，如清单 21-13 所示。</p>
+<p>Consider: What would be different here if we were going to execute a future
+instead of a closure?</p>
+<h4 id="validating-the-number-of-threads-in-new"><a class="header" href="#validating-the-number-of-threads-in-new">Validating the Number of Threads in <code>new</code></a></h4>
+<p>We aren’t doing anything with the parameters to <code>new</code> and <code>execute</code>. Let’s
+implement the bodies of these functions with the behavior we want. To start,
+let’s think about <code>new</code>. Earlier we chose an unsigned type for the <code>size</code>
+parameter because a pool with a negative number of threads makes no sense.
+However, a pool with zero threads also makes no sense, yet zero is a perfectly
+valid <code>usize</code>. We’ll add code to check that <code>size</code> is greater than zero before
+we return a <code>ThreadPool</code> instance, and we’ll have the program panic if it
+receives a zero by using the <code>assert!</code> macro, as shown in Listing 21-13.</p>
 <figure class="listing" id="listing-21-13">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">pub struct ThreadPool;
@@ -595,21 +726,37 @@ error: could not compile `hello` (bin "hello") due to 1 previous error
 </span>}</code></pre>
 <figcaption><a href="#listing-21-13">Listing 21-13</a>: Implementing <code>ThreadPool::new</code> to panic if <code>size</code> is zero</figcaption>
 </figure>
-<p data-x-en="We’ve also added some documentation for our ThreadPool with doc comments. Note that we followed good documentation practices by adding a section that calls out the situations in which our function can panic, as discussed in Chapter 14. Try running cargo doc --open and clicking the ThreadPool struct to see what the generated docs for new look like!">我们还为我们的<code>ThreadPool</code> 添加了一些文档，使用了文档注释。
-请注意，我们遵循了良好的文档实践，添加了一个部分，指出了我们的函数可能 panic 的情况，正如在第 14 章中讨论的那样。
-尝试运行 <code>cargo doc --open</code> 并点击 <code>ThreadPool</code> 结构体，看看生成的 <code>new</code> 方法的文档是什么样的！</p>
-<p data-x-en="Instead of adding the assert! macro as we’ve done here, we could change new into build and return a Result like we did with Config::build in the I/O project in Listing 12-9. But we’ve decided in this case that trying to create a thread pool without any threads should be an unrecoverable error. If you’re feeling ambitious, try to write a function named build with the following signature to compare with the new function:">而不是像这里所做的那样添加 <code>assert!</code> 宏，我们可以将 <code>new</code> 改为 <code>build</code> 并返回一个 <code>Result</code>，就像我们在列表 12-9 的 I/O 项目中对 <code>Config::build</code> 所做的那样。但在这种情况下，我们决定尝试创建一个没有任何线程的线程池应该是一个不可恢复的错误。如果你雄心勃勃，试着编写一个名为 <code>build</code> 的函数，其签名如下，以便与 <code>new</code> 函数进行比较：</p>
+<p>We’ve also added some documentation for our <code>ThreadPool</code> with doc comments.
+Note that we followed good documentation practices by adding a section that
+calls out the situations in which our function can panic, as discussed in
+Chapter 14. Try running <code>cargo doc --open</code> and clicking the <code>ThreadPool</code> struct
+to see what the generated docs for <code>new</code> look like!</p>
+<p>Instead of adding the <code>assert!</code> macro as we’ve done here, we could change <code>new</code>
+into <code>build</code> and return a <code>Result</code> like we did with <code>Config::build</code> in the I/O
+project in Listing 12-9. But we’ve decided in this case that trying to create a
+thread pool without any threads should be an unrecoverable error. If you’re
+feeling ambitious, try to write a function named <code>build</code> with the following
+signature to compare with the <code>new</code> function:</p>
 <pre><code class="language-rust ignore">pub fn build(size: usize) -&gt; Result&lt;ThreadPool, PoolCreationError&gt; {</code></pre>
-<h4 id="creating-space-to-store-the-threads"><a class="header" href="#creating-space-to-store-the-threads">为线程创建存储空间</a></h4>
-<p data-x-en="Now that we have a way to know we have a valid number of threads to store in the pool, we can create those threads and store them in the ThreadPool struct before returning the struct. But how do we “store” a thread? Let’s take another look at the thread::spawn signature:">现在我们有了一个方法来确定存储在池中的线程数量是有效的，我们可以在返回结构体之前创建这些线程并将它们存储在<code>ThreadPool</code>结构体中。但是我们如何“存储”一个线程？让我们再来看看<code>thread::spawn</code>的签名：</p>
+<h4 id="creating-space-to-store-the-threads"><a class="header" href="#creating-space-to-store-the-threads">Creating Space to Store the Threads</a></h4>
+<p>Now that we have a way to know we have a valid number of threads to store in
+the pool, we can create those threads and store them in the <code>ThreadPool</code> struct
+before returning the struct. But how do we “store” a thread? Let’s take another
+look at the <code>thread::spawn</code> signature:</p>
 <pre><code class="language-rust ignore">pub fn spawn&lt;F, T&gt;(f: F) -&gt; JoinHandle&lt;T&gt;
     where
         F: FnOnce() -&gt; T,
         F: Send + 'static,
         T: Send + 'static,</code></pre>
-<p data-x-en="The spawn function returns a JoinHandle<T>, where T is the type that the closure returns. Let’s try using JoinHandle too and see what happens. In our case, the closures we’re passing to the thread pool will handle the connection and not return anything, so T will be the unit type ()."><code>spawn</code> 函数返回一个 <code>JoinHandle&lt;T&gt;</code>，其中 <code>T</code> 是闭包返回的类型。让我们也尝试使用 <code>JoinHandle</code> 并看看会发生什么。在我们的情况下，传递给线程池的闭包将处理连接并且不返回任何内容，因此 <code>T</code> 将是单元类型 <code>()</code>。</p>
-<p data-x-en="The code in Listing 21-14 will compile, but it doesn’t create any threads yet. We’ve changed the definition of ThreadPool to hold a vector of thread::JoinHandle<()> instances, initialized the vector with a capacity of size, set up a for loop that will run some code to create the threads, and returned a ThreadPool instance containing them.">清单 21-14 中的代码可以编译，但还没有创建任何线程。
-我们已经将 <code>ThreadPool</code> 的定义更改为持有 <code>thread::JoinHandle&lt;()&gt;</code> 实例的向量，该向量的容量初始化为 <code>size</code>，设置了一个 <code>for</code> 循环来运行一些创建线程的代码，并返回了一个包含这些线程的 <code>ThreadPool</code> 实例。</p>
+<p>The <code>spawn</code> function returns a <code>JoinHandle&lt;T&gt;</code>, where <code>T</code> is the type that the
+closure returns. Let’s try using <code>JoinHandle</code> too and see what happens. In our
+case, the closures we’re passing to the thread pool will handle the connection
+and not return anything, so <code>T</code> will be the unit type <code>()</code>.</p>
+<p>The code in Listing 21-14 will compile, but it doesn’t create any threads yet.
+We’ve changed the definition of <code>ThreadPool</code> to hold a vector of
+<code>thread::JoinHandle&lt;()&gt;</code> instances, initialized the vector with a capacity of
+<code>size</code>, set up a <code>for</code> loop that will run some code to create the threads, and
+returned a <code>ThreadPool</code> instance containing them.</p>
 <figure class="listing" id="listing-21-14">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust ignore not_desired_behavior">use std::thread;
@@ -648,29 +795,57 @@ impl ThreadPool {
 </span>}</code></pre>
 <figcaption><a href="#listing-21-14">Listing 21-14</a>: Creating a vector for <code>ThreadPool</code> to hold the threads</figcaption>
 </figure>
-<p data-x-en="We’ve brought std::thread into scope in the library crate because we’re using thread::JoinHandle as the type of the items in the vector in ThreadPool.">我们已经将<code>std::thread</code>引入库crate中，因为我们正在使用<code>thread::JoinHandle</code>作为<code>ThreadPool</code>中向量项的类型。</p>
-<p data-x-en="Once a valid size is received, our ThreadPool creates a new vector that can hold size items. The with_capacity function performs the same task as Vec::new but with an important difference: It pre-allocates space in the vector. Because we know we need to store size elements in the vector, doing this allocation up front is slightly more efficient than using Vec::new, which resizes itself as elements are inserted.">一旦收到有效的大小，我们的<code>ThreadPool</code>将创建一个可以容纳<code>size</code>个项目的向量。<code>with_capacity</code>函数与<code>Vec::new</code>执行相同的任务，但有一个重要的区别：它预先分配了向量的空间。因为我们知道需要在向量中存储<code>size</code>个元素，所以预先进行这种分配比使用<code>Vec::new</code>稍微更有效，后者在插入元素时会自行调整大小。</p>
-<p data-x-en="When you run cargo check again, it should succeed.">当你再次运行 <code>cargo check</code> 时，它应该成功。</p>
+<p>We’ve brought <code>std::thread</code> into scope in the library crate because we’re
+using <code>thread::JoinHandle</code> as the type of the items in the vector in
+<code>ThreadPool</code>.</p>
+<p>Once a valid size is received, our <code>ThreadPool</code> creates a new vector that can
+hold <code>size</code> items. The <code>with_capacity</code> function performs the same task as
+<code>Vec::new</code> but with an important difference: It pre-allocates space in the
+vector. Because we know we need to store <code>size</code> elements in the vector, doing
+this allocation up front is slightly more efficient than using <code>Vec::new</code>,
+which resizes itself as elements are inserted.</p>
+<p>When you run <code>cargo check</code> again, it should succeed.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="a-worker-struct-responsible-for-sending-code-from-the-threadpool-to-a-thread"></a></p>
-<h4 id="sending-code-from-the-threadpool-to-a-thread"><a class="header" href="#sending-code-from-the-threadpool-to-a-thread">从 <code>ThreadPool</code> 向线程发送代码</a></h4>
-<p data-x-en="We left a comment in the for loop in Listing 21-14 regarding the creation of threads. Here, we’ll look at how we actually create threads. The standard library provides thread::spawn as a way to create threads, and thread::spawn expects to get some code the thread should run as soon as the thread is created. However, in our case, we want to create the threads and have them wait for code that we’ll send later. The standard library’s implementation of threads doesn’t include any way to do that; we have to implement it manually.">我们在清单 21-14 的 <code>for</code> 循环中留下了一个关于创建线程的注释。在这里，我们将看看我们实际上是如何创建线程的。标准库提供了 <code>thread::spawn</code> 作为创建线程的一种方式，<code>thread::spawn</code> 期望在创建线程时立即运行的代码。然而，在我们的情况下，我们希望创建线程并让它们 <em>等待</em> 我们稍后发送的代码。标准库的线程实现不包括任何实现这一点的方法；我们必须手动实现它。</p>
-<p data-x-en="We’ll implement this behavior by introducing a new data structure between the ThreadPool and the threads that will manage this new behavior. We’ll call this data structure Worker, which is a common term in pooling implementations. The Worker picks up code that needs to be run and runs the code in its thread.">我们将通过在 <code>ThreadPool</code> 和线程之间引入一个新的数据结构来实现这种行为，该数据结构将管理这种新行为。我们将这个数据结构称为 <em>Worker</em>，这是池实现中常用的一个术语。<code>Worker</code> 会拾取需要运行的代码并在其线程中运行该代码。</p>
-<p data-x-en="Think of people working in the kitchen at a restaurant: The workers wait until orders come in from customers, and then they’re responsible for taking those orders and filling them.">想想在餐厅厨房工作的人员：工作人员等待顾客的订单，然后他们负责接收这些订单并完成它们。</p>
-<p data-x-en="Instead of storing a vector of JoinHandle<()> instances in the thread pool, we’ll store instances of the Worker struct. Each Worker will store a single JoinHandle<()> instance. Then, we’ll implement a method on Worker that will take a closure of code to run and send it to the already running thread for execution. We’ll also give each Worker an id so that we can distinguish between the different instances of Worker in the pool when logging or debugging.">而不是在线程池中存储 <code>JoinHandle&lt;()&gt;</code> 实例的向量，
-我们将存储 <code>Worker</code> 结构的实例。每个 <code>Worker</code> 将存储一个
-<code>JoinHandle&lt;()&gt;</code> 实例。然后，我们将在 <code>Worker</code> 上实现一个方法，该方法将
-接受一个要运行的闭包代码，并将其发送到已经运行的线程中执行。我们还将给每个 <code>Worker</code> 一个 <code>id</code>，以便在日志记录或调试时区分
-线程池中不同的 <code>Worker</code> 实例。</p>
-<p data-x-en="Here is the new process that will happen when we create a ThreadPool. We’ll implement the code that sends the closure to the thread after we have Worker set up in this way:">这是我们将要在创建<code>ThreadPool</code>时发生的新流程。我们将在<code>Worker</code>以这种方式设置好之后，实现将闭包发送到线程的代码。</p>
+<h4 id="sending-code-from-the-threadpool-to-a-thread"><a class="header" href="#sending-code-from-the-threadpool-to-a-thread">Sending Code from the <code>ThreadPool</code> to a Thread</a></h4>
+<p>We left a comment in the <code>for</code> loop in Listing 21-14 regarding the creation of
+threads. Here, we’ll look at how we actually create threads. The standard
+library provides <code>thread::spawn</code> as a way to create threads, and
+<code>thread::spawn</code> expects to get some code the thread should run as soon as the
+thread is created. However, in our case, we want to create the threads and have
+them <em>wait</em> for code that we’ll send later. The standard library’s
+implementation of threads doesn’t include any way to do that; we have to
+implement it manually.</p>
+<p>We’ll implement this behavior by introducing a new data structure between the
+<code>ThreadPool</code> and the threads that will manage this new behavior. We’ll call
+this data structure <em>Worker</em>, which is a common term in pooling
+implementations. The <code>Worker</code> picks up code that needs to be run and runs the
+code in its thread.</p>
+<p>Think of people working in the kitchen at a restaurant: The workers wait until
+orders come in from customers, and then they’re responsible for taking those
+orders and filling them.</p>
+<p>Instead of storing a vector of <code>JoinHandle&lt;()&gt;</code> instances in the thread pool,
+we’ll store instances of the <code>Worker</code> struct. Each <code>Worker</code> will store a single
+<code>JoinHandle&lt;()&gt;</code> instance. Then, we’ll implement a method on <code>Worker</code> that will
+take a closure of code to run and send it to the already running thread for
+execution. We’ll also give each <code>Worker</code> an <code>id</code> so that we can distinguish
+between the different instances of <code>Worker</code> in the pool when logging or
+debugging.</p>
+<p>Here is the new process that will happen when we create a <code>ThreadPool</code>. We’ll
+implement the code that sends the closure to the thread after we have <code>Worker</code>
+set up in this way:</p>
 <ol>
-<li data-x-en="Define a Worker struct that holds an id and a JoinHandle<()>.">定义一个 <code>Worker</code> 结构体，其中包含一个 <code>id</code> 和一个 <code>JoinHandle&lt;()&gt;</code>。</li>
-<li data-x-en="Change ThreadPool to hold a vector of Worker instances.">将 <code>ThreadPool</code> 更改为持有 <code>Worker</code> 实例的向量。</li>
-<li data-x-en="Define a Worker::new function that takes an id number and returns a Worker instance that holds the id and a thread spawned with an empty closure.">定义一个 <code>Worker::new</code> 函数，该函数接受一个 <code>id</code> 编号，并返回一个持有 <code>id</code> 和使用空闭包创建的线程的 <code>Worker</code> 实例。</li>
-<li data-x-en="In ThreadPool::new, use the for loop counter to generate an id, create a new Worker with that id, and store the Worker in the vector.">在 <code>ThreadPool::new</code> 中，使用 <code>for</code> 循环计数器生成一个 <code>id</code>，创建一个带有该 <code>id</code> 的新 <code>Worker</code>，并将 <code>Worker</code> 存储在向量中。</li>
+<li>Define a <code>Worker</code> struct that holds an <code>id</code> and a <code>JoinHandle&lt;()&gt;</code>.</li>
+<li>Change <code>ThreadPool</code> to hold a vector of <code>Worker</code> instances.</li>
+<li>Define a <code>Worker::new</code> function that takes an <code>id</code> number and returns a
+<code>Worker</code> instance that holds the <code>id</code> and a thread spawned with an empty
+closure.</li>
+<li>In <code>ThreadPool::new</code>, use the <code>for</code> loop counter to generate an <code>id</code>, create
+a new <code>Worker</code> with that <code>id</code>, and store the <code>Worker</code> in the vector.</li>
 </ol>
-<p data-x-en="If you’re up for a challenge, try implementing these changes on your own before looking at the code in Listing 21-15.">如果您喜欢挑战，可以尝试在查看清单 21-15 中的代码之前自己实现这些更改。</p>
-<p data-x-en="Ready? Here is Listing 21-15 with one way to make the preceding modifications.">准备好？以下是带有其中一种方法的清单 21-15，用于进行上述修改。</p>
+<p>If you’re up for a challenge, try implementing these changes on your own before
+looking at the code in Listing 21-15.</p>
+<p>Ready? Here is Listing 21-15 with one way to make the preceding modifications.</p>
 <figure class="listing" id="listing-21-15">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">use std::thread;
@@ -722,24 +897,52 @@ impl Worker {
 }</code></pre>
 <figcaption><a href="#listing-21-15">Listing 21-15</a>: Modifying <code>ThreadPool</code> to hold <code>Worker</code> instances instead of holding threads directly</figcaption>
 </figure>
-<p data-x-en="We’ve changed the name of the field on ThreadPool from threads to workers because it’s now holding Worker instances instead of JoinHandle<()> instances. We use the counter in the for loop as an argument to Worker::new, and we store each new Worker in the vector named workers.">我们将 <code>ThreadPool</code> 上的字段名从 <code>threads</code> 更改为 <code>workers</code>，因为现在它保存的是 <code>Worker</code> 实例而不是 <code>JoinHandle&lt;()&gt;</code> 实例。我们在 <code>for</code> 循环中使用计数器作为 <code>Worker::new</code> 的参数，并将每个新的 <code>Worker</code> 存储在名为 <code>workers</code> 的向量中。</p>
-<p data-x-en="External code (like our server in src/main.rs) doesn’t need to know the implementation details regarding using a Worker struct within ThreadPool, so we make the Worker struct and its new function private. The Worker::new function uses the id we give it and stores a JoinHandle<()> instance that is created by spawning a new thread using an empty closure.">外部代码（如 <em>src/main.rs</em> 中的服务器）不需要知道在 <code>ThreadPool</code> 内部使用 <code>Worker</code> 结构体的实现细节，因此我们将 <code>Worker</code> 结构体及其 <code>new</code> 函数设为私有。<code>Worker::new</code> 函数使用我们提供的 <code>id</code>，并存储一个通过使用空闭包创建的新线程生成的 <code>JoinHandle&lt;()&gt;</code> 实例。</p>
+<p>We’ve changed the name of the field on <code>ThreadPool</code> from <code>threads</code> to <code>workers</code>
+because it’s now holding <code>Worker</code> instances instead of <code>JoinHandle&lt;()&gt;</code>
+instances. We use the counter in the <code>for</code> loop as an argument to
+<code>Worker::new</code>, and we store each new <code>Worker</code> in the vector named <code>workers</code>.</p>
+<p>External code (like our server in <em>src/main.rs</em>) doesn’t need to know the
+implementation details regarding using a <code>Worker</code> struct within <code>ThreadPool</code>,
+so we make the <code>Worker</code> struct and its <code>new</code> function private. The
+<code>Worker::new</code> function uses the <code>id</code> we give it and stores a <code>JoinHandle&lt;()&gt;</code>
+instance that is created by spawning a new thread using an empty closure.</p>
 <section class="note" aria-role="note">
-<p data-x-en="Note: If the operating system can’t create a thread because there aren’t enough system resources, thread::spawn will panic. That will cause our whole server to panic, even though the creation of some threads might succeed. For simplicity’s sake, this behavior is fine, but in a production thread pool implementation, you’d likely want to use std::thread::Builder and its spawn method that returns Result instead.">注意：如果操作系统因为系统资源不足而无法创建线程，<code>thread::spawn</code> 将会 panic。这将导致我们的整个服务器 panic，即使某些线程的创建可能成功。为了简单起见，这种行为是可以接受的，但在生产环境的线程池实现中，你可能希望使用 <a href="https://doc.rust-lang.org/std/thread/struct.Builder.html" target="_blank"><code>std::thread::Builder</code></a><!-- ignore --> 及其 <a href="https://doc.rust-lang.org/std/thread/struct.Builder.html#method.spawn" target="_blank"><code>spawn</code></a><!-- ignore --> 方法，该方法返回 <code>Result</code>。</p>
+<p>Note: If the operating system can’t create a thread because there aren’t
+enough system resources, <code>thread::spawn</code> will panic. That will cause our
+whole server to panic, even though the creation of some threads might
+succeed. For simplicity’s sake, this behavior is fine, but in a production
+thread pool implementation, you’d likely want to use
+<a href="https://doc.rust-lang.org/std/thread/struct.Builder.html" target="_blank"><code>std::thread::Builder</code></a><!-- ignore --> and its
+<a href="https://doc.rust-lang.org/std/thread/struct.Builder.html#method.spawn" target="_blank"><code>spawn</code></a><!-- ignore --> method that returns <code>Result</code> instead.</p>
 </section>
-<p data-x-en="This code will compile and will store the number of Worker instances we specified as an argument to ThreadPool::new. But we’re still not processing the closure that we get in execute. Let’s look at how to do that next.">这段代码将编译，并将我们作为 <code>ThreadPool::new</code> 的参数指定的 <code>Worker</code> 实例的数量存储起来。但我们 <em>仍然</em> 没有处理我们在 <code>execute</code> 中接收到的闭包。接下来让我们看看如何处理这个问题。</p>
-<h4 id="sending-requests-to-threads-via-channels"><a class="header" href="#sending-requests-to-threads-via-channels">通过通道向线程发送请求</a></h4>
-<p data-x-en="The next problem we’ll tackle is that the closures given to thread::spawn do absolutely nothing. Currently, we get the closure we want to execute in the execute method. But we need to give thread::spawn a closure to run when we create each Worker during the creation of the ThreadPool.">我们接下来要解决的问题是，传递给<code>thread::spawn</code>的闭包什么也不做。目前，我们在<code>execute</code>方法中获取要执行的闭包。但是我们需要在创建<code>ThreadPool</code>时，为每个<code>Worker</code>的创建提供一个闭包，让<code>thread::spawn</code>运行。</p>
-<p data-x-en="We want the Worker structs that we just created to fetch the code to run from a queue held in the ThreadPool and send that code to its thread to run.">我们希望我们刚刚创建的<code>Worker</code>结构体能够从<code>ThreadPool</code>中持有的队列中获取要运行的代码，并将该代码发送到其线程以运行。</p>
-<p data-x-en="The channels we learned about in Chapter 16—a simple way to communicate between two threads—would be perfect for this use case. We’ll use a channel to function as the queue of jobs, and execute will send a job from the ThreadPool to the Worker instances, which will send the job to its thread. Here is the plan:">我们在第16章中学到的通道——一种在两个线程之间进行简单通信的方式——非常适合这种情况。我们将使用一个通道作为作业队列，<code>execute</code> 将从 <code>ThreadPool</code> 向 <code>Worker</code> 实例发送作业，后者将作业发送到其线程。以下是计划：</p>
+<p>This code will compile and will store the number of <code>Worker</code> instances we
+specified as an argument to <code>ThreadPool::new</code>. But we’re <em>still</em> not processing
+the closure that we get in <code>execute</code>. Let’s look at how to do that next.</p>
+<h4 id="sending-requests-to-threads-via-channels"><a class="header" href="#sending-requests-to-threads-via-channels">Sending Requests to Threads via Channels</a></h4>
+<p>The next problem we’ll tackle is that the closures given to <code>thread::spawn</code> do
+absolutely nothing. Currently, we get the closure we want to execute in the
+<code>execute</code> method. But we need to give <code>thread::spawn</code> a closure to run when we
+create each <code>Worker</code> during the creation of the <code>ThreadPool</code>.</p>
+<p>We want the <code>Worker</code> structs that we just created to fetch the code to run from
+a queue held in the <code>ThreadPool</code> and send that code to its thread to run.</p>
+<p>The channels we learned about in Chapter 16—a simple way to communicate between
+two threads—would be perfect for this use case. We’ll use a channel to function
+as the queue of jobs, and <code>execute</code> will send a job from the <code>ThreadPool</code> to
+the <code>Worker</code> instances, which will send the job to its thread. Here is the plan:</p>
 <ol>
-<li data-x-en="The ThreadPool will create a channel and hold on to the sender."><code>ThreadPool</code> 将创建一个通道并持有发送者。</li>
-<li data-x-en="Each Worker will hold on to the receiver.">每个 <code>Worker</code> 都将持有接收者。</li>
-<li data-x-en="We’ll create a new Job struct that will hold the closures we want to send down the channel.">我们将创建一个新的<code>Job</code>结构体，用于保存我们想要通过通道发送的闭包。</li>
-<li data-x-en="The execute method will send the job it wants to execute through the sender."><code>execute</code> 方法会通过发送者发送它想要执行的任务。</li>
-<li data-x-en="In its thread, the Worker will loop over its receiver and execute the closures of any jobs it receives.">在其线程中，<code>Worker</code> 将在其接收器上循环并执行它收到的任何作业的闭包。</li>
+<li>The <code>ThreadPool</code> will create a channel and hold on to the sender.</li>
+<li>Each <code>Worker</code> will hold on to the receiver.</li>
+<li>We’ll create a new <code>Job</code> struct that will hold the closures we want to send
+down the channel.</li>
+<li>The <code>execute</code> method will send the job it wants to execute through the
+sender.</li>
+<li>In its thread, the <code>Worker</code> will loop over its receiver and execute the
+closures of any jobs it receives.</li>
 </ol>
-<p data-x-en="Let’s start by creating a channel in ThreadPool::new and holding the sender in the ThreadPool instance, as shown in Listing 21-16. The Job struct doesn’t hold anything for now but will be the type of item we’re sending down the channel.">让我们先在 <code>ThreadPool::new</code> 中创建一个通道，并在 <code>ThreadPool</code> 实例中持有发送者，如清单 21-16 所示。<code>Job</code> 结构体目前不持有任何内容，但将是我们在通道中发送的项的类型。</p>
+<p>Let’s start by creating a channel in <code>ThreadPool::new</code> and holding the sender
+in the <code>ThreadPool</code> instance, as shown in Listing 21-16. The <code>Job</code> struct
+doesn’t hold anything for now but will be the type of item we’re sending down
+the channel.</p>
 <figure class="listing" id="listing-21-16">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">use std::{sync::mpsc, thread};
@@ -796,8 +999,12 @@ impl ThreadPool {
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-21-16">Listing 21-16</a>: Modifying <code>ThreadPool</code> to store the sender of a channel that transmits <code>Job</code> instances</figcaption>
 </figure>
-<p data-x-en="In ThreadPool::new, we create our new channel and have the pool hold the sender. This will successfully compile.">在 <code>ThreadPool::new</code> 中，我们创建了新的通道，并让线程池持有发送者。这将成功编译。</p>
-<p data-x-en="Let’s try passing a receiver of the channel into each Worker as the thread pool creates the channel. We know we want to use the receiver in the thread that the Worker instances spawn, so we’ll reference the receiver parameter in the closure. The code in Listing 21-17 won’t quite compile yet.">让我们尝试在创建通道时将通道的接收者传递给每个<code>Worker</code>。我们知道我们希望在<code>Worker</code>实例启动的线程中使用接收者，因此我们将在闭包中引用<code>receiver</code>参数。清单21-17中的代码还不能完全编译。</p>
+<p>In <code>ThreadPool::new</code>, we create our new channel and have the pool hold the
+sender. This will successfully compile.</p>
+<p>Let’s try passing a receiver of the channel into each <code>Worker</code> as the thread
+pool creates the channel. We know we want to use the receiver in the thread that
+the <code>Worker</code> instances spawn, so we’ll reference the <code>receiver</code> parameter in the
+closure. The code in Listing 21-17 won’t quite compile yet.</p>
 <figure class="listing" id="listing-21-17">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">use std::{sync::mpsc, thread};
@@ -859,8 +1066,9 @@ impl ThreadPool {
 }</code></pre>
 <figcaption><a href="#listing-21-17">Listing 21-17</a>: Passing the receiver to each <code>Worker</code></figcaption>
 </figure>
-<p data-x-en="We’ve made some small and straightforward changes: We pass the receiver into Worker::new, and then we use it inside the closure.">我们做了一些小而简单的更改：我们将接收者传递给<code>Worker::new</code>，然后我们在闭包中使用它。</p>
-<p data-x-en="When we try to check this code, we get this error:">当我们尝试检查这段代码时，我们得到了这个错误：</p>
+<p>We’ve made some small and straightforward changes: We pass the receiver into
+<code>Worker::new</code>, and then we use it inside the closure.</p>
+<p>When we try to check this code, we get this error:</p>
 <pre><code class="language-console">$ cargo check
     Checking hello v0.1.0 (file:///projects/hello)
 error[E0382]: use of moved value: `receiver`
@@ -889,9 +1097,21 @@ help: consider moving the expression out of the loop so it is only moved once
 For more information about this error, try `rustc --explain E0382`.
 error: could not compile `hello` (lib) due to 1 previous error
 </code></pre>
-<p data-x-en="The code is trying to pass receiver to multiple Worker instances. This won’t work, as you’ll recall from Chapter 16: The channel implementation that Rust provides is multiple producer, single consumer. This means we can’t just clone the consuming end of the channel to fix this code. We also don’t want to send a message multiple times to multiple consumers; we want one list of messages with multiple Worker instances such that each message gets processed once.">代码试图将<code>receiver</code>传递给多个<code>Worker</code>实例。这不会奏效，正如你在第16章中所回忆的：Rust提供的通道实现是多<em>生产者</em>，单<em>消费者</em>。这意味着我们不能简单地克隆通道的消费端来修复这段代码。我们也不希望将消息多次发送给多个消费者；我们希望有一个消息列表，其中包含多个<code>Worker</code>实例，每个消息只被处理一次。</p>
-<p data-x-en="Additionally, taking a job off the channel queue involves mutating the receiver, so the threads need a safe way to share and modify receiver; otherwise, we might get race conditions (as covered in Chapter 16).">此外，从通道队列中获取任务涉及修改<code>receiver</code>，因此线程需要一种安全的方式来共享和修改<code>receiver</code>；否则，我们可能会遇到竞争条件（如第16章所述）。</p>
-<p data-x-en="Recall the thread-safe smart pointers discussed in Chapter 16: To share ownership across multiple threads and allow the threads to mutate the value, we need to use Arc<Mutex<T>>. The Arc type will let multiple Worker instances own the receiver, and Mutex will ensure that only one Worker gets a job from the receiver at a time. Listing 21-18 shows the changes we need to make.">回顾第16章讨论的线程安全智能指针：为了在多个线程之间共享所有权并允许线程修改值，我们需要使用<code>Arc&lt;Mutex&lt;T&gt;&gt;</code>。<code>Arc</code> 类型将允许多个 <code>Worker</code> 实例拥有接收者，而 <code>Mutex</code> 将确保一次只有一个 <code>Worker</code> 从接收者那里获取任务。列表21-18显示了我们需要进行的更改。</p>
+<p>The code is trying to pass <code>receiver</code> to multiple <code>Worker</code> instances. This
+won’t work, as you’ll recall from Chapter 16: The channel implementation that
+Rust provides is multiple <em>producer</em>, single <em>consumer</em>. This means we can’t
+just clone the consuming end of the channel to fix this code. We also don’t
+want to send a message multiple times to multiple consumers; we want one list
+of messages with multiple <code>Worker</code> instances such that each message gets
+processed once.</p>
+<p>Additionally, taking a job off the channel queue involves mutating the
+<code>receiver</code>, so the threads need a safe way to share and modify <code>receiver</code>;
+otherwise, we might get race conditions (as covered in Chapter 16).</p>
+<p>Recall the thread-safe smart pointers discussed in Chapter 16: To share
+ownership across multiple threads and allow the threads to mutate the value, we
+need to use <code>Arc&lt;Mutex&lt;T&gt;&gt;</code>. The <code>Arc</code> type will let multiple <code>Worker</code> instances
+own the receiver, and <code>Mutex</code> will ensure that only one <code>Worker</code> gets a job from
+the receiver at a time. Listing 21-18 shows the changes we need to make.</p>
 <figure class="listing" id="listing-21-18">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">use std::{
@@ -960,10 +1180,16 @@ error: could not compile `hello` (lib) due to 1 previous error
 }</code></pre>
 <figcaption><a href="#listing-21-18">Listing 21-18</a>: Sharing the receiver among the <code>Worker</code> instances using <code>Arc</code> and <code>Mutex</code></figcaption>
 </figure>
-<p data-x-en="In ThreadPool::new, we put the receiver in an Arc and a Mutex. For each new Worker, we clone the Arc to bump the reference count so that the Worker instances can share ownership of the receiver.">在 <code>ThreadPool::new</code> 中，我们将接收者放入一个 <code>Arc</code> 和一个 <code>Mutex</code>。对于每个新的 <code>Worker</code>，我们克隆 <code>Arc</code> 以增加引用计数，这样 <code>Worker</code> 实例就可以共享接收者的所有权。</p>
-<p data-x-en="With these changes, the code compiles! We’re getting there!">有了这些更改，代码编译成功了！我们快到了！</p>
-<h4 id="implementing-the-execute-method"><a class="header" href="#implementing-the-execute-method">实现 <code>execute</code> 方法</a></h4>
-<p data-x-en="Let’s finally implement the execute method on ThreadPool. We’ll also change Job from a struct to a type alias for a trait object that holds the type of closure that execute receives. As discussed in the “Type Synonyms and Type Aliases” section in Chapter 20, type aliases allow us to make long types shorter for ease of use. Look at Listing 21-19.">让我们最终在 <code>ThreadPool</code> 上实现 <code>execute</code> 方法。我们还将 <code>Job</code> 从一个结构体改为一个类型别名，该别名表示 <code>execute</code> 接收的闭包类型。正如在第 20 章的 <a href="ch20-03-advanced-types.html#type-synonyms-and-type-aliases">“类型同义词和类型别名”</a> 部分中讨论的那样，类型别名允许我们将长类型缩短以便于使用。请参阅示例 21-19。</p>
+<p>In <code>ThreadPool::new</code>, we put the receiver in an <code>Arc</code> and a <code>Mutex</code>. For each
+new <code>Worker</code>, we clone the <code>Arc</code> to bump the reference count so that the
+<code>Worker</code> instances can share ownership of the receiver.</p>
+<p>With these changes, the code compiles! We’re getting there!</p>
+<h4 id="implementing-the-execute-method"><a class="header" href="#implementing-the-execute-method">Implementing the <code>execute</code> Method</a></h4>
+<p>Let’s finally implement the <code>execute</code> method on <code>ThreadPool</code>. We’ll also change
+<code>Job</code> from a struct to a type alias for a trait object that holds the type of
+closure that <code>execute</code> receives. As discussed in the <a href="ch20-03-advanced-types.html#type-synonyms-and-type-aliases">“Type Synonyms and Type
+Aliases”</a><!-- ignore --> section in Chapter 20, type aliases
+allow us to make long types shorter for ease of use. Look at Listing 21-19.</p>
 <figure class="listing" id="listing-21-19">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">use std::{
@@ -1033,8 +1259,19 @@ impl ThreadPool {
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-21-19">Listing 21-19</a>: Creating a <code>Job</code> type alias for a <code>Box</code> that holds each closure and then sending the job down the channel</figcaption>
 </figure>
-<p data-x-en="After creating a new Job instance using the closure we get in execute, we send that job down the sending end of the channel. We’re calling unwrap on send for the case that sending fails. This might happen if, for example, we stop all our threads from executing, meaning the receiving end has stopped receiving new messages. At the moment, we can’t stop our threads from executing: Our threads continue executing as long as the pool exists. The reason we use unwrap is that we know the failure case won’t happen, but the compiler doesn’t know that.">在使用 <code>execute</code> 中获得的闭包创建一个新的 <code>Job</code> 实例后，我们将该任务通过通道的发送端发送出去。我们在 <code>send</code> 上调用 <code>unwrap</code> 以处理发送失败的情况。例如，如果我们停止所有线程的执行，接收端停止接收新消息时，这种情况可能会发生。目前，我们无法停止线程的执行：只要线程池存在，我们的线程就会继续执行。我们使用 <code>unwrap</code> 的原因是我们知道失败的情况不会发生，但编译器不知道这一点。</p>
-<p data-x-en="But we’re not quite done yet! In the Worker, our closure being passed to thread::spawn still only references the receiving end of the channel. Instead, we need the closure to loop forever, asking the receiving end of the channel for a job and running the job when it gets one. Let’s make the change shown in Listing 21-20 to Worker::new.">但我们的工作还没有完成！在 <code>Worker</code> 中，我们传递给 <code>thread::spawn</code> 的闭包仍然只是 <em>引用</em> 通道的接收端。相反，我们需要闭包无限循环，向通道的接收端请求任务，并在接收到任务时运行任务。让我们对 <code>Worker::new</code> 进行如清单 21-20 所示的更改。</p>
+<p>After creating a new <code>Job</code> instance using the closure we get in <code>execute</code>, we
+send that job down the sending end of the channel. We’re calling <code>unwrap</code> on
+<code>send</code> for the case that sending fails. This might happen if, for example, we
+stop all our threads from executing, meaning the receiving end has stopped
+receiving new messages. At the moment, we can’t stop our threads from
+executing: Our threads continue executing as long as the pool exists. The
+reason we use <code>unwrap</code> is that we know the failure case won’t happen, but the
+compiler doesn’t know that.</p>
+<p>But we’re not quite done yet! In the <code>Worker</code>, our closure being passed to
+<code>thread::spawn</code> still only <em>references</em> the receiving end of the channel.
+Instead, we need the closure to loop forever, asking the receiving end of the
+channel for a job and running the job when it gets one. Let’s make the change
+shown in Listing 21-20 to <code>Worker::new</code>.</p>
 <figure class="listing" id="listing-21-20">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">use std::{
@@ -1107,10 +1344,22 @@ impl Worker {
 }</code></pre>
 <figcaption><a href="#listing-21-20">Listing 21-20</a>: Receiving and executing the jobs in the <code>Worker</code> instance’s thread</figcaption>
 </figure>
-<p data-x-en="Here, we first call lock on the receiver to acquire the mutex, and then we call unwrap to panic on any errors. Acquiring a lock might fail if the mutex is in a poisoned state, which can happen if some other thread panicked while holding the lock rather than releasing the lock. In this situation, calling unwrap to have this thread panic is the correct action to take. Feel free to change this unwrap to an expect with an error message that is meaningful to you.">这里，我们首先调用 <code>receiver</code> 上的 <code>lock</code> 来获取互斥锁，然后我们调用 <code>unwrap</code> 来在任何错误时引发 panic。获取锁可能会失败，如果互斥锁处于 <em>中毒</em> 状态，这可能是因为其他线程在持有锁时引发了 panic 而不是释放锁。在这种情况下，调用 <code>unwrap</code> 使当前线程 panic 是正确的处理方式。你可以自由地将这个 <code>unwrap</code> 更改为带有对你有意义的错误消息的 <code>expect</code>。</p>
-<p data-x-en="If we get the lock on the mutex, we call recv to receive a Job from the channel. A final unwrap moves past any errors here as well, which might occur if the thread holding the sender has shut down, similar to how the send method returns Err if the receiver shuts down.">如果我们获得了互斥锁，我们调用<code>recv</code>从通道接收一个<code>Job</code>。最后的<code>unwrap</code>也会跳过这里可能出现的任何错误，这可能发生在持有发送方的线程已关闭的情况下，类似于<code>send</code>方法在接收方关闭时返回<code>Err</code>。</p>
-<p data-x-en="The call to recv blocks, so if there is no job yet, the current thread will wait until a job becomes available. The Mutex<T> ensures that only one Worker thread at a time is trying to request a job.">对 <code>recv</code> 的调用是阻塞的，因此如果没有任务，当前线程将等待任务变得可用。<code>Mutex&lt;T&gt;</code> 确保一次只有一个 <code>Worker</code> 线程尝试请求任务。</p>
-<p data-x-en="Our thread pool is now in a working state! Give it a cargo run and make some requests:">我们的线程池现在处于工作状态！给它一个<code>cargo run</code>并发出一些请求：</p>
+<p>Here, we first call <code>lock</code> on the <code>receiver</code> to acquire the mutex, and then we
+call <code>unwrap</code> to panic on any errors. Acquiring a lock might fail if the mutex
+is in a <em>poisoned</em> state, which can happen if some other thread panicked while
+holding the lock rather than releasing the lock. In this situation, calling
+<code>unwrap</code> to have this thread panic is the correct action to take. Feel free to
+change this <code>unwrap</code> to an <code>expect</code> with an error message that is meaningful to
+you.</p>
+<p>If we get the lock on the mutex, we call <code>recv</code> to receive a <code>Job</code> from the
+channel. A final <code>unwrap</code> moves past any errors here as well, which might occur
+if the thread holding the sender has shut down, similar to how the <code>send</code>
+method returns <code>Err</code> if the receiver shuts down.</p>
+<p>The call to <code>recv</code> blocks, so if there is no job yet, the current thread will
+wait until a job becomes available. The <code>Mutex&lt;T&gt;</code> ensures that only one
+<code>Worker</code> thread at a time is trying to request a job.</p>
+<p>Our thread pool is now in a working state! Give it a <code>cargo run</code> and make some
+requests:</p>
 <!-- manual-regeneration
 cd listings/ch21-web-server/listing-21-20
 cargo run
@@ -1153,14 +1402,24 @@ Worker 3 got a job; executing.
 Worker 0 got a job; executing.
 Worker 2 got a job; executing.
 </code></pre>
-<p data-x-en="Success! We now have a thread pool that executes connections asynchronously. There are never more than four threads created, so our system won’t get overloaded if the server receives a lot of requests. If we make a request to /sleep, the server will be able to serve other requests by having another thread run them.">成功！我们现在有一个线程池，可以异步执行连接。
-线程池中永远不会创建超过四个线程，因此即使服务器收到大量请求，我们的系统也不会过载。如果我们向
-<em>/sleep</em> 发出请求，服务器将能够通过其他线程运行请求来为其他请求提供服务。</p>
+<p>Success! We now have a thread pool that executes connections asynchronously.
+There are never more than four threads created, so our system won’t get
+overloaded if the server receives a lot of requests. If we make a request to
+<em>/sleep</em>, the server will be able to serve other requests by having another
+thread run them.</p>
 <section class="note" aria-role="note">
-<p data-x-en="Note: If you open /sleep in multiple browser windows simultaneously, they might load one at a time in five-second intervals. Some web browsers execute multiple instances of the same request sequentially for caching reasons. This limitation is not caused by our web server.">注意：如果您同时在多个浏览器窗口中打开<em>/sleep</em>，它们可能会每隔五秒依次加载。一些网络浏览器出于缓存原因会顺序执行同一请求的多个实例。此限制并非由我们的网络服务器引起。</p>
+<p>Note: If you open <em>/sleep</em> in multiple browser windows simultaneously, they
+might load one at a time in five-second intervals. Some web browsers execute
+multiple instances of the same request sequentially for caching reasons. This
+limitation is not caused by our web server.</p>
 </section>
-<p data-x-en="This is a good time to pause and consider how the code in Listings 21-18, 21-19, and 21-20 would be different if we were using futures instead of a closure for the work to be done. What types would change? How would the method signatures be different, if at all? What parts of the code would stay the same?">这是暂停并考虑如果使用 future 而不是闭包来完成工作，清单 21-18、21-19 和 21-20 中的代码会有什么不同的好时机。哪些类型会改变？方法签名会有哪些不同，如果有的话？代码的哪些部分会保持不变？</p>
-<p data-x-en="After learning about the while let loop in Chapter 17 and Chapter 19, you might be wondering why we didn’t write the Worker thread code as shown in Listing 21-21.">在学习了第 17 章和第 19 章的 <code>while let</code> 循环之后，你可能会想知道为什么我们没有像清单 21-21 那样编写 <code>Worker</code> 线程代码。</p>
+<p>This is a good time to pause and consider how the code in Listings 21-18, 21-19,
+and 21-20 would be different if we were using futures instead of a closure for
+the work to be done. What types would change? How would the method signatures be
+different, if at all? What parts of the code would stay the same?</p>
+<p>After learning about the <code>while let</code> loop in Chapter 17 and Chapter 19, you
+might be wondering why we didn’t write the <code>Worker</code> thread code as shown in
+Listing 21-21.</p>
 <figure class="listing" id="listing-21-21">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust ignore not_desired_behavior"><span class="boring">use std::{
@@ -1230,19 +1489,32 @@ impl Worker {
 }</code></pre>
 <figcaption><a href="#listing-21-21">Listing 21-21</a>: An alternative implementation of <code>Worker::new</code> using <code>while let</code></figcaption>
 </figure>
-<p data-x-en="This code compiles and runs but doesn’t result in the desired threading behavior: A slow request will still cause other requests to wait to be processed. The reason is somewhat subtle: The Mutex struct has no public unlock method because the ownership of the lock is based on the lifetime of the MutexGuard<T> within the LockResult<MutexGuard<T>> that the lock method returns. At compile time, the borrow checker can then enforce the rule that a resource guarded by a Mutex cannot be accessed unless we hold the lock. However, this implementation can also result in the lock being held longer than intended if we aren’t mindful of the lifetime of the MutexGuard<T>.">这段代码可以编译和运行，但不会产生预期的线程行为：一个慢请求仍然会导致其他请求等待处理。原因有些微妙：<code>Mutex</code> 结构体没有公共的 <code>unlock</code> 方法，因为锁的所有权是基于 <code>MutexGuard&lt;T&gt;</code> 在 <code>LockResult&lt;MutexGuard&lt;T&gt;&gt;</code> 中的生命周期，而 <code>lock</code> 方法返回的就是这个 <code>LockResult&lt;MutexGuard&lt;T&gt;&gt;</code>。在编译时，借用检查器可以强制执行规则，即除非我们持有锁，否则不能访问由 <code>Mutex</code> 保护的资源。然而，如果我们在意 <code>MutexGuard&lt;T&gt;</code> 的生命周期，这种实现也可能导致锁被持有时间超过预期。</p>
-<p data-x-en="The code in Listing 21-20 that uses let job = receiver.lock().unwrap().recv().unwrap(); works because with let, any temporary values used in the expression on the right-hand side of the equal sign are immediately dropped when the let statement ends. However, while let (and if let and match) does not drop temporary values until the end of the associated block. In Listing 21-21, the lock remains held for the duration of the call to job(), meaning other Worker instances cannot receive jobs.">列表 21-20 中的代码使用 <code>let job = receiver.lock().unwrap().recv().unwrap();</code> 可以工作，因为使用 <code>let</code> 时，等号右侧表达式中使用的任何临时值在 <code>let</code> 语句结束时会立即被丢弃。然而，<code>while let</code>（以及 <code>if let</code> 和 <code>match</code>）不会在关联块结束之前丢弃临时值。在列表 21-21 中，锁在整个调用 <code>job()</code> 期间一直被持有，这意味着其他 <code>Worker</code> 实例无法接收任务。</p>
+<p>This code compiles and runs but doesn’t result in the desired threading
+behavior: A slow request will still cause other requests to wait to be
+processed. The reason is somewhat subtle: The <code>Mutex</code> struct has no public
+<code>unlock</code> method because the ownership of the lock is based on the lifetime of
+the <code>MutexGuard&lt;T&gt;</code> within the <code>LockResult&lt;MutexGuard&lt;T&gt;&gt;</code> that the <code>lock</code>
+method returns. At compile time, the borrow checker can then enforce the rule
+that a resource guarded by a <code>Mutex</code> cannot be accessed unless we hold the
+lock. However, this implementation can also result in the lock being held
+longer than intended if we aren’t mindful of the lifetime of the
+<code>MutexGuard&lt;T&gt;</code>.</p>
+<p>The code in Listing 21-20 that uses <code>let job = receiver.lock().unwrap().recv().unwrap();</code> works because with <code>let</code>, any
+temporary values used in the expression on the right-hand side of the equal
+sign are immediately dropped when the <code>let</code> statement ends. However, <code>while let</code> (and <code>if let</code> and <code>match</code>) does not drop temporary values until the end of
+the associated block. In Listing 21-21, the lock remains held for the duration
+of the call to <code>job()</code>, meaning other <code>Worker</code> instances cannot receive jobs.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch21-01-single-threaded.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch21-03-graceful-shutdown-and-cleanup.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -1252,16 +1524,21 @@ impl Worker {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch21-01-single-threaded.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch21-03-graceful-shutdown-and-cleanup.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -1270,16 +1547,16 @@ impl Worker {
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

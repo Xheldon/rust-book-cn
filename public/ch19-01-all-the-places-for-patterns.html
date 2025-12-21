@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch19-01-all-the-places-for-patterns.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,47 +212,51 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
-                        <h2 id="all-the-places-patterns-can-be-used"><a class="header" href="#all-the-places-patterns-can-be-used">模式可以使用的所有地方</a></h2>
-<p data-x-en="Patterns pop up in a number of places in Rust, and you’ve been using them a lot without realizing it! This section discusses all the places where patterns are valid.">模式在 Rust 中的许多地方出现，你一直在不自觉地使用它们！本节讨论所有模式有效的地点。</p>
-<h3 id="match-arms"><a class="header" href="#match-arms"><code>match</code> 分支</a></h3>
-<p data-x-en="As discussed in Chapter 6, we use patterns in the arms of match expressions. Formally, match expressions are defined as the keyword match, a value to match on, and one or more match arms that consist of a pattern and an expression to run if the value matches that arm’s pattern, like this:">如第 6 章所述，我们在 <code>match</code> 表达式的分支中使用模式。
-正式地，<code>match</code> 表达式定义为关键字 <code>match</code>、一个要匹配的值，以及一个或多个由模式和表达式组成的匹配分支，如果值匹配该分支的模式，则运行该表达式，如下所示：</p>
+                        <h2 id="all-the-places-patterns-can-be-used"><a class="header" href="#all-the-places-patterns-can-be-used">All the Places Patterns Can Be Used</a></h2>
+<p>Patterns pop up in a number of places in Rust, and you’ve been using them a lot
+without realizing it! This section discusses all the places where patterns are
+valid.</p>
+<h3 id="match-arms"><a class="header" href="#match-arms"><code>match</code> Arms</a></h3>
+<p>As discussed in Chapter 6, we use patterns in the arms of <code>match</code> expressions.
+Formally, <code>match</code> expressions are defined as the keyword <code>match</code>, a value to
+match on, and one or more match arms that consist of a pattern and an
+expression to run if the value matches that arm’s pattern, like this:</p>
 <!--
   Manually formatted rather than using Markdown intentionally: Markdown does not
   support italicizing code in the body of a block like this!
@@ -263,45 +266,74 @@ blockquote {
     <em>PATTERN</em> =&gt; <em>EXPRESSION</em>,
     <em>PATTERN</em> =&gt; <em>EXPRESSION</em>,
 }</code></pre>
-<p data-x-en="For example, here’s the match expression from Listing 6-5 that matches on an Option<i32> value in the variable x:">例如，这是列表 6-5 中的 <code>match</code> 表达式，它匹配变量 <code>x</code> 中的 <code>Option&lt;i32&gt;</code> 值：</p>
+
+<p>For example, here’s the <code>match</code> expression from Listing 6-5 that matches on an
+<code>Option&lt;i32&gt;</code> value in the variable <code>x</code>:</p>
 <pre><code class="language-rust ignore">match x {
     None =&gt; None,
     Some(i) =&gt; Some(i + 1),
 }</code></pre>
-<p data-x-en="The patterns in this match expression are the None and Some(i) to the left of each arrow.">这个 <code>match</code> 表达式中的模式是每个箭头左侧的 <code>None</code> 和 <code>Some(i)</code>。</p>
-<p data-x-en="One requirement for match expressions is that they need to be exhaustive in the sense that all possibilities for the value in the match expression must be accounted for. One way to ensure that you’ve covered every possibility is to have a catch-all pattern for the last arm: For example, a variable name matching any value can never fail and thus covers every remaining case.">一个对 <code>match</code> 表达式的要求是它们需要是穷尽的，即 <code>match</code> 表达式中的值的所有可能性都必须被考虑到。确保你涵盖了每种可能性的一种方法是在最后一个分支中使用一个通配模式：例如，一个匹配任何值的变量名永远不会失败，因此涵盖了所有剩余的情况。</p>
-<p data-x-en="The particular pattern _ will match anything, but it never binds to a variable, so it’s often used in the last match arm. The _ pattern can be useful when you want to ignore any value not specified, for example. We’ll cover the _ pattern in more detail in “Ignoring Values in a Pattern” later in this chapter.">特定的模式 <code>_</code> 会匹配任何内容，但它从不绑定到变量，因此通常用于最后一个匹配臂。当您想要忽略未指定的任何值时，<code>_</code> 模式非常有用。我们将在本章后面的 <a href="ch19-03-pattern-syntax.html#ignoring-values-in-a-pattern">“在模式中忽略值”</a> 中更详细地介绍 <code>_</code> 模式。</p>
-<h3 id="let-statements"><a class="header" href="#let-statements"><code>let</code> 语句</a></h3>
-<p data-x-en="Prior to this chapter, we had only explicitly discussed using patterns with match and if let, but in fact, we’ve used patterns in other places as well, including in let statements. For example, consider this straightforward variable assignment with let:">在本章之前，我们只明确讨论了在 <code>match</code> 和 <code>if let</code> 中使用模式，但实际上，我们在其他地方也使用了模式，包括在 <code>let</code> 语句中。例如，考虑这个简单的变量赋值语句：</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+<p>The patterns in this <code>match</code> expression are the <code>None</code> and <code>Some(i)</code> to the
+left of each arrow.</p>
+<p>One requirement for <code>match</code> expressions is that they need to be exhaustive in
+the sense that all possibilities for the value in the <code>match</code> expression must
+be accounted for. One way to ensure that you’ve covered every possibility is to
+have a catch-all pattern for the last arm: For example, a variable name
+matching any value can never fail and thus covers every remaining case.</p>
+<p>The particular pattern <code>_</code> will match anything, but it never binds to a
+variable, so it’s often used in the last match arm. The <code>_</code> pattern can be
+useful when you want to ignore any value not specified, for example. We’ll
+cover the <code>_</code> pattern in more detail in <a href="ch19-03-pattern-syntax.html#ignoring-values-in-a-pattern">“Ignoring Values in a
+Pattern”</a><!-- ignore --> later in this chapter.</p>
+<h3 id="let-statements"><a class="header" href="#let-statements"><code>let</code> Statements</a></h3>
+<p>Prior to this chapter, we had only explicitly discussed using patterns with
+<code>match</code> and <code>if let</code>, but in fact, we’ve used patterns in other places as well,
+including in <code>let</code> statements. For example, consider this straightforward
+variable assignment with <code>let</code>:</p>
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>let x = 5;
-<span class="boring">}</span></code></pre></pre>
-<p data-x-en="Every time you’ve used a let statement like this you’ve been using patterns, although you might not have realized it! More formally, a let statement looks like this:">每次你使用像这样的 <code>let</code> 语句时，你都在使用模式，
-虽然你可能没有意识到！更正式地说，<code>let</code> 语句看起来是这样的：</p>
+<span class="boring">}</span></code></pre>
+<p>Every time you’ve used a <code>let</code> statement like this you’ve been using patterns,
+although you might not have realized it! More formally, a <code>let</code> statement looks
+like this:</p>
 <!--
   Manually formatted rather than using Markdown intentionally: Markdown does not
   support italicizing code in the body of a block like this!
 -->
 <pre><code>let <em>PATTERN</em> = <em>EXPRESSION</em>;</code>
 </pre>
-<p data-x-en="In statements like let x = 5; with a variable name in the PATTERN slot, the variable name is just a particularly simple form of a pattern. Rust compares the expression against the pattern and assigns any names it finds. So, in the let x = 5; example, x is a pattern that means “bind what matches here to the variable x.” Because the name x is the whole pattern, this pattern effectively means “bind everything to the variable x, whatever the value is.”">在像 <code>let x = 5;</code> 这样的语句中，变量名位于 <em><code>PATTERN</code></em> 位置，变量名只是模式的一种特别简单的形式。Rust 会将表达式与模式进行比较，并分配它找到的任何名称。因此，在 <code>let x = 5;</code> 示例中，<code>x</code> 是一个表示“将此处匹配的内容绑定到变量 <code>x</code>”的模式。由于名称 <code>x</code> 是整个模式，这个模式实际上意味着“将所有内容绑定到变量 <code>x</code>，无论值是什么。”</p>
-<p data-x-en="To see the pattern-matching aspect of let more clearly, consider Listing 19-1, which uses a pattern with let to destructure a tuple.">为了更清楚地了解 <code>let</code> 的模式匹配方面，请考虑列表 19-1，它使用带有 <code>let</code> 的模式来解构一个元组。</p>
+
+<p>In statements like <code>let x = 5;</code> with a variable name in the PATTERN slot, the
+variable name is just a particularly simple form of a pattern. Rust compares
+the expression against the pattern and assigns any names it finds. So, in the
+<code>let x = 5;</code> example, <code>x</code> is a pattern that means “bind what matches here to
+the variable <code>x</code>.” Because the name <code>x</code> is the whole pattern, this pattern
+effectively means “bind everything to the variable <code>x</code>, whatever the value is.”</p>
+<p>To see the pattern-matching aspect of <code>let</code> more clearly, consider Listing
+19-1, which uses a pattern with <code>let</code> to destructure a tuple.</p>
 <figure class="listing" id="listing-19-1">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let (x, y, z) = (1, 2, 3);
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-19-1">Listing 19-1</a>: Using a pattern to destructure a tuple and create three variables at once</figcaption>
 </figure>
-<p data-x-en="Here, we match a tuple against a pattern. Rust compares the value (1, 2, 3) to the pattern (x, y, z) and sees that the value matches the pattern—that is, it sees that the number of elements is the same in both—so Rust binds 1 to x, 2 to y, and 3 to z. You can think of this tuple pattern as nesting three individual variable patterns inside it.">在这里，我们将一个元组与一个模式进行匹配。Rust 将值 <code>(1, 2, 3)</code> 与模式 <code>(x, y, z)</code> 进行比较，发现值与模式匹配——也就是说，它发现两者中的元素数量相同——因此 Rust 将 <code>1</code> 绑定到 <code>x</code>，<code>2</code> 绑定到 <code>y</code>，<code>3</code> 绑定到 <code>z</code>。你可以将这个元组模式视为在其内部嵌套了三个单独的变量模式。</p>
-<p data-x-en="If the number of elements in the pattern doesn’t match the number of elements in the tuple, the overall type won’t match and we’ll get a compiler error. For example, Listing 19-2 shows an attempt to destructure a tuple with three elements into two variables, which won’t work.">如果模式中的元素数量与元组中的元素数量不匹配，整体类型将不匹配，我们将收到编译器错误。例如，列表 19-2 显示了尝试将包含三个元素的元组解构为两个变量的情况，这将无法工作。</p>
+<p>Here, we match a tuple against a pattern. Rust compares the value <code>(1, 2, 3)</code>
+to the pattern <code>(x, y, z)</code> and sees that the value matches the pattern—that is,
+it sees that the number of elements is the same in both—so Rust binds <code>1</code> to
+<code>x</code>, <code>2</code> to <code>y</code>, and <code>3</code> to <code>z</code>. You can think of this tuple pattern as nesting
+three individual variable patterns inside it.</p>
+<p>If the number of elements in the pattern doesn’t match the number of elements
+in the tuple, the overall type won’t match and we’ll get a compiler error. For
+example, Listing 19-2 shows an attempt to destructure a tuple with three
+elements into two variables, which won’t work.</p>
 <figure class="listing" id="listing-19-2">
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">fn main() {
 </span>    let (x, y) = (1, 2, 3);
 <span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-19-2">Listing 19-2</a>: Incorrectly constructing a pattern whose variables don’t match the number of elements in the tuple</figcaption>
 </figure>
-<p data-x-en="Attempting to compile this code results in this type error:">尝试编译此代码会导致此类型错误：</p>
+<p>Attempting to compile this code results in this type error:</p>
 <pre><code class="language-console">$ cargo run
    Compiling patterns v0.1.0 (file:///projects/patterns)
 error[E0308]: mismatched types
@@ -318,14 +350,27 @@ error[E0308]: mismatched types
 For more information about this error, try `rustc --explain E0308`.
 error: could not compile `patterns` (bin "patterns") due to 1 previous error
 </code></pre>
-<p data-x-en="To fix the error, we could ignore one or more of the values in the tuple using _ or .., as you’ll see in the “Ignoring Values in a Pattern” section. If the problem is that we have too many variables in the pattern, the solution is to make the types match by removing variables so that the number of variables equals the number of elements in the tuple.">要修复错误，我们可以使用 <code>_</code> 或 <code>..</code> 忽略元组中的一个或多个值，如<a href="ch19-03-pattern-syntax.html#ignoring-values-in-a-pattern">“在模式中忽略值”</a>部分所述。如果问题是模式中的变量太多，解决方法是通过删除变量使类型匹配，从而使变量的数量等于元组中的元素数量。</p>
-<h3 id="conditional-if-let-expressions"><a class="header" href="#conditional-if-let-expressions">条件 <code>if let</code> 表达式</a></h3>
-<p data-x-en="In Chapter 6, we discussed how to use if let expressions mainly as a shorter way to write the equivalent of a match that only matches one case. Optionally, if let can have a corresponding else containing code to run if the pattern in the if let doesn’t match.">在第 6 章中，我们讨论了如何使用 <code>if let</code> 表达式，主要是作为一种更简洁的方式来编写只匹配一个情况的 <code>match</code>。可选地，<code>if let</code> 可以有一个包含代码的 <code>else</code>，如果 <code>if let</code> 中的模式不匹配时，这些代码将运行。</p>
-<p data-x-en="Listing 19-3 shows that it’s also possible to mix and match if let, else if, and else if let expressions. Doing so gives us more flexibility than a match expression in which we can express only one value to compare with the patterns. Also, Rust doesn’t require that the conditions in a series of if let, else if, and else if let arms relate to each other.">列表19-3展示了也可以混合使用<code>if let</code>、<code>else if</code>和<code>else if let</code>表达式。这样做比只能表达一个值与模式进行比较的<code>match</code>表达式提供了更多的灵活性。此外，Rust不要求一系列<code>if let</code>、<code>else if</code>和<code>else if let</code>分支中的条件相互关联。</p>
-<p data-x-en="The code in Listing 19-3 determines what color to make your background based on a series of checks for several conditions. For this example, we’ve created variables with hardcoded values that a real program might receive from user input.">清单 19-3 中的代码根据一系列检查多个条件来确定背景颜色。在这个例子中，我们创建了具有硬编码值的变量，这些值在实际程序中可能是从用户输入接收的。</p>
+<p>To fix the error, we could ignore one or more of the values in the tuple using
+<code>_</code> or <code>..</code>, as you’ll see in the <a href="ch19-03-pattern-syntax.html#ignoring-values-in-a-pattern">“Ignoring Values in a
+Pattern”</a><!-- ignore --> section. If the problem
+is that we have too many variables in the pattern, the solution is to make the
+types match by removing variables so that the number of variables equals the
+number of elements in the tuple.</p>
+<h3 id="conditional-if-let-expressions"><a class="header" href="#conditional-if-let-expressions">Conditional <code>if let</code> Expressions</a></h3>
+<p>In Chapter 6, we discussed how to use <code>if let</code> expressions mainly as a shorter
+way to write the equivalent of a <code>match</code> that only matches one case.
+Optionally, <code>if let</code> can have a corresponding <code>else</code> containing code to run if
+the pattern in the <code>if let</code> doesn’t match.</p>
+<p>Listing 19-3 shows that it’s also possible to mix and match <code>if let</code>, <code>else if</code>, and <code>else if let</code> expressions. Doing so gives us more flexibility than a
+<code>match</code> expression in which we can express only one value to compare with the
+patterns. Also, Rust doesn’t require that the conditions in a series of <code>if let</code>, <code>else if</code>, and <code>else if let</code> arms relate to each other.</p>
+<p>The code in Listing 19-3 determines what color to make your background based on
+a series of checks for several conditions. For this example, we’ve created
+variables with hardcoded values that a real program might receive from user
+input.</p>
 <figure class="listing" id="listing-19-3">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">fn main() {
+<pre class="playground"><code class="language-rust edition2024">fn main() {
     let favorite_color: Option&lt;&amp;str&gt; = None;
     let is_tuesday = false;
     let age: Result&lt;u8, _&gt; = "34".parse();
@@ -343,17 +388,33 @@ error: could not compile `patterns` (bin "patterns") due to 1 previous error
     } else {
         println!("Using blue as the background color");
     }
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-19-3">Listing 19-3</a>: Mixing <code>if let</code>, <code>else if</code>, <code>else if let</code>, and <code>else</code></figcaption>
 </figure>
-<p data-x-en="If the user specifies a favorite color, that color is used as the background. If no favorite color is specified and today is Tuesday, the background color is green. Otherwise, if the user specifies their age as a string and we can parse it as a number successfully, the color is either purple or orange depending on the value of the number. If none of these conditions apply, the background color is blue.">如果用户指定了最喜欢的颜色，那么该颜色将用作背景色。如果没有指定最喜欢的颜色且今天是星期二，背景色为绿色。否则，如果用户以字符串形式指定了年龄并且我们可以成功解析为数字，颜色将根据数字的值为紫色或橙色。如果以上条件都不适用，背景色为蓝色。</p>
-<p data-x-en="This conditional structure lets us support complex requirements. With the hardcoded values we have here, this example will print Using purple as the background color.">这种条件结构让我们能够支持复杂的需求。使用我们这里的硬编码值，此示例将打印 <code>Using purple as the background color</code>。</p>
-<p data-x-en="You can see that if let can also introduce new variables that shadow existing variables in the same way that match arms can: The line if let Ok(age) = age introduces a new age variable that contains the value inside the Ok variant, shadowing the existing age variable. This means we need to place the if age > 30 condition within that block: We can’t combine these two conditions into if let Ok(age) = age &amp;&amp; age > 30. The new age we want to compare to 30 isn’t valid until the new scope starts with the curly bracket.">你可以看到 <code>if let</code> 也可以像 <code>match</code> 分支一样引入新的变量，这些变量会遮蔽现有的变量：行 <code>if let Ok(age) = age</code> 引入了一个新的 <code>age</code> 变量，该变量包含 <code>Ok</code> 变体中的值，遮蔽了现有的 <code>age</code> 变量。这意味着我们需要将 <code>if age &gt; 30</code> 条件放在该块内：我们不能将这两个条件组合成 <code>if let Ok(age) = age &amp;&amp; age &gt; 30</code>。我们想要与 30 比较的新 <code>age</code> 直到新作用域通过大括号开始时才有效。</p>
-<p data-x-en="The downside of using if let expressions is that the compiler doesn’t check for exhaustiveness, whereas with match expressions it does. If we omitted the last else block and therefore missed handling some cases, the compiler would not alert us to the possible logic bug.">使用 <code>if let</code> 表达式的缺点是编译器不会检查穷尽性，而使用 <code>match</code> 表达式时编译器会进行检查。如果我们省略了最后一个 <code>else</code> 块，因此没有处理某些情况，编译器不会提醒我们可能存在逻辑错误。</p>
-<h3 id="while-let-conditional-loops"><a class="header" href="#while-let-conditional-loops"><code>while let</code> 条件循环</a></h3>
-<p data-x-en="Similar in construction to if let, the while let conditional loop allows a while loop to run for as long as a pattern continues to match. In Listing 19-4, we show a while let loop that waits on messages sent between threads, but in this case checking a Result instead of an Option.">与 <code>if let</code> 的构造类似，<code>while let</code> 条件循环允许 <code>while</code> 循环在模式继续匹配的情况下运行。在清单 19-4 中，我们展示了一个 <code>while let</code> 循环，该循环等待线程之间发送的消息，但在此情况下检查的是 <code>Result</code> 而不是 <code>Option</code>。</p>
+<p>If the user specifies a favorite color, that color is used as the background.
+If no favorite color is specified and today is Tuesday, the background color is
+green. Otherwise, if the user specifies their age as a string and we can parse
+it as a number successfully, the color is either purple or orange depending on
+the value of the number. If none of these conditions apply, the background
+color is blue.</p>
+<p>This conditional structure lets us support complex requirements. With the
+hardcoded values we have here, this example will print <code>Using purple as the background color</code>.</p>
+<p>You can see that <code>if let</code> can also introduce new variables that shadow existing
+variables in the same way that <code>match</code> arms can: The line <code>if let Ok(age) = age</code>
+introduces a new <code>age</code> variable that contains the value inside the <code>Ok</code> variant,
+shadowing the existing <code>age</code> variable. This means we need to place the <code>if age &gt; 30</code> condition within that block: We can’t combine these two conditions into <code>if let Ok(age) = age &amp;&amp; age &gt; 30</code>. The new <code>age</code> we want to compare to 30 isn’t
+valid until the new scope starts with the curly bracket.</p>
+<p>The downside of using <code>if let</code> expressions is that the compiler doesn’t check
+for exhaustiveness, whereas with <code>match</code> expressions it does. If we omitted the
+last <code>else</code> block and therefore missed handling some cases, the compiler would
+not alert us to the possible logic bug.</p>
+<h3 id="while-let-conditional-loops"><a class="header" href="#while-let-conditional-loops"><code>while let</code> Conditional Loops</a></h3>
+<p>Similar in construction to <code>if let</code>, the <code>while let</code> conditional loop allows a
+<code>while</code> loop to run for as long as a pattern continues to match. In Listing
+19-4, we show a <code>while let</code> loop that waits on messages sent between threads,
+but in this case checking a <code>Result</code> instead of an <code>Option</code>.</p>
 <figure class="listing" id="listing-19-4">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let (tx, rx) = std::sync::mpsc::channel();
     std::thread::spawn(move || {
         for val in [1, 2, 3] {
@@ -364,23 +425,32 @@ error: could not compile `patterns` (bin "patterns") due to 1 previous error
     while let Ok(value) = rx.recv() {
         println!("{value}");
     }
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-19-4">Listing 19-4</a>: Using a <code>while let</code> loop to print values for as long as <code>rx.recv()</code> returns <code>Ok</code></figcaption>
 </figure>
-<p data-x-en="This example prints 1, 2, and then 3. The recv method takes the first message out of the receiver side of the channel and returns an Ok(value). When we first saw recv back in Chapter 16, we unwrapped the error directly, or we interacted with it as an iterator using a for loop. As Listing 19-4 shows, though, we can also use while let, because the recv method returns an Ok each time a message arrives, as long as the sender exists, and then produces an Err once the sender side disconnects.">这个示例打印 <code>1</code>，<code>2</code>，然后是 <code>3</code>。<code>recv</code> 方法从通道的接收端取出第一条消息并返回一个 <code>Ok(value)</code>。当我们第一次在第 16 章看到 <code>recv</code> 时，我们直接解包了错误，或者使用 <code>for</code> 循环将其作为迭代器处理。然而，如清单 19-4 所示，我们也可以使用 <code>while let</code>，因为只要发送方存在，每次消息到达时 <code>recv</code> 方法都会返回一个 <code>Ok</code>，而一旦发送方断开连接，就会产生一个 <code>Err</code>。</p>
-<h3 id="for-loops"><a class="header" href="#for-loops"><code>for</code> 循环</a></h3>
-<p data-x-en="In a for loop, the value that directly follows the keyword for is a pattern. For example, in for x in y, the x is the pattern. Listing 19-5 demonstrates how to use a pattern in a for loop to destructure, or break apart, a tuple as part of the for loop.">在 <code>for</code> 循环中，直接跟在 <code>for</code> 关键字后面的值是一个模式。例如，在 <code>for x in y</code> 中，<code>x</code> 就是模式。列表 19-5 展示了如何在 <code>for</code> 循环中使用模式来 <em>解构</em>，或拆分，一个元组作为 <code>for</code> 循环的一部分。</p>
+<p>This example prints <code>1</code>, <code>2</code>, and then <code>3</code>. The <code>recv</code> method takes the first
+message out of the receiver side of the channel and returns an <code>Ok(value)</code>. When
+we first saw <code>recv</code> back in Chapter 16, we unwrapped the error directly, or
+we interacted with it as an iterator using a <code>for</code> loop. As Listing 19-4 shows,
+though, we can also use <code>while let</code>, because the <code>recv</code> method returns an <code>Ok</code>
+each time a message arrives, as long as the sender exists, and then produces an
+<code>Err</code> once the sender side disconnects.</p>
+<h3 id="for-loops"><a class="header" href="#for-loops"><code>for</code> Loops</a></h3>
+<p>In a <code>for</code> loop, the value that directly follows the keyword <code>for</code> is a
+pattern. For example, in <code>for x in y</code>, the <code>x</code> is the pattern. Listing 19-5
+demonstrates how to use a pattern in a <code>for</code> loop to destructure, or break
+apart, a tuple as part of the <code>for</code> loop.</p>
 <figure class="listing" id="listing-19-5">
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">fn main() {
 </span>    let v = vec!['a', 'b', 'c'];
 
     for (index, value) in v.iter().enumerate() {
         println!("{value} is at index {index}");
     }
-<span class="boring">}</span></code></pre></pre>
+<span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-19-5">Listing 19-5</a>: Using a pattern in a <code>for</code> loop to destructure a tuple</figcaption>
 </figure>
-<p data-x-en="The code in Listing 19-5 will print the following:">列表 19-5 中的代码将打印以下内容：</p>
+<p>The code in Listing 19-5 will print the following:</p>
 <pre><code class="language-console">$ cargo run
    Compiling patterns v0.1.0 (file:///projects/patterns)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.52s
@@ -389,44 +459,57 @@ a is at index 0
 b is at index 1
 c is at index 2
 </code></pre>
-<p data-x-en="We adapt an iterator using the enumerate method so that it produces a value and the index for that value, placed into a tuple. The first value produced is the tuple (0, 'a'). When this value is matched to the pattern (index, value), index will be 0 and value will be 'a', printing the first line of the output.">我们使用 <code>enumerate</code> 方法来调整迭代器，使其生成一个值和该值的索引，并将它们放入一个元组中。生成的第一个值是元组 <code>(0, 'a')</code>。当这个值与模式 <code>(index, value)</code> 匹配时，索引将为 <code>0</code>，值将为 <code>'a'</code>，打印输出的第一行。</p>
-<h3 id="function-parameters"><a class="header" href="#function-parameters">函数参数</a></h3>
-<p data-x-en="Function parameters can also be patterns. The code in Listing 19-6, which declares a function named foo that takes one parameter named x of type i32, should by now look familiar.">函数参数也可以是模式。清单 19-6 中的代码声明了一个名为 <code>foo</code> 的函数，该函数接受一个名为 <code>x</code> 的参数，类型为 <code>i32</code>，现在应该看起来很熟悉。</p>
+<p>We adapt an iterator using the <code>enumerate</code> method so that it produces a value
+and the index for that value, placed into a tuple. The first value produced is
+the tuple <code>(0, 'a')</code>. When this value is matched to the pattern <code>(index, value)</code>, index will be <code>0</code> and value will be <code>'a'</code>, printing the first line of
+the output.</p>
+<h3 id="function-parameters"><a class="header" href="#function-parameters">Function Parameters</a></h3>
+<p>Function parameters can also be patterns. The code in Listing 19-6, which
+declares a function named <code>foo</code> that takes one parameter named <code>x</code> of type
+<code>i32</code>, should by now look familiar.</p>
 <figure class="listing" id="listing-19-6">
-<pre><pre class="playground"><code class="language-rust edition2024">fn foo(x: i32) {
+<pre class="playground"><code class="language-rust edition2024">fn foo(x: i32) {
     // code goes here
 }
 <span class="boring">
-</span><span class="boring">fn main() {}</span></code></pre></pre>
+</span><span class="boring">fn main() {}</span></code></pre>
 <figcaption><a href="#listing-19-6">Listing 19-6</a>: A function signature using patterns in the parameters</figcaption>
 </figure>
-<p data-x-en="The x part is a pattern! As we did with let, we could match a tuple in a function’s arguments to the pattern. Listing 19-7 splits the values in a tuple as we pass it to a function."><code>x</code> 部分是一个模式！就像我们使用 <code>let</code> 一样，我们可以在函数的参数中将元组与模式匹配。列表 19-7 在我们将元组传递给函数时拆分了元组中的值。</p>
+<p>The <code>x</code> part is a pattern! As we did with <code>let</code>, we could match a tuple in a
+function’s arguments to the pattern. Listing 19-7 splits the values in a tuple
+as we pass it to a function.</p>
 <figure class="listing" id="listing-19-7">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">fn print_coordinates(&amp;(x, y): &amp;(i32, i32)) {
+<pre class="playground"><code class="language-rust edition2024">fn print_coordinates(&amp;(x, y): &amp;(i32, i32)) {
     println!("Current location: ({x}, {y})");
 }
 
 fn main() {
     let point = (3, 5);
     print_coordinates(&amp;point);
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-19-7">Listing 19-7</a>: A function with parameters that destructure a tuple</figcaption>
 </figure>
-<p data-x-en="This code prints Current location: (3, 5). The values &amp;(3, 5) match the pattern &amp;(x, y), so x is the value 3 and y is the value 5.">这段代码打印 <code>Current location: (3, 5)</code>。值 <code>&amp;(3, 5)</code> 匹配模式 <code>&amp;(x, y)</code>，因此 <code>x</code> 的值为 <code>3</code>，<code>y</code> 的值为 <code>5</code>。</p>
-<p data-x-en="We can also use patterns in closure parameter lists in the same way as in function parameter lists because closures are similar to functions, as discussed in Chapter 13.">我们也可以在闭包参数列表中使用模式，就像在函数参数列表中使用一样，因为闭包与函数相似，正如第13章所讨论的。</p>
-<p data-x-en="At this point, you’ve seen several ways to use patterns, but patterns don’t work the same in every place we can use them. In some places, the patterns must be irrefutable; in other circumstances, they can be refutable. We’ll discuss these two concepts next.">到目前为止，您已经看到了使用模式的几种方法，但模式在我们使用它们的每个地方并不都以相同的方式工作。在某些地方，模式必须是不可反驳的；在其他情况下，它们可以是可反驳的。接下来我们将讨论这两个概念。</p>
+<p>This code prints <code>Current location: (3, 5)</code>. The values <code>&amp;(3, 5)</code> match the
+pattern <code>&amp;(x, y)</code>, so <code>x</code> is the value <code>3</code> and <code>y</code> is the value <code>5</code>.</p>
+<p>We can also use patterns in closure parameter lists in the same way as in
+function parameter lists because closures are similar to functions, as
+discussed in Chapter 13.</p>
+<p>At this point, you’ve seen several ways to use patterns, but patterns don’t
+work the same in every place we can use them. In some places, the patterns must
+be irrefutable; in other circumstances, they can be refutable. We’ll discuss
+these two concepts next.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch19-00-patterns.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch19-02-refutability.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -436,16 +519,21 @@ fn main() {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch19-00-patterns.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch19-02-refutability.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -454,16 +542,16 @@ fn main() {
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

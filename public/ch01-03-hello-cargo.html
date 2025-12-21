@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch01-03-hello-cargo.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,63 +212,87 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
-                        <h2 id="hello-cargo"><a class="header" href="#hello-cargo">你好，Cargo！</a></h2>
-<p data-x-en="Cargo is Rust’s build system and package manager. Most Rustaceans use this tool to manage their Rust projects because Cargo handles a lot of tasks for you, such as building your code, downloading the libraries your code depends on, and building those libraries. (We call the libraries that your code needs dependencies.)">Cargo 是 Rust 的构建系统和包管理器。大多数 Rustaceans 使用这个工具来管理他们的 Rust 项目，因为 Cargo 为你处理了很多任务，比如构建你的代码、下载你的代码所依赖的库以及构建这些库。（我们把你的代码需要的库称为<em>依赖项</em>。）</p>
-<p data-x-en="The simplest Rust programs, like the one we’ve written so far, don’t have any dependencies. If we had built the “Hello, world!” project with Cargo, it would only use the part of Cargo that handles building your code. As you write more complex Rust programs, you’ll add dependencies, and if you start a project using Cargo, adding dependencies will be much easier to do.">最简单的 Rust 程序，比如我们迄今为止编写的程序，没有任何依赖。如果我们使用 Cargo 构建了“Hello, world!”项目，它只会使用 Cargo 中处理构建代码的部分。随着你编写更复杂的 Rust 程序，你会添加依赖，如果你使用 Cargo 开始一个项目，添加依赖将会容易得多。</p>
-<p data-x-en="Because the vast majority of Rust projects use Cargo, the rest of this book assumes that you’re using Cargo too. Cargo comes installed with Rust if you used the official installers discussed in the “Installation” section. If you installed Rust through some other means, check whether Cargo is installed by entering the following in your terminal:">因为绝大多数的 Rust 项目都使用 Cargo，所以本书的其余部分也假设你正在使用 Cargo。如果你使用了<a href="ch01-01-installation.html#installation">“安装”</a><!-- ignore -->部分讨论的官方安装程序，Cargo 会随 Rust 一起安装。如果你通过其他方式安装了 Rust，请通过在终端输入以下内容来检查是否安装了 Cargo：</p>
+                        <h2 id="hello-cargo"><a class="header" href="#hello-cargo">Hello, Cargo!</a></h2>
+<p>Cargo is Rust’s build system and package manager. Most Rustaceans use this tool
+to manage their Rust projects because Cargo handles a lot of tasks for you,
+such as building your code, downloading the libraries your code depends on, and
+building those libraries. (We call the libraries that your code needs
+<em>dependencies</em>.)</p>
+<p>The simplest Rust programs, like the one we’ve written so far, don’t have any
+dependencies. If we had built the “Hello, world!” project with Cargo, it would
+only use the part of Cargo that handles building your code. As you write more
+complex Rust programs, you’ll add dependencies, and if you start a project
+using Cargo, adding dependencies will be much easier to do.</p>
+<p>Because the vast majority of Rust projects use Cargo, the rest of this book
+assumes that you’re using Cargo too. Cargo comes installed with Rust if you
+used the official installers discussed in the
+<a href="ch01-01-installation.html#installation">“Installation”</a><!-- ignore --> section. If you installed Rust
+through some other means, check whether Cargo is installed by entering the
+following in your terminal:</p>
 <pre><code class="language-console">$ cargo --version
 </code></pre>
-<p data-x-en="If you see a version number, you have it! If you see an error, such as command not found, look at the documentation for your method of installation to determine how to install Cargo separately.">如果您看到版本号，那么您已经安装成功了！如果您看到错误，例如<code>command not found</code>，请查看您安装方法的文档，以确定如何单独安装Cargo。</p>
-<h3 id="creating-a-project-with-cargo"><a class="header" href="#creating-a-project-with-cargo">使用 Cargo 创建项目</a></h3>
-<p data-x-en="Let’s create a new project using Cargo and look at how it differs from our original “Hello, world!” project. Navigate back to your projects directory (or wherever you decided to store your code). Then, on any operating system, run the following:">让我们使用 Cargo 创建一个新项目，并看看它与我们最初的 “Hello, world!” 项目有何不同。返回到你的 <em>projects</em> 目录（或你决定存储代码的任何位置）。然后，在任何操作系统上，运行以下命令：</p>
+<p>If you see a version number, you have it! If you see an error, such as <code>command not found</code>, look at the documentation for your method of installation to
+determine how to install Cargo separately.</p>
+<h3 id="creating-a-project-with-cargo"><a class="header" href="#creating-a-project-with-cargo">Creating a Project with Cargo</a></h3>
+<p>Let’s create a new project using Cargo and look at how it differs from our
+original “Hello, world!” project. Navigate back to your <em>projects</em> directory
+(or wherever you decided to store your code). Then, on any operating system,
+run the following:</p>
 <pre><code class="language-console">$ cargo new hello_cargo
 $ cd hello_cargo
 </code></pre>
-<p data-x-en="The first command creates a new directory and project called hello_cargo. We’ve named our project hello_cargo, and Cargo creates its files in a directory of the same name.">第一个命令创建一个名为<em>hello_cargo</em>的新目录和项目。
-我们把项目命名为<em>hello_cargo</em>，Cargo 会在同名的目录中创建其文件。</p>
-<p data-x-en="Go into the hello_cargo directory and list the files. You’ll see that Cargo has generated two files and one directory for us: a Cargo.toml file and a src directory with a main.rs file inside.">进入 <em>hello_cargo</em> 目录并列出文件。您会看到 Cargo 为我们生成了两个文件和一个目录：一个 <em>Cargo.toml</em> 文件和一个包含 <em>main.rs</em> 文件的 <em>src</em> 目录。</p>
-<p data-x-en="It has also initialized a new Git repository along with a .gitignore file. Git files won’t be generated if you run cargo new within an existing Git repository; you can override this behavior by using cargo new --vcs=git.">它还初始化了一个新的 Git 仓库以及一个 <em>.gitignore</em> 文件。
-如果在现有的 Git 仓库中运行 <code>cargo new</code>，则不会生成 Git 文件；可以使用 <code>cargo new --vcs=git</code> 覆盖此行为。</p>
+<p>The first command creates a new directory and project called <em>hello_cargo</em>.
+We’ve named our project <em>hello_cargo</em>, and Cargo creates its files in a
+directory of the same name.</p>
+<p>Go into the <em>hello_cargo</em> directory and list the files. You’ll see that Cargo
+has generated two files and one directory for us: a <em>Cargo.toml</em> file and a
+<em>src</em> directory with a <em>main.rs</em> file inside.</p>
+<p>It has also initialized a new Git repository along with a <em>.gitignore</em> file.
+Git files won’t be generated if you run <code>cargo new</code> within an existing Git
+repository; you can override this behavior by using <code>cargo new --vcs=git</code>.</p>
 <section class="note" aria-role="note">
-<p data-x-en="Note: Git is a common version control system. You can change cargo new to use a different version control system or no version control system by using the --vcs flag. Run cargo new --help to see the available options.">注意：Git 是一个常见的版本控制系统。你可以通过使用 <code>--vcs</code> 标志将 <code>cargo new</code> 更改为使用不同的版本控制系统或不使用版本控制系统。运行 <code>cargo new --help</code> 查看可用选项。</p>
+<p>Note: Git is a common version control system. You can change <code>cargo new</code> to
+use a different version control system or no version control system by using
+the <code>--vcs</code> flag. Run <code>cargo new --help</code> to see the available options.</p>
 </section>
-<p data-x-en="Open Cargo.toml in your text editor of choice. It should look similar to the code in Listing 1-2.">在您选择的文本编辑器中打开<em>Cargo.toml</em>。它应该类似于清单 1-2 中的代码。</p>
+<p>Open <em>Cargo.toml</em> in your text editor of choice. It should look similar to the
+code in Listing 1-2.</p>
 <figure class="listing" id="listing-1-2">
 <span class="file-name">Filename: Cargo.toml</span>
 <pre><code class="language-toml">[package]
@@ -281,91 +304,154 @@ edition = "2024"
 </code></pre>
 <figcaption><a href="#listing-1-2">Listing 1-2</a>: Contents of <em>Cargo.toml</em> generated by <code>cargo new</code></figcaption>
 </figure>
-<p data-x-en="This file is in the TOML (Tom’s Obvious, Minimal Language) format, which is Cargo’s configuration format.">这个文件采用 <a href="https://toml.io"><em>TOML</em></a><!-- ignore --> (<em>Tom 的显而易见、最小化语言</em>) 格式，这是 Cargo 的配置格式。</p>
-<p data-x-en="The first line, [package], is a section heading that indicates that the following statements are configuring a package. As we add more information to this file, we’ll add other sections.">第一行，<code>[package]</code>，是一个节标题，表示接下来的语句是配置一个包。当我们向这个文件添加更多信息时，我们将添加其他节。</p>
-<p data-x-en="The next three lines set the configuration information Cargo needs to compile your program: the name, the version, and the edition of Rust to use. We’ll talk about the edition key in Appendix E.">接下来的三行设置了 Cargo 编译您的程序所需的一些配置信息：程序的名称、版本以及要使用的 Rust 版本。我们将在 <a href="appendix-05-editions.html">附录 E</a><!-- ignore --> 中讨论 <code>edition</code> 键。</p>
-<p data-x-en="The last line, [dependencies], is the start of a section for you to list any of your project’s dependencies. In Rust, packages of code are referred to as crates. We won’t need any other crates for this project, but we will in the first project in Chapter 2, so we’ll use this dependencies section then.">最后一行，<code>[dependencies]</code>，是你列出项目依赖的开始。在 Rust 中，代码包被称为<em>crates</em>。我们在这个项目中不需要其他 crates，但在第 2 章的第一个项目中需要，所以那时我们会使用这个依赖部分。</p>
-<p data-x-en="Now open src/main.rs and take a look:">现在打开 <em>src/main.rs</em> 并查看：</p>
-<p data-x-en="Filename: src/main.rs"><span class="filename">文件名: src/main.rs</span></p>
-<pre><pre class="playground"><code class="language-rust edition2024">fn main() {
+<p>This file is in the <a href="https://toml.io"><em>TOML</em></a><!-- ignore --> (<em>Tom’s Obvious, Minimal
+Language</em>) format, which is Cargo’s configuration format.</p>
+<p>The first line, <code>[package]</code>, is a section heading that indicates that the
+following statements are configuring a package. As we add more information to
+this file, we’ll add other sections.</p>
+<p>The next three lines set the configuration information Cargo needs to compile
+your program: the name, the version, and the edition of Rust to use. We’ll talk
+about the <code>edition</code> key in <a href="appendix-05-editions.html">Appendix E</a><!-- ignore -->.</p>
+<p>The last line, <code>[dependencies]</code>, is the start of a section for you to list any
+of your project’s dependencies. In Rust, packages of code are referred to as
+<em>crates</em>. We won’t need any other crates for this project, but we will in the
+first project in Chapter 2, so we’ll use this dependencies section then.</p>
+<p>Now open <em>src/main.rs</em> and take a look:</p>
+<p><span class="filename">Filename: src/main.rs</span></p>
+<pre class="playground"><code class="language-rust edition2024">fn main() {
     println!("Hello, world!");
-}</code></pre></pre>
-<p data-x-en="Cargo has generated a “Hello, world!” program for you, just like the one we wrote in Listing 1-1! So far, the differences between our project and the project Cargo generated are that Cargo placed the code in the src directory, and we have a Cargo.toml configuration file in the top directory.">Cargo 为您生成了一个“Hello, world!”程序，就像我们在清单 1-1 中编写的一样！到目前为止，我们的项目和 Cargo 生成的项目之间的区别在于 Cargo 将代码放在了 <em>src</em> 目录中，而我们在顶级目录中有一个 <em>Cargo.toml</em> 配置文件。</p>
-<p data-x-en="Cargo expects your source files to live inside the src directory. The top-level project directory is just for README files, license information, configuration files, and anything else not related to your code. Using Cargo helps you organize your projects. There’s a place for everything, and everything is in its place.">Cargo 期望您的源文件位于 <em>src</em> 目录中。顶级项目目录仅用于 README 文件、许可信息、配置文件以及与您的代码无关的任何其他内容。使用 Cargo 可以帮助您组织项目。每个东西都有其位置，每个东西都在其位置。</p>
-<p data-x-en="If you started a project that doesn’t use Cargo, as we did with the “Hello, world!” project, you can convert it to a project that does use Cargo. Move the project code into the src directory and create an appropriate Cargo.toml file. One easy way to get that Cargo.toml file is to run cargo init, which will create it for you automatically.">如果您开始了一个不使用 Cargo 的项目，就像我们用 “Hello, world!” 项目那样，您可以将其转换为使用 Cargo 的项目。将项目代码移动到 <em>src</em> 目录，并创建一个适当的 <em>Cargo.toml</em> 文件。一种简单的方法是运行 <code>cargo init</code>，这将为您自动创建该文件。</p>
-<h3 id="building-and-running-a-cargo-project"><a class="header" href="#building-and-running-a-cargo-project">构建和运行 Cargo 项目</a></h3>
-<p data-x-en="Now let’s look at what’s different when we build and run the “Hello, world!” program with Cargo! From your hello_cargo directory, build your project by entering the following command:">现在让我们看看使用 Cargo 构建和运行 “Hello, world!” 程序时有什么不同！从您的 <em>hello_cargo</em> 目录中，通过输入以下命令来构建您的项目：</p>
+}</code></pre>
+<p>Cargo has generated a “Hello, world!” program for you, just like the one we
+wrote in Listing 1-1! So far, the differences between our project and the
+project Cargo generated are that Cargo placed the code in the <em>src</em> directory,
+and we have a <em>Cargo.toml</em> configuration file in the top directory.</p>
+<p>Cargo expects your source files to live inside the <em>src</em> directory. The
+top-level project directory is just for README files, license information,
+configuration files, and anything else not related to your code. Using Cargo
+helps you organize your projects. There’s a place for everything, and
+everything is in its place.</p>
+<p>If you started a project that doesn’t use Cargo, as we did with the “Hello,
+world!” project, you can convert it to a project that does use Cargo. Move the
+project code into the <em>src</em> directory and create an appropriate <em>Cargo.toml</em>
+file. One easy way to get that <em>Cargo.toml</em> file is to run <code>cargo init</code>, which
+will create it for you automatically.</p>
+<h3 id="building-and-running-a-cargo-project"><a class="header" href="#building-and-running-a-cargo-project">Building and Running a Cargo Project</a></h3>
+<p>Now let’s look at what’s different when we build and run the “Hello, world!”
+program with Cargo! From your <em>hello_cargo</em> directory, build your project by
+entering the following command:</p>
 <pre><code class="language-console">$ cargo build
    Compiling hello_cargo v0.1.0 (file:///projects/hello_cargo)
     Finished dev [unoptimized + debuginfo] target(s) in 2.85 secs
 </code></pre>
-<p data-x-en="This command creates an executable file in target/debug/hello_cargo (or target\debug\hello_cargo.exe on Windows) rather than in your current directory. Because the default build is a debug build, Cargo puts the binary in a directory named debug. You can run the executable with this command:">此命令在 <em>target/debug/hello_cargo</em>（或在 Windows 上的 <em>target\debug\hello_cargo.exe</em>）中创建一个可执行文件，而不是在当前目录中创建。因为默认构建是调试构建，所以 Cargo 将二进制文件放在名为 <em>debug</em> 的目录中。您可以使用以下命令运行可执行文件：</p>
+<p>This command creates an executable file in <em>target/debug/hello_cargo</em> (or
+<em>target\debug\hello_cargo.exe</em> on Windows) rather than in your current
+directory. Because the default build is a debug build, Cargo puts the binary in
+a directory named <em>debug</em>. You can run the executable with this command:</p>
 <pre><code class="language-console">$ ./target/debug/hello_cargo # or .\target\debug\hello_cargo.exe on Windows
 Hello, world!
 </code></pre>
-<p data-x-en="If all goes well, Hello, world! should print to the terminal. Running cargo build for the first time also causes Cargo to create a new file at the top level: Cargo.lock. This file keeps track of the exact versions of dependencies in your project. This project doesn’t have dependencies, so the file is a bit sparse. You won’t ever need to change this file manually; Cargo manages its contents for you.">如果一切顺利，<code>Hello, world!</code> 应该会打印到终端。首次运行 <code>cargo build</code> 还会导致 Cargo 在顶级目录创建一个新文件：<em>Cargo.lock</em>。此文件记录了项目中依赖项的确切版本。此项目没有依赖项，因此文件内容较少。你无需手动更改此文件；Cargo 会为你管理其内容。</p>
-<p data-x-en="We just built a project with cargo build and ran it with ./target/debug/hello_cargo, but we can also use cargo run to compile the code and then run the resultant executable all in one command:">我们刚刚用 <code>cargo build</code> 构建了一个项目，并用 <code>./target/debug/hello_cargo</code> 运行了它，但也可以使用 <code>cargo run</code> 来编译代码，然后运行生成的可执行文件，这一切都在一个命令中完成：</p>
+<p>If all goes well, <code>Hello, world!</code> should print to the terminal. Running <code>cargo build</code> for the first time also causes Cargo to create a new file at the top
+level: <em>Cargo.lock</em>. This file keeps track of the exact versions of
+dependencies in your project. This project doesn’t have dependencies, so the
+file is a bit sparse. You won’t ever need to change this file manually; Cargo
+manages its contents for you.</p>
+<p>We just built a project with <code>cargo build</code> and ran it with
+<code>./target/debug/hello_cargo</code>, but we can also use <code>cargo run</code> to compile the
+code and then run the resultant executable all in one command:</p>
 <pre><code class="language-console">$ cargo run
     Finished dev [unoptimized + debuginfo] target(s) in 0.0 secs
      Running `target/debug/hello_cargo`
 Hello, world!
 </code></pre>
-<p data-x-en="Using cargo run is more convenient than having to remember to run cargo build and then use the whole path to the binary, so most developers use cargo run.">使用 <code>cargo run</code> 比记住要运行 <code>cargo build</code> 然后使用二进制文件的完整路径更方便，所以大多数开发人员使用 <code>cargo run</code>。</p>
-<p data-x-en="Notice that this time we didn’t see output indicating that Cargo was compiling hello_cargo. Cargo figured out that the files hadn’t changed, so it didn’t rebuild but just ran the binary. If you had modified your source code, Cargo would have rebuilt the project before running it, and you would have seen this output:">注意这次我们没有看到 Cargo 正在编译 <code>hello_cargo</code> 的输出。Cargo 发现文件没有变化，因此没有重新构建，而是直接运行了二进制文件。如果你修改了源代码，Cargo 会在运行项目之前重新构建，并且你会看到如下输出：</p>
+<p>Using <code>cargo run</code> is more convenient than having to remember to run <code>cargo build</code> and then use the whole path to the binary, so most developers use <code>cargo run</code>.</p>
+<p>Notice that this time we didn’t see output indicating that Cargo was compiling
+<code>hello_cargo</code>. Cargo figured out that the files hadn’t changed, so it didn’t
+rebuild but just ran the binary. If you had modified your source code, Cargo
+would have rebuilt the project before running it, and you would have seen this
+output:</p>
 <pre><code class="language-console">$ cargo run
    Compiling hello_cargo v0.1.0 (file:///projects/hello_cargo)
     Finished dev [unoptimized + debuginfo] target(s) in 0.33 secs
      Running `target/debug/hello_cargo`
 Hello, world!
 </code></pre>
-<p data-x-en="Cargo also provides a command called cargo check. This command quickly checks your code to make sure it compiles but doesn’t produce an executable:">Cargo 还提供了一个名为 <code>cargo check</code> 的命令。此命令快速检查您的代码以确保它可以编译，但不会生成可执行文件：</p>
+<p>Cargo also provides a command called <code>cargo check</code>. This command quickly checks
+your code to make sure it compiles but doesn’t produce an executable:</p>
 <pre><code class="language-console">$ cargo check
    Checking hello_cargo v0.1.0 (file:///projects/hello_cargo)
     Finished dev [unoptimized + debuginfo] target(s) in 0.32 secs
 </code></pre>
-<p data-x-en="Why would you not want an executable? Often, cargo check is much faster than cargo build because it skips the step of producing an executable. If you’re continually checking your work while writing the code, using cargo check will speed up the process of letting you know if your project is still compiling! As such, many Rustaceans run cargo check periodically as they write their program to make sure it compiles. Then, they run cargo build when they’re ready to use the executable.">为什么你不需要一个可执行文件？通常，<code>cargo check</code> 比 <code>cargo build</code> 快得多，因为它跳过了生成可执行文件的步骤。如果你在编写代码时不断检查你的工作，使用 <code>cargo check</code> 会加快告知你项目是否仍在编译的过程！因此，许多 Rustaceans 在编写程序时会定期运行 <code>cargo check</code> 以确保它能编译。然后，当他们准备使用可执行文件时，他们会运行 <code>cargo build</code>。</p>
-<p data-x-en="Let’s recap what we’ve learned so far about Cargo:">让我们回顾一下到目前为止关于 Cargo 的学习内容：</p>
+<p>Why would you not want an executable? Often, <code>cargo check</code> is much faster than
+<code>cargo build</code> because it skips the step of producing an executable. If you’re
+continually checking your work while writing the code, using <code>cargo check</code> will
+speed up the process of letting you know if your project is still compiling! As
+such, many Rustaceans run <code>cargo check</code> periodically as they write their
+program to make sure it compiles. Then, they run <code>cargo build</code> when they’re
+ready to use the executable.</p>
+<p>Let’s recap what we’ve learned so far about Cargo:</p>
 <ul>
-<li data-x-en="We can create a project using cargo new.">我们可以使用 <code>cargo new</code> 创建一个项目。</li>
-<li data-x-en="We can build a project using cargo build.">我们可以使用 <code>cargo build</code> 构建项目。</li>
-<li data-x-en="We can build and run a project in one step using cargo run.">我们可以使用 <code>cargo run</code> 在一步中构建并运行项目。</li>
-<li data-x-en="We can build a project without producing a binary to check for errors using cargo check.">我们可以使用 <code>cargo check</code> 来构建项目而不生成二进制文件以检查错误。</li>
-<li data-x-en="Instead of saving the result of the build in the same directory as our code, Cargo stores it in the target/debug directory.">Cargo 会将构建结果存储在 <em>target/debug</em> 目录中，而不是与我们的代码相同的目录中。</li>
+<li>We can create a project using <code>cargo new</code>.</li>
+<li>We can build a project using <code>cargo build</code>.</li>
+<li>We can build and run a project in one step using <code>cargo run</code>.</li>
+<li>We can build a project without producing a binary to check for errors using
+<code>cargo check</code>.</li>
+<li>Instead of saving the result of the build in the same directory as our code,
+Cargo stores it in the <em>target/debug</em> directory.</li>
 </ul>
-<p data-x-en="An additional advantage of using Cargo is that the commands are the same no matter which operating system you’re working on. So, at this point, we’ll no longer provide specific instructions for Linux and macOS versus Windows.">使用 Cargo 的另一个优点是，无论您使用的是哪种操作系统，命令都是相同的。因此，从现在开始，我们将不再为 Linux 和 macOS 与 Windows 提供具体的指令。</p>
-<h3 id="building-for-release"><a class="header" href="#building-for-release">构建发布版本</a></h3>
-<p data-x-en="When your project is finally ready for release, you can use cargo build --release to compile it with optimizations. This command will create an executable in target/release instead of target/debug. The optimizations make your Rust code run faster, but turning them on lengthens the time it takes for your program to compile. This is why there are two different profiles: one for development, when you want to rebuild quickly and often, and another for building the final program you’ll give to a user that won’t be rebuilt repeatedly and that will run as fast as possible. If you’re benchmarking your code’s running time, be sure to run cargo build --release and benchmark with the executable in target/release.">当您的项目最终准备发布时，可以使用<code>cargo build --release</code>来编译它以进行优化。此命令将在<em>target/release</em>而不是<em>target/debug</em>中创建一个可执行文件。优化可以使您的Rust代码运行得更快，但开启它们会延长程序编译的时间。这就是为什么有两种不同的配置文件：一种用于开发，当您希望快速且频繁地重建时，另一种用于构建最终将提供给用户的程序，该程序不会被反复重建，并且将尽可能快地运行。如果您正在测试代码的运行时间，请确保运行<code>cargo build --release</code>并使用<em>target/release</em>中的可执行文件进行基准测试。</p>
+<p>An additional advantage of using Cargo is that the commands are the same no
+matter which operating system you’re working on. So, at this point, we’ll no
+longer provide specific instructions for Linux and macOS versus Windows.</p>
+<h3 id="building-for-release"><a class="header" href="#building-for-release">Building for Release</a></h3>
+<p>When your project is finally ready for release, you can use <code>cargo build --release</code> to compile it with optimizations. This command will create an
+executable in <em>target/release</em> instead of <em>target/debug</em>. The optimizations
+make your Rust code run faster, but turning them on lengthens the time it takes
+for your program to compile. This is why there are two different profiles: one
+for development, when you want to rebuild quickly and often, and another for
+building the final program you’ll give to a user that won’t be rebuilt
+repeatedly and that will run as fast as possible. If you’re benchmarking your
+code’s running time, be sure to run <code>cargo build --release</code> and benchmark with
+the executable in <em>target/release</em>.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="cargo-as-convention"></a></p>
-<h3 id="leveraging-cargos-conventions"><a class="header" href="#leveraging-cargos-conventions">利用 Cargo 的约定</a></h3>
-<p data-x-en="With simple projects, Cargo doesn’t provide a lot of value over just using rustc, but it will prove its worth as your programs become more intricate. Once programs grow to multiple files or need a dependency, it’s much easier to let Cargo coordinate the build.">对于简单的项目，Cargo 并没有比直接使用 <code>rustc</code> 提供太多价值，但随着程序变得越来越复杂，Cargo 的价值将逐渐显现。一旦程序增长到多个文件或需要依赖项时，让 Cargo 协调构建会容易得多。</p>
-<p data-x-en="Even though the hello_cargo project is simple, it now uses much of the real tooling you’ll use in the rest of your Rust career. In fact, to work on any existing projects, you can use the following commands to check out the code using Git, change to that project’s directory, and build:">即使 <code>hello_cargo</code> 项目很简单，但它现在使用了你在今后的 Rust 职业生涯中会用到的许多真实工具。事实上，要参与任何现有项目，你可以使用以下命令通过 Git 检出代码，切换到该项目的目录，并构建：</p>
+<h3 id="leveraging-cargos-conventions"><a class="header" href="#leveraging-cargos-conventions">Leveraging Cargo’s Conventions</a></h3>
+<p>With simple projects, Cargo doesn’t provide a lot of value over just using
+<code>rustc</code>, but it will prove its worth as your programs become more intricate.
+Once programs grow to multiple files or need a dependency, it’s much easier to
+let Cargo coordinate the build.</p>
+<p>Even though the <code>hello_cargo</code> project is simple, it now uses much of the real
+tooling you’ll use in the rest of your Rust career. In fact, to work on any
+existing projects, you can use the following commands to check out the code
+using Git, change to that project’s directory, and build:</p>
 <pre><code class="language-console">$ git clone example.org/someproject
 $ cd someproject
 $ cargo build
 </code></pre>
-<p data-x-en="For more information about Cargo, check out its documentation.">有关 Cargo 的更多信息，请查看 <a href="https://doc.rust-lang.org/cargo/">其文档</a>。</p>
-<h2 id="summary"><a class="header" href="#summary">摘要</a></h2>
-<p data-x-en="You’re already off to a great start on your Rust journey! In this chapter, you learned how to:">你已经在你的 Rust 之旅中有了一个很好的开始！在本章中，你 学习了如何：</p>
+<p>For more information about Cargo, check out <a href="https://doc.rust-lang.org/cargo/">its documentation</a>.</p>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<p>You’re already off to a great start on your Rust journey! In this chapter, you
+learned how to:</p>
 <ul>
-<li data-x-en="Install the latest stable version of Rust using rustup.">使用 <code>rustup</code> 安装最新稳定版本的 Rust。</li>
-<li data-x-en="Update to a newer Rust version.">更新到更新的 Rust 版本。</li>
-<li data-x-en="Open locally installed documentation.">打开本地安装的文档。</li>
-<li data-x-en="Write and run a “Hello, world!” program using rustc directly.">使用 <code>rustc</code> 直接编写并运行一个“Hello, world!”程序。</li>
-<li data-x-en="Create and run a new project using the conventions of Cargo.">使用 Cargo 的约定创建并运行一个新项目。</li>
+<li>Install the latest stable version of Rust using <code>rustup</code>.</li>
+<li>Update to a newer Rust version.</li>
+<li>Open locally installed documentation.</li>
+<li>Write and run a “Hello, world!” program using <code>rustc</code> directly.</li>
+<li>Create and run a new project using the conventions of Cargo.</li>
 </ul>
-<p data-x-en="This is a great time to build a more substantial program to get used to reading and writing Rust code. So, in Chapter 2, we’ll build a guessing game program. If you would rather start by learning how common programming concepts work in Rust, see Chapter 3 and then return to Chapter 2.">这是构建一个更实质性的程序以习惯阅读和编写 Rust 代码的好时机。因此，在第 2 章中，我们将构建一个猜数字游戏程序。如果您更愿意先了解常见的编程概念在 Rust 中是如何工作的，请参阅第 3 章，然后再回到第 2 章。</p>
+<p>This is a great time to build a more substantial program to get used to reading
+and writing Rust code. So, in Chapter 2, we’ll build a guessing game program.
+If you would rather start by learning how common programming concepts work in
+Rust, see Chapter 3 and then return to Chapter 2.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch01-02-hello-world.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch02-00-guessing-game-tutorial.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -375,16 +461,21 @@ $ cargo build
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch01-02-hello-world.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch02-00-guessing-game-tutorial.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -393,16 +484,16 @@ $ cargo build
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

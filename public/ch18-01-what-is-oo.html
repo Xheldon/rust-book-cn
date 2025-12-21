@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch18-01-what-is-oo.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,53 +212,81 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
-                        <h2 id="characteristics-of-object-oriented-languages"><a class="header" href="#characteristics-of-object-oriented-languages">面向对象语言的特性</a></h2>
-<p data-x-en="There is no consensus in the programming community about what features a language must have to be considered object oriented. Rust is influenced by many programming paradigms, including OOP; for example, we explored the features that came from functional programming in Chapter 13. Arguably, OOP languages share certain common characteristics—namely, objects, encapsulation, and inheritance. Let’s look at what each of those characteristics means and whether Rust supports it.">在编程社区中，对于一种语言必须具备哪些特性才能被视为面向对象，还没有达成共识。Rust 受到了许多编程范式的影响，包括面向对象编程（OOP）；例如，我们在第 13 章中探讨了来自函数式编程的特性。可以说，面向对象语言具有一些共同的特征——即对象、封装和继承。让我们看看每个特征的含义以及 Rust 是否支持它们。</p>
-<h3 id="objects-contain-data-and-behavior"><a class="header" href="#objects-contain-data-and-behavior">对象包含数据和行为</a></h3>
-<p data-x-en="The book Design Patterns: Elements of Reusable Object-Oriented Software by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides (Addison-Wesley, 1994), colloquially referred to as The Gang of Four book, is a catalog of object-oriented design patterns. It defines OOP in this way:">由 Erich Gamma、Richard Helm、Ralph Johnson 和 John Vlissides (Addison-Wesley, 1994) 撰写的书籍 <em>Design Patterns: Elements of Reusable Object-Oriented Software</em>，俗称 <em>The Gang of Four</em> 书，是一本关于面向对象设计模式的目录。它以这种方式定义 OOP：</p>
+                        <h2 id="characteristics-of-object-oriented-languages"><a class="header" href="#characteristics-of-object-oriented-languages">Characteristics of Object-Oriented Languages</a></h2>
+<p>There is no consensus in the programming community about what features a
+language must have to be considered object oriented. Rust is influenced by many
+programming paradigms, including OOP; for example, we explored the features
+that came from functional programming in Chapter 13. Arguably, OOP languages
+share certain common characteristics—namely, objects, encapsulation, and
+inheritance. Let’s look at what each of those characteristics means and whether
+Rust supports it.</p>
+<h3 id="objects-contain-data-and-behavior"><a class="header" href="#objects-contain-data-and-behavior">Objects Contain Data and Behavior</a></h3>
+<p>The book <em>Design Patterns: Elements of Reusable Object-Oriented Software</em> by
+Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides (Addison-Wesley,
+1994), colloquially referred to as <em>The Gang of Four</em> book, is a catalog of
+object-oriented design patterns. It defines OOP in this way:</p>
 <blockquote>
-<p data-x-en="Object-oriented programs are made up of objects. An object packages both data and the procedures that operate on that data. The procedures are typically called methods or operations.">面向对象的程序由对象组成。一个<em>对象</em>封装了数据和操作这些数据的过程。这些过程通常被称为<em>方法</em>或<em>操作</em>。</p>
+<p>Object-oriented programs are made up of objects. An <strong>object</strong> packages both
+data and the procedures that operate on that data. The procedures are
+typically called <strong>methods</strong> or <strong>operations</strong>.</p>
 </blockquote>
-<p data-x-en="Using this definition, Rust is object oriented: Structs and enums have data, and impl blocks provide methods on structs and enums. Even though structs and enums with methods aren’t called objects, they provide the same functionality, according to the Gang of Four’s definition of objects.">根据这个定义，Rust 是面向对象的：结构体和枚举有数据，<code>impl</code> 块为结构体和枚举提供方法。即使带有方法的结构体和枚举不被<em>称为</em>对象，它们根据四人组的对象定义提供了相同的功能。</p>
-<h3 id="encapsulation-that-hides-implementation-details"><a class="header" href="#encapsulation-that-hides-implementation-details">隐藏实现细节的封装</a></h3>
-<p data-x-en="Another aspect commonly associated with OOP is the idea of encapsulation, which means that the implementation details of an object aren’t accessible to code using that object. Therefore, the only way to interact with an object is through its public API; code using the object shouldn’t be able to reach into the object’s internals and change data or behavior directly. This enables the programmer to change and refactor an object’s internals without needing to change the code that uses the object.">与 OOP 常常相关的另一个方面是 <em>封装</em> 的概念，这意味着对象的实现细节对于使用该对象的代码是不可访问的。因此，与对象交互的唯一方式是通过其公共 API；使用对象的代码不应该能够触及对象的内部并直接更改数据或行为。这使得程序员可以在不需更改使用对象的代码的情况下更改和重构对象的内部。</p>
-<p data-x-en="We discussed how to control encapsulation in Chapter 7: We can use the pub keyword to decide which modules, types, functions, and methods in our code should be public, and by default everything else is private. For example, we can define a struct AveragedCollection that has a field containing a vector of i32 values. The struct can also have a field that contains the average of the values in the vector, meaning the average doesn’t have to be computed on demand whenever anyone needs it. In other words, AveragedCollection will cache the calculated average for us. Listing 18-1 has the definition of the AveragedCollection struct.">我们在第7章讨论了如何控制封装：我们可以使用<code>pub</code>关键字来决定代码中的哪些模块、类型、函数和方法应该是公共的，而默认情况下其他一切都是私有的。例如，我们可以定义一个包含<i32>值向量的字段的结构体<code>AveragedCollection</code>。该结构体还可以包含一个字段，该字段包含向量中值的平均数，这意味着每当有人需要时，平均数不必按需计算。换句话说，<code>AveragedCollection</code>将为我们缓存计算出的平均数。列表18-1给出了<code>AveragedCollection</code>结构体的定义。</i32></p>
+<p>Using this definition, Rust is object oriented: Structs and enums have data,
+and <code>impl</code> blocks provide methods on structs and enums. Even though structs and
+enums with methods aren’t <em>called</em> objects, they provide the same
+functionality, according to the Gang of Four’s definition of objects.</p>
+<h3 id="encapsulation-that-hides-implementation-details"><a class="header" href="#encapsulation-that-hides-implementation-details">Encapsulation That Hides Implementation Details</a></h3>
+<p>Another aspect commonly associated with OOP is the idea of <em>encapsulation</em>,
+which means that the implementation details of an object aren’t accessible to
+code using that object. Therefore, the only way to interact with an object is
+through its public API; code using the object shouldn’t be able to reach into
+the object’s internals and change data or behavior directly. This enables the
+programmer to change and refactor an object’s internals without needing to
+change the code that uses the object.</p>
+<p>We discussed how to control encapsulation in Chapter 7: We can use the <code>pub</code>
+keyword to decide which modules, types, functions, and methods in our code
+should be public, and by default everything else is private. For example, we
+can define a struct <code>AveragedCollection</code> that has a field containing a vector
+of <code>i32</code> values. The struct can also have a field that contains the average of
+the values in the vector, meaning the average doesn’t have to be computed on
+demand whenever anyone needs it. In other words, <code>AveragedCollection</code> will
+cache the calculated average for us. Listing 18-1 has the definition of the
+<code>AveragedCollection</code> struct.</p>
 <figure class="listing" id="listing-18-1">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">pub struct AveragedCollection {
@@ -268,7 +295,11 @@ blockquote {
 }</code></pre>
 <figcaption><a href="#listing-18-1">Listing 18-1</a>: An <code>AveragedCollection</code> struct that maintains a list of integers and the average of the items in the collection</figcaption>
 </figure>
-<p data-x-en="The struct is marked pub so that other code can use it, but the fields within the struct remain private. This is important in this case because we want to ensure that whenever a value is added or removed from the list, the average is also updated. We do this by implementing add, remove, and average methods on the struct, as shown in Listing 18-2.">这个结构体被标记为<code>pub</code>，以便其他代码可以使用它，但结构体内的字段仍然保持私有。这在本例中很重要，因为我们要确保每当向列表中添加或删除值时，平均值也会被更新。我们通过在结构体上实现<code>add</code>、<code>remove</code>和<code>average</code>方法来实现这一点，如清单18-2所示。</p>
+<p>The struct is marked <code>pub</code> so that other code can use it, but the fields within
+the struct remain private. This is important in this case because we want to
+ensure that whenever a value is added or removed from the list, the average is
+also updated. We do this by implementing <code>add</code>, <code>remove</code>, and <code>average</code> methods
+on the struct, as shown in Listing 18-2.</p>
 <figure class="listing" id="listing-18-2">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground"><span class="boring">pub struct AveragedCollection {
@@ -304,42 +335,86 @@ blockquote {
 }</code></pre>
 <figcaption><a href="#listing-18-2">Listing 18-2</a>: Implementations of the public methods <code>add</code>, <code>remove</code>, and <code>average</code> on <code>AveragedCollection</code></figcaption>
 </figure>
-<p data-x-en="The public methods add, remove, and average are the only ways to access or modify data in an instance of AveragedCollection. When an item is added to list using the add method or removed using the remove method, the implementations of each call the private update_average method that handles updating the average field as well.">公共方法 <code>add</code>、<code>remove</code> 和 <code>average</code> 是访问或修改 <code>AveragedCollection</code> 实例中数据的唯一方式。当使用 <code>add</code> 方法向 <code>list</code> 添加项目或使用 <code>remove</code> 方法移除项目时，每个方法的实现都会调用私有的 <code>update_average</code> 方法，该方法负责更新 <code>average</code> 字段。</p>
-<p data-x-en="We leave the list and average fields private so that there is no way for external code to add or remove items to or from the list field directly; otherwise, the average field might become out of sync when the list changes. The average method returns the value in the average field, allowing external code to read the average but not modify it.">我们将 <code>list</code> 和 <code>average</code> 字段设为私有，以防止外部代码直接向 <code>list</code> 字段添加或删除项目；否则，当 <code>list</code> 发生变化时，<code>average</code> 字段可能会不同步。<code>average</code> 方法返回 <code>average</code> 字段中的值，允许外部代码读取 <code>average</code> 但不能修改它。</p>
-<p data-x-en="Because we’ve encapsulated the implementation details of the struct AveragedCollection, we can easily change aspects, such as the data structure, in the future. For instance, we could use a HashSet<i32> instead of a Vec<i32> for the list field. As long as the signatures of the add, remove, and average public methods stayed the same, code using AveragedCollection wouldn’t need to change. If we made list public instead, this wouldn’t necessarily be the case: HashSet<i32> and Vec<i32> have different methods for adding and removing items, so the external code would likely have to change if it were modifying list directly.">因为我们已经封装了 <code>AveragedCollection</code> 结构体的实现细节，所以我们可以轻松地在未来更改某些方面，例如数据结构。例如，我们可以使用 <code>HashSet&lt;i32&gt;</code> 而不是 <code>Vec&lt;i32&gt;</code> 作为 <code>list</code> 字段。只要 <code>add</code>、<code>remove</code> 和 <code>average</code> 公共方法的签名保持不变，使用 <code>AveragedCollection</code> 的代码就不需要更改。如果我们把 <code>list</code> 设为公共的，情况就不一定如此了：<code>HashSet&lt;i32&gt;</code> 和 <code>Vec&lt;i32&gt;</code> 在添加和删除项目时有不同的方法，因此如果外部代码直接修改 <code>list</code>，很可能需要更改。</p>
-<p data-x-en="If encapsulation is a required aspect for a language to be considered object oriented, then Rust meets that requirement. The option to use pub or not for different parts of code enables encapsulation of implementation details.">如果封装是语言被认为是面向对象的必要方面，那么 Rust 满足这一要求。选择使用 <code>pub</code> 或不使用 <code>pub</code> 为代码的不同部分启用实现细节的封装。</p>
-<h3 id="inheritance-as-a-type-system-and-as-code-sharing"><a class="header" href="#inheritance-as-a-type-system-and-as-code-sharing">继承作为类型系统和代码共享</a></h3>
-<p data-x-en="Inheritance is a mechanism whereby an object can inherit elements from another object’s definition, thus gaining the parent object’s data and behavior without you having to define them again."><em>继承</em>是一种机制，通过这种机制，一个对象可以从另一个对象的定义中继承元素，从而获得父对象的数据和行为，而无需再次定义它们。</p>
-<p data-x-en="If a language must have inheritance to be object oriented, then Rust is not such a language. There is no way to define a struct that inherits the parent struct’s fields and method implementations without using a macro.">如果一种语言必须具有继承才能成为面向对象的语言，那么 Rust 就不是这样的语言。没有办法定义一个结构体来继承父结构体的字段和方法实现，除非使用宏。</p>
-<p data-x-en="However, if you’re used to having inheritance in your programming toolbox, you can use other solutions in Rust, depending on your reason for reaching for inheritance in the first place.">但是，如果您习惯于在编程工具箱中使用继承，您可以根据最初使用继承的原因在 Rust 中使用其他解决方案。</p>
-<p data-x-en="You would choose inheritance for two main reasons. One is for reuse of code: You can implement particular behavior for one type, and inheritance enables you to reuse that implementation for a different type. You can do this in a limited way in Rust code using default trait method implementations, which you saw in Listing 10-14 when we added a default implementation of the summarize method on the Summary trait. Any type implementing the Summary trait would have the summarize method available on it without any further code. This is similar to a parent class having an implementation of a method and an inheriting child class also having the implementation of the method. We can also override the default implementation of the summarize method when we implement the Summary trait, which is similar to a child class overriding the implementation of a method inherited from a parent class.">您会选择继承主要有两个原因。一个是代码重用：
-您可以在一种类型上实现特定的行为，继承使您能够
-在另一种类型上重用该实现。在 Rust 代码中，您可以使用默认特征方法实现以有限的方式做到这一点，您在
-清单 10-14 中看到了这一点，当时我们为 <code>Summary</code> 特征添加了 <code>summarize</code> 方法的默认实现。任何实现 <code>Summary</code> 特征的类型都会
-在没有进一步代码的情况下拥有 <code>summarize</code> 方法。这类似于父类有一个方法的实现，继承的子类也有该方法的实现。当我们在实现 <code>Summary</code> 特征时，也可以覆盖 <code>summarize</code> 方法的默认实现，这类似于子类覆盖从父类继承的方法的实现。</p>
-<p data-x-en="The other reason to use inheritance relates to the type system: to enable a child type to be used in the same places as the parent type. This is also called polymorphism, which means that you can substitute multiple objects for each other at runtime if they share certain characteristics.">使用继承的另一个原因与类型系统有关：使子类型能够在与父类型相同的地方使用。这也可以称为<em>多态性</em>，这意味着如果多个对象共享某些特性，你可以在运行时用一个对象替代另一个对象。</p>
+<p>The public methods <code>add</code>, <code>remove</code>, and <code>average</code> are the only ways to access
+or modify data in an instance of <code>AveragedCollection</code>. When an item is added to
+<code>list</code> using the <code>add</code> method or removed using the <code>remove</code> method, the
+implementations of each call the private <code>update_average</code> method that handles
+updating the <code>average</code> field as well.</p>
+<p>We leave the <code>list</code> and <code>average</code> fields private so that there is no way for
+external code to add or remove items to or from the <code>list</code> field directly;
+otherwise, the <code>average</code> field might become out of sync when the <code>list</code>
+changes. The <code>average</code> method returns the value in the <code>average</code> field,
+allowing external code to read the <code>average</code> but not modify it.</p>
+<p>Because we’ve encapsulated the implementation details of the struct
+<code>AveragedCollection</code>, we can easily change aspects, such as the data structure,
+in the future. For instance, we could use a <code>HashSet&lt;i32&gt;</code> instead of a
+<code>Vec&lt;i32&gt;</code> for the <code>list</code> field. As long as the signatures of the <code>add</code>,
+<code>remove</code>, and <code>average</code> public methods stayed the same, code using
+<code>AveragedCollection</code> wouldn’t need to change. If we made <code>list</code> public instead,
+this wouldn’t necessarily be the case: <code>HashSet&lt;i32&gt;</code> and <code>Vec&lt;i32&gt;</code> have
+different methods for adding and removing items, so the external code would
+likely have to change if it were modifying <code>list</code> directly.</p>
+<p>If encapsulation is a required aspect for a language to be considered object
+oriented, then Rust meets that requirement. The option to use <code>pub</code> or not for
+different parts of code enables encapsulation of implementation details.</p>
+<h3 id="inheritance-as-a-type-system-and-as-code-sharing"><a class="header" href="#inheritance-as-a-type-system-and-as-code-sharing">Inheritance as a Type System and as Code Sharing</a></h3>
+<p><em>Inheritance</em> is a mechanism whereby an object can inherit elements from
+another object’s definition, thus gaining the parent object’s data and behavior
+without you having to define them again.</p>
+<p>If a language must have inheritance to be object oriented, then Rust is not
+such a language. There is no way to define a struct that inherits the parent
+struct’s fields and method implementations without using a macro.</p>
+<p>However, if you’re used to having inheritance in your programming toolbox, you
+can use other solutions in Rust, depending on your reason for reaching for
+inheritance in the first place.</p>
+<p>You would choose inheritance for two main reasons. One is for reuse of code:
+You can implement particular behavior for one type, and inheritance enables you
+to reuse that implementation for a different type. You can do this in a limited
+way in Rust code using default trait method implementations, which you saw in
+Listing 10-14 when we added a default implementation of the <code>summarize</code> method
+on the <code>Summary</code> trait. Any type implementing the <code>Summary</code> trait would have
+the <code>summarize</code> method available on it without any further code. This is
+similar to a parent class having an implementation of a method and an
+inheriting child class also having the implementation of the method. We can
+also override the default implementation of the <code>summarize</code> method when we
+implement the <code>Summary</code> trait, which is similar to a child class overriding the
+implementation of a method inherited from a parent class.</p>
+<p>The other reason to use inheritance relates to the type system: to enable a
+child type to be used in the same places as the parent type. This is also
+called <em>polymorphism</em>, which means that you can substitute multiple objects for
+each other at runtime if they share certain characteristics.</p>
 <section class="note" aria-role="note">
-<h3 id="polymorphism"><a class="header" href="#polymorphism">多态性</a></h3>
-<p data-x-en="To many people, polymorphism is synonymous with inheritance. But it’s actually a more general concept that refers to code that can work with data of multiple types. For inheritance, those types are generally subclasses.">对许多人来说，多态性等同于继承。但实际上，它是一个更广泛的概念，指的是可以处理多种类型数据的代码。对于继承，这些类型通常是子类。</p>
-<p data-x-en="Rust instead uses generics to abstract over different possible types and trait bounds to impose constraints on what those types must provide. This is sometimes called bounded parametric polymorphism.">Rust 相反使用泛型来抽象出不同的可能类型，并使用特质边界来对这些类型必须提供的内容施加约束。这有时被称为<em>有界参数多态</em>。</p>
+<h3 id="polymorphism"><a class="header" href="#polymorphism">Polymorphism</a></h3>
+<p>To many people, polymorphism is synonymous with inheritance. But it’s
+actually a more general concept that refers to code that can work with data of
+multiple types. For inheritance, those types are generally subclasses.</p>
+<p>Rust instead uses generics to abstract over different possible types and
+trait bounds to impose constraints on what those types must provide. This is
+sometimes called <em>bounded parametric polymorphism</em>.</p>
 </section>
-<p data-x-en="Rust has chosen a different set of trade-offs by not offering inheritance. Inheritance is often at risk of sharing more code than necessary. Subclasses shouldn’t always share all characteristics of their parent class but will do so with inheritance. This can make a program’s design less flexible. It also introduces the possibility of calling methods on subclasses that don’t make sense or that cause errors because the methods don’t apply to the subclass. In addition, some languages will only allow single inheritance (meaning a subclass can only inherit from one class), further restricting the flexibility of a program’s design.">Rust 通过不提供继承选择了一组不同的权衡。
-继承通常会冒着共享比必要更多的代码的风险。子类
-不应该总是共享其父类的所有特征，但在继承中会这样做。
-这会使程序的设计变得不那么灵活。它还
-引入了在子类上调用没有意义或导致错误的方法的可能性，因为这些方法不适用于子类。此外，一些语言只允许 <em>单一继承</em>（意味着一个子类只能从一个类继承），进一步限制了程序设计的灵活性。</p>
-<p data-x-en="For these reasons, Rust takes the different approach of using trait objects instead of inheritance to achieve polymorphism at runtime. Let’s look at how trait objects work.">出于这些原因，Rust 采用了与继承不同的方法，使用特质对象（trait objects）来在运行时实现多态。让我们看看特质对象是如何工作的。</p>
+<p>Rust has chosen a different set of trade-offs by not offering inheritance.
+Inheritance is often at risk of sharing more code than necessary. Subclasses
+shouldn’t always share all characteristics of their parent class but will do so
+with inheritance. This can make a program’s design less flexible. It also
+introduces the possibility of calling methods on subclasses that don’t make
+sense or that cause errors because the methods don’t apply to the subclass. In
+addition, some languages will only allow <em>single inheritance</em> (meaning a
+subclass can only inherit from one class), further restricting the flexibility
+of a program’s design.</p>
+<p>For these reasons, Rust takes the different approach of using trait objects
+instead of inheritance to achieve polymorphism at runtime. Let’s look at how
+trait objects work.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch18-00-oop.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch18-02-trait-objects.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -349,16 +424,21 @@ blockquote {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch18-00-oop.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch18-02-trait-objects.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -367,16 +447,16 @@ blockquote {
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

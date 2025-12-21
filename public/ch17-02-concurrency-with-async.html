@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch17-02-concurrency-with-async.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,54 +212,66 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
                         <!-- Old headings. Do not remove or links may break. -->
 <p><a id="concurrency-with-async"></a></p>
-<h2 id="applying-concurrency-with-async"><a class="header" href="#applying-concurrency-with-async">使用异步应用并发</a></h2>
-<p data-x-en="In this section, we’ll apply async to some of the same concurrency challenges we tackled with threads in Chapter 16. Because we already talked about a lot of the key ideas there, in this section we’ll focus on what’s different between threads and futures.">在本节中，我们将把异步应用到我们在第16章用线程解决的一些相同的并发挑战上。因为我们已经在那讨论了很多关键概念，所以在本节中我们将重点关注线程和未来之间的不同之处。</p>
-<p data-x-en="In many cases, the APIs for working with concurrency using async are very similar to those for using threads. In other cases, they end up being quite different. Even when the APIs look similar between threads and async, they often have different behavior—and they nearly always have different performance characteristics.">在许多情况下，使用 async 进行并发操作的 API 与使用线程的 API 非常相似。在其他情况下，它们最终会变得相当不同。即使线程和 async 之间的 API <em>看起来</em>相似，它们通常也有不同的行为——而且它们几乎总是有不同的性能特征。</p>
+<h2 id="applying-concurrency-with-async"><a class="header" href="#applying-concurrency-with-async">Applying Concurrency with Async</a></h2>
+<p>In this section, we’ll apply async to some of the same concurrency challenges
+we tackled with threads in Chapter 16. Because we already talked about a lot of
+the key ideas there, in this section we’ll focus on what’s different between
+threads and futures.</p>
+<p>In many cases, the APIs for working with concurrency using async are very
+similar to those for using threads. In other cases, they end up being quite
+different. Even when the APIs <em>look</em> similar between threads and async, they
+often have different behavior—and they nearly always have different performance
+characteristics.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="counting"></a></p>
-<h3 id="creating-a-new-task-with-spawn_task"><a class="header" href="#creating-a-new-task-with-spawn_task">使用<code>spawn_task</code>创建新任务</a></h3>
-<p data-x-en="The first operation we tackled in the “Creating a New Thread with spawn” section in Chapter 16 was counting up on two separate threads. Let’s do the same using async. The trpl crate supplies a spawn_task function that looks very similar to the thread::spawn API, and a sleep function that is an async version of the thread::sleep API. We can use these together to implement the counting example, as shown in Listing 17-6.">我们在第 16 章的<a href="ch16-01-threads.html#creating-a-new-thread-with-spawn">“使用 <code>spawn</code> 创建新线程”</a>部分中处理的第一个操作是在两个独立的线程上进行计数。让我们使用 async 来做同样的事情。<code>trpl</code> crate 提供了一个看起来非常类似于 <code>thread::spawn</code> API 的 <code>spawn_task</code> 函数，以及一个 <code>thread::sleep</code> API 的异步版本 <code>sleep</code> 函数。我们可以将这些一起使用来实现计数示例，如列表 17-6 所示。</p>
+<h3 id="creating-a-new-task-with-spawn_task"><a class="header" href="#creating-a-new-task-with-spawn_task">Creating a New Task with <code>spawn_task</code></a></h3>
+<p>The first operation we tackled in the <a href="ch16-01-threads.html#creating-a-new-thread-with-spawn">“Creating a New Thread with
+<code>spawn</code>”</a><!-- ignore --> section in Chapter 16 was counting up on
+two separate threads. Let’s do the same using async. The <code>trpl</code> crate supplies
+a <code>spawn_task</code> function that looks very similar to the <code>thread::spawn</code> API, and
+a <code>sleep</code> function that is an async version of the <code>thread::sleep</code> API. We can
+use these together to implement the counting example, as shown in Listing 17-6.</p>
 <figure class="listing" id="listing-17-6">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
 </span><span class="boring">
 </span>use std::time::Duration;
 
@@ -278,15 +289,23 @@ fn main() {
             trpl::sleep(Duration::from_millis(500)).await;
         }
     });
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-17-6">Listing 17-6</a>: Creating a new task to print one thing while the main task prints something else</figcaption>
 </figure>
-<p data-x-en="As our starting point, we set up our main function with trpl::block_on so that our top-level function can be async.">作为起点，我们使用 <code>trpl::block_on</code> 设置我们的 <code>main</code> 函数，以便我们的顶级函数可以是异步的。</p>
+<p>As our starting point, we set up our <code>main</code> function with <code>trpl::block_on</code> so
+that our top-level function can be async.</p>
 <section class="note" aria-role="note">
-<p data-x-en="Note: From this point forward in the chapter, every example will include this exact same wrapping code with trpl::block_on in main, so we’ll often skip it just as we do with main. Remember to include it in your code!">注意：从本章的这一点开始，每个示例都将包含这个完全相同的包装代码，在<code>main</code>中使用<code>trpl::block_on</code>，因此我们通常会跳过它，就像我们对<code>main</code>所做的那样。记得在你的代码中包含它！</p>
+<p>Note: From this point forward in the chapter, every example will include this
+exact same wrapping code with <code>trpl::block_on</code> in <code>main</code>, so we’ll often skip it
+just as we do with <code>main</code>. Remember to include it in your code!</p>
 </section>
-<p data-x-en="Then we write two loops within that block, each containing a trpl::sleep call, which waits for half a second (500 milliseconds) before sending the next message. We put one loop in the body of a trpl::spawn_task and the other in a top-level for loop. We also add an await after the sleep calls.">然后我们在该块中编写两个循环，每个循环都包含一个 <code>trpl::sleep</code> 调用，等待半秒（500毫秒）后发送下一条消息。我们将一个循环放在 <code>trpl::spawn_task</code> 的主体中，另一个放在顶级 <code>for</code> 循环中。我们还在 <code>sleep</code> 调用后添加了一个 <code>await</code>。</p>
-<p data-x-en="This code behaves similarly to the thread-based implementation—including the fact that you may see the messages appear in a different order in your own terminal when you run it:">这段代码的行为与基于线程的实现类似——包括当你运行它时，可能会在你自己的终端中看到消息以不同的顺序出现：</p>
+<p>Then we write two loops within that block, each containing a <code>trpl::sleep</code>
+call, which waits for half a second (500 milliseconds) before sending the next
+message. We put one loop in the body of a <code>trpl::spawn_task</code> and the other in a
+top-level <code>for</code> loop. We also add an <code>await</code> after the <code>sleep</code> calls.</p>
+<p>This code behaves similarly to the thread-based implementation—including the
+fact that you may see the messages appear in a different order in your own
+terminal when you run it:</p>
 <!-- Not extracting output because changes to this output aren't significant;
 the changes are likely to be due to the threads running differently rather than
 changes in the compiler -->
@@ -300,10 +319,17 @@ hi number 4 from the first task!
 hi number 4 from the second task!
 hi number 5 from the first task!
 </code></pre>
-<p data-x-en="This version stops as soon as the for loop in the body of the main async block finishes, because the task spawned by spawn_task is shut down when the main function ends. If you want it to run all the way to the task’s completion, you will need to use a join handle to wait for the first task to complete. With threads, we used the join method to “block” until the thread was done running. In Listing 17-7, we can use await to do the same thing, because the task handle itself is a future. Its Output type is a Result, so we also unwrap it after awaiting it.">这个版本会在主异步块体中的 <code>for</code> 循环结束时停止，因为由 <code>spawn_task</code> 启动的任务在 <code>main</code> 函数结束时会被关闭。如果你想让它一直运行到任务完成，你需要使用一个 join 句柄来等待第一个任务完成。对于线程，我们使用 <code>join</code> 方法来“阻塞”直到线程运行完毕。在示例 17-7 中，我们可以使用 <code>await</code> 来做同样的事情，因为任务句柄本身就是一个未来。它的 <code>Output</code> 类型是一个 <code>Result</code>，所以在等待它之后我们还需要解开它。</p>
+<p>This version stops as soon as the <code>for</code> loop in the body of the main async
+block finishes, because the task spawned by <code>spawn_task</code> is shut down when the
+<code>main</code> function ends. If you want it to run all the way to the task’s
+completion, you will need to use a join handle to wait for the first task to
+complete. With threads, we used the <code>join</code> method to “block” until the thread
+was done running. In Listing 17-7, we can use <code>await</code> to do the same thing,
+because the task handle itself is a future. Its <code>Output</code> type is a <code>Result</code>, so
+we also unwrap it after awaiting it.</p>
 <figure class="listing" id="listing-17-7">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
 </span><span class="boring">
 </span><span class="boring">use std::time::Duration;
 </span><span class="boring">
@@ -323,10 +349,10 @@ hi number 5 from the first task!
 
         handle.await.unwrap();
 <span class="boring">    });
-</span><span class="boring">}</span></code></pre></pre>
+</span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-17-7">Listing 17-7</a>: Using <code>await</code> with a join handle to run a task to completion</figcaption>
 </figure>
-<p data-x-en="This updated version runs until both loops finish:">这个更新的版本运行直到<em>两个</em>循环都完成：</p>
+<p>This updated version runs until <em>both</em> loops finish:</p>
 <!-- Not extracting output because changes to this output aren't significant;
 the changes are likely to be due to the threads running differently rather than
 changes in the compiler -->
@@ -344,12 +370,26 @@ hi number 7 from the first task!
 hi number 8 from the first task!
 hi number 9 from the first task!
 </code></pre>
-<p data-x-en="So far, it looks like async and threads give us similar outcomes, just with different syntax: using await instead of calling join on the join handle, and awaiting the sleep calls.">到目前为止，异步和线程似乎给我们带来了类似的结果，只是语法不同：使用<code>await</code>而不是在连接句柄上调用<code>join</code>，以及等待<code>sleep</code>调用。</p>
-<p data-x-en="The bigger difference is that we didn’t need to spawn another operating system thread to do this. In fact, we don’t even need to spawn a task here. Because async blocks compile to anonymous futures, we can put each loop in an async block and have the runtime run them both to completion using the trpl::join function.">更大的不同在于我们不需要为此启动另一个操作系统线程。事实上，我们甚至不需要在这里启动一个任务。因为异步块编译为匿名未来，我们可以将每个循环放在一个异步块中，并使用<code>trpl::join</code>函数让运行时完成它们的执行。</p>
-<p data-x-en="In the “Waiting for All Threads to Finish” section in Chapter 16, we showed how to use the join method on the JoinHandle type returned when you call std::thread::spawn. The trpl::join function is similar, but for futures. When you give it two futures, it produces a single new future whose output is a tuple containing the output of each future you passed in once they both complete. Thus, in Listing 17-8, we use trpl::join to wait for both fut1 and fut2 to finish. We do not await fut1 and fut2 but instead the new future produced by trpl::join. We ignore the output, because it’s just a tuple containing two unit values.">在第 16 章的 <a href="ch16-01-threads.html#waiting-for-all-threads-to-finish">“等待所有线程完成”</a> 部分，我们展示了如何在调用 <code>std::thread::spawn</code> 时返回的 <code>JoinHandle</code> 类型上使用 <code>join</code> 方法。<code>trpl::join</code> 函数类似，但用于未来。当你给它两个未来时，它会产生一个单一的新未来，其输出是一个包含你传递的每个未来输出的元组，一旦它们 <em>都</em> 完成。因此，在清单 17-8 中，我们使用 <code>trpl::join</code> 等待 <code>fut1</code> 和 <code>fut2</code> 都完成。我们 <em>不</em> 等待 <code>fut1</code> 和 <code>fut2</code>，而是等待由 <code>trpl::join</code> 产生的新未来。我们忽略输出，因为这只是包含两个单元值的元组。</p>
+<p>So far, it looks like async and threads give us similar outcomes, just with
+different syntax: using <code>await</code> instead of calling <code>join</code> on the join handle,
+and awaiting the <code>sleep</code> calls.</p>
+<p>The bigger difference is that we didn’t need to spawn another operating system
+thread to do this. In fact, we don’t even need to spawn a task here. Because
+async blocks compile to anonymous futures, we can put each loop in an async
+block and have the runtime run them both to completion using the <code>trpl::join</code>
+function.</p>
+<p>In the <a href="ch16-01-threads.html#waiting-for-all-threads-to-finish">“Waiting for All Threads to Finish”</a><!-- ignore -->
+section in Chapter 16, we showed how to use the <code>join</code> method on the
+<code>JoinHandle</code> type returned when you call <code>std::thread::spawn</code>. The <code>trpl::join</code>
+function is similar, but for futures. When you give it two futures, it produces
+a single new future whose output is a tuple containing the output of each
+future you passed in once they <em>both</em> complete. Thus, in Listing 17-8, we use
+<code>trpl::join</code> to wait for both <code>fut1</code> and <code>fut2</code> to finish. We do <em>not</em> await
+<code>fut1</code> and <code>fut2</code> but instead the new future produced by <code>trpl::join</code>. We
+ignore the output, because it’s just a tuple containing two unit values.</p>
 <figure class="listing" id="listing-17-8">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
 </span><span class="boring">
 </span><span class="boring">use std::time::Duration;
 </span><span class="boring">
@@ -371,10 +411,10 @@ hi number 9 from the first task!
 
         trpl::join(fut1, fut2).await;
 <span class="boring">    });
-</span><span class="boring">}</span></code></pre></pre>
+</span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-17-8">Listing 17-8</a>: Using <code>trpl::join</code> to await two anonymous futures</figcaption>
 </figure>
-<p data-x-en="When we run this, we see both futures run to completion:">当我们运行这个时，我们看到两个未来都运行到了完成：</p>
+<p>When we run this, we see both futures run to completion:</p>
 <!-- Not extracting output because changes to this output aren't significant;
 the changes are likely to be due to the threads running differently rather than
 changes in the compiler -->
@@ -392,22 +432,41 @@ hi number 7 from the first task!
 hi number 8 from the first task!
 hi number 9 from the first task!
 </code></pre>
-<p data-x-en="Now, you’ll see the exact same order every time, which is very different from what we saw with threads and with trpl::spawn_task in Listing 17-7. That is because the trpl::join function is fair, meaning it checks each future equally often, alternating between them, and never lets one race ahead if the other is ready. With threads, the operating system decides which thread to check and how long to let it run. With async Rust, the runtime decides which task to check. (In practice, the details get complicated because an async runtime might use operating system threads under the hood as part of how it manages concurrency, so guaranteeing fairness can be more work for a runtime—but it’s still possible!) Runtimes don’t have to guarantee fairness for any given operation, and they often offer different APIs to let you choose whether or not you want fairness.">现在，您每次都会看到完全相同的顺序，这与我们在第 17-7 节中使用线程和 <code>trpl::spawn_task</code> 时看到的情况非常不同。这是因为 <code>trpl::join</code> 函数是 <em>公平的</em>，意味着它会同样频繁地检查每个 future，交替进行，而不会让一个 future 在另一个 ready 时领先。对于线程，操作系统决定检查哪个线程以及让它运行多长时间。对于异步 Rust，运行时决定检查哪个任务。（实际上，细节会变得复杂，因为异步运行时可能在底层使用操作系统线程来管理并发，因此保证公平性对运行时来说可能更复杂——但仍然是可能的！）运行时不必为任何给定操作保证公平性，它们通常提供不同的 API 让您选择是否需要公平性。</p>
-<p data-x-en="Try some of these variations on awaiting the futures and see what they do:">尝试这些关于等待未来的变体，看看它们的作用：</p>
+<p>Now, you’ll see the exact same order every time, which is very different from
+what we saw with threads and with <code>trpl::spawn_task</code> in Listing 17-7. That is
+because the <code>trpl::join</code> function is <em>fair</em>, meaning it checks each future
+equally often, alternating between them, and never lets one race ahead if the
+other is ready. With threads, the operating system decides which thread to
+check and how long to let it run. With async Rust, the runtime decides which
+task to check. (In practice, the details get complicated because an async
+runtime might use operating system threads under the hood as part of how it
+manages concurrency, so guaranteeing fairness can be more work for a
+runtime—but it’s still possible!) Runtimes don’t have to guarantee fairness for
+any given operation, and they often offer different APIs to let you choose
+whether or not you want fairness.</p>
+<p>Try some of these variations on awaiting the futures and see what they do:</p>
 <ul>
-<li data-x-en="Remove the async block from around either or both of the loops.">移除围绕任一或两个循环的 async 块。</li>
-<li data-x-en="Await each async block immediately after defining it.">在定义每个异步块后立即等待。</li>
-<li data-x-en="Wrap only the first loop in an async block, and await the resulting future after the body of second loop.">仅将第一个循环包装在异步块中，并在第二个循环的主体之后等待生成的未来。</li>
+<li>Remove the async block from around either or both of the loops.</li>
+<li>Await each async block immediately after defining it.</li>
+<li>Wrap only the first loop in an async block, and await the resulting future
+after the body of second loop.</li>
 </ul>
-<p data-x-en="For an extra challenge, see if you can figure out what the output will be in each case before running the code!">为了增加挑战性，看看你是否能在<em>运行代码之前</em>弄清楚每种情况下的输出！</p>
+<p>For an extra challenge, see if you can figure out what the output will be in
+each case <em>before</em> running the code!</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="message-passing"></a>
 <a id="counting-up-on-two-tasks-using-message-passing"></a></p>
-<h3 id="sending-data-between-two-tasks-using-message-passing"><a class="header" href="#sending-data-between-two-tasks-using-message-passing">使用消息传递在两个任务之间发送数据</a></h3>
-<p data-x-en="Sharing data between futures will also be familiar: we’ll use message passing again, but this time with async versions of the types and functions. We’ll take a slightly different path than we did in the “Transfer Data Between Threads with Message Passing” section in Chapter 16 to illustrate some of the key differences between thread-based and futures-based concurrency. In Listing 17-9, we’ll begin with just a single async block—not spawning a separate task as we spawned a separate thread.">在 futures 之间共享数据也会很熟悉：我们将再次使用消息传递，但这次使用异步版本的类型和函数。我们将采取与第 16 章<a href="ch16-02-message-passing.html">“使用消息传递在线程之间传输数据”</a>部分中略有不同的方法，以说明基于线程的并发和基于 futures 的并发之间的一些关键差异。在示例 17-9 中，我们将从一个单独的 async 块开始——<em>不</em>像我们之前创建单独的线程那样创建单独的任务。</p>
+<h3 id="sending-data-between-two-tasks-using-message-passing"><a class="header" href="#sending-data-between-two-tasks-using-message-passing">Sending Data Between Two Tasks Using Message Passing</a></h3>
+<p>Sharing data between futures will also be familiar: we’ll use message passing
+again, but this time with async versions of the types and functions. We’ll take
+a slightly different path than we did in the <a href="ch16-02-message-passing.html">“Transfer Data Between Threads
+with Message Passing”</a><!-- ignore --> section in
+Chapter 16 to illustrate some of the key differences between thread-based and
+futures-based concurrency. In Listing 17-9, we’ll begin with just a single
+async block—<em>not</em> spawning a separate task as we spawned a separate thread.</p>
 <figure class="listing" id="listing-17-9">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
 </span><span class="boring">
 </span><span class="boring">fn main() {
 </span><span class="boring">    trpl::block_on(async {
@@ -419,17 +478,37 @@ hi number 9 from the first task!
         let received = rx.recv().await.unwrap();
         println!("received '{received}'");
 <span class="boring">    });
-</span><span class="boring">}</span></code></pre></pre>
+</span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-17-9">Listing 17-9</a>: Creating an async channel and assigning the two halves to <code>tx</code> and <code>rx</code></figcaption>
 </figure>
-<p data-x-en="Here, we use trpl::channel, an async version of the multiple-producer, single-consumer channel API we used with threads back in Chapter 16. The async version of the API is only a little different from the thread-based version: it uses a mutable rather than an immutable receiver rx, and its recv method produces a future we need to await rather than producing the value directly. Now we can send messages from the sender to the receiver. Notice that we don’t have to spawn a separate thread or even a task; we merely need to await the rx.recv call.">这里，我们使用<code>trpl::channel</code>，这是我们在第16章使用线程时使用的多生产者、单消费者通道API的异步版本。异步版本的API与基于线程的版本只有 slight 不同：它使用可变而非不可变的接收者<code>rx</code>，并且其<code>recv</code>方法生成一个我们需要等待的 future，而不是直接生成值。现在我们可以从发送者向接收者发送消息。请注意，我们不需要启动一个单独的线程甚至任务；我们只需要等待<code>rx.recv</code>调用。</p>
-<p data-x-en="The synchronous Receiver::recv method in std::mpsc::channel blocks until it receives a message. The trpl::Receiver::recv method does not, because it is async. Instead of blocking, it hands control back to the runtime until either a message is received or the send side of the channel closes. By contrast, we don’t await the send call, because it doesn’t block. It doesn’t need to, because the channel we’re sending it into is unbounded."><code>std::mpsc::channel</code> 中的同步 <code>Receiver::recv</code> 方法会阻塞，直到收到消息。而 <code>trpl::Receiver::recv</code> 方法不会阻塞，因为它是一个异步方法。它不会阻塞，而是将控制权交还给运行时，直到收到消息或通道的发送端关闭。相比之下，我们不会等待 <code>send</code> 调用，因为它不会阻塞。它不需要阻塞，因为我们发送到的通道是无界的。</p>
+<p>Here, we use <code>trpl::channel</code>, an async version of the multiple-producer,
+single-consumer channel API we used with threads back in Chapter 16. The async
+version of the API is only a little different from the thread-based version: it
+uses a mutable rather than an immutable receiver <code>rx</code>, and its <code>recv</code> method
+produces a future we need to await rather than producing the value directly.
+Now we can send messages from the sender to the receiver. Notice that we don’t
+have to spawn a separate thread or even a task; we merely need to await the
+<code>rx.recv</code> call.</p>
+<p>The synchronous <code>Receiver::recv</code> method in <code>std::mpsc::channel</code> blocks until it
+receives a message. The <code>trpl::Receiver::recv</code> method does not, because it is
+async. Instead of blocking, it hands control back to the runtime until either a
+message is received or the send side of the channel closes. By contrast, we
+don’t await the <code>send</code> call, because it doesn’t block. It doesn’t need to,
+because the channel we’re sending it into is unbounded.</p>
 <section class="note" aria-role="note">
-<p data-x-en="Note: Because all of this async code runs in an async block in a trpl::block_on call, everything within it can avoid blocking. However, the code outside it will block on the block_on function returning. That’s the whole point of the trpl::block_on function: it lets you choose where to block on some set of async code, and thus where to transition between sync and async code.">注意：因为所有这些异步代码都在一个异步块中运行，并且在 <code>trpl::block_on</code> 调用中，所以其中的所有内容都可以避免阻塞。然而，<em>外部</em> 代码将在 <code>block_on</code> 函数返回时阻塞。这就是 <code>trpl::block_on</code> 函数的全部意义：它让你可以 <em>选择</em> 在哪里阻塞某些异步代码集，从而决定在同步和异步代码之间转换的位置。</p>
+<p>Note: Because all of this async code runs in an async block in a
+<code>trpl::block_on</code> call, everything within it can avoid blocking. However, the
+code <em>outside</em> it will block on the <code>block_on</code> function returning. That’s the
+whole point of the <code>trpl::block_on</code> function: it lets you <em>choose</em> where to
+block on some set of async code, and thus where to transition between sync
+and async code.</p>
 </section>
-<p data-x-en="Notice two things about this example. First, the message will arrive right away. Second, although we use a future here, there’s no concurrency yet. Everything in the listing happens in sequence, just as it would if there were no futures involved.">注意这个例子的两个方面。首先，消息会立即到达。
-其次，虽然我们在这里使用了 future，但还没有并发。列表中的所有内容都是按顺序发生的，就像没有涉及 future 一样。</p>
-<p data-x-en="Let’s address the first part by sending a series of messages and sleeping in between them, as shown in Listing 17-10.">让我们先处理第一部分，通过发送一系列消息并在它们之间休眠，如清单 17-10 所示。</p>
+<p>Notice two things about this example. First, the message will arrive right
+away. Second, although we use a future here, there’s no concurrency yet.
+Everything in the listing happens in sequence, just as it would if there were
+no futures involved.</p>
+<p>Let’s address the first part by sending a series of messages and sleeping in
+between them, as shown in Listing 17-10.</p>
 <!-- We cannot test this one because it never stops! -->
 <figure class="listing" id="listing-17-10">
 <span class="file-name">Filename: src/main.rs</span>
@@ -460,17 +539,52 @@ hi number 9 from the first task!
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-17-10">Listing 17-10</a>: Sending and receiving multiple messages over the async channel and sleeping with an <code>await</code> between each message</figcaption>
 </figure>
-<p data-x-en="In addition to sending the messages, we need to receive them. In this case, because we know how many messages are coming in, we could do that manually by calling rx.recv().await four times. In the real world, though, we’ll generally be waiting on some unknown number of messages, so we need to keep waiting until we determine that there are no more messages.">除了发送消息外，我们还需要接收它们。在这种情况下，
-因为我们知道有多少消息传入，我们可以通过手动调用<code>rx.recv().await</code>四次来实现。然而，在现实世界中，我们通常会等待一些<em>未知</em>数量的消息，所以我们需要一直等待，直到确定没有更多消息。</p>
-<p data-x-en="In Listing 16-10, we used a for loop to process all the items received from a synchronous channel. Rust doesn’t yet have a way to use a for loop with an asynchronously produced series of items, however, so we need to use a loop we haven’t seen before: the while let conditional loop. This is the loop version of the if let construct we saw back in the “Concise Control Flow with if let and let...else” section in Chapter 6. The loop will continue executing as long as the pattern it specifies continues to match the value.">在清单 16-10 中，我们使用了一个 <code>for</code> 循环来处理从同步通道接收到的所有项。然而，Rust 尚未提供一种使用 <code>for</code> 循环处理 <em>异步生成</em> 的一系列项的方法，因此我们需要使用一个我们之前未见过的循环：<code>while let</code> 条件循环。这是我们在第 6 章 <a href="ch06-03-if-let.html">“使用 <code>if let</code> 和 <code>let...else</code> 简化控制流”</a><!-- ignore --> 部分中看到的 <code>if let</code> 构造的循环版本。只要循环指定的模式继续与值匹配，循环就会继续执行。</p>
-<p data-x-en="The rx.recv call produces a future, which we await. The runtime will pause the future until it is ready. Once a message arrives, the future will resolve to Some(message) as many times as a message arrives. When the channel closes, regardless of whether any messages have arrived, the future will instead resolve to None to indicate that there are no more values and thus we should stop polling—that is, stop awaiting."><code>rx.recv</code> 调用生成一个未来，我们等待它。运行时会暂停这个未来，直到它准备就绪。一旦消息到达，未来将解析为 <code>Some(message)</code>，每次消息到达都会如此。当通道关闭时，无论是否 <em>任何</em> 消息已到达，未来将解析为 <code>None</code>，以表示没有更多值，因此我们应该停止轮询——也就是说，停止等待。</p>
-<p data-x-en="The while let loop pulls all of this together. If the result of calling rx.recv().await is Some(message), we get access to the message and we can use it in the loop body, just as we could with if let. If the result is None, the loop ends. Every time the loop completes, it hits the await point again, so the runtime pauses it again until another message arrives."><code>while let</code> 循环将所有这些内容整合在一起。如果调用 <code>rx.recv().await</code> 的结果是 <code>Some(message)</code>，我们可以访问消息并在循环体中使用它，就像使用 <code>if let</code> 一样。如果结果是 <code>None</code>，循环结束。每次循环完成时，它都会再次遇到 await 点，因此运行时会再次暂停，直到另一条消息到达。</p>
-<p data-x-en="The code now successfully sends and receives all of the messages. Unfortunately, there are still a couple of problems. For one thing, the messages do not arrive at half-second intervals. They arrive all at once, 2 seconds (2,000 milliseconds) after we start the program. For another, this program also never exits! Instead, it waits forever for new messages. You will need to shut it down using ctrl-C.">代码现在成功地发送和接收了所有的消息。
-不幸的是，仍然存在一些问题。一方面，消息并不是每半秒到达一次。它们是在我们启动程序2秒（2,000毫秒）后一次性到达的。另一方面，这个程序也永远不会退出！相反，它会永远等待新的消息。您需要使用<kbd>ctrl</kbd>-<kbd>C</kbd>来关闭它。</p>
-<h4 id="code-within-one-async-block-executes-linearly"><a class="header" href="#code-within-one-async-block-executes-linearly">一个异步块中的代码线性执行</a></h4>
-<p data-x-en="Let’s start by examining why the messages come in all at once after the full delay, rather than coming in with delays between each one. Within a given async block, the order in which await keywords appear in the code is also the order in which they’re executed when the program runs.">让我们先来分析为什么消息会在完整的延迟后一次性到达，而不是每个消息之间有延迟。在给定的异步块中，<code>await</code> 关键字在代码中出现的顺序也是它们在程序运行时执行的顺序。</p>
-<p data-x-en="There’s only one async block in Listing 17-10, so everything in it runs linearly. There’s still no concurrency. All the tx.send calls happen, interspersed with all of the trpl::sleep calls and their associated await points. Only then does the while let loop get to go through any of the await points on the recv calls.">在清单 17-10 中只有一个异步块，因此其中的所有内容都是线性运行的。仍然没有并发。所有的 <code>tx.send</code> 调用都会发生，穿插着所有的 <code>trpl::sleep</code> 调用及其相关的 await 点。只有这样，<code>while let</code> 循环才能通过任何 <code>recv</code> 调用的 <code>await</code> 点。</p>
-<p data-x-en="To get the behavior we want, where the sleep delay happens between each message, we need to put the tx and rx operations in their own async blocks, as shown in Listing 17-11. Then the runtime can execute each of them separately using trpl::join, just as in Listing 17-8. Once again, we await the result of calling trpl::join, not the individual futures. If we awaited the individual futures in sequence, we would just end up back in a sequential flow—exactly what we’re trying not to do.">为了获得我们想要的行为，即在每条消息之间进行睡眠延迟，我们需要将 <code>tx</code> 和 <code>rx</code> 操作放在它们自己的异步块中，如清单 17-11 所示。然后运行时可以使用 <code>trpl::join</code> 分别执行它们，就像在清单 17-8 中一样。同样，我们等待调用 <code>trpl::join</code> 的结果，而不是单独的未来。如果我们按顺序等待单独的未来，我们最终会回到顺序流程——这正是我们试图避免的。</p>
+<p>In addition to sending the messages, we need to receive them. In this case,
+because we know how many messages are coming in, we could do that manually by
+calling <code>rx.recv().await</code> four times. In the real world, though, we’ll generally
+be waiting on some <em>unknown</em> number of messages, so we need to keep waiting
+until we determine that there are no more messages.</p>
+<p>In Listing 16-10, we used a <code>for</code> loop to process all the items received from a
+synchronous channel. Rust doesn’t yet have a way to use a <code>for</code> loop with an
+<em>asynchronously produced</em> series of items, however, so we need to use a loop we
+haven’t seen before: the <code>while let</code> conditional loop. This is the loop version
+of the <code>if let</code> construct we saw back in the <a href="ch06-03-if-let.html">“Concise Control Flow with <code>if let</code> and <code>let...else</code>”</a><!-- ignore --> section in Chapter 6. The loop
+will continue executing as long as the pattern it specifies continues to match
+the value.</p>
+<p>The <code>rx.recv</code> call produces a future, which we await. The runtime will pause
+the future until it is ready. Once a message arrives, the future will resolve
+to <code>Some(message)</code> as many times as a message arrives. When the channel closes,
+regardless of whether <em>any</em> messages have arrived, the future will instead
+resolve to <code>None</code> to indicate that there are no more values and thus we should
+stop polling—that is, stop awaiting.</p>
+<p>The <code>while let</code> loop pulls all of this together. If the result of calling
+<code>rx.recv().await</code> is <code>Some(message)</code>, we get access to the message and we can
+use it in the loop body, just as we could with <code>if let</code>. If the result is
+<code>None</code>, the loop ends. Every time the loop completes, it hits the await point
+again, so the runtime pauses it again until another message arrives.</p>
+<p>The code now successfully sends and receives all of the messages.
+Unfortunately, there are still a couple of problems. For one thing, the
+messages do not arrive at half-second intervals. They arrive all at once, 2
+seconds (2,000 milliseconds) after we start the program. For another, this
+program also never exits! Instead, it waits forever for new messages. You will
+need to shut it down using <kbd>ctrl</kbd>-<kbd>C</kbd>.</p>
+<h4 id="code-within-one-async-block-executes-linearly"><a class="header" href="#code-within-one-async-block-executes-linearly">Code Within One Async Block Executes Linearly</a></h4>
+<p>Let’s start by examining why the messages come in all at once after the full
+delay, rather than coming in with delays between each one. Within a given async
+block, the order in which <code>await</code> keywords appear in the code is also the order
+in which they’re executed when the program runs.</p>
+<p>There’s only one async block in Listing 17-10, so everything in it runs
+linearly. There’s still no concurrency. All the <code>tx.send</code> calls happen,
+interspersed with all of the <code>trpl::sleep</code> calls and their associated await
+points. Only then does the <code>while let</code> loop get to go through any of the
+<code>await</code> points on the <code>recv</code> calls.</p>
+<p>To get the behavior we want, where the sleep delay happens between each
+message, we need to put the <code>tx</code> and <code>rx</code> operations in their own async blocks,
+as shown in Listing 17-11. Then the runtime can execute each of them separately
+using <code>trpl::join</code>, just as in Listing 17-8. Once again, we await the result of
+calling <code>trpl::join</code>, not the individual futures. If we awaited the individual
+futures in sequence, we would just end up back in a sequential flow—exactly
+what we’re trying <em>not</em> to do.</p>
 <!-- We cannot test this one because it never stops! -->
 <figure class="listing" id="listing-17-11">
 <span class="file-name">Filename: src/main.rs</span>
@@ -507,24 +621,42 @@ hi number 9 from the first task!
 </span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-17-11">Listing 17-11</a>: Separating <code>send</code> and <code>recv</code> into their own <code>async</code> blocks and awaiting the futures for those blocks</figcaption>
 </figure>
-<p data-x-en="With the updated code in Listing 17-11, the messages get printed at 500-millisecond intervals, rather than all in a rush after 2 seconds.">随着列表 17-11 中更新的代码，消息以 500 毫秒的间隔打印，而不是在 2 秒后一口气全部打印。</p>
-<h4 id="moving-ownership-into-an-async-block"><a class="header" href="#moving-ownership-into-an-async-block">将所有权移入异步块</a></h4>
-<p data-x-en="The program still never exits, though, because of the way the while let loop interacts with trpl::join:">程序仍然永远不会退出，因为 <code>while let</code> 循环与 <code>trpl::join</code> 的交互方式：</p>
+<p>With the updated code in Listing 17-11, the messages get printed at
+500-millisecond intervals, rather than all in a rush after 2 seconds.</p>
+<h4 id="moving-ownership-into-an-async-block"><a class="header" href="#moving-ownership-into-an-async-block">Moving Ownership Into an Async Block</a></h4>
+<p>The program still never exits, though, because of the way the <code>while let</code> loop
+interacts with <code>trpl::join</code>:</p>
 <ul>
-<li data-x-en="The future returned from trpl::join completes only once both futures passed to it have completed.">从 <code>trpl::join</code> 返回的 future 只有在传递给它的 <em>两个</em> future 都完成时才会完成。</li>
-<li data-x-en="The tx_fut future completes once it finishes sleeping after sending the last message in vals."><code>tx_fut</code> 未来在发送 <code>vals</code> 中的最后一条消息后完成睡眠。</li>
-<li data-x-en="The rx_fut future won’t complete until the while let loop ends."><code>rx_fut</code> 未来不会完成，直到 <code>while let</code> 循环结束。</li>
-<li data-x-en="The while let loop won’t end until awaiting rx.recv produces None."><code>while let</code> 循环不会结束，直到等待 <code>rx.recv</code> 产生 <code>None</code>。</li>
-<li data-x-en="Awaiting rx.recv will return None only once the other end of the channel is closed.">等待 <code>rx.recv</code> 仅在通道的另一端关闭时返回 <code>None</code>。</li>
-<li data-x-en="The channel will close only if we call rx.close or when the sender side, tx, is dropped.">通道只有在我们调用<code>rx.close</code>或发送方<code>tx</code>被丢弃时才会关闭。</li>
-<li data-x-en="We don’t call rx.close anywhere, and tx won’t be dropped until the outermost async block passed to trpl::block_on ends.">我们 nowhere 调用 <code>rx.close</code>，并且 <code>tx</code> 不会在传递给 <code>trpl::block_on</code> 的最外层异步块结束之前被丢弃。</li>
-<li data-x-en="The block can’t end because it is blocked on trpl::join completing, which takes us back to the top of this list.">块无法结束，因为它被阻塞在 <code>trpl::join</code> 完成上，这又把我们带回到了这个列表的顶部。</li>
+<li>The future returned from <code>trpl::join</code> completes only once <em>both</em> futures
+passed to it have completed.</li>
+<li>The <code>tx_fut</code> future completes once it finishes sleeping after sending the last
+message in <code>vals</code>.</li>
+<li>The <code>rx_fut</code> future won’t complete until the <code>while let</code> loop ends.</li>
+<li>The <code>while let</code> loop won’t end until awaiting <code>rx.recv</code> produces <code>None</code>.</li>
+<li>Awaiting <code>rx.recv</code> will return <code>None</code> only once the other end of the channel
+is closed.</li>
+<li>The channel will close only if we call <code>rx.close</code> or when the sender side,
+<code>tx</code>, is dropped.</li>
+<li>We don’t call <code>rx.close</code> anywhere, and <code>tx</code> won’t be dropped until the
+outermost async block passed to <code>trpl::block_on</code> ends.</li>
+<li>The block can’t end because it is blocked on <code>trpl::join</code> completing, which
+takes us back to the top of this list.</li>
 </ul>
-<p data-x-en="Right now, the async block where we send the messages only borrows tx because sending a message doesn’t require ownership, but if we could move tx into that async block, it would be dropped once that block ends. In the “Capturing References or Moving Ownership” section in Chapter 13, you learned how to use the move keyword with closures, and, as discussed in the “Using move Closures with Threads” section in Chapter 16, we often need to move data into closures when working with threads. The same basic dynamics apply to async blocks, so the move keyword works with async blocks just as it does with closures.">目前，我们发送消息的异步块只<em>借用</em>了<code>tx</code>，因为发送消息不需要所有权，但如果我们可以将<code>tx</code><em>移动</em>到那个异步块中，那么一旦该块结束，<code>tx</code>就会被丢弃。在第13章的<a href="ch13-01-closures.html#capturing-references-or-moving-ownership">“捕获引用或移动所有权”</a><!-- ignore -->部分，你学习了如何在闭包中使用<code>move</code>关键字，而在第16章的<a href="ch16-01-threads.html#using-move-closures-with-threads">“使用<code>move</code>闭包与线程”</a><!-- ignore -->部分中，我们讨论了在使用线程时通常需要将数据移动到闭包中。同样的基本动态也适用于异步块，因此<code>move</code>关键字在异步块中的工作方式与在闭包中相同。</p>
-<p data-x-en="In Listing 17-12, we change the block used to send messages from async to async move.">在清单 17-12 中，我们将用于发送消息的块从 <code>async</code> 更改为 <code>async move</code>。</p>
+<p>Right now, the async block where we send the messages only <em>borrows</em> <code>tx</code>
+because sending a message doesn’t require ownership, but if we could <em>move</em>
+<code>tx</code> into that async block, it would be dropped once that block ends. In the
+<a href="ch13-01-closures.html#capturing-references-or-moving-ownership">“Capturing References or Moving Ownership”</a><!-- ignore -->
+section in Chapter 13, you learned how to use the <code>move</code> keyword with closures,
+and, as discussed in the <a href="ch16-01-threads.html#using-move-closures-with-threads">“Using <code>move</code> Closures with
+Threads”</a><!-- ignore --> section in Chapter 16, we often need to
+move data into closures when working with threads. The same basic dynamics
+apply to async blocks, so the <code>move</code> keyword works with async blocks just as it
+does with closures.</p>
+<p>In Listing 17-12, we change the block used to send messages from <code>async</code> to
+<code>async move</code>.</p>
 <figure class="listing" id="listing-17-12">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
 </span><span class="boring">
 </span><span class="boring">use std::time::Duration;
 </span><span class="boring">
@@ -555,15 +687,19 @@ hi number 9 from the first task!
 </span><span class="boring">
 </span><span class="boring">        trpl::join(tx_fut, rx_fut).await;
 </span><span class="boring">    });
-</span><span class="boring">}</span></code></pre></pre>
+</span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-17-12">Listing 17-12</a>: A revision of the code from Listing 17-11 that correctly shuts down when complete</figcaption>
 </figure>
-<p data-x-en="When we run this version of the code, it shuts down gracefully after the last message is sent and received. Next, let’s see what would need to change to send data from more than one future.">当我们运行<em>这个</em>版本的代码时，它会在最后一条消息发送和接收后优雅地关闭。接下来，让我们看看如果要从多个未来发送数据需要做哪些更改。</p>
-<h4 id="joining-a-number-of-futures-with-the-join-macro"><a class="header" href="#使用-join-宏连接多个未来">使用 <code>join!</code> 宏连接多个未来</a></h4>
-<p data-x-en="This async channel is also a multiple-producer channel, so we can call clone on tx if we want to send messages from multiple futures, as shown in Listing 17-13.">这个异步通道也是一个多生产者通道，因此如果我们要从多个 future 发送消息，可以对 <code>tx</code> 调用 <code>clone</code>，如清单 17-13 所示。</p>
+<p>When we run <em>this</em> version of the code, it shuts down gracefully after the last
+message is sent and received. Next, let’s see what would need to change to send
+data from more than one future.</p>
+<h4 id="joining-a-number-of-futures-with-the-join-macro"><a class="header" href="#joining-a-number-of-futures-with-the-join-macro">Joining a Number of Futures with the <code>join!</code> Macro</a></h4>
+<p>This async channel is also a multiple-producer channel, so we can call <code>clone</code>
+on <code>tx</code> if we want to send messages from multiple futures, as shown in Listing
+17-13.</p>
 <figure class="listing" id="listing-17-13">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">extern crate trpl; // required for mdbook test
 </span><span class="boring">
 </span><span class="boring">use std::time::Duration;
 </span><span class="boring">
@@ -608,13 +744,25 @@ hi number 9 from the first task!
 
         trpl::join!(tx1_fut, tx_fut, rx_fut);
 <span class="boring">    });
-</span><span class="boring">}</span></code></pre></pre>
+</span><span class="boring">}</span></code></pre>
 <figcaption><a href="#listing-17-13">Listing 17-13</a>: Using multiple producers with async blocks</figcaption>
 </figure>
-<p data-x-en="First, we clone tx, creating tx1 outside the first async block. We move tx1 into that block just as we did before with tx. Then, later, we move the original tx into a new async block, where we send more messages on a slightly slower delay. We happen to put this new async block after the async block for receiving messages, but it could go before it just as well. The key is the order in which the futures are awaited, not in which they’re created.">首先，我们克隆 <code>tx</code>，在第一个异步块外部创建 <code>tx1</code>。我们将 <code>tx1</code> 移入该块，就像之前处理 <code>tx</code> 一样。然后，稍后，我们将原始的 <code>tx</code> 移入一个 <em>新的</em> 异步块，在那里我们以稍微慢一点的延迟发送更多消息。我们碰巧将这个新的异步块放在接收消息的异步块之后，但它也可以放在前面。关键在于这些未来的等待顺序，而不是它们的创建顺序。</p>
-<p data-x-en="Both of the async blocks for sending messages need to be async move blocks so that both tx and tx1 get dropped when those blocks finish. Otherwise, we’ll end up back in the same infinite loop we started out in.">两个用于发送消息的异步块都需要是 <code>async move</code> 块，以便在这两个块结束时 <code>tx</code> 和 <code>tx1</code> 都能被丢弃。否则，我们将会回到最初的那个无限循环中。</p>
-<p data-x-en="Finally, we switch from trpl::join to trpl::join! to handle the additional future: the join! macro awaits an arbitrary number of futures where we know the number of futures at compile time. We’ll discuss awaiting a collection of an unknown number of futures later in this chapter.">最后，我们将从 <code>trpl::join</code> 切换到 <code>trpl::join!</code> 以处理额外的未来：<code>join!</code> 宏可以等待任意数量的未来，而这些未来的数量在编译时是已知的。我们将在本章后面讨论等待未知数量的未来集合。</p>
-<p data-x-en="Now we see all the messages from both sending futures, and because the sending futures use slightly different delays after sending, the messages are also received at those different intervals:">现在我们可以看到来自两个发送未来的所有消息，因为发送未来在发送后使用了略有不同的延迟，所以消息也在这些不同的时间间隔内被接收：</p>
+<p>First, we clone <code>tx</code>, creating <code>tx1</code> outside the first async block. We move
+<code>tx1</code> into that block just as we did before with <code>tx</code>. Then, later, we move the
+original <code>tx</code> into a <em>new</em> async block, where we send more messages on a
+slightly slower delay. We happen to put this new async block after the async
+block for receiving messages, but it could go before it just as well. The key is
+the order in which the futures are awaited, not in which they’re created.</p>
+<p>Both of the async blocks for sending messages need to be <code>async move</code> blocks so
+that both <code>tx</code> and <code>tx1</code> get dropped when those blocks finish. Otherwise, we’ll
+end up back in the same infinite loop we started out in.</p>
+<p>Finally, we switch from <code>trpl::join</code> to <code>trpl::join!</code> to handle the additional
+future: the <code>join!</code> macro awaits an arbitrary number of futures where we know
+the number of futures at compile time. We’ll discuss awaiting a collection of
+an unknown number of futures later in this chapter.</p>
+<p>Now we see all the messages from both sending futures, and because the sending
+futures use slightly different delays after sending, the messages are also
+received at those different intervals:</p>
 <!-- Not extracting output because changes to this output aren't significant;
 the changes are likely to be due to the threads running differently rather than
 changes in the compiler -->
@@ -627,18 +775,21 @@ received 'future'
 received 'for'
 received 'you'
 </code></pre>
-<p data-x-en="We’ve explored how to use message passing to send data between futures, how code within an async block runs sequentially, how to move ownership into an async block, and how to join multiple futures. Next, let’s discuss how and why to tell the runtime it can switch to another task.">我们已经探讨了如何使用消息传递在 futures 之间发送数据，async 块内的代码如何按顺序运行，如何将所有权移动到 async 块中，以及如何合并多个 futures。接下来，让我们讨论如何以及为什么告诉运行时它可以切换到另一个任务。</p>
+<p>We’ve explored how to use message passing to send data between futures, how
+code within an async block runs sequentially, how to move ownership into an
+async block, and how to join multiple futures. Next, let’s discuss how and why
+to tell the runtime it can switch to another task.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch17-01-futures-and-syntax.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch17-03-more-futures.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -648,16 +799,21 @@ received 'you'
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch17-01-futures-and-syntax.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch17-03-more-futures.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -666,16 +822,16 @@ received 'you'
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 

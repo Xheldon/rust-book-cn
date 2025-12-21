@@ -10,27 +10,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="ferris.css">
-        <link rel="stylesheet" href="theme/2018-edition.css">
-        <link rel="stylesheet" href="theme/semantic-notes.css">
-        <link rel="stylesheet" href="theme/listing.css">
+        <link rel="stylesheet" href="ferris-d33b75bf.css">
+        <link rel="stylesheet" href="theme/2018-edition-4e126c62.css">
+        <link rel="stylesheet" href="theme/semantic-notes-9b5766c0.css">
+        <link rel="stylesheet" href="theme/listing-cab26221.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -38,10 +37,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "searchindex-6a1da8cc.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="toc-b9c23a4c.js"></script>
     <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
@@ -124,7 +123,7 @@ blockquote {
             </div>
         </div>
     </div>
-    <div id="body-container">
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -153,12 +152,12 @@ blockquote {
             html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
             let sidebar = null;
-            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
@@ -173,39 +172,39 @@ blockquote {
             }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
                 <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
             </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky"><div id="banner-info">本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch20-02-advanced-traits.json" target="_blank">我来翻译！</a></div>
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"></path></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"></path></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"></path></svg></span>
                         </button>
                     </div>
 
@@ -213,51 +212,66 @@ blockquote {
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class="fa-svg" id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"></path></svg></span>
                         </a>
                         <a href="https://github.com/rust-lang/book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></span>
                         </a>
 
-                    <a href="https://github.com/Xheldon/rust-book-cn" target="_blank"><i class="fa fa-language"></i></a><a href="https://www.xheldon.com" target="_blank"><i class="fa fa-id-card"></i></a></div>
+                    </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
                         <div class="search-wrapper">
-                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
                             <div class="spinner-wrapper">
-                                <i class="fa fa-spinner fa-spin"></i>
+                                <span class="fa-svg" id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"></path></svg></span>
                             </div>
                         </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
-                        <h2 id="advanced-traits"><a class="header" href="#advanced-traits">高级特性</a></h2>
-<p data-x-en="We first covered traits in the “Defining Shared Behavior with Traits” section in Chapter 10, but we didn’t discuss the more advanced details. Now that you know more about Rust, we can get into the nitty-gritty.">我们在第 10 章的<a href="ch10-02-traits.html">“使用特质定义共享行为”</a>部分首次介绍了特质，但没有讨论更高级的细节。现在你对 Rust 有了更多的了解，我们可以深入探讨这些细节。</p>
+                        <h2 id="advanced-traits"><a class="header" href="#advanced-traits">Advanced Traits</a></h2>
+<p>We first covered traits in the <a href="ch10-02-traits.html">“Defining Shared Behavior with
+Traits”</a><!-- ignore --> section in Chapter 10, but we didn’t discuss
+the more advanced details. Now that you know more about Rust, we can get into
+the nitty-gritty.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="specifying-placeholder-types-in-trait-definitions-with-associated-types"></a>
 <a id="associated-types"></a></p>
-<h3 id="defining-traits-with-associated-types"><a class="header" href="#defining-traits-with-associated-types">定义带有关联类型的特质</a></h3>
-<p data-x-en="Associated types connect a type placeholder with a trait such that the trait method definitions can use these placeholder types in their signatures. The implementor of a trait will specify the concrete type to be used instead of the placeholder type for the particular implementation. That way, we can define a trait that uses some types without needing to know exactly what those types are until the trait is implemented."><em>关联类型</em> 将类型占位符与特征关联起来，使得特征方法定义可以在其签名中使用这些占位符类型。特征的实现者将指定在特定实现中使用的具体类型，以替代占位符类型。这样，我们可以在不知道这些类型具体是什么的情况下定义一个使用某些类型的特征，直到特征被实现。</p>
-<p data-x-en="We’ve described most of the advanced features in this chapter as being rarely needed. Associated types are somewhere in the middle: They’re used more rarely than features explained in the rest of the book but more commonly than many of the other features discussed in this chapter.">我们已经将本章中的大多数高级功能描述为很少需要的。关联类型处于中间位置：它们的使用频率低于书中其他部分解释的功能，但高于本章讨论的许多其他功能。</p>
-<p data-x-en="One example of a trait with an associated type is the Iterator trait that the standard library provides. The associated type is named Item and stands in for the type of the values the type implementing the Iterator trait is iterating over. The definition of the Iterator trait is as shown in Listing 20-13.">一个带有关联类型的特征的例子是标准库提供的 <code>Iterator</code> 特征。关联类型名为 <code>Item</code>，代表了实现 <code>Iterator</code> 特征的类型所迭代的值的类型。 <code>Iterator</code> 特征的定义如清单 20-13 所示。</p>
+<h3 id="defining-traits-with-associated-types"><a class="header" href="#defining-traits-with-associated-types">Defining Traits with Associated Types</a></h3>
+<p><em>Associated types</em> connect a type placeholder with a trait such that the trait
+method definitions can use these placeholder types in their signatures. The
+implementor of a trait will specify the concrete type to be used instead of the
+placeholder type for the particular implementation. That way, we can define a
+trait that uses some types without needing to know exactly what those types are
+until the trait is implemented.</p>
+<p>We’ve described most of the advanced features in this chapter as being rarely
+needed. Associated types are somewhere in the middle: They’re used more rarely
+than features explained in the rest of the book but more commonly than many of
+the other features discussed in this chapter.</p>
+<p>One example of a trait with an associated type is the <code>Iterator</code> trait that the
+standard library provides. The associated type is named <code>Item</code> and stands in
+for the type of the values the type implementing the <code>Iterator</code> trait is
+iterating over. The definition of the <code>Iterator</code> trait is as shown in Listing
+20-13.</p>
 <figure class="listing" id="listing-20-13">
 <pre><code class="language-rust noplayground">pub trait Iterator {
     type Item;
@@ -266,8 +280,15 @@ blockquote {
 }</code></pre>
 <figcaption><a href="#listing-20-13">Listing 20-13</a>: The definition of the <code>Iterator</code> trait that has an associated type <code>Item</code></figcaption>
 </figure>
-<p data-x-en="The type Item is a placeholder, and the next method’s definition shows that it will return values of type Option<Self::Item>. Implementors of the Iterator trait will specify the concrete type for Item, and the next method will return an Option containing a value of that concrete type.">类型 <code>Item</code> 是一个占位符，<code>next</code> 方法的定义显示它将返回 <code>Option&lt;Self::Item&gt;</code> 类型的值。实现 <code>Iterator</code> 特性的代码将为 <code>Item</code> 指定具体的类型，<code>next</code> 方法将返回一个包含该具体类型值的 <code>Option</code>。</p>
-<p data-x-en="Associated types might seem like a similar concept to generics, in that the latter allow us to define a function without specifying what types it can handle. To examine the difference between the two concepts, we’ll look at an implementation of the Iterator trait on a type named Counter that specifies the Item type is u32:">关联类型可能看起来与泛型类似，因为后者允许我们在不指定可以处理的类型的情况下定义函数。为了考察这两个概念之间的区别，我们将查看一个在名为 <code>Counter</code> 的类型上实现 <code>Iterator</code> 特性的示例，该示例指定了 <code>Item</code> 类型为 <code>u32</code>：</p>
+<p>The type <code>Item</code> is a placeholder, and the <code>next</code> method’s definition shows that
+it will return values of type <code>Option&lt;Self::Item&gt;</code>. Implementors of the
+<code>Iterator</code> trait will specify the concrete type for <code>Item</code>, and the <code>next</code>
+method will return an <code>Option</code> containing a value of that concrete type.</p>
+<p>Associated types might seem like a similar concept to generics, in that the
+latter allow us to define a function without specifying what types it can
+handle. To examine the difference between the two concepts, we’ll look at an
+implementation of the <code>Iterator</code> trait on a type named <code>Counter</code> that specifies
+the <code>Item</code> type is <code>u32</code>:</p>
 <figure class="listing">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust ignore"><span class="boring">struct Counter {
@@ -294,25 +315,51 @@ blockquote {
 </span><span class="boring">    }
 </span><span class="boring">}</span></code></pre>
 </figure>
-<p data-x-en="This syntax seems comparable to that of generics. So, why not just define the Iterator trait with generics, as shown in Listing 20-14?">这种语法似乎与泛型的语法相当。那么，为什么不直接使用泛型来定义 <code>Iterator</code> 特性，如列表 20-14 所示？</p>
+<p>This syntax seems comparable to that of generics. So, why not just define the
+<code>Iterator</code> trait with generics, as shown in Listing 20-14?</p>
 <figure class="listing" id="listing-20-14">
 <pre><code class="language-rust noplayground">pub trait Iterator&lt;T&gt; {
     fn next(&amp;mut self) -&gt; Option&lt;T&gt;;
 }</code></pre>
 <figcaption><a href="#listing-20-14">Listing 20-14</a>: A hypothetical definition of the <code>Iterator</code> trait using generics</figcaption>
 </figure>
-<p data-x-en="The difference is that when using generics, as in Listing 20-14, we must annotate the types in each implementation; because we can also implement Iterator<String> for Counter or any other type, we could have multiple implementations of Iterator for Counter. In other words, when a trait has a generic parameter, it can be implemented for a type multiple times, changing the concrete types of the generic type parameters each time. When we use the next method on Counter, we would have to provide type annotations to indicate which implementation of Iterator we want to use.">区别在于，当使用泛型时，如清单 20-14 所示，我们必须在每个实现中注解类型；因为我们可以为 <code>Counter</code> 实现 <code>Iterator&lt;String&gt;</code> 或任何其他类型，所以我们可以为 <code>Counter</code> 提供多个 <code>Iterator</code> 的实现。换句话说，当一个特质有一个泛型参数时，它可以多次为一个类型实现，每次改变泛型类型参数的具体类型。当我们使用 <code>Counter</code> 上的 <code>next</code> 方法时，我们必须提供类型注解来指示我们想要使用哪个 <code>Iterator</code> 的实现。</p>
-<p data-x-en="With associated types, we don’t need to annotate types, because we can’t implement a trait on a type multiple times. In Listing 20-13 with the definition that uses associated types, we can choose what the type of Item will be only once because there can be only one impl Iterator for Counter. We don’t have to specify that we want an iterator of u32 values everywhere we call next on Counter.">使用关联类型时，我们不需要标注类型，因为我们不能对同一类型多次实现同一特征。在使用关联类型的定义中（如清单 20-13 所示），我们只能选择一次 <code>Item</code> 的类型，因为只能有一个 <code>impl Iterator for Counter</code>。我们不必在每次调用 <code>Counter</code> 的 <code>next</code> 方法时都指定我们想要一个 <code>u32</code> 值的迭代器。</p>
-<p data-x-en="Associated types also become part of the trait’s contract: Implementors of the trait must provide a type to stand in for the associated type placeholder. Associated types often have a name that describes how the type will be used, and documenting the associated type in the API documentation is a good practice.">关联类型也成为特质的一部分契约：特质的实现者必须提供一个类型来替代关联类型占位符。关联类型通常有一个描述类型将如何使用的名称，并在API文档中记录关联类型是一个良好的实践。</p>
+<p>The difference is that when using generics, as in Listing 20-14, we must
+annotate the types in each implementation; because we can also implement
+<code>Iterator&lt;String&gt; for Counter</code> or any other type, we could have multiple
+implementations of <code>Iterator</code> for <code>Counter</code>. In other words, when a trait has a
+generic parameter, it can be implemented for a type multiple times, changing
+the concrete types of the generic type parameters each time. When we use the
+<code>next</code> method on <code>Counter</code>, we would have to provide type annotations to
+indicate which implementation of <code>Iterator</code> we want to use.</p>
+<p>With associated types, we don’t need to annotate types, because we can’t
+implement a trait on a type multiple times. In Listing 20-13 with the
+definition that uses associated types, we can choose what the type of <code>Item</code>
+will be only once because there can be only one <code>impl Iterator for Counter</code>. We
+don’t have to specify that we want an iterator of <code>u32</code> values everywhere we
+call <code>next</code> on <code>Counter</code>.</p>
+<p>Associated types also become part of the trait’s contract: Implementors of the
+trait must provide a type to stand in for the associated type placeholder.
+Associated types often have a name that describes how the type will be used,
+and documenting the associated type in the API documentation is a good practice.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="default-generic-type-parameters-and-operator-overloading"></a></p>
-<h3 id="using-default-generic-parameters-and-operator-overloading"><a class="header" href="#using-default-generic-parameters-and-operator-overloading">使用默认泛型参数和运算符重载</a></h3>
-<p data-x-en="When we use generic type parameters, we can specify a default concrete type for the generic type. This eliminates the need for implementors of the trait to specify a concrete type if the default type works. You specify a default type when declaring a generic type with the <PlaceholderType=ConcreteType> syntax.">当我们使用泛型类型参数时，可以为泛型类型指定一个默认的具体类型。这消除了实现特质时如果默认类型适用则需要指定具体类型的必要。您可以在声明泛型类型时使用<code>&lt;PlaceholderType=ConcreteType&gt;</code>语法来指定默认类型。</p>
-<p data-x-en="A great example of a situation where this technique is useful is with operator overloading, in which you customize the behavior of an operator (such as +) in particular situations.">一个很好的例子是 <em>运算符重载</em>，在这种情况下，您可以在特定情况下自定义运算符（如 <code>+</code>）的行为。</p>
-<p data-x-en="Rust doesn’t allow you to create your own operators or overload arbitrary operators. But you can overload the operations and corresponding traits listed in std::ops by implementing the traits associated with the operator. For example, in Listing 20-15, we overload the + operator to add two Point instances together. We do this by implementing the Add trait on a Point struct.">Rust 不允许你创建自己的运算符或重载任意运算符。但你可以通过实现与运算符关联的特征来重载 <code>std::ops</code> 中列出的操作和相应的特征。例如，在示例 20-15 中，我们重载了 <code>+</code> 运算符以将两个 <code>Point</code> 实例相加。我们通过在 <code>Point</code> 结构体上实现 <code>Add</code> 特征来实现这一点。</p>
+<h3 id="using-default-generic-parameters-and-operator-overloading"><a class="header" href="#using-default-generic-parameters-and-operator-overloading">Using Default Generic Parameters and Operator Overloading</a></h3>
+<p>When we use generic type parameters, we can specify a default concrete type for
+the generic type. This eliminates the need for implementors of the trait to
+specify a concrete type if the default type works. You specify a default type
+when declaring a generic type with the <code>&lt;PlaceholderType=ConcreteType&gt;</code> syntax.</p>
+<p>A great example of a situation where this technique is useful is with <em>operator
+overloading</em>, in which you customize the behavior of an operator (such as <code>+</code>)
+in particular situations.</p>
+<p>Rust doesn’t allow you to create your own operators or overload arbitrary
+operators. But you can overload the operations and corresponding traits listed
+in <code>std::ops</code> by implementing the traits associated with the operator. For
+example, in Listing 20-15, we overload the <code>+</code> operator to add two <code>Point</code>
+instances together. We do this by implementing the <code>Add</code> trait on a <code>Point</code>
+struct.</p>
 <figure class="listing" id="listing-20-15">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">use std::ops::Add;
+<pre class="playground"><code class="language-rust edition2024">use std::ops::Add;
 
 #[derive(Debug, Copy, Clone, PartialEq)]
 struct Point {
@@ -336,24 +383,41 @@ fn main() {
         Point { x: 1, y: 0 } + Point { x: 2, y: 3 },
         Point { x: 3, y: 3 }
     );
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-20-15">Listing 20-15</a>: Implementing the <code>Add</code> trait to overload the <code>+</code> operator for <code>Point</code> instances</figcaption>
 </figure>
-<p data-x-en="The add method adds the x values of two Point instances and the y values of two Point instances to create a new Point. The Add trait has an associated type named Output that determines the type returned from the add method."><code>add</code> 方法将两个 <code>Point</code> 实例的 <code>x</code> 值和两个 <code>Point</code> 实例的 <code>y</code> 值相加，以创建一个新的 <code>Point</code>。 <code>Add</code> 特性有一个名为 <code>Output</code> 的关联类型，用于确定 <code>add</code> 方法的返回类型。</p>
-<p data-x-en="The default generic type in this code is within the Add trait. Here is its definition:">此代码中的默认泛型类型在 <code>Add</code> 特性中。这是它的定义：</p>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
+<p>The <code>add</code> method adds the <code>x</code> values of two <code>Point</code> instances and the <code>y</code>
+values of two <code>Point</code> instances to create a new <code>Point</code>. The <code>Add</code> trait has an
+associated type named <code>Output</code> that determines the type returned from the <code>add</code>
+method.</p>
+<p>The default generic type in this code is within the <code>Add</code> trait. Here is its
+definition:</p>
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>trait Add&lt;Rhs=Self&gt; {
     type Output;
 
     fn add(self, rhs: Rhs) -&gt; Self::Output;
 }
-<span class="boring">}</span></code></pre></pre>
-<p data-x-en="This code should look generally familiar: a trait with one method and an associated type. The new part is Rhs=Self: This syntax is called default type parameters. The Rhs generic type parameter (short for “right-hand side”) defines the type of the rhs parameter in the add method. If we don’t specify a concrete type for Rhs when we implement the Add trait, the type of Rhs will default to Self, which will be the type we’re implementing Add on.">这段代码应该看起来很熟悉：一个带有方法和关联类型的特征。新的部分是<code>Rhs=Self</code>：这种语法称为<em>默认类型参数</em>。<code>Rhs</code>泛型类型参数（代表“右侧”）定义了<code>add</code>方法中<code>rhs</code>参数的类型。如果我们不在实现<code>Add</code>特征时指定<code>Rhs</code>的具体类型，<code>Rhs</code>的类型将默认为<code>Self</code>，即我们正在实现<code>Add</code>的类型。</p>
-<p data-x-en="When we implemented Add for Point, we used the default for Rhs because we wanted to add two Point instances. Let’s look at an example of implementing the Add trait where we want to customize the Rhs type rather than using the default.">当我们为 <code>Point</code> 实现 <code>Add</code> 时，我们使用了 <code>Rhs</code> 的默认值，因为我们
-希望添加两个 <code>Point</code> 实例。让我们来看一个实现
-<code>Add</code> 特性时自定义 <code>Rhs</code> 类型而不是使用默认值的例子。</p>
-<p data-x-en="We have two structs, Millimeters and Meters, holding values in different units. This thin wrapping of an existing type in another struct is known as the newtype pattern, which we describe in more detail in the “Implementing External Traits with the Newtype Pattern” section. We want to add values in millimeters to values in meters and have the implementation of Add do the conversion correctly. We can implement Add for Millimeters with Meters as the Rhs, as shown in Listing 20-16.">我们有两个结构体，<code>Millimeters</code> 和 <code>Meters</code>，它们保存不同单位的值。这种在另一个结构体中对现有类型进行薄包装的做法被称为 <em>newtype 模式</em>，我们在 <a href="ch20-02-advanced-traits.html#implementing-external-traits-with-the-newtype-pattern">“使用 newtype 模式实现外部特性”</a> 部分中对此进行了更详细的描述。我们希望将毫米值加到米值上，并让 <code>Add</code> 的实现正确地进行转换。我们可以为 <code>Millimeters</code> 实现 <code>Add</code>，并将 <code>Meters</code> 作为 <code>Rhs</code>，如列表 20-16 所示。</p>
+<span class="boring">}</span></code></pre>
+<p>This code should look generally familiar: a trait with one method and an
+associated type. The new part is <code>Rhs=Self</code>: This syntax is called <em>default
+type parameters</em>. The <code>Rhs</code> generic type parameter (short for “right-hand
+side”) defines the type of the <code>rhs</code> parameter in the <code>add</code> method. If we don’t
+specify a concrete type for <code>Rhs</code> when we implement the <code>Add</code> trait, the type
+of <code>Rhs</code> will default to <code>Self</code>, which will be the type we’re implementing
+<code>Add</code> on.</p>
+<p>When we implemented <code>Add</code> for <code>Point</code>, we used the default for <code>Rhs</code> because we
+wanted to add two <code>Point</code> instances. Let’s look at an example of implementing
+the <code>Add</code> trait where we want to customize the <code>Rhs</code> type rather than using the
+default.</p>
+<p>We have two structs, <code>Millimeters</code> and <code>Meters</code>, holding values in different
+units. This thin wrapping of an existing type in another struct is known as the
+<em>newtype pattern</em>, which we describe in more detail in the <a href="ch20-02-advanced-traits.html#implementing-external-traits-with-the-newtype-pattern">“Implementing
+External Traits with the Newtype Pattern”</a><!-- ignore --> section. We
+want to add values in millimeters to values in meters and have the
+implementation of <code>Add</code> do the conversion correctly. We can implement <code>Add</code> for
+<code>Millimeters</code> with <code>Meters</code> as the <code>Rhs</code>, as shown in Listing 20-16.</p>
 <figure class="listing" id="listing-20-16">
 <span class="file-name">Filename: src/lib.rs</span>
 <pre><code class="language-rust noplayground">use std::ops::Add;
@@ -370,24 +434,39 @@ impl Add&lt;Meters&gt; for Millimeters {
 }</code></pre>
 <figcaption><a href="#listing-20-16">Listing 20-16</a>: Implementing the <code>Add</code> trait on <code>Millimeters</code> to add <code>Millimeters</code> and <code>Meters</code></figcaption>
 </figure>
-<p data-x-en="To add Millimeters and Meters, we specify impl Add<Meters> to set the value of the Rhs type parameter instead of using the default of Self.">要添加 <code>Millimeters</code> 和 <code>Meters</code>，我们指定 <code>impl Add&lt;Meters&gt;</code> 以设置 <code>Rhs</code> 类型参数的值，而不是使用默认的 <code>Self</code>。</p>
-<p data-x-en="You’ll use default type parameters in two main ways:">你将主要以两种方式使用默认类型参数：</p>
+<p>To add <code>Millimeters</code> and <code>Meters</code>, we specify <code>impl Add&lt;Meters&gt;</code> to set the
+value of the <code>Rhs</code> type parameter instead of using the default of <code>Self</code>.</p>
+<p>You’ll use default type parameters in two main ways:</p>
 <ol>
-<li data-x-en="To extend a type without breaking existing code">为了在不破坏现有代码的情况下扩展类型，</li>
-<li data-x-en="To allow customization in specific cases most users won’t need">为了允许在大多数用户不需要的特定情况下进行自定义，</li>
+<li>To extend a type without breaking existing code</li>
+<li>To allow customization in specific cases most users won’t need</li>
 </ol>
-<p data-x-en="The standard library’s Add trait is an example of the second purpose: Usually, you’ll add two like types, but the Add trait provides the ability to customize beyond that. Using a default type parameter in the Add trait definition means you don’t have to specify the extra parameter most of the time. In other words, a bit of implementation boilerplate isn’t needed, making it easier to use the trait.">标准库的<code>Add</code>特征是第二个目的的一个例子：
-通常，你会添加两个相同类型的值，但<code>Add</code>特征提供了超出这一点的自定义能力。在<code>Add</code>特征定义中使用默认类型参数意味着大多数时候你不必指定额外的参数。换句话说，不需要一些实现样板代码，使得使用该特征更加容易。</p>
-<p data-x-en="The first purpose is similar to the second but in reverse: If you want to add a type parameter to an existing trait, you can give it a default to allow extension of the functionality of the trait without breaking the existing implementation code.">第一个目的与第二个类似但相反：如果您想为现有特征添加类型参数，可以为其提供默认值，以便在不破坏现有实现代码的情况下扩展特征的功能。</p>
+<p>The standard library’s <code>Add</code> trait is an example of the second purpose:
+Usually, you’ll add two like types, but the <code>Add</code> trait provides the ability to
+customize beyond that. Using a default type parameter in the <code>Add</code> trait
+definition means you don’t have to specify the extra parameter most of the
+time. In other words, a bit of implementation boilerplate isn’t needed, making
+it easier to use the trait.</p>
+<p>The first purpose is similar to the second but in reverse: If you want to add a
+type parameter to an existing trait, you can give it a default to allow
+extension of the functionality of the trait without breaking the existing
+implementation code.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="fully-qualified-syntax-for-disambiguation-calling-methods-with-the-same-name"></a>
 <a id="disambiguating-between-methods-with-the-same-name"></a></p>
-<h3 id="disambiguating-between-identically-named-methods"><a class="header" href="#disambiguating-between-identically-named-methods">区分同名方法</a></h3>
-<p data-x-en="Nothing in Rust prevents a trait from having a method with the same name as another trait’s method, nor does Rust prevent you from implementing both traits on one type. It’s also possible to implement a method directly on the type with the same name as methods from traits.">Rust 中没有任何东西阻止一个 trait 拥有与另一个 trait 的方法同名的方法，Rust 也不会阻止你在同一类型上实现这两个 trait。还可以直接在类型上实现与 trait 方法同名的方法。</p>
-<p data-x-en="When calling methods with the same name, you’ll need to tell Rust which one you want to use. Consider the code in Listing 20-17 where we’ve defined two traits, Pilot and Wizard, that both have a method called fly. We then implement both traits on a type Human that already has a method named fly implemented on it. Each fly method does something different.">当调用同名方法时，你需要告诉 Rust 你想要使用哪一个。考虑列表 20-17 中的代码，我们定义了两个特质，<code>Pilot</code> 和 <code>Wizard</code>，它们都有一个名为 <code>fly</code> 的方法。然后我们在一个已经实现了名为 <code>fly</code> 的方法的类型 <code>Human</code> 上实现了这两个特质。每个 <code>fly</code> 方法都做不同的事情。</p>
+<h3 id="disambiguating-between-identically-named-methods"><a class="header" href="#disambiguating-between-identically-named-methods">Disambiguating Between Identically Named Methods</a></h3>
+<p>Nothing in Rust prevents a trait from having a method with the same name as
+another trait’s method, nor does Rust prevent you from implementing both traits
+on one type. It’s also possible to implement a method directly on the type with
+the same name as methods from traits.</p>
+<p>When calling methods with the same name, you’ll need to tell Rust which one you
+want to use. Consider the code in Listing 20-17 where we’ve defined two traits,
+<code>Pilot</code> and <code>Wizard</code>, that both have a method called <code>fly</code>. We then implement
+both traits on a type <code>Human</code> that already has a method named <code>fly</code> implemented
+on it. Each <code>fly</code> method does something different.</p>
 <figure class="listing" id="listing-20-17">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">trait Pilot {
+<pre class="playground"><code class="language-rust edition2024">trait Pilot {
     fn fly(&amp;self);
 }
 
@@ -415,13 +494,14 @@ impl Human {
     }
 }
 <span class="boring">
-</span><span class="boring">fn main() {}</span></code></pre></pre>
+</span><span class="boring">fn main() {}</span></code></pre>
 <figcaption><a href="#listing-20-17">Listing 20-17</a>: Two traits are defined to have a <code>fly</code> method and are implemented on the <code>Human</code> type, and a <code>fly</code> method is implemented on <code>Human</code> directly.</figcaption>
 </figure>
-<p data-x-en="When we call fly on an instance of Human, the compiler defaults to calling the method that is directly implemented on the type, as shown in Listing 20-18.">当我们对 <code>Human</code> 的实例调用 <code>fly</code> 时，编译器默认调用直接在类型上实现的方法，如列表 20-18 所示。</p>
+<p>When we call <code>fly</code> on an instance of <code>Human</code>, the compiler defaults to calling
+the method that is directly implemented on the type, as shown in Listing 20-18.</p>
 <figure class="listing" id="listing-20-18">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">trait Pilot {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">trait Pilot {
 </span><span class="boring">    fn fly(&amp;self);
 </span><span class="boring">}
 </span><span class="boring">
@@ -452,16 +532,17 @@ impl Human {
 </span>fn main() {
     let person = Human;
     person.fly();
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-20-18">Listing 20-18</a>: Calling <code>fly</code> on an instance of <code>Human</code></figcaption>
 </figure>
-<p data-x-en="Running this code will print *waving arms furiously*, showing that Rust called the fly method implemented on Human directly.">运行此代码将打印 <code>*waving arms furiously*</code>，显示 Rust 直接调用了在 <code>Human</code> 上实现的 <code>fly</code> 方法。</p>
-<p data-x-en="To call the fly methods from either the Pilot trait or the Wizard trait, we need to use more explicit syntax to specify which fly method we mean. Listing 20-19 demonstrates this syntax.">要调用来自 <code>Pilot</code> 特性或 <code>Wizard</code> 特性的 <code>fly</code> 方法，
-我们需要使用更明确的语法来指定我们指的是哪个 <code>fly</code> 方法。
-列表 20-19 演示了这种语法。</p>
+<p>Running this code will print <code>*waving arms furiously*</code>, showing that Rust
+called the <code>fly</code> method implemented on <code>Human</code> directly.</p>
+<p>To call the <code>fly</code> methods from either the <code>Pilot</code> trait or the <code>Wizard</code> trait,
+we need to use more explicit syntax to specify which <code>fly</code> method we mean.
+Listing 20-19 demonstrates this syntax.</p>
 <figure class="listing" id="listing-20-19">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">trait Pilot {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">trait Pilot {
 </span><span class="boring">    fn fly(&amp;self);
 </span><span class="boring">}
 </span><span class="boring">
@@ -494,11 +575,15 @@ impl Human {
     Pilot::fly(&amp;person);
     Wizard::fly(&amp;person);
     person.fly();
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-20-19">Listing 20-19</a>: Specifying which trait’s <code>fly</code> method we want to call</figcaption>
 </figure>
-<p data-x-en="Specifying the trait name before the method name clarifies to Rust which implementation of fly we want to call. We could also write Human::fly(&amp;person), which is equivalent to the person.fly() that we used in Listing 20-19, but this is a bit longer to write if we don’t need to disambiguate.">在方法名前指定特征名称可以向 Rust 澄清我们想要调用哪个 <code>fly</code> 的实现。我们也可以写 <code>Human::fly(&amp;person)</code>，这与我们在清单 20-19 中使用的 <code>person.fly()</code> 相当，但如果不需要区分的话，这样写会稍微长一些。</p>
-<p data-x-en="Running this code prints the following:">运行此代码将打印以下内容：</p>
+<p>Specifying the trait name before the method name clarifies to Rust which
+implementation of <code>fly</code> we want to call. We could also write
+<code>Human::fly(&amp;person)</code>, which is equivalent to the <code>person.fly()</code> that we used
+in Listing 20-19, but this is a bit longer to write if we don’t need to
+disambiguate.</p>
+<p>Running this code prints the following:</p>
 <pre><code class="language-console">$ cargo run
    Compiling traits-example v0.1.0 (file:///projects/traits-example)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.46s
@@ -507,11 +592,20 @@ This is your captain speaking.
 Up!
 *waving arms furiously*
 </code></pre>
-<p data-x-en="Because the fly method takes a self parameter, if we had two types that both implement one trait, Rust could figure out which implementation of a trait to use based on the type of self.">因为 <code>fly</code> 方法接受一个 <code>self</code> 参数，如果我们有两个 <em>类型</em> 都实现了同一个 <em>特征</em>，Rust 可以根据 <code>self</code> 的类型来确定使用哪个特征的实现。</p>
-<p data-x-en="However, associated functions that are not methods don’t have a self parameter. When there are multiple types or traits that define non-method functions with the same function name, Rust doesn’t always know which type you mean unless you use fully qualified syntax. For example, in Listing 20-20, we create a trait for an animal shelter that wants to name all baby dogs Spot. We make an Animal trait with an associated non-method function baby_name. The Animal trait is implemented for the struct Dog, on which we also provide an associated non-method function baby_name directly.">然而，非方法的关联函数没有 <code>self</code> 参数。当有多个类型或特征定义了具有相同函数名的非方法函数时，除非使用完全限定的语法，否则 Rust 并不总是知道你指的是哪个类型。例如，在清单 20-20 中，我们为一个动物收容所创建了一个特征，该收容所希望将所有小狗命名为 Spot。我们创建了一个 <code>Animal</code> 特征，其中包含一个关联的非方法函数 <code>baby_name</code>。该 <code>Animal</code> 特征被实现为结构体 <code>Dog</code>，我们还在其上直接提供了一个关联的非方法函数 <code>baby_name</code>。</p>
+<p>Because the <code>fly</code> method takes a <code>self</code> parameter, if we had two <em>types</em> that
+both implement one <em>trait</em>, Rust could figure out which implementation of a
+trait to use based on the type of <code>self</code>.</p>
+<p>However, associated functions that are not methods don’t have a <code>self</code>
+parameter. When there are multiple types or traits that define non-method
+functions with the same function name, Rust doesn’t always know which type you
+mean unless you use fully qualified syntax. For example, in Listing 20-20, we
+create a trait for an animal shelter that wants to name all baby dogs Spot. We
+make an <code>Animal</code> trait with an associated non-method function <code>baby_name</code>. The
+<code>Animal</code> trait is implemented for the struct <code>Dog</code>, on which we also provide an
+associated non-method function <code>baby_name</code> directly.</p>
 <figure class="listing" id="listing-20-20">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">trait Animal {
+<pre class="playground"><code class="language-rust edition2024">trait Animal {
     fn baby_name() -&gt; String;
 }
 
@@ -531,18 +625,27 @@ impl Animal for Dog {
 
 fn main() {
     println!("A baby dog is called a {}", Dog::baby_name());
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-20-20">Listing 20-20</a>: A trait with an associated function and a type with an associated function of the same name that also implements the trait</figcaption>
 </figure>
-<p data-x-en="We implement the code for naming all puppies Spot in the baby_name associated function that is defined on Dog. The Dog type also implements the trait Animal, which describes characteristics that all animals have. Baby dogs are called puppies, and that is expressed in the implementation of the Animal trait on Dog in the baby_name function associated with the Animal trait.">我们在 <code>Dog</code> 上定义的 <code>baby_name</code> 关联函数中实现了将所有小狗命名为 Spot 的代码。<code>Dog</code> 类型还实现了描述所有动物特征的 <code>Animal</code> 特性。小狗被称为幼犬，这一点在 <code>Dog</code> 上实现的 <code>Animal</code> 特性的 <code>baby_name</code> 函数中表达。</p>
-<p data-x-en="In main, we call the Dog::baby_name function, which calls the associated function defined on Dog directly. This code prints the following:">在 <code>main</code> 中，我们调用 <code>Dog::baby_name</code> 函数，该函数直接调用在 <code>Dog</code> 上定义的关联函数。此代码打印以下内容：</p>
+<p>We implement the code for naming all puppies Spot in the <code>baby_name</code> associated
+function that is defined on <code>Dog</code>. The <code>Dog</code> type also implements the trait
+<code>Animal</code>, which describes characteristics that all animals have. Baby dogs are
+called puppies, and that is expressed in the implementation of the <code>Animal</code>
+trait on <code>Dog</code> in the <code>baby_name</code> function associated with the <code>Animal</code> trait.</p>
+<p>In <code>main</code>, we call the <code>Dog::baby_name</code> function, which calls the associated
+function defined on <code>Dog</code> directly. This code prints the following:</p>
 <pre><code class="language-console">$ cargo run
    Compiling traits-example v0.1.0 (file:///projects/traits-example)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.54s
      Running `target/debug/traits-example`
 A baby dog is called a Spot
 </code></pre>
-<p data-x-en="This output isn’t what we wanted. We want to call the baby_name function that is part of the Animal trait that we implemented on Dog so that the code prints A baby dog is called a puppy. The technique of specifying the trait name that we used in Listing 20-19 doesn’t help here; if we change main to the code in Listing 20-21, we’ll get a compilation error.">这个输出不是我们想要的。我们想要调用作为我们在<code>Dog</code>上实现的<code>Animal</code>特质一部分的<code>baby_name</code>函数，使代码打印<code>A baby dog is called a puppy</code>。我们在列表20-19中使用的指定特质名称的技术在这里不起作用；如果我们把<code>main</code>改为列表20-21中的代码，我们将得到一个编译错误。</p>
+<p>This output isn’t what we wanted. We want to call the <code>baby_name</code> function that
+is part of the <code>Animal</code> trait that we implemented on <code>Dog</code> so that the code
+prints <code>A baby dog is called a puppy</code>. The technique of specifying the trait
+name that we used in Listing 20-19 doesn’t help here; if we change <code>main</code> to
+the code in Listing 20-21, we’ll get a compilation error.</p>
 <figure class="listing" id="listing-20-21">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">trait Animal {
@@ -568,7 +671,9 @@ A baby dog is called a Spot
 }</code></pre>
 <figcaption><a href="#listing-20-21">Listing 20-21</a>: Attempting to call the <code>baby_name</code> function from the <code>Animal</code> trait, but Rust doesn’t know which implementation to use</figcaption>
 </figure>
-<p data-x-en="Because Animal::baby_name doesn’t have a self parameter, and there could be other types that implement the Animal trait, Rust can’t figure out which implementation of Animal::baby_name we want. We’ll get this compiler error:">因为 <code>Animal::baby_name</code> 没有 <code>self</code> 参数，并且可能有其他类型实现了 <code>Animal</code> 特性，Rust 无法确定我们想要哪个 <code>Animal::baby_name</code> 的实现。我们将得到以下编译器错误：</p>
+<p>Because <code>Animal::baby_name</code> doesn’t have a <code>self</code> parameter, and there could be
+other types that implement the <code>Animal</code> trait, Rust can’t figure out which
+implementation of <code>Animal::baby_name</code> we want. We’ll get this compiler error:</p>
 <pre><code class="language-console">$ cargo run
    Compiling traits-example v0.1.0 (file:///projects/traits-example)
 error[E0790]: cannot call associated function on trait without specifying the corresponding `impl` type
@@ -588,10 +693,13 @@ help: use the fully-qualified path to the only available implementation
 For more information about this error, try `rustc --explain E0790`.
 error: could not compile `traits-example` (bin "traits-example") due to 1 previous error
 </code></pre>
-<p data-x-en="To disambiguate and tell Rust that we want to use the implementation of Animal for Dog as opposed to the implementation of Animal for some other type, we need to use fully qualified syntax. Listing 20-22 demonstrates how to use fully qualified syntax.">为了消除歧义并告诉 Rust 我们想要使用 <code>Dog</code> 的 <code>Animal</code> 实现，而不是其他类型的 <code>Animal</code> 实现，我们需要使用完全限定语法。列表 20-22 展示了如何使用完全限定语法。</p>
+<p>To disambiguate and tell Rust that we want to use the implementation of
+<code>Animal</code> for <code>Dog</code> as opposed to the implementation of <code>Animal</code> for some other
+type, we need to use fully qualified syntax. Listing 20-22 demonstrates how to
+use fully qualified syntax.</p>
 <figure class="listing" id="listing-20-22">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">trait Animal {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">trait Animal {
 </span><span class="boring">    fn baby_name() -&gt; String;
 </span><span class="boring">}
 </span><span class="boring">
@@ -611,35 +719,58 @@ error: could not compile `traits-example` (bin "traits-example") due to 1 previo
 </span><span class="boring">
 </span>fn main() {
     println!("A baby dog is called a {}", &lt;Dog as Animal&gt;::baby_name());
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-20-22">Listing 20-22</a>: Using fully qualified syntax to specify that we want to call the <code>baby_name</code> function from the <code>Animal</code> trait as implemented on <code>Dog</code></figcaption>
 </figure>
-<p data-x-en="We’re providing Rust with a type annotation within the angle brackets, which indicates we want to call the baby_name method from the Animal trait as implemented on Dog by saying that we want to treat the Dog type as an Animal for this function call. This code will now print what we want:">我们正在为 Rust 提供一个类型注解，位于尖括号内，这表示我们希望调用 <code>Animal</code> 特性在 <code>Dog</code> 上实现的 <code>baby_name</code> 方法，即我们希望在这个函数调用中将 <code>Dog</code> 类型视为 <code>Animal</code>。这段代码现在将打印我们想要的内容：</p>
+<p>We’re providing Rust with a type annotation within the angle brackets, which
+indicates we want to call the <code>baby_name</code> method from the <code>Animal</code> trait as
+implemented on <code>Dog</code> by saying that we want to treat the <code>Dog</code> type as an
+<code>Animal</code> for this function call. This code will now print what we want:</p>
 <pre><code class="language-console">$ cargo run
    Compiling traits-example v0.1.0 (file:///projects/traits-example)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.48s
      Running `target/debug/traits-example`
 A baby dog is called a puppy
 </code></pre>
-<p data-x-en="In general, fully qualified syntax is defined as follows:">通常，完全限定的语法定义如下：</p>
+<p>In general, fully qualified syntax is defined as follows:</p>
 <pre><code class="language-rust ignore">&lt;Type as Trait&gt;::function(receiver_if_method, next_arg, ...);</code></pre>
-<p data-x-en="For associated functions that aren’t methods, there would not be a receiver: There would only be the list of other arguments. You could use fully qualified syntax everywhere that you call functions or methods. However, you’re allowed to omit any part of this syntax that Rust can figure out from other information in the program. You only need to use this more verbose syntax in cases where there are multiple implementations that use the same name and Rust needs help to identify which implementation you want to call.">对于不是方法的关联函数，将不会有 <code>receiver</code>：
-只有其他参数的列表。在调用函数或方法时，您可以使用完全限定的语法。然而，只要 Rust 能够从程序中的其他信息中推断出来，您就可以省略此语法的任何部分。只有在有多个实现使用相同名称且 Rust 需要帮助确定您想要调用哪个实现的情况下，才需要使用这种更冗长的语法。</p>
+<p>For associated functions that aren’t methods, there would not be a <code>receiver</code>:
+There would only be the list of other arguments. You could use fully qualified
+syntax everywhere that you call functions or methods. However, you’re allowed
+to omit any part of this syntax that Rust can figure out from other information
+in the program. You only need to use this more verbose syntax in cases where
+there are multiple implementations that use the same name and Rust needs help
+to identify which implementation you want to call.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="using-supertraits-to-require-one-traits-functionality-within-another-trait"></a></p>
-<h3 id="using-supertraits"><a class="header" href="#using-supertraits">使用超特质</a></h3>
-<p data-x-en="Sometimes you might write a trait definition that depends on another trait: For a type to implement the first trait, you want to require that type to also implement the second trait. You would do this so that your trait definition can make use of the associated items of the second trait. The trait your trait definition is relying on is called a supertrait of your trait.">有时你可能会编写一个依赖于另一个特征的特征定义：为了让某个类型实现第一个特征，你希望要求该类型也实现第二个特征。你这样做是为了让你的特征定义能够利用第二个特征的关联项。你的特征定义所依赖的特征被称为该特征的<em>超特征</em>。</p>
-<p data-x-en="For example, let’s say we want to make an OutlinePrint trait with an outline_print method that will print a given value formatted so that it’s framed in asterisks. That is, given a Point struct that implements the standard library trait Display to result in (x, y), when we call outline_print on a Point instance that has 1 for x and 3 for y, it should print the following:">例如，假设我们想要创建一个 <code>OutlinePrint</code> 特性，其中包含一个 <code>outline_print</code> 方法，该方法将以星号框住的形式打印给定的值。也就是说，给定一个实现了标准库特性 <code>Display</code> 的 <code>Point</code> 结构体，其输出为 <code>(x, y)</code>，当我们对一个 <code>x</code> 为 <code>1</code> 且 <code>y</code> 为 <code>3</code> 的 <code>Point</code> 实例调用 <code>outline_print</code> 时，它应该打印以下内容：</p>
+<h3 id="using-supertraits"><a class="header" href="#using-supertraits">Using Supertraits</a></h3>
+<p>Sometimes you might write a trait definition that depends on another trait: For
+a type to implement the first trait, you want to require that type to also
+implement the second trait. You would do this so that your trait definition can
+make use of the associated items of the second trait. The trait your trait
+definition is relying on is called a <em>supertrait</em> of your trait.</p>
+<p>For example, let’s say we want to make an <code>OutlinePrint</code> trait with an
+<code>outline_print</code> method that will print a given value formatted so that it’s
+framed in asterisks. That is, given a <code>Point</code> struct that implements the
+standard library trait <code>Display</code> to result in <code>(x, y)</code>, when we call
+<code>outline_print</code> on a <code>Point</code> instance that has <code>1</code> for <code>x</code> and <code>3</code> for <code>y</code>, it
+should print the following:</p>
 <pre><code class="language-text">**********
 *        *
 * (1, 3) *
 *        *
 **********
 </code></pre>
-<p data-x-en="In the implementation of the outline_print method, we want to use the Display trait’s functionality. Therefore, we need to specify that the OutlinePrint trait will work only for types that also implement Display and provide the functionality that OutlinePrint needs. We can do that in the trait definition by specifying OutlinePrint: Display. This technique is similar to adding a trait bound to the trait. Listing 20-23 shows an implementation of the OutlinePrint trait.">在实现 <code>outline_print</code> 方法时，我们希望使用 <code>Display</code> 特性的功能。因此，我们需要指定 <code>OutlinePrint</code> 特性仅适用于也实现了 <code>Display</code> 的类型，并提供 <code>OutlinePrint</code> 需要的功能。我们可以在特性定义中通过指定 <code>OutlinePrint: Display</code> 来实现这一点。这种技术类似于为特性添加特性边界。列表 20-23 显示了 <code>OutlinePrint</code> 特性的一个实现。</p>
+<p>In the implementation of the <code>outline_print</code> method, we want to use the
+<code>Display</code> trait’s functionality. Therefore, we need to specify that the
+<code>OutlinePrint</code> trait will work only for types that also implement <code>Display</code> and
+provide the functionality that <code>OutlinePrint</code> needs. We can do that in the
+trait definition by specifying <code>OutlinePrint: Display</code>. This technique is
+similar to adding a trait bound to the trait. Listing 20-23 shows an
+implementation of the <code>OutlinePrint</code> trait.</p>
 <figure class="listing" id="listing-20-23">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">use std::fmt;
+<pre class="playground"><code class="language-rust edition2024">use std::fmt;
 
 trait OutlinePrint: fmt::Display {
     fn outline_print(&amp;self) {
@@ -653,11 +784,17 @@ trait OutlinePrint: fmt::Display {
     }
 }
 <span class="boring">
-</span><span class="boring">fn main() {}</span></code></pre></pre>
+</span><span class="boring">fn main() {}</span></code></pre>
 <figcaption><a href="#listing-20-23">Listing 20-23</a>: Implementing the <code>OutlinePrint</code> trait that requires the functionality from <code>Display</code></figcaption>
 </figure>
-<p data-x-en="Because we’ve specified that OutlinePrint requires the Display trait, we can use the to_string function that is automatically implemented for any type that implements Display. If we tried to use to_string without adding a colon and specifying the Display trait after the trait name, we’d get an error saying that no method named to_string was found for the type &amp;Self in the current scope.">因为指定了 <code>OutlinePrint</code> 需要 <code>Display</code> 特性，我们可以使用为任何实现了 <code>Display</code> 的类型自动实现的 <code>to_string</code> 函数。如果我们尝试在特性名称后不加冒号和指定 <code>Display</code> 特性就使用 <code>to_string</code>，我们会得到一个错误，提示当前作用域中没有找到名为 <code>to_string</code> 的方法适用于类型 <code>&amp;Self</code>。</p>
-<p data-x-en="Let’s see what happens when we try to implement OutlinePrint on a type that doesn’t implement Display, such as the Point struct:">让我们看看当尝试在没有实现 <code>Display</code> 的类型上实现 <code>OutlinePrint</code> 时会发生什么，例如 <code>Point</code> 结构体：</p>
+<p>Because we’ve specified that <code>OutlinePrint</code> requires the <code>Display</code> trait, we
+can use the <code>to_string</code> function that is automatically implemented for any type
+that implements <code>Display</code>. If we tried to use <code>to_string</code> without adding a
+colon and specifying the <code>Display</code> trait after the trait name, we’d get an
+error saying that no method named <code>to_string</code> was found for the type <code>&amp;Self</code> in
+the current scope.</p>
+<p>Let’s see what happens when we try to implement <code>OutlinePrint</code> on a type that
+doesn’t implement <code>Display</code>, such as the <code>Point</code> struct:</p>
 <figure class="listing">
 <span class="file-name">Filename: src/main.rs</span>
 <pre><code class="language-rust ignore does_not_compile"><span class="boring">use std::fmt;
@@ -686,7 +823,7 @@ impl OutlinePrint for Point {}
 </span><span class="boring">    p.outline_print();
 </span><span class="boring">}</span></code></pre>
 </figure>
-<p data-x-en="We get an error saying that Display is required but not implemented:">我们得到一个错误，说 <code>Display</code> 是必需的但未实现：</p>
+<p>We get an error saying that <code>Display</code> is required but not implemented:</p>
 <pre><code class="language-console">$ cargo run
    Compiling traits-example v0.1.0 (file:///projects/traits-example)
 error[E0277]: `Point` doesn't implement `std::fmt::Display`
@@ -718,10 +855,11 @@ note: required by a bound in `OutlinePrint::outline_print`
 For more information about this error, try `rustc --explain E0277`.
 error: could not compile `traits-example` (bin "traits-example") due to 2 previous errors
 </code></pre>
-<p data-x-en="To fix this, we implement Display on Point and satisfy the constraint that OutlinePrint requires, like so:">为了修复这个问题，我们在 <code>Point</code> 上实现了 <code>Display</code>，并满足了 <code>OutlinePrint</code> 所需的约束，如下所示：</p>
+<p>To fix this, we implement <code>Display</code> on <code>Point</code> and satisfy the constraint that
+<code>OutlinePrint</code> requires, like so:</p>
 <figure class="listing">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024"><span class="boring">trait OutlinePrint: fmt::Display {
+<pre class="playground"><code class="language-rust edition2024"><span class="boring">trait OutlinePrint: fmt::Display {
 </span><span class="boring">    fn outline_print(&amp;self) {
 </span><span class="boring">        let output = self.to_string();
 </span><span class="boring">        let len = output.len();
@@ -751,19 +889,35 @@ impl fmt::Display for Point {
 </span><span class="boring">fn main() {
 </span><span class="boring">    let p = Point { x: 1, y: 3 };
 </span><span class="boring">    p.outline_print();
-</span><span class="boring">}</span></code></pre></pre>
+</span><span class="boring">}</span></code></pre>
 </figure>
-<p data-x-en="Then, implementing the OutlinePrint trait on Point will compile successfully, and we can call outline_print on a Point instance to display it within an outline of asterisks.">然后，在 <code>Point</code> 上实现 <code>OutlinePrint</code> 特性将成功编译，我们可以调用 <code>outline_print</code> 在 <code>Point</code> 实例上显示它，并用星号轮廓包围。</p>
+<p>Then, implementing the <code>OutlinePrint</code> trait on <code>Point</code> will compile
+successfully, and we can call <code>outline_print</code> on a <code>Point</code> instance to display
+it within an outline of asterisks.</p>
 <!-- Old headings. Do not remove or links may break. -->
 <p><a id="using-the-newtype-pattern-to-implement-external-traits-on-external-types"></a>
 <a id="using-the-newtype-pattern-to-implement-external-traits"></a></p>
-<h3 id="implementing-external-traits-with-the-newtype-pattern"><a class="header" href="#implementing-external-traits-with-the-newtype-pattern">使用 Newtype 模式实现外部特征</a></h3>
-<p data-x-en="In the “Implementing a Trait on a Type” section in Chapter 10, we mentioned the orphan rule that states we’re only allowed to implement a trait on a type if either the trait or the type, or both, are local to our crate. It’s possible to get around this restriction using the newtype pattern, which involves creating a new type in a tuple struct. (We covered tuple structs in the “Creating Different Types with Tuple Structs” section in Chapter 5.) The tuple struct will have one field and be a thin wrapper around the type for which we want to implement a trait. Then, the wrapper type is local to our crate, and we can implement the trait on the wrapper. Newtype is a term that originates from the Haskell programming language. There is no runtime performance penalty for using this pattern, and the wrapper type is elided at compile time.">在第 10 章的 <a href="ch10-02-traits.html#implementing-a-trait-on-a-type">“在类型上实现特征”</a><!--
-ignore --> 部分，我们提到了孤儿规则，该规则指出只有当特征或类型（或两者）属于我们的 crate 时，我们才被允许在类型上实现特征。可以使用新类型模式绕过此限制，该模式涉及在元组结构体中创建一个新类型。（我们在第 5 章的 <a href="ch05-01-defining-structs.html#creating-different-types-with-tuple-structs">“使用元组结构体创建不同类型”</a><!-- ignore --> 部分中介绍了元组结构体。）元组结构体将有一个字段，并且是围绕我们想要实现特征的类型的薄包装器。然后，包装器类型属于我们的 crate，我们可以在包装器上实现特征。<em>新类型</em> 是源自 Haskell 编程语言的术语。使用此模式不会产生运行时性能损失，并且编译时会省略包装器类型。</p>
-<p data-x-en="As an example, let’s say we want to implement Display on Vec<T>, which the orphan rule prevents us from doing directly because the Display trait and the Vec<T> type are defined outside our crate. We can make a Wrapper struct that holds an instance of Vec<T>; then, we can implement Display on Wrapper and use the Vec<T> value, as shown in Listing 20-24.">作为一个例子，让我们说我们想要在 <code>Vec&lt;T&gt;</code> 上实现 <code>Display</code>，但由于孤儿规则，我们不能直接这样做，因为 <code>Display</code> 特性和 <code>Vec&lt;T&gt;</code> 类型都是在我们的 crate 之外定义的。我们可以创建一个包含 <code>Vec&lt;T&gt;</code> 实例的 <code>Wrapper</code> 结构体；然后，我们可以在 <code>Wrapper</code> 上实现 <code>Display</code> 并使用 <code>Vec&lt;T&gt;</code> 值，如清单 20-24 所示。</p>
+<h3 id="implementing-external-traits-with-the-newtype-pattern"><a class="header" href="#implementing-external-traits-with-the-newtype-pattern">Implementing External Traits with the Newtype Pattern</a></h3>
+<p>In the <a href="ch10-02-traits.html#implementing-a-trait-on-a-type">“Implementing a Trait on a Type”</a><!--
+ignore --> section in Chapter 10, we mentioned the orphan rule that states
+we’re only allowed to implement a trait on a type if either the trait or the
+type, or both, are local to our crate. It’s possible to get around this
+restriction using the newtype pattern, which involves creating a new type in a
+tuple struct. (We covered tuple structs in the <a href="ch05-01-defining-structs.html#creating-different-types-with-tuple-structs">“Creating Different Types with
+Tuple Structs”</a><!-- ignore --> section in Chapter 5.) The tuple
+struct will have one field and be a thin wrapper around the type for which we
+want to implement a trait. Then, the wrapper type is local to our crate, and we
+can implement the trait on the wrapper. <em>Newtype</em> is a term that originates
+from the Haskell programming language. There is no runtime performance penalty
+for using this pattern, and the wrapper type is elided at compile time.</p>
+<p>As an example, let’s say we want to implement <code>Display</code> on <code>Vec&lt;T&gt;</code>, which the
+orphan rule prevents us from doing directly because the <code>Display</code> trait and the
+<code>Vec&lt;T&gt;</code> type are defined outside our crate. We can make a <code>Wrapper</code> struct
+that holds an instance of <code>Vec&lt;T&gt;</code>; then, we can implement <code>Display</code> on
+<code>Wrapper</code> and use the <code>Vec&lt;T&gt;</code> value, as shown in Listing 20-24.</p>
 <figure class="listing" id="listing-20-24">
 <span class="file-name">Filename: src/main.rs</span>
-<pre><pre class="playground"><code class="language-rust edition2024">use std::fmt;
+<pre class="playground"><code class="language-rust edition2024">use std::fmt;
 
 struct Wrapper(Vec&lt;String&gt;);
 
@@ -776,24 +930,36 @@ impl fmt::Display for Wrapper {
 fn main() {
     let w = Wrapper(vec![String::from("hello"), String::from("world")]);
     println!("w = {w}");
-}</code></pre></pre>
+}</code></pre>
 <figcaption><a href="#listing-20-24">Listing 20-24</a>: Creating a <code>Wrapper</code> type around <code>Vec&lt;String&gt;</code> to implement <code>Display</code></figcaption>
 </figure>
-<p data-x-en="The implementation of Display uses self.0 to access the inner Vec<T> because Wrapper is a tuple struct and Vec<T> is the item at index 0 in the tuple. Then, we can use the functionality of the Display trait on Wrapper."><code>Display</code> 的实现使用 <code>self.0</code> 来访问内部的 <code>Vec&lt;T&gt;</code>，因为 <code>Wrapper</code> 是一个元组结构体，而 <code>Vec&lt;T&gt;</code> 是元组中索引为 0 的项。然后，我们可以在 <code>Wrapper</code> 上使用 <code>Display</code> 特性的功能。</p>
-<p data-x-en="The downside of using this technique is that Wrapper is a new type, so it doesn’t have the methods of the value it’s holding. We would have to implement all the methods of Vec<T> directly on Wrapper such that the methods delegate to self.0, which would allow us to treat Wrapper exactly like a Vec<T>. If we wanted the new type to have every method the inner type has, implementing the Deref trait on the Wrapper to return the inner type would be a solution (we discussed implementing the Deref trait in the “Treating Smart Pointers Like Regular References” section in Chapter 15). If we didn’t want the Wrapper type to have all the methods of the inner type—for example, to restrict the Wrapper type’s behavior—we would have to implement just the methods we do want manually.">使用这种技术的缺点是 <code>Wrapper</code> 是一个新类型，因此它没有它所持有的值的方法。我们必须直接在 <code>Wrapper</code> 上实现 <code>Vec&lt;T&gt;</code> 的所有方法，使得这些方法委托给 <code>self.0</code>，这将使我们能够像处理 <code>Vec&lt;T&gt;</code> 一样处理 <code>Wrapper</code>。如果我们希望新类型具有内部类型的所有方法，可以在 <code>Wrapper</code> 上实现 <code>Deref</code> 特性以返回内部类型（我们在第 15 章的 <a href="ch15-02-deref.html#treating-smart-pointers-like-regular-references">“将智能指针视为常规引用”</a><!-- ignore --> 部分讨论了实现 <code>Deref</code> 特性）。如果我们不希望 <code>Wrapper</code> 类型具有内部类型的所有方法——例如，为了限制 <code>Wrapper</code> 类型的行为——我们必须手动实现我们想要的方法。</p>
-<p data-x-en="This newtype pattern is also useful even when traits are not involved. Let’s switch focus and look at some advanced ways to interact with Rust’s type system.">这种新类型模式即使在不涉及特征的情况下也非常有用。让我们
-将注意力转移到一些与 Rust 类型系统交互的高级方法上。</p>
+<p>The implementation of <code>Display</code> uses <code>self.0</code> to access the inner <code>Vec&lt;T&gt;</code>
+because <code>Wrapper</code> is a tuple struct and <code>Vec&lt;T&gt;</code> is the item at index 0 in the
+tuple. Then, we can use the functionality of the <code>Display</code> trait on <code>Wrapper</code>.</p>
+<p>The downside of using this technique is that <code>Wrapper</code> is a new type, so it
+doesn’t have the methods of the value it’s holding. We would have to implement
+all the methods of <code>Vec&lt;T&gt;</code> directly on <code>Wrapper</code> such that the methods
+delegate to <code>self.0</code>, which would allow us to treat <code>Wrapper</code> exactly like a
+<code>Vec&lt;T&gt;</code>. If we wanted the new type to have every method the inner type has,
+implementing the <code>Deref</code> trait on the <code>Wrapper</code> to return the inner type would
+be a solution (we discussed implementing the <code>Deref</code> trait in the <a href="ch15-02-deref.html#treating-smart-pointers-like-regular-references">“Treating
+Smart Pointers Like Regular References”</a><!-- ignore -->
+section in Chapter 15). If we didn’t want the <code>Wrapper</code> type to have all the
+methods of the inner type—for example, to restrict the <code>Wrapper</code> type’s
+behavior—we would have to implement just the methods we do want manually.</p>
+<p>This newtype pattern is also useful even when traits are not involved. Let’s
+switch focus and look at some advanced ways to interact with Rust’s type system.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                             <a rel="prev" href="ch20-01-unsafe-rust.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                             </a>
 
                             <a rel="next prefetch" href="ch20-03-advanced-types.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                                <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                             </a>
 
                         <div style="clear: both"></div>
@@ -803,16 +969,21 @@ fn main() {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                     <a rel="prev" href="ch20-01-unsafe-rust.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></span>
                     </a>
 
                     <a rel="next prefetch" href="ch20-03-advanced-types.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                        <span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg></span>
                     </a>
             </nav>
 
         </div>
 
+        <template id="fa-eye"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"></path></svg></span></template>
+        <template id="fa-eye-slash"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"></path></svg></span></template>
+        <template id="fa-copy"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"></path></svg></span></template>
+        <template id="fa-play"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"></path></svg></span></template>
+        <template id="fa-clock-rotate-left"><span class="fa-svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"></path></svg></span></template>
 
 
 
@@ -821,16 +992,16 @@ fn main() {
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
-        <script src="ferris.js"></script>
+        <script src="ferris-2317480c.js"></script>
 
 
 
