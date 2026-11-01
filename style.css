@@ -47,14 +47,15 @@ header a.logo::after {
   top: -5px;
 }
 #banner-info {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  display: block;
   width: 100%;
+  box-sizing: border-box;
   font-size: 12px;
-  padding: 0;
-  z-index: 999;
+  line-height: 1.5;
+  padding: 6px 16px;
+  text-align: center;
+  z-index: 1;
 }
 #add-info {
   font-size: 14px;

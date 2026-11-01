@@ -6,7 +6,7 @@
 
         <!-- Custom HTML head -->
 
-        <meta name="description" content="">
+        <meta name="description" content="Ownership is a set of rules that govern how a Rust program manages memory. 《Rust 程序设计语言》中文译本。">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
@@ -41,7 +41,7 @@
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-b9c23a4c.js"></script>
-    <meta name="title" content="Rust 中文"><meta property="og:title" content="Rust 中文"><meta name="description" content="Rust 中文文档"><meta property="og:description" content="Rust 中文文档"><meta name="url" content="https://rust.xheldon.com"><meta property="og:url" content="https://rust.xheldon.com"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
+    <meta name="title" content="什么是所有权？ - 《Rust编程语言》"><meta property="og:title" content="什么是所有权？ - 《Rust编程语言》"><meta property="og:description" content="Ownership is a set of rules that govern how a Rust program manages memory. 《Rust 程序设计语言》中文译本。"><meta name="url" content="https://rust.xheldon.com/ch04-01-what-is-ownership.html"><meta property="og:url" content="https://rust.xheldon.com/ch04-01-what-is-ownership.html"><script src="https://www.googletagmanager.com/gtag/js?id=G-V7NE1X37EX"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-V7NE1X37EX')</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5486286026923411"></script><style>/* hover 显示原文 */
 p[data-x-en],
 li[data-x-en] {
   position: relative;
@@ -90,14 +90,15 @@ header a.logo::after {
   top: -5px;
 }
 #banner-info {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  display: block;
   width: 100%;
+  box-sizing: border-box;
   font-size: 12px;
-  padding: 0;
-  z-index: 999;
+  line-height: 1.5;
+  padding: 6px 16px;
+  text-align: center;
+  z-index: 1;
 }
 #add-info {
   font-size: 14px;
@@ -110,7 +111,7 @@ blockquote {
 .content {
   overflow-y: unset !important;
 }
-</style></head>
+</style><link rel="canonical" href="https://rust.xheldon.com/ch04-01-what-is-ownership.html"><meta property="og:locale" content="zh_CN"></head>
     <body>
     <div id="mdbook-help-container">
         <div id="mdbook-help-popup">
@@ -246,7 +247,7 @@ blockquote {
                     });
                 </script>
 
-                <div id="mdbook-content" class="content">
+                <div id="mdbook-content" class="content"><div id="banner-info">本站为《Rust 程序设计语言》中文译本（AI + 人工），对照上游 <a href="https://github.com/rust-lang/book/commit/05d114287b7d6f6c9253d5242540f00fbd6172ab">rust-lang/book@05d1142</a>，正文对应 Rust 1.90.0。 <a href="https://github.com/Xheldon/rust-book-cn/blob/main/dict/ch04-01-what-is-ownership.json">本页翻译有问题？</a></div>
                     <main>
                         <h2 id="what-is-ownership"><a class="header" href="#what-is-ownership">What Is Ownership?</a></h2>
 <p><em>Ownership</em> is a set of rules that govern how a Rust program manages memory.

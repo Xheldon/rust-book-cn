@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rust.xheldon.com/sitemap.xml

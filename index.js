@@ -8,6 +8,7 @@ const glob = require('glob');
 const { Semaphore } = require('async-mutex');
 
 const { translate } = require('./utils.js');
+const { plainTitleFromHtml, processBookDir } = require('./seo.js');
 // 使用信号量控制并发
 
 const MAX_CONCURRENT = 2;
@@ -38,13 +39,19 @@ const config = {
   // 'website/public/docs/index.html': [...defaultConfig('h2, h3')],
 };
 
-const propertyMap = {
-  title: 'Rust 中文',
-  description: 'Rust 中文文档',
-  url: 'https://rust.xheldon.com',
-};
-
 const semaphore = new Semaphore(MAX_CONCURRENT);
+
+function applyTranslatedHtml(item, translatedHtml, pureText, hoverAll) {
+  if (item.tagName === 'TITLE') {
+    // title 是纯文本。翻译里的 <span> 会被序列化成可见标签；Box<T> 这类类型参数要保留。
+    item.textContent = plainTitleFromHtml(translatedHtml);
+    return;
+  }
+  item.innerHTML = translatedHtml;
+  if (hoverAll || item.tagName === 'P' || item.tagName === 'LI') {
+    item.setAttribute('data-x-en', pureText);
+  }
+}
 // 使用 glob 模块来匹配文件
 const files = glob.sync(path.resolve(__dirname, 'book_src/book/**/*.html'), {
   ignore: ['**/print.html'], // 跳过 print 页面 ，因为它是全部页面的集合！
@@ -65,26 +72,6 @@ Promise.all(
       document.querySelector('html').setAttribute('lang', 'zh-CN');
       const head = document.querySelector('head');
       if (head) {
-        const metas = head.querySelectorAll('meta');
-        if (metas.length) {
-          for (const meta of metas) {
-            const property = meta.getAttribute('property');
-            if (property && propertyMap[property]) {
-              meta.setAttribute('content', propertyMap[property]);
-            }
-          }
-        }
-        for (const property of Object.keys(propertyMap)) {
-          const meta = document.createElement('meta');
-          meta.setAttribute('name', property);
-          meta.setAttribute('content', propertyMap[property]);
-          head.appendChild(meta);
-
-          const meta2 = document.createElement('meta');
-          meta2.setAttribute('property', `og:${property}`);
-          meta2.setAttribute('content', propertyMap[property]);
-          head.appendChild(meta2);
-        }
         // Note: 增加 google 统计/广告（要吃饭呀）
         // Note: 谷歌统计
         const script = document.createElement('script');
@@ -110,7 +97,9 @@ Promise.all(
       }
 
       // Note: 修改 nav 部分，增加译者地址
-      const nav = document.querySelector('#menu-bar .right-buttons');
+      const nav = document.querySelector(
+        '#mdbook-menu-bar .right-buttons, #menu-bar .right-buttons'
+      );
       if (nav) {
         const a = document.createElement('a');
         a.href = 'https://github.com/Xheldon/rust-book-cn';
@@ -129,16 +118,7 @@ Promise.all(
         nav.appendChild(a);
         nav.appendChild(a2);
       }
-      const banner = document.createElement('div');
-      banner.id = 'banner-info';
-      // Note: 整站通知
-      const p = key.replace('book_src/book', '').replace('.html', '');
-      banner.innerHTML = `本文档为 AI + 人工翻译，hover 可以显示原文。当前页翻译有问题？<a style="cursor: pointer;" href="https://github.com/Xheldon/rust-book-cn/blob/main/dict${p}.json" target="_blank">我来翻译！</a>`;
-      const bodyContainer = document.querySelector('#menu-bar');
-      if (bodyContainer) {
-        bodyContainer.insertBefore(banner, bodyContainer.firstChild);
-      }
-      // Note: 添加 hover 显示原文的样式信息
+      // Note: 译本身份、description、canonical、sitemap 由 seo.js 在写出后统一补上。
 
       // Note: 如果 config 中的路径文件不存在，则使用默认，否则使用 config 配置文件
       let list = [];
@@ -188,11 +168,7 @@ Promise.all(
             }
             if (dict[pureText]) {
               if (dict[pureText]._translate) {
-                item.innerHTML = dict[pureText]._translate;
-                // Note: hover 显示原文，不需要 html 标签
-                if (item.tagName === 'P' || item.tagName === 'LI') {
-                  item.setAttribute('data-x-en', pureText);
-                }
+                applyTranslatedHtml(item, dict[pureText]._translate, pureText);
               }
               // Note: 如果有注释，则插入到当前 p 后面
               if (dict[pureText]._note) {
@@ -220,11 +196,7 @@ Promise.all(
                       _note: '',
                     };
                     console.log('AI 翻译:', `${pureText} -> ${translate}`);
-                    // Note: 跟之前一样替换
-                    item.innerHTML = dict[pureText]._translate;
-                    if (item.tagName !== 'TITLE') {
-                      item.setAttribute('data-x-en', pureText);
-                    }
+                    applyTranslatedHtml(item, dict[pureText]._translate, pureText, true);
                   })
                   .finally(() => {
                     // Note: 随机增加延迟
@@ -265,5 +237,9 @@ Promise.all(
     });
   })
 ).finally(() => {
+  const bookDir = path.resolve(__dirname, 'book_src/book');
+  if (fs.existsSync(bookDir)) {
+    processBookDir(bookDir);
+  }
   console.log('文件全部翻译完成');
 });
