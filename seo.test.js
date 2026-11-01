@@ -9,6 +9,14 @@ function doc(html) {
 const generics = plainTitleFromHtml('使用 Box<T> 指向堆上的数据 - 《Rust 编程语言》');
 assert.strictEqual(generics, '使用 Box<T> 指向堆上的数据 - 《Rust 编程语言》');
 
+const typeParams = plainTitleFromHtml('Box<A>、Vec<B> 与 Vec<I>');
+assert.strictEqual(typeParams, 'Box<A>、Vec<B> 与 Vec<I>');
+assert.strictEqual(plainTitleFromHtml('<i>斜体</i>与<b>粗体</b>'), '斜体与粗体');
+assert.strictEqual(
+  plainTitleFromHtml('<a class="header" href="#x">标题</a>'),
+  '标题'
+);
+
 const leaked = plainTitleFromHtml(
   'The Rust Programming Language - <span class="rust">Rust编程语言</span>'
 );
@@ -69,6 +77,24 @@ const moved = applySeo(redirect, 'ch17-00-oop.html', { rustVersion: '1.90.0' });
 assert.strictEqual(moved.canonical, `${SITE}/ch18-00-oop.html`);
 assert.strictEqual(moved.indexable, false);
 assert.ok(moved.description.includes('ch18-00-oop.html'));
+const robots = redirect.querySelector('meta[name="robots"]');
+assert.ok(robots);
+assert.match(robots.getAttribute('content'), /noindex/);
+
+const stderr = doc(`<!DOCTYPE html><html><head>
+  <title>将错误重定向到标准错误 - 《Rust编程语言》</title>
+  <meta name="description" content="">
+</head><body><div id="mdbook-content"><main>
+  <p>到目前为止，我们将所有输出都通过 println! 写到了终端。错误信息应当写到标准错误，这样正常输出和错误可以分开。</p>
+</main></div></body></html>`);
+const stderrPage = applySeo(stderr, 'ch12-06-writing-to-stderr-instead-of-stdout.html', {
+  rustVersion: '1.90.0',
+});
+assert.strictEqual(stderrPage.indexable, true);
+assert.strictEqual(stderrPage.canonical, `${SITE}/ch12-06-writing-to-stderr-instead-of-stdout.html`);
+assert.ok(!stderrPage.description.includes('已迁移'));
+assert.ok(stderrPage.description.includes('标准错误'));
+assert.strictEqual(stderr.querySelector('meta[name="robots"]'), null);
 
 const english = doc(`<!DOCTYPE html><html><head>
   <title>Hello - The Rust Programming Language</title>

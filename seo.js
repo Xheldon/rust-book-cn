@@ -9,9 +9,10 @@ const SITE = 'https://rust.xheldon.com';
 const UPSTREAM_REPO = 'https://github.com/rust-lang/book';
 const TRANSLATION_REPO = 'https://github.com/Xheldon/rust-book-cn';
 
-// 只剥掉误写入标题的 HTML 标签。Rust 类型参数（Box<T>、<String>）不是这些标签，必须保留。
+// 只剥掉误写入标题的小写 HTML 标签。不要加 i：Box<A>、Vec<B>、Vec<I> 里的类型参数
+// 与 <a>/<b>/<i> 只有大小写之差，大小写不敏感会把它们删掉。Box<T>、<String> 同样保留。
 const LEAKED_HTML_TAG =
-  /<\/?(?:span|a|em|code|strong|i|b|br|p|div|small|sup|sub|mark|h[1-6])\b[^>]*>/gi;
+  /<\/?(?:span|a|em|code|strong|i|b|br|p|div|small|sup|sub|mark|h[1-6])\b[^>]*>/g;
 
 const SKIP_SITEMAP = new Set(['print.html', 'toc.html', '404.html']);
 
@@ -65,10 +66,8 @@ function pageFilename(file) {
 }
 
 function isRedirect(document) {
-  const refresh = document.querySelector('meta[http-equiv="refresh" i]');
-  if (refresh) return true;
-  const title = document.querySelector('title');
-  return title ? /重定向/.test(title.textContent) : false;
+  // 只认真实跳转标记。标题里的「重定向」（如「将错误重定向到标准错误」）不是跳转页。
+  return Boolean(document.querySelector('meta[http-equiv="refresh" i]'));
 }
 
 function resolveCanonical(document, filename) {
@@ -136,6 +135,18 @@ function buildDescription(document, title, canonical, filename, options = {}) {
   }
   if (!excerpt) return title ? `${title}。${identity}。` : `${identity}。`;
   return `${excerpt} ${identity}。`;
+}
+
+function ensureNoindex(head) {
+  const robots = head.querySelector('meta[name="robots"]');
+  if (!robots) {
+    upsertMeta(head, 'name', 'robots', 'noindex');
+    return;
+  }
+  const content = robots.getAttribute('content') || '';
+  if (!/noindex/i.test(content)) {
+    robots.setAttribute('content', content ? `${content}, noindex` : 'noindex');
+  }
 }
 
 function upsertMeta(head, attr, key, content) {
@@ -242,9 +253,10 @@ function applySeo(document, file, options = {}) {
 
   mountIdentity(document, filename, upstreamCommit, rustVersion);
 
+  const redirect = isRedirect(document);
+  if (redirect) ensureNoindex(head);
   const robots = document.querySelector('meta[name="robots"]');
   const noindex = robots && /noindex/i.test(robots.getAttribute('content') || '');
-  const redirect = isRedirect(document);
   const indexable = !noindex && !redirect && !SKIP_SITEMAP.has(filename);
 
   return { filename, canonical, description, title, indexable };

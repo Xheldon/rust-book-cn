@@ -61,6 +61,7 @@
   <url><loc>https://rust.xheldon.com/ch12-03-improving-error-handling-and-modularity.html</loc></url>
   <url><loc>https://rust.xheldon.com/ch12-04-testing-the-librarys-functionality.html</loc></url>
   <url><loc>https://rust.xheldon.com/ch12-05-working-with-environment-variables.html</loc></url>
+  <url><loc>https://rust.xheldon.com/ch12-06-writing-to-stderr-instead-of-stdout.html</loc></url>
   <url><loc>https://rust.xheldon.com/ch13-00-functional-features.html</loc></url>
   <url><loc>https://rust.xheldon.com/ch13-01-closures.html</loc></url>
   <url><loc>https://rust.xheldon.com/ch13-02-iterators.html</loc></url>
